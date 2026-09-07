@@ -6,9 +6,11 @@ A small experiment harness for the authors' original NetMamba+ implementation. I
 
 Read [the teaching lesson](docs/lesson.md) for a walkthrough, model concepts, worked examples and exercises.
 
+The [sharing audit](docs/audit.md) records the corrected defects, verification evidence and the limits of the council review.
+
 ## Why this repository uses flows
 
-The starting materials were the [NetMamba+ paper](https://arxiv.org/abs/2601.21792v1) and two Payload-Byte CSV exports named `Payload_data_CICIDS2017.csv` and `Payload_data_UNSW.csv`. The CSVs contain individual packet payload vectors and a few metadata fields. They omit the flow identifiers and ordering context needed to establish the packet sequences consumed by NetMamba+. Adjacent CSV rows cannot be assumed to belong to one connection.
+The starting materials were the [NetMamba+ paper](https://arxiv.org/abs/2601.21792v1) and two [Payload-Byte CSV exports](https://zenodo.org/records/7258579) named `Payload_data_CICIDS2017.csv` and `Payload_data_UNSW.csv`. The CSVs contain individual packet payload vectors and a few metadata fields. They omit the flow identifiers and ordering context needed to establish the packet sequences consumed by NetMamba+. Adjacent CSV rows cannot be assumed to belong to one connection.
 
 A classifier trained directly on those packet exports would be an adaptation. Reproducing NetMamba+ requires compatible flow inputs, the original transformations and a defensible experimental protocol. This repository starts with the authors' processed CICIoT2022 flows. **CICIoT2022 and CICIDS2017 are different datasets.** The CSVs are not converted, bundled or used as reproduction inputs.
 
@@ -114,6 +116,8 @@ python3 repro.py validate --data data/ciciot2022 --report runs/validation.json
 
 Full-split validation reads all three splits, checks labels, reports class counts and identifier coverage, and rejects shared recorded `pcap_file` identifiers across splits. Missing identifiers are reported as missing evidence; they do not establish independence.
 
+`--report` requires a new destination: it refuses to replace any existing file, including data, configuration, earlier reports and symbolic links. Choose a new report filename when repeating a recorded validation. Validation and invocation resolve settings in the same order: `common`, followed by the selected stage's overrides. Evaluation uses the fine-tuning stage settings. The report records the effective `size_key`, and both validation and duplicate fingerprints use that field.
+
 Raw-input fingerprints are SHA-256 of UTF-8 `json.dumps([data, sizes, intervals], ensure_ascii=False, separators=(",", ":"))`. For a custom `size_key`, that field replaces `sizes`. Labels and provenance identifiers are excluded. String formatting is retained: this measures exact stored-input equality, not equality after normalization or padding. `shared_raw_inputs` counts distinct fingerprints in both splits; `left_rows` and `right_rows` count all rows carrying those fingerprints. `duplicate_excess` is rows minus distinct fingerprints within a split. Reports never alter or deduplicate the data.
 
 ## Research environment
@@ -129,14 +133,45 @@ python -m pip install torch==2.2.0 torchvision==0.17.0 --index-url https://downl
 python -m pip install -r upstream/NetMambaPlus/requirements.txt
 ```
 
-Build the bundled Mamba package in a disposable copy, so generated importable build files do not contaminate the verified checkout:
+Build the bundled Mamba package in a disposable copy, so generated importable build files do not contaminate the verified checkout. Force the local build: the bundled [installer](https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/mamba-1p1p1/setup.py) otherwise attempts to obtain a stock state-spaces Mamba wheel. The native model calls fork-specific constructor arguments that are absent from [stock Mamba 1.1.1](https://github.com/state-spaces/mamba/blob/v1.1.1/mamba_ssm/modules/mamba_simple.py), so an equal package version does not establish compatible code.
 
 ```bash
 netmamba_build_dir=$(mktemp -d)
 cp -a upstream/NetMambaPlus/mamba-1p1p1 "$netmamba_build_dir/mamba-1p1p1"
-python -m pip install --no-build-isolation "$netmamba_build_dir/mamba-1p1p1"
+python -m pip install causal-conv1d==1.1.2.post1 --no-build-isolation
+MAMBA_FORCE_BUILD=TRUE python -m pip install --no-cache-dir --no-build-isolation --no-deps --force-reinstall "$netmamba_build_dir/mamba-1p1p1"
 python -m pip install flash-attn==2.7.4.post1 --no-build-isolation
 python repro.py fetch
+```
+
+The explicit dependency installation precedes `--no-deps` so reinstalling the local Mamba package does not replace the pinned Torch stack. After installation, check that its Python sources match the bundled copy without importing Torch or loading a checkpoint:
+
+```bash
+python - <<'PY'
+import hashlib
+import importlib.util
+from pathlib import Path
+
+source = Path("upstream/NetMambaPlus/mamba-1p1p1/mamba_ssm")
+spec = importlib.util.find_spec("mamba_ssm")
+if spec is None or not spec.submodule_search_locations:
+    raise SystemExit("mamba_ssm is not installed")
+installed = Path(next(iter(spec.submodule_search_locations)))
+files = sorted(source.rglob("*.py"))
+if not files:
+    raise SystemExit("Bundled Mamba sources are missing; run repro.py fetch")
+different = []
+for original in files:
+    relative = original.relative_to(source)
+    actual = installed / relative
+    if (not actual.is_file() or
+        hashlib.sha256(actual.read_bytes()).digest() !=
+        hashlib.sha256(original.read_bytes()).digest()):
+        different.append(str(relative))
+if different:
+    raise SystemExit("Installed Mamba differs from the bundled source: " + ", ".join(different))
+print(f"Verified {len(files)} bundled Mamba Python files. CUDA execution remains untested.")
+PY
 ```
 
 These are setup instructions derived from upstream, not a validated environment lockfile. Native extensions require an appropriate compiler/CUDA toolchain. The development host has aarch64 Python 3.12.3 and an NVIDIA GB10; installation and GPU compatibility of this older stack on that host remain unverified. CPU harness checks do not establish CPU equivalence for the CUDA evaluator. Keep package/build details and GPU/driver information with every eventual experiment; the manifest's package-version list is useful but not a complete environment lock.
@@ -201,7 +236,7 @@ A successful fine-tuning manifest binds `checkpoint-best.pth` to its SHA-256 and
 
 Execution stages create `manifest.json` atomically before substantive preflight when the output is writable. They distinguish `preflight_failed`, `dry_run`, `running`, `succeeded` and `failed`. Each completed record includes the stage, timestamps, configuration/provenance, hashes of both harness scripts, upstream source pin and core hashes, stage-specific input hashes, class mapping, applicable checkpoint hashes, full parsed native arguments, command, working directory, selected runtime versions and exit/error details. Only an allowlist of relevant environment values is recorded.
 
-Pretraining hashes its selected training file and metadata; fine-tuning hashes all three splits and metadata; separate evaluation hashes only test data and metadata, plus its checkpoint and available provenance information. Inputs and the checkpoint are checked again after execution. A fresh output directory is required when a manifest already exists, so reruns cannot overwrite a prior run record. A hard kill or power loss can leave a `running` record; that is not success. Source checks establish the inspected checkout, not a security sandbox or proof that installed dependencies are identical.
+Pretraining hashes its selected training file and metadata; fine-tuning hashes all three splits and metadata; separate evaluation hashes only test data and metadata, plus its checkpoint and available provenance information. Inputs and the checkpoint are checked again after execution. Every run requires a new or empty output directory. Pre-existing artifacts cause rejection before preflight, and atomic initial-manifest creation gives only one concurrent invocation ownership of a directory. Existing files remain untouched when ownership is refused. A hard kill or power loss can leave a `running` record; that is not success. Source checks establish the inspected checkout, not a security sandbox or proof that installed dependencies are identical.
 
 ## Source settings, paper settings and observations
 

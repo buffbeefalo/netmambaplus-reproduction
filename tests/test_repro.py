@@ -11,6 +11,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 from contextlib import redirect_stderr, redirect_stdout
+from concurrent.futures import ThreadPoolExecutor
+from threading import Barrier
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import repro
@@ -113,6 +115,75 @@ class DataTests(Workspace):
         del row["pcap_file"]
         self.write("data-train.json", [row])
         self.assertEqual(self.validate()["splits"]["train"]["identifier_rows"], 0)
+
+    def test_validation_uses_stage_size_key(self):
+        self.config["finetune"]["size_key"] = "signed_sizes"
+        for split in ("train", "valid", "test"):
+            row = record(split)
+            row["signed_sizes"] = "64 -64"
+            del row["sizes"]
+            self.write(f"data-{split}.json", [row])
+        self.assertEqual(self.validate()["splits"]["test"]["rows"], 1)
+        self.assertEqual(self.validate("evaluate")["splits"]["test"]["rows"], 1)
+        self.config["pretrain"]["size_key"] = "signed_sizes"
+        self.assertEqual(self.validate("pretrain")["splits"]["train"]["rows"], 1)
+
+    def test_missing_stage_selected_field_is_rejected(self):
+        self.config["finetune"]["size_key"] = "signed_sizes"
+        with self.assertRaises(repro.ReproError):
+            self.validate()
+
+    def test_duplicate_fingerprint_uses_stage_selected_sizes(self):
+        self.config["finetune"]["size_key"] = "signed_sizes"
+        for index, split in enumerate(("train", "valid", "test")):
+            row = record(split)
+            row["sizes"] = f"{index + 1} {index + 2}"
+            row["signed_sizes"] = "64 -64"
+            self.write(f"data-{split}.json", [row])
+        self.assertEqual(self.validate()["raw_input_overlaps"]["train_test"]["shared_raw_inputs"], 1)
+
+
+class ReportTests(Workspace):
+    def invoke(self, destination, config=None):
+        argv = ["validate", "--data", str(self.data), "--report", str(destination)]
+        if config:
+            argv.extend(["--config", str(config)])
+        with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+            return repro.main(argv)
+
+    def test_report_cannot_replace_input_data(self):
+        for name in ("metadata.json", "data-train.json", "data-valid.json", "data-test.json"):
+            target = self.data / name
+            before = target.read_bytes()
+            with self.subTest(name=name):
+                try:
+                    self.assertNotEqual(self.invoke(target), 0)
+                    self.assertEqual(target.read_bytes(), before)
+                finally:
+                    target.write_bytes(before)
+
+    def test_report_cannot_replace_configuration(self):
+        target = self.root / "config.json"
+        target.write_text(json.dumps(self.config), encoding="utf-8")
+        before = target.read_bytes()
+        self.assertNotEqual(self.invoke(target, config=target), 0)
+        self.assertEqual(target.read_bytes(), before)
+
+    def test_report_does_not_replace_a_symlink(self):
+        target = self.data / "data-test.json"
+        before = target.read_bytes()
+        alias = self.root / "alias.json"
+        alias.symlink_to(target)
+        self.assertNotEqual(self.invoke(alias), 0)
+        self.assertTrue(alias.is_symlink())
+        self.assertEqual(target.read_bytes(), before)
+
+    def test_report_requires_a_new_destination(self):
+        target = self.root / "report.json"
+        self.assertEqual(self.invoke(target), 0)
+        before = target.read_bytes()
+        self.assertNotEqual(self.invoke(target), 0)
+        self.assertEqual(target.read_bytes(), before)
 
 
 class MetricTests(unittest.TestCase):
@@ -220,6 +291,33 @@ class InvocationWorkspace(Workspace):
 
 
 class InvocationTests(InvocationWorkspace):
+    def test_preexisting_artifacts_are_not_reused(self):
+        output = self.root / "run"
+        output.mkdir()
+        checkpoint = output / "checkpoint-best.pth"
+        checkpoint.write_bytes(b"earlier experiment")
+        with patch.object(repro, "prepare") as prepare:
+            self.assertNotEqual(repro.run_stage(self.args(extra=("--dry-run",))), 0)
+        prepare.assert_not_called()
+        self.assertEqual(list(output.iterdir()), [checkpoint])
+        self.assertEqual(checkpoint.read_bytes(), b"earlier experiment")
+
+    def test_concurrent_manifest_creation_has_one_owner(self):
+        barrier = Barrier(8)
+        args = self.args("pretrain")
+        def create(index):
+            barrier.wait(timeout=10)
+            try:
+                _, manifest = repro.begin_manifest(args)
+                return manifest
+            except (repro.ReproError, FileExistsError):
+                return None
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            results = list(pool.map(create, range(8)))
+        winners = [value for value in results if value is not None]
+        self.assertEqual(len(winners), 1)
+        self.assertEqual(self.manifest(), winners[0])
+
     def test_actual_parser_interface_preserves_defaults_and_absolute_overrides(self):
         args = self.args(extra=("--seed", "9", "--num-workers", "0"))
         native, argv, command, _ = repro.build_native(args, self.config, self.validate())

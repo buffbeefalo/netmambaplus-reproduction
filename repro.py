@@ -51,7 +51,7 @@ def read_document(path):
                    "bytes": len(raw)}
 
 
-def atomic_json(path, value):
+def atomic_json(path, value, *, overwrite=True):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = None
@@ -63,7 +63,13 @@ def atomic_json(path, value):
             stream.write("\n")
             stream.flush()
             os.fsync(stream.fileno())
-        os.replace(temporary, path)
+        if overwrite:
+            os.replace(temporary, path)
+        else:
+            try:
+                os.link(temporary, path)
+            except FileExistsError as error:
+                raise ReproError(f"Refusing to replace existing file: {path}") from error
     finally:
         if temporary is not None:
             temporary.unlink(missing_ok=True)
@@ -153,17 +159,26 @@ def data_paths(directory, stage):
     raise ReproError(f"Unknown validation stage: {stage}")
 
 
+def stage_parameters(config, stage):
+    if stage not in ("pretrain", "finetune", "evaluate"):
+        raise ReproError(f"Unknown execution stage: {stage}")
+    section = "pretrain" if stage == "pretrain" else "finetune"
+    return {**config["common"], **config[section]}
+
+
 def validate_data(directory, stage, config):
     directory = Path(directory).resolve()
     metadata, metadata_file = read_document(directory / "metadata.json")
     if not isinstance(metadata, dict):
         raise ReproError("metadata.json must contain an object")
     mapping = validate_mapping(metadata.get("name_to_idx"), config["dataset"].get("expected_classes"))
-    report = {"stage": stage, "class_mapping": mapping,
+    size_key = stage_parameters(config, stage).get("size_key", "sizes")
+    if size_key not in ("sizes", "signed_sizes"):
+        raise ReproError("size_key must be sizes or signed_sizes")
+    report = {"stage": stage, "class_mapping": mapping, "size_key": size_key,
               "files": {"metadata.json": metadata_file}, "splits": {}, "raw_input_overlaps": {},
               "identity_limit": "Recorded identifiers and exact raw-input equality do not prove capture independence."}
     identities, fingerprints = {}, {}
-    size_key = config["common"].get("size_key", "sizes")
     for split, path in data_paths(directory, stage).items():
         rows, file_info = read_document(path)
         if not isinstance(rows, list) or not rows:
@@ -276,7 +291,7 @@ def build_native(args, config, report):
     integrity = verify_upstream(upstream, config)
     check_single_process(config)
     stage = "pretrain" if args.command == "pretrain" else "finetune"
-    parameters = {**config["common"], **config[stage]}
+    parameters = stage_parameters(config, args.command)
     if parameters.get("world_size", 1) != 1:
         raise ReproError("Stage configuration conflicts with single-process execution")
     output = Path(args.output).resolve()
@@ -369,15 +384,15 @@ def begin_manifest(args):
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
     path = output / "manifest.json"
-    if path.exists():
-        raise ReproError(f"Output already contains a manifest; choose a fresh output directory: {output}")
+    if any(output.iterdir()):
+        raise ReproError(f"Output is not empty; choose a fresh output directory: {output}")
     manifest = {"schema_version": 1, "stage": args.command, "status": "preflight",
                 "created_at": timestamp(), "updated_at": timestamp(), "execution_attempted": False,
                 "request": {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
                 "runtime": runtime_information(),
                 "harness_sha256": {name: sha256_file(ROOT / name) for name in ("repro.py", "evaluate.py")},
                 "error": None}
-    atomic_json(path, manifest)
+    atomic_json(path, manifest, overwrite=False)
     return path, manifest
 
 
@@ -495,9 +510,10 @@ def cli_parser():
         command.add_argument("--data", type=Path, required=True)
         if stage == "validate":
             command.add_argument("--stage", choices=("pretrain", "finetune", "evaluate"), default="finetune")
-            command.add_argument("--report", type=Path)
+            command.add_argument("--report", type=Path, help="Write to a new file; never replace an existing file")
             continue
-        command.add_argument("--output", type=Path, required=True)
+        command.add_argument("--output", type=Path, required=True,
+                             help="New or empty directory to be owned exclusively by this run")
         command.add_argument("--checkpoint", type=Path)
         command.add_argument("--provenance", type=Path)
         command.add_argument("--dry-run", action="store_true")
@@ -516,7 +532,7 @@ def main(argv=None):
         if args.command == "validate":
             report = validate_data(args.data, args.stage, load_config(args.config))
             if args.report:
-                atomic_json(args.report, report)
+                atomic_json(args.report, report, overwrite=False)
             print(json.dumps(report, indent=2, allow_nan=False))
             return 0
         if args.command == "evaluate" and not args.dry_run:

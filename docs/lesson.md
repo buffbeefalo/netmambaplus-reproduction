@@ -54,9 +54,15 @@ The engine contains an unconditional `torch.cuda.amp.autocast()` context. The so
 
 The harness first verifies the upstream checkout, then obtains each namespace through the real [pretraining parser](https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/util/arg_pre_train.py) or [fine-tuning parser](https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/util/arg_fine_tune.py). Keeping the full parsed namespace preserves defaults used deep inside the native loader, model and engine. Dry runs inspect these interfaces without importing the research stack or executing a model.
 
+Validation and invocation share the stage-settings resolver: stage-specific settings override `common`, and evaluation inherits fine-tuning settings. If a stage selects `signed_sizes`, that is the field validation checks and the duplicate audit fingerprints. Certifying `sizes` while the model reads `signed_sizes` would give false confidence in the inputs.
+
+Source integrity also depends on installation. The bundled Mamba installer can download a stock wheel with the same version number, even though the native model needs constructor arguments from the bundled fork. Follow the README's forced local-build command and installed-source comparison. A matching version string alone is insufficient, and matching Python files still does not establish successful CUDA execution.
+
 ## Read an experiment record
 
 `manifest.json` is a structured lab notebook. Its source hashes identify the checked implementation, input hashes identify the measured files, `native_args` records the parsed configuration, and runtime fields describe part of the environment. Training writes native logs; separate evaluation writes the full returned metric dictionary to `metrics.json`.
+
+A recorded validation requires a new report filename and refuses to overwrite existing files. Each model run requires a new or empty output directory, claimed by creating its first manifest atomically. Concurrent starts cannot both own it. This keeps old checkpoints and results from becoming mixed with a new experiment. A refused output location stays unchanged; the diagnostic is printed instead of writing another manifest over existing work.
 
 The statuses carry different claims. `dry_run` means inputs and arguments passed preflight. `failed` means execution was attempted and did not complete successfully. `succeeded` means this invocation completed its checks; it does not assert that the result matches the paper. A remaining `running` record may indicate a hard interruption and must not be counted as a successful experiment.
 
