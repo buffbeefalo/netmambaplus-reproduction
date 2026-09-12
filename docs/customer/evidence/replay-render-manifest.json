@@ -1,0 +1,10 @@
+{
+  "status": "rendered",
+  "created_at": "2026-09-12T07:52:28.151305+00:00",
+  "predictions_sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+  "html_sha256": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af",
+  "renderer_sha256": "c207eabcecee1644705e47749fbfbe64b42ec5ab389999c873b7ca017bfd5e52",
+  "tool_sha256": "43a193f7ffacae799749dbac555d39db21a523de9e999ebb83390d0b7a8f7cba",
+  "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+  "scope": "Display-only rebuild; prediction record copied byte-for-byte and no model inference or retuning performed"
+}

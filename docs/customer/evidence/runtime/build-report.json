@@ -1,0 +1,97 @@
+{
+  "upstream": {
+    "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+    "core_sha256": {
+      "src/pre-train.py": "fd966021d600b23baed22dcd73fa2ccbd3e4e902f5e42cf6d9aedad7c307d4fd",
+      "src/fine-tune.py": "f84ea53fad473122bf8211bb1d083ba95a9019b0c3e48ebbff2f5e86dae4152d",
+      "src/util/arg_pre_train.py": "ac6a607367a64013f38cfadf83b471a03e5988f7dbedbc2eef0c1a5d744eb08f",
+      "src/util/arg_fine_tune.py": "3c64f41ac4fa49377b6c8836237d84096ec9975e72a4b166ec303f4e012b857e",
+      "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+      "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+      "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+    },
+    "tracked_files_verified": 103
+  },
+  "causal_commit": "d1ab53ddf93b868502da96ad82c5fc0b270911f5",
+  "patches": [
+    {
+      "file": "setup.py",
+      "before_sha256": "fa756a5a882e49bf16623c24aa992b0f4e47325a118d33f6dbcf2bc344f51fe7",
+      "after_sha256": "625fbad1438642b99d2594a8511d468688c54ae71d9f0c8218099ae084eab12c",
+      "package": "mamba"
+    },
+    {
+      "file": "setup.py",
+      "before_sha256": "f3745009d556062678a91b673081d2f52f0018557be84dcf95bd4876312e70a1",
+      "after_sha256": "6ba8519d42b5b87f5323bc8dde442aa8c7abb99f429ec7f4de2681594f9a8c77",
+      "package": "causal"
+    },
+    {
+      "file": "reverse_scan.cuh",
+      "before_sha256": "a257f066e80ba1c852b97416bf8ebf69b9f4d0d99c66110ea2cc8add7ba9170c",
+      "after_sha256": "7e03722b55e563a33bd3d8de863cab933e3a96da357dfe726cfd26d9227253d5",
+      "package": "mamba",
+      "reference": "https://nvidia.github.io/cccl/cccl/3.0_migration_guide.html"
+    }
+  ],
+  "status": "built",
+  "installed_mamba_python_sources": [
+    {
+      "file": "__init__.py",
+      "sha256": "5e61917878c1f3275d79fc1406af736320309804e4320777a9f32ea863e9594f"
+    },
+    {
+      "file": "models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "models/config_mamba.py",
+      "sha256": "f9a7c694e1aaa82e01377f96927095223892a0a0fe64efadaf382c8335bdbc8a"
+    },
+    {
+      "file": "models/mixer_seq_simple.py",
+      "sha256": "060c4e3345625b05905c33dae837557b8f46504251186f28fb82fa612f17803e"
+    },
+    {
+      "file": "modules/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "modules/mamba_simple.py",
+      "sha256": "46b4c1c781cf3417d56c32a923a5af0516e41ced5961ae991086010f5ef79999"
+    },
+    {
+      "file": "ops/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "ops/selective_scan_interface.py",
+      "sha256": "f511064d5ca96e27ba1c970f3c389e683f6e4858700197c26b61e23a3680be9a"
+    },
+    {
+      "file": "ops/triton/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "ops/triton/layernorm.py",
+      "sha256": "e711e9af70dea103f5d1f69b59187a1fd5980f5163049f764985fa7bbb0fe158"
+    },
+    {
+      "file": "ops/triton/selective_state_update.py",
+      "sha256": "b29627ec0290007174fe30fdcd8fe039cb1520bff104bd2c2ef57c49ae56b6f3"
+    },
+    {
+      "file": "utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "utils/generation.py",
+      "sha256": "2bb8637c826fdc62b54c77b369aa6a8a53d9e72bdfc57abe0e45152a18369a5d"
+    },
+    {
+      "file": "utils/hf.py",
+      "sha256": "aa6f3a349826612bf3b310d209ebe50546bf1b2be9bcee3d5959cabfa7d235f6"
+    }
+  ],
+  "limitation": "Run check_gpu_runtime.py next; build success alone does not prove numerical correctness."
+}

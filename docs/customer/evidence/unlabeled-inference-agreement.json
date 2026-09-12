@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "rows": 128,
+  "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+  "prediction_agreement": 1.0,
+  "max_absolute_logit_difference": 0.001953125,
+  "logits_equal": false,
+  "unlabeled_input_sha256": "11b92d8ffecf601239d8e26fe5895175cf885f044dc4f8418c551c1743445585",
+  "prediction_result_sha256": "0679152fd981ce62d49f0ac86541b18dce7533d675470c5249d382882e027a19",
+  "replay_predictions_sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+  "scope": "First 128 already evaluated test flows with labels, names and capture identifiers removed; functional agreement check, not independent generalization evidence."
+}

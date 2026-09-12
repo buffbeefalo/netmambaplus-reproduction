@@ -8,6 +8,7 @@
 /outputs/
 /logs/
 /artifacts/
+/assets/
 .venv/
 venv/
 .env
@@ -19,3 +20,8 @@ __pycache__/
 *.ckpt
 *.egg-info/
 .pytest_cache/
+
+/.venv-gb10/
+
+/build-gb10/
+/.venv-browser/

@@ -14,7 +14,7 @@ NetMamba+ uses three views of a flow: byte content, packet sizes and packet arri
 
 In the supplied preset, the [original loader](https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/util/loader_data.py) takes at most five packets with 320 stored bytes per packet. The paper describes those 320 bytes as an extracted 80-byte header region and 240-byte payload region. The JSON must already contain that extraction; our harness cannot recover missing headers from a payload export.
 
-Five times 320 gives a fixed 1,600-byte representation. Short packets and short flows are padded, and excess bytes/packets are truncated by upstream. Its image-style transformation divides bytes by 255 and normalizes with mean 0.5 and standard deviation 0.5. Thus an input byte of zero maps to -1, and 255 maps to +1 after this normalization. The harness delegates these operations rather than maintaining a second implementation.
+Five times 320 gives a fixed 1,600-byte representation. Short packets and short flows are padded, and excess bytes/packets are truncated by upstream. The measured byte tensor shape is `[B, 1, 1, 1600]`, where B is batch size. The model flattens it to `[B, 1, 1600]` for four-byte stride embedding. Its image-style transformation divides bytes by 255 and normalizes with mean 0.5 and standard deviation 0.5. Thus an input byte of zero maps to -1, and 255 maps to +1 after this normalization. The harness delegates these operations rather than maintaining a second implementation.
 
 Sizes and intervals use their first twenty entries, again with native padding/truncation. The unsigned-size path clips to the range 0–1500. Its padding value 1501 is subsequently clipped to 1500; a size at that boundary is therefore not a reliable indicator of padding. For nonnegative interval x, the loader implements `(1+x)/(2+x)`: zero becomes 0.5, one becomes two-thirds, and very large values approach 1. Padded infinite intervals become 1 inside the loader. Raw JSON intervals must remain finite; padding is the loader's job. Units and extraction provenance still matter because the same number can mean different durations in different exports.
 
@@ -28,7 +28,7 @@ During **fine-tuning**, the model learns labeled traffic categories. A classifie
 
 That best classifier is then evaluated on test data by the native fine-tuner. Validation answers which candidate to select. Test data estimates how the selected candidate performs on the held-out benchmark. Repeatedly changing settings because of test results turns the test set into another selection set and weakens that estimate.
 
-The released `fuse3_mamba.pth` was examined at intake without Torch deserialization. An archive root named `checkpoint-step100000`, decoder parameters and absent classifier-head parameters were observed. This supports its use as a pretraining input. A filename does not establish the number of earlier stages, the training corpus or successful classifier compatibility. Keep that history unknown until supporting records exist.
+The released `fuse3_mamba.pth` was initially examined without Torch deserialization. The current GPU work additionally loaded the trusted, hash-checked file and verified compatibility: the classifier head is missing as expected, reconstruction parameters are extra, and matching encoder shapes agree. Its saved step/epoch fields still do not establish the full training corpus or earlier history. The [research record](research/research-record.md) and [measured results](customer/results.md) distinguish successful downstream execution from unknown pretraining provenance.
 
 ## Why metadata and strict loading matter
 
@@ -80,7 +80,25 @@ A separate capture-grouped or deduplicated evaluation could test sensitivity to 
 
 The [paper](https://arxiv.org/abs/2601.21792v1) describes 150,000 pretraining steps and a fine-tuning batch size of 64. The selected released-source recipe uses 100,000 steps and batch size 128. Its native learning-rate scaling divides effective batch size by 256. With one process and accumulation 1, `blr=0.001` gives a conditional initial rate of 0.0005; `blr=0.002` gives 0.001. The model's actual schedule is still owned by upstream.
 
-Those are source settings and arithmetic derivations, not measured outcomes. A parser dry run establishes that settings are accepted. Unit tests establish the harness's behavior under controlled fixtures. A real GPU experiment establishes behavior in one recorded environment. Repeated, well-controlled comparisons are needed to support a numerical reproduction claim. Full pretraining reproduction additionally requires establishing the paper's corpus and processing history.
+The current fine-tuning runs exercised the source settings and recorded the effective rate. A parser dry run alone would establish only that settings are accepted. Unit tests establish harness behavior under controlled fixtures. A real GPU experiment establishes behavior in its recorded environment. The current three-seed GB10 results therefore support a source-based compatibility-port experiment; they do not erase the paper's batch/rate differences or establish its pretraining history.
+
+## Read the new training and demo evidence
+
+The [customer package](customer/README.md) records actual masked pretraining, full fine-tuning, strict saved-classifier inference and the browser replay. Read its [runbook](customer/runbook.md) alongside the commands. The short masked-pretraining configuration requests 100 steps, but the original source executes complete epochs: 66 batches per epoch produce 132 completed updates across two epochs. The saved step-130 checkpoint contains 131 updates, not the final 132. Requested steps, completed updates and saved-checkpoint updates are different quantities.
+
+The fine-tuner's per-epoch message says “test samples” even though its supplied loader is validation. Read the call site, not just the printed label. Its selected checkpoint uses the exact `valid_acc` field. The subsequent real test pass, separate strict evaluator and recorded prediction pass all use that same selected model. Repeating them verifies execution agreement on the same fixed test set; it does not create three independent generalization tests.
+
+`replay.py` recomputes accuracy, per-class precision/recall/F1, weighted F1 and macro F1 from the saved labels and predictions. Macro F1 weights each of the six classes equally. Weighted F1 weights them by their true support. Try the deliberately imbalanced fixture:
+
+```bash
+python3 -m unittest discover -s tests -k test_metrics_keep_confusion_orientation_and_macro_weighted_distinct -v
+```
+
+The confusion matrix uses true classes as rows and predicted classes as columns. Looking only at weighted metrics can obscure a weak rare class. The real experiment's smallest test class has 41 examples while each other class has 200; retain that support when explaining a percentage.
+
+`predict.py` supports flows without ground-truth labels. It adapts only the native loader's required label/name fields in a temporary copy, discards those targets before model forward, and emits predictions without accuracy metrics. It never creates flow identity, missing headers or arrival order from packet CSV rows. The original byte/size/interval transformations still belong to the native loader. Its output is a six-class prediction, not an operational decision to block traffic.
+
+The replay page displays recorded outputs of that model family; changing playback speed does not rerun inference or change its measured latency. The benchmark times synchronized GPU model execution separately from capture and preprocessing. The [hardware roadmap](customer/hardware-roadmap.md) explains the additional work needed for a live IDS, NPU or SmartNIC.
 
 ## Four exercises requiring no downloads
 
@@ -117,4 +135,4 @@ Run these commands from the repository root. Each test intentionally creates tem
 
    The second test removes training/validation files and installs access traps, verifies the original evaluator interface and checks complete metric serialization. These are interface tests with stubs, not Torch or CUDA integration tests.
 
-For the first real experiment, follow the README's acquisition, environment, validation, dry-run and fine-tuning sequence. Freeze the comparison protocol before viewing test performance, retain every run manifest and report the uncertainties alongside the measured result.
+To repeat the real experiment, follow the customer runbook's acquisition, tested GB10 environment, validation, training and inference sequence. Freeze the comparison protocol before viewing test performance, retain every run manifest and report the uncertainties alongside the measured result. These lesson sources and references were reviewed for the customer package; no external course publication, shared coverage reset or video refresh is claimed.

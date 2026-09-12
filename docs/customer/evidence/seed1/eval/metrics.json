@@ -1,0 +1,124 @@
+{
+  "metrics": {
+    "loss": 0.4863009982638889,
+    "acc1": 0.8405379446507875,
+    "acc3": 0.9769452446636159,
+    "weighted_pre": 0.8448749739229896,
+    "weighted_rec": 0.840537944284342,
+    "weighted_f1": 0.8407725424206736,
+    "cm": [
+      [
+        182,
+        16,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        197,
+        0,
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        4,
+        160,
+        1,
+        26,
+        9
+      ],
+      [
+        0,
+        1,
+        1,
+        36,
+        1,
+        2
+      ],
+      [
+        1,
+        9,
+        14,
+        2,
+        149,
+        25
+      ],
+      [
+        0,
+        5,
+        7,
+        0,
+        37,
+        151
+      ]
+    ],
+    "acc": 0.840537944284342,
+    "pre_per_class": [
+      0.9891304347826086,
+      0.8491379310344828,
+      0.8695652173913043,
+      0.9230769230769231,
+      0.6930232558139535,
+      0.8074866310160428
+    ],
+    "rec_per_class": [
+      0.91,
+      0.985,
+      0.8,
+      0.8780487804878049,
+      0.745,
+      0.755
+    ],
+    "f1_per_class": [
+      0.9479166666666666,
+      0.9120370370370371,
+      0.8333333333333334,
+      0.9,
+      0.7180722891566265,
+      0.7803617571059431
+    ],
+    "support_per_class": [
+      200,
+      200,
+      200,
+      41,
+      200,
+      200
+    ]
+  },
+  "nonfinite_metric_paths": [],
+  "checkpoint_sha256": "80aa8647061228248fc4cc2746aa42eb4bceed6b583b3d5533eae8c4d3ec24eb",
+  "class_mapping": {
+    "6-Attacks-1-Flood": 0,
+    "6-Attacks-2-RTSP Brute Force": 1,
+    "1-Power-Audio": 2,
+    "1-Power-Other": 3,
+    "1-Power-Cameras": 4,
+    "1-Power-Home Automation": 5
+  },
+  "checkpoint_provenance": {
+    "class_order": "hash_bound",
+    "training_history": "unknown",
+    "source": "/home/nvidia/netmambaplus-reproduction/runs/ciciot-ft-seed1/manifest.json",
+    "source_file": {
+      "path": "/home/nvidia/netmambaplus-reproduction/runs/ciciot-ft-seed1/manifest.json",
+      "sha256": "f8d64eb2de17dad5f2d7a573b7cfd40559bc437012cd71b18a5240f6e733abf9",
+      "bytes": 20756
+    },
+    "checkpoint_sha256": "80aa8647061228248fc4cc2746aa42eb4bceed6b583b3d5533eae8c4d3ec24eb",
+    "class_mapping": {
+      "6-Attacks-1-Flood": 0,
+      "6-Attacks-2-RTSP Brute Force": 1,
+      "1-Power-Audio": 2,
+      "1-Power-Other": 3,
+      "1-Power-Cameras": 4,
+      "1-Power-Home Automation": 5
+    },
+    "note": "Hash binding is recorded provenance, not independent authentication of its claims."
+  },
+  "evaluation_behavior": "Unmodified engine_mm.evaluate, including internal CUDA autocast"
+}

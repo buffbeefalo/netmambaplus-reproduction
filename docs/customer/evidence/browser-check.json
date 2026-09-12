@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "browser": "140.0.7339.16",
+  "recorded_at": "2026-09-12T07:52:44.809605+00:00",
+  "tool_sha256": "433d25b30b769e6b14f83b014f1d40549d80ff1033ef9af913d3af9aa0852cb1",
+  "html_sha256": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af",
+  "predictions_sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+  "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+  "rows": 1041,
+  "errors": 91,
+  "attack_class_predictions": 402,
+  "checks": [
+    "play/pause",
+    "all rows",
+    "error filter",
+    "attack filter",
+    "reset",
+    "no browser errors",
+    "no desktop horizontal overflow",
+    "no mobile horizontal overflow"
+  ],
+  "video_sha256": "bb39d0979f8ed62cb5580ca493347238500862f54047ffff66ca828e591f8316",
+  "scope": "Recording of actual measured inference replay; playback pacing is not model latency or live traffic"
+}

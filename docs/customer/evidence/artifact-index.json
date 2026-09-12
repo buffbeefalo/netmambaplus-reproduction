@@ -1,0 +1,405 @@
+{
+  "created_at": "2026-09-12T08:05:14.622163+00:00",
+  "files": [
+    {
+      "path": "results.json",
+      "bytes": 207925,
+      "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+      "original_filename": "reviewed-results.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "runtime/build-report.json",
+      "bytes": 3802,
+      "sha256": "9682b49df7e6975cd7b913fdf90b8c01bd6b04f28ccf94943ae18be55876f83c",
+      "original_filename": "build-report.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "runtime/numerical-check.json",
+      "bytes": 2759,
+      "sha256": "341494fd43d005c4da6253620975dd5a395309fc9e852349bd30185c983c2c90",
+      "original_filename": "gb10-runtime-check.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "runtime/rehearsal-numerical-check.json",
+      "bytes": 2754,
+      "sha256": "cfc9c1373fb77fdb33cdfc74f39debb8bf7e3236c316220a9e8abea8bf631346",
+      "original_filename": "gb10-rehearsal-runtime-check.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "runtime/training-environment.json",
+      "bytes": 7884,
+      "sha256": "ab9e3705cfa7936079fe28757a6513b538af53350da252841b5f0b12bac90133",
+      "original_filename": "runtime-inventory-training.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "runtime/rehearsal-environment.json",
+      "bytes": 7800,
+      "sha256": "4ff6e7466367c8b0835478941b0c5dfa592933db9feaf305a8e779b8e3aa7eb4",
+      "original_filename": "runtime-inventory-rehearsal.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "checkpoint-transfer.json",
+      "bytes": 1603,
+      "sha256": "819195d7d3a9aaccf534ce2cca88e3986eb56facf0891fd7cbfe27e1149b520e",
+      "original_filename": "checkpoint-compatibility.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "uploaded-csv-profile.json",
+      "bytes": 17318,
+      "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097",
+      "original_filename": "uploaded-csv-profile.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "native-data-validation.json",
+      "bytes": 2835,
+      "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+      "original_filename": "customer-20260911-validation.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "unlabeled-inference-agreement.json",
+      "bytes": 702,
+      "sha256": "38af4880c8586503ab3e3404e2c05074d6d90318957300e2d92d7e55aa2c4aa9",
+      "original_filename": "unlabeled-inference-agreement.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "pretrain-functional/manifest.json",
+      "bytes": 18011,
+      "sha256": "e060653b9865ab472fdd0a628de061d0b304504cfb4ff7ae92e1853b7345a902",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "pretrain-functional/native.log",
+      "bytes": 9906,
+      "sha256": "d54559e2a24c22499790c1c03a9717e2aa06154bb1f49c1796953df24ae5b6d2",
+      "original_filename": "native.log",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "pretrain-functional/log.txt",
+      "bytes": 446,
+      "sha256": "39e7ea851b92504057ed4a319d2081f02d2081f76927c7ccd62c32a8a63ff61a",
+      "original_filename": "log.txt",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "pretrain-functional/train_stats.json",
+      "bytes": 74,
+      "sha256": "ca6e7472d08a4c69f14b3523599789799bb0c2b6f205460e622b56ccdd98aace",
+      "original_filename": "train_stats.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/training/manifest.json",
+      "bytes": 20756,
+      "sha256": "599c0c893849363ec5c271d24732692e28b49612d9fbe250f4a0bf235e4b775f",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/training/native.log",
+      "bytes": 228423,
+      "sha256": "5cc5be8932773d5f7085794c2220c8fdd2ad0978c8e26952a99bc8d298f89cd5",
+      "original_filename": "native.log",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/training/log.txt",
+      "bytes": 43699,
+      "sha256": "2b0248f4489c3eea1b9389ea5f26ab6ce24d9cc1d00f7b646ddbd9178b071096",
+      "original_filename": "log.txt",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/training/train_stats.json",
+      "bytes": 136,
+      "sha256": "0c1913080ffde989fd01927f4ea047a9cec752121b3d6ed671add29fb62d0328",
+      "original_filename": "train_stats.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/training/test_stats.json",
+      "bytes": 599,
+      "sha256": "0de16f052de6a2523177b54972cb2b39d4f7675fac327f06c73a192a8ced33a8",
+      "original_filename": "test_stats.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/eval/manifest.json",
+      "bytes": 18369,
+      "sha256": "b46d4b5c59a708fb1563083ba0986731184c7ef7fba0b2bfb1235026515a3209",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/eval/metrics.json",
+      "bytes": 2612,
+      "sha256": "89cab36caa23eec55cc4c34b5999c837a5074061eea96872290fb5f10ab64d0b",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/replay/manifest.json",
+      "bytes": 18508,
+      "sha256": "f237f786dab160d48936b0bba21358e7f5096cfa90e462a9496bde3ed5f01504",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/replay/metrics.json",
+      "bytes": 3414,
+      "sha256": "b8079ab158b8a7adcdbd57e3bead8aa32994c3b1f17d877dd149b4b486f1e987",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/replay/predictions.json",
+      "bytes": 454738,
+      "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+      "original_filename": "predictions.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed0/model-export-provenance.json",
+      "bytes": 961,
+      "sha256": "989fd6ea88fd60a053a8b182b7116f40d2819d845f17a11890f4329501cab865",
+      "original_filename": "seed0-provenance.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/training/manifest.json",
+      "bytes": 20756,
+      "sha256": "f8d64eb2de17dad5f2d7a573b7cfd40559bc437012cd71b18a5240f6e733abf9",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/training/native.log",
+      "bytes": 228183,
+      "sha256": "4acb009f46d37eff3934e3746aef903f52a7452d7c98a6ecd7a27c7db7297e41",
+      "original_filename": "native.log",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/training/log.txt",
+      "bytes": 43859,
+      "sha256": "a6ab2f3247b0990928378e09cae71ff0cb6f7d024f662b560373515170a7d724",
+      "original_filename": "log.txt",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/training/train_stats.json",
+      "bytes": 135,
+      "sha256": "4b9d54ae713f4d5d612dfcafb42fca3d1e3344faf085afd6771531cdae5f17c9",
+      "original_filename": "train_stats.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/training/test_stats.json",
+      "bytes": 598,
+      "sha256": "d8be654633d2c9e9d043e53c961bde1bd33adb063f016b68214ed9dd23e1d43e",
+      "original_filename": "test_stats.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/eval/manifest.json",
+      "bytes": 18369,
+      "sha256": "6a59429f134b75d2dca0e14599800d682791ee87062b9e1f9c050f8b2986289b",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/eval/metrics.json",
+      "bytes": 2599,
+      "sha256": "05721abb97d206d171192b08243c6da3590593c9f5a1f5740894e0090db88ac3",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/replay/manifest.json",
+      "bytes": 18508,
+      "sha256": "0647eda8b2ecc94bd395093d7c9d47d4411131f47821f2a36603b93b3674d0da",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/replay/metrics.json",
+      "bytes": 3384,
+      "sha256": "cb4df458cad6703cc0735c5847f846309544e71123cb5b3b1cfd982f1072c5d1",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/replay/predictions.json",
+      "bytes": 453618,
+      "sha256": "5c53488b9bc7056c315a32a5c42036e637bd22e6c691d41e2e146110b034c095",
+      "original_filename": "predictions.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed1/model-export-provenance.json",
+      "bytes": 960,
+      "sha256": "9b9b3849fed92842a93c5dd525db9e3a3ee731c125f695efa1b6d6886dcaa6ea",
+      "original_filename": "seed1-provenance.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/training/manifest.json",
+      "bytes": 20756,
+      "sha256": "79439a3c0133cc4d1af4f6876d72f9c20166339c3b9599928f3c73072c83bb13",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/training/native.log",
+      "bytes": 228183,
+      "sha256": "52f27bbcef4308cd5761b6049c4903c9e085cbdba524826d47078c20ff6529bb",
+      "original_filename": "native.log",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/training/log.txt",
+      "bytes": 43698,
+      "sha256": "db35cf012e8b76157048a88034c69242b8fc84fa76a862f1ae6825a60266e6c8",
+      "original_filename": "log.txt",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/training/train_stats.json",
+      "bytes": 134,
+      "sha256": "9fbfb4a6fb36655e1576408fe43ba123621a9b1c6770e7cbeeca27cbeac53d36",
+      "original_filename": "train_stats.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/training/test_stats.json",
+      "bytes": 601,
+      "sha256": "7d620686a0a284e20cf6a7ad01d935b4efd96c1f25fb0eb016588e54cd625ee1",
+      "original_filename": "test_stats.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/eval/manifest.json",
+      "bytes": 18369,
+      "sha256": "06cfcd6193158e9aa5235ba27fe467b349dcc2054a7c0d181b8661bd316fc411",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/eval/metrics.json",
+      "bytes": 2597,
+      "sha256": "9471dd343b3b33dfc4d6b1e0e66eb50719db85c115eee8dddd5737e5407dc065",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/replay/manifest.json",
+      "bytes": 18508,
+      "sha256": "2d20eab8cedf7564da9ee380791dfd9e115030d580e3e33b27133a347d47ae99",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/replay/metrics.json",
+      "bytes": 3381,
+      "sha256": "8c1b1d537e9e8918d29bcf7aacdd9cc3fd50415d368f1084db7b90b996ceaf24",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/replay/predictions.json",
+      "bytes": 454160,
+      "sha256": "4811d8ed7f39541ca15999c27a9ed4ebeb7fe16e4dea8e262274caab7999088f",
+      "original_filename": "predictions.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "seed2/model-export-provenance.json",
+      "bytes": 960,
+      "sha256": "a479ec8a0b127fc8c356a42fad83d3b6ec4788964c5c15075e8c1fcf7b188243",
+      "original_filename": "seed2-provenance.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "benchmark/manifest.json",
+      "bytes": 18460,
+      "sha256": "a7c0fb1d309580db809e742817bf196cc3d0ab9d9b620a14176fb164626403e9",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "benchmark/metrics.json",
+      "bytes": 10377,
+      "sha256": "1f06ba04717400b0f20a7e79f7c90e8e0d357f8bf7f2c8507ccdfc969eec0e9b",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "export-probe/manifest.json",
+      "bytes": 18487,
+      "sha256": "78c425dbcfb60ace7640714d1595fdd0e299283e9c9cd683040357f1b04d1923",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "export-probe/metrics.json",
+      "bytes": 4197,
+      "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "runtime/rehearsal-classifier-evaluation/manifest.json",
+      "bytes": 18635,
+      "sha256": "440e9d6e433905060b9b3bc984c20e6b77585465684b33b1bc4aeacd4ebff597",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "runtime/rehearsal-classifier-evaluation/metrics.json",
+      "bytes": 2612,
+      "sha256": "89cab36caa23eec55cc4c34b5999c837a5074061eea96872290fb5f10ab64d0b",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "unlabeled-prediction/manifest.json",
+      "bytes": 18380,
+      "sha256": "e11e0a3a098a6c17f002b030db70e1c260ae270f5ee5a07c282d4956c1c3d43e",
+      "original_filename": "manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "unlabeled-prediction/metrics.json",
+      "bytes": 59337,
+      "sha256": "0679152fd981ce62d49f0ac86541b18dce7533d675470c5249d382882e027a19",
+      "original_filename": "metrics.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "browser-check.json",
+      "bytes": 934,
+      "sha256": "e20f009b47950b381ea965a91c6e29efa7963acd5794908d8c91f1c1b62d9759",
+      "original_filename": "browser-check.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    },
+    {
+      "path": "replay-render-manifest.json",
+      "bytes": 641,
+      "sha256": "676e9a9907807456bad0dba547078c7257d6d8f8b8d93691b3ad45582f05156c",
+      "original_filename": "render-manifest.json",
+      "copy": "Exact bytes of the reviewed record; historical local paths may remain in commands"
+    }
+  ],
+  "scope": "Reviewed experiment evidence. No raw packet payloads, upstream source, original weights or private chat transcripts are copied."
+}

@@ -1,0 +1,49 @@
+{
+  "run_id": "ab4e7750-10de-4448-9d77-61b8ad57c204",
+  "state": {
+    "state": "CONSENSUS",
+    "updatedAt": "2026-09-12T06:30:50.826Z",
+    "decisionHash": "8bd76460d62e804cc06ed8f4de883f8be4f4f4e6de05aa3c9bf3272a9b9ac59e",
+    "bothAccepted": true
+  },
+  "source_verdicts_sha256": "c46a6dd5c75575f55a183005a98577fd4af23b8c829b19be028db690f071df55",
+  "ratification_order": [
+    "claude",
+    "codex"
+  ],
+  "seats": [
+    {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "role": "seat",
+      "data": {
+        "verdict": "ACCEPT",
+        "decision_hash": "8bd76460d62e804cc06ed8f4de883f8be4f4f4e6de05aa3c9bf3272a9b9ac59e",
+        "blocking_objections": [],
+        "dissent_note": "No material dissent. The artifact reflects both seats' converged recommendations, preserves the earlier ESCALATED/UNRATIFIED audit record, and gates all expanded claims on the listed acceptance evidence. Ratified as frozen with the exact hash echoed."
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 501,
+        "cacheReadTokens": 0,
+        "cacheCreationTokens": 5880,
+        "totalTokens": null
+      }
+    },
+    {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "role": "seat",
+      "data": {
+        "verdict": "ACCEPT",
+        "decision_hash": "8bd76460d62e804cc06ed8f4de883f8be4f4f4e6de05aa3c9bf3272a9b9ac59e",
+        "blocking_objections": [],
+        "dissent_note": ""
+      },
+      "usage": null
+    }
+  ],
+  "scope": "Reviewed ratification receipt for the staged plan. This is not an independent post-training audit."
+}

@@ -1,5 +1,7 @@
 # Sharing audit — 7 September 2026
 
+**Historical record:** this audit describes the repository on 7 September. Subsequent GPU experiments and the current public customer package are documented in [the customer index](customer/README.md) and [research record](research/research-record.md). The earlier council outcome below remains unchanged.
+
 The audit reviewed all eight files in baseline commit [`597c7815ca957522959b43a439d826e27d702511`](https://github.com/buffbeefalo/netmambaplus-reproduction/tree/597c7815ca957522959b43a439d826e27d702511), relevant pinned upstream source, the released native data, repository history and publication settings. Four issues were corrected. The project remains an experimental reproduction harness; this audit does not establish a completed GPU experiment or reproduced paper results.
 
 ## Findings and corrections
@@ -42,6 +44,6 @@ The corrections and closure checks above were completed through full-file inspec
 - The paper's full pretraining corpus/history remains unestablished. Source settings differ from the paper's stated settings; both are documented separately.
 - Raw-input overlap and recorded identifiers do not establish capture independence. Strict tensor loading does not prove class semantics without checkpoint-bound provenance. Pickle-based native checkpoints must come from a trusted source.
 - Synthetic CPU tests verify harness behavior, not scientific accuracy, throughput, distribution-shift robustness or operational intrusion-detection performance.
-- The repository is private. A recipient needs repository access to follow the GitHub link. Source/data distribution permissions remain separate from access to this harness.
+- At the time of this audit the repository was private. It is public in the later customer-package verification. Source/data distribution permissions remain separate from access to the repository.
 
 The supported sharing description remains: **a tested native-flow reproduction harness with documented evidence and limitations; GPU reproduction and independent audit clearance remain open.**

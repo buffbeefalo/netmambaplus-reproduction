@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "upstream": {
+    "url": "https://github.com/wangtz19/NetMambaPlus",
+    "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+    "sha256": {
+      "src/pre-train.py": "fd966021d600b23baed22dcd73fa2ccbd3e4e902f5e42cf6d9aedad7c307d4fd",
+      "src/fine-tune.py": "f84ea53fad473122bf8211bb1d083ba95a9019b0c3e48ebbff2f5e86dae4152d",
+      "src/util/arg_pre_train.py": "ac6a607367a64013f38cfadf83b471a03e5988f7dbedbc2eef0c1a5d744eb08f",
+      "src/util/arg_fine_tune.py": "3c64f41ac4fa49377b6c8836237d84096ec9975e72a4b166ec303f4e012b857e",
+      "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+      "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+      "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+    }
+  },
+  "dataset": {
+    "name": "CICIoT2022",
+    "expected_classes": 6
+  },
+  "common": {
+    "num_packet": 5,
+    "num_packet_byte": 320,
+    "seq_len": 20,
+    "stride_size": 4,
+    "size_key": "sizes",
+    "dataset_type": "byte_size_interval",
+    "batch_size": 128,
+    "accum_iter": 1,
+    "world_size": 1,
+    "weight_decay": 0.05,
+    "seed": 0,
+    "if_amp": false,
+    "average": "weighted"
+  },
+  "pretrain": {
+    "model": "fuse3_mamba_pretrain",
+    "steps": 100,
+    "blr": 0.001,
+    "byte_mask_ratio": 0.9,
+    "size_mask_ratio": 0.15,
+    "iat_mask_ratio": 0.15,
+    "save_steps_freq": 65
+  },
+  "finetune": {
+    "model": "fuse3_mamba_classifier",
+    "epochs": 120,
+    "blr": 0.002,
+    "smoothing": 0.1
+  },
+  "provenance": {
+    "common.num_packet": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.num_packet_byte": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.seq_len": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.stride_size": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.size_key": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.dataset_type": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.batch_size": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.accum_iter": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.world_size": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.weight_decay": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.seed": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.if_amp": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.average": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "pretrain.model": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+    },
+    "pretrain.steps": {
+      "kind": "functional_test",
+      "source": "100 requested steps on CICIoT2022 train only; native loop rounds to whole epochs. Not Browser/Kitsune pretraining."
+    },
+    "pretrain.blr": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+    },
+    "pretrain.byte_mask_ratio": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+    },
+    "pretrain.size_mask_ratio": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py"
+    },
+    "pretrain.iat_mask_ratio": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py"
+    },
+    "finetune.model": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_ft.py: run(..., model_name=\"mamba\", epochs=120)"
+    },
+    "finetune.epochs": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_ft.py: run(..., model_name=\"mamba\", epochs=120)"
+    },
+    "finetune.blr": {
+      "kind": "parser_default",
+      "source": "src/util/arg_fine_tune.py"
+    },
+    "finetune.smoothing": {
+      "kind": "parser_default",
+      "source": "src/util/arg_fine_tune.py"
+    },
+    "dataset.expected_classes": {
+      "kind": "harness_choice",
+      "source": "six-class authors CICIoT2022 metadata.json"
+    },
+    "pretrain.save_steps_freq": {
+      "kind": "functional_test",
+      "source": "65-step save interval exercises checkpoint output in the second native epoch."
+    }
+  },
+  "learning_rate": {
+    "formula": "lr = blr * (batch_size * accum_iter * world_size) / 256",
+    "source": "src/pre-train.py and src/fine-tune.py",
+    "conditional_derived_rates": {
+      "pretrain": 0.0005,
+      "finetune": 0.001
+    },
+    "qualification": "Conditional on the supplied single-process preset. lr stays unset; upstream computes it."
+  },
+  "paper_comparison": {
+    "source": "https://arxiv.org/abs/2601.21792v1, page 9",
+    "pretraining_steps": 150000,
+    "pretraining_batch_size": 128,
+    "pretraining_initial_lr": 0.001,
+    "finetuning_batch_size": 64,
+    "finetuning_lr": 0.002,
+    "finetuning_epochs": 120,
+    "qualification": "Comparands only; not an independently verified executable paper profile. Linear-scaling reference is unspecified in that paragraph."
+  },
+  "experiment_scope": "Masked pretraining functional test on downstream training-only data, not a paper pretraining reproduction."
+}

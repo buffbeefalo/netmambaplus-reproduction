@@ -1,0 +1,6 @@
+# Hash-bound documents and captured records must keep their original bytes.
+docs/customer/** -text
+docs/research/** -text
+# Preserve native warning whitespace and plotting-library SVG path formatting.
+docs/customer/evidence/**/native.log -whitespace
+docs/customer/figures/*.svg -whitespace

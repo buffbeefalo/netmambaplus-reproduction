@@ -1,0 +1,29 @@
+{
+  "probe": "torch.export.export(strict=True), fixed single-flow input shapes",
+  "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+  "probe_sha256": "6c7a91a86e00d75ea9df62e25d42a2eae594287d685d880c5fbac7de4adcc1aa",
+  "eager_output_shape": [
+    1,
+    6
+  ],
+  "input_shapes": [
+    [
+      1,
+      1,
+      1,
+      1600
+    ],
+    [
+      1,
+      20
+    ],
+    [
+      1,
+      20
+    ]
+  ],
+  "scope": "A Torch graph-capture probe; no ONNX, NPU compiler, SmartNIC or hardware deployment is implied",
+  "export_status": "unsupported_in_tested_path",
+  "error_type": "Unsupported",
+  "error_message": "Attempted to call function marked as skipped\n  Explanation: Dynamo does not know how to trace the builtin `causal_conv1d_cuda.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.causal_conv1d_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).\n  Hint: If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.\n  Hint: If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.\n\n  Developer debug context: module: causal_conv1d_cuda, qualname: pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.causal_conv1d_fwd, skip reason: <missing reason>\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0007.html\n\nfrom user code:\n   File \"/home/nvidia/netmambaplus-reproduction/tools/probe_export.py\", line 32, in forward\n    return self.classifier(byte, size, interval)[\"logits\"]\n  File \"/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/src/models/models_net_mamba_fuse3.py\", line 261, in forward\n    latent = self.forward_encoder(x_byte, x_size, x_iat, 0.0, 0.0, 0.0,\n  File \"/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/src/models/models_net_mamba_fuse3.py\", line 169, in forward_encoder\n    hidden_states, residual = blk(hidden_states, residual)\n  File \"/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/src/models/models_mamba.py\", line 83, in forward\n    hidden_states = self.mixer(hidden_states, inference_params=inference_params)\n  File \"/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/modules/mamba_simple.py\", line 249, in forward\n    out = mamba_inner_fn(\n  File \"/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py\", line 612, in mamba_inner_fn\n    return MambaInnerFn.apply(xz, conv1d_weight, conv1d_bias, x_proj_weight, delta_proj_weight,\n  File \"/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/torch/amp/autocast_mode.py\", line 527, in decorate_fwd\n    return fwd(*args, **kwargs)\n  File \"/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py\", line 318, in forward\n    conv1d_out = causal_conv1d_cuda.causal_conv1d_fwd(x, conv1d_weight, conv1d_bias, None, True)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n"
+}

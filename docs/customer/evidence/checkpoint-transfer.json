@@ -1,0 +1,43 @@
+{
+  "classifier_parameters": 1870080,
+  "pretrain_checkpoint_elements": 2958784,
+  "missing_classifier_keys": [
+    "head.weight"
+  ],
+  "extra_pretrain_keys": [
+    "byte_decoder_blocks.0.mixer.A_log",
+    "byte_decoder_blocks.0.mixer.D",
+    "byte_decoder_blocks.0.mixer.conv1d.bias",
+    "byte_decoder_blocks.0.mixer.conv1d.weight",
+    "byte_decoder_blocks.0.mixer.dt_proj.bias",
+    "byte_decoder_blocks.0.mixer.dt_proj.weight",
+    "byte_decoder_blocks.0.mixer.in_proj.weight",
+    "byte_decoder_blocks.0.mixer.out_proj.weight",
+    "byte_decoder_blocks.0.mixer.x_proj.weight",
+    "byte_decoder_blocks.0.norm.weight",
+    "byte_decoder_blocks.1.mixer.A_log",
+    "byte_decoder_blocks.1.mixer.D",
+    "byte_decoder_blocks.1.mixer.conv1d.bias",
+    "byte_decoder_blocks.1.mixer.conv1d.weight",
+    "byte_decoder_blocks.1.mixer.dt_proj.bias",
+    "byte_decoder_blocks.1.mixer.dt_proj.weight",
+    "byte_decoder_blocks.1.mixer.in_proj.weight",
+    "byte_decoder_blocks.1.mixer.out_proj.weight",
+    "byte_decoder_blocks.1.mixer.x_proj.weight",
+    "byte_decoder_blocks.1.norm.weight",
+    "byte_decoder_embed.bias",
+    "byte_decoder_embed.weight",
+    "byte_decoder_pos_embed",
+    "byte_decoder_pred.bias",
+    "byte_decoder_pred.weight",
+    "byte_mask_token",
+    "decoder_norm_f.weight",
+    "iat_decoder_pred.bias",
+    "iat_decoder_pred.weight",
+    "size_decoder_pred.bias",
+    "size_decoder_pred.weight"
+  ],
+  "shape_mismatches": [],
+  "source_commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+  "checkpoint_sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9"
+}

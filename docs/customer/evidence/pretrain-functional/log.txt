@@ -1,0 +1,2 @@
+{"train_steps": 32.5, "train_lr": 9.848484848484852e-06, "train_loss": 9.519531900232488, "train_byte_loss": 0.7698084982958707, "train_size_loss": 7.366126515648582, "train_interval_loss": 1.3835968646136196, "epoch": 0}
+{"train_steps": 98.5, "train_lr": 2.9848484848484853e-05, "train_loss": 6.127023487380057, "train_byte_loss": 0.2537812863787015, "train_size_loss": 5.713952982064449, "train_interval_loss": 0.15928916147712505, "epoch": 1}

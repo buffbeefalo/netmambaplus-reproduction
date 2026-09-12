@@ -25,7 +25,8 @@ CORE_FILES = {"src/pre-train.py", "src/fine-tune.py", "src/engine_mm.py",
               "src/util/arg_pre_train.py", "src/util/arg_fine_tune.py"}
 IMPORTABLE_SUFFIXES = {".py", ".pyw", ".pyc", ".pyo", ".so", ".pyd", ".zip", ".egg", ".pth"}
 ENV_KEYS = ("CUDA_VISIBLE_DEVICES", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "PYTHONPATH",
-            "WORLD_SIZE", "RANK", "LOCAL_RANK", "SLURM_PROCID")
+            "WORLD_SIZE", "RANK", "LOCAL_RANK", "SLURM_PROCID",
+            "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", "CUBLAS_WORKSPACE_CONFIG", "TRITON_PTXAS_PATH")
 
 
 class ReproError(ValueError):

@@ -1,0 +1,19 @@
+{
+  "checkpoint_sha256": "7176cebea7f098cddce64ac5e2efd16559e3a2c00bc2d3934c4221c0e98c634e",
+  "class_mapping": {
+    "6-Attacks-1-Flood": 0,
+    "6-Attacks-2-RTSP Brute Force": 1,
+    "1-Power-Audio": 2,
+    "1-Power-Other": 3,
+    "1-Power-Cameras": 4,
+    "1-Power-Home Automation": 5
+  },
+  "source_checkpoint_sha256": "80aa8647061228248fc4cc2746aa42eb4bceed6b583b3d5533eae8c4d3ec24eb",
+  "source_manifest_sha256": "f8d64eb2de17dad5f2d7a573b7cfd40559bc437012cd71b18a5240f6e733abf9",
+  "pretraining_input_sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9",
+  "upstream_commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+  "seed": 1,
+  "selected_epoch_zero_based": 73,
+  "export": "Model tensors only, bitwise identical to the selected training checkpoint; no optimizer or executable Namespace payload",
+  "training_history": "Recorded downstream fine-tuning; full history of the authors' pretraining checkpoint remains unknown"
+}
