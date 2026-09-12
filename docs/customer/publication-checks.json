@@ -1,0 +1,94 @@
+{
+  "checked_at": "2026-09-12T08:16:50.460245+00:00",
+  "status": "passed",
+  "artifact_commit": "6b7767c3550137b32db24b5af158d001a6eae3c7",
+  "public_downloads": [
+    {
+      "path": "docs/customer/demo/index.html",
+      "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/",
+      "http_status": 200,
+      "bytes": 304385,
+      "sha256": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af",
+      "matches_reviewed_file": true
+    },
+    {
+      "path": "docs/customer/demo/recorded-demo.webm",
+      "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/recorded-demo.webm",
+      "http_status": 200,
+      "bytes": 1486567,
+      "sha256": "bb39d0979f8ed62cb5580ca493347238500862f54047ffff66ca828e591f8316",
+      "matches_reviewed_file": true
+    },
+    {
+      "path": "docs/customer/NetMambaPlus-customer-briefing.pdf",
+      "url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/6b7767c3550137b32db24b5af158d001a6eae3c7/docs/customer/NetMambaPlus-customer-briefing.pdf",
+      "http_status": 200,
+      "bytes": 63738,
+      "sha256": "d9f8c2e22adb053445591fad2880bd993d23c5d42c772495ad568f1d71fe6219",
+      "matches_reviewed_file": true
+    },
+    {
+      "path": "docs/customer/NetMambaPlus-customer-slides.pptx",
+      "url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/6b7767c3550137b32db24b5af158d001a6eae3c7/docs/customer/NetMambaPlus-customer-slides.pptx",
+      "http_status": 200,
+      "bytes": 244783,
+      "sha256": "73583bdc09fd56d4754016ec041f53212204408b98796ae82f31964d8ecc778a",
+      "matches_reviewed_file": true
+    },
+    {
+      "path": "docs/customer/NetMambaPlus-customer-slides.pdf",
+      "url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/6b7767c3550137b32db24b5af158d001a6eae3c7/docs/customer/NetMambaPlus-customer-slides.pdf",
+      "http_status": 200,
+      "bytes": 480562,
+      "sha256": "2d3f99e32ed917080d47b20ca2d8d2990ed7a838de094f8414fa731c9874761e",
+      "matches_reviewed_file": true
+    }
+  ],
+  "hosted_browser": {
+    "status": "passed",
+    "browser": "140.0.7339.16",
+    "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/",
+    "checks": [
+      "hosted play/pause",
+      "1041 rows",
+      "91 error rows",
+      "402 attack-class predictions",
+      "mobile overflow",
+      "reset",
+      "no page errors",
+      "recorded video playback"
+    ],
+    "video": {
+      "duration": 14.12,
+      "played": true
+    }
+  },
+  "ci": [
+    {
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34682785649",
+      "commit": "6b7767c3550137b32db24b5af158d001a6eae3c7",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "test (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "test (3.10)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34682785650",
+      "commit": "6b7767c3550137b32db24b5af158d001a6eae3c7",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "deploy",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

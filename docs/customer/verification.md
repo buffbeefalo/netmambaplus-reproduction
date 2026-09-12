@@ -28,6 +28,12 @@ This record describes checks performed by the implementing session against the m
 
 The [evidence index](evidence/artifact-index.json) binds 57 exact copied records to SHA-256 hashes. Browser evidence includes the successful desktop/mobile screenshots and a recording. An earlier failed mobile layout rehearsal was corrected without changing the original model predictions; the [research record](../research/research-record.md) explains that correction and the measured byte tensor shape.
 
+## Public delivery checks
+
+The training/customer artifacts were published in commit [`6b7767c3550137b32db24b5af158d001a6eae3c7`](https://github.com/buffbeefalo/netmambaplus-reproduction/commit/6b7767c3550137b32db24b5af158d001a6eae3c7). Its [Python 3.10/3.12 CPU CI](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34682785649) and [Pages deployment](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34682785650) completed successfully. The [public-download and hosted-browser receipt](publication-checks.json) records the exact artifact hashes, public URLs, workflow results and real browser checks. Later documentation-only delivery receipts do not change the measured model or prediction records.
+
+The public HTML and recorded video, plus all three main PDF/PowerPoint files, were downloaded without repository credentials and matched the reviewed local bytes. The hosted browser passed playback controls, all/error/attack filters, mobile overflow, reset and video playback. The [customer index](README.md) links the downloadable release bundle. Git attributes preserve the original bytes of hash-bound records; native warning whitespace and generated SVG formatting are retained intentionally.
+
 ## Repeat the package checks without a GPU
 
 From the repository root:
