@@ -1,0 +1,174 @@
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:158: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:227: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:295: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:368: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:440: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:520: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/triton/layernorm.py:507: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/mamba_ssm/ops/triton/layernorm.py:566: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+Not using distributed mode
+[02:49:06.322186] args.distributed: False
+[02:49:06.322223] job dir: /home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/src
+[02:49:06.322253] Namespace(batch_size=128,
+steps=100,
+epochs=400,
+save_steps_freq=65,
+accum_iter=1,
+model='fuse3_mamba_pretrain',
+input_size=40,
+mask_ratio=0.9,
+norm_pix_loss=False,
+weight_decay=0.05,
+lr=None,
+blr=0.001,
+min_lr=0.0,
+warmup_epochs=25,
+data_path='/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022',
+output_dir='/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain',
+log_dir='/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain/logs',
+device='cuda',
+seed=0,
+resume='',
+num_workers=2,
+pin_mem=True,
+world_size=1,
+local_rank=-1,
+dist_on_itp=False,
+dist_url='env://',
+if_amp=False,
+pop=False,
+pop_loss_weight=0.01,
+num_packet=5,
+num_packet_byte=320,
+header_len=80,
+payload_len=240,
+stride_size=4,
+seq_len=20,
+dataset_type='byte_size_interval',
+seq_key='sizes',
+size_key='sizes',
+average='weighted',
+byte_mask_ratio=0.9,
+size_mask_ratio=0.15,
+iat_mask_ratio=0.15,
+distributed=False)
+[02:49:06.989605] Dataset: <util.loader_data.ByteSizeIntervalDataset object at 0xe11acd008e90>, type: byte_size_interval, size_key: sizes, ratio: 1.0
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/lib/python3.12/site-packages/torch/cuda/__init__.py:283: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  warnings.warn(
+[02:49:07.325034] Model = NetMamba(
+  (byte_embed): StrideEmbed(
+    (proj): Conv1d(1, 256, kernel_size=(4,), stride=(4,))
+  )
+  (size_embed): FixedCosineEmbed()
+  (iat_embed): FixedCosineEmbed()
+  (pos_drop): Dropout(p=0.0, inplace=False)
+  (drop_path): DropPath()
+  (encoder_blocks): ModuleList(
+    (0-1): 2 x Block(
+      (mixer): Mamba(
+        (in_proj): Linear(in_features=256, out_features=1024, bias=False)
+        (conv1d): Conv1d(512, 512, kernel_size=(4,), stride=(1,), padding=(3,), groups=512)
+        (act): SiLU()
+        (x_proj): Linear(in_features=512, out_features=48, bias=False)
+        (dt_proj): Linear(in_features=16, out_features=512, bias=True)
+        (out_proj): Linear(in_features=512, out_features=256, bias=False)
+      )
+      (norm): RMSNorm()
+      (drop_path): Identity()
+    )
+    (2-3): 2 x Block(
+      (mixer): Mamba(
+        (in_proj): Linear(in_features=256, out_features=1024, bias=False)
+        (conv1d): Conv1d(512, 512, kernel_size=(4,), stride=(1,), padding=(3,), groups=512)
+        (act): SiLU()
+        (x_proj): Linear(in_features=512, out_features=48, bias=False)
+        (dt_proj): Linear(in_features=16, out_features=512, bias=True)
+        (out_proj): Linear(in_features=512, out_features=256, bias=False)
+      )
+      (norm): RMSNorm()
+      (drop_path): DropPath()
+    )
+  )
+  (norm_f): RMSNorm()
+  (byte_decoder_embed): Linear(in_features=256, out_features=128, bias=True)
+  (byte_decoder_blocks): ModuleList(
+    (0-1): 2 x Block(
+      (mixer): Mamba(
+        (in_proj): Linear(in_features=128, out_features=512, bias=False)
+        (conv1d): Conv1d(256, 256, kernel_size=(4,), stride=(1,), padding=(3,), groups=256)
+        (act): SiLU()
+        (x_proj): Linear(in_features=256, out_features=40, bias=False)
+        (dt_proj): Linear(in_features=8, out_features=256, bias=True)
+        (out_proj): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (norm): RMSNorm()
+      (drop_path): Identity()
+    )
+  )
+  (decoder_norm_f): RMSNorm()
+  (byte_decoder_pred): Linear(in_features=128, out_features=4, bias=True)
+  (size_decoder_pred): Linear(in_features=256, out_features=1503, bias=True)
+  (iat_decoder_pred): Linear(in_features=256, out_features=1, bias=True)
+)
+[02:49:07.325210] trainable params: 2573284 || all params: 2573284 || trainable%: 100.0000
+[02:49:07.325222] base lr: 1.00e-03
+[02:49:07.325226] actual lr: 5.00e-04
+[02:49:07.325239] accumulate grad iterations: 1
+[02:49:07.325243] effective batch size: 128
+[02:49:07.325456] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0.0
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0.05
+)
+[02:49:07.325493] Start training for 100 steps
+[02:49:07.325803] log_dir: /home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain/logs
+[02:49:13.992317] Epoch: [0]  [ 0/66]  steps: 0  lr: 0.000000  loss: 10.1124 (10.1124)  byte_loss: 0.8939 (0.8939)  size_loss: 7.5034 (7.5034)  interval_loss: 1.7151 (1.7151)  eta: 0:07:19  time: 6.6657  data: 0.0587  max mem: 1467
+[02:49:15.707413] Epoch: [0]  [20/66]  steps: 20  lr: 0.000006  loss: 10.0592 (10.0615)  byte_loss: 0.8729 (0.8730)  size_loss: 7.4958 (7.4946)  interval_loss: 1.6841 (1.6940)  eta: 0:00:18  time: 0.0857  data: 0.0001  max mem: 1492
+[02:49:17.371806] Epoch: [0]  [40/66]  steps: 40  lr: 0.000012  loss: 9.7042 (9.8890)  byte_loss: 0.8058 (0.8404)  size_loss: 7.4184 (7.4560)  interval_loss: 1.5002 (1.5926)  eta: 0:00:06  time: 0.0832  data: 0.0001  max mem: 1492
+[02:49:19.034196] Epoch: [0]  [60/66]  steps: 60  lr: 0.000018  loss: 9.0174 (9.6069)  byte_loss: 0.6731 (0.7868)  size_loss: 7.2519 (7.3861)  interval_loss: 1.0859 (1.4340)  eta: 0:00:01  time: 0.0831  data: 0.0001  max mem: 1492
+[02:49:19.453904] Epoch: [0]  [65/66]  steps: 65  lr: 0.000020  loss: 8.7658 (9.5195)  byte_loss: 0.6260 (0.7698)  size_loss: 7.1892 (7.3661)  interval_loss: 0.9624 (1.3836)  eta: 0:00:00  time: 0.0831  data: 0.0001  max mem: 1492
+[02:49:19.484262] Epoch: [0] Total time: 0:00:12 (0.1842 s / it)
+[02:49:19.484325] Averaged stats: steps: 65  lr: 0.000020  loss: 8.7658 (9.5195)  byte_loss: 0.6260 (0.7698)  size_loss: 7.1892 (7.3661)  interval_loss: 0.9624 (1.3836)
+[02:49:19.485712] log_dir: /home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain/logs
+[02:49:19.771492] Epoch: [1]  [ 0/66]  steps: 66  lr: 0.000020  loss: 8.2744 (8.2744)  byte_loss: 0.5373 (0.5373)  size_loss: 7.0695 (7.0695)  interval_loss: 0.6675 (0.6675)  eta: 0:00:18  time: 0.2849  data: 0.1390  max mem: 1492
+[02:49:21.444460] Epoch: [1]  [20/66]  steps: 86  lr: 0.000026  loss: 7.6094 (7.6650)  byte_loss: 0.4313 (0.4421)  size_loss: 6.8392 (6.8398)  interval_loss: 0.3638 (0.3831)  eta: 0:00:04  time: 0.0836  data: 0.0001  max mem: 1492
+[02:49:23.101999] Epoch: [1]  [40/66]  steps: 106  lr: 0.000032  loss: 6.4412 (7.0425)  byte_loss: 0.2311 (0.3403)  size_loss: 6.1313 (6.4736)  interval_loss: 0.0632 (0.2285)  eta: 0:00:02  time: 0.0828  data: 0.0001  max mem: 1492
+[02:49:24.769374] Epoch: [1]  [60/66]  steps: 126  lr: 0.000038  loss: 4.8427 (6.3129)  byte_loss: 0.1113 (0.2669)  size_loss: 4.6859 (5.8773)  interval_loss: 0.0458 (0.1687)  eta: 0:00:00  time: 0.0833  data: 0.0001  max mem: 1492
+[02:49:25.168546] Epoch: [1]  [65/66]  steps: 131  lr: 0.000040  loss: 4.3881 (6.1270)  byte_loss: 0.1063 (0.2538)  size_loss: 4.2262 (5.7140)  interval_loss: 0.0454 (0.1593)  eta: 0:00:00  time: 0.0823  data: 0.0001  max mem: 1492
+[02:49:25.230033] Epoch: [1] Total time: 0:00:05 (0.0870 s / it)
+[02:49:25.230194] Averaged stats: steps: 131  lr: 0.000040  loss: 4.3881 (6.1270)  byte_loss: 0.1063 (0.2538)  size_loss: 4.2262 (5.7140)  interval_loss: 0.0454 (0.1593)
+[02:49:25.230997] Training time 0:00:17

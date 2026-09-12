@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-12T10:18:26.060161+00:00",
+  "check": "Intentionally wrong expected briefing page count rejected; valid document receipt left unchanged",
+  "error": "Rendered NetMambaPlus-customer-briefing.pdf page count differs from the presentation map: expected 9",
+  "actual_pages": 8,
+  "deliberately_wrong_expected_pages": 9
+}

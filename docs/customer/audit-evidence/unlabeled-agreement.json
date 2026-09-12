@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "rows": 1041,
+  "prediction_agreement": 1.0,
+  "max_absolute_logit_difference": 0.0,
+  "export_checkpoint_sha256": "7dddf43e361373d81261b1337efab9c4d046383899432ce98e1df5f873620217",
+  "reference_checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+  "unlabeled_input_sha256": "9b6d696a7272145b6d5b2585fbc2394ddd4334e39d68e91d5b5792f46b0e0156",
+  "scope": "All 1041 fixed test flows with ground-truth labels and identifiers removed; model-only export; same test set, no retuning or new holdout."
+}

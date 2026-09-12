@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "method": "pdfinfo on rendered PDFs",
+  "scope": "Page inventory and artifact identity; content and visual review are separate checks",
+  "files": {
+    "NetMambaPlus-customer-briefing.pdf": {
+      "pages": 8,
+      "sha256": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d"
+    },
+    "NetMambaPlus-customer-slides.pdf": {
+      "pages": 16,
+      "sha256": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1"
+    },
+    "NetMambaPlus-customer-slides.pptx": {
+      "sha256": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5"
+    }
+  }
+}

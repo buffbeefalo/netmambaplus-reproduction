@@ -1,0 +1,204 @@
+{
+  "created_at": "2026-09-12T09:52:26.797072+00:00",
+  "scope": "Fresh repeatability checks after the original three completed training runs. Original evidence remains unchanged; no new independent holdout or retuning. No raw flow inputs or weights copied.",
+  "files": [
+    {
+      "path": "source-integrity.txt",
+      "sha256": "bd481e8a3bf528bbd9ca77da2895a524603dfa1cd15950e956e9eebced2853e0",
+      "bytes": 792,
+      "source": "runs/double-check-source.txt"
+    },
+    {
+      "path": "data-validation.json",
+      "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+      "bytes": 2835,
+      "source": "runs/double-check-data-validation.json"
+    },
+    {
+      "path": "cpu-tests.txt",
+      "sha256": "1735d2c8541450584a944f5edee5b6cb5cbcb72dac1121552fe89dffedcb6cec",
+      "bytes": 6545,
+      "source": "runs/double-check-tests.txt"
+    },
+    {
+      "path": "dependency-install.json",
+      "sha256": "c846cade8db2256cdde884b28dbd758550bacd85901a07660bcd321940c33b05",
+      "bytes": 366,
+      "source": "runs/double-check-dependency-install.json"
+    },
+    {
+      "path": "public-browser.json",
+      "sha256": "d5f9a74a52323cc9366f256b0d53aac57b5e50b52bacc8067f50eb79698e277a",
+      "bytes": 820,
+      "source": "runs/double-check-public-browser.json"
+    },
+    {
+      "path": "unlabeled-agreement.json",
+      "sha256": "fb91364aa3294cca5e439e2d26df00ee76b16cf97c63125115ea0b53514d79ee",
+      "bytes": 559,
+      "source": "runs/double-check-unlabeled-agreement.json"
+    },
+    {
+      "path": "runtime-main.json",
+      "sha256": "fd78580fea892f62ca9851222dc6267ad2f04e4d357b10cb8c003f7ffd697008",
+      "bytes": 2753,
+      "source": "runs/double-check-runtime-main.json"
+    },
+    {
+      "path": "runtime-rehearsal.json",
+      "sha256": "7c065933958796b10ad01b21969713672b3a0ba13106e547122e6b3826e61577",
+      "bytes": 2753,
+      "source": "runs/double-check-runtime-rehearsal.json"
+    },
+    {
+      "path": "export-seed0/manifest.json",
+      "sha256": "70ffbac23080cc92b3a93afc362ce8e4f01c3b60c606a652bd09df88299c14a9",
+      "bytes": 18670,
+      "source": "runs/double-check-export-seed0/manifest.json"
+    },
+    {
+      "path": "export-seed0/metrics.json",
+      "sha256": "04be64ef0b22ac9ac73ffc0264f1fa954e8cd70b809b03e84477f90393669b61",
+      "bytes": 2640,
+      "source": "runs/double-check-export-seed0/metrics.json"
+    },
+    {
+      "path": "export-seed1/manifest.json",
+      "sha256": "eaef3caf96e34056716bdcf0af22a8e32d601a75681fe368c056fdcf447038b2",
+      "bytes": 18670,
+      "source": "runs/double-check-export-seed1/manifest.json"
+    },
+    {
+      "path": "export-seed1/metrics.json",
+      "sha256": "09efce568dd7bb0841d03193b7811ee39ec897887abca9e2719ebf11f0dfb042",
+      "bytes": 2627,
+      "source": "runs/double-check-export-seed1/metrics.json"
+    },
+    {
+      "path": "export-seed2/manifest.json",
+      "sha256": "b7a5ee1cf024b429bb358b54ce6b020bff5f9ef40c9c885815e71061d7bd5294",
+      "bytes": 18670,
+      "source": "runs/double-check-export-seed2/manifest.json"
+    },
+    {
+      "path": "export-seed2/metrics.json",
+      "sha256": "76999f3845dac5f5581640ba3c5a324b0c996a45a5d775104e875e2465d78062",
+      "bytes": 2625,
+      "source": "runs/double-check-export-seed2/metrics.json"
+    },
+    {
+      "path": "unlabeled-export/manifest.json",
+      "sha256": "d62ef207a99bd28781aa74619a212b646f44340a4bd565e00b1c190a6b164b08",
+      "bytes": 18675,
+      "source": "runs/double-check-unlabeled-export-seed0/manifest.json"
+    },
+    {
+      "path": "unlabeled-export/metrics.json",
+      "sha256": "6d18dff6cea04f667ed451904ff85ec4b5f72943a2f441cf50d731b810a9322d",
+      "bytes": 478045,
+      "source": "runs/double-check-unlabeled-export-seed0/metrics.json"
+    },
+    {
+      "path": "benchmark/manifest.json",
+      "sha256": "d2e0718aed1da63c20a14bf74af533d2538d3d0989b528e4d5373702df2b7a9e",
+      "bytes": 18507,
+      "source": "runs/double-check-benchmark/manifest.json"
+    },
+    {
+      "path": "benchmark/metrics.json",
+      "sha256": "2ce78196305918d3c1b910e322a1be2305c78814ff4be52111fee8c4c9268dc1",
+      "bytes": 10402,
+      "source": "runs/double-check-benchmark/metrics.json"
+    },
+    {
+      "path": "export-probe/manifest.json",
+      "sha256": "acc08d6b9691b56d9131df9a33db57a216163123a669d94350d47043f4b43f42",
+      "bytes": 18534,
+      "source": "runs/double-check-export-probe/manifest.json"
+    },
+    {
+      "path": "export-probe/metrics.json",
+      "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04",
+      "bytes": 4197,
+      "source": "runs/double-check-export-probe/metrics.json"
+    },
+    {
+      "path": "pretrain/manifest.json",
+      "sha256": "ff90c1d04d438d1d9cc938a80ef89fba1667797a418082e12744908bc8aef0c6",
+      "bytes": 18066,
+      "source": "runs/double-check-pretrain/manifest.json"
+    },
+    {
+      "path": "pretrain/native.log",
+      "sha256": "458daa511412ac1b182d0c94f3a5303a3770c897a119788e2641200d0bf21f99",
+      "bytes": 9910,
+      "source": "runs/double-check-pretrain/native.log"
+    },
+    {
+      "path": "pretrain/log.txt",
+      "sha256": "09357b1793aa8463a911de81038d2146c60fabf01646a2301bc7ba0e52693fcb",
+      "bytes": 446,
+      "source": "runs/double-check-pretrain/log.txt"
+    },
+    {
+      "path": "pretrain/train_stats.json",
+      "sha256": "fbc4f7adc729fb7495ea16691be9abbf049d42a17d7a865582ba42c4963e3f42",
+      "bytes": 74,
+      "source": "runs/double-check-pretrain/train_stats.json"
+    },
+    {
+      "path": "guide/browser-check.json",
+      "bytes": 808,
+      "sha256": "0366f34e910ff0b1f650e81fa3c7cfc0e9dd0c559e89d0fc624b245614c7f2a0",
+      "source": "runs/guide-rehearsal-pagechecked/browser-check.json"
+    },
+    {
+      "path": "guide/guide-1440.png",
+      "bytes": 143207,
+      "sha256": "b4d02d3bfb39e5ee314c78ca1a964256de711b95fc64943d9066c4df02411ef6",
+      "source": "runs/guide-rehearsal-pagechecked/guide-1440.png"
+    },
+    {
+      "path": "guide/guide-390.png",
+      "bytes": 78145,
+      "sha256": "b3c215d57796efb9917008d66fc6d10601a4d1063ae200c39b7bd6a741a92194",
+      "source": "runs/guide-rehearsal-pagechecked/guide-390.png"
+    },
+    {
+      "path": "verifier-rejection-checks.json",
+      "bytes": 343,
+      "sha256": "2dbb56ffcd6c9b95dec48a766a42827b73321e7aa41e59524d4af20b543e3382",
+      "source": "runs/expanded-verifier-rejection-checks.json"
+    },
+    {
+      "path": "primary-summary.json",
+      "bytes": 7074,
+      "sha256": "edcafad2f8ea3c1581c42de66f8df7bbeba514e15e5980a46e63f82a0b68cc55",
+      "source": "tools/summarize_audit.py from retained primary records and live package checks"
+    },
+    {
+      "path": "page-count-rejection.json",
+      "bytes": 366,
+      "sha256": "e0b02fc0f9d0183c42ba4e843dd3301a3babc23f27c8025a06260f9417238b71",
+      "source": "Actual check_document_counts execution with deliberately wrong expected page count"
+    },
+    {
+      "path": "csv-profile.json",
+      "bytes": 17318,
+      "sha256": "2552a68d8ecae3bb219408ef65de12f4fbc3694819d00c828bf089a28c969e82",
+      "source": "runs/double-check-csv-profile.json; fresh full CSV metadata scans match the original complete file profiles"
+    },
+    {
+      "path": "prediction-rejection-checks.json",
+      "bytes": 722,
+      "sha256": "e5d3aa1d2fd19b58cfa75bb90cb432cfdfc3ed78c93f94a41b89fee0013e6b00",
+      "source": "Actual disposable-package semantic rejection checks"
+    },
+    {
+      "path": "benchmark-arithmetic.json",
+      "bytes": 2302,
+      "sha256": "a26bac17c53c447db6ad2779319cb02d2aa80e628f2b0a7e903aa3ebed6fd13d",
+      "source": "Independent statistics calculation over original and repeat benchmark samples"
+    }
+  ]
+}

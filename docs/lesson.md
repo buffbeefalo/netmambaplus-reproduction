@@ -2,6 +2,8 @@
 
 The [README](../README.md) contains commands, acquisition links and the current evidence record. This lesson explains what those commands mean. Its references and exercises were reviewed against this repository's CLI and tests; it does not claim external course publication or video generation.
 
+New to networking or machine learning? Start with the [slide-aligned field guide](customer/demo/guide.html), [simple setup and tests](customer/quickstart.md) and [paper/data/source comparison](customer/upstream-comparison.md). The field guide and presenter script are generated from the same slide source; the package verifier checks their alignment. This lesson remains the more detailed explanation of the native loader and harness.
+
 ## Start with the unit of observation
 
 A **packet** is one message fragment on a network. A **flow** groups packets using an established connection rule and ordering. A traffic classifier learns a relationship between an observation and a target class. Changing the observation changes the task, even if the model keeps the same name.
@@ -70,7 +72,7 @@ Accuracy is the fraction of correct predictions. Precision measures how often a 
 
 ## Understand the limits of duplicate checks
 
-Two distinct filenames may contain identical model inputs. Therefore checking `pcap_file` overlap is useful but insufficient. The harness also fingerprints the exact raw byte strings, size string and interval string, excluding the label and filename. The counting formula and file hashes are in the README.
+Two distinct filenames may contain identical model inputs. Therefore checking `pcap_file` overlap is useful but insufficient. The harness also fingerprints the exact raw byte strings, size string and interval string, excluding the label and filename. The counting formula is in the [harness reference](harness-reference.md); file hashes and counts are in the [native validation record](customer/evidence/native-data-validation.json).
 
 Intake found five train/validation and six train/test shared raw inputs in the released CICIoT2022 files; the implemented validator confirmed them. No recorded cross-split file identifiers overlapped. These observations do not establish whether the original captures were independent, and padding/truncation can collapse additional distinct raw records into identical transformed inputs. The harness reports what it can establish and preserves the official split.
 

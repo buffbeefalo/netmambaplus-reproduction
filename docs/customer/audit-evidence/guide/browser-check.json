@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-12T10:13:24.561608+00:00",
+  "url": "file:///home/nvidia/netmambaplus-reproduction/docs/customer/demo/guide.html",
+  "browser": "140.0.7339.16",
+  "guide_sections": 16,
+  "questions": 7,
+  "viewport_checks": [
+    {
+      "width": 320,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "horizontal_overflow": false
+    }
+  ],
+  "checks": [
+    "all titles",
+    "all speaker scripts",
+    "all script disclosures open/close",
+    "all internal anchors",
+    "keyboard skip link",
+    "no JavaScript errors"
+  ],
+  "html_sha256": "2fde58ccb145149e6fcf751dded4e6efc285d19a276b4fed4cc15c8ca3337b95"
+}

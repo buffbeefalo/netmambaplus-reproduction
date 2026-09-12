@@ -1,0 +1,124 @@
+{
+  "metrics": {
+    "loss": 0.3316650390625,
+    "acc1": 0.912584053501272,
+    "acc3": 0.9865513928914506,
+    "weighted_pre": 0.9136346159626185,
+    "weighted_rec": 0.9125840537944284,
+    "weighted_f1": 0.9125716652673541,
+    "cm": [
+      [
+        185,
+        14,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        199,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        185,
+        1,
+        12,
+        2
+      ],
+      [
+        0,
+        1,
+        1,
+        37,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        7,
+        0,
+        168,
+        25
+      ],
+      [
+        1,
+        1,
+        6,
+        0,
+        16,
+        176
+      ]
+    ],
+    "acc": 0.9125840537944284,
+    "pre_per_class": [
+      0.9893048128342246,
+      0.9255813953488372,
+      0.9296482412060302,
+      0.9736842105263158,
+      0.8527918781725888,
+      0.8585365853658536
+    ],
+    "rec_per_class": [
+      0.925,
+      0.995,
+      0.925,
+      0.9024390243902439,
+      0.84,
+      0.88
+    ],
+    "f1_per_class": [
+      0.9560723514211886,
+      0.9590361445783132,
+      0.9273182957393483,
+      0.9367088607594937,
+      0.8463476070528967,
+      0.8691358024691358
+    ],
+    "support_per_class": [
+      200,
+      200,
+      200,
+      41,
+      200,
+      200
+    ]
+  },
+  "nonfinite_metric_paths": [],
+  "checkpoint_sha256": "7dddf43e361373d81261b1337efab9c4d046383899432ce98e1df5f873620217",
+  "class_mapping": {
+    "6-Attacks-1-Flood": 0,
+    "6-Attacks-2-RTSP Brute Force": 1,
+    "1-Power-Audio": 2,
+    "1-Power-Other": 3,
+    "1-Power-Cameras": 4,
+    "1-Power-Home Automation": 5
+  },
+  "checkpoint_provenance": {
+    "class_order": "hash_bound",
+    "training_history": "unknown",
+    "source": "/home/nvidia/netmambaplus-reproduction/checkpoints/customer-export/seed0-provenance.json",
+    "source_file": {
+      "path": "/home/nvidia/netmambaplus-reproduction/checkpoints/customer-export/seed0-provenance.json",
+      "sha256": "989fd6ea88fd60a053a8b182b7116f40d2819d845f17a11890f4329501cab865",
+      "bytes": 961
+    },
+    "checkpoint_sha256": "7dddf43e361373d81261b1337efab9c4d046383899432ce98e1df5f873620217",
+    "class_mapping": {
+      "6-Attacks-1-Flood": 0,
+      "6-Attacks-2-RTSP Brute Force": 1,
+      "1-Power-Audio": 2,
+      "1-Power-Other": 3,
+      "1-Power-Cameras": 4,
+      "1-Power-Home Automation": 5
+    },
+    "note": "Hash binding is recorded provenance, not independent authentication of its claims."
+  },
+  "evaluation_behavior": "Unmodified engine_mm.evaluate, including internal CUDA autocast"
+}

@@ -3,103 +3,468 @@
   "date": "15 September 2026",
   "slides": [
     {
-      "layout": "cover", "section": "Customer research briefing",
+      "layout": "cover",
+      "section": "Customer research briefing",
       "title": "NetMamba+\nfrom source to a measured demo",
       "subtitle": "Actual GPU training, saved-classifier inference and a practical IDS roadmap",
-      "cards": [["3 × 120", "completed fine-tuning epochs"], ["@@mean_accuracy@@", "mean test accuracy · three seeds"], ["1,041", "flows in the fixed test split"]],
+      "cards": [
+        [
+          "3 × 120",
+          "completed fine-tuning epochs"
+        ],
+        [
+          "@@mean_accuracy@@",
+          "mean test accuracy · three seeds"
+        ],
+        [
+          "1,041",
+          "flows in the fixed test split"
+        ]
+      ],
       "takeaway": "Source-based fine-tuning on a GB10 compatibility port. Exact paper reproduction remains unestablished.",
-      "notes": "Start with the evidence boundary. We ran the original multimodal Mamba classifier and native training workflow on a GB10. The results belong to a documented source-based protocol, which differs from the paper's environment and batch/rate settings. The customer demo is backed by a real saved classifier. Do not call this a validated production IDS or claim the paper's 97.50 percent accuracy as our result."
+      "notes": "Start with the evidence boundary. We ran the original multimodal Mamba classifier and native training workflow on a GB10. The results belong to a documented source-based protocol, which differs from the paper's environment and batch/rate settings. The customer demo is backed by a real saved classifier. Do not call this a validated production IDS or claim the paper's 97.50 percent accuracy as our result.",
+      "plain_language": {
+        "explanation": "We built and ran a research model that sorts examples of network traffic into six categories. The evidence includes actual learning runs and the model’s correct and incorrect answers. This gives us a working research starting point, not proof that it can protect a customer network.",
+        "analogy": "Think of training a sorter using labeled envelopes. A good score on one collection does not tell us how well it will sort every future collection.",
+        "remember": "We ran the original model, and we can show the results and mistakes.",
+        "evidence": "evidence/results.json"
+      }
     },
     {
-      "layout": "cards", "section": "01 / What was actually tried",
+      "layout": "cards",
+      "section": "01 / What was actually tried",
       "title": "From an untested harness to GPU evidence",
       "subtitle": "The work includes failures, fixes and a repeatable installation rehearsal.",
-      "cards": [["Runtime", "Built the authors' Mamba fork and causal convolution for GB10.\nSeven forward/backward checks passed in two isolated environments."], ["Training", "Masked pretraining: 132 updates on training-only flows.\nFine-tuning: three seeds, 120 epochs and 7,920 updates each."], ["Inference", "Strictly reloaded the selected classifiers.\nRecomputed confusion matrices and metrics from saved predictions.\nBuilt an offline replay."]],
+      "cards": [
+        [
+          "Runtime",
+          "Built the authors' Mamba fork and causal convolution for GB10.\nSeven forward/backward checks passed in two isolated environments."
+        ],
+        [
+          "Training",
+          "Masked pretraining: 132 updates on training-only flows.\nFine-tuning: three seeds, 120 epochs and 7,920 updates each."
+        ],
+        [
+          "Inference",
+          "Strictly reloaded the selected classifiers.\nRecomputed confusion matrices and metrics from saved predictions.\nBuilt an offline replay."
+        ]
+      ],
       "takeaway": "Commands, hashes, losses and prediction records are published alongside the explanation.",
-      "notes": "The initial repository had standard-library tests and parser dry runs only. The old native extensions did not build directly on CUDA 13. The compatibility fixes affect compiler targets, removed CUB APIs and the assembler path; the original model and loader checkout stays unchanged. Both the first build and the automated rebuild passed numerical checks. A short pretraining run exercises reconstruction learning; it does not recreate the paper's entire pretraining history."
+      "notes": "The initial repository had standard-library tests and parser dry runs only. The old native extensions did not build directly on CUDA 13. The compatibility fixes affect compiler targets, removed CUB APIs and the assembler path; the original model and loader checkout stays unchanged. Both the first build and the automated rebuild passed numerical checks. A short pretraining run exercises reconstruction learning; it does not recreate the paper's entire pretraining history.",
+      "plain_language": {
+        "explanation": "The older model software needed changes to build on the newer GB10 computer. After checking the underlying calculations, we ran a short reconstruction exercise and three complete category-learning runs. We saved the commands, training history and outputs.",
+        "analogy": "Before trusting a measuring instrument, compare its readings with a reference. The numerical checks play that role for the GPU calculations.",
+        "remember": "Three training runs completed 120 passes through the training set each. The short pretraining check was a separate experiment.",
+        "evidence": "evidence/runtime/numerical-check.json"
+      }
     },
     {
-      "layout": "inputs", "section": "02 / Inputs and outputs",
+      "layout": "inputs",
+      "section": "02 / Inputs and outputs",
       "title": "One prediction describes one flow",
       "subtitle": "The uploaded packet CSVs cannot establish this ordered, multimodal flow representation.",
-      "cards": [["Byte content", "First 5 packets × 320 bytes\nTensor: [B, 1, 1, 1600]\n400 embedded byte strides"], ["Packet sizes", "First 20 values\nNative clipping and padding\n20 size tokens"], ["Arrival intervals", "First 20 values\nNative monotonic transform\n20 interval tokens"]],
+      "cards": [
+        [
+          "Byte content",
+          "First 5 packets × 320 bytes\nTensor: [B, 1, 1, 1600]\n400 embedded byte strides"
+        ],
+        [
+          "Packet sizes",
+          "First 20 values\nNative clipping and padding\n20 size tokens"
+        ],
+        [
+          "Arrival intervals",
+          "First 20 values\nNative monotonic transform\n20 interval tokens"
+        ]
+      ],
       "takeaway": "443 tokens → four Mamba blocks → three summed summary vectors → six class logits",
-      "notes": "The plus sign is material: NetMamba+ combines byte content, sizes and timing. The CSVs contain 1,500 payload-byte columns per packet, plus TTL, length, protocol, time delta and label. Full scans found 1,410,255 CICIDS2017 rows and 79,881 UNSW rows, but no flow identifiers or established packet grouping. We therefore used the authors' separate CICIoT2022 flow release. The six outputs are Flood, RTSP Brute Force and four IoT power/device categories, not a universal benign/malicious decision."
+      "notes": "The plus sign is material: NetMamba+ combines byte content, sizes and timing. The CSVs contain 1,500 payload-byte columns per packet, plus TTL, length, protocol, time delta and label. Full scans found 1,410,255 CICIDS2017 rows and 79,881 UNSW rows, but no flow identifiers or established packet grouping. We therefore used the authors' separate CICIoT2022 flow release. The six outputs are Flood, RTSP Brute Force and four IoT power/device categories, not a universal benign/malicious decision.",
+      "plain_language": {
+        "explanation": "A packet is one small piece of a network message. A flow groups related packets in order. The model looks at their byte content, sizes and time gaps. The two supplied spreadsheets list packets but do not tell us enough to group them into the required flows, so we used the authors’ compatible CICIoT2022 data.",
+        "analogy": "A packet is like one envelope; a flow is an ordered exchange of related envelopes. Nearby rows in a spreadsheet do not prove that the envelopes belong to the same exchange.",
+        "remember": "One flow goes in; six category scores and one predicted category come out. These categories cover two attacks and four IoT device/power groups.",
+        "evidence": "briefing.md"
+      }
     },
     {
-      "layout": "cards", "section": "03 / How learning works",
+      "layout": "cards",
+      "section": "03 / How learning works",
       "title": "Three stages, three different questions",
       "subtitle": "A pretraining checkpoint becomes a classifier only after supervised fine-tuning.",
-      "cards": [["1 · Pretrain", "Hide byte, size and timing entries.\nReconstruct the missing content.\nLearn an encoder without attack-category targets."], ["2 · Fine-tune", "Load the pretrained encoder.\nLearn six labeled categories.\nSelect the checkpoint using validation accuracy."], ["3 · Infer", "Freeze the selected classifier.\nLoad weights and class meanings strictly.\nEmit six scores and a predicted label."]],
+      "cards": [
+        [
+          "1 · Pretrain",
+          "Hide byte, size and timing entries.\nReconstruct the missing content.\nLearn an encoder without attack-category targets."
+        ],
+        [
+          "2 · Fine-tune",
+          "Load the pretrained encoder.\nLearn six labeled categories.\nSelect the checkpoint using validation accuracy."
+        ],
+        [
+          "3 · Infer",
+          "Freeze the selected classifier.\nLoad weights and class meanings strictly.\nEmit six scores and a predicted label."
+        ]
+      ],
       "takeaway": "The released pretraining file has no classification head. Our saved fine-tuned classifier does.",
-      "notes": "Pretraining masks 90 percent of byte strides and 15 percent of each sequence modality in the selected recipe. The paper reports Browser and Kitsune pretraining; its exact corpus and checkpoint history have not been established here. Our short training-only functional run proves that the reconstruction path executes and learns on downstream data. Main fine-tuning begins from the released pretraining weights. Inference does not update weights or consume the benchmark label as a model feature. Softmax confidence is uncalibrated."
+      "notes": "Pretraining masks 90 percent of byte strides and 15 percent of each sequence modality in the selected recipe. The paper reports Browser and Kitsune pretraining; its exact corpus and checkpoint history have not been established here. Our short training-only functional run proves that the reconstruction path executes and learns on downstream data. Main fine-tuning begins from the released pretraining weights. Inference does not update weights or consume the benchmark label as a model feature. Softmax confidence is uncalibrated.",
+      "plain_language": {
+        "explanation": "Pretraining teaches patterns by hiding parts of examples and asking the model to reconstruct them. Fine-tuning teaches the six named categories using examples with known answers. Inference uses the saved model to give an answer without changing what it learned.",
+        "analogy": "Pretraining resembles filling gaps in a text; fine-tuning resembles practicing labeled exercises; inference resembles answering a new exercise. The model learns numerical patterns, not human understanding.",
+        "remember": "Training changes the saved numbers. Inference reads those numbers and makes a prediction. Our main runs started from the authors’ released pretraining checkpoint.",
+        "evidence": "runbook.md"
+      }
     },
     {
-      "layout": "protocol", "section": "04 / Experimental protocol",
+      "layout": "protocol",
+      "section": "04 / Experimental protocol",
       "title": "The source recipe differs from the paper",
       "subtitle": "Preserve those differences when describing the result.",
       "takeaway": "Official splits: 8,323 train / 1,040 validation / 1,041 test. Seed 0 was chosen for the demo before test scores.",
-      "notes": "The source preset runs 120 epochs with batch 128 and a base learning-rate parameter of 0.002. Native scaling gives a maximum effective rate of 0.001 for one process and accumulation one. The paper specifies batch 64 and rate 0.002. We used seeds zero, one and two and report them all. Five exact stored raw inputs overlap train and validation; six overlap train and test. Unknown earlier checkpoint exposure and physical capture independence remain limitations. Repeated strict evaluation checks the same frozen test result, not another independent holdout."
+      "notes": "The source preset runs 120 epochs with batch 128 and a base learning-rate parameter of 0.002. Native scaling gives a maximum effective rate of 0.001 for one process and accumulation one. The paper specifies batch 64 and rate 0.002. We used seeds zero, one and two and report them all. Five exact stored raw inputs overlap train and validation; six overlap train and test. Unknown earlier checkpoint exposure and physical capture independence remain limitations. Repeated strict evaluation checks the same frozen test result, not another independent holdout.",
+      "plain_language": {
+        "explanation": "Training examples teach the model. Validation examples help select a saved version. Test examples measure that selected version afterward. We followed the released source settings, which differ from the paper’s batch size and learning rate. Some exact inputs occur in more than one official split.",
+        "analogy": "Think of practice exercises, a practice exam for choosing a study approach, then a final exam. Repeated questions make it harder to judge performance on completely new material.",
+        "remember": "The official counts are 8,323 training, 1,040 validation and 1,041 test flows. Known overlap and unknown earlier checkpoint exposure limit the result.",
+        "evidence": "results.md"
+      }
     },
     {
-      "layout": "results", "section": "05 / Measured results",
+      "layout": "results",
+      "section": "05 / Measured results",
       "title": "Report every seed and name the metric",
       "subtitle": "Test accuracy, support-weighted F1 and macro F1 are independently recomputed.",
       "takeaway": "Paper Table IV: NetMamba+ CICIoT2022 accuracy/F1 = 97.50%. This is a reference under different conditions.",
-      "notes": "Accuracy is correct predictions divided by test rows. Weighted F1 weights each class by its number of true examples. Macro F1 treats every class equally, so a small weak class can lower macro F1 more strongly. The table reports all three declared seeds; the mean and sample standard deviation describe seed variability on the same dataset, not uncertainty across customer networks. The paper number is not our measurement and is not a directly controlled comparison. The full source-based experiment and strict re-evaluation are complete even if their scores do not match the paper."
+      "notes": "Our measured test accuracies were 91.26 percent for seed zero, 84.05 percent for seed one and 84.63 percent for seed two: @@mean_accuracy@@ mean, with a sample standard deviation of 4.00 percentage points. The paper reports 97.50 percent; we did not reproduce that score, and we have not isolated the reason for the gap. Accuracy is correct predictions divided by test rows. Weighted F1 weights each class by its number of true examples. Macro F1 treats every class equally, so a small weak class can lower macro F1 more strongly. The table reports all three declared seeds; the mean and sample standard deviation describe seed variability on the same dataset, not uncertainty across customer networks. The paper number is not our measurement and is not a directly controlled comparison. The full source-based experiment and strict re-evaluation are complete even if their scores do not match the paper.",
+      "plain_language": {
+        "explanation": "A seed controls parts of the model’s random starting choices. We ran seeds 0, 1 and 2 and reported all of them: 91.26%, 84.05% and 84.63% test accuracy. Their mean is @@mean_accuracy@@. The paper’s 97.50% is a different result under different conditions; we did not reproduce that score.",
+        "analogy": "Three runs are three attempts at the same exam using different random starts. They show variation on that exam, not performance on every possible exam.",
+        "remember": "Accuracy counts correct answers. F1 balances missed members of a class and incorrect assignments to it. Macro F1 gives each class equal weight.",
+        "evidence": "evidence/results.json"
+      }
     },
     {
-      "layout": "confusion", "section": "06 / Where the classifier makes mistakes",
+      "layout": "confusion",
+      "section": "06 / Where the classifier makes mistakes",
       "title": "Make the errors visible",
       "subtitle": "Seed 0, selected for the demo in advance. Rows are true classes; columns are predictions.",
       "takeaway": "The smallest test class contains 41 flows. Keep per-class support and recall beside the overall score.",
-      "notes": "Walk through one off-diagonal cell as a concrete mistake: the row says what the dataset label was, and the column says what the classifier predicted. Diagonal cells are correct. These six classes mix two attacks with four IoT categories. A high aggregate score cannot establish coverage of other attacks or acceptable false alerts on a real network. The full prediction inventory preserves errors; no examples were removed to improve the display."
+      "notes": "Walk through one off-diagonal cell as a concrete mistake: the row says what the dataset label was, and the column says what the classifier predicted. Diagonal cells are correct. These six classes mix two attacks with four IoT categories. A high aggregate score cannot establish coverage of other attacks or acceptable false alerts on a real network. The full prediction inventory preserves errors; no examples were removed to improve the display.",
+      "plain_language": {
+        "explanation": "The grid compares the known dataset label with the model’s answer. Numbers on the diagonal are correct; numbers off it are mistakes. Seed 0 got 950 of 1,041 flows right and 91 wrong. We kept all of those errors in the demo.",
+        "analogy": "Read each row as “what this example was,” and each column as “what the model called it.” For example, 25 camera-class flows were called home-automation flows.",
+        "remember": "A single overall percentage can hide mistakes in specific categories. The smallest category has only 41 test examples.",
+        "evidence": "figures/seed0-confusion.png"
+      }
     },
     {
-      "layout": "demo", "section": "07 / Working demonstration",
+      "layout": "demo",
+      "section": "07 / Working demonstration",
       "title": "Replay actual saved-classifier predictions",
       "subtitle": "The browser page works offline. GPU inference produced the records behind it.",
-      "cards": [["Present it", "Play, then Show all.\nFilter Prediction errors.\nExplain one mistake and show the checkpoint hash."], ["State the limit", "Recorded inference only.\nNo capture or blocking.\nDisplay pace is adjustable.\nScores are uncalibrated."]],
+      "cards": [
+        [
+          "Present it",
+          "Play, then Show all.\nFilter Prediction errors.\nExplain one mistake and show the checkpoint hash."
+        ],
+        [
+          "State the limit",
+          "Recorded inference only.\nNo capture or blocking.\nDisplay pace is adjustable.\nScores are uncalibrated."
+        ]
+      ],
       "takeaway": "A recorded walkthrough and PDF are included as meeting backups.",
-      "notes": "Open the HTML before the meeting. Press Play replay, then Show all, then select Prediction errors. The six class meanings and checkpoint hash are embedded with the measurements. This is a recorded inference demonstration, not live network traffic. The same repo contains commands to rerun actual GPU inference using the trained checkpoint. Raw packet payloads are not embedded in the presentation page."
+      "notes": "Open the HTML before the meeting. Press Play replay, then Show all, then select Prediction errors. The six class meanings and checkpoint hash are embedded with the measurements. This is a recorded inference demonstration, not live network traffic. The same repo contains commands to rerun actual GPU inference using the trained checkpoint. Raw packet payloads are not embedded in the presentation page.",
+      "plain_language": {
+        "explanation": "The browser plays back predictions that were already produced by the trained model on the GPU. Press Play replay, then Show all. Select Prediction errors to inspect wrong answers, or Attack-class predictions to inspect the two attack categories.",
+        "analogy": "This is like a recorded instrument reading: the measurement was real, but playing the recording faster does not make the instrument faster.",
+        "remember": "The page works offline. It does not watch your network or block traffic, and its confidence scores are not verified attack probabilities.",
+        "evidence": "demo/index.html"
+      }
     },
     {
-      "layout": "latency", "section": "08 / Measured inference cost",
+      "layout": "latency",
+      "section": "08 / Measured inference cost",
       "title": "Time the model and state what is excluded",
       "subtitle": "GB10 · float16 autocast · 20 warmups + 100 synchronized measurements per batch size",
       "takeaway": "These are model-only flows/second. Capture, flow waiting, preprocessing, transfers and alert handling are excluded.",
-      "notes": "The benchmark uses the frozen seed-zero classifier at batch sizes one, sixteen and one hundred twenty-eight, after training has finished. Each timing synchronizes CUDA before and after the model call. Show median and 95th-percentile batch latency, plus flows per second computed from mean time. Do not convert these figures into network line rate. The paper's 261.87 Mb/s and 3.15-second prototype figures concern its byte-only NetMamba online system on other hardware, not this model-only measurement."
+      "notes": "The benchmark uses the frozen seed-zero classifier at batch sizes one, sixteen and one hundred twenty-eight, after training has finished. Each timing synchronizes CUDA before and after the model call. Show median and 95th-percentile batch latency, plus flows per second computed from mean time. Do not convert these figures into network line rate. The paper's 261.87 Mb/s and 3.15-second prototype figures concern its byte-only NetMamba online system on other hardware, not this model-only measurement.",
+      "plain_language": {
+        "explanation": "We timed only the model’s calculation on the GPU. A one-flow batch had a median of about 0.88 milliseconds. Larger batches process more flows together. Receiving packets, waiting for a flow, preparing inputs and issuing alerts all add time beyond this measurement.",
+        "analogy": "Timing a sorting machine’s decision does not time the truck delivering the envelopes or the queue before the machine.",
+        "remember": "Do not turn model-only timing into a promise about network speed or how soon a live alert will arrive.",
+        "evidence": "evidence/benchmark/metrics.json"
+      }
     },
     {
-      "layout": "ids", "section": "09 / From demo to a simple IDS",
+      "layout": "ids",
+      "section": "09 / From demo to a simple IDS",
       "title": "The next build is a capture-to-alert system",
       "subtitle": "The classifier is measured. The online integration still needs its own implementation and tests.",
       "takeaway": "First milestone: a reviewed PCAP produces the same tensors as the training extractor, then run alert-only trials.",
-      "notes": "A deployable IDS requires capture, a bounded flow cache, exact feature extraction, a model queue, an alert policy and monitoring. The authors' extraction helpers have hardcoded paths and a missing common-module dependency, so we do not present them as turnkey live capture. Measure packet loss, queue delays, active-flow memory and false alerts on independent traffic. Mamba's internal sequence state is per model input; it is not already a persistent online connection cache."
+      "notes": "A deployable IDS requires capture, a bounded flow cache, exact feature extraction, a model queue, an alert policy and monitoring. The authors' extraction helpers have hardcoded paths and a missing common-module dependency, so we do not present them as turnkey live capture. Measure packet loss, queue delays, active-flow memory and false alerts on independent traffic. Mamba's internal sequence state is per model input; it is not already a persistent online connection cache.",
+      "plain_language": {
+        "explanation": "An intrusion detection system, or IDS, watches traffic and raises alerts for investigation. A simple future system could capture mirrored traffic, group packets into flows, create the exact required inputs, run this classifier and record reviewed alerts. The capture, extraction and alert components still need implementation and independent tests.",
+        "analogy": "The model is one station in a sorting facility. The intake, conveyor, labeling policy and monitoring still have to work together.",
+        "remember": "The first missing proof is that real captured packets produce compatible model inputs. Then test false alerts, missed attacks, delays and packet loss on independent traffic.",
+        "evidence": "hardware-roadmap.md"
+      }
     },
     {
-      "layout": "cards", "section": "10 / AI NPU and SmartNIC mapping",
+      "layout": "cards",
+      "section": "10 / AI NPU and SmartNIC mapping",
       "title": "Split packet handling from neural inference",
       "subtitle": "No NPU or SmartNIC execution is claimed in this project.",
-      "cards": [["SmartNIC / DPU", "Steer, filter, count and queue packets.\nHost or Arm cores manage flows and extraction.\nDOCA Flow is a candidate integration layer."], ["GPU / AI NPU", "GPU path works here.\nAn NPU needs a named compiler/device and support for the selective scan, causal convolution and normalization."], ["Proof before sizing", "Export status: @@export_status@@\nThen verify precision, memory and per-class accuracy.\nMeasure on the target hardware."]],
+      "cards": [
+        [
+          "SmartNIC / DPU",
+          "Steer, filter, count and queue packets.\nHost or Arm cores manage flows and extraction.\nDOCA Flow is a candidate integration layer."
+        ],
+        [
+          "GPU / AI NPU",
+          "GPU path works here.\nAn NPU needs a named compiler/device and support for the selective scan, causal convolution and normalization."
+        ],
+        [
+          "Proof before sizing",
+          "Export status: @@export_status@@\nThen verify precision, memory and per-class accuracy.\nMeasure on the target hardware."
+        ]
+      ],
       "takeaway": "DGX Spark does not support GPUDirect RDMA in current DOCA GPUNetIO documentation. Do not assume a direct NIC-to-GPU path.",
-      "notes": "A SmartNIC is not automatically a neural accelerator. DOCA Flow describes packet match/action and steering capabilities. For an AI NPU, Intel Core Ultra through OpenVINO is one example to investigate, not an already supported target. The custom CUDA Mamba operations need a supported graph or replacement kernels. Parameter storage alone is about 7.48 MB in FP32; total memory includes buffers, activations and workspaces. TOPS does not predict latency for an input-dependent recurrence. Our export probe only tests one Torch graph-capture route."
+      "notes": "A SmartNIC is not automatically a neural accelerator. DOCA Flow describes packet match/action and steering capabilities. For an AI NPU, Intel Core Ultra through OpenVINO is one example to investigate, not an already supported target. The custom CUDA Mamba operations need a supported graph or replacement kernels. Parameter storage alone is about 7.48 MB in FP32; total memory includes buffers, activations and workspaces. TOPS does not predict latency for an input-dependent recurrence. Our export probe only tests one Torch graph-capture route.",
+      "plain_language": {
+        "explanation": "A SmartNIC is a network card with extra processing capability; a DPU may also run general software. They could steer packets and help prepare flows. An NPU is an accelerator for neural calculations. Our model runs on a GPU today; its custom operations still need a supported route to a named NPU.",
+        "analogy": "The network card handles arrivals; the neural accelerator does the learned classification. Choosing faster arrivals does not prove the classifier can run on that card.",
+        "remember": "An actual Torch export attempt failed to capture a custom CUDA operation. No NPU compiler or SmartNIC execution was tested, so hardware deployment remains a proposal.",
+        "evidence": "evidence/export-probe/metrics.json"
+      }
     },
     {
-      "layout": "closing", "section": "11 / The defensible customer statement",
+      "layout": "closing",
+      "section": "11 / The defensible customer statement",
       "title": "A measured research baseline to build from",
       "subtitle": "We trained and tested the original NetMamba+ classifier on compatible flows, with a documented GB10 runtime port.",
-      "cards": [["Ready to show", "Three completed fine-tuning runs\nStrict saved-model inference\nIndependent metrics and errors\nOffline replay, documents and evidence"], ["Still to establish", "Full Browser/Kitsune pretraining history\nExact paper-protocol reproduction\nIndependent customer traffic + live extraction\nCalibrated IDS policy + target hardware execution"]],
+      "cards": [
+        [
+          "Ready to show",
+          "Three completed fine-tuning runs\nStrict saved-model inference\nIndependent metrics and errors\nOffline replay, documents and evidence"
+        ],
+        [
+          "Still to establish",
+          "Full Browser/Kitsune pretraining history\nExact paper-protocol reproduction\nIndependent customer traffic + live extraction\nCalibrated IDS policy + target hardware execution"
+        ]
+      ],
       "takeaway": "Next decision: agree on representative traffic and a specific deployment target before promising operational performance.",
-      "notes": "This sentence is the safe summary to repeat: We trained and tested the original NetMamba+ classifier on the authors' compatible CICIoT2022 flows using a documented GB10 compatibility port, and can show the measured results and replay. It is not an exact reproduction of all paper results and not a production IDS. The remaining work is concrete: pretraining provenance, independent traffic, a compatible online extractor, operational alert validation and actual deployment on the chosen device."
+      "notes": "This sentence is the safe summary to repeat: We trained and tested the original NetMamba+ classifier on the authors' compatible CICIoT2022 flows using a documented GB10 compatibility port, and can show the measured results and replay. It is not an exact reproduction of all paper results and not a production IDS. The remaining work is concrete: pretraining provenance, independent traffic, a compatible online extractor, operational alert validation and actual deployment on the chosen device.",
+      "plain_language": {
+        "explanation": "We can show a trained model, its measured answers, its errors and instructions for repeating the work on the tested computer. We still need independent customer traffic, a verified live input pipeline, a useful alert policy and deployment tests on the chosen hardware.",
+        "analogy": "A working research prototype is like a tested engine on a bench. Installing it in a vehicle and proving the complete vehicle works is another project.",
+        "remember": "Say “a measured research baseline.” Do not say “the paper’s result reproduced” or “a production IDS is ready.”",
+        "evidence": "verification.md"
+      }
     },
     {
-      "layout": "evidence", "section": "Appendix / Where to verify it",
+      "layout": "cards",
+      "section": "Appendix / Compared with the authors’ repository",
+      "title": "Keep the model; add a verified execution route",
+      "subtitle": "The paper proposes a method. The authors release research code and assets. This repo records a measured port.",
+      "cards": [
+        [
+          "Authors’ research",
+          "Original NetMamba+ model\nNative loader and engine\nCompatible flow data\nPretrained encoder weights"
+        ],
+        [
+          "Our additions",
+          "Source and asset checks\nGB10 build support\nStrict evaluation + prediction\nReplay, results and guides"
+        ],
+        [
+          "Disclosed changes",
+          "Compiler edits in build copies\nNew GPU / Torch runtime\nSource batch and rate recipe\nUnknown pretraining history"
+        ]
+      ],
+      "takeaway": "The original model and loader checkout is unchanged. Runtime and experiment differences prevent an exact paper reproduction claim.",
+      "notes": "The paper studies intrusion detection: recognizing patterns in network traffic that may indicate attacks. NetMamba+ combines byte content, packet sizes and timing. The authors’ repository is a research implementation and asset source. Our repository is a pinned execution and evidence wrapper around that implementation. We preserve all 103 tracked upstream files and seven core source hashes. Compiler compatibility edits are made only in disposable copies used to build Mamba and causal convolution for the newer GB10. We add data/source validation, reproducible commands, strict checkpoint loading, unlabeled inference, measurements and presentation material. The paper reports A100, Torch 2.1.1, batch 64 and learning rate 0.002; our source preset uses GB10, Torch 2.9.1, batch 128 and effective maximum rate 0.001. We have not isolated which differences caused the accuracy gap. The uploaded packet CSVs are not the separate CICIoT2022 flows used for training. Read upstream-comparison.md for the file-level comparison and dataset explanation.",
+      "plain_language": {
+        "explanation": "The paper is a research report about detecting suspicious network activity using learned patterns. The authors’ repository contains their model and training software. We built a checked way to run that software on this GB10 computer, saved what happened and added tools to explain and inspect it. We did not replace the original model with a different classifier.",
+        "analogy": "The paper describes a recipe and its reported outcome. The authors publish the cooking instructions. We document a run using those instructions on different equipment, including adjustments, measurements and failures. That does not guarantee the same outcome.",
+        "remember": "The original model and loader are unchanged. The build environment, experiment settings and new wrapper tools are disclosed in upstream-comparison.md.",
+        "evidence": "upstream-comparison.md"
+      }
+    },
+    {
+      "layout": "cards",
+      "section": "12 / Set up and use it",
+      "title": "Choose the route that matches your goal",
+      "subtitle": "Viewing, verifying and running the model have different requirements.",
+      "cards": [
+        [
+          "Present now",
+          "Open the guide and recorded replay in a browser.\nDownload the ZIP for offline use.\nNo Python or GPU needed."
+        ],
+        [
+          "Check the package",
+          "Clone or unzip the project.\nUse Python 3.10 or newer.\nRun the CPU tests and package verifier.\nNo training assets needed."
+        ],
+        [
+          "Run new inference",
+          "Follow the GB10 setup runbook.\nFetch pinned data and source.\nTrain a local classifier, then evaluate or predict."
+        ]
+      ],
+      "takeaway": "Start at docs/customer/quickstart.md. The full GPU setup is tested on GB10, not promised for every computer.",
+      "notes": "For the customer meeting, open guide.html and index.html under docs/customer/demo in the downloaded ZIP. No software installation is needed to view those pages. For a CPU check, open a terminal in the project root and run python3 -m unittest discover -s tests -v, followed by python3 tools/verify_package.py. The quickstart explains successful output. For fresh inference, follow the detailed runbook: acquire pinned upstream assets, build the GB10 runtime, run its numerical checks, train a classifier and pass its checkpoint to evaluate.py or predict.py. We do not distribute inherited pretrained weights in the customer ZIP, so it is not a ready-to-run GPU model download. Keep each run in a fresh output directory.",
+      "plain_language": {
+        "explanation": "Choose one of three paths. To understand or present the work, open the web guide and recorded demo. To check the delivered files, use Python on a normal computer. To train or make new predictions, use the specific GB10 setup and the external research assets described in the runbook.",
+        "analogy": "Reading a report, checking its arithmetic and running the experiment again are three different activities with different equipment needs.",
+        "remember": "Start with quickstart.md. The downloaded package includes the evidence and presentation; it does not include raw traffic or inherited model weights.",
+        "evidence": "quickstart.md"
+      }
+    },
+    {
+      "layout": "cards",
+      "section": "13 / What the checks proved",
+      "title": "Read a passing test in its proper scope",
+      "subtitle": "Passing software checks and successful GPU runs answer different questions.",
+      "cards": [
+        [
+          "CPU checks",
+          "54 tests passed.\nSaved metrics, hashes, links and document alignment checked.\nPrior package CI passed on Python 3.10 and 3.12."
+        ],
+        [
+          "Fresh GPU checks",
+          "All three model-only exports reproduced their scores.\nUnlabeled inference matched all 1,041 seed-0 predictions in this run."
+        ],
+        [
+          "Known limit",
+          "GPU inference works.\nThe tested Torch export path cannot trace a custom CUDA operation.\nNo NPU or live IDS test has passed."
+        ]
+      ],
+      "takeaway": "See verification.md for dated evidence and quickstart.md for commands. A passing CPU test does not rerun GPU training.",
+      "notes": "The CPU suite passed all 54 tests. It checks the harness including failure paths; the package verifier independently recomputes retained predictions and checks artifact identity. The GPU evidence is separate: three full fine-tuning runs, seven numerical checks in each of two environments, strict reloading of every classifier and new evaluation of all three model-only exports. Removing all benchmark labels and predicting the full 1,041-flow test input produced exactly the recorded seed-zero classes and logits in this fresh run. That is a frozen-result check on the same data, not a new independent accuracy result or a guarantee of universal bitwise repeatability. The strict Torch graph-capture probe failed at causal_conv1d_cuda.causal_conv1d_fwd after eager GPU inference passed. Known warnings and unimplemented deployment paths remain visible.",
+      "plain_language": {
+        "explanation": "The CPU tests check important software rules and error handling. The package verifier checks the saved evidence and document consistency. Actual GPU runs separately demonstrate that the model trained and predicted. None of these makes an unbuilt live IDS or untested accelerator deployment complete.",
+        "analogy": "A checklist can confirm that the recorded exam was scored correctly. It cannot turn that exam into evidence about a different school or an untested machine.",
+        "remember": "All 54 CPU tests passed in the recorded audit. Fresh export evaluations reproduced all three scores; full unlabeled inference matched all 1,041 seed-0 answers in that run.",
+        "evidence": "verification.md"
+      }
+    },
+    {
+      "layout": "evidence",
+      "section": "Appendix / Where to verify it",
       "title": "Every measured claim has a saved artifact",
       "subtitle": "The repository is the handoff: explanation, editable files, commands and reviewed evidence.",
-      "cards": [["Start here", "docs/customer/README.md\nBriefing PDF + PowerPoint + slide PDF\nRunbook + talk track + recorded demo"], ["Verify results", "evidence/results.json\nPer-seed manifests, epoch logs and predictions\nRuntime parity + build records + benchmark"], ["Read the research", "docs/research/research-record.md\nPinned paper/source links\nExact council decision and its evidence limits"]],
+      "cards": [
+        [
+          "Start here",
+          "docs/customer/README.md\nBriefing PDF + PowerPoint + slide PDF\nRunbook + talk track + recorded demo"
+        ],
+        [
+          "Verify results",
+          "evidence/results.json\nPer-seed manifests, epoch logs and predictions\nRuntime parity + build records + benchmark"
+        ],
+        [
+          "Read the research",
+          "docs/research/research-record.md\nPinned paper/source links\nExact council decision and its evidence limits"
+        ]
+      ],
       "takeaway": "github.com/buffbeefalo/netmambaplus-reproduction",
-      "notes": "The AI research is shared as a reviewed research record, not a raw private conversation. The focused council reviewed the staged plan; it did not independently certify later experiment results, and an older unratified audit remains historical. The command line tools and full measured records let a reviewer inspect the work directly. Third-party data and original weights remain externally obtained assets; hashes and acquisition instructions are included."
+      "notes": "The AI research is shared as a reviewed research record, not a raw private conversation. The focused council reviewed the staged plan. Later audit reviews and their exact outcomes are recorded separately with their evidence limits; they are not independent GPU certification. Earlier unratified reviews remain historical. The command line tools and full measured records let a reviewer inspect the work directly. Third-party data and original weights remain externally obtained assets; hashes and acquisition instructions are included.",
+      "plain_language": {
+        "explanation": "Everything needed to inspect and explain the work is linked from the customer index: PDFs, editable slides, speaker notes, this guide, setup instructions and measured evidence. The research record summarizes useful AI-assisted investigation without exposing private conversations.",
+        "analogy": "A lab notebook lets someone trace a conclusion back to the experiment that supports it. The repository serves that purpose.",
+        "remember": "Use the claim-and-evidence table when asked “how do you know?” The original data and weights remain external assets with their own terms.",
+        "evidence": "README.md"
+      }
     }
-  ]
+  ],
+  "questions": [
+    {
+      "id": "tried",
+      "question": "What did you try, and what works now?",
+      "slides": [
+        1,
+        2,
+        15
+      ],
+      "briefing_pages": [
+        1,
+        7
+      ],
+      "answer": "Native GPU builds, short masked pretraining, three complete fine-tuning runs, strict saved-model inference and a recorded browser replay were executed and checked."
+    },
+    {
+      "id": "learning",
+      "question": "How do NetMamba+ training and inference work?",
+      "slides": [
+        4,
+        5
+      ],
+      "briefing_pages": [
+        3
+      ],
+      "answer": "Reconstruction pretraining learns an encoder; labeled fine-tuning adds six categories and selects by validation; inference freezes the selected classifier and emits six scores."
+    },
+    {
+      "id": "inputs",
+      "question": "What data goes in and what comes out?",
+      "slides": [
+        3,
+        4
+      ],
+      "briefing_pages": [
+        2
+      ],
+      "answer": "Compatible flow bytes, packet sizes and timing go in. Six logits, display scores and a class label come out. The uploaded packet CSVs do not establish the required flows."
+    },
+    {
+      "id": "results",
+      "question": "What results were actually reproduced versus reported by the paper?",
+      "slides": [
+        5,
+        6,
+        7,
+        9
+      ],
+      "briefing_pages": [
+        4
+      ],
+      "answer": "All three source-based training runs finished: 91.26%, 84.05% and 84.63% test accuracy, with @@mean_accuracy@@ mean. The paper’s 97.50% and exact protocol were not reproduced."
+    },
+    {
+      "id": "demo",
+      "question": "What could a simple working IDS demo look like?",
+      "slides": [
+        8,
+        10
+      ],
+      "briefing_pages": [
+        5
+      ],
+      "answer": "The working browser demo replays actual classifier outputs. A live IDS would add compatible capture, flow extraction and a validated alert policy; those components remain future work."
+    },
+    {
+      "id": "hardware",
+      "question": "How could this map to an AI NPU or SmartNIC?",
+      "slides": [
+        9,
+        11
+      ],
+      "briefing_pages": [
+        6
+      ],
+      "answer": "A NIC or DPU could handle packet steering and flow preparation, with inference on a GPU or supported NPU. GPU inference works; the tested Torch export path is blocked and no target hardware deployment was tested."
+    },
+    {
+      "id": "gaps",
+      "question": "What is still missing or not working?",
+      "slides": [
+        10,
+        11,
+        12,
+        15
+      ],
+      "briefing_pages": [
+        6,
+        7
+      ],
+      "answer": "Exact paper reproduction, complete pretraining provenance, live capture/extraction, independent traffic validation, calibrated alert policy and NPU/SmartNIC execution remain unestablished. Inherited asset terms remain unresolved."
+    }
+  ],
+  "briefing_pages": 8
 }

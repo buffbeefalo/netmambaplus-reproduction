@@ -155,3 +155,66 @@ Current DOCA GPUNetIO documentation notes that DGX Spark does not support GPUDir
 **The defensible statement:** We trained and tested the original NetMamba+ classifier on the authors' compatible CICIoT2022 flows using a documented GB10 runtime port. We can show the saved-model predictions, exact measured results, errors and reproducible commands. The next step is an independently evaluated capture-to-alert integration on a specified deployment target.
 
 Sources: [DOCA Flow](https://docs.nvidia.com/doca/sdk/doca-flow/), [DOCA GPUNetIO](https://docs.nvidia.com/doca/sdk/doca-gpunetio/), [OpenVINO NPU](https://docs.openvino.ai/2026/openvino-workflow/running-inference/inference-devices-and-modes/npu-device.html), [all project evidence](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/README.md).
+
+<!-- page -->
+
+# Set up, use and test it
+
+## View and present: only a browser is needed
+
+Open the [plain-language companion](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html). It follows the same numbered slides and speaker script, with everyday comparisons and a glossary. Open the replay, press Play replay and Show all, then inspect Prediction errors. You should see 1,041 total flows, 91 errors and 91.26% seed-0 accuracy.
+
+For an offline meeting, extract the release ZIP and open `docs/customer/demo/guide.html` and `index.html`. PDFs, editable PowerPoint with notes, a text script and a recorded video are also included. The replay is recorded GPU inference; it does not watch or block your network.
+
+## Verify the package: Python 3.10 or newer
+
+Clone or unzip the project. In the project root, run `python3 -m unittest discover -s tests -v`, then `python3 tools/verify_package.py`. These CPU checks were executed on Linux; Windows/macOS runs were not tested.
+
+Expect `Ran 54 tests` and `OK`, followed by verifier JSON containing `"status": "passed"`. No research asset download or GPU is needed for these checks. A mismatch must be investigated; regenerating hashes does not fix an unsupported claim.
+
+| Actual check | Recorded outcome |
+|---|---|
+| CPU tests | 54 passed; harness and failure handling |
+| Native GPU runtime | Seven numerical checks passed in each of two built environments |
+| Three model-only exports | Fresh strict evaluations reproduced all three original scores |
+| Full unlabeled inference | Seed-0 predicted labels and logits for all 1,041 flows matched the frozen record in this run |
+| Public replay | Playback, filters and reset passed; no overflow at 320/390/768/1440 pixels |
+| Torch graph capture | Custom causal-convolution export unsupported in the tested path; GPU inference still passed |
+
+## Run new training or inference: follow the GB10 runbook
+
+Fetch the pinned source and assets; build the GPU environment; run numerical checks; train a classifier; then use `evaluate.py`, `replay.py` or `predict.py`. Use fresh output directories and keep checkpoint provenance. Raw traffic and inherited weights are not in the ZIP.
+
+Tested GPU profile: aarch64 Python 3.12.3, GB10, driver 580.126.09, CUDA toolkit 13.0.88. CPU checks do not repeat GPU training. Rechecking one test split does not create an independent holdout.
+
+Commands and expected files: [simple quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md), [full runbook](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/runbook.md), [dated verification](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/verification.md).
+
+<!-- page -->
+
+# The paper, the data and our changes
+
+The paper studies intrusion detection: recognizing potentially suspicious traffic patterns. NetMamba+ combines bytes, packet sizes and time gaps using a Mamba sequence model. It is not a chatbot. The authors provide the research implementation; this repo adds a checked execution route and measured evidence.
+
+## The uploaded tables are not the training flow release
+
+| Data | What it contains | What we did with it |
+|---|---|---|
+| CICIDS2017 packet CSV | 1,410,255 rows, 15 labels | Parsed all rows and profiled metadata |
+| UNSW packet CSV | 79,881 rows, 10 labels | Same compatibility investigation |
+| Authors’ CICIoT2022 flow JSON | 10,404 flows, six classes | Actual model training and evaluation |
+
+Each CSV has 1,500 payload-byte slots plus TTL, length, protocol, time delta and label. These exports lack connection identity and established per-flow order. Neighboring rows cannot be assumed to form a flow. CICIDS2017 and CICIoT2022 are distinct datasets.
+
+## Compared with the authors’ repository
+
+| Area | Original research | Our work / disclosed difference |
+|---|---|---|
+| Model and loader | Native NetMamba+ source | Original 103 tracked files unchanged; source pins verified |
+| Build and hardware | Older extensions; paper A100 / Torch 2.1.1 | GB10 / Torch 2.9.1; compiler edits only in disposable build copies |
+| Fine-tuning settings | Paper batch 64, rate 0.002 | Released source preset: batch 128, effective maximum rate 0.001 |
+| Evaluation and use | Native research scripts | Strict checkpoint evaluation, unlabeled prediction, class-mapping provenance and recorded replay |
+| Evidence and explanation | Authors’ reported results | Three complete measured runs, all predictions/errors, tests, setup guide, PDFs, slides and research record |
+
+Main training uses the released pretrained encoder. Full pretraining history, the cause of the accuracy gap, live capture, independent customer validation and target hardware execution remain unestablished.
+
+More detail: [paper v1](https://arxiv.org/abs/2601.21792v1), [pinned authors’ repository](https://github.com/wangtz19/NetMambaPlus/tree/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2), [file and dataset comparison](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/upstream-comparison.md), [map of all seven customer questions](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/answers.md).

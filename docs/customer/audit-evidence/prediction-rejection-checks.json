@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-12T10:31:43.257128+00:00",
+  "scope": "Supplementary checks in disposable package copies, with edited record hashes refreshed to exercise semantic guards rather than simple checksum rejection; not additional counted unit tests",
+  "checks": [
+    {
+      "case": "short_scores",
+      "rejected": true
+    },
+    {
+      "case": "wrong_class_name",
+      "rejected": true
+    },
+    {
+      "case": "wrong_row_order",
+      "rejected": true
+    },
+    {
+      "case": "short_actual_collection",
+      "rejected": true
+    },
+    {
+      "case": "short_reference_collection",
+      "rejected": true
+    }
+  ],
+  "additional_checked_at": "2026-09-12T10:36:43.008696+00:00"
+}

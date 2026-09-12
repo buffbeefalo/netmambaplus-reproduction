@@ -1,6 +1,20 @@
 # Presenter talk track
 
-Use slides 1–8 for the core walkthrough; keep the remaining technical detail available for questions.
+Use slides 1–12 for the technical story, then slides 13–16 for source differences, setup, tests and evidence. The plain-language guide follows exactly the same order.
+
+[Plain-language guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) · [Simple setup and tests](quickstart.md) · [Authors’ repository comparison](upstream-comparison.md)
+
+## Where your seven questions are answered
+
+| Your question | Slides / script / guide sections | Briefing PDF pages |
+|---|---|---|
+| What did you try, and what works now? | 1, 2, 15 | 1, 7 |
+| How do NetMamba+ training and inference work? | 4, 5 | 3 |
+| What data goes in and what comes out? | 3, 4 | 2 |
+| What results were actually reproduced versus reported by the paper? | 5, 6, 7, 9 | 4 |
+| What could a simple working IDS demo look like? | 8, 10 | 5 |
+| How could this map to an AI NPU or SmartNIC? | 9, 11 | 6 |
+| What is still missing or not working? | 10, 11, 12, 15 | 6, 7 |
 
 ## Slide 1 · NetMamba+ from source to a measured demo
 
@@ -24,7 +38,7 @@ The source preset runs 120 epochs with batch 128 and a base learning-rate parame
 
 ## Slide 6 · Report every seed and name the metric
 
-Accuracy is correct predictions divided by test rows. Weighted F1 weights each class by its number of true examples. Macro F1 treats every class equally, so a small weak class can lower macro F1 more strongly. The table reports all three declared seeds; the mean and sample standard deviation describe seed variability on the same dataset, not uncertainty across customer networks. The paper number is not our measurement and is not a directly controlled comparison. The full source-based experiment and strict re-evaluation are complete even if their scores do not match the paper.
+Our measured test accuracies were 91.26 percent for seed zero, 84.05 percent for seed one and 84.63 percent for seed two: 86.65% mean, with a sample standard deviation of 4.00 percentage points. The paper reports 97.50 percent; we did not reproduce that score, and we have not isolated the reason for the gap. Accuracy is correct predictions divided by test rows. Weighted F1 weights each class by its number of true examples. Macro F1 treats every class equally, so a small weak class can lower macro F1 more strongly. The table reports all three declared seeds; the mean and sample standard deviation describe seed variability on the same dataset, not uncertainty across customer networks. The paper number is not our measurement and is not a directly controlled comparison. The full source-based experiment and strict re-evaluation are complete even if their scores do not match the paper.
 
 ## Slide 7 · Make the errors visible
 
@@ -50,6 +64,18 @@ A SmartNIC is not automatically a neural accelerator. DOCA Flow describes packet
 
 This sentence is the safe summary to repeat: We trained and tested the original NetMamba+ classifier on the authors' compatible CICIoT2022 flows using a documented GB10 compatibility port, and can show the measured results and replay. It is not an exact reproduction of all paper results and not a production IDS. The remaining work is concrete: pretraining provenance, independent traffic, a compatible online extractor, operational alert validation and actual deployment on the chosen device.
 
-## Slide 13 · Every measured claim has a saved artifact
+## Slide 13 · Keep the model; add a verified execution route
 
-The AI research is shared as a reviewed research record, not a raw private conversation. The focused council reviewed the staged plan; it did not independently certify later experiment results, and an older unratified audit remains historical. The command line tools and full measured records let a reviewer inspect the work directly. Third-party data and original weights remain externally obtained assets; hashes and acquisition instructions are included.
+The paper studies intrusion detection: recognizing patterns in network traffic that may indicate attacks. NetMamba+ combines byte content, packet sizes and timing. The authors’ repository is a research implementation and asset source. Our repository is a pinned execution and evidence wrapper around that implementation. We preserve all 103 tracked upstream files and seven core source hashes. Compiler compatibility edits are made only in disposable copies used to build Mamba and causal convolution for the newer GB10. We add data/source validation, reproducible commands, strict checkpoint loading, unlabeled inference, measurements and presentation material. The paper reports A100, Torch 2.1.1, batch 64 and learning rate 0.002; our source preset uses GB10, Torch 2.9.1, batch 128 and effective maximum rate 0.001. We have not isolated which differences caused the accuracy gap. The uploaded packet CSVs are not the separate CICIoT2022 flows used for training. Read upstream-comparison.md for the file-level comparison and dataset explanation.
+
+## Slide 14 · Choose the route that matches your goal
+
+For the customer meeting, open guide.html and index.html under docs/customer/demo in the downloaded ZIP. No software installation is needed to view those pages. For a CPU check, open a terminal in the project root and run python3 -m unittest discover -s tests -v, followed by python3 tools/verify_package.py. The quickstart explains successful output. For fresh inference, follow the detailed runbook: acquire pinned upstream assets, build the GB10 runtime, run its numerical checks, train a classifier and pass its checkpoint to evaluate.py or predict.py. We do not distribute inherited pretrained weights in the customer ZIP, so it is not a ready-to-run GPU model download. Keep each run in a fresh output directory.
+
+## Slide 15 · Read a passing test in its proper scope
+
+The CPU suite passed all 54 tests. It checks the harness including failure paths; the package verifier independently recomputes retained predictions and checks artifact identity. The GPU evidence is separate: three full fine-tuning runs, seven numerical checks in each of two environments, strict reloading of every classifier and new evaluation of all three model-only exports. Removing all benchmark labels and predicting the full 1,041-flow test input produced exactly the recorded seed-zero classes and logits in this fresh run. That is a frozen-result check on the same data, not a new independent accuracy result or a guarantee of universal bitwise repeatability. The strict Torch graph-capture probe failed at causal_conv1d_cuda.causal_conv1d_fwd after eager GPU inference passed. Known warnings and unimplemented deployment paths remain visible.
+
+## Slide 16 · Every measured claim has a saved artifact
+
+The AI research is shared as a reviewed research record, not a raw private conversation. The focused council reviewed the staged plan. Later audit reviews and their exact outcomes are recorded separately with their evidence limits; they are not independent GPU certification. Earlier unratified reviews remain historical. The command line tools and full measured records let a reviewer inspect the work directly. Third-party data and original weights remain externally obtained assets; hashes and acquisition instructions are included.

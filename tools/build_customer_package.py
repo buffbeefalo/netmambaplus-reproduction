@@ -1,12 +1,15 @@
 """Build the editable deck, briefing PDF and charts from reviewed measurements."""
 
 import html
+import hashlib
 import json
 import re
 import shutil
 import subprocess
 import tempfile
 from pathlib import Path
+
+from build_learning_guide import build as build_guide, coverage_markdown
 
 ROOT = Path(__file__).resolve().parents[1]
 CUSTOMER = ROOT / "docs/customer"
@@ -111,7 +114,9 @@ def build_slides(results, benchmark, tokens, score_rows, latency_rows):
     deck.core_properties.title = source["title"]
     deck.core_properties.author = "NetMamba+ reproduction project"
     deck.core_properties.subject = "Measured research, customer explanation and deployment boundaries"
-    notes = ["# Presenter talk track", "", "Use slides 1–8 for the core walkthrough; keep the remaining technical detail available for questions.", ""]
+    notes = ["# Presenter talk track", "", "Use slides 1–12 for the technical story, then slides 13–16 for source differences, setup, tests and evidence. The plain-language guide follows exactly the same order.", "",
+             "[Plain-language guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) · [Simple setup and tests](quickstart.md) · [Authors’ repository comparison](upstream-comparison.md)", "",
+             "## Where your seven questions are answered", "", coverage_markdown(source), ""]
 
     def rectangle(slide, x, y, width, height, fill=PAPER, line=None):
         shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(y), Inches(width), Inches(height))
@@ -384,13 +389,32 @@ def results_markdown(results, benchmark, tokens):
     (CUSTOMER / "results.md").write_text("\n".join(text) + "\n")
 
 
+def check_document_counts(source):
+    files = {}
+    for name, expected in (("NetMambaPlus-customer-briefing.pdf", source["briefing_pages"]),
+                           ("NetMambaPlus-customer-slides.pdf", len(source["slides"]))):
+        path = CUSTOMER / name
+        info = subprocess.check_output(["pdfinfo", str(path)], text=True)
+        match = re.search(r"^Pages:\s+(\d+)\s*$", info, re.MULTILINE)
+        if match is None or int(match.group(1)) != expected:
+            raise ValueError(f"Rendered {name} page count differs from the presentation map: expected {expected}")
+        files[name] = {"pages": int(match.group(1)), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+    deck = CUSTOMER / "NetMambaPlus-customer-slides.pptx"
+    files[deck.name] = {"sha256": hashlib.sha256(deck.read_bytes()).hexdigest()}
+    (CUSTOMER / "document-check.json").write_text(json.dumps({"status": "passed", "method": "pdfinfo on rendered PDFs",
+        "scope": "Page inventory and artifact identity; content and visual review are separate checks", "files": files}, indent=2) + "\n")
+
+
 def main():
     results, benchmark, tokens, rows, latencies = data_and_tokens()
+    source = json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(), tokens))
     charts(results)
     results_markdown(results, benchmark, tokens)
     build_briefing(tokens)
     build_slides(results, benchmark, tokens, rows, latencies)
-    print("Built briefing PDF, editable PowerPoint, slide PDF, charts, notes and result tables from reviewed evidence.")
+    check_document_counts(source)
+    build_guide(source)
+    print("Built briefing PDF, editable PowerPoint, slide PDF, charts, notes, answers and slide-aligned learning guide from reviewed evidence.")
 
 
 if __name__ == "__main__":

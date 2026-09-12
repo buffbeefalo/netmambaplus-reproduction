@@ -2,6 +2,8 @@
 
 This is a reviewed record of the questions, source evidence, decisions and executed experiments behind this repository. It shares the useful research from the AI-assisted work; it is not a verbatim private chat export or an independent certification. The [customer index](../customer/README.md) links the measured results and presentation files. The historical [7 September audit](../audit.md) remains dated evidence.
 
+The later [final council review](final-council-review.md) and [acceptance map](../customer/acceptance.md) document the expanded customer guide, repeatability checks, corrections and exact review outcomes. They preserve the original experiment records and distinguish local checks from public release verification.
+
 ## The question changed from packet classification to flow reproduction
 
 The starting materials were NetMamba+ paper v1 and two uploaded Payload-Byte CSVs. Their common subject is learning traffic categories from network bytes. Their observation units differ: the CSVs describe packets, whereas NetMamba+ combines ordered bytes, packet sizes and arrival intervals within a flow.

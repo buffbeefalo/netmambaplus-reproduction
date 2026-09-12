@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-12T09:32:54.975424+00:00",
+  "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/",
+  "browser": "140.0.7339.16",
+  "rows": 1041,
+  "errors": 91,
+  "attack_class_predictions": 402,
+  "viewport_checks": [
+    {
+      "width": 320,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "horizontal_overflow": false
+    }
+  ],
+  "checks": [
+    "all rows",
+    "displayed metrics",
+    "error filter",
+    "attack filter",
+    "reset",
+    "play/pause",
+    "pace change while playing",
+    "no JavaScript errors"
+  ],
+  "html_sha256": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af"
+}

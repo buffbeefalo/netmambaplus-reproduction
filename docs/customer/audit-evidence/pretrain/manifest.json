@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "stage": "pretrain",
+  "status": "succeeded",
+  "created_at": "2026-09-12T09:49:02.872495+00:00",
+  "updated_at": "2026-09-12T09:49:26.443541+00:00",
+  "execution_attempted": true,
+  "request": {
+    "command": "pretrain",
+    "config": "configs/ciciot2022-pretrain-smoke.json",
+    "upstream": "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus",
+    "data": "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022",
+    "output": "runs/double-check-pretrain",
+    "checkpoint": null,
+    "provenance": null,
+    "dry_run": false,
+    "device": "cuda",
+    "num_workers": 2,
+    "seed": 0
+  },
+  "runtime": {
+    "python": "3.12.3 (main, Jan 22 2026, 20:57:42) [GCC 13.3.0]",
+    "executable": "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/bin/python",
+    "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
+    "machine": "aarch64",
+    "packages": {
+      "torch": "2.9.1+cu130",
+      "torchvision": "0.24.1",
+      "numpy": "1.26.2",
+      "timm": "0.4.12",
+      "mamba-ssm": "1.1.1",
+      "causal-conv1d": "1.1.2.post1",
+      "flash-attn": null,
+      "scikit-learn": "1.6.1",
+      "scipy": "1.15.2",
+      "pillow": "11.0.0",
+      "triton": "3.5.1",
+      "einops": "0.8.1"
+    },
+    "environment": {
+      "OMP_NUM_THREADS": "4",
+      "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1",
+      "TRITON_PTXAS_PATH": "/usr/local/cuda/bin/ptxas"
+    }
+  },
+  "harness_sha256": {
+    "repro.py": "f49823f3d23cbc1a12e8f165bea67694dce14e11db64cb270c362a3348c05c7e",
+    "evaluate.py": "a8db041b9f3929c7c0acfd63aac65600384e75cc2fdd4018743bdf70ee0bdca0"
+  },
+  "error": null,
+  "configuration": {
+    "schema_version": 1,
+    "upstream": {
+      "url": "https://github.com/wangtz19/NetMambaPlus",
+      "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+      "sha256": {
+        "src/pre-train.py": "fd966021d600b23baed22dcd73fa2ccbd3e4e902f5e42cf6d9aedad7c307d4fd",
+        "src/fine-tune.py": "f84ea53fad473122bf8211bb1d083ba95a9019b0c3e48ebbff2f5e86dae4152d",
+        "src/util/arg_pre_train.py": "ac6a607367a64013f38cfadf83b471a03e5988f7dbedbc2eef0c1a5d744eb08f",
+        "src/util/arg_fine_tune.py": "3c64f41ac4fa49377b6c8836237d84096ec9975e72a4b166ec303f4e012b857e",
+        "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+        "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+        "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+      }
+    },
+    "dataset": {
+      "name": "CICIoT2022",
+      "expected_classes": 6
+    },
+    "common": {
+      "num_packet": 5,
+      "num_packet_byte": 320,
+      "seq_len": 20,
+      "stride_size": 4,
+      "size_key": "sizes",
+      "dataset_type": "byte_size_interval",
+      "batch_size": 128,
+      "accum_iter": 1,
+      "world_size": 1,
+      "weight_decay": 0.05,
+      "seed": 0,
+      "if_amp": false,
+      "average": "weighted"
+    },
+    "pretrain": {
+      "model": "fuse3_mamba_pretrain",
+      "steps": 100,
+      "blr": 0.001,
+      "byte_mask_ratio": 0.9,
+      "size_mask_ratio": 0.15,
+      "iat_mask_ratio": 0.15,
+      "save_steps_freq": 65
+    },
+    "finetune": {
+      "model": "fuse3_mamba_classifier",
+      "epochs": 120,
+      "blr": 0.002,
+      "smoothing": 0.1
+    },
+    "provenance": {
+      "common.num_packet": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+      },
+      "common.num_packet_byte": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+      },
+      "common.seq_len": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+      },
+      "common.stride_size": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+      },
+      "common.size_key": {
+        "kind": "parser_default",
+        "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+      },
+      "common.dataset_type": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+      },
+      "common.batch_size": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+      },
+      "common.accum_iter": {
+        "kind": "parser_default",
+        "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+      },
+      "common.world_size": {
+        "kind": "parser_default",
+        "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+      },
+      "common.weight_decay": {
+        "kind": "parser_default",
+        "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+      },
+      "common.seed": {
+        "kind": "parser_default",
+        "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+      },
+      "common.if_amp": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+      },
+      "common.average": {
+        "kind": "parser_default",
+        "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+      },
+      "pretrain.model": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+      },
+      "pretrain.steps": {
+        "kind": "functional_test",
+        "source": "100 requested steps on CICIoT2022 train only; native loop rounds to whole epochs. Not Browser/Kitsune pretraining."
+      },
+      "pretrain.blr": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+      },
+      "pretrain.byte_mask_ratio": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+      },
+      "pretrain.size_mask_ratio": {
+        "kind": "parser_default",
+        "source": "src/util/arg_pre_train.py"
+      },
+      "pretrain.iat_mask_ratio": {
+        "kind": "parser_default",
+        "source": "src/util/arg_pre_train.py"
+      },
+      "finetune.model": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_ft.py: run(..., model_name=\"mamba\", epochs=120)"
+      },
+      "finetune.epochs": {
+        "kind": "source_launcher",
+        "source": "src/scripts/run_ft.py: run(..., model_name=\"mamba\", epochs=120)"
+      },
+      "finetune.blr": {
+        "kind": "parser_default",
+        "source": "src/util/arg_fine_tune.py"
+      },
+      "finetune.smoothing": {
+        "kind": "parser_default",
+        "source": "src/util/arg_fine_tune.py"
+      },
+      "dataset.expected_classes": {
+        "kind": "harness_choice",
+        "source": "six-class authors CICIoT2022 metadata.json"
+      },
+      "pretrain.save_steps_freq": {
+        "kind": "functional_test",
+        "source": "65-step save interval exercises checkpoint output in the second native epoch."
+      }
+    },
+    "learning_rate": {
+      "formula": "lr = blr * (batch_size * accum_iter * world_size) / 256",
+      "source": "src/pre-train.py and src/fine-tune.py",
+      "conditional_derived_rates": {
+        "pretrain": 0.0005,
+        "finetune": 0.001
+      },
+      "qualification": "Conditional on the supplied single-process preset. lr stays unset; upstream computes it."
+    },
+    "paper_comparison": {
+      "source": "https://arxiv.org/abs/2601.21792v1, page 9",
+      "pretraining_steps": 150000,
+      "pretraining_batch_size": 128,
+      "pretraining_initial_lr": 0.001,
+      "finetuning_batch_size": 64,
+      "finetuning_lr": 0.002,
+      "finetuning_epochs": 120,
+      "qualification": "Comparands only; not an independently verified executable paper profile. Linear-scaling reference is unspecified in that paragraph."
+    },
+    "experiment_scope": "Masked pretraining functional test on downstream training-only data, not a paper pretraining reproduction."
+  },
+  "configuration_sha256": "b08a3631805f419ab9c01d77b1ef810b9c7d0483d2830ccc63375d1fb2017902",
+  "configuration_provenance": {
+    "common.num_packet": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.num_packet_byte": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.seq_len": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.stride_size": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.size_key": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.dataset_type": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.batch_size": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.accum_iter": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.world_size": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.weight_decay": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.seed": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "common.if_amp": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py and src/scripts/run_ft.py"
+    },
+    "common.average": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py and src/util/arg_fine_tune.py"
+    },
+    "pretrain.model": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+    },
+    "pretrain.steps": {
+      "kind": "functional_test",
+      "source": "100 requested steps on CICIoT2022 train only; native loop rounds to whole epochs. Not Browser/Kitsune pretraining."
+    },
+    "pretrain.blr": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+    },
+    "pretrain.byte_mask_ratio": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_pt.py: explicit supported Mamba call (commented in main)"
+    },
+    "pretrain.size_mask_ratio": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py"
+    },
+    "pretrain.iat_mask_ratio": {
+      "kind": "parser_default",
+      "source": "src/util/arg_pre_train.py"
+    },
+    "finetune.model": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_ft.py: run(..., model_name=\"mamba\", epochs=120)"
+    },
+    "finetune.epochs": {
+      "kind": "source_launcher",
+      "source": "src/scripts/run_ft.py: run(..., model_name=\"mamba\", epochs=120)"
+    },
+    "finetune.blr": {
+      "kind": "parser_default",
+      "source": "src/util/arg_fine_tune.py"
+    },
+    "finetune.smoothing": {
+      "kind": "parser_default",
+      "source": "src/util/arg_fine_tune.py"
+    },
+    "dataset.expected_classes": {
+      "kind": "harness_choice",
+      "source": "six-class authors CICIoT2022 metadata.json"
+    },
+    "pretrain.save_steps_freq": {
+      "kind": "functional_test",
+      "source": "65-step save interval exercises checkpoint output in the second native epoch."
+    }
+  },
+  "validation": {
+    "stage": "pretrain",
+    "class_mapping": {
+      "6-Attacks-1-Flood": 0,
+      "6-Attacks-2-RTSP Brute Force": 1,
+      "1-Power-Audio": 2,
+      "1-Power-Other": 3,
+      "1-Power-Cameras": 4,
+      "1-Power-Home Automation": 5
+    },
+    "size_key": "sizes",
+    "files": {
+      "metadata.json": {
+        "path": "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022/metadata.json",
+        "sha256": "1e5914d8cb3443a9c491ad127acf82203646b77ed4139f98cbc332ff080b8135",
+        "bytes": 200
+      },
+      "data-train.json": {
+        "path": "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022/data-train.json",
+        "sha256": "ba54a0ec94f21386b58f2df01270144f69ad53421cbd6301ec445cd5d902b107",
+        "bytes": 22683436
+      }
+    },
+    "splits": {
+      "train": {
+        "rows": 8323,
+        "class_counts": {
+          "0": 1600,
+          "1": 1600,
+          "2": 1600,
+          "3": 323,
+          "4": 1600,
+          "5": 1600
+        },
+        "identifier_rows": 8323,
+        "unique_identifiers": 8323,
+        "unique_raw_inputs": 8289,
+        "duplicate_excess": 34,
+        "conflicting_raw_input_groups": 0
+      }
+    },
+    "raw_input_overlaps": {},
+    "identity_limit": "Recorded identifiers and exact raw-input equality do not prove capture independence."
+  },
+  "class_mapping": {
+    "6-Attacks-1-Flood": 0,
+    "6-Attacks-2-RTSP Brute Force": 1,
+    "1-Power-Audio": 2,
+    "1-Power-Other": 3,
+    "1-Power-Cameras": 4,
+    "1-Power-Home Automation": 5
+  },
+  "input_files": {
+    "metadata.json": {
+      "path": "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022/metadata.json",
+      "sha256": "1e5914d8cb3443a9c491ad127acf82203646b77ed4139f98cbc332ff080b8135",
+      "bytes": 200
+    },
+    "data-train.json": {
+      "path": "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022/data-train.json",
+      "sha256": "ba54a0ec94f21386b58f2df01270144f69ad53421cbd6301ec445cd5d902b107",
+      "bytes": 22683436
+    }
+  },
+  "upstream": {
+    "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+    "core_sha256": {
+      "src/pre-train.py": "fd966021d600b23baed22dcd73fa2ccbd3e4e902f5e42cf6d9aedad7c307d4fd",
+      "src/fine-tune.py": "f84ea53fad473122bf8211bb1d083ba95a9019b0c3e48ebbff2f5e86dae4152d",
+      "src/util/arg_pre_train.py": "ac6a607367a64013f38cfadf83b471a03e5988f7dbedbc2eef0c1a5d744eb08f",
+      "src/util/arg_fine_tune.py": "3c64f41ac4fa49377b6c8836237d84096ec9975e72a4b166ec303f4e012b857e",
+      "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+      "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+      "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+    },
+    "tracked_files_verified": 103
+  },
+  "native_args": {
+    "batch_size": 128,
+    "steps": 100,
+    "epochs": 400,
+    "save_steps_freq": 65,
+    "accum_iter": 1,
+    "model": "fuse3_mamba_pretrain",
+    "input_size": 40,
+    "mask_ratio": 0.9,
+    "norm_pix_loss": false,
+    "weight_decay": 0.05,
+    "lr": null,
+    "blr": 0.001,
+    "min_lr": 0.0,
+    "warmup_epochs": 25,
+    "data_path": "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022",
+    "output_dir": "/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain",
+    "log_dir": "/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain/logs",
+    "device": "cuda",
+    "seed": 0,
+    "resume": "",
+    "num_workers": 2,
+    "pin_mem": true,
+    "world_size": 1,
+    "local_rank": -1,
+    "dist_on_itp": false,
+    "dist_url": "env://",
+    "if_amp": false,
+    "pop": false,
+    "pop_loss_weight": 0.01,
+    "num_packet": 5,
+    "num_packet_byte": 320,
+    "header_len": 80,
+    "payload_len": 240,
+    "stride_size": 4,
+    "seq_len": 20,
+    "dataset_type": "byte_size_interval",
+    "seq_key": "sizes",
+    "size_key": "sizes",
+    "average": "weighted",
+    "byte_mask_ratio": 0.9,
+    "size_mask_ratio": 0.15,
+    "iat_mask_ratio": 0.15
+  },
+  "native_argv": [
+    "--num_packet",
+    "5",
+    "--num_packet_byte",
+    "320",
+    "--seq_len",
+    "20",
+    "--stride_size",
+    "4",
+    "--size_key",
+    "sizes",
+    "--dataset_type",
+    "byte_size_interval",
+    "--batch_size",
+    "128",
+    "--accum_iter",
+    "1",
+    "--world_size",
+    "1",
+    "--weight_decay",
+    "0.05",
+    "--seed",
+    "0",
+    "--no_amp",
+    "--average",
+    "weighted",
+    "--model",
+    "fuse3_mamba_pretrain",
+    "--steps",
+    "100",
+    "--blr",
+    "0.001",
+    "--byte_mask_ratio",
+    "0.9",
+    "--size_mask_ratio",
+    "0.15",
+    "--iat_mask_ratio",
+    "0.15",
+    "--save_steps_freq",
+    "65",
+    "--data_path",
+    "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022",
+    "--output_dir",
+    "/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain",
+    "--log_dir",
+    "/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain/logs",
+    "--device",
+    "cuda",
+    "--num_workers",
+    "2"
+  ],
+  "argv": [
+    "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10/bin/python",
+    "-u",
+    "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/src/pre-train.py",
+    "--num_packet",
+    "5",
+    "--num_packet_byte",
+    "320",
+    "--seq_len",
+    "20",
+    "--stride_size",
+    "4",
+    "--size_key",
+    "sizes",
+    "--dataset_type",
+    "byte_size_interval",
+    "--batch_size",
+    "128",
+    "--accum_iter",
+    "1",
+    "--world_size",
+    "1",
+    "--weight_decay",
+    "0.05",
+    "--seed",
+    "0",
+    "--no_amp",
+    "--average",
+    "weighted",
+    "--model",
+    "fuse3_mamba_pretrain",
+    "--steps",
+    "100",
+    "--blr",
+    "0.001",
+    "--byte_mask_ratio",
+    "0.9",
+    "--size_mask_ratio",
+    "0.15",
+    "--iat_mask_ratio",
+    "0.15",
+    "--save_steps_freq",
+    "65",
+    "--data_path",
+    "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022",
+    "--output_dir",
+    "/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain",
+    "--log_dir",
+    "/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain/logs",
+    "--device",
+    "cuda",
+    "--num_workers",
+    "2"
+  ],
+  "cwd": "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/src",
+  "native_log": "/home/nvidia/netmambaplus-reproduction/runs/double-check-pretrain/native.log",
+  "native_exit_code": 0,
+  "exit_code": 0
+}

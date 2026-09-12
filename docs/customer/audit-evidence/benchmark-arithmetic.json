@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-12T10:34:54.893710+00:00",
+  "method": "Python statistics mean/median/inclusive percentiles; flows/s = batch_size * 1000 / mean_ms",
+  "scope": "Independent arithmetic over retained model-only latency samples; does not certify timing collection or end-to-end network performance",
+  "records": [
+    {
+      "record": "docs/customer/evidence/benchmark/metrics.json",
+      "batch_size": 1,
+      "samples": 100,
+      "recomputed_mean_ms": 0.8928880945313722,
+      "recomputed_median_ms": 0.8812654414214194,
+      "recomputed_p95_ms": 0.9287971537560225,
+      "recomputed_flows_per_second": 1119.9611755657297
+    },
+    {
+      "record": "docs/customer/evidence/benchmark/metrics.json",
+      "batch_size": 16,
+      "samples": 100,
+      "recomputed_mean_ms": 4.348945991368964,
+      "recomputed_median_ms": 4.317654005717486,
+      "recomputed_p95_ms": 4.643898730864748,
+      "recomputed_flows_per_second": 3679.052356997312
+    },
+    {
+      "record": "docs/customer/evidence/benchmark/metrics.json",
+      "batch_size": 128,
+      "samples": 100,
+      "recomputed_mean_ms": 36.54754707124084,
+      "recomputed_median_ms": 36.546798015479,
+      "recomputed_p95_ms": 37.38153906306252,
+      "recomputed_flows_per_second": 3502.2870276490544
+    },
+    {
+      "record": "docs/customer/audit-evidence/benchmark/metrics.json",
+      "batch_size": 1,
+      "samples": 100,
+      "recomputed_mean_ms": 0.9192310436628759,
+      "recomputed_median_ms": 0.9042760357260704,
+      "recomputed_p95_ms": 0.967107992619276,
+      "recomputed_flows_per_second": 1087.8657840092983
+    },
+    {
+      "record": "docs/customer/audit-evidence/benchmark/metrics.json",
+      "batch_size": 16,
+      "samples": 100,
+      "recomputed_mean_ms": 4.362284510862082,
+      "recomputed_median_ms": 4.329034476540983,
+      "recomputed_p95_ms": 4.721164767397568,
+      "recomputed_flows_per_second": 3667.802950532003
+    },
+    {
+      "record": "docs/customer/audit-evidence/benchmark/metrics.json",
+      "batch_size": 128,
+      "samples": 100,
+      "recomputed_mean_ms": 36.738913111621514,
+      "recomputed_median_ms": 36.73920198343694,
+      "recomputed_p95_ms": 37.48332018731162,
+      "recomputed_flows_per_second": 3484.0442778235083
+    }
+  ]
+}

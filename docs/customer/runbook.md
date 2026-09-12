@@ -2,12 +2,15 @@
 
 The [customer index](README.md) is the presentation entry point. The recorded HTML replay opens offline without Python or a GPU. Regenerating predictions requires the saved classifier and research runtime. Training a new classifier uses the externally acquired authors' checkpoint and data.
 
+For the short version, use the [setup / use / test guide](quickstart.md). For background before executing commands, use the [plain-language page](demo/guide.html) and [paper/data/source comparison](upstream-comparison.md).
+
 ## 1. Clone and verify the standard-library harness
 
 ```bash
 git clone https://github.com/buffbeefalo/netmambaplus-reproduction.git
 cd netmambaplus-reproduction
 python3 -m unittest discover -s tests -v
+python3 tools/verify_package.py
 python3 repro.py fetch
 python3 tools/fetch_assets.py --output assets
 python3 repro.py validate --data assets/data/ciciot2022 --report runs/validation-new.json
@@ -105,7 +108,9 @@ uv pip install --python .venv-gb10/bin/python -r requirements/presentation.txt
 python tools/build_customer_package.py
 ```
 
-The generator reads the reviewed evidence shipped with this repository and editable presentation sources. It produces the PowerPoint, briefing PDF, charts, notes and Markdown result tables. LibreOffice converts the deck to the corresponding slide PDF when installed. The content source and PowerPoint are both editable. Replacing the reviewed evidence with a new experiment requires reviewing every claim and limitation again.
+The generator reads the reviewed evidence shipped with this repository and editable presentation sources. It produces the PowerPoint, briefing PDF, charts, notes, Markdown result tables, seven-question map and offline learning guide. The guide uses the same slide order and exact speaker script. LibreOffice converts the deck to the corresponding slide PDF when installed. The content source and PowerPoint are both editable. Replacing the reviewed evidence with a new experiment requires reviewing every claim and limitation again.
+
+The guide alone can be rebuilt without presentation dependencies: `python3 tools/build_learning_guide.py`. After any intentional document edit or build, review the output and refresh checksums with `python3 tools/verify_package.py --write-sha256`; then run the verifier normally. Refreshing checksums is not a content review.
 
 To regenerate the browser recording, use a separate presentation-test environment:
 

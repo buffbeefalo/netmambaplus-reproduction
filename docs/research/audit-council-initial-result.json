@@ -1,0 +1,405 @@
+{
+  "runId": "2a7c8d6d-c445-47a7-a755-7ef151db3bcc",
+  "state": "ESCALATED",
+  "stamp": "UNRATIFIED",
+  "mutual": false,
+  "decisionHash": null,
+  "decision": null,
+  "category": "delivery",
+  "axis": "confirmed_success",
+  "tier": "lite",
+  "caller": "codex",
+  "mode": "verify",
+  "schemaVersion": 2,
+  "cwd": "/home/nvidia/netmambaplus-reproduction",
+  "intakeHash": "c82a8f250234d7f9ffd902412809a09d38179e107f36a73270b3fa8371cce19f",
+  "blockers": [
+    "The 'passed local verification' claim and the adequacy of the new teaching/verification tools remain unsupported: docs/customer/verification.md, tools/build_learning_guide.py, tools/check_learning_guide.py, tools/verify_package.py and docs/customer/quickstart.md were all requested and excluded, so neither seat has seen verifier code, a pass record bound to the reviewed revision, or the documented CPU setup route. Until reviewed, the handoff must describe local verification as reported by the caller, not independently endorsed, and cannot assert CPU portability. [anchor: Pack sections 'REQUEST EXCLUDED: file docs/customer/verification.md', 'REQUEST EXCLUDED: file tools/verify_package.py', 'REQUEST EXCLUDED: file tools/check_learning_guide.py', 'REQUEST EXCLUDED: file docs/customer/quickstart.md' vs docs/customer/acceptance.md deliverable rows]",
+    "The numerical audit cannot be declared complete: only one seed's partial record is visible (fresh_strict_metrics_agree, bitwise-identical export tensors, finite weights, one accuracy 0.91258). docs/customer/evidence/results.json and docs/customer/audit-evidence/unlabeled-agreement.json are excluded, so the three-seed comparison, the 86.65% mean, metric definitions, class order and the full 1,041-flow agreement record are unverified. This gap limits endorsement scope; it does not justify retraining. [anchor: Evidence-source bytes [38072,49230) partial result record; pack sections 'REQUEST EXCLUDED: file docs/customer/evidence/results.json' and 'REQUEST EXCLUDED: file docs/customer/audit-evidence/unlabeled-agreement.json']",
+    "docs/customer/acceptance.md's 'Make all files available through GitHub' row reads as verified ('Publication is verified against a specific commit and byte hashes in the release receipt') while the Question states final publication and anonymous-download checks are still pending post-council. The working-tree document must identify the historical receipt's revision explicitly and mark the corrected-release check as pending; closing that status is gated on successful anonymous-download checks binding the frozen commit and artifact bytes. [anchor: docs/customer/acceptance.md 'Make all files available through GitHub' row vs Question statement 'final publication and anonymous download checks will bind the reviewed revision after council corrections']"
+  ],
+  "modelsUsed": {
+    "claude": "claude-fable-5",
+    "codex": "gpt-6-astra"
+  },
+  "budget": {
+    "spent": 10,
+    "limit": 14
+  },
+  "verdicts": null,
+  "arbitration": null,
+  "positions": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "c4481725535ded2724aa82c79f9f04a6c23cf6804e59d0e658db29671a70e582",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "data": {
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "/home/nvidia/netmambaplus-reproduction/docs/customer/verification.md",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/docs/customer/evidence/results.json",
+            "pattern": "acc",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/tools/verify_package.py",
+            "pattern": "def ",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/tools/check_learning_guide.py",
+            "pattern": "def ",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/docs/customer",
+            "pattern": "97.50",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/docs/customer",
+            "pattern": "86.65",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/docs/customer/quickstart.md",
+            "pattern": "cpu",
+            "limit": 15
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/docs/customer/acceptance.md",
+            "pattern": "release receipt",
+            "limit": 10
+          }
+        ],
+        "recommendation": "Ship the current repository as an honestly-scoped, conditionally-accepted handoff: an executed NetMamba+ research reproduction attempt (three preserved 120-epoch fine-tuning runs; fresh export inference, full 1,041-flow unlabeled inference agreement, repeat benchmark, pretrain functional check and export probe under docs/customer/audit-evidence) with the live IDS, packet-CSV flow adapter, calibrated alerting and NPU/SmartNIC execution explicitly explained-but-unbuilt, exactly as docs/customer/acceptance.md frames them. Do not retrain or expand scope: paper-parity replication and live-capture/accelerator work are separate projects (deferred on scope and missing evidence, not impossibility — codex's framing adopted). Required corrections before handoff: (1) correct acceptance.md's publication row to identify the historical receipt's revision explicitly and mark the final-revision publication and anonymous-download check as pending until its receipt exists; (2) replace 'all 1,041 classes' with 'all 1,041 flow predictions' (six categories, 1,041 test flows) and clarify that agreement establishes execution consistency, not customer-traffic generalization; (3) ensure the 86.65%-mean vs paper 97.50% comparison and the byte-only NetMamba 261.87 Mb/s / 3.15 s hardware caveat accompany those figures wherever they appear in customer artifacts (placement-where-claimed, per codex, not blanket repetition). I withdraw my earlier claim that these corrections 'close the only unsupported claims': endorsement of the numerical audit and of tool correctness remains conditional on primary-evidence review, and the recommendation limits numerical conclusions to reported execution evidence until then. Merged acceptance checks for the frozen post-correction revision: (a) verification.md or tool logs showing guide/speaker-note/answer-map/package checks passing at the frozen commit; (b) per-seed results in docs/customer/evidence/results.json agreeing with fresh export evaluations in metric definitions, class order and values; (c) slide order, PPTX notes, talk-track and guide alignment plus accurate PDF page references; (d) working offline browser demo and documented CPU setup route free of GPU dependencies; (e) release receipt with commit and byte hashes plus successful anonymous downloads matching the reviewed artifacts; (f) no customer artifact claims paper-score parity, a working live IDS, or NPU/SmartNIC execution. Evidence limits to disclose: paper-score parity, full pretraining provenance and prior checkpoint exposure, packet-CSV adapter validity, end-to-end IDS performance, and any live/accelerator execution remain unverified; council review is not independent GPU/numerical certification.",
+        "resolved_objections": [
+          "Codex's objection to 'closes the only unsupported claims' resolved: phrase withdrawn; primary-results review (per-seed metrics, aggregation, class order, fresh-inference agreement) added to acceptance checks and numerical endorsement is now explicitly conditional.",
+          "Adopted codex's wording: 'all 1,041 flow predictions' replaces 'all 1,041 classes', with the execution-consistency (not generalization) clarification; recorded as nonblocking terminology.",
+          "Dropped my requirement that the 86.65/97.50 gap and 261.87 Mb/s caveat be repeated in every customer artifact; adopted codex's placement-where-claimed standard as a nonblocking acceptance check.",
+          "Reworded retraining-deferral rationale per codex: deferred as separate scope, not because retraining would contradict the unchanged-code statements.",
+          "My publication-binding blocker is downgraded: the final release receipt and anonymous-download check are a post-correction acceptance gate (future step, per council rules), while the current-document defect in acceptance.md's publication row is retained as a blocker.",
+          "Both seats agree on the same candidate: preserve the three 120-epoch runs, keep the executed/explained boundary, defer paper-parity replication and live/accelerator work; no naming or framing disputes remain."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "The claim that guides and rebuilt documents 'passed local verification' and that the new tools provide adequate check coverage is unsupported: docs/customer/verification.md, tools/build_learning_guide.py, tools/check_learning_guide.py, tools/verify_package.py and docs/customer/quickstart.md were all requested and excluded, so neither seat has seen verifier code, a pass record bound to the reviewed revision, or the documented CPU route. Supply this evidence or the handoff must not assert verifier pass or CPU portability.",
+            "anchor": "Pack sections 'REQUEST EXCLUDED: file docs/customer/verification.md', 'REQUEST EXCLUDED: file tools/verify_package.py', 'REQUEST EXCLUDED: file docs/customer/quickstart.md' vs docs/customer/acceptance.md deliverable rows"
+          },
+          {
+            "claim": "Core numerical claims (three-seed 120-epoch results, 86.65% mean, seed agreement with fresh export evaluations) rest on docs/customer/evidence/results.json and audit-evidence metrics whose contents are excluded; only hashes/sizes and one curve fragment are visible. An audited-numbers endorsement requires inspecting per-seed results, metric definitions and class order against the fresh recheck outputs.",
+            "anchor": "Pack section 'REQUEST EXCLUDED: file docs/customer/evidence/results.json' and audit-evidence index tail in evidence-source [14614,24576)"
+          },
+          {
+            "claim": "docs/customer/acceptance.md's publication row presently reads as verified while the Question states final publication and anonymous-download checks are still pending post-council; the row must be corrected in the working tree to distinguish the historical receipt's revision from the pending final-revision check, otherwise it is an unsupported completion claim in a shipped document.",
+            "anchor": "docs/customer/acceptance.md 'Make all files available through GitHub' row vs Question statement 'final publication and anonymous download checks will bind the reviewed revision after council corrections'"
+          }
+        ]
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 4446,
+        "cacheReadTokens": 786,
+        "cacheCreationTokens": 17985,
+        "totalTokens": null
+      },
+      "costUsd": 0.582806
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.153.4",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "5bc3457480c2ae22033d8a3ecc241fd0947bdb9dce7ff3eafe80920d98112495",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "sessionId": "01a09513-d632-73d0-b8ec-943c428b7fd2",
+      "data": {
+        "recommendation": "Recommend the shared conditional handoff: a “reproduction attempt with executed research component,” preserving the three 120-epoch runs and reviewing the retained fresh rechecks. This best matches the requested audit and teaching deliverables. Full scientific replication and a live IDS/accelerator implementation are materially different alternatives that should remain separate projects. Update docs/customer/acceptance.md to distinguish historical publication verification from the pending corrected release. Review the guide generator, checker, package verifier and documented CPU setup; correct demonstrated defects, then regenerate affected PPTX/PDF, presenter script and slide-aligned HTML. Acceptance should establish per-seed metric and class-order agreement, full unlabeled prediction consistency, slide/script/guide alignment, accurate PDF references, executable setup instructions, offline browser operation and anonymous downloads matching the published revision and artifact hashes. Inspect primary evidence before reusing unchanged GPU checks; repeat checks affected by corrections without automatically repeating full training. Keep both uploaded CSVs’ input limitations, unresolved checkpoint exposure, limited pretraining, experiment differences and model-only timing boundaries prominent wherever relevant. Live capture, calibrated alerting, packet adaptation and NPU/SmartNIC execution remain explained but unbuilt. The blockers below concern unconditional audit and release-completion claims; they do not prevent agreement on this implementation plan.",
+        "resolved_objections": [
+          "Both seats now require primary numerical evidence and implementation/portability review alongside verifier logs. The objection that the proposed corrections close the 'only unsupported claims' is resolved by this broader acceptance scope.",
+          "Withdraw the categorical statement that only numerical hashes are visible. The added result excerpt reports fresh strict-metric agreement, finite saved weights, bitwise-identical export tensors and a passed disposable gradient check for the displayed record. It does not establish the complete three-seed comparison.",
+          "Additional training is deferred because stronger scientific replication is separate scope; it would not inherently contradict unchanged model code. A future live adapter could be validated using suitable captures, although the uploaded tables do not establish recoverable native flows.",
+          "Require experiment and hardware caveats wherever the corresponding comparisons appear; repeating every number in every artifact is unnecessary. Adopt 'all 1,041 flow predictions' as a nonblocking clarity correction.",
+          "Final publication verification is an implementation acceptance gate, not a prerequisite to agreeing on the conditional recommendation. Excluded evidence is unreviewed, not proof that files are missing or checks failed."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "An unconditional implementation/portability audit and independent endorsement of verifier-pass claims remain unsupported. Review the guide generator, checker, package checks and CPU instructions together with their execution records and generated artifacts. Until then, describe local verification as reported by the caller; no specific implementation defect is established.",
+            "anchor": "Question, 'Guides and rebuilt documents passed local verification'; REQUEST EXCLUDED sections for docs/customer/verification.md, docs/customer/quickstart.md, tools/build_learning_guide.py, tools/check_learning_guide.py and tools/verify_package.py."
+          },
+          {
+            "claim": "The partial numerical record cannot establish all three seeds’ results, the reported 86.65% aggregate, metric definitions, class order or full unlabeled agreement. Inspect compact per-seed summaries against fresh evaluations and the unlabeled agreement record before declaring the numerical audit complete. This evidence gap does not itself justify retraining.",
+            "anchor": "Supplied source bytes [14614,24576), partial result record; REQUEST EXCLUDED sections for docs/customer/evidence/results.json and docs/customer/audit-evidence/unlabeled-agreement.json; docs/customer/acceptance.md, classifier-verification and unlabeled-inference rows."
+          },
+          {
+            "claim": "The corrected revision cannot yet be described as publicly verified. Identify the historical receipt’s revision in the acceptance map, keep the corrected release pending, and close that status only after successful anonymous-download checks bind its commit and artifact bytes.",
+            "anchor": "Question, 'final publication and anonymous download checks will bind the reviewed revision after council corrections'; docs/customer/acceptance.md, 'Make all files available through GitHub' row, quoted in the supplied cross-reviews."
+          }
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/verification.md",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/quickstart.md",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "file",
+            "path": "tools/check_learning_guide.py",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "file",
+            "path": "tools/verify_package.py",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "file",
+            "path": "tools/build_learning_guide.py",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/audit-evidence/unlabeled-agreement.json",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/audit-evidence/index.json",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/results.json",
+            "pattern": null,
+            "limit": 3
+          }
+        ]
+      }
+    }
+  },
+  "reviews": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "34a49fd8e39e56f47192bb55fdc1cff432cafb714786b4db748c5adcc453d979",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "data": {
+        "blocking_objections": [
+          {
+            "claim": "The 'passed local verification' claim and the adequacy of the new teaching/verification tools remain unsupported: docs/customer/verification.md, tools/build_learning_guide.py, tools/check_learning_guide.py, tools/verify_package.py and docs/customer/quickstart.md were all requested and excluded, so neither seat has seen verifier code, a pass record bound to the reviewed revision, or the documented CPU setup route. Until reviewed, the handoff must describe local verification as reported by the caller, not independently endorsed, and cannot assert CPU portability.",
+            "anchor": "Pack sections 'REQUEST EXCLUDED: file docs/customer/verification.md', 'REQUEST EXCLUDED: file tools/verify_package.py', 'REQUEST EXCLUDED: file tools/check_learning_guide.py', 'REQUEST EXCLUDED: file docs/customer/quickstart.md' vs docs/customer/acceptance.md deliverable rows"
+          },
+          {
+            "claim": "The numerical audit cannot be declared complete: only one seed's partial record is visible (fresh_strict_metrics_agree, bitwise-identical export tensors, finite weights, one accuracy 0.91258). docs/customer/evidence/results.json and docs/customer/audit-evidence/unlabeled-agreement.json are excluded, so the three-seed comparison, the 86.65% mean, metric definitions, class order and the full 1,041-flow agreement record are unverified. This gap limits endorsement scope; it does not justify retraining.",
+            "anchor": "Evidence-source bytes [38072,49230) partial result record; pack sections 'REQUEST EXCLUDED: file docs/customer/evidence/results.json' and 'REQUEST EXCLUDED: file docs/customer/audit-evidence/unlabeled-agreement.json'"
+          },
+          {
+            "claim": "docs/customer/acceptance.md's 'Make all files available through GitHub' row reads as verified ('Publication is verified against a specific commit and byte hashes in the release receipt') while the Question states final publication and anonymous-download checks are still pending post-council. The working-tree document must identify the historical receipt's revision explicitly and mark the corrected-release check as pending; closing that status is gated on successful anonymous-download checks binding the frozen commit and artifact bytes.",
+            "anchor": "docs/customer/acceptance.md 'Make all files available through GitHub' row vs Question statement 'final publication and anonymous download checks will bind the reviewed revision after council corrections'"
+          }
+        ],
+        "nonblocking_notes": [
+          "Terminology adopted from codex: 'all 1,041 flow predictions' replaces 'all 1,041 classes' (six categories, 1,041 test flows), with the clarification that agreement establishes execution consistency, not customer-traffic generalization.",
+          "Caveat-placement standard adopted from codex: the 86.65% mean vs paper 97.50% gap and the byte-only NetMamba 261.87 Mb/s / 3.15 s hardware caveat must accompany those figures wherever they appear, not be repeated in every artifact.",
+          "Retraining-deferral rationale reworded per codex: paper-parity replication is deferred as separate scope, not because retraining would contradict the unchanged-core-code statements; a future live adapter could be validated with suitable captures, though the uploaded packet CSVs do not establish recoverable native flows.",
+          "I previously withdrew the phrase that corrections 'close the only unsupported claims'; numerical and tool-correctness endorsement remains conditional on primary-evidence review, matching codex's broader acceptance scope.",
+          "Codex's withdrawal of 'only numerical hashes are visible' is accepted: the visible record does show fresh strict-metric agreement, finite saved weights, bitwise-identical exports and a passed disposable gradient check for one seed.",
+          "Both seats compared materially different alternatives (full scientific replication; live IDS/accelerator build) and agree they are separate projects; the honestly-scoped conditional handoff is the recommended candidate, not a rubber-stamp of the pre-built framing.",
+          "Merged acceptance checks are shared: (a) verifier/tool logs passing at the frozen commit, (b) per-seed results agreeing with fresh export evaluations in definitions, class order and values, (c) slide/notes/talk-track/guide alignment with accurate PDF references, (d) offline browser demo and GPU-free CPU route, (e) release receipt plus anonymous downloads matching reviewed artifacts, (f) no customer artifact claims paper parity, a working live IDS, or NPU/SmartNIC execution.",
+          "Shared evidence-limits disclosure: paper-score parity, full pretraining provenance and prior checkpoint exposure, packet-CSV adapter validity, end-to-end IDS performance and live/accelerator execution remain unverified; council review is not independent GPU/numerical certification.",
+          "Excluded evidence is unreviewed, not proof of absence: no specific defect is established in the excluded tools or documents; the blockers demand evidence, not corrections beyond the acceptance.md publication row."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/verification.md",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer/evidence/results.json",
+            "pattern": "acc",
+            "limit": 20
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/audit-evidence/unlabeled-agreement.json",
+            "pattern": null,
+            "limit": 3
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer",
+            "pattern": "86.65",
+            "limit": 10
+          },
+          {
+            "kind": "grep",
+            "path": "tools/verify_package.py",
+            "pattern": "def ",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "tools/check_learning_guide.py",
+            "pattern": "def ",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer/quickstart.md",
+            "pattern": "cpu",
+            "limit": 10
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer/acceptance.md",
+            "pattern": "release receipt",
+            "limit": 5
+          }
+        ],
+        "convergence_summary": "The seats have converged on the same candidate: ship an honestly-scoped conditional handoff framing this as an executed NetMamba+ research reproduction attempt (three preserved 120-epoch runs; fresh export inference, 1,041-flow unlabeled inference, repeat benchmark, pretrain functional check and export probe under docs/customer/audit-evidence), with live IDS, packet-CSV adaptation, calibrated alerting and NPU/SmartNIC execution explicitly explained-but-unbuilt; paper-parity replication and live/accelerator builds are separate projects. All naming and framing disputes are resolved and adopted (1,041 flow predictions; caveat placement-where-claimed; retraining-deferral rationale). The three remaining blockers are substantively identical across seats: (1) unreviewed verifier/tool code and pass records behind the 'passed local verification' claim, (2) excluded primary numerical evidence (results.json, unlabeled-agreement.json) preventing completion of the three-seed/86.65% audit, and (3) the acceptance.md publication row overstating verification of the corrected release. Each is an evidence gap or single-document correction, not a plan disagreement; fulfilling the union of evidence requests and correcting the publication row should allow both seats to accept the same frozen artifact, with final publication/anonymous-download binding performed by the orchestrator afterward per council rules."
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 3520,
+        "cacheReadTokens": 784,
+        "cacheCreationTokens": 14581,
+        "totalTokens": null
+      },
+      "costUsd": 0.468424
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.153.4",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "d2ba58c7b2996d9eb518e12dd5a0fdc8ec2e12d374a1b028229d0ccac5a435ac",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "sessionId": "01a09516-4a58-71e1-9942-135bf8be0bdc",
+      "data": {
+        "blocking_objections": [],
+        "nonblocking_notes": [
+          "The revised conditional recommendation resolves my substantive objections. Preserving the executed research component and correcting its handoff is preferable within this task to full paper replication or a live IDS/accelerator build, which require additional experiments and integration evidence.",
+          "Correct the other position’s evidence description: the visible result record contains numerical metrics, fresh strict-metric agreement, finite-weight checks, bitwise-identical export tensors and a disposable gradient check. It still does not establish the complete three-seed aggregate or full unlabeled agreement.",
+          "Excluded evidence remains unreviewed, not failed. Verification may be attributed to the caller, but council endorsement of numerical correctness and CPU portability remains conditional on the previously requested primary-record, implementation and setup reviews.",
+          "The publication correction remains required: docs/customer/acceptance.md must distinguish the historical receipt from verification of the corrected release. Final anonymous downloads and artifact hashes are acceptance checks after correction.",
+          "Adopt 'all 1,041 flow predictions.' Retain the execution-consistency limitation and place experiment and hardware caveats alongside the corresponding comparisons. These wording and placement choices do not block agreement."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/audit-evidence/index.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/audit-evidence/unlabeled-agreement.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/verification.md",
+            "pattern": null,
+            "limit": null
+          }
+        ],
+        "convergence_summary": "Converged on the conditional correction-and-verification plan. No material objection remains to that recommendation; numerical review, implementation/portability review and corrected-release verification remain open acceptance requirements. This is not an unconditional audit-pass or release-completion finding."
+      }
+    }
+  },
+  "fileDeliveryEligible": false,
+  "fileDeliveryReasons": [
+    "state ESCALATED is not CONSENSUS",
+    "result is not a mutual ratification",
+    "artifact mode unknown is not architect",
+    "claude did not ACCEPT the frozen decision hash",
+    "codex did not ACCEPT the frozen decision hash"
+  ]
+}

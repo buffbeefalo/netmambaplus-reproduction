@@ -4,3 +4,9 @@ docs/research/** -text
 # Preserve native warning whitespace and plotting-library SVG path formatting.
 docs/customer/evidence/**/native.log -whitespace
 docs/customer/figures/*.svg -whitespace
+docs/customer/audit-evidence/**/native.log -whitespace
+# PDF syntax and compressed streams are binary even when Git's heuristic says text.
+*.pdf binary
+*.pptx binary
+*.png binary
+*.webm binary

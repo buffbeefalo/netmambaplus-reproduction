@@ -1,9 +1,13 @@
 # Customer package — NetMamba+
 
-Prepared for Tuesday, **15 September 2026**. Start with the briefing, then use the slides and recorded-inference demo. The technical evidence and commands are available below for review.
+Prepared for Tuesday, **15 September 2026**. Start with the plain-language guide, then use the matching 16-slide presentation, eight-page briefing and recorded-inference demo. The technical evidence and commands are available below for review.
 
 | Open or download | Purpose |
 |---|---|
+| [Plain-language field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) · [Offline page](demo/guide.html) | Every slide explained for a reader new to networking and machine learning, with the matching script and glossary |
+| [Simple setup, usage and testing](quickstart.md) | Choose a browser-only, CPU-verification or GPU-execution route; see expected outputs and actual test results |
+| [Paper, datasets and authors’ repo comparison](upstream-comparison.md) | What the research is about, what each dataset contains and exactly what this project adds |
+| [Seven-question presentation map](answers.md) · [Acceptance review](acceptance.md) | Locate each answer in the slides, script, guide and briefing; inspect evidence and limits |
 | [Briefing PDF](NetMambaPlus-customer-briefing.pdf) · [Readable Markdown](briefing.md) | Short explanation of the model, experiment, results and remaining work |
 | [PowerPoint](NetMambaPlus-customer-slides.pptx) · [Slide PDF](NetMambaPlus-customer-slides.pdf) | Editable presentation with speaker notes |
 | [Browser demo](https://buffbeefalo.github.io/netmambaplus-reproduction/) · [Offline HTML download](https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/demo/index.html) | Replay of actual saved-classifier predictions; opens without CUDA |
@@ -15,6 +19,7 @@ Prepared for Tuesday, **15 September 2026**. Start with the briefing, then use t
 | [Research record](../research/research-record.md) | Reviewed AI-assisted findings, sources, failed attempts and council scope |
 | [IDS / hardware roadmap](hardware-roadmap.md) | What a live IDS and NPU/SmartNIC port still require |
 | [Verification record](verification.md) · [Artifact index](evidence/artifact-index.json) · [SHA-256 checksums](SHA256SUMS) | What was checked and how to verify the files |
+| [Final council review and corrections](../research/final-council-review.md) | Exact outcome, decision hash, acceptance conditions and their evidence limits |
 
 If GitHub shows a binary preview page, use its download button. The release ZIP contains the files for offline use. The hosted demo and downloaded HTML both display recorded predictions; display speed does not measure inference speed.
 
@@ -32,6 +37,9 @@ If GitHub shows a binary preview page, use its download button. The release ZIP 
 | Provide a usable demonstration | [Replay](https://buffbeefalo.github.io/netmambaplus-reproduction/), [recording](demo/recorded-demo.webm) and [browser checks](evidence/browser-check.json) |
 | Separate measured and paper results | All-seed metrics and explicit configuration differences in [results](results.md) and [briefing](briefing.md) |
 | Explain inputs, training and outputs simply | [Briefing](briefing.md), [slides](NetMambaPlus-customer-slides.pptx), [lesson](../lesson.md) and [talk track](talk-track.md) |
+| Provide a nontechnical page that follows the PPT/script | [Field guide](demo/guide.html), generated in the same slide order with matching speaker script |
+| Make setup, use and test outcomes simple | [Quickstart](quickstart.md), slides 14–15 and briefing page 7 |
+| Explain changes from the authors’ repo and the paper/data | [Comparison](upstream-comparison.md), slide 13 and briefing page 8 |
 | Measure inference cost | Synchronized model-only latency samples in [benchmark evidence](evidence/benchmark/metrics.json) |
 | Investigate accelerator portability | Actual [Torch export probe](evidence/export-probe/metrics.json), operator inventory and [hardware roadmap](hardware-roadmap.md) |
 | Share research and editable material | [Research record](../research/research-record.md), [slide source](presentation-source.json), [briefing source](briefing-source.md) and [generator](../../tools/build_customer_package.py) |

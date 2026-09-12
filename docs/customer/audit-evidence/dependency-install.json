@@ -1,0 +1,13 @@
+{
+  "torch": "2.9.1+cu130",
+  "numpy": "1.26.2",
+  "timm": "0.4.12",
+  "cuda_available": true,
+  "gpu": "NVIDIA GB10",
+  "capability": [
+    12,
+    1
+  ],
+  "source_builds_repeated_this_audit": false,
+  "scope": "Documented venv and Python dependency-install commands executed in a new environment; native extensions were already rebuilt in the prior rehearsal."
+}

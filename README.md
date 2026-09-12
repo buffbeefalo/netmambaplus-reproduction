@@ -11,6 +11,10 @@ Test accuracy was **91.26%, 84.05% and 84.63%** across the three declared seeds:
 | Deliverable | Link |
 |---|---|
 | Start here: results, downloads and completion checklist | [Customer index](docs/customer/README.md) |
+| Understand it without a technical background | [Slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
+| Simple setup, usage and test results | [Quickstart](docs/customer/quickstart.md) |
+| What the paper/data mean and what we changed | [Authors’ repository comparison](docs/customer/upstream-comparison.md) |
+| Find each of your seven answers | [Question-to-slide/script/PDF map](docs/customer/answers.md) |
 | Download the complete offline customer bundle | [Release ZIP](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/latest/download/netmambaplus-customer-package.zip) |
 | Short technical briefing | [PDF](docs/customer/NetMambaPlus-customer-briefing.pdf) · [Markdown](docs/customer/briefing.md) |
 | Editable presentation with speaker notes | [PowerPoint](docs/customer/NetMambaPlus-customer-slides.pptx) · [Slide PDF](docs/customer/NetMambaPlus-customer-slides.pdf) |
@@ -52,7 +56,7 @@ Python 3.10 or newer is sufficient for the standard-library tests:
 
 ```bash
 python3 -m unittest discover -s tests -v
-python3 repro.py --help
+python3 tools/verify_package.py
 ```
 
 CPU CI checks the harness and published evidence. It does not retrain the GPU model. The separately saved GPU records establish the actual experiments described in the customer package.
@@ -111,3 +115,5 @@ The short pretraining run validates reconstruction learning on downstream traini
 Raw data, upstream source and original weights are acquired from their authors rather than mirrored in this repository. Locally produced classifier exports and their hashes are recorded; inherited asset redistribution/commercial terms remain unresolved, so the customer package shares prediction evidence and a repeatable training route rather than asserting new rights over those assets. The authors’ inspected repository root has no license file.
 
 The [7 September audit](docs/audit.md) is historical. The later [focused council decision](docs/research/research-record.md#council-decision-and-its-limits) reviewed the staged experiment plan; it did not independently certify later numerical results or replace the earlier unratified audit. The current package’s [verification record](docs/customer/verification.md) states the checks actually performed.
+
+The [final council review](docs/research/final-council-review.md) records the exact ratified handoff criteria, retained evidence limits and applied corrections. Its initial escalated review is preserved separately. The final release receipt binds publication checks to the downloaded revision.

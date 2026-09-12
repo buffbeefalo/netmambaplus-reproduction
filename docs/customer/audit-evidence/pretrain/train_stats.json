@@ -1,0 +1,5 @@
+{
+  "batch_size": 128,
+  "epochs": 2,
+  "total_time": 17.905372858047485
+}

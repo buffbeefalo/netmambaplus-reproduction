@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-12T09:58:26.930671+00:00",
+  "checks": [
+    "complete disposable package accepted",
+    "stale guide rejected during checksum refresh",
+    "altered speaker script rejected during checksum refresh"
+  ],
+  "scope": "Supplementary verifier rejection checks, not additional counted unit tests"
+}

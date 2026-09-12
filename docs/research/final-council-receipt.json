@@ -1,0 +1,82 @@
+{
+  "runId": "5504d0bc-4a1a-4b5a-865f-0d0a9b6b6d6c",
+  "state": "CONSENSUS",
+  "stamp": "RATIFIED",
+  "mutual": true,
+  "decisionHash": "18ff1e796e2fd1685df76a4a1b1b7dd5122cc06328c0f5dbf87a28a3616fed5d",
+  "mode": "verify",
+  "schemaVersion": 2,
+  "modelsUsed": {
+    "claude": "claude-fable-5",
+    "codex": "gpt-6-astra",
+    "claudeSeatRestarts": 0
+  },
+  "verdicts": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "f368ccef79512f4079f378f8808f868207c7bcc4ae681656046142b0755f76f7",
+      "schemaHash": "367afb2e4cbfc48b3df8aff0eadc5d8e3c724c8770c3588a1c2419da6bdd3821",
+      "data": {
+        "verdict": "ACCEPT",
+        "decision_hash": "18ff1e796e2fd1685df76a4a1b1b7dd5122cc06328c0f5dbf87a28a3616fed5d",
+        "blocking_objections": [],
+        "dissent_note": "No blocking dissent. My missing-checker-evidence objection (tools/verify_package.py:154,156,166,167 with omitted surrounding code) is preserved in the artifact as a major finding and explicit verification gate rather than a demonstrated defect claim, which I accept as an accurate characterization. Remaining differences with the codex seat are scope/phrasing only and are nonblocking; I adopt the artifact's \"reported execution evidence\" framing."
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 616,
+        "cacheReadTokens": 0,
+        "cacheCreationTokens": 4381,
+        "totalTokens": null
+      },
+      "costUsd": 0.11844
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.153.4",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "6f865efcd9c7d6ceef3ef667b3e3f57e80b842e571fcca6443091905942b61c7",
+      "schemaHash": "367afb2e4cbfc48b3df8aff0eadc5d8e3c724c8770c3588a1c2419da6bdd3821",
+      "sessionId": "01a0952b-c2f8-7ae3-a5aa-3bb565700786",
+      "data": {
+        "verdict": "ACCEPT",
+        "decision_hash": "18ff1e796e2fd1685df76a4a1b1b7dd5122cc06328c0f5dbf87a28a3616fed5d",
+        "blocking_objections": [],
+        "dissent_note": "No blocking defect. Acceptance covers the reported-evidence conclusion; unresolved verification and publication checks remain handoff gates."
+      }
+    }
+  },
+  "scope": "Ratified bounded research-demo handoff criteria. This is not independent GPU certification or a publication receipt. Local acceptance checks and public delivery are recorded separately.",
+  "implementation": "Direct authorized verification and corrections by the calling session; not broker DELIVERED."
+}
