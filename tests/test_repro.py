@@ -29,7 +29,7 @@ class Workspace(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         self.data = self.root / "data"
         self.data.mkdir()
         self.mapping = {f"class-{i}": i for i in range(6)}
@@ -287,7 +287,7 @@ class InvocationWorkspace(Workspace):
             "--checkpoint", str(self.checkpoint), *extra])
 
     def manifest(self):
-        return json.loads((self.root / "run/manifest.json").read_text())
+        return json.loads((self.root / "run/manifest.json").read_text(encoding="utf-8"))
 
 
 class InvocationTests(InvocationWorkspace):
@@ -340,7 +340,7 @@ class InvocationTests(InvocationWorkspace):
         self.assertEqual((native.model, native.steps, native.blr), ("fuse3_mamba_pretrain", 100000, 0.001))
         self.assertEqual((native.byte_mask_ratio, native.size_mask_ratio, native.iat_mask_ratio), (0.9, 0.15, 0.15))
         self.assertNotIn("--finetune", argv)
-        self.assertTrue(command[2].endswith("/src/pre-train.py"))
+        self.assertEqual(Path(command[2]), self.root / "upstream/src/pre-train.py")
 
     def test_integrity_failure_precedes_parser_execution(self):
         self.integrity.side_effect = repro.ReproError("drift")
@@ -473,7 +473,7 @@ class EvaluationTests(InvocationWorkspace):
         runtime.torch.load.assert_called_once_with(str(self.checkpoint), map_location="cpu", weights_only=False)
         model.load_state_dict.assert_called_once_with({"head.weight": "weights"}, strict=True)
         model.to.assert_called_once_with("selected-device")
-        metrics = json.loads((self.root / "run/metrics.json").read_text())
+        metrics = json.loads((self.root / "run/metrics.json").read_text(encoding="utf-8"))
         self.assertEqual(set(metrics["metrics"]), {"acc", "per_class", "cm"})
         self.assertEqual(metrics["nonfinite_metric_paths"], ["/per_class/1"])
         self.assertEqual(metrics["checkpoint_provenance"]["class_order"], "unknown")

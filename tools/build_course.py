@@ -268,7 +268,7 @@ def main():
         print("Course render matches its reviewed source and evidence.")
     else:
         OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-        OUTPUT.write_text(output, encoding="utf-8")
+        OUTPUT.write_text(output, encoding="utf-8", newline="\n")
         print(str(OUTPUT.relative_to(ROOT)))
 
 

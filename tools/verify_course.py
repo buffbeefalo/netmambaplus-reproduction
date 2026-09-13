@@ -154,7 +154,7 @@ def verify(source=None, root=ROOT, check_render=True, check_record=True):
             raise ValueError(f"Evidence reference hash changed: {id}")
         if ref["kind"] == "json":
             build.pointer(build.read(path), ref["selector"])
-        elif ref["kind"] != "text" or not ref["selector"] or ref["selector"] not in path.read_text():
+        elif ref["kind"] != "text" or not ref["selector"] or ref["selector"] not in path.read_text(encoding="utf-8"):
             raise ValueError(f"Evidence reference anchor missing: {id}")
     evidence_paths = {x["path"] for x in source["references"].values()}
     if any(fact["file"] not in evidence_paths for fact in source["facts"].values()):
@@ -237,7 +237,7 @@ def verify(source=None, root=ROOT, check_render=True, check_record=True):
             raise ValueError("Course render is stale")
     pending = []
     if check_record:
-        text = (root / RECORD.relative_to(ROOT)).read_text()
+        text = (root / RECORD.relative_to(ROOT)).read_text(encoding="utf-8")
         match = re.search(r"<!-- course-check-record -->\s*```json\s*(.*?)\s*```", text, re.S)
         if not match:
             raise ValueError("Machine-readable course verification record is missing")
@@ -386,7 +386,7 @@ def browser_check(output, url=None):
                    hosted_url=url, download_bytes_equal=True if url else None,
                    print_pdf_sha256=digest(output / "course-print.pdf"),
                    screenshots={p.name: digest(p) for p in sorted(output.glob("*.png"))})
-    (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
+    (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8", newline="\n")
     return receipt
 
 

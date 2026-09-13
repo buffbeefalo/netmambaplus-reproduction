@@ -19,7 +19,7 @@ INK, PAPER, TEAL, AMBER, MUTED = "132C38", "F4F1E8", "007C78", "A34F17", "516774
 
 
 def load(name):
-    return json.loads((EVIDENCE / name).read_text())
+    return json.loads((EVIDENCE / name).read_text(encoding="utf-8"))
 
 
 def percent(value):
@@ -108,7 +108,7 @@ def build_slides(results, benchmark, tokens, score_rows, latency_rows):
     from pptx.enum.shapes import MSO_SHAPE
     from pptx.util import Inches, Pt
 
-    source = json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(), tokens))
+    source = json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(encoding="utf-8"), tokens))
     deck = Presentation()
     deck.slide_width, deck.slide_height = Inches(13.333333), Inches(7.5)
     deck.core_properties.title = source["title"]
@@ -268,7 +268,7 @@ def build_slides(results, benchmark, tokens, score_rows, latency_rows):
         text(slide, f"{index:02d}", 12.2, 7.08, .5, .25, 11, MUTED)
     target = CUSTOMER / "NetMambaPlus-customer-slides.pptx"
     deck.save(target)
-    (CUSTOMER / "talk-track.md").write_text("\n".join(notes), encoding="utf-8")
+    (CUSTOMER / "talk-track.md").write_text("\n".join(notes), encoding="utf-8", newline="\n")
     if shutil.which("soffice"):
         with tempfile.TemporaryDirectory(prefix="netmamba-libreoffice-") as profile:
             subprocess.run(["soffice", f"-env:UserInstallation={Path(profile).as_uri()}", "--headless", "--convert-to", "pdf",
@@ -305,8 +305,8 @@ def build_briefing(tokens):
               "h2": ParagraphStyle("h2", fontSize=13, leading=18, spaceBefore=11, spaceAfter=7, **base),
               "bullet": ParagraphStyle("bullet", fontSize=10.1, leading=14.1, leftIndent=11, spaceAfter=6, **base),
               "cell": ParagraphStyle("cell", fontSize=8.7, leading=12, **base)}
-    resolved = substitute((CUSTOMER / "briefing-source.md").read_text(), tokens)
-    (CUSTOMER / "briefing.md").write_text(resolved)
+    resolved = substitute((CUSTOMER / "briefing-source.md").read_text(encoding="utf-8"), tokens)
+    (CUSTOMER / "briefing.md").write_text(resolved, encoding="utf-8", newline="\n")
     document = SimpleDocTemplate(str(CUSTOMER / "NetMambaPlus-customer-briefing.pdf"), pagesize=A4,
                                  leftMargin=48, rightMargin=48, topMargin=57, bottomMargin=47,
                                  title="NetMamba+ — what we built and measured", author="NetMamba+ reproduction project")
@@ -386,7 +386,7 @@ def results_markdown(results, benchmark, tokens):
              "## Limits that accompany the numbers", "",
              "The official split contains five exact stored inputs shared between train/validation and six between train/test. Recorded identifiers and raw fingerprints do not prove capture independence; additional collisions after normalization are possible. Earlier exposure of the released pretraining checkpoint is unknown. These results do not establish unknown-attack performance, calibrated confidence, an operational false-alert rate or NPU/SmartNIC deployment.", "",
              "Primary machine-readable evidence: [results.json](evidence/results.json), [benchmark](evidence/benchmark/metrics.json), [evidence index](evidence/artifact-index.json)."]
-    (CUSTOMER / "results.md").write_text("\n".join(text) + "\n")
+    (CUSTOMER / "results.md").write_text("\n".join(text) + "\n", encoding="utf-8", newline="\n")
 
 
 def check_document_counts(source):
@@ -402,12 +402,12 @@ def check_document_counts(source):
     deck = CUSTOMER / "NetMambaPlus-customer-slides.pptx"
     files[deck.name] = {"sha256": hashlib.sha256(deck.read_bytes()).hexdigest()}
     (CUSTOMER / "document-check.json").write_text(json.dumps({"status": "passed", "method": "pdfinfo on rendered PDFs",
-        "scope": "Page inventory and artifact identity; content and visual review are separate checks", "files": files}, indent=2) + "\n")
+        "scope": "Page inventory and artifact identity; content and visual review are separate checks", "files": files}, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def main():
     results, benchmark, tokens, rows, latencies = data_and_tokens()
-    source = json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(), tokens))
+    source = json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(encoding="utf-8"), tokens))
     charts(results)
     results_markdown(results, benchmark, tokens)
     build_briefing(tokens)

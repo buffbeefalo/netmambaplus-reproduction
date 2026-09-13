@@ -32,7 +32,7 @@ def digest(path):
 def read(path):
     def invalid(value):
         raise ValueError(f"Nonfinite JSON value {value}: {path}")
-    return json.loads(path.read_text(), parse_constant=invalid)
+    return json.loads(path.read_text(encoding="utf-8"), parse_constant=invalid)
 
 
 def close(a, b):
@@ -42,7 +42,7 @@ def close(a, b):
 
 def verify_teaching_material():
     _, _, tokens, _, _ = data_and_tokens()
-    source = json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(), tokens))
+    source = json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(encoding="utf-8"), tokens))
     documents = read(CUSTOMER / "document-check.json")
     if documents["status"] != "passed":
         raise ValueError("Rendered document page check did not pass")
@@ -53,13 +53,13 @@ def verify_teaching_material():
     for name, record in documents["files"].items():
         if digest(CUSTOMER / name) != record["sha256"]:
             raise ValueError("Rendered document check is stale")
-    guide = (CUSTOMER / "demo/guide.html").read_text()
+    guide = (CUSTOMER / "demo/guide.html").read_text(encoding="utf-8")
     if guide != render(source):
         raise ValueError("Learning guide is stale relative to the slide content or renderer")
     if len(source["questions"]) != 7 or len({q["id"] for q in source["questions"]}) != 7:
         raise ValueError("Seven distinct customer questions must be mapped")
-    notes = (CUSTOMER / "talk-track.md").read_text()
-    answers = (CUSTOMER / "answers.md").read_text()
+    notes = (CUSTOMER / "talk-track.md").read_text(encoding="utf-8")
+    answers = (CUSTOMER / "answers.md").read_text(encoding="utf-8")
     if coverage_markdown(source) not in notes or coverage_markdown(source) not in answers:
         raise ValueError("Question map is stale in the script or answers")
     for question in source["questions"]:
@@ -199,11 +199,11 @@ def verify(allow_missing_checksums=False):
         if any(b"@@" in archive.read(name) for name in slides):
             raise ValueError("PowerPoint contains unresolved result tokens")
     for name in ("briefing.md", "results.md", "talk-track.md"):
-        if "@@" in (CUSTOMER / name).read_text():
+        if "@@" in (CUSTOMER / name).read_text(encoding="utf-8"):
             raise ValueError(f"Unresolved presentation token: {name}")
     missing_links = []
     for path in [ROOT / "README.md", *sorted((ROOT / "docs").rglob("*.md"))]:
-        for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", path.read_text()):
+        for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", path.read_text(encoding="utf-8")):
             if target.startswith(("http://", "https://", "mailto:", "#")):
                 continue
             local = unquote(target.split("#", 1)[0].split("?", 1)[0].strip("<>"))
@@ -232,10 +232,11 @@ def main():
     paths = sorted(path for base in (CUSTOMER, ROOT / "docs/research") for path in base.rglob("*")
                    if path.is_file() and path != sums)
     if args.write_sha256:
-        sums.write_text("".join(f"{digest(path)}  {path.relative_to(ROOT)}\n" for path in paths))
+        sums.write_text("".join(f"{digest(path)}  {path.relative_to(ROOT).as_posix()}\n" for path in paths),
+                        encoding="utf-8", newline="\n")
     if sums.exists():
         covered = set()
-        for line in sums.read_text().splitlines():
+        for line in sums.read_text(encoding="utf-8").splitlines():
             expected, relative = line.split("  ", 1)
             target = (ROOT / relative).resolve()
             if not target.is_relative_to(ROOT) or digest(target) != expected:

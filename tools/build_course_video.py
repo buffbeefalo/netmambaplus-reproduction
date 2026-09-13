@@ -144,9 +144,9 @@ def write_captions(cues, scenes, work, destination):
                 remaining = scene["seconds"] - second
                 text = f"Practice time  |  {remaining // 60:02}:{remaining % 60:02} remaining"
                 ass.append(f"Dialogue: 1,{ass_time(scene['start'] + second)},{ass_time(scene['start'] + second + 1)},Practice,,0,0,0,,{text}")
-    (destination / "captions.srt").write_text("\n".join(srt).rstrip() + "\n")
-    (destination / "captions.vtt").write_text("\n".join(vtt).rstrip() + "\n")
-    (work / "captions.ass").write_text("\n".join(ass) + "\n")
+    (destination / "captions.srt").write_text("\n".join(srt).rstrip() + "\n", encoding="utf-8", newline="\n")
+    (destination / "captions.vtt").write_text("\n".join(vtt).rstrip() + "\n", encoding="utf-8", newline="\n")
+    (work / "captions.ass").write_text("\n".join(ass) + "\n", encoding="utf-8", newline="\n")
 
 
 def render_scene(scene, path, facts, demo):
@@ -282,8 +282,8 @@ def build(args):
                 transcript.append(scene["narration"])
             transcript.extend(["", "On screen: " + " · ".join(scene["bullets"]), "",
                                "Evidence: " + ", ".join(f"[{key}](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/{references[key]})" for key in scene["references"]), ""])
-    (destination / "transcript.md").write_text("\n".join(transcript).rstrip() + "\n")
-    (destination / "chapters.json").write_text(json.dumps(chapters, indent=2) + "\n")
+    (destination / "transcript.md").write_text("\n".join(transcript).rstrip() + "\n", encoding="utf-8", newline="\n")
+    (destination / "chapters.json").write_text(json.dumps(chapters, indent=2) + "\n", encoding="utf-8", newline="\n")
     frames_dir, audio_dir = work / "frames", work / "timed-audio"
     frames_dir.mkdir(exist_ok=True)
     audio_dir.mkdir(exist_ok=True)
@@ -314,12 +314,12 @@ def build(args):
                     total.writeframes(audio.readframes(samples))
             print(f"Rendered {scene['id']}: {scene['end'] - scene['start']:.1f}s", flush=True)
     concat.append(f"file 'frames/{scenes[-1]['id']}.png'")
-    (work / "frames.ffconcat").write_text("\n".join(concat) + "\n")
+    (work / "frames.ffconcat").write_text("\n".join(concat) + "\n", encoding="utf-8", newline="\n")
     metadata = [";FFMETADATA1", "title=NetMamba+ — the 30-minute video course", "comment=Local synthetic narration; recorded research results, not live inference."]
     for chapter in chapters:
         metadata.extend(["[CHAPTER]", "TIMEBASE=1/1000", f"START={round(chapter['start'] * 1000)}",
                          f"END={round(chapter['end'] * 1000)}", "title=" + chapter["title"].replace("=", "\\=")])
-    (work / "chapters.ffmetadata").write_text("\n".join(metadata) + "\n")
+    (work / "chapters.ffmetadata").write_text("\n".join(metadata) + "\n", encoding="utf-8", newline="\n")
     media = destination / MEDIA_NAME
     run([args.ffmpeg, "-hide_banner", "-loglevel", "warning", "-stats", "-y",
          "-safe", "0", "-i", work / "frames.ffconcat", "-i", work / "narration-timed.wav",
@@ -335,7 +335,7 @@ def build(args):
               "scenes": [{k: v for k, v in s.items() if k != "audio"} for s in scenes], "caption_cues": cues,
               "references": {k: {"path": p, "sha256": digest(ROOT / p)} for k, p in references.items() if any(k in s["references"] for s in scenes)},
               "artifacts": inventory, "status": "built; encoded-media verification is separate"}
-    (destination / "media-manifest.json").write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n")
+    (destination / "media-manifest.json").write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({"media": str(media), "bytes": media.stat().st_size, "sha256": digest(media)}))
 
 
@@ -359,7 +359,7 @@ def main():
         manifest["artifacts"][WEBM_NAME] = {"bytes": webm.stat().st_size, "sha256": digest(webm)}
         manifest["browser_fallback"] = {"source_mp4_sha256": digest(media), "codec": "VP9/Opus",
                                         "reason": "The tested open-source Chromium build does not include H.264/AAC decoding"}
-        (args.output / "media-manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
+        (args.output / "media-manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     else:
         build(args)
 

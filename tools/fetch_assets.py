@@ -56,7 +56,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "assets")
     args = parser.parse_args()
-    inventory = json.loads((ROOT / "configs/assets.json").read_text())
+    inventory = json.loads((ROOT / "configs/assets.json").read_text(encoding="utf-8"))
     results = []
     for name, specification in inventory["files"].items():
         target = args.output / name

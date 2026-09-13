@@ -24,7 +24,7 @@ class VideoTests(unittest.TestCase):
         self.assertEqual(result["status"], "passed")
         self.assertEqual(result["scenes"], 60)
         from build_video_page import render, DESTINATION
-        self.assertEqual((DESTINATION / "index.html").read_text(), render())
+        self.assertEqual((DESTINATION / "index.html").read_bytes(), render().encode("utf-8"))
 
     def test_truncated_container_and_stream_are_rejected(self):
         for field in ["container", "stream"]:
@@ -67,9 +67,9 @@ class VideoTests(unittest.TestCase):
             path = Path(directory)
             from narrate_course_video import SOURCE, digest
             from build_course_video import MEDIA_NAME, DESTINATION
-            manifest = json.loads((DESTINATION / "media-manifest.json").read_text())
+            manifest = json.loads((DESTINATION / "media-manifest.json").read_text(encoding="utf-8"))
             manifest["artifacts"][MEDIA_NAME] = {"bytes": 5, "sha256": "0" * 64}
-            (path / "media-manifest.json").write_text(json.dumps(manifest))
+            (path / "media-manifest.json").write_text(json.dumps(manifest), encoding="utf-8", newline="\n")
             (path / MEDIA_NAME).write_bytes(b"wrong")
             with self.assertRaisesRegex(ValueError, "checksum"):
                 verify_files(path)

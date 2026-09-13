@@ -111,7 +111,7 @@ def verify_files(directory=DESTINATION):
     chapters = {c["id"] for c in source["chapters"]}
     if any(not ids or any(i not in chapters for i in ids) for ids in source["customer_questions"].values()):
         raise ValueError("Invalid customer coverage mapping")
-    count = check_vtt((directory / "captions.vtt").read_text(), manifest["caption_cues"])
+    count = check_vtt((directory / "captions.vtt").read_text(encoding="utf-8"), manifest["caption_cues"])
     return manifest, {"status": "passed", "source_sha256": digest(SOURCE), "artifacts": manifest["artifacts"],
                       "scenes": len(manifest["scenes"]), "captions": count, "practice_seconds": pauses,
                       "scope": "Source, file identity and caption checks; encoded-media decode is a separate option."}
@@ -122,14 +122,14 @@ def measure_media(media, manifest, ffmpeg, ffprobe, output):
     command = [ffprobe, "-v", "error", "-show_streams", "-show_format", "-show_chapters", "-of", "json", str(media)]
     probe = json.loads(subprocess.check_output(command))
     result = check_probe(probe)
-    (output / "ffprobe.json").write_text(json.dumps(probe, indent=2) + "\n")
+    (output / "ffprobe.json").write_text(json.dumps(probe, indent=2) + "\n", encoding="utf-8", newline="\n")
     command = [ffmpeg, "-hide_banner", "-nostats", "-xerror", "-i", str(media),
                "-map", "0:v:0", "-map", "0:a:0", "-af",
                "silencedetect=noise=-45dB:d=3,ebur128=peak=true:framelog=verbose,astats=reset=0",
                "-f", "null", "-"]
     process = subprocess.run(command, capture_output=True, text=True)
     log = process.stderr
-    (output / "decode-audio.log").write_text(log)
+    (output / "decode-audio.log").write_text(log, encoding="utf-8", newline="\n")
     if process.returncode:
         raise ValueError("Complete audiovisual decode failed; see decode-audio.log")
     starts = [float(x) for x in re.findall(r"silence_start: ([0-9.]+)", log)]
@@ -150,7 +150,7 @@ def measure_media(media, manifest, ffmpeg, ffprobe, output):
                   mp4_sha256=digest(media), command=command, decode_exit_code=process.returncode,
                   decode_log_sha256=digest(output / "decode-audio.log"),
                   human_full_playback_review="pending; automated decode is not a listening review")
-    (output / "media-check.json").write_text(json.dumps(result, indent=2) + "\n")
+    (output / "media-check.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8", newline="\n")
     return result
 
 
@@ -220,7 +220,7 @@ def browser_check(output, url):
               "seek_and_play_near_end": True, "download_bytes_equal": True, "served_bytes_equal": True,
               "viewport_widths_without_overflow": widths, "page_errors": errors,
               "screenshots": {p.name: digest(p) for p in output.glob("*.png")}}
-    (output / "browser-check.json").write_text(json.dumps(result, indent=2) + "\n")
+    (output / "browser-check.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8", newline="\n")
     return result
 
 

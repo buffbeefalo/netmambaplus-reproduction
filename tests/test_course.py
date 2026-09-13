@@ -15,14 +15,14 @@ import verify_course
 
 class CourseTests(unittest.TestCase):
     def setUp(self):
-        self.source = json.loads(build_course.SOURCE.read_text())
+        self.source = json.loads(build_course.SOURCE.read_text(encoding="utf-8"))
 
     def test_current_course_and_render_pass(self):
         report = verify_course.verify(self.source)
         self.assertEqual(report["planned_seconds"], 1800)
         self.assertEqual(report["teaching_seconds"], 1050)
         self.assertEqual(report["practice_seconds"], 750)
-        self.assertEqual(build_course.OUTPUT.read_text(), build_course.render(self.source))
+        self.assertEqual(build_course.OUTPUT.read_bytes(), build_course.render(self.source).encode("utf-8"))
 
     def test_timing_drift_is_rejected(self):
         self.source["segments"][0]["seconds"] -= 1
@@ -99,7 +99,7 @@ class CourseTests(unittest.TestCase):
         paths.update(self.source["protected_artifacts"])
         paths.update(line.split("  ", 1)[1] for line in self.source["protected_checksum_inventory"]["text"].splitlines())
         paths.update(x["path"] for x in self.source["resources"] if x.get("path"))
-        paths.add(str(build_course.SOURCE.relative_to(ROOT)))
+        paths.add(build_course.SOURCE.relative_to(ROOT).as_posix())
         paths.add("docs/customer/demo/video/index.html")
         with tempfile.TemporaryDirectory() as temporary:
             fixture = Path(temporary)
@@ -109,7 +109,7 @@ class CourseTests(unittest.TestCase):
                 shutil.copyfile(ROOT / name, target)
             output = fixture / build_course.OUTPUT.relative_to(ROOT)
             output.parent.mkdir(parents=True, exist_ok=True)
-            output.write_text("Stale HTML")
+            output.write_text("Stale HTML", encoding="utf-8", newline="\n")
             with self.assertRaisesRegex(ValueError, "render is stale"):
                 verify_course.verify(self.source, root=fixture, check_record=False)
 

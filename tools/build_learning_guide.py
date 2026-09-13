@@ -62,7 +62,7 @@ def render(source):
         "Hash / provenance": "A file fingerprint / records describing where a file came from. They help check identity; they do not prove scientific quality or grant usage rights."
     }
     terms = "".join(f"<dt>{esc(k)}</dt><dd>{esc(v)}</dd>" for k, v in glossary.items())
-    css = (Path(__file__).with_name("learning-guide.css")).read_text()
+    css = (Path(__file__).with_name("learning-guide.css")).read_text(encoding="utf-8")
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Understand the NetMamba+ research, measured training, inputs, demo and limits, one slide at a time.">
@@ -91,7 +91,7 @@ python3 tools/verify_package.py</code></pre><p>The recorded suite passed <strong
 
 
 def build(source):
-    (CUSTOMER / "demo/guide.html").write_text(render(source), encoding="utf-8")
+    (CUSTOMER / "demo/guide.html").write_text(render(source), encoding="utf-8", newline="\n")
     text = ["# Answers and presentation map", "",
             "The guide follows the same slide numbers and presenter script as the PowerPoint. Briefing page numbers refer to the rendered PDF.", "",
             coverage_markdown(source), ""]
@@ -102,10 +102,10 @@ def build(source):
              "- Simple setup, usage and testing: slides 14–15 and [quickstart](quickstart.md); briefing page 7.",
              "- Plain-language explanation: [slide-by-slide guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html), also available offline at `demo/guide.html`.",
              "- Actual checks and their limits: [verification record](verification.md) and [acceptance review](acceptance.md).", ""]
-    (CUSTOMER / "answers.md").write_text("\n".join(text), encoding="utf-8")
+    (CUSTOMER / "answers.md").write_text("\n".join(text), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":
     from build_customer_package import data_and_tokens, substitute
     _, _, tokens, _, _ = data_and_tokens()
-    build(json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(), tokens)))
+    build(json.loads(substitute((CUSTOMER / "presentation-source.json").read_text(encoding="utf-8"), tokens)))

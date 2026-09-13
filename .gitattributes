@@ -1,6 +1,7 @@
-# Hash-bound documents and captured records must keep their original bytes.
-docs/customer/** -text
-docs/research/** -text
+# Hash-bound configuration, documents and records keep their committed bytes,
+# including on checkouts with core.autocrlf enabled.
+configs/** -text
+docs/** -text
 # Preserve native warning whitespace and plotting-library SVG path formatting.
 docs/customer/evidence/**/native.log -whitespace
 docs/customer/figures/*.svg -whitespace

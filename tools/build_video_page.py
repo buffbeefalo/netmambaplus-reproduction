@@ -59,11 +59,11 @@ def main():
     path = DESTINATION / "index.html"
     expected = render()
     if args.check:
-        if not path.is_file() or path.read_text() != expected:
+        if not path.is_file() or path.read_text(encoding="utf-8") != expected:
             raise SystemExit("Video watch page is stale")
         print("Video watch page matches the measured media manifest.")
     else:
-        path.write_text(expected)
+        path.write_text(expected, encoding="utf-8", newline="\n")
         print(path.relative_to(ROOT))
 
 
