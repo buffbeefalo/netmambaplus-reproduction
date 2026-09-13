@@ -42,7 +42,7 @@ def render():
 <p class="status">Actual three-run mean: <strong>86.65%</strong>. The paper’s <strong>97.50%</strong> was not reproduced. The demo replays saved predictions; live IDS and NPU/SmartNIC deployment remain future work.</p>
 <h2>Jump to a chapter</h2><ol class="chapters">{"".join(chapters)}</ol><p id="play-status" class="small" role="status" aria-live="polite">Choose a chapter, then press Play.</p>
 <div class="transcript" id="transcript"><h2>Read the complete narration</h2><p>This transcript reflows for smaller screens. Evidence links lead to the saved records. The course explains earlier experiments; playing it does not rerun training.</p>{"".join(sections)}</div></main>
-<footer><a href="https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/course-video-v1">Versioned video release</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/video-verification.md">Media checks and remaining review</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/repository-walkthrough.md">Every file and download explained</a></footer>
+<footer><a href="https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/course-video-v2">Versioned video release</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/video-verification.md">Media checks and remaining review</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/repository-walkthrough.md">Every file and download explained</a></footer>
 <script>
 const player=document.getElementById('player');
 document.querySelectorAll('.chapter').forEach(link=>link.addEventListener('click',event=>{{

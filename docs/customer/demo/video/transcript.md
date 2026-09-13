@@ -2,7 +2,7 @@
 
 Locally synthesized narration. This video explains recorded experiments; it does not perform new training or live capture.
 
-Runtime: 30:00, including 3:00 of labeled practice pauses and a 90-second teach-back. Captions use measured sentence audio boundaries; within-sentence breaks are proportional estimates.
+Runtime: 30:00, including 3:00 of labeled practice pauses and a 90-second teach-back. Captions use measured sentence audio boundaries and proportional within-sentence breaks, with source-bound corrections for independently measured timing defects. Full human listening and caption-alignment review remain pending.
 
 ## 00:00:00 — The paper and the purpose
 
@@ -124,15 +124,15 @@ Evidence: [comparison](https://github.com/buffbeefalo/netmambaplus-reproduction/
 
 ### 00:06:00 — Three views become tensors
 
-Now follow one valid flow through the original loader. The byte view keeps up to five packets, with three hundred twenty stored bytes per packet. That gives sixteen hundred values. The paper describes each packet region as eighty header bytes plus two hundred forty payload bytes. Released flows already contain this extraction. Short records are padded; long ones are truncated. The measured byte tensor has batch size by one by one by sixteen hundred as its dimensions. The two other views retain the first twenty sizes and the first twenty time gaps.
+Now follow one valid flow through the original loader. The byte view keeps up to five packets, with three hundred twenty stored bytes per packet: sixteen hundred values in total. The paper describes eighty header bytes plus two hundred forty payload bytes per packet. The loader expects already extracted bytes; we have not independently verified the release’s extraction history. Short records are padded and long ones truncated. A tensor is an array of numbers. Here its dimensions are batch size by one by one by sixteen hundred. The other views keep twenty sizes and twenty time gaps.
 
 On screen: 5 packets × 320 stored bytes = 1,600 values · First 20 packet sizes · First 20 arrival intervals
 
 Evidence: [lesson](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/lesson.md)
 
-### 00:06:38 — Normalization changes the numerical scale
+### 00:06:39 — Normalization changes the numerical scale
 
-The byte transformation divides by two hundred fifty-five, then uses a mean and standard deviation of one half. A zero byte therefore becomes minus one, and two hundred fifty-five becomes plus one. Sizes are clipped between zero and fifteen hundred. A padding size of fifteen hundred and one is also clipped to fifteen hundred, so that boundary cannot reliably identify padding. For a nonnegative gap x, the loader uses one plus x divided by two plus x. Zero becomes one half; one becomes two thirds. Padded infinite gaps map to one inside the loader.
+The byte transformation divides by two hundred fifty-five, then uses a mean and standard deviation of one half. A zero byte therefore becomes minus one, and two hundred fifty-five becomes plus one. Sizes are clipped between zero and fifteen hundred. A padding size of fifteen hundred and one is also clipped to fifteen hundred, so that boundary cannot reliably identify padding. For a nonnegative gap x, the loader uses the fraction, one plus x, over two plus x. Zero becomes one half; one becomes two thirds. Padded infinite gaps map to one inside the loader.
 
 On screen: Byte 0 → −1; byte 255 → +1 · Sizes clipped to 0–1,500 · Gap x → (1+x)/(2+x)
 
@@ -146,15 +146,15 @@ On screen: 443 tokens from the three flow views · Four Mamba blocks process the
 
 Evidence: [lesson](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/lesson.md), [comparison](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/upstream-comparison.md)
 
-### 00:08:02 — Two learning stages, different targets
+### 00:08:01 — Two learning stages, different targets
 
-During pretraining, the model learns to reconstruct deliberately hidden input features. The source preset masks ninety percent of byte strides and fifteen percent each of sizes and intervals. Reconstruction provides a learning signal without attack-category targets. Fine-tuning then learns the six labeled categories. A loss measures error; an optimizer changes weights to reduce that error. An epoch is a pass through the training loader. Our short pretraining check completed one hundred thirty-two updates. The three main fine-tuning runs instead began from the authors’ released pretrained checkpoint, not from our short-check checkpoint.
+During pretraining, the model learns to reconstruct deliberately hidden input features. The source preset masks ninety percent of byte strides and fifteen percent each of sizes and intervals. Reconstruction provides a learning signal without attack-category targets. Fine-tuning learns the six labeled categories by adjusting numerical weights. A checkpoint saves those learned weights. A loss measures error; an optimizer changes weights to reduce that error. An epoch is a pass through the training loader. Our short pretraining check completed one hundred thirty-two updates. The three main fine-tuning runs instead began from the authors’ released pretrained checkpoint, not from our short-check checkpoint.
 
 On screen: Pretrain: reconstruct masked flow features · Fine-tune: predict known categories · Main runs start from released pretrained weights
 
 Evidence: [lesson](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/lesson.md), [transfer](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/evidence/checkpoint-transfer.json)
 
-### 00:08:46 — Inference freezes the learned classifier
+### 00:08:48 — Inference freezes the learned classifier
 
 After training, inference freezes the learned weights. It uses flow features and a selected checkpoint to produce logits. Softmax turns the logits into normalized display scores; the largest output selects a category. A checkpoint-bound mapping supplies the category names. Without known labels, prediction cannot measure accuracy. With labels, evaluation compares the predictions against those known answers. Validation chooses the checkpoint; test labels must not be used to choose a better-looking model or to supply prediction features.
 
@@ -162,7 +162,7 @@ On screen: Flow features + saved checkpoint → logits · Softmax → display sc
 
 Evidence: [runbook](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/runbook.md), [contract](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/harness-reference.md)
 
-### 00:09:24 — Trace the lifecycle
+### 00:09:25 — Trace the lifecycle
 
 Trace the lifecycle aloud. When do weights change, when is a checkpoint selected, and when are known test labels used? Take twelve seconds.
 
@@ -268,7 +268,7 @@ Accuracy is the fraction of examples classified correctly. Precision asks how of
 
 On screen: Accuracy: fraction correct · F1: balance of precision and recall · Confusion matrix: which categories were confused?
 
-Evidence: [results](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/evidence/results.json)
+Evidence: [results](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/evidence/results.json), [prediction](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/evidence/seed0/replay/predictions.json)
 
 ### 00:14:55 — The paper’s result was not reproduced
 
@@ -372,21 +372,21 @@ Evidence: [prediction](https://github.com/buffbeefalo/netmambaplus-reproduction/
 
 ### 00:21:00 — Choose the smallest useful setup
 
-You do not need to install the research stack just to understand or present this work. The browser course, recorded replay, P D F and PowerPoint are the viewing route. A second route uses Python three point ten or newer to check the harness and published evidence on a C P U. The third route builds the tested G B ten environment for new model execution. Keeping these routes separate saves time and prevents a common mistake: thinking that opening a presentation or passing a C P U test has rerun the neural experiment.
+Present this work using the video, recorded replay, P D F and PowerPoint. Python three point ten or newer checks the harness and saved evidence on a C P U. New model execution uses Linux and a compatible NVIDIA G P U. The original G B ten recipe remains available. The new C U D A builder selects the GPU architecture, but additional hardware still needs execution tests. Passing C P U checks does not repeat the neural experiment.
 
-On screen: Watch or present: browser or document viewer · Verify saved evidence: Python 3.10+ · Train or predict: tested GB10/CUDA environment
+On screen: Watch or present: browser or document viewer · Verify saved evidence: Python 3.10+ · New model execution: Linux + compatible NVIDIA GPU
 
-Evidence: [quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md)
+Evidence: [quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md), [support](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/support-matrix.md)
 
-### 00:21:35 — Run the CPU checks
+### 00:21:33 — Run the evidence and video checks
 
-Clone the repository, enter the project folder and run the unit-test command shown on screen. Then run the package verifier and course verifier. The test suite should finish with O K, and the verifiers should report passed for their deterministic checks. The audited release recorded fifty-four harness tests. The interactive course added seventeen more, bringing that snapshot to seventy-one. Video verification is recorded separately. These are checks of the code and delivered artifacts; they do not download new training data or repeat the G P U training runs.
+Clone the repository and enter its folder. Run the tests, package verifier, video verifier and page check shown here. These check saved evidence, media hashes, captions and page consistency. A passing test suite ends with O K. These commands do not download training data or train Net Mamba Plus. Historical releases retain older test counts. Use the current workflow result for today’s total, and the support matrix for operating-system coverage.
 
-On screen: python3 -m unittest discover -s tests -v · python3 tools/verify_package.py · python3 tools/verify_course.py
+On screen: python -m unittest discover -s tests -v · python tools/verify_package.py · python tools/verify_course_video.py · python tools/build_video_page.py --check
 
-Evidence: [quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md), [verification](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/verification.md)
+Evidence: [quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md), [verification](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/verification.md), [support](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/support-matrix.md)
 
-### 00:22:12 — What verification proves
+### 00:22:04 — What verification proves
 
 The package verifier recomputes metrics from saved predictions, compares model identities, checks hashes, and verifies that presentation material agrees with its source. Two separately built native environments also passed seven numerical checks each. Strict saved-model evaluations agreed for all three seeds. A full seed zero unlabeled recheck matched all one thousand forty-one predicted classes and logits in that run. These results support execution and repeatability under recorded conditions. If a file or checksum differs, preserve the failure and investigate. Blindly regenerating checksums would only replace the fingerprint; it would not validate the changed claim.
 
@@ -394,15 +394,15 @@ On screen: Recompute metrics from saved predictions · Check hashes and checkpoi
 
 Evidence: [verification](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/verification.md)
 
-### 00:22:58 — The route for new model execution
+### 00:22:51 — The route for new model execution
 
-For new execution, follow the tested runbook in order. Acquire pinned source and assets, validate the native flows, build the two custom extensions, and run numerical checks. Then train, evaluate or predict. The tested route used an arm sixty-four Python environment, G B ten, and a recorded C U D A compiler and driver stack. It is not a universal Windows, C P U model, or N P U setup. Prediction accepts assembled native flow records, not the supplied packet C S Vs. Use new output directories and retain class-mapping provenance with every moved checkpoint.
+For new execution, follow the runbook and support matrix. Acquire pinned source and assets, validate the native flows, build the two custom extensions, and run numerical and complete-model checks. Then train, evaluate or predict. The generalized builder keeps a pinned Python and C U D A profile, verifies compiler support for the selected GPU, and records its actual compilation flags. Our measured hardware remains G B ten. Other graphics processors need the same checks before being called tested. Prediction accepts assembled native flow records, not packet C S Vs. Use fresh output directories and preserve checkpoint class meanings.
 
-On screen: Fetch pinned source and research assets · Validate → build → numerical checks → train · Evaluate labeled flows or predict unlabeled native flows
+On screen: Fetch pinned source and research assets · build_cuda.py → numerical checks → model smoke · Train → evaluate labeled flows / predict unlabeled flows
 
-Evidence: [runbook](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/runbook.md)
+Evidence: [runbook](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/runbook.md), [support](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/support-matrix.md)
 
-### 00:23:38 — Find every download and its purpose
+### 00:23:36 — Find every download and its purpose
 
 The existing audited release includes the complete package zip, briefing P D F, slide P D F, editable PowerPoint, a checksum list, a release inventory, and a verification receipt. The inventory names files; hashes identify their bytes; the receipt records actual delivery checks. The package does not contain raw research data or inherited model weights. The file walkthrough explains every tracked item and release download. This narrated video is a later deliverable with its own media checks, transcript and captions. A successful download is not a new accuracy experiment.
 
@@ -410,7 +410,7 @@ On screen: PDF / PPTX / script: explain and present · ZIP: code, documents and 
 
 Evidence: [walkthrough](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/repository-walkthrough.md)
 
-### 00:24:18 — Choose a verification route
+### 00:24:17 — Choose a verification route
 
 A colleague with an ordinary laptop wants to check how the reported scores were calculated. Which route is sufficient? Take ten seconds. Distinguish rechecking saved evidence from generating new model predictions.
 
@@ -418,7 +418,7 @@ On screen: A laptop user wants to check the reported scores. · Which route is s
 
 Evidence: [quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md), [verification](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/verification.md), [runbook](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/runbook.md)
 
-### 00:24:32 — Your turn · 10 seconds
+### 00:24:31 — Your turn · 10 seconds
 
 **Practice pause: 10 seconds.** Saved metrics check or fresh GPU inference?
 
@@ -426,13 +426,13 @@ On screen: Saved metrics check or fresh GPU inference?
 
 Evidence: [quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md), [verification](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/verification.md), [runbook](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/runbook.md)
 
-### 00:24:42 — Answer: use the evidence route
+### 00:24:41 — Answer: use the evidence route
 
-Use Python, the C P U tests and the package verifier to inspect saved evidence. Fresh predictions require the tested runtime, compatible flows and a trained classifier. Setup and training are follow-up tasks; they are not hidden inside this thirty minute video.
+Use Python, the C P U tests and the package verifier to inspect saved evidence. Fresh predictions need a checked C U D A runtime, compatible flows and a trained classifier. Setup and training are follow-up tasks; they are not hidden inside this thirty minute video.
 
-On screen: CPU tests and the package verifier · GPU setup only for new execution
+On screen: Python tests and the package verifier · Fresh predictions need a checked CUDA runtime
 
-Evidence: [quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md)
+Evidence: [quickstart](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/quickstart.md), [support](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/support-matrix.md)
 
 ## 00:25:00 — IDS, NPU and SmartNIC: what remains
 
@@ -476,7 +476,7 @@ On screen: Validate extraction on independent traffic · Port unsupported operat
 
 Evidence: [hardware](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/hardware-roadmap.md)
 
-## 00:27:00 — Your two-minute customer explanation
+## 00:27:00 — Your 90-second customer explanation
 
 ### 00:27:00 — Your turn: explain the project
 
@@ -498,6 +498,6 @@ Evidence: [answers](https://github.com/buffbeefalo/netmambaplus-reproduction/blo
 
 A concise explanation could be: We ran the original multimodal classifier on compatible released flows. Training changed its weights; inference used a frozen checkpoint. Three fine-tuning runs averaged 86.65%, below the paper’s 97.50%. The recorded demonstration includes mistakes and does not establish a live detector. Logs, saved predictions and repeatable checks support the measured execution. Capture, independent traffic validation and accelerator porting remain future work. Check your explanation against those points and correct one weak claim. A timer cannot certify understanding. The repository contains the script, captions, actual experiment evidence and setup instructions. Use those records to support the presentation.
 
-On screen: Did you cover all five points? · Correct one inflated or unclear claim · Use the repo evidence during follow-up questions
+On screen: Did you cover inputs, learning, results, demo and limits? · Correct one inflated or unclear claim · Use the repo evidence during follow-up questions
 
 Evidence: [answers](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/answers.md)

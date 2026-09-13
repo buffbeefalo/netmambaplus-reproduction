@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
-from build_course_video import allocate_frames
+from build_course_video import allocate_frames, caption_cues
 from verify_course_video import OFFSETS, check_probe, check_silences, check_vtt, verify_files
 
 
@@ -19,6 +19,41 @@ def good_probe():
 
 
 class VideoTests(unittest.TestCase):
+    def caption_fixture(self):
+        left = "This measured sentence contains enough ordinary words to span a long first caption"
+        right = "followed by a shorter second caption."
+        return {"id": "timing", "kind": "teaching", "start": 100, "end": 140, "tempo": 0.8,
+                "audio": {"wav_sha256": "a" * 64, "cues": [
+                    {"start": 2, "end": 24, "text": left + " " + right}]},
+                "caption_boundary_overrides": [{"wav_sha256": "a" * 64,
+                    "left_text": left, "right_text": right, "raw_seconds": 12.0}]}
+
+    def test_caption_audio_anchor_maps_through_scene_start_and_tempo(self):
+        cues = caption_cues([self.caption_fixture()])
+        self.assertEqual(len(cues), 2)
+        self.assertEqual(cues[0]["start"], 102.5)
+        self.assertEqual(cues[0]["end"], 115)
+        self.assertEqual(cues[1]["start"], 115)
+        self.assertEqual(cues[1]["end"], 130)
+
+    def test_stale_caption_audio_or_changed_caption_words_are_rejected(self):
+        for key, value in [("wav_sha256", "b" * 64), ("left_text", "Changed wording")]:
+            scene = self.caption_fixture()
+            scene["caption_boundary_overrides"][0][key] = value
+            with self.assertRaisesRegex(ValueError, "caption.*anchor"):
+                caption_cues([scene])
+
+    def test_caption_anchor_must_be_unique_finite_and_within_its_sentence(self):
+        for value in [float("nan"), float("inf"), 1, 24, 50]:
+            scene = self.caption_fixture()
+            scene["caption_boundary_overrides"][0]["raw_seconds"] = value
+            with self.assertRaises(ValueError):
+                caption_cues([scene])
+        scene = self.caption_fixture()
+        scene["caption_boundary_overrides"] *= 2
+        with self.assertRaises(ValueError):
+            caption_cues([scene])
+
     def test_committed_video_and_captions_match_reviewed_source(self):
         _, result = verify_files()
         self.assertEqual(result["status"], "passed")

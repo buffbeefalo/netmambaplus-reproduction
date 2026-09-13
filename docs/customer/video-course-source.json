@@ -239,7 +239,7 @@
             "First 20 packet sizes",
             "First 20 arrival intervals"
           ],
-          "narration": "Now follow one valid flow through the original loader. The byte view keeps up to five packets, with three hundred twenty stored bytes per packet. That gives sixteen hundred values. The paper describes each packet region as eighty header bytes plus two hundred forty payload bytes. Released flows already contain this extraction. Short records are padded; long ones are truncated. The measured byte tensor has batch size by one by one by sixteen hundred as its dimensions. The two other views retain the first twenty sizes and the first twenty time gaps.",
+          "narration": "Now follow one valid flow through the original loader. The byte view keeps up to five packets, with three hundred twenty stored bytes per packet: sixteen hundred values in total. The paper describes eighty header bytes plus two hundred forty payload bytes per packet. The loader expects already extracted bytes; we have not independently verified the release’s extraction history. Short records are padded and long ones truncated. A tensor is an array of numbers. Here its dimensions are batch size by one by one by sixteen hundred. The other views keep twenty sizes and twenty time gaps.",
           "references": [
             "lesson"
           ]
@@ -253,7 +253,7 @@
             "Sizes clipped to 0–1,500",
             "Gap x → (1+x)/(2+x)"
           ],
-          "narration": "The byte transformation divides by two hundred fifty-five, then uses a mean and standard deviation of one half. A zero byte therefore becomes minus one, and two hundred fifty-five becomes plus one. Sizes are clipped between zero and fifteen hundred. A padding size of fifteen hundred and one is also clipped to fifteen hundred, so that boundary cannot reliably identify padding. For a nonnegative gap x, the loader uses one plus x divided by two plus x. Zero becomes one half; one becomes two thirds. Padded infinite gaps map to one inside the loader.",
+          "narration": "The byte transformation divides by two hundred fifty-five, then uses a mean and standard deviation of one half. A zero byte therefore becomes minus one, and two hundred fifty-five becomes plus one. Sizes are clipped between zero and fifteen hundred. A padding size of fifteen hundred and one is also clipped to fifteen hundred, so that boundary cannot reliably identify padding. For a nonnegative gap x, the loader uses the fraction, one plus x, over two plus x. Zero becomes one half; one becomes two thirds. Padded infinite gaps map to one inside the loader.",
           "references": [
             "lesson"
           ]
@@ -282,7 +282,7 @@
             "Fine-tune: predict known categories",
             "Main runs start from released pretrained weights"
           ],
-          "narration": "During pretraining, the model learns to reconstruct deliberately hidden input features. The source preset masks ninety percent of byte strides and fifteen percent each of sizes and intervals. Reconstruction provides a learning signal without attack-category targets. Fine-tuning then learns the six labeled categories. A loss measures error; an optimizer changes weights to reduce that error. An epoch is a pass through the training loader. Our short pretraining check completed one hundred thirty-two updates. The three main fine-tuning runs instead began from the authors’ released pretrained checkpoint, not from our short-check checkpoint.",
+          "narration": "During pretraining, the model learns to reconstruct deliberately hidden input features. The source preset masks ninety percent of byte strides and fifteen percent each of sizes and intervals. Reconstruction provides a learning signal without attack-category targets. Fine-tuning learns the six labeled categories by adjusting numerical weights. A checkpoint saves those learned weights. A loss measures error; an optimizer changes weights to reduce that error. An epoch is a pass through the training loader. Our short pretraining check completed one hundred thirty-two updates. The three main fine-tuning runs instead began from the authors’ released pretrained checkpoint, not from our short-check checkpoint.",
           "references": [
             "lesson",
             "transfer"
@@ -503,7 +503,8 @@
           ],
           "narration": "Accuracy is the fraction of examples classified correctly. Precision asks how often a predicted category is right; recall asks how many true examples of that category were found. F one balances precision and recall. Macro F one gives classes equal weight; weighted F one weights their support. A confusion matrix shows true categories against predicted categories so aggregate scores do not hide the mistakes. The sample standard deviation across accuracy results was {{accuracy_sd}} percentage points. It is a descriptive spread, not a confidence interval and not a promise about customer traffic.",
           "references": [
-            "results"
+            "results",
+            "prediction"
           ]
         },
         {
@@ -519,6 +520,15 @@
           "references": [
             "results",
             "comparison"
+          ],
+          "caption_boundary_overrides": [
+            {
+              "wav_sha256": "f4ca33cdd9d87f281ed185307bac408bdd651f9cebffaafd163f24af2bd2192f",
+              "left_text": "Source-based fine-tuning used batch size one hundred twenty-eight and an effective",
+              "right_text": "learning rate of zero point zero zero one on G B ten.",
+              "raw_seconds": 13.76909671361504,
+              "provenance": "Paired high-confidence word timestamps from independent small.en ASR of v1 MP4 1ff19bf545fe14a4bf1f61112a1fdfd7dc107a36ca4c91a749c4f6dfaea8082b; raw WAV hash and both caption texts checked. This is a measured correction, not full human caption certification."
+            }
           ]
         },
         {
@@ -627,6 +637,15 @@
           "narration": "Consider the actual saved row numbered six hundred thirty-five. Its highest-scoring category is class one, R T S P Brute Force, with a display score of {{demo_score}}. The other five scores are visible beside it. First identify what the model predicted. Then distinguish that prediction from what actually happened. The six scores sum to one after softmax, but this normalization does not establish calibration. A high score says the model favors one of these classes; it does not prove an eighty-four percent chance that a customer experienced an attack.",
           "references": [
             "prediction"
+          ],
+          "caption_boundary_overrides": [
+            {
+              "wav_sha256": "cc286b5c30ff8f7c7611b37f4c9e50014292983541e76da808363094c6bd6684",
+              "left_text": "Its highest-scoring category is class one, R T S P Brute Force, with a display score",
+              "right_text": "of 84.43%.",
+              "raw_seconds": 10.208672463768098,
+              "provenance": "Paired high-confidence word timestamps from independent small.en ASR of v1 MP4 1ff19bf545fe14a4bf1f61112a1fdfd7dc107a36ca4c91a749c4f6dfaea8082b; raw WAV hash and both caption texts checked. This is a measured correction, not full human caption certification."
+            }
           ]
         },
         {
@@ -703,26 +722,29 @@
           "bullets": [
             "Watch or present: browser or document viewer",
             "Verify saved evidence: Python 3.10+",
-            "Train or predict: tested GB10/CUDA environment"
+            "New model execution: Linux + compatible NVIDIA GPU"
           ],
-          "narration": "You do not need to install the research stack just to understand or present this work. The browser course, recorded replay, P D F and PowerPoint are the viewing route. A second route uses Python three point ten or newer to check the harness and published evidence on a C P U. The third route builds the tested G B ten environment for new model execution. Keeping these routes separate saves time and prevents a common mistake: thinking that opening a presentation or passing a C P U test has rerun the neural experiment.",
+          "narration": "Present this work using the video, recorded replay, P D F and PowerPoint. Python three point ten or newer checks the harness and saved evidence on a C P U. New model execution uses Linux and a compatible NVIDIA G P U. The original G B ten recipe remains available. The new C U D A builder selects the GPU architecture, but additional hardware still needs execution tests. Passing C P U checks does not repeat the neural experiment.",
           "references": [
-            "quickstart"
+            "quickstart",
+            "support"
           ]
         },
         {
           "id": "operate-02",
           "kind": "code",
-          "title": "Run the CPU checks",
+          "title": "Run the evidence and video checks",
           "bullets": [
-            "python3 -m unittest discover -s tests -v",
-            "python3 tools/verify_package.py",
-            "python3 tools/verify_course.py"
+            "python -m unittest discover -s tests -v",
+            "python tools/verify_package.py",
+            "python tools/verify_course_video.py",
+            "python tools/build_video_page.py --check"
           ],
-          "narration": "Clone the repository, enter the project folder and run the unit-test command shown on screen. Then run the package verifier and course verifier. The test suite should finish with O K, and the verifiers should report passed for their deterministic checks. The audited release recorded fifty-four harness tests. The interactive course added seventeen more, bringing that snapshot to seventy-one. Video verification is recorded separately. These are checks of the code and delivered artifacts; they do not download new training data or repeat the G P U training runs.",
+          "narration": "Clone the repository and enter its folder. Run the tests, package verifier, video verifier and page check shown here. These check saved evidence, media hashes, captions and page consistency. A passing test suite ends with O K. These commands do not download training data or train Net Mamba Plus. Historical releases retain older test counts. Use the current workflow result for today’s total, and the support matrix for operating-system coverage.",
           "references": [
             "quickstart",
-            "verification"
+            "verification",
+            "support"
           ]
         },
         {
@@ -745,12 +767,13 @@
           "title": "The route for new model execution",
           "bullets": [
             "Fetch pinned source and research assets",
-            "Validate → build → numerical checks → train",
-            "Evaluate labeled flows or predict unlabeled native flows"
+            "build_cuda.py → numerical checks → model smoke",
+            "Train → evaluate labeled flows / predict unlabeled flows"
           ],
-          "narration": "For new execution, follow the tested runbook in order. Acquire pinned source and assets, validate the native flows, build the two custom extensions, and run numerical checks. Then train, evaluate or predict. The tested route used an arm sixty-four Python environment, G B ten, and a recorded C U D A compiler and driver stack. It is not a universal Windows, C P U model, or N P U setup. Prediction accepts assembled native flow records, not the supplied packet C S Vs. Use new output directories and retain class-mapping provenance with every moved checkpoint.",
+          "narration": "For new execution, follow the runbook and support matrix. Acquire pinned source and assets, validate the native flows, build the two custom extensions, and run numerical and complete-model checks. Then train, evaluate or predict. The generalized builder keeps a pinned Python and C U D A profile, verifies compiler support for the selected GPU, and records its actual compilation flags. Our measured hardware remains G B ten. Other graphics processors need the same checks before being called tested. Prediction accepts assembled native flow records, not packet C S Vs. Use fresh output directories and preserve checkpoint class meanings.",
           "references": [
-            "runbook"
+            "runbook",
+            "support"
           ]
         },
         {
@@ -802,12 +825,13 @@
           "kind": "answer",
           "title": "Answer: use the evidence route",
           "bullets": [
-            "CPU tests and the package verifier",
-            "GPU setup only for new execution"
+            "Python tests and the package verifier",
+            "Fresh predictions need a checked CUDA runtime"
           ],
-          "narration": "Use Python, the C P U tests and the package verifier to inspect saved evidence. Fresh predictions require the tested runtime, compatible flows and a trained classifier. Setup and training are follow-up tasks; they are not hidden inside this thirty minute video.",
+          "narration": "Use Python, the C P U tests and the package verifier to inspect saved evidence. Fresh predictions need a checked C U D A runtime, compatible flows and a trained classifier. Setup and training are follow-up tasks; they are not hidden inside this thirty minute video.",
           "references": [
-            "quickstart"
+            "quickstart",
+            "support"
           ]
         }
       ]
@@ -894,7 +918,7 @@
     },
     {
       "id": "teach-back",
-      "title": "Your two-minute customer explanation",
+      "title": "Your 90-second customer explanation",
       "seconds": 180,
       "scenes": [
         {
@@ -932,7 +956,7 @@
           "kind": "answer",
           "title": "Review, correct, then present",
           "bullets": [
-            "Did you cover all five points?",
+            "Did you cover inputs, learning, results, demo and limits?",
             "Correct one inflated or unclear claim",
             "Use the repo evidence during follow-up questions"
           ],

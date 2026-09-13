@@ -10,7 +10,7 @@ Open the course and use **Download HTML** to save `NetMambaPlus-course.html`, th
 
 Use the schedule as a guide. Read a section, answer its question, review the explanation, then move on. Do the final explanation aloud before checking the five-point rubric. Reading, elapsed time, answer reveals and self-assessment checkboxes do not award objective quiz points. Answers are visible in the file: this is a study aid, not an examination or certificate.
 
-The current course is separate from the immutable `customer-2026-09-15-audited` release and is **not inside that historical ZIP**. That release still has seven named attachments. Its recorded 54-test result remains historical; the HTML course added 17 regression tests for a 71-test snapshot. Current main also adds seven video tests, for 78 total. The legacy quickstart preserves its audited 54-test expectation; use the current commands and receipt below for this course extension.
+The current course is separate from the immutable `customer-2026-09-15-audited` release and is **not inside that historical ZIP**. That release still has seven named attachments. Its recorded 54-test result remains historical; the HTML course added 17 regression tests for a 71-test snapshot. The later video snapshot reached 78 tests. The legacy quickstart preserves its audited 54-test expectation; current commands and platform results are in the [support matrix](../support-matrix.md).
 
 ## The complete timed route
 
@@ -43,7 +43,7 @@ python3 -m unittest discover -s tests -v
 python3 tools/verify_package.py
 ```
 
-The builder check must report an exact match; the two verifiers must report deterministic status `passed`; the current suite should finish with `Ran 78 tests` and `OK`. `fully_verified: false` and `required_real_world_checks_pending: ["human_rehearsal"]` are intentional once browser/publication checks are complete. They prevent automated success from being reported as a completed human rehearsal. These CPU checks do not retrain the model or provide a new dataset evaluation.
+The builder check must report an exact match; the two verifiers must report deterministic status `passed`; the current suite should finish with `OK`; its exact count is recorded by the workflow for that commit. `fully_verified: false` and `required_real_world_checks_pending: ["human_rehearsal"]` are intentional once browser/publication checks are complete. They prevent automated success from being reported as a completed human rehearsal. These CPU checks do not retrain the model or provide a new dataset evaluation.
 
 To edit the course, change `course-source.json`, review its claims against the cited evidence, run `python3 tools/build_course.py`, and repeat the checks. Update this source/HTML-bound verification record only after performing the named checks. The default verifier is read-only. Its negative tests catch timing drift, missing practice time/topics, overloaded reading, altered measurements/predictions, invalid answer keys, stale HTML, broken references and false completion claims.
 
@@ -149,11 +149,11 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
     },
     "publication": {
       "status": "pending",
-      "detail": "Public interactive course withdrawn at the user\u2019s request. Pages excludes course/; the active video has a separate publication receipt."
+      "detail": "Public interactive course withdrawn at the user’s request. Pages excludes course/; the active video has a separate publication receipt."
     }
   },
-  "source_sha256": "b317fb5b7e64ab3cb9319578eb3d97c2ea584094fcce3db0ae74b176a66440b8",
-  "html_sha256": "76f4c9e0f57ea5aa9fb7cd5b0f3fd8e61862b5d92c7bd3adf93988ffd4448a13",
+  "source_sha256": "f01438fe0d4e3a4c0ff26f03b5a49ce973e0387a276c9bd0c8b521dfaa84e10b",
+  "html_sha256": "343a5bd940d1e9ef32c625813a445d821bf758f424081ace17608386e80a1c57",
   "prior_course_receipt": {
     "commit": "49078618f77da068b45fb5b0b8dc51698a617ff6",
     "path": "docs/customer/course-verification.md",

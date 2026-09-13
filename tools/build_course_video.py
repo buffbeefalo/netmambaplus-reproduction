@@ -101,16 +101,31 @@ def caption_cues(scenes):
             cues.append({"start": scene["start"], "end": scene["end"], "scene": scene["id"],
                          "text": f"[Practice pause: {scene['seconds']} seconds] " + " ".join(scene["bullets"])})
             continue
+        boundaries = {}
         for sentence in scene["audio"]["cues"]:
             chunks = textwrap.wrap(sentence["text"], width=86, break_long_words=False, break_on_hyphens=False)
             weight = sum(len(x) for x in chunks)
             start = scene["start"] + sentence["start"] / scene["tempo"]
             end = min(scene["end"], scene["start"] + sentence["end"] / scene["tempo"])
             cursor = start
-            for chunk in chunks:
+            for index, chunk in enumerate(chunks):
                 next_time = min(end, cursor + (end - start) * len(chunk) / weight)
                 cues.append({"start": cursor, "end": next_time, "scene": scene["id"], "text": chunk})
+                if index + 1 < len(chunks):
+                    boundaries.setdefault((chunk, chunks[index + 1]), []).append(len(cues) - 1)
                 cursor = next_time
+        applied = set()
+        for anchor in scene.get("caption_boundary_overrides", []):
+            matches = boundaries.get((anchor["left_text"], anchor["right_text"]), [])
+            if anchor["wav_sha256"] != scene["audio"]["wav_sha256"] or len(matches) != 1:
+                raise ValueError(f"Stale or ambiguous caption audio anchor: {scene['id']}")
+            index = matches[0]
+            boundary = scene["start"] + anchor["raw_seconds"] / scene["tempo"]
+            if (index in applied or not math.isfinite(boundary)
+                    or not cues[index]["start"] < boundary < cues[index + 1]["end"]):
+                raise ValueError(f"Invalid caption audio anchor: {scene['id']}")
+            cues[index]["end"] = cues[index + 1]["start"] = boundary
+            applied.add(index)
     return cues
 
 
@@ -195,11 +210,23 @@ def render_scene(scene, path, facts, demo):
             put(facts[key], 1610, y + 10, 240, 40, ink, True)
         put("Recorded test accuracy · same 1,041-flow test set · sample SD 4.00 percentage points", 95, 780, 1750, 25, muted)
     elif kind == "matrix":
-        chart = Image.open(ROOT / "docs/customer/figures/seed0-confusion.png").convert("RGB")
-        chart.thumbnail((1150, 500))
-        image.paste(chart, (90, 308))
+        record = read(ROOT / "docs/customer/evidence/seed0/replay/predictions.json")
+        matrix = record["independent_metrics"]["confusion_matrix"]
+        labels = ["Flood", "RTSP Brute Force", "Audio", "Other", "Cameras", "Home Automation"]
+        put("Seed 0 · each cell counts labeled test flows", 95, 266, 1700, 30, muted)
+        for column in range(6):
+            put(str(column), 478 + column * 88, 311, 70, 28, ink, True)
+        for row, label in enumerate(labels):
+            y = 360 + row * 68
+            put(f"{row}  {label}", 95, y + 13, 355, 26, ink)
+            for column, count in enumerate(matrix[row]):
+                x = 454 + column * 88
+                dark = row == column and count >= 100
+                draw.rectangle((x, y, x + 85, y + 64), fill=teal if dark else blue)
+                put(str(count), x + 13, y + 14, 70, 27, "#ffffff" if dark else ink, True)
+        put("Rows: known category · Columns: predicted category (same numbers)", 95, 795, 1720, 25, muted)
         for index, bullet in enumerate(bullets):
-            put(bullet, 1280, 350 + index * 135, 520, 32)
+            put(bullet, 1070, 350 + index * 135, 735, 32)
     elif kind == "comparison":
         for x, label, value, color in [(90, "Paper Table IV", facts["paper_accuracy"], muted), (990, "Our three-seed mean", facts["mean_accuracy"], teal)]:
             draw.rounded_rectangle((x, 325, x + 830, 690), radius=24, fill="#ffffff", outline=blue, width=3)
@@ -263,6 +290,7 @@ def build(args):
     facts = fact_values(course)
     references = {key: value["path"] for key, value in course["references"].items()}
     references["contract"] = "docs/harness-reference.md"
+    references["support"] = "docs/support-matrix.md"
     for scene in scenes:
         for key in scene["references"]:
             if key not in references or not (ROOT / references[key]).is_file():
@@ -271,7 +299,7 @@ def build(args):
     write_captions(cues, scenes, work, destination)
     transcript = ["# NetMamba+ — 30-minute video transcript", "",
                   "Locally synthesized narration. This video explains recorded experiments; it does not perform new training or live capture.", "",
-                  "Runtime: 30:00, including 3:00 of labeled practice pauses and a 90-second teach-back. Captions use measured sentence audio boundaries; within-sentence breaks are proportional estimates.", ""]
+                  "Runtime: 30:00, including 3:00 of labeled practice pauses and a 90-second teach-back. Captions use measured sentence audio boundaries and proportional within-sentence breaks, with source-bound corrections for independently measured timing defects. Full human listening and caption-alignment review remain pending.", ""]
     for chapter in chapters:
         transcript.extend([f"## {timecode(chapter['start'])[:8]} — {chapter['title']}", ""])
         for scene in (s for s in scenes if s["chapter_title"] == chapter["title"]):

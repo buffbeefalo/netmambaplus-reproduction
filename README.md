@@ -10,10 +10,10 @@ Test accuracy was **91.26%, 84.05% and 84.63%** across the three declared seeds:
 
 | Deliverable | Link |
 |---|---|
-| Watch the narrated 30-minute video | [Watch now](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Download MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v1/NetMambaPlus-30-minute-course.mp4) · [Transcript and media checks](docs/customer/video-verification.md) |
+| Watch the narrated 30-minute video | [Watch now](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Download MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/NetMambaPlus-30-minute-course.mp4) · [Transcript and media checks](docs/customer/video-verification.md) |
 | Start here: results, downloads and completion checklist | [Customer index](docs/customer/README.md) |
 | Understand it without a technical background | [Slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
-| Simple setup, usage and test results | [Quickstart](docs/customer/quickstart.md) |
+| Current setup, usage and test results on other systems | [Setup and support matrix](docs/support-matrix.md) · [Original experiment quickstart](docs/customer/quickstart.md) |
 | What the paper/data mean and what we changed | [Authors’ repository comparison](docs/customer/upstream-comparison.md) |
 | Understand every file and how the code fits together | [Complete repository walkthrough](docs/repository-walkthrough.md) |
 | Find each of your seven answers | [Question-to-slide/script/PDF map](docs/customer/answers.md) |
@@ -65,7 +65,7 @@ python3 tools/verify_course_video.py
 python3 tools/build_video_page.py --check
 ```
 
-CPU CI checks the harness and published evidence. It does not retrain the GPU model. The separately saved GPU records establish the actual experiments described in the customer package.
+CPU CI runs on Linux x86-64, Windows x86-64 and macOS ARM64 with Python 3.10 and 3.12. It checks the harness and published evidence; it does not retrain the GPU model. The [support matrix](docs/support-matrix.md) links actual workflow results and separate GPU execution evidence. The original customer PDF, PPT, quickstart and ZIP preserve their audited snapshot; their older test counts and platform statements are superseded by this current setup guide.
 
 The earlier interactive HTML course was retired at the user’s request. Its archived source and tests remain as evidence bindings used by the video; the public `/course/` page is excluded from deployment.
 
@@ -83,7 +83,7 @@ python3 repro.py validate --data assets/data/ciciot2022 --report runs/validation
 
 ## Train, evaluate and predict
 
-First follow the [tested GB10 environment setup](docs/customer/runbook.md). It builds the authors’ Mamba fork with recorded CUDA 13 compatibility edits in disposable copies and runs GPU numerical checks. The original model/loader checkout remains unchanged. The package preserves the old dependency warnings and the limits of this runtime profile.
+First follow the [current CUDA setup and support matrix](docs/support-matrix.md), or the preserved [original GB10 recipe](docs/customer/runbook.md). The generalized builder selects a compiler-supported NVIDIA GPU architecture and builds the pinned extensions in disposable copies. Run both numerical and complete-model checks before training. Fresh GB10 execution is measured; additional physical GPUs and CPU-only model execution remain unverified. The original model/loader checkout, dependency warnings and experiment records are preserved.
 
 After activating that environment and its documented variables:
 

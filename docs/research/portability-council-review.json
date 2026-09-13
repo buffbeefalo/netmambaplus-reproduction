@@ -1,0 +1,304 @@
+{
+  "runId": "351368de-51fc-4e53-a962-bf38dbe53453",
+  "state": "ESCALATED",
+  "stamp": "UNRATIFIED",
+  "mutual": false,
+  "decisionHash": null,
+  "decision": null,
+  "category": "architecture",
+  "axis": "confirmed_success",
+  "tier": "lite",
+  "caller": "codex",
+  "mode": "architect",
+  "schemaVersion": 2,
+  "cwd": "/home/nvidia/netmambaplus-reproduction",
+  "intakeHash": "ff390533a5a1f5fde548c77f006c475774ed52772909135cf85d8ebd8fa81d21",
+  "blockers": [
+    "The CPU fallback permits excluding the configured model’s active bimamba branch or shipping a reduced model. That cannot satisfy model-preserving CPU execution. Require the complete configured model to pass the equivalence gate; otherwise defer CPU model execution. Exclusions may cover only features unused by that model. [anchor: Question: 'without changing the authors pinned scientific model'; tools/check_gpu_runtime.py tests bimamba_type='none', which does not establish coverage of the configured model’s active branch.]"
+  ],
+  "modelsUsed": {
+    "claude": "claude-fable-5",
+    "codex": "gpt-6-astra"
+  },
+  "budget": {
+    "spent": 10,
+    "limit": 14
+  },
+  "verdicts": null,
+  "arbitration": null,
+  "positions": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "fbe548d4055d0f9affadc62cb6667f0d5e56ea4f945da0c6ccbefebbcb12ccd1",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "data": {
+        "recommendation": "Adopt one converged, implementable plan with four deliverables. (1) UNCONDITIONAL — additive generalized builder tools/build_cuda.py (codex's name adopted); tools/build_gb10.py, requirements/gb10.txt, the verified upstream checkout, and all audited evidence stay byte-identical. The builder adds a standard-library preflight (venv, toolkit, nvcc-target support, GPU detection), replaces upstream gencode flags only in disposable source copies via the same preimage-hash patch discipline (SETUP_HASHES pattern in build_gb10.py), suppresses installation after failed preflight, and records toolchain versions, source/patch hashes, commands, failures, and the ACTUAL extension gencode flags (not torch.cuda.get_arch_list(), which only describes Torch's own targets). Initial scope: Linux x86_64 + aarch64 on the pinned software profile; broad Torch/CUDA matrices deferred. Acceptance gate on the available GB10: successful rebuild of sm121, existing numerical forward/backward parity checks (check_gpu_runtime.py structure) pass against the newly built extensions, and a bounded smoke of the ORIGINAL configured model — finite loss and gradients, an optimizer update, checkpoint reload, valid native inference — labeled a functional smoke, not a benchmark. Per-hardware promotion rule: any other Linux NVIDIA configuration is 'expected-to-build, unverified' until the same checks pass on that hardware. (2) EVIDENCE-GATED — CPU reference execution tier. Ordinary-session implementation is authorized, so the go/no-go is executed against actual sources during implementation: inspect mamba_simple.py, predict.py, and upstream setup.py; IF the pinned configured model (including the bimamba branch it actually uses, or a documented explicit exclusion) can be driven through a separate vendored, hash-pinned module of the pure-Torch reference math (selective_scan_ref, causal_conv1d_ref, plain-Torch RMSNorm) plus a new CPU entry point, with zero edits to pinned upstream Python sources, THEN ship it; ELSE descope to a documented subset or defer, recording the blocking file as the anchor in the support matrix. If shipped, acceptance is MODEL-LEVEL equivalence on GB10, not operator parity alone: same configured model and checkpoint/parameter structure, FP32 outputs, input and parameter gradients within tolerances, checkpoint reload followed by inference, with bounded batch size and steps. CPU tier is FP32-only with autocast explicitly disabled (adopting codex's correction: torch.autocast('cpu') defaults to bfloat16 and is not an FP32 substitute); fp16 claims remain CUDA-only. Only after the GB10 model-level gate passes does hosted-runner CI run a tiny synthetic-data CPU train/infer smoke on Linux/Windows/macOS (no raw data or weights). (3) CI + FAILURE PATHS — extend the existing ci.yml to a Linux/Windows/macOS × Python 3.10/3.12 matrix with portable invocations; fix or precisely scope any filesystem/subprocess assumptions the new OSes surface. Substantive failure-path tests with temp dirs and controlled subprocess fixtures: wrong machine/venv/Torch parser.error exits, patch preimage-hash mismatch aborts, unsafe build directories, build-process failure with retained failure reports, no installation after failed preflight, installed-source mismatch, and (if the CPU tier ships) clean diagnostic failure when CUDA-only features are requested and loud failure if the vendored reference no longer hash-matches upstream. (4) SUPPORT MATRIX — docs/support-matrix.md with per-row evidence levels: GB10 measured (three 120-epoch runs preserved untouched); other Linux NVIDIA expected-to-build/unverified pending the promotion rule; CPU/Windows/macOS scoped to exactly what ran (tooling + offline evidence, plus CPU model execution only if the gate passed); containers deferred as a non-load-bearing convenience at most. Hosted workflow results describe only the operations actually executed on each recorded runner. Bounded to reproducibility/portability; no IDS/NPU, no data/weights redistribution, ESCALATED video-quality review untouched.",
+        "resolved_objections": [
+          "codex blocker 1 (CPU tier lacks source-grounded integration design): resolved by demoting the CPU tier from primary to an evidence-gated deliverable whose go/no-go is executed against mamba_simple.py/predict.py/setup.py during authorized implementation, with an explicit descope/defer branch anchored to the blocking file if the pinned model cannot be driven without editing pinned sources.",
+          "codex blocker 2 (operator parity insufficient; need model-level preservation): resolved by adopting model-level equivalence as the CPU-tier acceptance gate — same configured model, matching parameter/checkpoint structure, FP32 outputs, input and parameter gradients, checkpoint reload plus inference, bounded batch/steps — before any CI claim.",
+          "my blocker 1 (codex route verifies zero new execution on other systems): resolved because the converged artifact retains CPU reference execution as a gated deliverable with a defined decision rule and hosted-runner verification path, rather than an open-ended deferral; if the gate fails, the limitation is anchored and documented, which is a defensible discharge of the requirement.",
+          "my blocker 2 (unanchored effort estimate for deferring the CPU backend): resolved by replacing the assertion with the in-implementation evidence gate; neither seat now claims feasibility or infeasibility ahead of the sources.",
+          "Adopted codex corrections as nonblocking: tools/build_cuda.py naming; torch.autocast('cpu') is bfloat16 so the CPU tier disables autocast and runs plain FP32; record actual extension gencode flags rather than torch.cuda.get_arch_list(); bimamba_type='none' checker coverage does not establish the configured model's branch; cross-OS CI must fix or scope surfaced test assumptions, not just add runner labels.",
+          "Converged already: frozen build_gb10.py/requirements/evidence; GB10 acceptance gate (rebuild + numerical parity + bounded configured-model smoke); per-hardware promotion rule; tiered support matrix; containers deferred and non-load-bearing; failure-path test list including installation suppression and retained failure reports."
+        ],
+        "remaining_blockers": [],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/mamba-1p1p1/setup.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/mamba-1p1p1/mamba_ssm/modules/mamba_simple.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "/home/nvidia/netmambaplus-reproduction/predict.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "glob",
+            "path": "/home/nvidia/netmambaplus-reproduction",
+            "pattern": "tests/*.py",
+            "limit": 30
+          }
+        ]
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 5313,
+        "cacheReadTokens": 879,
+        "cacheCreationTokens": 18440,
+        "totalTokens": null
+      },
+      "costUsd": 0.635349
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.153.4",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "9676a52cc62c125a1603af157fe64807e7384f9f86fd42b45c937dfb86329f0c",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "sessionId": "01a099bb-4985-7be1-a500-9859103578ba",
+      "data": {
+        "recommendation": "Converge on a staged hybrid, with CPU delivery contingent on source review. A generalized CUDA builder is the smallest code change, but GB10 verification establishes no additional hardware configuration. A CPU reference backend could establish actual execution on hosted systems, provided the complete configured model imports and executes correctly. Container-only distribution retains CPU architecture, GPU and driver constraints; defer it.\n\nPreserve the pinned scientific sources, build_gb10.py, requirements/gb10.txt and historical evidence. Add tools/build_cuda.py with a bounded, pinned Linux software profile, selected-device and compiler-target checks, disposable source copies, hash-guarded compatibility patches, and reports recording actual extension flags, provenance and failures. Require a fresh GB10 rebuild, numerical forward/backward checks and a bounded original-model training/inference smoke with finite gradients, an optimizer update and checkpoint reload.\n\nFor CPU, establish the complete import and dispatch design before committing to delivery. If feasible without editing pinned scientific sources, add an explicit FP32 reference backend and entry point preserving the configured architecture, preprocessing and checkpoint structure. Disable autocast. Acceptance must compare the complete configured model against native CUDA FP32 using identical weights, controlled stochastic behavior and predefined tolerances for outputs, differentiable inputs and parameter gradients. Also require strict checkpoint loading and a train/update/reload/inference smoke. Operator parity alone is insufficient.\n\nExtend hosted CI across recorded Linux, Windows and macOS configurations. Run offline checks and substantive failure-path tests; add synthetic CPU model execution only where the required pinned dependencies install successfully. Test failed preflight without installation, unsupported targets, hash mismatches, unsafe build directories, subprocess failures and retained diagnostics. Publish model-execution claims only for configurations that actually pass. If source review establishes a CPU integration obstacle, document the anchored reason for deferral and retain the narrower CUDA scope.\n\nReview affected setup lessons and references, preserve pending course reviews and the separate video escalation, and publish no raw data or weights. The source gaps below still prevent settling the CPU deliverable and exact CUDA patch contract.",
+        "resolved_objections": [
+          "Withdraw the categorical CPU deferral based on an unverified effort estimate. Reference operator math exists; complete-model integration remains the question requiring evidence.",
+          "Accept that GB10 rebuilds and hosted offline checks establish no newly verified model execution on another system.",
+          "Resolve the verification-design objection by requiring complete-model FP32 output and gradient comparisons, checkpoint compatibility and execution smokes for any CPU backend.",
+          "Require disabled autocast for the FP32 CPU path; ordinary CPU autocast does not establish FP32 execution.",
+          "Adopt tools/build_cuda.py; naming is nonblocking. Preserve the measured profile and record extension targets separately from Torch's compiled targets."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "The CPU integration remains ungrounded. The visible reference operators do not establish CUDA-free imports and dispatch for the complete configured model, its active branches, or unchanged parameter/checkpoint structure. Missing source evidence prevents either committing to the proposed thin adapter or concluding that CPU delivery is infeasible.",
+            "anchor": "Question: unconditional CUDA-extension imports and use_fast_path=False limitation; REQUEST EXCLUDED for upstream/NetMambaPlus/mamba-1p1p1/mamba_ssm/modules/mamba_simple.py; tools/check_gpu_runtime.py exercises Mamba with bimamba_type='none'; visible predict.py excerpt contains only the inference tail and CLI."
+          },
+          {
+            "claim": "The exact generalized CUDA build transformation remains unresolved because the pinned setup.py is unavailable. Confirm its architecture flags and compiler/version handling before fixing the allowed patch contract.",
+            "anchor": "tools/build_gb10.py: SETUP_HASHES, architecture_patch and cub_patch; REQUEST EXCLUDED for upstream/NetMambaPlus/mamba-1p1p1/setup.py."
+          }
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "upstream/NetMambaPlus/mamba-1p1p1/mamba_ssm/modules/mamba_simple.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "upstream/NetMambaPlus/mamba-1p1p1/setup.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "predict.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "glob",
+            "path": "upstream/NetMambaPlus/*.py",
+            "pattern": null,
+            "limit": 30
+          }
+        ]
+      }
+    }
+  },
+  "reviews": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "5958ea73b7f93c01aec23eafced30b2514391866dc4b89fdcc9ac393b9ecec0f",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "data": {
+        "blocking_objections": [],
+        "nonblocking_notes": [
+          "Codex remaining blocker 1 (CPU integration ungrounded) is addressed structurally, not factually: the converged plan does not commit to CPU delivery; it commits to executing a go/no-go against mamba_simple.py/predict.py/setup.py during authorized implementation, with a mandatory anchored descope/defer branch if the pinned model cannot be driven without editing pinned sources. Ratifying the plan therefore does not require the sources now; it requires them at gate time. I treat this as a sequencing preference, not a material defect, but have re-requested targeted excerpts to let codex discharge it.",
+          "Codex remaining blocker 2 (exact patch contract unresolved without upstream setup.py) is mitigated by the existing discipline visible in tools/build_gb10.py: architecture_patch already encodes the expected gencode lines (compute_70/80/90, each exactly once) and patch_file aborts on any preimage-hash mismatch, so a wrong assumption about setup.py fails closed rather than producing a bad build. The generalized builder inherits the same fail-closed contract, making exact-file confirmation a pre-implementation check rather than a plan blocker. A grep for the gencode block is requested to confirm cheaply within the size budget.",
+          "Adopted from codex (naming/phrasing, nonblocking): tools/build_cuda.py as the builder name; record ACTUAL extension gencode flags rather than torch.cuda.get_arch_list(); torch.autocast('cpu') defaults to bfloat16, so the CPU tier disables autocast and runs plain FP32; check_gpu_runtime.py exercising bimamba_type='none' does not establish the configured model's active branch; cross-OS CI must fix or precisely scope surfaced filesystem/subprocess assumptions, not merely add runner labels.",
+          "Model-level equivalence (same configured model, identical weights, FP32 outputs, input and parameter gradients within predefined tolerances, strict checkpoint reload, bounded train/update/reload/inference smoke) is the agreed CPU acceptance gate; operator parity alone is agreed insufficient by both seats.",
+          "Per-hardware promotion rule is agreed: any non-GB10 Linux NVIDIA configuration is 'expected-to-build, unverified' until rebuild + numerical parity + bounded smoke pass on that hardware; hosted-runner results describe only operations actually executed on each recorded runner.",
+          "Both seats agree on the frozen surface: build_gb10.py, requirements/gb10.txt, verified upstream checkout, and all audited evidence stay byte-identical; no raw data/weights redistribution; ESCALATED video-quality review untouched; no IDS/NPU scope.",
+          "Previous full-file requests for upstream setup.py, mamba_simple.py, and predict.py were REQUEST EXCLUDED for total-size-budget; the new requests below are narrowed to grep excerpts to fit within budget while still resolving codex's anchors."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/mamba-1p1p1/setup.py",
+            "pattern": "gencode",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/mamba-1p1p1/mamba_ssm/modules/mamba_simple.py",
+            "pattern": "import",
+            "limit": 30
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus/mamba-1p1p1/mamba_ssm/modules/mamba_simple.py",
+            "pattern": "bimamba",
+            "limit": 30
+          },
+          {
+            "kind": "grep",
+            "path": "/home/nvidia/netmambaplus-reproduction/predict.py",
+            "pattern": "autocast",
+            "limit": 10
+          },
+          {
+            "kind": "glob",
+            "path": "/home/nvidia/netmambaplus-reproduction",
+            "pattern": "tests/*.py",
+            "limit": 30
+          }
+        ],
+        "convergence_summary": "The seats are substantively converged on one artifact: (1) an additive, fail-closed tools/build_cuda.py generalizing the CUDA build across Linux x86_64/aarch64 on the pinned software profile, with preimage-hash patching, preflight, actual-gencode reporting, and a GB10 acceptance gate (sm121 rebuild + numerical parity + bounded original-model train/reload/inference smoke); (2) an evidence-gated FP32 CPU reference tier (autocast disabled) whose go/no-go runs against actual sources during authorized implementation, accepted only via model-level equivalence on GB10, with an anchored descope branch on failure; (3) cross-OS CI with substantive failure-path tests and per-runner scoped claims; (4) a tiered support matrix with per-hardware promotion, containers deferred, frozen GB10 profile and audited evidence untouched. The sole residual divergence is procedural: codex retains two blockers pending upstream setup.py and mamba_simple.py, while I hold that the plan's fail-closed hash guards and mandatory in-implementation gate make those pre-implementation checks rather than ratification blockers. The narrowed grep requests above should let codex confirm the gencode block and import/bimamba structure within the size budget and withdraw both blockers, at which point the artifact can be frozen and hashed by the orchestrator."
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 3565,
+        "cacheReadTokens": 877,
+        "cacheCreationTokens": 14985,
+        "totalTokens": null
+      },
+      "costUsd": 0.478847
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.153.4",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "a45df7f634e375944784202052e1ece18059d13b7ed755923894f53b23aabc3d",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "sessionId": "01a099be-0bc4-7d90-b1b5-bcee384e6e40",
+      "data": {
+        "blocking_objections": [
+          {
+            "claim": "The CPU fallback permits excluding the configured model’s active bimamba branch or shipping a reduced model. That cannot satisfy model-preserving CPU execution. Require the complete configured model to pass the equivalence gate; otherwise defer CPU model execution. Exclusions may cover only features unused by that model.",
+            "anchor": "Question: 'without changing the authors pinned scientific model'; tools/check_gpu_runtime.py tests bimamba_type='none', which does not establish coverage of the configured model’s active branch."
+          }
+        ],
+        "nonblocking_notes": [
+          "The generalized CUDA builder is the smallest immediate implementation. A CPU reference backend could establish execution on additional systems but requires complete-model integration and verification. Container-only distribution retains architecture, driver and GPU constraints; deferral is appropriate.",
+          "Accept source inspection as an explicit implementation gate. It leaves CPU feasibility and exact setup transformations unverified; it does not establish that the missing-source questions have already been answered.",
+          "Preserve the measured profile and restrict initial CUDA changes to hash-guarded adaptations for the pinned software profile. Compiler target acceptance alone does not establish runtime support.",
+          "Agree on the fresh GB10 rebuild, numerical checks, configured-model training/inference smoke, failure-path tests and evidence-specific support matrix. Predeclare CPU comparison tolerances and control stochastic behavior.",
+          "The hosted tooling matrix can proceed independently. CPU execution claims require successful dependency installation and actual model execution on each reported configuration."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "upstream/NetMambaPlus/mamba-1p1p1/mamba_ssm/modules/mamba_simple.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "upstream/NetMambaPlus/mamba-1p1p1/setup.py",
+            "pattern": null,
+            "limit": null
+          }
+        ],
+        "convergence_summary": "Substantial convergence on additive CUDA portability, conditional complete-model CPU execution, hosted checks and bounded support claims. Remove the allowance to exclude active scientific-model branches. Source-dependent feasibility remains pending; execution on another system must not be claimed before it occurs."
+      }
+    }
+  },
+  "fileDeliveryEligible": false,
+  "fileDeliveryReasons": [
+    "state ESCALATED is not CONSENSUS",
+    "result is not a mutual ratification",
+    "artifact mode unknown is not architect",
+    "claude did not ACCEPT the frozen decision hash",
+    "codex did not ACCEPT the frozen decision hash"
+  ]
+}

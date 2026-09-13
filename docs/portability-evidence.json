@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-13T08:20:06.260378+00:00",
+  "status": "passed_on_recorded_configuration",
+  "scope": "New generalized CUDA build and execution checks in a separate Python environment on one NVIDIA GB10. Other physical GPU configurations remain unverified. This is an execution receipt, not new model-accuracy evidence.",
+  "receipt_files": "Local receipt paths identify retained, hashed audit artifacts. This published summary contains no raw flow records, checkpoints, individual predictions or weights.",
+  "runtime": {
+    "system": "Linux",
+    "architecture": "aarch64",
+    "gpu": "NVIDIA GB10",
+    "compute_capability": [
+      12,
+      1
+    ],
+    "python": "3.12.3 (main, Jan 22 2026, 20:57:42) [GCC 13.3.0]",
+    "packages": {
+      "torch": "2.9.1+cu130",
+      "torchvision": "0.24.1",
+      "triton": "3.5.1",
+      "mamba-ssm": "1.1.1",
+      "causal-conv1d": "1.1.2.post1",
+      "numpy": "1.26.2",
+      "timm": "0.4.12"
+    },
+    "torch_cuda": "13.0",
+    "nvcc": "Cuda compilation tools, release 13.0, V13.0.88",
+    "torch_compiled_architectures": [
+      "sm_80",
+      "sm_90",
+      "sm_100",
+      "sm_110",
+      "sm_120",
+      "compute_120"
+    ],
+    "environment": {
+      "CUDA_HOME": "/usr/local/cuda-13.0",
+      "TRITON_PTXAS_PATH": "/usr/local/cuda-13.0/bin/ptxas",
+      "OMP_NUM_THREADS": "4",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "complete_model_runtime_record_sha256": "25d37292e87f90d24040dc17d5514ddbd94eb3ee866c463e1c827b37983e57e0"
+  },
+  "source": {
+    "upstream_commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+    "tracked_upstream_files_verified": 103,
+    "configuration": {
+      "file": "configs/ciciot2022.json",
+      "sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92"
+    },
+    "classifier_source": {
+      "file": "upstream/NetMambaPlus/src/models/models_net_mamba_fuse3.py",
+      "sha256": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d"
+    },
+    "installed_mamba_python_files_verified": 14,
+    "installed_mamba_inventory_sha256": "c1ad024d08e7579f961900f93ec6eb32269b7fccb099f0337802235918e50486"
+  },
+  "build": {
+    "status": "built",
+    "receipt": {
+      "local_file": "runs/portability/cuda13-build-verified/build-report.json",
+      "sha256": "c722ceb4338cafac49f7fc68813fc2bd1e096927e6b830df8bdf075056eed15e"
+    },
+    "builder": {
+      "file": "tools/build_cuda.py",
+      "sha256": "0c93167aaca15d41ed4d6db6f3c9cc3be876fcc673a95c7ce687880ee732aa22"
+    },
+    "causal_source_commit": "d1ab53ddf93b868502da96ad82c5fc0b270911f5",
+    "requested_extension_target": "sm_121",
+    "actual_extension_gencode_flags": {
+      "causal": [
+        "arch=compute_121,code=sm_121"
+      ],
+      "mamba": [
+        "arch=compute_121,code=sm_121"
+      ]
+    },
+    "compatibility_patches": [
+      {
+        "file": "setup.py",
+        "before_sha256": "fa756a5a882e49bf16623c24aa992b0f4e47325a118d33f6dbcf2bc344f51fe7",
+        "after_sha256": "625fbad1438642b99d2594a8511d468688c54ae71d9f0c8218099ae084eab12c",
+        "package": "mamba"
+      },
+      {
+        "file": "setup.py",
+        "before_sha256": "f3745009d556062678a91b673081d2f52f0018557be84dcf95bd4876312e70a1",
+        "after_sha256": "6ba8519d42b5b87f5323bc8dde442aa8c7abb99f429ec7f4de2681594f9a8c77",
+        "package": "causal"
+      },
+      {
+        "file": "reverse_scan.cuh",
+        "before_sha256": "a257f066e80ba1c852b97416bf8ebf69b9f4d0d99c66110ea2cc8add7ba9170c",
+        "after_sha256": "7e03722b55e563a33bd3d8de863cab933e3a96da357dfe726cfd26d9227253d5",
+        "package": "mamba"
+      }
+    ],
+    "compiled_extension_sha256": {
+      "causal_conv1d_cuda": "77b43870f414823ca0da7f414d0f5d6e50c67f02cb2f17ad1b26e4023f190138",
+      "selective_scan_cuda": "08bd0d3abd1b168a0ba9bfd88fbda7f0b1a5886cf1388112600e4d095e0cdc61"
+    },
+    "complete_model_extension_hashes_match_build_report": true
+  },
+  "first_build_attempt": {
+    "status": "failed",
+    "receipt": {
+      "local_file": "runs/portability/cuda13-build/build-report.json",
+      "sha256": "a6ac8da985044caa41520261e0f78ed6c4f4fd9dc8c1794e6e3849bae5e7f4a5"
+    },
+    "builder_sha256": "4086f5d3babfdcd34a55776d9a0a3982847706390480ec847f2f4c2c0a6f27a9",
+    "failed_stage": "build_causal",
+    "error": "RuntimeError: Actual extension target flags differ: expected ['arch=compute_121,code=sm_121'], observed []",
+    "causal_compile_log": {
+      "local_file": "runs/portability/cuda13-build/causal-build.log",
+      "sha256": "13e6e7cb04bbb4320d1b0ad574841b5d4ba81be63246dffd1ed6c87b5dc10733"
+    },
+    "disclosure": "Causal convolution compiled and installed using the distutils fallback. The builder then stopped because its flag audit only looked for a Ninja recipe; Mamba compilation was not reached in this attempt.",
+    "correction": "The flag audit now reads actual compiler commands in the build log; subprocess PATH includes the virtual environment executable directory. Both extensions were rebuilt in a new directory and verified by the successful build recorded above."
+  },
+  "numerical_checks": {
+    "status": "passed",
+    "receipt": {
+      "local_file": "runs/portability/cuda13-kernel-check-verified.json",
+      "sha256": "341494fd43d005c4da6253620975dd5a395309fc9e852349bd30185c983c2c90"
+    },
+    "checker": {
+      "file": "tools/check_gpu_runtime.py",
+      "sha256": "09b594c93ceff32b422460e58fffeb61d5d9f716b60f4ede7a46e600c5e98f7e"
+    },
+    "seed": 17,
+    "passed_cases": 7,
+    "checks": [
+      {
+        "name": "causal_conv_fp32_length_83",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 5.960464477539063e-08,
+        "max_abs_input_gradient_error": 1.9073486328125e-06
+      },
+      {
+        "name": "selective_scan_fp32_length_83",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 1.862645149230957e-08,
+        "max_abs_input_gradient_error": 1.1920928955078125e-07
+      },
+      {
+        "name": "causal_conv_fp32_length_443",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 5.960464477539063e-08,
+        "max_abs_input_gradient_error": 7.62939453125e-06
+      },
+      {
+        "name": "selective_scan_fp32_length_443",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 2.2351741790771484e-08,
+        "max_abs_input_gradient_error": 2.384185791015625e-07
+      },
+      {
+        "name": "fused_rms_norm_fp32",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 1.430511474609375e-06,
+        "max_abs_input_gradient_error": 1.71661376953125e-05
+      },
+      {
+        "name": "mamba_block_float32",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 0.0,
+        "max_abs_input_gradient_error": 1.4901161193847656e-08,
+        "max_abs_parameter_gradient_error": 1.1920928955078125e-07
+      },
+      {
+        "name": "mamba_block_float16",
+        "passed": true,
+        "rtol": 0.01,
+        "atol": 0.002,
+        "max_abs_output_error": 0.0,
+        "max_abs_input_gradient_error": 6.103515625e-05,
+        "max_abs_parameter_gradient_error": 0.0009765625
+      }
+    ],
+    "reference_scope": "Forward/backward comparisons for convolution, selective scan and RMS normalization, plus FP32/FP16 Mamba fast-versus-slow comparisons. The Mamba slow path still uses CUDA; this is not CPU-backend validation."
+  },
+  "complete_classifier": {
+    "status": "passed",
+    "receipt": {
+      "local_file": "runs/portability/cuda13-model-check-verified/manifest.json",
+      "sha256": "4d35542f84f0e57fe64d521d80d13eb4d659f1584d80597e78c23b3aa609595f"
+    },
+    "checker": {
+      "file": "tools/check_model_runtime.py",
+      "sha256": "9811dd4fe7b2ab994400f1db5559c3aa1d1bcdef7656ab0910dd78ae9cd39f2f"
+    },
+    "seed": 0,
+    "synthetic_only": true,
+    "parameter_count": 1870080,
+    "encoder_blocks": 4,
+    "embedding_width": 256,
+    "tokens": 443,
+    "classes": 6,
+    "active_bimamba_types": [
+      "none",
+      "none",
+      "none",
+      "none"
+    ],
+    "active_fast_paths": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "input_rows": 6,
+    "native_input_shapes": {
+      "x_byte": [
+        6,
+        1,
+        1,
+        1600
+      ],
+      "x_size": [
+        6,
+        20
+      ],
+      "x_interval": [
+        6,
+        20
+      ],
+      "targets": [
+        6
+      ]
+    },
+    "observed_input_shape_at_each_encoder_block": [
+      6,
+      443,
+      256
+    ],
+    "training": {
+      "dtype": "torch.float32",
+      "autocast": false,
+      "finite_loss": 2.112807035446167,
+      "parameter_tensors_with_finite_gradients": 51,
+      "changed_parameter_tensors": 51,
+      "optimizer": "torch.optim.AdamW",
+      "optimizer_steps": 1,
+      "learning_rate": 4.6875e-05,
+      "scope": "One standalone step: native AdamW groups and layer scales; base rate scaled to six synthetic rows. No warmup or epoch schedule is simulated."
+    },
+    "checkpoint": {
+      "synthetic_only": true,
+      "sha256": "a0d390222621c98e586b957ca76f79bbde6eaaa961b96d21307770d83552fab8",
+      "strict_reload": true,
+      "state_tensors": 51,
+      "scope": "Model weights after one synthetic update, not a pretrained or resumable training checkpoint. Weights remain local."
+    },
+    "inference": {
+      "autocast": "cuda:float16",
+      "logits_dtype": "torch.float16",
+      "logits_shape": [
+        6,
+        6
+      ],
+      "reload_max_abs_logit_difference": 0.0,
+      "finite_normalized_six_class_scores": true
+    },
+    "checks": {
+      "upstream_pin_and_clean_sources": true,
+      "installed_mamba_matches_verified_upstream": true,
+      "native_loader_and_complete_model_dimensions": true,
+      "finite_fp32_loss": true,
+      "finite_parameter_gradients": true,
+      "nonzero_gradient_each_encoder_and_head": true,
+      "real_optimizer_update": true,
+      "strict_checkpoint_reload_and_identical_state": true,
+      "finite_autocast_inference": true,
+      "normalized_six_class_scores": true,
+      "identical_inference_after_strict_reload": true,
+      "upstream_unchanged_after_execution": true
+    }
+  },
+  "frozen_seed0_inference": {
+    "status": "passed",
+    "receipt": {
+      "local_file": "runs/portability/cuda13-seed0-inference-comparison.json",
+      "sha256": "cd3769575bf14332266f30d59c10dff2c4e42571e16054d1fae9d0099eeccc17"
+    },
+    "predictor": {
+      "file": "predict.py",
+      "sha256": "4536cf5b1b897e9d923ddba8633f2674fd91d00e96414300d720264523e3d415"
+    },
+    "inference_result": {
+      "local_file": "runs/portability/cuda13-seed0-inference-verified/metrics.json",
+      "sha256": "9ab4a904195e17ac59e96708a62beb278f94b782cd01a5073640b486ad9f49fe"
+    },
+    "inference_manifest": {
+      "local_file": "runs/portability/cuda13-seed0-inference-verified/manifest.json",
+      "sha256": "87ef0eb22f4d63448457e0c0e2c899054c2edb865a3dbd6f8065e42fbabf621b"
+    },
+    "reference_predictions": {
+      "file": "docs/customer/evidence/seed0/replay/predictions.json",
+      "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a"
+    },
+    "input_sha256": "8c1dfc79b6d7c5c4c9b589353ba2b1ab7bfc505d4b133135b604c2f835836b99",
+    "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+    "rows": 1041,
+    "logit_values_compared": 6246,
+    "matching_predictions": 1041,
+    "max_absolute_logit_difference": 0.0,
+    "checks": {
+      "execution_succeeded": true,
+      "input_sha256_matches": true,
+      "checkpoint_sha256_matches": true,
+      "class_mapping_matches": true,
+      "row_count_matches": true,
+      "row_order_matches": true,
+      "logit_shapes_match": true,
+      "finite_logits": true,
+      "all_predictions_match": true,
+      "all_logits_exactly_equal": true
+    },
+    "scope": "Reexecution of the frozen seed-0 classifier and its frozen test inputs on the same GB10 with newly built extensions. No retraining, test-guided tuning, new accuracy measurement or other-GPU equivalence claim."
+  },
+  "limits": [
+    "Only Linux ARM64 and this physical GB10 were exercised here; no other NVIDIA GPU, native Windows/macOS, CPU, AMD/Intel GPU, Apple MPS or NPU execution claim.",
+    "The complete classifier check uses six synthetic native-format fixtures and one optimizer update. It does not execute masked pretraining or the 120-epoch real-data protocol.",
+    "Torch still reports its compiled architecture range ending at 12.0 on the 12.1 GB10. Upstream AMP deprecation warnings and the numerical checker tensor-to-scalar warning also remain visible; the actual operations passed.",
+    "The first failed build is retained separately. Its failure is not counted as a successful build, and compiler success alone is not counted as model execution."
+  ]
+}
