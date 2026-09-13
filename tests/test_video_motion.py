@@ -39,7 +39,7 @@ class MotionTests(unittest.TestCase):
             scene['motion_clip'] = {'path':'capture.webm', 'sha256':hashlib.sha256((root/'capture.webm').read_bytes()).hexdigest(),
                                     'start_seconds':1,'trim_start_seconds':0,'duration_seconds':8,
                                     'x':100,'y':300,'width':1600,'height':500}
-            self.assertEqual(motion_clip(scene, root), root/'capture.webm')
+            self.assertEqual(motion_clip(scene, root), (root/'capture.webm').resolve())
             scene['motion_clip']['duration_seconds'] = 50
             with self.assertRaisesRegex(ValueError, 'outside'):
                 motion_clip(scene, root)
