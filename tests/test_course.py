@@ -100,6 +100,7 @@ class CourseTests(unittest.TestCase):
         paths.update(line.split("  ", 1)[1] for line in self.source["protected_checksum_inventory"]["text"].splitlines())
         paths.update(x["path"] for x in self.source["resources"] if x.get("path"))
         paths.add(str(build_course.SOURCE.relative_to(ROOT)))
+        paths.add("docs/customer/demo/video/index.html")
         with tempfile.TemporaryDirectory() as temporary:
             fixture = Path(temporary)
             for name in paths:

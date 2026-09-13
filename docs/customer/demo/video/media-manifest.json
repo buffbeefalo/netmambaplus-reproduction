@@ -1,0 +1,3879 @@
+{
+  "schema_version": 1,
+  "source_sha256": "ace0c090ab6a702a00f2092e96d88db92c442ea142471f5cfff10ad221f171d4",
+  "source_course_commit": "49078618f77da068b45fb5b0b8dc51698a617ff6",
+  "voice": {
+    "engine": "kokoro-onnx",
+    "voice": "af_heart",
+    "speed": 0.9,
+    "synthetic": true,
+    "model_sha256": "7d5df8ecf7d4b1878015a32686053fd0eebe2bc377234608764cc0ef3636a6c5"
+  },
+  "voices_sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d",
+  "fps": 10,
+  "scheduled_seconds": 1800,
+  "practice_seconds": 180,
+  "chapters": [
+    {
+      "id": "purpose",
+      "title": "The paper and the purpose",
+      "start": 0.0,
+      "end": 120.0
+    },
+    {
+      "id": "inputs",
+      "title": "The paper, the CSVs and compatible flows",
+      "start": 120.0,
+      "end": 360.0
+    },
+    {
+      "id": "lifecycle",
+      "title": "Preprocessing, training and inference",
+      "start": 360.0,
+      "end": 600.0
+    },
+    {
+      "id": "repository",
+      "title": "The authors’ code and this repository",
+      "start": 600.0,
+      "end": 780.0
+    },
+    {
+      "id": "measurements",
+      "title": "Actual results versus the paper",
+      "start": 780.0,
+      "end": 1020.0
+    },
+    {
+      "id": "demo",
+      "title": "Investigate a recorded prediction",
+      "start": 1020.0,
+      "end": 1260.0
+    },
+    {
+      "id": "operate",
+      "title": "Set up, use and verify the project",
+      "start": 1260.0,
+      "end": 1500.0
+    },
+    {
+      "id": "future",
+      "title": "IDS, NPU and SmartNIC: what remains",
+      "start": 1500.0,
+      "end": 1620.0
+    },
+    {
+      "id": "teach-back",
+      "title": "Your two-minute customer explanation",
+      "start": 1620.0,
+      "end": 1800.0
+    }
+  ],
+  "scenes": [
+    {
+      "id": "purpose-01",
+      "kind": "title",
+      "title": "NetMamba+\nA measured reproduction attempt",
+      "bullets": [
+        "Understand the system",
+        "Explain the actual evidence",
+        "Keep the limitations with the result"
+      ],
+      "narration": "Welcome. This thirty minute course explains Net Mamba Plus, the experiment that actually ran, and what you can responsibly tell a customer. We will follow the data into training and inference, inspect real results, and work through one actual prediction error. Short practice pauses are included in the running time. At the end, you will have ninety seconds to explain the project aloud. The narration uses a local synthetic voice. The experiment records, not the voice or the AI discussion, are the evidence.",
+      "references": [
+        "answers",
+        "results"
+      ],
+      "start": 0.0,
+      "end": 33.4,
+      "frames": 334,
+      "chapter": 1,
+      "chapter_title": "The paper and the purpose",
+      "tempo": 0.9968862275449102
+    },
+    {
+      "id": "purpose-02",
+      "kind": "flow",
+      "title": "A classifier is one part of an IDS",
+      "bullets": [
+        "Packet: one network message",
+        "Flow: related packets in order",
+        "IDS: observation, classification and an alert policy"
+      ],
+      "narration": "Start with three words. A packet is one small network message. A flow groups related packets into a conversation. An intrusion detection system, or I D S, observes traffic and raises alerts for investigation. A classifier assigns categories. It does not automatically supply packet capture, connection grouping, an alert policy, or blocking. A G P U accelerates numerical operations; it does not fill in these missing system components.",
+      "references": [
+        "comparison"
+      ],
+      "start": 33.4,
+      "end": 64.6,
+      "frames": 312,
+      "chapter": 1,
+      "chapter_title": "The paper and the purpose",
+      "tempo": 0.9960683760683761
+    },
+    {
+      "id": "purpose-03",
+      "kind": "cards",
+      "title": "What the plus means",
+      "bullets": [
+        "Bytes describe content",
+        "Sizes describe packet length",
+        "Intervals describe timing"
+      ],
+      "narration": "The paper combines three views of the same flow: byte content, packet sizes, and time gaps. Combining these views is what multimodal means here. Mamba processes a sequence by updating a numerical state. It is not a chatbot. The earlier Net Mamba model used bytes alone. Our measured work exercises the multimodal Net Mamba Plus classifier on a G B ten graphics processor.",
+      "references": [
+        "comparison"
+      ],
+      "start": 64.6,
+      "end": 91.4,
+      "frames": 268,
+      "chapter": 1,
+      "chapter_title": "The paper and the purpose",
+      "tempo": 0.999502487562189
+    },
+    {
+      "id": "purpose-04",
+      "kind": "question",
+      "title": "First decision",
+      "bullets": [
+        "Does classifier success establish a complete live IDS?"
+      ],
+      "narration": "If the classifier runs successfully, have we demonstrated a complete live intrusion detection system? Take eight seconds.",
+      "references": [
+        "answers",
+        "results",
+        "comparison"
+      ],
+      "start": 91.4,
+      "end": 99.1,
+      "frames": 77,
+      "chapter": 1,
+      "chapter_title": "The paper and the purpose",
+      "tempo": 0.9977489177489177
+    },
+    {
+      "id": "purpose-05",
+      "kind": "pause",
+      "title": "Your turn · 8 seconds",
+      "bullets": [
+        "Does a working classifier establish a complete live IDS?"
+      ],
+      "narration": "",
+      "references": [
+        "answers",
+        "results",
+        "comparison"
+      ],
+      "seconds": 8,
+      "start": 99.1,
+      "end": 107.1,
+      "frames": 80,
+      "chapter": 1,
+      "chapter_title": "The paper and the purpose"
+    },
+    {
+      "id": "purpose-06",
+      "kind": "answer",
+      "title": "Keep the system boundary visible",
+      "bullets": [
+        "Working: native classifier and recorded replay",
+        "Still needed: capture, extraction and operational alerting"
+      ],
+      "narration": "No. Classifier execution is one tested component. The capture to alert system still needs implementation and validation. Keep that boundary visible throughout the presentation.",
+      "references": [
+        "hardware"
+      ],
+      "start": 107.1,
+      "end": 120.0,
+      "frames": 129,
+      "chapter": 1,
+      "chapter_title": "The paper and the purpose",
+      "tempo": 0.997829457364341
+    },
+    {
+      "id": "inputs-01",
+      "kind": "cards",
+      "title": "The three starting files",
+      "bullets": [
+        "Paper v1: research proposal and reported results",
+        "CICIDS2017 CSV: 1,410,255 packet rows",
+        "UNSW CSV: 79,881 packet rows"
+      ],
+      "narration": "The three supplied files have different roles. The P D F is the research paper. It describes methods and reports results; it is not itself a ready to train dataset. The C I C I D S twenty seventeen C S V contains 1,410,255 packet rows and fifteen labels. The U N S W C S V contains 79,881 packet rows and ten labels. A C S V is a text table with rows and columns, not a running database server. We inspected the supplied exports and recorded their file identities.",
+      "references": [
+        "csv",
+        "comparison"
+      ],
+      "start": 120.0,
+      "end": 161.2,
+      "frames": 412,
+      "chapter": 2,
+      "chapter_title": "The paper, the CSVs and compatible flows",
+      "tempo": 0.9935275080906147
+    },
+    {
+      "id": "inputs-02",
+      "kind": "cards",
+      "title": "What one CSV row contains",
+      "bullets": [
+        "1,500 payload-byte columns",
+        "TTL, total length, protocol, time delta, label",
+        "No established flow identity or packet order"
+      ],
+      "narration": "Both exports have fifteen hundred payload byte columns, plus five metadata fields. T T L relates to a packet’s remaining hop allowance. Total length describes recorded packet length. Protocol identifies a protocol. Time delta records a time difference. Label supplies the known example category. These fields do not establish which connection each packet belongs to, its direction, or its order within that connection. The C I C I D S scan found negative time differences, and the timing units and per-flow interpretation remain unestablished. We profiled metadata; we did not train a packet classifier or numerically validate every payload value.",
+      "references": [
+        "csv"
+      ],
+      "start": 161.2,
+      "end": 206.7,
+      "frames": 455,
+      "chapter": 2,
+      "chapter_title": "The paper, the CSVs and compatible flows",
+      "tempo": 0.9935238095238096
+    },
+    {
+      "id": "inputs-03",
+      "kind": "flow",
+      "title": "Why five neighboring rows are insufficient",
+      "bullets": [
+        "Row order is not connection identity",
+        "Missing headers cannot be recovered from payload alone",
+        "A packet classifier would be a separate adaptation"
+      ],
+      "narration": "Imagine a spreadsheet whose next five rows come from three different conversations. Stacking those rows changes the example into something that never occurred on the network. Five neighboring rows are therefore not evidence of one five-packet flow. Payload fields also cannot reconstruct missing headers. A packet classifier trained directly on these exports could be useful, but it would be a different experiment. Reproducing the native input representation requires established grouping, direction, ordering, byte extraction and timing.",
+      "references": [
+        "comparison"
+      ],
+      "start": 206.7,
+      "end": 241.7,
+      "frames": 350,
+      "chapter": 2,
+      "chapter_title": "The paper, the CSVs and compatible flows",
+      "tempo": 0.993904761904762
+    },
+    {
+      "id": "inputs-04",
+      "kind": "cards",
+      "title": "The data actually used",
+      "bullets": [
+        "CICIoT2022 is a different dataset",
+        "8,323 train · 1,040 validation · 1,041 test",
+        "Six native categories"
+      ],
+      "narration": "Instead, we acquired the authors’ processed C I C I O T twenty twenty-two flow release. This is a different dataset from C I C I D S twenty seventeen. It contains 8,323 training flows, 1,040 validation flows, and 1,041 test flows. Training examples teach the model’s weights. Validation selects a candidate checkpoint. The test split measures that selected classifier. The six categories include Flood and R T S P Brute Force, plus four categories describing Internet of Things device or power activity.",
+      "references": [
+        "native"
+      ],
+      "start": 241.7,
+      "end": 281.1,
+      "frames": 394,
+      "chapter": 2,
+      "chapter_title": "The paper, the CSVs and compatible flows",
+      "tempo": 0.9945177664974619
+    },
+    {
+      "id": "inputs-05",
+      "kind": "code",
+      "title": "Native input is a defined contract",
+      "bullets": [
+        "data: a list of packet-byte strings",
+        "sizes / intervals: space-separated numeric strings",
+        "Metadata and provenance define class meanings"
+      ],
+      "narration": "The native files are J S O N arrays of flow records. In this release, data contains packet-byte strings; sizes and intervals are space-separated numeric strings. The loader parses them into numerical tensors. Metadata defines which category each class index means. Labels are known answers for training or evaluation, not legitimate prediction features. The code checks types, ranges and consistency before launch. A validated stored record still does not prove that an upstream packet extractor created it correctly.",
+      "references": [
+        "native",
+        "contract"
+      ],
+      "start": 281.1,
+      "end": 316.7,
+      "frames": 356,
+      "chapter": 2,
+      "chapter_title": "The paper, the CSVs and compatible flows",
+      "tempo": 0.9952059925093633
+    },
+    {
+      "id": "inputs-06",
+      "kind": "question",
+      "title": "Input decision",
+      "bullets": [
+        "Can five adjacent packet rows be passed as one native flow?"
+      ],
+      "narration": "A colleague gives you five adjacent rows from one uploaded C S V and asks you to classify them as a flow. Would you proceed? Use the next twelve seconds to identify the missing facts.",
+      "references": [
+        "csv",
+        "comparison",
+        "native"
+      ],
+      "start": 316.7,
+      "end": 329.5,
+      "frames": 128,
+      "chapter": 2,
+      "chapter_title": "The paper, the CSVs and compatible flows",
+      "tempo": 0.9904166666666666
+    },
+    {
+      "id": "inputs-07",
+      "kind": "pause",
+      "title": "Your turn · 12 seconds",
+      "bullets": [
+        "What establishes relatedness, direction, ordering and extraction?"
+      ],
+      "narration": "",
+      "references": [
+        "csv",
+        "comparison",
+        "native"
+      ],
+      "seconds": 12,
+      "start": 329.5,
+      "end": 341.5,
+      "frames": 120,
+      "chapter": 2,
+      "chapter_title": "The paper, the CSVs and compatible flows"
+    },
+    {
+      "id": "inputs-08",
+      "kind": "answer",
+      "title": "Answer: establish compatibility first",
+      "bullets": [
+        "Use the compatible released flows",
+        "Or validate a real packet-to-flow adapter"
+      ],
+      "narration": "Do not assume those rows form a flow. Use the compatible released records, or establish and validate an extractor. This is the connection between the paper and the two uploaded tables: they address related traffic analysis, but their units of observation are not interchangeable.",
+      "references": [
+        "comparison"
+      ],
+      "start": 341.5,
+      "end": 360.0,
+      "frames": 185,
+      "chapter": 2,
+      "chapter_title": "The paper, the CSVs and compatible flows",
+      "tempo": 0.992
+    },
+    {
+      "id": "lifecycle-01",
+      "kind": "flow",
+      "title": "Three views become tensors",
+      "bullets": [
+        "5 packets × 320 stored bytes = 1,600 values",
+        "First 20 packet sizes",
+        "First 20 arrival intervals"
+      ],
+      "narration": "Now follow one valid flow through the original loader. The byte view keeps up to five packets, with three hundred twenty stored bytes per packet. That gives sixteen hundred values. The paper describes each packet region as eighty header bytes plus two hundred forty payload bytes. Released flows already contain this extraction. Short records are padded; long ones are truncated. The measured byte tensor has batch size by one by one by sixteen hundred as its dimensions. The two other views retain the first twenty sizes and the first twenty time gaps.",
+      "references": [
+        "lesson"
+      ],
+      "start": 360.0,
+      "end": 398.1,
+      "frames": 381,
+      "chapter": 3,
+      "chapter_title": "Preprocessing, training and inference",
+      "tempo": 0.9338932633420822
+    },
+    {
+      "id": "lifecycle-02",
+      "kind": "cards",
+      "title": "Normalization changes the numerical scale",
+      "bullets": [
+        "Byte 0 → −1; byte 255 → +1",
+        "Sizes clipped to 0–1,500",
+        "Gap x → (1+x)/(2+x)"
+      ],
+      "narration": "The byte transformation divides by two hundred fifty-five, then uses a mean and standard deviation of one half. A zero byte therefore becomes minus one, and two hundred fifty-five becomes plus one. Sizes are clipped between zero and fifteen hundred. A padding size of fifteen hundred and one is also clipped to fifteen hundred, so that boundary cannot reliably identify padding. For a nonnegative gap x, the loader uses one plus x divided by two plus x. Zero becomes one half; one becomes two thirds. Padded infinite gaps map to one inside the loader.",
+      "references": [
+        "lesson"
+      ],
+      "start": 398.1,
+      "end": 439.0,
+      "frames": 409,
+      "chapter": 3,
+      "chapter_title": "Preprocessing, training and inference",
+      "tempo": 0.9345721271393642
+    },
+    {
+      "id": "lifecycle-03",
+      "kind": "flow",
+      "title": "The classifier reads 443 tokens",
+      "bullets": [
+        "400 byte tokens + 20 sizes + 20 intervals",
+        "Three summary tokens",
+        "Four Mamba blocks → six logits"
+      ],
+      "narration": "For classification, groups of four bytes create four hundred byte tokens. Add twenty size tokens, twenty interval tokens and three summary tokens, for four hundred forty-three input tokens. A token here is a numerical input unit, not a word in a chatbot. Position and modality information identify its location and type. Four Mamba blocks process the sequence. Three modality summaries are added, then a classification layer produces six raw outputs called logits. The model’s internal state belongs to this input computation. It is not an implemented cache of live network connections.",
+      "references": [
+        "lesson",
+        "comparison"
+      ],
+      "start": 439.0,
+      "end": 482.6,
+      "frames": 436,
+      "chapter": 3,
+      "chapter_title": "Preprocessing, training and inference",
+      "tempo": 0.934006116207951
+    },
+    {
+      "id": "lifecycle-04",
+      "kind": "cards",
+      "title": "Two learning stages, different targets",
+      "bullets": [
+        "Pretrain: reconstruct masked flow features",
+        "Fine-tune: predict known categories",
+        "Main runs start from released pretrained weights"
+      ],
+      "narration": "During pretraining, the model learns to reconstruct deliberately hidden input features. The source preset masks ninety percent of byte strides and fifteen percent each of sizes and intervals. Reconstruction provides a learning signal without attack-category targets. Fine-tuning then learns the six labeled categories. A loss measures error; an optimizer changes weights to reduce that error. An epoch is a pass through the training loader. Our short pretraining check completed one hundred thirty-two updates. The three main fine-tuning runs instead began from the authors’ released pretrained checkpoint, not from our short-check checkpoint.",
+      "references": [
+        "lesson",
+        "transfer"
+      ],
+      "start": 482.6,
+      "end": 526.7,
+      "frames": 441,
+      "chapter": 3,
+      "chapter_title": "Preprocessing, training and inference",
+      "tempo": 0.9345427059712773
+    },
+    {
+      "id": "lifecycle-05",
+      "kind": "cards",
+      "title": "Inference freezes the learned classifier",
+      "bullets": [
+        "Flow features + saved checkpoint → logits",
+        "Softmax → display scores; argmax → class",
+        "Known labels are needed to measure accuracy"
+      ],
+      "narration": "After training, inference freezes the learned weights. It uses flow features and a selected checkpoint to produce logits. Softmax turns the logits into normalized display scores; the largest output selects a category. A checkpoint-bound mapping supplies the category names. Without known labels, prediction cannot measure accuracy. With labels, evaluation compares the predictions against those known answers. Validation chooses the checkpoint; test labels must not be used to choose a better-looking model or to supply prediction features.",
+      "references": [
+        "runbook",
+        "contract"
+      ],
+      "start": 526.7,
+      "end": 564.7,
+      "frames": 380,
+      "chapter": 3,
+      "chapter_title": "Preprocessing, training and inference",
+      "tempo": 0.9334736842105263
+    },
+    {
+      "id": "lifecycle-06",
+      "kind": "question",
+      "title": "Trace the lifecycle",
+      "bullets": [
+        "When should weights change?",
+        "When are known test labels used?"
+      ],
+      "narration": "Trace the lifecycle aloud. When do weights change, when is a checkpoint selected, and when are known test labels used? Take twelve seconds.",
+      "references": [
+        "lesson",
+        "comparison",
+        "transfer"
+      ],
+      "start": 564.7,
+      "end": 574.2,
+      "frames": 95,
+      "chapter": 3,
+      "chapter_title": "Preprocessing, training and inference",
+      "tempo": 0.928
+    },
+    {
+      "id": "lifecycle-07",
+      "kind": "pause",
+      "title": "Your turn · 12 seconds",
+      "bullets": [
+        "Train → select using validation → freeze → test or predict"
+      ],
+      "narration": "",
+      "references": [
+        "lesson",
+        "comparison",
+        "transfer"
+      ],
+      "seconds": 12,
+      "start": 574.2,
+      "end": 586.2,
+      "frames": 120,
+      "chapter": 3,
+      "chapter_title": "Preprocessing, training and inference"
+    },
+    {
+      "id": "lifecycle-08",
+      "kind": "answer",
+      "title": "Answer: separate learning from measurement",
+      "bullets": [
+        "Training updates weights",
+        "Validation selects",
+        "Inference freezes; test labels score afterward"
+      ],
+      "narration": "Training updates the weights. Validation selects the candidate. Inference freezes it. Test labels are used afterward for measurement. This separation is central to a defensible experiment.",
+      "references": [
+        "lesson"
+      ],
+      "start": 586.2,
+      "end": 600.0,
+      "frames": 138,
+      "chapter": 3,
+      "chapter_title": "Preprocessing, training and inference",
+      "tempo": 0.9344927536231884
+    },
+    {
+      "id": "repository-01",
+      "kind": "cards",
+      "title": "Original model, checked execution wrapper",
+      "bullets": [
+        "Pinned authors’ model, loader and engines",
+        "GB10 compatibility changes in build copies",
+        "Validation, provenance and evidence around execution"
+      ],
+      "narration": "The authors’ repository provides the neural model, tensor loader and training engines. Our repository fetches a pinned commit and verifies source identity. The model and loader stay unchanged. For G B ten and C U D A thirteen, separate native-extension build copies receive recorded compiler and architecture compatibility edits. This is a compatibility port, not proof of an identical paper environment.",
+      "references": [
+        "comparison",
+        "config"
+      ],
+      "start": 600.0,
+      "end": 629.6,
+      "frames": 296,
+      "chapter": 4,
+      "chapter_title": "The authors’ code and this repository",
+      "tempo": 0.9654054054054054
+    },
+    {
+      "id": "repository-02",
+      "kind": "code",
+      "title": "Follow the main entry points",
+      "bullets": [
+        "repro.py: acquire, validate and launch",
+        "evaluate.py: labeled test measurement",
+        "predict.py: unlabeled classification",
+        "replay.py: save and display predictions"
+      ],
+      "narration": "Think of the wrapper as the lab’s coordinator. The reproduction launcher validates the source and inputs, resolves settings, starts the original training program, and saves a run manifest. The evaluation entry point strictly reloads a classifier and scores the native test split. The prediction entry point handles already assembled flows without known labels. The replay entry point records outputs, independently recomputes metrics, and creates a browser display. These tools share preparation checks while keeping their execution jobs distinct.",
+      "references": [
+        "comparison"
+      ],
+      "start": 629.6,
+      "end": 666.8,
+      "frames": 372,
+      "chapter": 4,
+      "chapter_title": "The authors’ code and this repository",
+      "tempo": 0.9666666666666666
+    },
+    {
+      "id": "repository-03",
+      "kind": "cards",
+      "title": "Find the recipe, record and explanation",
+      "bullets": [
+        "configs/ and requirements/: recipe and runtime",
+        "tools/ and tests/: execution checks",
+        "docs/customer/evidence/: measured records",
+        "docs/research/: curated findings and council records"
+      ],
+      "narration": "Configuration files describe the source pin, assets and experiment recipe. Requirements describe parts of the runtime. Tools build, measure, review and publish outputs. Tests check important acceptance and failure behavior. The evidence folder holds actual manifests, logs, predictions and hashes. Customer documents translate those records into a presentation. Research documents preserve curated findings and council decisions; they are not a raw private chat dump. The complete file walkthrough explains every tracked file and download, so you can find the exact record behind a question.",
+      "references": [
+        "walkthrough"
+      ],
+      "start": 666.8,
+      "end": 708.2,
+      "frames": 414,
+      "chapter": 4,
+      "chapter_title": "The authors’ code and this repository",
+      "tempo": 0.9666344605475041
+    },
+    {
+      "id": "repository-04",
+      "kind": "cards",
+      "title": "A manifest is a lab notebook",
+      "bullets": [
+        "Which source, data and checkpoint?",
+        "Which settings and class mapping?",
+        "Did the run actually complete?"
+      ],
+      "narration": "A manifest records what was requested, which source and data were used, the checkpoint identity, class mapping and completion status. A hash is a fingerprint of exact file bytes. It helps detect drift; it does not prove scientific correctness or usage rights. Keep a checkpoint with its successful manifest or export provenance. Choose a fresh output directory each time so new work does not overwrite earlier evidence. Raw data, downloaded source and trained weights remain separate local research assets.",
+      "references": [
+        "contract",
+        "runbook"
+      ],
+      "start": 708.2,
+      "end": 742.7,
+      "frames": 345,
+      "chapter": 4,
+      "chapter_title": "The authors’ code and this repository",
+      "tempo": 0.9681159420289854
+    },
+    {
+      "id": "repository-05",
+      "kind": "question",
+      "title": "Repository decision",
+      "bullets": [
+        "Did we replace the authors’ model, or wrap and verify its execution?"
+      ],
+      "narration": "Which description should you use: we replaced the authors’ model, or we wrapped pinned original code and ported its native builds? Take ten seconds and name the wrapper’s main additions.",
+      "references": [
+        "comparison",
+        "config",
+        "walkthrough"
+      ],
+      "start": 742.7,
+      "end": 754.1,
+      "frames": 114,
+      "chapter": 4,
+      "chapter_title": "The authors’ code and this repository",
+      "tempo": 0.9658479532163743
+    },
+    {
+      "id": "repository-06",
+      "kind": "pause",
+      "title": "Your turn · 10 seconds",
+      "bullets": [
+        "Name the original pieces and the added checks."
+      ],
+      "narration": "",
+      "references": [
+        "comparison",
+        "config",
+        "walkthrough"
+      ],
+      "seconds": 10,
+      "start": 754.1,
+      "end": 764.1,
+      "frames": 100,
+      "chapter": 4,
+      "chapter_title": "The authors’ code and this repository"
+    },
+    {
+      "id": "repository-07",
+      "kind": "answer",
+      "title": "Answer: explain the actual changes",
+      "bullets": [
+        "Original model and loader",
+        "Added validation, measurement, provenance and presentation"
+      ],
+      "narration": "The second description is correct. We added a checked execution route, inference tools, measurements, provenance and teaching materials around the original model. Compiler compatibility changes do not establish exact paper reproduction.",
+      "references": [
+        "comparison"
+      ],
+      "start": 764.1,
+      "end": 780.0,
+      "frames": 159,
+      "chapter": 4,
+      "chapter_title": "The authors’ code and this repository",
+      "tempo": 0.9650314465408805
+    },
+    {
+      "id": "measurements-01",
+      "kind": "cards",
+      "title": "Three complete fine-tuning runs",
+      "bullets": [
+        "Seeds 0, 1 and 2 all retained",
+        "120 epochs per run",
+        "7,920 optimizer updates per run"
+      ],
+      "narration": "Now separate things that were executed from things that were proposed. All three declared fine-tuning seeds completed 120 epochs and 7,920 optimizer updates each. A seed controls random choices, such as initialization and sample order. These were three runs on the same dataset split, not three independent datasets. Validation accuracy selected each best checkpoint. The selected classifier was then reloaded for test evaluation. Logs and optimizer records support the completed budgets; the recipe alone would not prove that the work finished.",
+      "references": [
+        "results"
+      ],
+      "start": 780.0,
+      "end": 820.2,
+      "frames": 402,
+      "chapter": 5,
+      "chapter_title": "Actual results versus the paper",
+      "tempo": 0.9864013266998342
+    },
+    {
+      "id": "measurements-02",
+      "kind": "results",
+      "title": "Show every seed, not only the best one",
+      "bullets": [
+        "Seed 0: 91.26%",
+        "Seed 1: 84.05%",
+        "Seed 2: 84.63%",
+        "Mean: 86.65%"
+      ],
+      "narration": "The test accuracies were 91.26% for seed zero, 84.05% for seed one, and 84.63% for seed two. Their mean was 86.65%. We retained every seed rather than hiding the weaker runs. Seed zero was chosen for the demonstration in advance, not selected afterward because it had the best score. You can show that run to make the demo concrete, but you should report the three-run mean when describing the experiment.",
+      "references": [
+        "results"
+      ],
+      "start": 820.2,
+      "end": 854.2,
+      "frames": 340,
+      "chapter": 5,
+      "chapter_title": "Actual results versus the paper",
+      "tempo": 0.9841568627450981
+    },
+    {
+      "id": "measurements-03",
+      "kind": "matrix",
+      "title": "Understand the metrics",
+      "bullets": [
+        "Accuracy: fraction correct",
+        "F1: balance of precision and recall",
+        "Confusion matrix: which categories were confused?"
+      ],
+      "narration": "Accuracy is the fraction of examples classified correctly. Precision asks how often a predicted category is right; recall asks how many true examples of that category were found. F one balances precision and recall. Macro F one gives classes equal weight; weighted F one weights their support. A confusion matrix shows true categories against predicted categories so aggregate scores do not hide the mistakes. The sample standard deviation across accuracy results was 4.00 percentage points. It is a descriptive spread, not a confidence interval and not a promise about customer traffic.",
+      "references": [
+        "results"
+      ],
+      "start": 854.2,
+      "end": 895.8,
+      "frames": 416,
+      "chapter": 5,
+      "chapter_title": "Actual results versus the paper",
+      "tempo": 0.985
+    },
+    {
+      "id": "measurements-04",
+      "kind": "comparison",
+      "title": "The paper’s result was not reproduced",
+      "bullets": [
+        "Paper Table IV: 97.50%",
+        "Our mean: 86.65%",
+        "Different runtime and source-based training settings"
+      ],
+      "narration": "The paper reports 97.50% accuracy for this benchmark under different conditions. We did not reproduce that result. Source-based fine-tuning used batch size one hundred twenty-eight and an effective learning rate of zero point zero zero one on G B ten. The paper describes batch sixty-four, rate zero point zero zero two, and A one hundred hardware. The full pretraining history of the released checkpoint is unknown. We did not repeat the paper’s full one hundred fifty thousand step pretraining. The cause of the accuracy gap has not been isolated; it would be speculation to attribute all of it to one difference.",
+      "references": [
+        "results",
+        "comparison"
+      ],
+      "start": 895.8,
+      "end": 938.4,
+      "frames": 426,
+      "chapter": 5,
+      "chapter_title": "Actual results versus the paper",
+      "tempo": 0.9849139280125194
+    },
+    {
+      "id": "measurements-05",
+      "kind": "cards",
+      "title": "Repeatability has practical limits",
+      "bullets": [
+        "Raw-input overlaps: 5 train/validation, 6 train/test",
+        "Original pretraining exposure remains unknown",
+        "Same-test rechecks are not independent validation"
+      ],
+      "narration": "The input audit found five raw-input overlaps between training and validation and six between training and test. Physical independence and the released checkpoint’s previous exposure remain unestablished. These findings belong beside the metrics. Repeating an evaluation on the same test data checks repeatability; it does not create an independent validation set. Independent customer traffic, with reviewed incident labels, is still needed before operational accuracy or false-alert rates can be claimed.",
+      "references": [
+        "native",
+        "verification"
+      ],
+      "start": 938.4,
+      "end": 972.8,
+      "frames": 344,
+      "chapter": 5,
+      "chapter_title": "Actual results versus the paper",
+      "tempo": 0.9857364341085273
+    },
+    {
+      "id": "measurements-06",
+      "kind": "question",
+      "title": "Choose the customer sentence",
+      "bullets": [
+        "A. We reproduced 97.50%",
+        "B. Three runs averaged 86.65%; exact paper reproduction remains open"
+      ],
+      "narration": "Choose the sentence you would say to the customer. We reproduced the paper’s ninety-seven point five percent result. Or, three runs averaged 86.65% on the released split, and exact paper reproduction remains open. Take twelve seconds to include one reason the comparison has limits.",
+      "references": [
+        "results",
+        "comparison",
+        "native"
+      ],
+      "start": 972.8,
+      "end": 993.2,
+      "frames": 204,
+      "chapter": 5,
+      "chapter_title": "Actual results versus the paper",
+      "tempo": 0.9865359477124184
+    },
+    {
+      "id": "measurements-07",
+      "kind": "pause",
+      "title": "Your turn · 12 seconds",
+      "bullets": [
+        "State the measured result and one comparison limitation."
+      ],
+      "narration": "",
+      "references": [
+        "results",
+        "comparison",
+        "native"
+      ],
+      "seconds": 12,
+      "start": 993.2,
+      "end": 1005.2,
+      "frames": 120,
+      "chapter": 5,
+      "chapter_title": "Actual results versus the paper"
+    },
+    {
+      "id": "measurements-08",
+      "kind": "answer",
+      "title": "Answer: retain the conditions",
+      "bullets": [
+        "Report the mean, all seeds and the unresolved gap"
+      ],
+      "narration": "The second sentence is defensible. Keep the runtime, data split, source settings and unknown pretraining history with the result. Avoid turning the best seed, a spread statistic, or repeated testing into a stronger claim.",
+      "references": [
+        "results"
+      ],
+      "start": 1005.2,
+      "end": 1020.0,
+      "frames": 148,
+      "chapter": 5,
+      "chapter_title": "Actual results versus the paper",
+      "tempo": 0.9834234234234234
+    },
+    {
+      "id": "demo-01",
+      "kind": "cards",
+      "title": "What the working demo actually does",
+      "bullets": [
+        "1,041 recorded seed-0 predictions",
+        "950 correct · 91 incorrect",
+        "Replay pace is a display setting"
+      ],
+      "narration": "The working browser demonstration displays predictions recorded from a real seed zero G P U inference run. Across one thousand forty-one labeled test flows, nine hundred fifty predictions were correct and ninety-one were incorrect. The page can replay these records, filter them and show mistakes. Opening it does not run the neural model again, inspect your computer’s traffic, or block packets. Its speed control changes the pace of the display. It is unrelated to model inference latency or network throughput.",
+      "references": [
+        "prediction",
+        "verification"
+      ],
+      "start": 1020.0,
+      "end": 1056.4,
+      "frames": 364,
+      "chapter": 6,
+      "chapter_title": "Investigate a recorded prediction",
+      "tempo": 0.9281318681318681
+    },
+    {
+      "id": "demo-02",
+      "kind": "cards",
+      "title": "Six categories are not universal attack coverage",
+      "bullets": [
+        "Two attack categories; four IoT activity categories",
+        "402 predictions in attack categories",
+        "No calibrated operational alert policy"
+      ],
+      "narration": "The release’s class mapping contains Flood, R T S P Brute Force, Audio, Other, Cameras and Home Automation under their recorded names. The last four describe device or power activity. This is not a universal benign, malicious, and unknown-attack system. The replay has four hundred two predictions in the two attack categories. That does not mean four hundred two verified operational alerts. An alert policy must account for traffic context, uncertainty, unknown activity and the cost of false alarms. None of that can be inferred merely from a class label.",
+      "references": [
+        "prediction",
+        "hardware"
+      ],
+      "start": 1056.4,
+      "end": 1097.6,
+      "frames": 412,
+      "chapter": 6,
+      "chapter_title": "Investigate a recorded prediction",
+      "tempo": 0.927766990291262
+    },
+    {
+      "id": "demo-03",
+      "kind": "prediction-hidden",
+      "title": "Read row 635 before judging it",
+      "bullets": [
+        "Prediction: class 1, RTSP Brute Force",
+        "Top display score: 84.43%",
+        "Known label will be revealed next"
+      ],
+      "narration": "Consider the actual saved row numbered six hundred thirty-five. Its highest-scoring category is class one, R T S P Brute Force, with a display score of 84.43%. The other five scores are visible beside it. First identify what the model predicted. Then distinguish that prediction from what actually happened. The six scores sum to one after softmax, but this normalization does not establish calibration. A high score says the model favors one of these classes; it does not prove an eighty-four percent chance that a customer experienced an attack.",
+      "references": [
+        "prediction"
+      ],
+      "start": 1097.6,
+      "end": 1139.0,
+      "frames": 414,
+      "chapter": 6,
+      "chapter_title": "Investigate a recorded prediction",
+      "tempo": 0.9263768115942028
+    },
+    {
+      "id": "demo-04",
+      "kind": "prediction-reveal",
+      "title": "A confident-looking error",
+      "bullets": [
+        "Known dataset label: class 3, Other",
+        "Prediction and labeled answer disagree",
+        "One example is not a false-positive-rate estimate"
+      ],
+      "narration": "Now reveal the known dataset label: class three, Other. The prediction disagrees with that label, so this is a recorded classification error. We deliberately selected it to examine a mistake, not to estimate how often such mistakes occur. One row cannot establish an operational false-positive rate. The example is useful because the score looked confident even though the labeled answer was different. In a real deployment, an analyst would need traffic context and a validated alert policy. Neither the classifier nor this video verifies that an attack occurred.",
+      "references": [
+        "prediction"
+      ],
+      "start": 1139.0,
+      "end": 1179.3,
+      "frames": 403,
+      "chapter": 6,
+      "chapter_title": "Investigate a recorded prediction",
+      "tempo": 0.9273118279569893
+    },
+    {
+      "id": "demo-05",
+      "kind": "question",
+      "title": "Try the explanation yourself",
+      "bullets": [
+        "What was predicted?",
+        "What was the known label?",
+        "What does the score fail to establish?"
+      ],
+      "narration": "Use the next eighteen seconds to explain this row to a customer in three sentences. Say what the model predicted, name the known dataset label, and state what the score cannot establish. Do not call the score a calibrated attack probability, and do not extrapolate a false-alert rate from this one example.",
+      "references": [
+        "prediction",
+        "verification",
+        "hardware"
+      ],
+      "start": 1179.3,
+      "end": 1200.9,
+      "frames": 216,
+      "chapter": 6,
+      "chapter_title": "Investigate a recorded prediction",
+      "tempo": 0.9246913580246913
+    },
+    {
+      "id": "demo-06",
+      "kind": "pause",
+      "title": "Your turn · 18 seconds",
+      "bullets": [
+        "Explain the predicted class, known label and score limitation."
+      ],
+      "narration": "",
+      "references": [
+        "prediction",
+        "verification",
+        "hardware"
+      ],
+      "seconds": 18,
+      "start": 1200.9,
+      "end": 1218.9,
+      "frames": 180,
+      "chapter": 6,
+      "chapter_title": "Investigate a recorded prediction"
+    },
+    {
+      "id": "demo-07",
+      "kind": "answer",
+      "title": "A defensible explanation",
+      "bullets": [
+        "Predicted RTSP Brute Force; labeled Other",
+        "84.43% is an uncalibrated display score",
+        "Investigate before turning predictions into operational action"
+      ],
+      "narration": "A good explanation is: the model predicted R T S P Brute Force, but the dataset labeled this flow as Other. The 84.43% display score is not an established probability of attack. This recorded mistake shows why operational use needs independent validation and an alert policy. You can reproduce the display from the saved prediction file without rerunning the model. For fresh predictions, use the separate G P U route and a provenance-bound checkpoint. Keep recorded replay, new model execution and live traffic monitoring distinct in the meeting.",
+      "references": [
+        "prediction",
+        "runbook"
+      ],
+      "start": 1218.9,
+      "end": 1260.0,
+      "frames": 411,
+      "chapter": 6,
+      "chapter_title": "Investigate a recorded prediction",
+      "tempo": 0.9268450932684509
+    },
+    {
+      "id": "operate-01",
+      "kind": "cards",
+      "title": "Choose the smallest useful setup",
+      "bullets": [
+        "Watch or present: browser or document viewer",
+        "Verify saved evidence: Python 3.10+",
+        "Train or predict: tested GB10/CUDA environment"
+      ],
+      "narration": "You do not need to install the research stack just to understand or present this work. The browser course, recorded replay, P D F and PowerPoint are the viewing route. A second route uses Python three point ten or newer to check the harness and published evidence on a C P U. The third route builds the tested G B ten environment for new model execution. Keeping these routes separate saves time and prevents a common mistake: thinking that opening a presentation or passing a C P U test has rerun the neural experiment.",
+      "references": [
+        "quickstart"
+      ],
+      "start": 1260.0,
+      "end": 1295.7,
+      "frames": 357,
+      "chapter": 7,
+      "chapter_title": "Set up, use and verify the project",
+      "tempo": 0.9970494864612511
+    },
+    {
+      "id": "operate-02",
+      "kind": "code",
+      "title": "Run the CPU checks",
+      "bullets": [
+        "python3 -m unittest discover -s tests -v",
+        "python3 tools/verify_package.py",
+        "python3 tools/verify_course.py"
+      ],
+      "narration": "Clone the repository, enter the project folder and run the unit-test command shown on screen. Then run the package verifier and course verifier. The test suite should finish with O K, and the verifiers should report passed for their deterministic checks. The audited release recorded fifty-four harness tests. The interactive course added seventeen more, bringing that snapshot to seventy-one. Video verification is recorded separately. These are checks of the code and delivered artifacts; they do not download new training data or repeat the G P U training runs.",
+      "references": [
+        "quickstart",
+        "verification"
+      ],
+      "start": 1295.7,
+      "end": 1332.5,
+      "frames": 368,
+      "chapter": 7,
+      "chapter_title": "Set up, use and verify the project",
+      "tempo": 0.9952173913043479
+    },
+    {
+      "id": "operate-03",
+      "kind": "cards",
+      "title": "What verification proves",
+      "bullets": [
+        "Recompute metrics from saved predictions",
+        "Check hashes and checkpoint meanings",
+        "Reject mismatches; preserve the failure"
+      ],
+      "narration": "The package verifier recomputes metrics from saved predictions, compares model identities, checks hashes, and verifies that presentation material agrees with its source. Two separately built native environments also passed seven numerical checks each. Strict saved-model evaluations agreed for all three seeds. A full seed zero unlabeled recheck matched all one thousand forty-one predicted classes and logits in that run. These results support execution and repeatability under recorded conditions. If a file or checksum differs, preserve the failure and investigate. Blindly regenerating checksums would only replace the fingerprint; it would not validate the changed claim.",
+      "references": [
+        "verification"
+      ],
+      "start": 1332.5,
+      "end": 1378.5,
+      "frames": 460,
+      "chapter": 7,
+      "chapter_title": "Set up, use and verify the project",
+      "tempo": 0.9965217391304348
+    },
+    {
+      "id": "operate-04",
+      "kind": "flow",
+      "title": "The route for new model execution",
+      "bullets": [
+        "Fetch pinned source and research assets",
+        "Validate → build → numerical checks → train",
+        "Evaluate labeled flows or predict unlabeled native flows"
+      ],
+      "narration": "For new execution, follow the tested runbook in order. Acquire pinned source and assets, validate the native flows, build the two custom extensions, and run numerical checks. Then train, evaluate or predict. The tested route used an arm sixty-four Python environment, G B ten, and a recorded C U D A compiler and driver stack. It is not a universal Windows, C P U model, or N P U setup. Prediction accepts assembled native flow records, not the supplied packet C S Vs. Use new output directories and retain class-mapping provenance with every moved checkpoint.",
+      "references": [
+        "runbook"
+      ],
+      "start": 1378.5,
+      "end": 1418.8,
+      "frames": 403,
+      "chapter": 7,
+      "chapter_title": "Set up, use and verify the project",
+      "tempo": 0.9971877584780812
+    },
+    {
+      "id": "operate-05",
+      "kind": "cards",
+      "title": "Find every download and its purpose",
+      "bullets": [
+        "PDF / PPTX / script: explain and present",
+        "ZIP: code, documents and recorded evidence",
+        "Inventory + checksums + receipt: identity and tested delivery"
+      ],
+      "narration": "The existing audited release includes the complete package zip, briefing P D F, slide P D F, editable PowerPoint, a checksum list, a release inventory, and a verification receipt. The inventory names files; hashes identify their bytes; the receipt records actual delivery checks. The package does not contain raw research data or inherited model weights. The file walkthrough explains every tracked item and release download. This narrated video is a later deliverable with its own media checks, transcript and captions. A successful download is not a new accuracy experiment.",
+      "references": [
+        "walkthrough"
+      ],
+      "start": 1418.8,
+      "end": 1458.2,
+      "frames": 394,
+      "chapter": 7,
+      "chapter_title": "Set up, use and verify the project",
+      "tempo": 0.9960744500846025
+    },
+    {
+      "id": "operate-06",
+      "kind": "question",
+      "title": "Choose a verification route",
+      "bullets": [
+        "A laptop user wants to check the reported scores.",
+        "Which route is sufficient?"
+      ],
+      "narration": "A colleague with an ordinary laptop wants to check how the reported scores were calculated. Which route is sufficient? Take ten seconds. Distinguish rechecking saved evidence from generating new model predictions.",
+      "references": [
+        "quickstart",
+        "verification",
+        "runbook"
+      ],
+      "start": 1458.2,
+      "end": 1472.3,
+      "frames": 141,
+      "chapter": 7,
+      "chapter_title": "Set up, use and verify the project",
+      "tempo": 0.9991489361702127
+    },
+    {
+      "id": "operate-07",
+      "kind": "pause",
+      "title": "Your turn · 10 seconds",
+      "bullets": [
+        "Saved metrics check or fresh GPU inference?"
+      ],
+      "narration": "",
+      "references": [
+        "quickstart",
+        "verification",
+        "runbook"
+      ],
+      "seconds": 10,
+      "start": 1472.3,
+      "end": 1482.3,
+      "frames": 100,
+      "chapter": 7,
+      "chapter_title": "Set up, use and verify the project"
+    },
+    {
+      "id": "operate-08",
+      "kind": "answer",
+      "title": "Answer: use the evidence route",
+      "bullets": [
+        "CPU tests and the package verifier",
+        "GPU setup only for new execution"
+      ],
+      "narration": "Use Python, the C P U tests and the package verifier to inspect saved evidence. Fresh predictions require the tested runtime, compatible flows and a trained classifier. Setup and training are follow-up tasks; they are not hidden inside this thirty minute video.",
+      "references": [
+        "quickstart"
+      ],
+      "start": 1482.3,
+      "end": 1500.0,
+      "frames": 177,
+      "chapter": 7,
+      "chapter_title": "Set up, use and verify the project",
+      "tempo": 0.9982674199623353
+    },
+    {
+      "id": "future-01",
+      "kind": "flow",
+      "title": "A proposed capture-to-alert system",
+      "bullets": [
+        "Capture and flow grouping",
+        "Compatible tensors and inference",
+        "Validated alert policy and analyst review"
+      ],
+      "narration": "A working live I D S would need capture, connection grouping, compatible tensors, inference, a validated alert policy and analyst review. The source extraction helpers have hardcoded paths and a missing helper module; a reliable live extraction path has not been established. A smart network card, or data processing unit, could handle packet steering and some flow preparation. A graphics processor or supported neural processing unit could run the classifier. This is a proposed division of work, not a tested deployment.",
+      "references": [
+        "hardware"
+      ],
+      "start": 1500.0,
+      "end": 1536.1,
+      "frames": 361,
+      "chapter": 8,
+      "chapter_title": "IDS, NPU and SmartNIC: what remains",
+      "tempo": 0.9836380424746075
+    },
+    {
+      "id": "future-02",
+      "kind": "cards",
+      "title": "Portability must be measured",
+      "bullets": [
+        "Eager GPU inference works",
+        "Tested graph capture blocked at a custom CUDA operator",
+        "No NPU compiler or SmartNIC deployment tested"
+      ],
+      "narration": "Eager G P U inference worked. The tested Torch graph-capture path failed at a custom causal-convolution operator. Saving model-only weights did not solve graph export, and no N P U compiler or SmartNIC deployment was tested. The batch-one model-only median was about zero point eight eight milliseconds. That excludes capture, flow waiting, preprocessing and transfers. It is not end-to-end I D S latency. The paper’s separate online throughput example concerns byte-only Net Mamba, not our multimodal system. Replacing that operation creates a new candidate implementation. It must match reference predictions before its speed or power numbers are useful.",
+      "references": [
+        "export",
+        "benchmark",
+        "comparison"
+      ],
+      "start": 1536.1,
+      "end": 1582.9,
+      "frames": 468,
+      "chapter": 8,
+      "chapter_title": "IDS, NPU and SmartNIC: what remains",
+      "tempo": 0.9827920227920228
+    },
+    {
+      "id": "future-03",
+      "kind": "question",
+      "title": "Hardware decision",
+      "bullets": [
+        "Does GPU success establish NPU or live IDS readiness?"
+      ],
+      "narration": "Does G P U execution establish N P U deployment or live-system readiness? Take eight seconds and name the next required test.",
+      "references": [
+        "hardware",
+        "export",
+        "benchmark"
+      ],
+      "start": 1582.9,
+      "end": 1592.3,
+      "frames": 94,
+      "chapter": 8,
+      "chapter_title": "IDS, NPU and SmartNIC: what remains",
+      "tempo": 0.9829787234042553
+    },
+    {
+      "id": "future-04",
+      "kind": "pause",
+      "title": "Your turn · 8 seconds",
+      "bullets": [
+        "Name a compatibility or end-to-end validation step."
+      ],
+      "narration": "",
+      "references": [
+        "hardware",
+        "export",
+        "benchmark"
+      ],
+      "seconds": 8,
+      "start": 1592.3,
+      "end": 1600.3,
+      "frames": 80,
+      "chapter": 8,
+      "chapter_title": "IDS, NPU and SmartNIC: what remains"
+    },
+    {
+      "id": "future-05",
+      "kind": "answer",
+      "title": "Next work has explicit acceptance criteria",
+      "bullets": [
+        "Validate extraction on independent traffic",
+        "Port unsupported operators and compare outputs",
+        "Measure the full system; resolve inherited asset terms"
+      ],
+      "narration": "No. Establish compatible extraction, independent traffic validation, calibrated alerting, and target-operator support. Compare outputs and measure the complete system. Inherited data and code terms also remain unresolved. These are future milestones, not completed claims.",
+      "references": [
+        "hardware"
+      ],
+      "start": 1600.3,
+      "end": 1620.0,
+      "frames": 197,
+      "chapter": 8,
+      "chapter_title": "IDS, NPU and SmartNIC: what remains",
+      "tempo": 0.98165820642978
+    },
+    {
+      "id": "teach-back-01",
+      "kind": "question",
+      "title": "Your turn: explain the project",
+      "bullets": [
+        "What works and what data it uses",
+        "How training differs from inference",
+        "Actual mean versus the paper",
+        "Recorded demo, evidence and remaining work"
+      ],
+      "narration": "Now explain the project aloud as if you were speaking to the customer. You have ninety seconds. Describe the flow inputs and how learning differs from inference. State the three-run mean and distinguish it from the paper’s result. Explain what the recorded demonstration proves and why its error matters. Name the checks that support execution, point to their records, and keep live-system and accelerator work separate. The on-screen prompts will stay visible while you speak. This is practice, not a certification.",
+      "references": [
+        "answers"
+      ],
+      "start": 1620.0,
+      "end": 1653.5,
+      "frames": 335,
+      "chapter": 9,
+      "chapter_title": "Your two-minute customer explanation",
+      "tempo": 0.9519601990049752
+    },
+    {
+      "id": "teach-back-02",
+      "kind": "pause",
+      "title": "Customer teach-back · 90 seconds",
+      "bullets": [
+        "Inputs and lifecycle",
+        "Measured results versus the paper",
+        "Demo, evidence and limitations"
+      ],
+      "narration": "",
+      "references": [
+        "answers"
+      ],
+      "seconds": 90,
+      "start": 1653.5,
+      "end": 1743.5,
+      "frames": 900,
+      "chapter": 9,
+      "chapter_title": "Your two-minute customer explanation"
+    },
+    {
+      "id": "teach-back-03",
+      "kind": "answer",
+      "title": "Review, correct, then present",
+      "bullets": [
+        "Did you cover all five points?",
+        "Correct one inflated or unclear claim",
+        "Use the repo evidence during follow-up questions"
+      ],
+      "narration": "A concise explanation could be: We ran the original multimodal classifier on compatible released flows. Training changed its weights; inference used a frozen checkpoint. Three fine-tuning runs averaged 86.65%, below the paper’s 97.50%. The recorded demonstration includes mistakes and does not establish a live detector. Logs, saved predictions and repeatable checks support the measured execution. Capture, independent traffic validation and accelerator porting remain future work. Check your explanation against those points and correct one weak claim. A timer cannot certify understanding. The repository contains the script, captions, actual experiment evidence and setup instructions. Use those records to support the presentation.",
+      "references": [
+        "answers"
+      ],
+      "start": 1743.5,
+      "end": 1800.0,
+      "frames": 565,
+      "chapter": 9,
+      "chapter_title": "Your two-minute customer explanation",
+      "tempo": 0.9541946902654868
+    }
+  ],
+  "caption_cues": [
+    {
+      "start": 0.0,
+      "end": 0.8773986865289124,
+      "scene": "purpose-01",
+      "text": "Welcome."
+    },
+    {
+      "start": 1.158273266057985,
+      "end": 6.439586290133321,
+      "scene": "purpose-01",
+      "text": "This thirty minute course explains Net Mamba Plus, the experiment that actually ran,"
+    },
+    {
+      "start": 6.439586290133321,
+      "end": 9.268861124459395,
+      "scene": "purpose-01",
+      "text": "and what you can responsibly tell a customer."
+    },
+    {
+      "start": 9.549735703988466,
+      "end": 14.743993474371969,
+      "scene": "purpose-01",
+      "text": "We will follow the data into training and inference, inspect real results, and work"
+    },
+    {
+      "start": 14.743993474371969,
+      "end": 16.99692455550216,
+      "scene": "purpose-01",
+      "text": "through one actual prediction error."
+    },
+    {
+      "start": 17.277799135031234,
+      "end": 20.444994393720968,
+      "scene": "purpose-01",
+      "text": "Short practice pauses are included in the running time."
+    },
+    {
+      "start": 20.72586897325004,
+      "end": 24.834662822361043,
+      "scene": "purpose-01",
+      "text": "At the end, you will have ninety seconds to explain the project aloud."
+    },
+    {
+      "start": 25.115537401890116,
+      "end": 28.13293288483101,
+      "scene": "purpose-01",
+      "text": "The narration uses a local synthetic voice."
+    },
+    {
+      "start": 28.413807464360083,
+      "end": 33.4,
+      "scene": "purpose-01",
+      "text": "The experiment records, not the voice or the AI discussion, are the evidence."
+    },
+    {
+      "start": 33.4,
+      "end": 34.83497511584005,
+      "scene": "purpose-02",
+      "text": "Start with three words."
+    },
+    {
+      "start": 35.116080315771406,
+      "end": 37.62193238373091,
+      "scene": "purpose-02",
+      "text": "A packet is one small network message."
+    },
+    {
+      "start": 37.90303758366226,
+      "end": 41.265591213317315,
+      "scene": "purpose-02",
+      "text": "A flow groups related packets into a conversation."
+    },
+    {
+      "start": 41.54669641324867,
+      "end": 47.36858229487868,
+      "scene": "purpose-02",
+      "text": "An intrusion detection system, or I D S, observes traffic and raises alerts for"
+    },
+    {
+      "start": 47.36858229487868,
+      "end": 48.40030890681311,
+      "scene": "purpose-02",
+      "text": "investigation."
+    },
+    {
+      "start": 48.68141410674446,
+      "end": 50.88742062811052,
+      "scene": "purpose-02",
+      "text": "A classifier assigns categories."
+    },
+    {
+      "start": 51.16852582804187,
+      "end": 56.75063585070205,
+      "scene": "purpose-02",
+      "text": "It does not automatically supply packet capture, connection grouping, an alert policy,"
+    },
+    {
+      "start": 56.75063585070205,
+      "end": 57.529534923631374,
+      "scene": "purpose-02",
+      "text": "or blocking."
+    },
+    {
+      "start": 57.81064012356272,
+      "end": 63.79695743396978,
+      "scene": "purpose-02",
+      "text": "A G P U accelerates numerical operations; it does not fill in these missing system"
+    },
+    {
+      "start": 63.79695743396978,
+      "end": 64.6,
+      "scene": "purpose-02",
+      "text": "components."
+    },
+    {
+      "start": 64.6,
+      "end": 70.66761130468447,
+      "scene": "purpose-03",
+      "text": "The paper combines three views of the same flow: byte content, packet sizes, and time"
+    },
+    {
+      "start": 70.66761130468447,
+      "end": 71.02452961672473,
+      "scene": "purpose-03",
+      "text": "gaps."
+    },
+    {
+      "start": 71.30466898954704,
+      "end": 74.59163763066202,
+      "scene": "purpose-03",
+      "text": "Combining these views is what multimodal means here."
+    },
+    {
+      "start": 74.87177700348431,
+      "end": 78.77772025883525,
+      "scene": "purpose-03",
+      "text": "Mamba processes a sequence by updating a numerical state."
+    },
+    {
+      "start": 79.05785963165754,
+      "end": 80.53059233449477,
+      "scene": "purpose-03",
+      "text": "It is not a chatbot."
+    },
+    {
+      "start": 80.81073170731707,
+      "end": 83.7988850174216,
+      "scene": "purpose-03",
+      "text": "The earlier Net Mamba model used bytes alone."
+    },
+    {
+      "start": 84.0790243902439,
+      "end": 90.00901463414634,
+      "scene": "purpose-03",
+      "text": "Our measured work exercises the multimodal Net Mamba Plus classifier on a G B ten"
+    },
+    {
+      "start": 90.00901463414634,
+      "end": 91.39999999999999,
+      "scene": "purpose-03",
+      "text": "graphics processor."
+    },
+    {
+      "start": 91.4,
+      "end": 96.47553210690734,
+      "scene": "purpose-04",
+      "text": "If the classifier runs successfully, have we demonstrated a complete live intrusion"
+    },
+    {
+      "start": 96.47553210690734,
+      "end": 97.51509892398474,
+      "scene": "purpose-04",
+      "text": "detection system?"
+    },
+    {
+      "start": 97.79573064908018,
+      "end": 99.1,
+      "scene": "purpose-04",
+      "text": "Take eight seconds."
+    },
+    {
+      "start": 99.1,
+      "end": 107.1,
+      "scene": "purpose-05",
+      "text": "[Practice pause: 8 seconds] Does a working classifier establish a complete live IDS?"
+    },
+    {
+      "start": 107.1,
+      "end": 107.805531385954,
+      "scene": "purpose-06",
+      "text": "No."
+    },
+    {
+      "start": 108.08614045991298,
+      "end": 111.4855189558732,
+      "scene": "purpose-06",
+      "text": "Classifier execution is one tested component."
+    },
+    {
+      "start": 111.76612802983219,
+      "end": 116.53380981976383,
+      "scene": "purpose-06",
+      "text": "The capture to alert system still needs implementation and validation."
+    },
+    {
+      "start": 116.8144188937228,
+      "end": 120.0,
+      "scene": "purpose-06",
+      "text": "Keep that boundary visible throughout the presentation."
+    },
+    {
+      "start": 120.0,
+      "end": 122.59814983713355,
+      "scene": "inputs-01",
+      "text": "The three supplied files have different roles."
+    },
+    {
+      "start": 122.87997394136808,
+      "end": 125.37076221498371,
+      "scene": "inputs-01",
+      "text": "The P D F is the research paper."
+    },
+    {
+      "start": 125.65258631921824,
+      "end": 131.23538762214983,
+      "scene": "inputs-01",
+      "text": "It describes methods and reports results; it is not itself a ready to train dataset."
+    },
+    {
+      "start": 131.51721172638437,
+      "end": 141.71558424637252,
+      "scene": "inputs-01",
+      "text": "The C I C I D S twenty seventeen C S V contains 1,410,255 packet rows and fifteen"
+    },
+    {
+      "start": 141.71558424637252,
+      "end": 142.59692508143323,
+      "scene": "inputs-01",
+      "text": "labels."
+    },
+    {
+      "start": 142.87874918566774,
+      "end": 150.90939413680783,
+      "scene": "inputs-01",
+      "text": "The U N S W C S V contains 79,881 packet rows and ten labels."
+    },
+    {
+      "start": 151.19121824104235,
+      "end": 156.66665798045602,
+      "scene": "inputs-01",
+      "text": "A C S V is a text table with rows and columns, not a running database server."
+    },
+    {
+      "start": 156.94848208469057,
+      "end": 161.2,
+      "scene": "inputs-01",
+      "text": "We inspected the supplied exports and recorded their file identities."
+    },
+    {
+      "start": 161.2,
+      "end": 166.6325153374233,
+      "scene": "inputs-02",
+      "text": "Both exports have fifteen hundred payload byte columns, plus five metadata fields."
+    },
+    {
+      "start": 166.91434049079754,
+      "end": 170.34992331288342,
+      "scene": "inputs-02",
+      "text": "T T L relates to a packet’s remaining hop allowance."
+    },
+    {
+      "start": 170.63174846625765,
+      "end": 173.48757668711656,
+      "scene": "inputs-02",
+      "text": "Total length describes recorded packet length."
+    },
+    {
+      "start": 173.7694018404908,
+      "end": 176.21725460122698,
+      "scene": "inputs-02",
+      "text": "Protocol identifies a protocol."
+    },
+    {
+      "start": 176.4990797546012,
+      "end": 178.73220858895704,
+      "scene": "inputs-02",
+      "text": "Time delta records a time difference."
+    },
+    {
+      "start": 179.01403374233126,
+      "end": 181.7625,
+      "scene": "inputs-02",
+      "text": "Label supplies the known example category."
+    },
+    {
+      "start": 182.04432515337422,
+      "end": 187.36894615423614,
+      "scene": "inputs-02",
+      "text": "These fields do not establish which connection each packet belongs to, its direction,"
+    },
+    {
+      "start": 187.36894615423614,
+      "end": 189.6240797546012,
+      "scene": "inputs-02",
+      "text": "or its order within that connection."
+    },
+    {
+      "start": 189.90590490797544,
+      "end": 195.84275961394582,
+      "scene": "inputs-02",
+      "text": "The C I C I D S scan found negative time differences, and the timing units and"
+    },
+    {
+      "start": 195.84275961394582,
+      "end": 199.2678680981595,
+      "scene": "inputs-02",
+      "text": "per-flow interpretation remain unestablished."
+    },
+    {
+      "start": 199.54969325153374,
+      "end": 205.29797906892819,
+      "scene": "inputs-02",
+      "text": "We profiled metadata; we did not train a packet classifier or numerically validate"
+    },
+    {
+      "start": 205.29797906892819,
+      "end": 206.7,
+      "scene": "inputs-02",
+      "text": "every payload value."
+    },
+    {
+      "start": 206.7,
+      "end": 211.78700651590646,
+      "scene": "inputs-03",
+      "text": "Imagine a spreadsheet whose next five rows come from three different conversations."
+    },
+    {
+      "start": 212.06872364890762,
+      "end": 216.93288874724914,
+      "scene": "inputs-03",
+      "text": "Stacking those rows changes the example into something that never occurred on the"
+    },
+    {
+      "start": 216.93288874724914,
+      "end": 217.41330011498658,
+      "scene": "inputs-03",
+      "text": "network."
+    },
+    {
+      "start": 217.69501724798772,
+      "end": 222.6961671138367,
+      "scene": "inputs-03",
+      "text": "Five neighboring rows are therefore not evidence of one five-packet flow."
+    },
+    {
+      "start": 222.97788424683785,
+      "end": 226.45507857416635,
+      "scene": "inputs-03",
+      "text": "Payload fields also cannot reconstruct missing headers."
+    },
+    {
+      "start": 226.7367957071675,
+      "end": 231.58021351637416,
+      "scene": "inputs-03",
+      "text": "A packet classifier trained directly on these exports could be useful, but it would be"
+    },
+    {
+      "start": 231.58021351637416,
+      "end": 232.87554618627826,
+      "scene": "inputs-03",
+      "text": "a different experiment."
+    },
+    {
+      "start": 233.1572633192794,
+      "end": 239.10917002306013,
+      "scene": "inputs-03",
+      "text": "Reproducing the native input representation requires established grouping, direction,"
+    },
+    {
+      "start": 239.10917002306013,
+      "end": 241.7,
+      "scene": "inputs-03",
+      "text": "ordering, byte extraction and timing."
+    },
+    {
+      "start": 241.7,
+      "end": 247.26427208067838,
+      "scene": "inputs-04",
+      "text": "Instead, we acquired the authors’ processed C I C I O T twenty twenty-two flow"
+    },
+    {
+      "start": 247.26427208067838,
+      "end": 247.83496665305566,
+      "scene": "inputs-04",
+      "text": "release."
+    },
+    {
+      "start": 248.11651014019327,
+      "end": 252.70700966380835,
+      "scene": "inputs-04",
+      "text": "This is a different dataset from C I C I D S twenty seventeen."
+    },
+    {
+      "start": 252.98855315094596,
+      "end": 261.82633728052264,
+      "scene": "inputs-04",
+      "text": "It contains 8,323 training flows, 1,040 validation flows, and 1,041 test flows."
+    },
+    {
+      "start": 262.1078807676603,
+      "end": 264.6176398530012,
+      "scene": "inputs-04",
+      "text": "Training examples teach the model’s weights."
+    },
+    {
+      "start": 264.89918334013885,
+      "end": 267.81651014019326,
+      "scene": "inputs-04",
+      "text": "Validation selects a candidate checkpoint."
+    },
+    {
+      "start": 268.0980536273309,
+      "end": 271.186987886212,
+      "scene": "inputs-04",
+      "text": "The test split measures that selected classifier."
+    },
+    {
+      "start": 271.46853137334966,
+      "end": 277.117061846122,
+      "scene": "inputs-04",
+      "text": "The six categories include Flood and R T S P Brute Force, plus four categories"
+    },
+    {
+      "start": 277.117061846122,
+      "end": 281.09999999999997,
+      "scene": "inputs-04",
+      "text": "describing Internet of Things device or power activity."
+    },
+    {
+      "start": 281.1,
+      "end": 284.8513171759747,
+      "scene": "inputs-05",
+      "text": "The native files are J S O N arrays of flow records."
+    },
+    {
+      "start": 285.1326659641728,
+      "end": 290.1661422817357,
+      "scene": "inputs-05",
+      "text": "In this release, data contains packet-byte strings; sizes and intervals are"
+    },
+    {
+      "start": 290.1661422817357,
+      "end": 292.31375884389587,
+      "scene": "inputs-05",
+      "text": "space-separated numeric strings."
+    },
+    {
+      "start": 292.59510763209397,
+      "end": 295.6390335691706,
+      "scene": "inputs-05",
+      "text": "The loader parses them into numerical tensors."
+    },
+    {
+      "start": 295.9203823573687,
+      "end": 299.7145717296402,
+      "scene": "inputs-05",
+      "text": "Metadata defines which category each class index means."
+    },
+    {
+      "start": 299.99592051783833,
+      "end": 305.08884176758534,
+      "scene": "inputs-05",
+      "text": "Labels are known answers for training or evaluation, not legitimate prediction"
+    },
+    {
+      "start": 305.08884176758534,
+      "end": 305.6764865271715,
+      "scene": "inputs-05",
+      "text": "features."
+    },
+    {
+      "start": 305.9578353153696,
+      "end": 309.9020773746801,
+      "scene": "inputs-05",
+      "text": "The code checks types, ranges and consistency before launch."
+    },
+    {
+      "start": 310.1834261628782,
+      "end": 315.345068806143,
+      "scene": "inputs-05",
+      "text": "A validated stored record still does not prove that an upstream packet extractor"
+    },
+    {
+      "start": 315.345068806143,
+      "end": 316.7,
+      "scene": "inputs-05",
+      "text": "created it correctly."
+    },
+    {
+      "start": 316.7,
+      "end": 322.44945794634475,
+      "scene": "inputs-06",
+      "text": "A colleague gives you five adjacent rows from one uploaded C S V and asks you to"
+    },
+    {
+      "start": 322.44945794634475,
+      "end": 324.1742953302482,
+      "scene": "inputs-06",
+      "text": "classify them as a flow."
+    },
+    {
+      "start": 324.45700462768195,
+      "end": 325.5986116954144,
+      "scene": "inputs-06",
+      "text": "Would you proceed?"
+    },
+    {
+      "start": 325.88132099284815,
+      "end": 329.5,
+      "scene": "inputs-06",
+      "text": "Use the next twelve seconds to identify the missing facts."
+    },
+    {
+      "start": 329.5,
+      "end": 341.5,
+      "scene": "inputs-07",
+      "text": "[Practice pause: 12 seconds] What establishes relatedness, direction, ordering and extraction?"
+    },
+    {
+      "start": 341.5,
+      "end": 343.758064516129,
+      "scene": "inputs-08",
+      "text": "Do not assume those rows form a flow."
+    },
+    {
+      "start": 344.0403225806452,
+      "end": 349.0725806451613,
+      "scene": "inputs-08",
+      "text": "Use the compatible released records, or establish and validate an extractor."
+    },
+    {
+      "start": 349.35483870967744,
+      "end": 354.71007322382746,
+      "scene": "inputs-08",
+      "text": "This is the connection between the paper and the two uploaded tables: they address"
+    },
+    {
+      "start": 354.71007322382746,
+      "end": 360.0,
+      "scene": "inputs-08",
+      "text": "related traffic analysis, but their units of observation are not interchangeable."
+    },
+    {
+      "start": 360.0,
+      "end": 363.70063703814736,
+      "scene": "lifecycle-01",
+      "text": "Now follow one valid flow through the original loader."
+    },
+    {
+      "start": 364.00045716855277,
+      "end": 368.96749337067706,
+      "scene": "lifecycle-01",
+      "text": "The byte view keeps up to five packets, with three hundred twenty stored bytes per"
+    },
+    {
+      "start": 368.96749337067706,
+      "end": 369.39150865622423,
+      "scene": "lifecycle-01",
+      "text": "packet."
+    },
+    {
+      "start": 369.6913287866297,
+      "end": 371.8157685677884,
+      "scene": "lifecycle-01",
+      "text": "That gives sixteen hundred values."
+    },
+    {
+      "start": 372.1155886981938,
+      "end": 377.8329750216807,
+      "scene": "lifecycle-01",
+      "text": "The paper describes each packet region as eighty header bytes plus two hundred forty"
+    },
+    {
+      "start": 377.8329750216807,
+      "end": 378.78587274226186,
+      "scene": "lifecycle-01",
+      "text": "payload bytes."
+    },
+    {
+      "start": 379.0856928726673,
+      "end": 382.2152439481376,
+      "scene": "lifecycle-01",
+      "text": "Released flows already contain this extraction."
+    },
+    {
+      "start": 382.51506407854305,
+      "end": 385.82736266207,
+      "scene": "lifecycle-01",
+      "text": "Short records are padded; long ones are truncated."
+    },
+    {
+      "start": 386.1271827924755,
+      "end": 391.74159234554946,
+      "scene": "lifecycle-01",
+      "text": "The measured byte tensor has batch size by one by one by sixteen hundred as its"
+    },
+    {
+      "start": 391.74159234554946,
+      "end": 392.5233455744585,
+      "scene": "lifecycle-01",
+      "text": "dimensions."
+    },
+    {
+      "start": 392.823165704864,
+      "end": 398.1,
+      "scene": "lifecycle-01",
+      "text": "The two other views retain the first twenty sizes and the first twenty time gaps."
+    },
+    {
+      "start": 398.1,
+      "end": 403.8214450067862,
+      "scene": "lifecycle-02",
+      "text": "The byte transformation divides by two hundred fifty-five, then uses a mean and"
+    },
+    {
+      "start": 403.8214450067862,
+      "end": 406.06656899679086,
+      "scene": "lifecycle-02",
+      "text": "standard deviation of one half."
+    },
+    {
+      "start": 406.3661713408679,
+      "end": 412.1641900376727,
+      "scene": "lifecycle-02",
+      "text": "A zero byte therefore becomes minus one, and two hundred fifty-five becomes plus one."
+    },
+    {
+      "start": 412.4637923817497,
+      "end": 415.7052044090973,
+      "scene": "lifecycle-02",
+      "text": "Sizes are clipped between zero and fifteen hundred."
+    },
+    {
+      "start": 416.0048067531743,
+      "end": 422.29926439971484,
+      "scene": "lifecycle-02",
+      "text": "A padding size of fifteen hundred and one is also clipped to fifteen hundred, so that"
+    },
+    {
+      "start": 422.29926439971484,
+      "end": 425.40946700153484,
+      "scene": "lifecycle-02",
+      "text": "boundary cannot reliably identify padding."
+    },
+    {
+      "start": 425.70906934561185,
+      "end": 431.6897028045207,
+      "scene": "lifecycle-02",
+      "text": "For a nonnegative gap x, the loader uses one plus x divided by two plus x."
+    },
+    {
+      "start": 431.98930514859774,
+      "end": 435.4361587833124,
+      "scene": "lifecycle-02",
+      "text": "Zero becomes one half; one becomes two thirds."
+    },
+    {
+      "start": 435.7357611273894,
+      "end": 439.0,
+      "scene": "lifecycle-02",
+      "text": "Padded infinite gaps map to one inside the loader."
+    },
+    {
+      "start": 439.0,
+      "end": 443.88790517975247,
+      "scene": "lifecycle-03",
+      "text": "For classification, groups of four bytes create four hundred byte tokens."
+    },
+    {
+      "start": 444.1876890838845,
+      "end": 450.3384433515194,
+      "scene": "lifecycle-03",
+      "text": "Add twenty size tokens, twenty interval tokens and three summary tokens, for four"
+    },
+    {
+      "start": 450.3384433515194,
+      "end": 452.8443062012966,
+      "scene": "lifecycle-03",
+      "text": "hundred forty-three input tokens."
+    },
+    {
+      "start": 453.1440901054286,
+      "end": 457.91779189313075,
+      "scene": "lifecycle-03",
+      "text": "A token here is a numerical input unit, not a word in a chatbot."
+    },
+    {
+      "start": 458.2175757972628,
+      "end": 463.42525047475607,
+      "scene": "lifecycle-03",
+      "text": "Position and modality information identify its location and type."
+    },
+    {
+      "start": 463.7250343788881,
+      "end": 466.2603496824046,
+      "scene": "lifecycle-03",
+      "text": "Four Mamba blocks process the sequence."
+    },
+    {
+      "start": 466.56013358653655,
+      "end": 472.27478175344527,
+      "scene": "lifecycle-03",
+      "text": "Three modality summaries are added, then a classification layer produces six raw"
+    },
+    {
+      "start": 472.27478175344527,
+      "end": 473.8463099993452,
+      "scene": "lifecycle-03",
+      "text": "outputs called logits."
+    },
+    {
+      "start": 474.1460939034772,
+      "end": 478.5086634797983,
+      "scene": "lifecycle-03",
+      "text": "The model’s internal state belongs to this input computation."
+    },
+    {
+      "start": 478.80844738393034,
+      "end": 482.6,
+      "scene": "lifecycle-03",
+      "text": "It is not an implemented cache of live network connections."
+    },
+    {
+      "start": 482.6,
+      "end": 487.6687809318878,
+      "scene": "lifecycle-04",
+      "text": "During pretraining, the model learns to reconstruct deliberately hidden input"
+    },
+    {
+      "start": 487.6687809318878,
+      "end": 488.2612358460045,
+      "scene": "lifecycle-04",
+      "text": "features."
+    },
+    {
+      "start": 488.5608476221288,
+      "end": 494.23148305326663,
+      "scene": "lifecycle-04",
+      "text": "The source preset masks ninety percent of byte strides and fifteen percent each of"
+    },
+    {
+      "start": 494.23148305326663,
+      "end": 495.6145648657393,
+      "scene": "lifecycle-04",
+      "text": "sizes and intervals."
+    },
+    {
+      "start": 495.9141766418635,
+      "end": 500.936240698803,
+      "scene": "lifecycle-04",
+      "text": "Reconstruction provides a learning signal without attack-category targets."
+    },
+    {
+      "start": 501.23585247492724,
+      "end": 504.7512973147849,
+      "scene": "lifecycle-04",
+      "text": "Fine-tuning then learns the six labeled categories."
+    },
+    {
+      "start": 505.0509090909091,
+      "end": 510.18711096732454,
+      "scene": "lifecycle-04",
+      "text": "A loss measures error; an optimizer changes weights to reduce that error."
+    },
+    {
+      "start": 510.48672274344875,
+      "end": 513.1803752830799,
+      "scene": "lifecycle-04",
+      "text": "An epoch is a pass through the training loader."
+    },
+    {
+      "start": 513.4799870592042,
+      "end": 517.7943966353931,
+      "scene": "lifecycle-04",
+      "text": "Our short pretraining check completed one hundred thirty-two updates."
+    },
+    {
+      "start": 518.0940084115173,
+      "end": 523.5466595706323,
+      "scene": "lifecycle-04",
+      "text": "The three main fine-tuning runs instead began from the authors’ released pretrained"
+    },
+    {
+      "start": 523.5466595706323,
+      "end": 526.7,
+      "scene": "lifecycle-04",
+      "text": "checkpoint, not from our short-check checkpoint."
+    },
+    {
+      "start": 526.7,
+      "end": 530.0594948128102,
+      "scene": "lifecycle-05",
+      "text": "After training, inference freezes the learned weights."
+    },
+    {
+      "start": 530.359449706811,
+      "end": 534.8844835363104,
+      "scene": "lifecycle-05",
+      "text": "It uses flow features and a selected checkpoint to produce logits."
+    },
+    {
+      "start": 535.1844384303113,
+      "end": 541.5287731488146,
+      "scene": "lifecycle-05",
+      "text": "Softmax turns the logits into normalized display scores; the largest output selects a"
+    },
+    {
+      "start": 541.5287731488146,
+      "end": 542.2005262366562,
+      "scene": "lifecycle-05",
+      "text": "category."
+    },
+    {
+      "start": 542.5004811306571,
+      "end": 545.9513907683056,
+      "scene": "lifecycle-05",
+      "text": "A checkpoint-bound mapping supplies the category names."
+    },
+    {
+      "start": 546.2513456623064,
+      "end": 549.9993534806796,
+      "scene": "lifecycle-05",
+      "text": "Without known labels, prediction cannot measure accuracy."
+    },
+    {
+      "start": 550.2993083746805,
+      "end": 555.5099533904677,
+      "scene": "lifecycle-05",
+      "text": "With labels, evaluation compares the predictions against those known answers."
+    },
+    {
+      "start": 555.8099082844685,
+      "end": 560.9785662586147,
+      "scene": "lifecycle-05",
+      "text": "Validation chooses the checkpoint; test labels must not be used to choose a"
+    },
+    {
+      "start": 560.9785662586147,
+      "end": 564.7,
+      "scene": "lifecycle-05",
+      "text": "better-looking model or to supply prediction features."
+    },
+    {
+      "start": 564.7,
+      "end": 566.6080459770116,
+      "scene": "lifecycle-06",
+      "text": "Trace the lifecycle aloud."
+    },
+    {
+      "start": 566.9097701149426,
+      "end": 572.1204980842913,
+      "scene": "lifecycle-06",
+      "text": "When do weights change, when is a checkpoint selected, and when are known test labels"
+    },
+    {
+      "start": 572.1204980842913,
+      "end": 572.427011494253,
+      "scene": "lifecycle-06",
+      "text": "used?"
+    },
+    {
+      "start": 572.728735632184,
+      "end": 574.2,
+      "scene": "lifecycle-06",
+      "text": "Take twelve seconds."
+    },
+    {
+      "start": 574.2,
+      "end": 586.2,
+      "scene": "lifecycle-07",
+      "text": "[Practice pause: 12 seconds] Train → select using validation → freeze → test or predict"
+    },
+    {
+      "start": 586.2,
+      "end": 587.9806451612903,
+      "scene": "lifecycle-08",
+      "text": "Training updates the weights."
+    },
+    {
+      "start": 588.2802729528537,
+      "end": 590.6772952853598,
+      "scene": "lifecycle-08",
+      "text": "Validation selects the candidate."
+    },
+    {
+      "start": 590.9769230769231,
+      "end": 592.5064516129032,
+      "scene": "lifecycle-08",
+      "text": "Inference freezes it."
+    },
+    {
+      "start": 592.8060794044666,
+      "end": 595.8194789081887,
+      "scene": "lifecycle-08",
+      "text": "Test labels are used afterward for measurement."
+    },
+    {
+      "start": 596.1191066997519,
+      "end": 600.0,
+      "scene": "lifecycle-08",
+      "text": "This separation is central to a defensible experiment."
+    },
+    {
+      "start": 600.0,
+      "end": 605.7675251959687,
+      "scene": "repository-01",
+      "text": "The authors’ repository provides the neural model, tensor loader and training engines."
+    },
+    {
+      "start": 606.0575587905935,
+      "end": 610.720194102277,
+      "scene": "repository-01",
+      "text": "Our repository fetches a pinned commit and verifies source identity."
+    },
+    {
+      "start": 611.0102276969018,
+      "end": 613.1758118701008,
+      "scene": "repository-01",
+      "text": "The model and loader stay unchanged."
+    },
+    {
+      "start": 613.4658454647256,
+      "end": 619.8169162069871,
+      "scene": "repository-01",
+      "text": "For G B ten and C U D A thirteen, separate native-extension build copies receive"
+    },
+    {
+      "start": 619.8169162069871,
+      "end": 624.183277342292,
+      "scene": "repository-01",
+      "text": "recorded compiler and architecture compatibility edits."
+    },
+    {
+      "start": 624.4733109369167,
+      "end": 629.6,
+      "scene": "repository-01",
+      "text": "This is a compatibility port, not proof of an identical paper environment."
+    },
+    {
+      "start": 629.6,
+      "end": 632.4248275862069,
+      "scene": "repository-02",
+      "text": "Think of the wrapper as the lab’s coordinator."
+    },
+    {
+      "start": 632.7144827586208,
+      "end": 638.5009655172414,
+      "scene": "repository-02",
+      "text": "The reproduction launcher validates the source and inputs, resolves settings, starts"
+    },
+    {
+      "start": 638.5009655172414,
+      "end": 642.3586206896553,
+      "scene": "repository-02",
+      "text": "the original training program, and saves a run manifest."
+    },
+    {
+      "start": 642.648275862069,
+      "end": 648.3904223169314,
+      "scene": "repository-02",
+      "text": "The evaluation entry point strictly reloads a classifier and scores the native test"
+    },
+    {
+      "start": 648.3904223169314,
+      "end": 648.8055172413793,
+      "scene": "repository-02",
+      "text": "split."
+    },
+    {
+      "start": 649.0951724137931,
+      "end": 654.2372413793104,
+      "scene": "repository-02",
+      "text": "The prediction entry point handles already assembled flows without known labels."
+    },
+    {
+      "start": 654.5268965517241,
+      "end": 660.281968530298,
+      "scene": "repository-02",
+      "text": "The replay entry point records outputs, independently recomputes metrics, and creates"
+    },
+    {
+      "start": 660.281968530298,
+      "end": 661.5006896551724,
+      "scene": "repository-02",
+      "text": "a browser display."
+    },
+    {
+      "start": 661.7903448275862,
+      "end": 666.8,
+      "scene": "repository-02",
+      "text": "These tools share preparation checks while keeping their execution jobs distinct."
+    },
+    {
+      "start": 666.8,
+      "end": 672.1408675951222,
+      "scene": "repository-03",
+      "text": "Configuration files describe the source pin, assets and experiment recipe."
+    },
+    {
+      "start": 672.4305324182048,
+      "end": 675.0788965149596,
+      "scene": "repository-03",
+      "text": "Requirements describe parts of the runtime."
+    },
+    {
+      "start": 675.3685613380422,
+      "end": 678.7231558605984,
+      "scene": "repository-03",
+      "text": "Tools build, measure, review and publish outputs."
+    },
+    {
+      "start": 679.012820683681,
+      "end": 682.4998334110747,
+      "scene": "repository-03",
+      "text": "Tests check important acceptance and failure behavior."
+    },
+    {
+      "start": 682.7894982341573,
+      "end": 687.9538082228293,
+      "scene": "repository-03",
+      "text": "The evidence folder holds actual manifests, logs, predictions and hashes."
+    },
+    {
+      "start": 688.2434730459119,
+      "end": 692.4808556007196,
+      "scene": "repository-03",
+      "text": "Customer documents translate those records into a presentation."
+    },
+    {
+      "start": 692.7705204238022,
+      "end": 698.8295021297753,
+      "scene": "repository-03",
+      "text": "Research documents preserve curated findings and council decisions; they are not a raw"
+    },
+    {
+      "start": 698.8295021297753,
+      "end": 700.0976610914906,
+      "scene": "repository-03",
+      "text": "private chat dump."
+    },
+    {
+      "start": 700.3873259145731,
+      "end": 705.6384675129748,
+      "scene": "repository-03",
+      "text": "The complete file walkthrough explains every tracked file and download, so you can"
+    },
+    {
+      "start": 705.6384675129748,
+      "end": 708.1999999999999,
+      "scene": "repository-03",
+      "text": "find the exact record behind a question."
+    },
+    {
+      "start": 708.2,
+      "end": 713.8996262021412,
+      "scene": "repository-04",
+      "text": "A manifest records what was requested, which source and data were used, the checkpoint"
+    },
+    {
+      "start": 713.8996262021412,
+      "end": 716.9482634730539,
+      "scene": "repository-04",
+      "text": "identity, class mapping and completion status."
+    },
+    {
+      "start": 717.2374850299402,
+      "end": 720.2564071856287,
+      "scene": "repository-04",
+      "text": "A hash is a fingerprint of exact file bytes."
+    },
+    {
+      "start": 720.545628742515,
+      "end": 725.8562874251497,
+      "scene": "repository-04",
+      "text": "It helps detect drift; it does not prove scientific correctness or usage rights."
+    },
+    {
+      "start": 726.145508982036,
+      "end": 730.3323353293414,
+      "scene": "repository-04",
+      "text": "Keep a checkpoint with its successful manifest or export provenance."
+    },
+    {
+      "start": 730.6215568862276,
+      "end": 736.0488326717352,
+      "scene": "repository-04",
+      "text": "Choose a fresh output directory each time so new work does not overwrite earlier"
+    },
+    {
+      "start": 736.0488326717352,
+      "end": 736.6594011976049,
+      "scene": "repository-04",
+      "text": "evidence."
+    },
+    {
+      "start": 736.9486227544911,
+      "end": 742.7,
+      "scene": "repository-04",
+      "text": "Raw data, downloaded source and trained weights remain separate local research assets."
+    },
+    {
+      "start": 742.7,
+      "end": 747.8537902639865,
+      "scene": "repository-05",
+      "text": "Which description should you use: we replaced the authors’ model, or we wrapped pinned"
+    },
+    {
+      "start": 747.8537902639865,
+      "end": 750.4306853959797,
+      "scene": "repository-05",
+      "text": "original code and ported its native builds?"
+    },
+    {
+      "start": 750.7205860983289,
+      "end": 754.1,
+      "scene": "repository-05",
+      "text": "Take ten seconds and name the wrapper’s main additions."
+    },
+    {
+      "start": 754.1,
+      "end": 764.1,
+      "scene": "repository-06",
+      "text": "[Practice pause: 10 seconds] Name the original pieces and the added checks."
+    },
+    {
+      "start": 764.1,
+      "end": 766.0674661105319,
+      "scene": "repository-07",
+      "text": "The second description is correct."
+    },
+    {
+      "start": 766.3576120959333,
+      "end": 771.5162892894384,
+      "scene": "repository-07",
+      "text": "We added a checked execution route, inference tools, measurements, provenance and"
+    },
+    {
+      "start": 771.5162892894384,
+      "end": 774.382221063608,
+      "scene": "repository-07",
+      "text": "teaching materials around the original model."
+    },
+    {
+      "start": 774.6723670490094,
+      "end": 780.0,
+      "scene": "repository-07",
+      "text": "Compiler compatibility changes do not establish exact paper reproduction."
+    },
+    {
+      "start": 780.0,
+      "end": 784.2606052454606,
+      "scene": "measurements-01",
+      "text": "Now separate things that were executed from things that were proposed."
+    },
+    {
+      "start": 784.5444653665097,
+      "end": 792.8373862362698,
+      "scene": "measurements-01",
+      "text": "All three declared fine-tuning seeds completed 120 epochs and 7,920 optimizer updates"
+    },
+    {
+      "start": 792.8373862362698,
+      "end": 793.3252051109616,
+      "scene": "measurements-01",
+      "text": "each."
+    },
+    {
+      "start": 793.6090652320107,
+      "end": 798.6698856758575,
+      "scene": "measurements-01",
+      "text": "A seed controls random choices, such as initialization and sample order."
+    },
+    {
+      "start": 798.9537457969066,
+      "end": 804.2092131809011,
+      "scene": "measurements-01",
+      "text": "These were three runs on the same dataset split, not three independent datasets."
+    },
+    {
+      "start": 804.4930733019503,
+      "end": 807.9750907868191,
+      "scene": "measurements-01",
+      "text": "Validation accuracy selected each best checkpoint."
+    },
+    {
+      "start": 808.2589509078682,
+      "end": 812.4763012777404,
+      "scene": "measurements-01",
+      "text": "The selected classifier was then reloaded for test evaluation."
+    },
+    {
+      "start": 812.7601613987895,
+      "end": 818.2906608899549,
+      "scene": "measurements-01",
+      "text": "Logs and optimizer records support the completed budgets; the recipe alone would not"
+    },
+    {
+      "start": 818.2906608899549,
+      "end": 820.2,
+      "scene": "measurements-01",
+      "text": "prove that the work finished."
+    },
+    {
+      "start": 820.2,
+      "end": 830.9235652457203,
+      "scene": "measurements-02",
+      "text": "The test accuracies were 91.26% for seed zero, 84.05% for seed one, and 84.63% for"
+    },
+    {
+      "start": 830.9235652457203,
+      "end": 832.100541919031,
+      "scene": "measurements-02",
+      "text": "seed two."
+    },
+    {
+      "start": 832.3850494102646,
+      "end": 835.4197959834237,
+      "scene": "measurements-02",
+      "text": "Their mean was 86.65%."
+    },
+    {
+      "start": 835.7043034746573,
+      "end": 839.4110296461588,
+      "scene": "measurements-02",
+      "text": "We retained every seed rather than hiding the weaker runs."
+    },
+    {
+      "start": 839.6955371373924,
+      "end": 845.3264303951331,
+      "scene": "measurements-02",
+      "text": "Seed zero was chosen for the demonstration in advance, not selected afterward because"
+    },
+    {
+      "start": 845.3264303951331,
+      "end": 846.7838380618425,
+      "scene": "measurements-02",
+      "text": "it had the best score."
+    },
+    {
+      "start": 847.0683455530763,
+      "end": 852.0605036659229,
+      "scene": "measurements-02",
+      "text": "You can show that run to make the demo concrete, but you should report the three-run"
+    },
+    {
+      "start": 852.0605036659229,
+      "end": 854.2,
+      "scene": "measurements-02",
+      "text": "mean when describing the experiment."
+    },
+    {
+      "start": 854.2,
+      "end": 858.0118443316413,
+      "scene": "measurements-03",
+      "text": "Accuracy is the fraction of examples classified correctly."
+    },
+    {
+      "start": 858.2961082910322,
+      "end": 863.9009951532881,
+      "scene": "measurements-03",
+      "text": "Precision asks how often a predicted category is right; recall asks how many true"
+    },
+    {
+      "start": 863.9009951532881,
+      "end": 866.4612521150593,
+      "scene": "measurements-03",
+      "text": "examples of that category were found."
+    },
+    {
+      "start": 866.7455160744502,
+      "end": 869.1062605752961,
+      "scene": "measurements-03",
+      "text": "F one balances precision and recall."
+    },
+    {
+      "start": 869.3905245346871,
+      "end": 874.5884940778342,
+      "scene": "measurements-03",
+      "text": "Macro F one gives classes equal weight; weighted F one weights their support."
+    },
+    {
+      "start": 874.8727580372251,
+      "end": 880.3564639178319,
+      "scene": "measurements-03",
+      "text": "A confusion matrix shows true categories against predicted categories so aggregate"
+    },
+    {
+      "start": 880.3564639178319,
+      "end": 882.4964467005077,
+      "scene": "measurements-03",
+      "text": "scores do not hide the mistakes."
+    },
+    {
+      "start": 882.7807106598985,
+      "end": 889.2781725888325,
+      "scene": "measurements-03",
+      "text": "The sample standard deviation across accuracy results was 4.00 percentage points."
+    },
+    {
+      "start": 889.5624365482234,
+      "end": 895.269143536019,
+      "scene": "measurements-03",
+      "text": "It is a descriptive spread, not a confidence interval and not a promise about customer"
+    },
+    {
+      "start": 895.269143536019,
+      "end": 895.8,
+      "scene": "measurements-03",
+      "text": "traffic."
+    },
+    {
+      "start": 895.8,
+      "end": 902.3846701410956,
+      "scene": "measurements-04",
+      "text": "The paper reports 97.50% accuracy for this benchmark under different conditions."
+    },
+    {
+      "start": 902.6689589424177,
+      "end": 904.6400279649167,
+      "scene": "measurements-04",
+      "text": "We did not reproduce that result."
+    },
+    {
+      "start": 904.9243167662387,
+      "end": 910.8579003714532,
+      "scene": "measurements-04",
+      "text": "Source-based fine-tuning used batch size one hundred twenty-eight and an effective"
+    },
+    {
+      "start": 910.8579003714532,
+      "end": 914.6930214821406,
+      "scene": "measurements-04",
+      "text": "learning rate of zero point zero zero one on G B ten."
+    },
+    {
+      "start": 914.9773102834625,
+      "end": 920.87934529982,
+      "scene": "measurements-04",
+      "text": "The paper describes batch sixty-four, rate zero point zero zero two, and A one hundred"
+    },
+    {
+      "start": 920.87934529982,
+      "end": 921.4970001271132,
+      "scene": "measurements-04",
+      "text": "hardware."
+    },
+    {
+      "start": 921.7812889284352,
+      "end": 925.6801067751366,
+      "scene": "measurements-04",
+      "text": "The full pretraining history of the released checkpoint is unknown."
+    },
+    {
+      "start": 925.9643955764586,
+      "end": 930.7945976865386,
+      "scene": "measurements-04",
+      "text": "We did not repeat the paper’s full one hundred fifty thousand step pretraining."
+    },
+    {
+      "start": 931.0788864878607,
+      "end": 936.0222024490488,
+      "scene": "measurements-04",
+      "text": "The cause of the accuracy gap has not been isolated; it would be speculation to"
+    },
+    {
+      "start": 936.0222024490488,
+      "end": 938.4,
+      "scene": "measurements-04",
+      "text": "attribute all of it to one difference."
+    },
+    {
+      "start": 938.4,
+      "end": 943.9187165775401,
+      "scene": "measurements-05",
+      "text": "The input audit found five raw-input overlaps between training and validation and six"
+    },
+    {
+      "start": 943.9187165775401,
+      "end": 945.6067945894936,
+      "scene": "measurements-05",
+      "text": "between training and test."
+    },
+    {
+      "start": 945.8908461780434,
+      "end": 950.8069525706896,
+      "scene": "measurements-05",
+      "text": "Physical independence and the released checkpoint’s previous exposure remain"
+    },
+    {
+      "start": 950.8069525706896,
+      "end": 951.7125511167034,
+      "scene": "measurements-05",
+      "text": "unestablished."
+    },
+    {
+      "start": 951.9966027052532,
+      "end": 954.4854356715948,
+      "scene": "measurements-05",
+      "text": "These findings belong beside the metrics."
+    },
+    {
+      "start": 954.7694872601446,
+      "end": 960.8344784198023,
+      "scene": "measurements-05",
+      "text": "Repeating an evaluation on the same test data checks repeatability; it does not create"
+    },
+    {
+      "start": 960.8344784198023,
+      "end": 962.9501730103806,
+      "scene": "measurements-05",
+      "text": "an independent validation set."
+    },
+    {
+      "start": 963.2342245989305,
+      "end": 968.9053628724216,
+      "scene": "measurements-05",
+      "text": "Independent customer traffic, with reviewed incident labels, is still needed before"
+    },
+    {
+      "start": 968.9053628724216,
+      "end": 972.8,
+      "scene": "measurements-05",
+      "text": "operational accuracy or false-alert rates can be claimed."
+    },
+    {
+      "start": 972.8,
+      "end": 975.4814363323175,
+      "scene": "measurements-06",
+      "text": "Choose the sentence you would say to the customer."
+    },
+    {
+      "start": 975.7652577182986,
+      "end": 979.8739101629786,
+      "scene": "measurements-06",
+      "text": "We reproduced the paper’s ninety-seven point five percent result."
+    },
+    {
+      "start": 980.1577315489598,
+      "end": 987.3812205616731,
+      "scene": "measurements-06",
+      "text": "Or, three runs averaged 86.65% on the released split, and exact paper reproduction"
+    },
+    {
+      "start": 987.3812205616731,
+      "end": 988.5264078441764,
+      "scene": "measurements-06",
+      "text": "remains open."
+    },
+    {
+      "start": 988.8102292301576,
+      "end": 993.1999999999999,
+      "scene": "measurements-06",
+      "text": "Take twelve seconds to include one reason the comparison has limits."
+    },
+    {
+      "start": 993.2,
+      "end": 1005.2,
+      "scene": "measurements-07",
+      "text": "[Practice pause: 12 seconds] State the measured result and one comparison limitation."
+    },
+    {
+      "start": 1005.2,
+      "end": 1007.4994503481129,
+      "scene": "measurements-08",
+      "text": "The second sentence is defensible."
+    },
+    {
+      "start": 1007.7841700256505,
+      "end": 1013.2405245136862,
+      "scene": "measurements-08",
+      "text": "Keep the runtime, data split, source settings and unknown pretraining history with the"
+    },
+    {
+      "start": 1013.2405245136862,
+      "end": 1013.6846463906193,
+      "scene": "measurements-08",
+      "text": "result."
+    },
+    {
+      "start": 1013.9693660681569,
+      "end": 1019.5979577378771,
+      "scene": "measurements-08",
+      "text": "Avoid turning the best seed, a spread statistic, or repeated testing into a stronger"
+    },
+    {
+      "start": 1019.5979577378771,
+      "end": 1020.0,
+      "scene": "measurements-08",
+      "text": "claim."
+    },
+    {
+      "start": 1020.0,
+      "end": 1026.512484542321,
+      "scene": "demo-01",
+      "text": "The working browser demonstration displays predictions recorded from a real seed zero"
+    },
+    {
+      "start": 1026.512484542321,
+      "end": 1028.0448338463966,
+      "scene": "demo-01",
+      "text": "G P U inference run."
+    },
+    {
+      "start": 1028.3465151156365,
+      "end": 1034.0806783346072,
+      "scene": "demo-01",
+      "text": "Across one thousand forty-one labeled test flows, nine hundred fifty predictions were"
+    },
+    {
+      "start": 1034.0806783346072,
+      "end": 1036.6441865972058,
+      "scene": "demo-01",
+      "text": "correct and ninety-one were incorrect."
+    },
+    {
+      "start": 1036.9458678664457,
+      "end": 1041.1981371852553,
+      "scene": "demo-01",
+      "text": "The page can replay these records, filter them and show mistakes."
+    },
+    {
+      "start": 1041.4998184544952,
+      "end": 1047.0461330644735,
+      "scene": "demo-01",
+      "text": "Opening it does not run the neural model again, inspect your computer’s traffic, or"
+    },
+    {
+      "start": 1047.0461330644735,
+      "end": 1047.981656010735,
+      "scene": "demo-01",
+      "text": "block packets."
+    },
+    {
+      "start": 1048.2833372799748,
+      "end": 1051.6621674954613,
+      "scene": "demo-01",
+      "text": "Its speed control changes the pace of the display."
+    },
+    {
+      "start": 1051.9638487647012,
+      "end": 1056.4,
+      "scene": "demo-01",
+      "text": "It is unrelated to model inference latency or network throughput."
+    },
+    {
+      "start": 1056.4,
+      "end": 1062.9867372491506,
+      "scene": "demo-02",
+      "text": "The release’s class mapping contains Flood, R T S P Brute Force, Audio, Other, Cameras"
+    },
+    {
+      "start": 1062.9867372491506,
+      "end": 1066.5864657457794,
+      "scene": "demo-02",
+      "text": "and Home Automation under their recorded names."
+    },
+    {
+      "start": 1066.8882656620624,
+      "end": 1070.4293846797825,
+      "scene": "demo-02",
+      "text": "The last four describe device or power activity."
+    },
+    {
+      "start": 1070.7311845960653,
+      "end": 1075.697948932608,
+      "scene": "demo-02",
+      "text": "This is not a universal benign, malicious, and unknown-attack system."
+    },
+    {
+      "start": 1075.999748848891,
+      "end": 1080.713576112739,
+      "scene": "demo-02",
+      "text": "The replay has four hundred two predictions in the two attack categories."
+    },
+    {
+      "start": 1081.015376029022,
+      "end": 1085.4762662201758,
+      "scene": "demo-02",
+      "text": "That does not mean four hundred two verified operational alerts."
+    },
+    {
+      "start": 1085.7780661364588,
+      "end": 1092.1044736937301,
+      "scene": "demo-02",
+      "text": "An alert policy must account for traffic context, uncertainty, unknown activity and"
+    },
+    {
+      "start": 1092.1044736937301,
+      "end": 1094.0100181386913,
+      "scene": "demo-02",
+      "text": "the cost of false alarms."
+    },
+    {
+      "start": 1094.3118180549743,
+      "end": 1097.6,
+      "scene": "demo-02",
+      "text": "None of that can be inferred merely from a class label."
+    },
+    {
+      "start": 1097.6,
+      "end": 1101.9063829787233,
+      "scene": "demo-03",
+      "text": "Consider the actual saved row numbered six hundred thirty-five."
+    },
+    {
+      "start": 1102.2086357947433,
+      "end": 1110.3784651026547,
+      "scene": "demo-03",
+      "text": "Its highest-scoring category is class one, R T S P Brute Force, with a display score"
+    },
+    {
+      "start": 1110.3784651026547,
+      "end": 1111.351063829787,
+      "scene": "demo-03",
+      "text": "of 84.43%."
+    },
+    {
+      "start": 1111.653316645807,
+      "end": 1114.4167709637045,
+      "scene": "demo-03",
+      "text": "The other five scores are visible beside it."
+    },
+    {
+      "start": 1114.7190237797245,
+      "end": 1117.6206508135167,
+      "scene": "demo-03",
+      "text": "First identify what the model predicted."
+    },
+    {
+      "start": 1117.922903629537,
+      "end": 1121.6765957446808,
+      "scene": "demo-03",
+      "text": "Then distinguish that prediction from what actually happened."
+    },
+    {
+      "start": 1121.9788485607007,
+      "end": 1128.2465981412936,
+      "scene": "demo-03",
+      "text": "The six scores sum to one after softmax, but this normalization does not establish"
+    },
+    {
+      "start": 1128.2465981412936,
+      "end": 1129.163829787234,
+      "scene": "demo-03",
+      "text": "calibration."
+    },
+    {
+      "start": 1129.4660826032539,
+      "end": 1134.635882881771,
+      "scene": "demo-03",
+      "text": "A high score says the model favors one of these classes; it does not prove an"
+    },
+    {
+      "start": 1134.635882881771,
+      "end": 1139.0,
+      "scene": "demo-03",
+      "text": "eighty-four percent chance that a customer experienced an attack."
+    },
+    {
+      "start": 1139.0,
+      "end": 1142.7269016697587,
+      "scene": "demo-04",
+      "text": "Now reveal the known dataset label: class three, Other."
+    },
+    {
+      "start": 1143.0288497217068,
+      "end": 1148.4351576994434,
+      "scene": "demo-04",
+      "text": "The prediction disagrees with that label, so this is a recorded classification error."
+    },
+    {
+      "start": 1148.7371057513915,
+      "end": 1154.5296650717703,
+      "scene": "demo-04",
+      "text": "We deliberately selected it to examine a mistake, not to estimate how often such"
+    },
+    {
+      "start": 1154.5296650717703,
+      "end": 1155.6157699443413,
+      "scene": "demo-04",
+      "text": "mistakes occur."
+    },
+    {
+      "start": 1155.9177179962894,
+      "end": 1160.1737476808905,
+      "scene": "demo-04",
+      "text": "One row cannot establish an operational false-positive rate."
+    },
+    {
+      "start": 1160.4756957328386,
+      "end": 1165.8148092360257,
+      "scene": "demo-04",
+      "text": "The example is useful because the score looked confident even though the labeled"
+    },
+    {
+      "start": 1165.8148092360257,
+      "end": 1167.2163265306122,
+      "scene": "demo-04",
+      "text": "answer was different."
+    },
+    {
+      "start": 1167.5182745825603,
+      "end": 1173.489787485242,
+      "scene": "demo-04",
+      "text": "In a real deployment, an analyst would need traffic context and a validated alert"
+    },
+    {
+      "start": 1173.489787485242,
+      "end": 1174.0058441558442,
+      "scene": "demo-04",
+      "text": "policy."
+    },
+    {
+      "start": 1174.3077922077923,
+      "end": 1179.3,
+      "scene": "demo-04",
+      "text": "Neither the classifier nor this video verifies that an attack occurred."
+    },
+    {
+      "start": 1179.3,
+      "end": 1185.3676101468625,
+      "scene": "demo-05",
+      "text": "Use the next eighteen seconds to explain this row to a customer in three sentences."
+    },
+    {
+      "start": 1185.67041388518,
+      "end": 1191.2731824611033,
+      "scene": "demo-05",
+      "text": "Say what the model predicted, name the known dataset label, and state what the score"
+    },
+    {
+      "start": 1191.2731824611033,
+      "end": 1192.4070761014686,
+      "scene": "demo-05",
+      "text": "cannot establish."
+    },
+    {
+      "start": 1192.7098798397863,
+      "end": 1198.1930958792514,
+      "scene": "demo-05",
+      "text": "Do not call the score a calibrated attack probability, and do not extrapolate a"
+    },
+    {
+      "start": 1198.1930958792514,
+      "end": 1200.8999999999999,
+      "scene": "demo-05",
+      "text": "false-alert rate from this one example."
+    },
+    {
+      "start": 1200.9,
+      "end": 1218.9,
+      "scene": "demo-06",
+      "text": "[Practice pause: 18 seconds] Explain the predicted class, known label and score limitation."
+    },
+    {
+      "start": 1218.9,
+      "end": 1225.0583907119885,
+      "scene": "demo-07",
+      "text": "A good explanation is: the model predicted R T S P Brute Force, but the dataset"
+    },
+    {
+      "start": 1225.0583907119885,
+      "end": 1227.163157157858,
+      "scene": "demo-07",
+      "text": "labeled this flow as Other."
+    },
+    {
+      "start": 1227.4652572628631,
+      "end": 1233.9330766538328,
+      "scene": "demo-07",
+      "text": "The 84.43% display score is not an established probability of attack."
+    },
+    {
+      "start": 1234.235176758838,
+      "end": 1240.583354917746,
+      "scene": "demo-07",
+      "text": "This recorded mistake shows why operational use needs independent validation and an"
+    },
+    {
+      "start": 1240.583354917746,
+      "end": 1241.577647882394,
+      "scene": "demo-07",
+      "text": "alert policy."
+    },
+    {
+      "start": 1241.8797479873995,
+      "end": 1246.8341897094856,
+      "scene": "demo-07",
+      "text": "You can reproduce the display from the saved prediction file without rerunning the"
+    },
+    {
+      "start": 1246.8341897094856,
+      "end": 1247.196709835492,
+      "scene": "demo-07",
+      "text": "model."
+    },
+    {
+      "start": 1247.498809940497,
+      "end": 1253.2530976548828,
+      "scene": "demo-07",
+      "text": "For fresh predictions, use the separate G P U route and a provenance-bound checkpoint."
+    },
+    {
+      "start": 1253.5551977598882,
+      "end": 1259.4456084094527,
+      "scene": "demo-07",
+      "text": "Keep recorded replay, new model execution and live traffic monitoring distinct in the"
+    },
+    {
+      "start": 1259.4456084094527,
+      "end": 1260.0,
+      "scene": "demo-07",
+      "text": "meeting."
+    },
+    {
+      "start": 1260.0,
+      "end": 1265.0281690140846,
+      "scene": "operate-01",
+      "text": "You do not need to install the research stack just to understand or present this work."
+    },
+    {
+      "start": 1265.3089976026372,
+      "end": 1270.5725277195086,
+      "scene": "operate-01",
+      "text": "The browser course, recorded replay, P D F and PowerPoint are the viewing route."
+    },
+    {
+      "start": 1270.8533563080612,
+      "end": 1276.79026947716,
+      "scene": "operate-01",
+      "text": "A second route uses Python three point ten or newer to check the harness and published"
+    },
+    {
+      "start": 1276.79026947716,
+      "end": 1278.170946958346,
+      "scene": "operate-01",
+      "text": "evidence on a C P U."
+    },
+    {
+      "start": 1278.4517755468985,
+      "end": 1283.7580985915492,
+      "scene": "operate-01",
+      "text": "The third route builds the tested G B ten environment for new model execution."
+    },
+    {
+      "start": 1284.0389271801018,
+      "end": 1290.082775897732,
+      "scene": "operate-01",
+      "text": "Keeping these routes separate saves time and prevents a common mistake: thinking that"
+    },
+    {
+      "start": 1290.082775897732,
+      "end": 1295.7,
+      "scene": "operate-01",
+      "text": "opening a presentation or passing a C P U test has rerun the neural experiment."
+    },
+    {
+      "start": 1295.7,
+      "end": 1301.2651667394787,
+      "scene": "operate-02",
+      "text": "Clone the repository, enter the project folder and run the unit-test command shown on"
+    },
+    {
+      "start": 1301.2651667394787,
+      "end": 1301.7234745886121,
+      "scene": "operate-02",
+      "text": "screen."
+    },
+    {
+      "start": 1302.0048201543616,
+      "end": 1305.0487112276103,
+      "scene": "operate-02",
+      "text": "Then run the package verifier and course verifier."
+    },
+    {
+      "start": 1305.3300567933595,
+      "end": 1310.104892966361,
+      "scene": "operate-02",
+      "text": "The test suite should finish with O K, and the verifiers should report passed for"
+    },
+    {
+      "start": 1310.104892966361,
+      "end": 1311.696505024028,
+      "scene": "operate-02",
+      "text": "their deterministic checks."
+    },
+    {
+      "start": 1311.9778505897773,
+      "end": 1315.3004077471967,
+      "scene": "operate-02",
+      "text": "The audited release recorded fifty-four harness tests."
+    },
+    {
+      "start": 1315.581753312946,
+      "end": 1320.469127712247,
+      "scene": "operate-02",
+      "text": "The interactive course added seventeen more, bringing that snapshot to seventy-one."
+    },
+    {
+      "start": 1320.7504732779962,
+      "end": 1323.6871850881025,
+      "scene": "operate-02",
+      "text": "Video verification is recorded separately."
+    },
+    {
+      "start": 1323.9685306538518,
+      "end": 1329.2499164395626,
+      "scene": "operate-02",
+      "text": "These are checks of the code and delivered artifacts; they do not download new"
+    },
+    {
+      "start": 1329.2499164395626,
+      "end": 1332.5,
+      "scene": "operate-02",
+      "text": "training data or repeat the G P U training runs."
+    },
+    {
+      "start": 1332.5,
+      "end": 1337.7593953454348,
+      "scene": "operate-03",
+      "text": "The package verifier recomputes metrics from saved predictions, compares model"
+    },
+    {
+      "start": 1337.7593953454348,
+      "end": 1343.2885032726867,
+      "scene": "operate-03",
+      "text": "identities, checks hashes, and verifies that presentation material agrees with its"
+    },
+    {
+      "start": 1343.2885032726867,
+      "end": 1343.7605002908667,
+      "scene": "operate-03",
+      "text": "source."
+    },
+    {
+      "start": 1344.0414776032578,
+      "end": 1349.1793484584061,
+      "scene": "operate-03",
+      "text": "Two separately built native environments also passed seven numerical checks each."
+    },
+    {
+      "start": 1349.460325770797,
+      "end": 1353.4635834787666,
+      "scene": "operate-03",
+      "text": "Strict saved-model evaluations agreed for all three seeds."
+    },
+    {
+      "start": 1353.7445607911577,
+      "end": 1359.387071764768,
+      "scene": "operate-03",
+      "text": "A full seed zero unlabeled recheck matched all one thousand forty-one predicted"
+    },
+    {
+      "start": 1359.387071764768,
+      "end": 1361.6012216404886,
+      "scene": "operate-03",
+      "text": "classes and logits in that run."
+    },
+    {
+      "start": 1361.8821989528797,
+      "end": 1366.8702152414194,
+      "scene": "operate-03",
+      "text": "These results support execution and repeatability under recorded conditions."
+    },
+    {
+      "start": 1367.1511925538105,
+      "end": 1371.4327515997672,
+      "scene": "operate-03",
+      "text": "If a file or checksum differs, preserve the failure and investigate."
+    },
+    {
+      "start": 1371.7137289121583,
+      "end": 1376.771421515361,
+      "scene": "operate-03",
+      "text": "Blindly regenerating checksums would only replace the fingerprint; it would not"
+    },
+    {
+      "start": 1376.771421515361,
+      "end": 1378.5,
+      "scene": "operate-03",
+      "text": "validate the changed claim."
+    },
+    {
+      "start": 1378.5,
+      "end": 1382.0085335102854,
+      "scene": "operate-04",
+      "text": "For new execution, follow the tested runbook in order."
+    },
+    {
+      "start": 1382.2893231585933,
+      "end": 1387.6935380652997,
+      "scene": "operate-04",
+      "text": "Acquire pinned source and assets, validate the native flows, build the two custom"
+    },
+    {
+      "start": 1387.6935380652997,
+      "end": 1390.1621300597212,
+      "scene": "operate-04",
+      "text": "extensions, and run numerical checks."
+    },
+    {
+      "start": 1390.4429197080292,
+      "end": 1392.7962043795621,
+      "scene": "operate-04",
+      "text": "Then train, evaluate or predict."
+    },
+    {
+      "start": 1393.07699402787,
+      "end": 1399.6513802256138,
+      "scene": "operate-04",
+      "text": "The tested route used an arm sixty-four Python environment, G B ten, and a recorded C"
+    },
+    {
+      "start": 1399.6513802256138,
+      "end": 1402.1264432647645,
+      "scene": "operate-04",
+      "text": "U D A compiler and driver stack."
+    },
+    {
+      "start": 1402.4072329130722,
+      "end": 1407.1779827471798,
+      "scene": "operate-04",
+      "text": "It is not a universal Windows, C P U model, or N P U setup."
+    },
+    {
+      "start": 1407.4587723954878,
+      "end": 1413.1922295952222,
+      "scene": "operate-04",
+      "text": "Prediction accepts assembled native flow records, not the supplied packet C S Vs."
+    },
+    {
+      "start": 1413.4730192435302,
+      "end": 1418.148924574209,
+      "scene": "operate-04",
+      "text": "Use new output directories and retain class-mapping provenance with every moved"
+    },
+    {
+      "start": 1418.148924574209,
+      "end": 1418.8,
+      "scene": "operate-04",
+      "text": "checkpoint."
+    },
+    {
+      "start": 1418.8,
+      "end": 1424.98140288202,
+      "scene": "operate-05",
+      "text": "The existing audited release includes the complete package zip, briefing P D F, slide"
+    },
+    {
+      "start": 1424.98140288202,
+      "end": 1431.0900833771925,
+      "scene": "operate-05",
+      "text": "P D F, editable PowerPoint, a checksum list, a release inventory, and a verification"
+    },
+    {
+      "start": 1431.0900833771925,
+      "end": 1431.6718624719708,
+      "scene": "operate-05",
+      "text": "receipt."
+    },
+    {
+      "start": 1431.9529659577358,
+      "end": 1437.5800622076647,
+      "scene": "operate-05",
+      "text": "The inventory names files; hashes identify their bytes; the receipt records actual"
+    },
+    {
+      "start": 1437.5800622076647,
+      "end": 1438.6780322076509,
+      "scene": "operate-05",
+      "text": "delivery checks."
+    },
+    {
+      "start": 1438.9591356934156,
+      "end": 1443.6281307331658,
+      "scene": "operate-05",
+      "text": "The package does not contain raw research data or inherited model weights."
+    },
+    {
+      "start": 1443.9092342189304,
+      "end": 1448.1712984983353,
+      "scene": "operate-05",
+      "text": "The file walkthrough explains every tracked item and release download."
+    },
+    {
+      "start": 1448.4524019840999,
+      "end": 1453.7335203747257,
+      "scene": "operate-05",
+      "text": "This narrated video is a later deliverable with its own media checks, transcript and"
+    },
+    {
+      "start": 1453.7335203747257,
+      "end": 1454.299354488007,
+      "scene": "operate-05",
+      "text": "captions."
+    },
+    {
+      "start": 1454.5804579737717,
+      "end": 1458.2,
+      "scene": "operate-05",
+      "text": "A successful download is not a new accuracy experiment."
+    },
+    {
+      "start": 1458.2,
+      "end": 1463.2228228910342,
+      "scene": "operate-06",
+      "text": "A colleague with an ordinary laptop wants to check how the reported scores were"
+    },
+    {
+      "start": 1463.2228228910342,
+      "end": 1463.9222032935832,
+      "scene": "operate-06",
+      "text": "calculated."
+    },
+    {
+      "start": 1464.2024417944351,
+      "end": 1465.6970471323111,
+      "scene": "operate-06",
+      "text": "Which route is sufficient?"
+    },
+    {
+      "start": 1465.977285633163,
+      "end": 1467.2370244179444,
+      "scene": "operate-06",
+      "text": "Take ten seconds."
+    },
+    {
+      "start": 1467.5172629187962,
+      "end": 1472.3,
+      "scene": "operate-06",
+      "text": "Distinguish rechecking saved evidence from generating new model predictions."
+    },
+    {
+      "start": 1472.3,
+      "end": 1482.3,
+      "scene": "operate-07",
+      "text": "[Practice pause: 10 seconds] Saved metrics check or fresh GPU inference?"
+    },
+    {
+      "start": 1482.3,
+      "end": 1487.9204044672501,
+      "scene": "operate-08",
+      "text": "Use Python, the C P U tests and the package verifier to inspect saved evidence."
+    },
+    {
+      "start": 1488.2008904316328,
+      "end": 1493.3720260832458,
+      "scene": "operate-08",
+      "text": "Fresh predictions require the tested runtime, compatible flows and a trained"
+    },
+    {
+      "start": 1493.3720260832458,
+      "end": 1494.120479927558,
+      "scene": "operate-08",
+      "text": "classifier."
+    },
+    {
+      "start": 1494.4009658919408,
+      "end": 1499.6308329159522,
+      "scene": "operate-08",
+      "text": "Setup and training are follow-up tasks; they are not hidden inside this thirty minute"
+    },
+    {
+      "start": 1499.6308329159522,
+      "end": 1500.0,
+      "scene": "operate-08",
+      "text": "video."
+    },
+    {
+      "start": 1500.0,
+      "end": 1505.993596381178,
+      "scene": "future-01",
+      "text": "A working live I D S would need capture, connection grouping, compatible tensors,"
+    },
+    {
+      "start": 1505.993596381178,
+      "end": 1510.0633223190148,
+      "scene": "future-01",
+      "text": "inference, a validated alert policy and analyst review."
+    },
+    {
+      "start": 1510.347979873836,
+      "end": 1515.8636386125493,
+      "scene": "future-01",
+      "text": "The source extraction helpers have hardcoded paths and a missing helper module; a"
+    },
+    {
+      "start": 1515.8636386125493,
+      "end": 1519.608838990688,
+      "scene": "future-01",
+      "text": "reliable live extraction path has not been established."
+    },
+    {
+      "start": 1519.8934965455092,
+      "end": 1525.3769593045217,
+      "scene": "future-01",
+      "text": "A smart network card, or data processing unit, could handle packet steering and some"
+    },
+    {
+      "start": 1525.3769593045217,
+      "end": 1526.486707720036,
+      "scene": "future-01",
+      "text": "flow preparation."
+    },
+    {
+      "start": 1526.7713652748573,
+      "end": 1531.954843796936,
+      "scene": "future-01",
+      "text": "A graphics processor or supported neural processing unit could run the classifier."
+    },
+    {
+      "start": 1532.2395013517573,
+      "end": 1536.1,
+      "scene": "future-01",
+      "text": "This is a proposed division of work, not a tested deployment."
+    },
+    {
+      "start": 1536.1,
+      "end": 1538.2489795918366,
+      "scene": "future-02",
+      "text": "Eager G P U inference worked."
+    },
+    {
+      "start": 1538.5338821892392,
+      "end": 1544.0691326530612,
+      "scene": "future-02",
+      "text": "The tested Torch graph-capture path failed at a custom causal-convolution operator."
+    },
+    {
+      "start": 1544.3540352504638,
+      "end": 1550.3809760684924,
+      "scene": "future-02",
+      "text": "Saving model-only weights did not solve graph export, and no N P U compiler or"
+    },
+    {
+      "start": 1550.3809760684924,
+      "end": 1552.7762987012986,
+      "scene": "future-02",
+      "text": "SmartNIC deployment was tested."
+    },
+    {
+      "start": 1553.0612012987012,
+      "end": 1558.097193877551,
+      "scene": "future-02",
+      "text": "The batch-one model-only median was about zero point eight eight milliseconds."
+    },
+    {
+      "start": 1558.3820964749534,
+      "end": 1562.549814471243,
+      "scene": "future-02",
+      "text": "That excludes capture, flow waiting, preprocessing and transfers."
+    },
+    {
+      "start": 1562.8347170686457,
+      "end": 1565.5914888682744,
+      "scene": "future-02",
+      "text": "It is not end-to-end I D S latency."
+    },
+    {
+      "start": 1565.876391465677,
+      "end": 1571.5789124740804,
+      "scene": "future-02",
+      "text": "The paper’s separate online throughput example concerns byte-only Net Mamba, not our"
+    },
+    {
+      "start": 1571.5789124740804,
+      "end": 1572.8008812615954,
+      "scene": "future-02",
+      "text": "multimodal system."
+    },
+    {
+      "start": 1573.085783858998,
+      "end": 1577.5139842300555,
+      "scene": "future-02",
+      "text": "Replacing that operation creates a new candidate implementation."
+    },
+    {
+      "start": 1577.798886827458,
+      "end": 1582.8999999999999,
+      "scene": "future-02",
+      "text": "It must match reference predictions before its speed or power numbers are useful."
+    },
+    {
+      "start": 1582.9,
+      "end": 1588.868253968254,
+      "scene": "future-03",
+      "text": "Does G P U execution establish N P U deployment or live-system readiness?"
+    },
+    {
+      "start": 1589.1531024531025,
+      "end": 1592.3,
+      "scene": "future-03",
+      "text": "Take eight seconds and name the next required test."
+    },
+    {
+      "start": 1592.3,
+      "end": 1600.3,
+      "scene": "future-04",
+      "text": "[Practice pause: 8 seconds] Name a compatibility or end-to-end validation step."
+    },
+    {
+      "start": 1600.3,
+      "end": 1601.0171538885825,
+      "scene": "future-05",
+      "text": "No."
+    },
+    {
+      "start": 1601.302385548814,
+      "end": 1607.220010958222,
+      "scene": "future-05",
+      "text": "Establish compatible extraction, independent traffic validation, calibrated alerting,"
+    },
+    {
+      "start": 1607.220010958222,
+      "end": 1609.1693463872034,
+      "scene": "future-05",
+      "text": "and target-operator support."
+    },
+    {
+      "start": 1609.4545780474352,
+      "end": 1612.3014616657474,
+      "scene": "future-05",
+      "text": "Compare outputs and measure the complete system."
+    },
+    {
+      "start": 1612.586693325979,
+      "end": 1616.5201737451737,
+      "scene": "future-05",
+      "text": "Inherited data and code terms also remain unresolved."
+    },
+    {
+      "start": 1616.8054054054053,
+      "end": 1620.0,
+      "scene": "future-05",
+      "text": "These are future milestones, not completed claims."
+    },
+    {
+      "start": 1620.0,
+      "end": 1624.0337820888035,
+      "scene": "teach-back-01",
+      "text": "Now explain the project aloud as if you were speaking to the customer."
+    },
+    {
+      "start": 1624.3279120327786,
+      "end": 1625.8517852663267,
+      "scene": "teach-back-01",
+      "text": "You have ninety seconds."
+    },
+    {
+      "start": 1626.1459152103018,
+      "end": 1630.090057697132,
+      "scene": "teach-back-01",
+      "text": "Describe the flow inputs and how learning differs from inference."
+    },
+    {
+      "start": 1630.384187641107,
+      "end": 1634.5972489338574,
+      "scene": "teach-back-01",
+      "text": "State the three-run mean and distinguish it from the paper’s result."
+    },
+    {
+      "start": 1634.8913788778325,
+      "end": 1639.6198678819298,
+      "scene": "teach-back-01",
+      "text": "Explain what the recorded demonstration proves and why its error matters."
+    },
+    {
+      "start": 1639.9139978259052,
+      "end": 1645.3301169346144,
+      "scene": "teach-back-01",
+      "text": "Name the checks that support execution, point to their records, and keep live-system"
+    },
+    {
+      "start": 1645.3301169346144,
+      "end": 1647.2644451877247,
+      "scene": "teach-back-01",
+      "text": "and accelerator work separate."
+    },
+    {
+      "start": 1647.5585751317,
+      "end": 1650.6287314992892,
+      "scene": "teach-back-01",
+      "text": "The on-screen prompts will stay visible while you speak."
+    },
+    {
+      "start": 1650.9228614432645,
+      "end": 1653.5,
+      "scene": "teach-back-01",
+      "text": "This is practice, not a certification."
+    },
+    {
+      "start": 1653.5,
+      "end": 1743.5,
+      "scene": "teach-back-02",
+      "text": "[Practice pause: 90 seconds] Inputs and lifecycle Measured results versus the paper Demo, evidence and limitations"
+    },
+    {
+      "start": 1743.5,
+      "end": 1749.2138556466261,
+      "scene": "teach-back-03",
+      "text": "A concise explanation could be: We ran the original multimodal classifier on"
+    },
+    {
+      "start": 1749.2138556466261,
+      "end": 1751.1685957362615,
+      "scene": "teach-back-03",
+      "text": "compatible released flows."
+    },
+    {
+      "start": 1751.4620368996389,
+      "end": 1755.732304496216,
+      "scene": "teach-back-03",
+      "text": "Training changed its weights; inference used a frozen checkpoint."
+    },
+    {
+      "start": 1756.0257456595934,
+      "end": 1763.9626304595142,
+      "scene": "teach-back-03",
+      "text": "Three fine-tuning runs averaged 86.65%, below the paper’s 97.50%."
+    },
+    {
+      "start": 1764.2560716228916,
+      "end": 1770.0242864915665,
+      "scene": "teach-back-03",
+      "text": "The recorded demonstration includes mistakes and does not establish a live detector."
+    },
+    {
+      "start": 1770.3177276549438,
+      "end": 1775.728223772073,
+      "scene": "teach-back-03",
+      "text": "Logs, saved predictions and repeatable checks support the measured execution."
+    },
+    {
+      "start": 1776.0216649354504,
+      "end": 1781.924024335955,
+      "scene": "teach-back-03",
+      "text": "Capture, independent traffic validation and accelerator porting remain future work."
+    },
+    {
+      "start": 1782.2174654993323,
+      "end": 1786.4653756739378,
+      "scene": "teach-back-03",
+      "text": "Check your explanation against those points and correct one weak claim."
+    },
+    {
+      "start": 1786.7588168373152,
+      "end": 1789.3969926299649,
+      "scene": "teach-back-03",
+      "text": "A timer cannot certify understanding."
+    },
+    {
+      "start": 1789.6904337933422,
+      "end": 1795.6728092303767,
+      "scene": "teach-back-03",
+      "text": "The repository contains the script, captions, actual experiment evidence and setup"
+    },
+    {
+      "start": 1795.6728092303767,
+      "end": 1796.6212346045406,
+      "scene": "teach-back-03",
+      "text": "instructions."
+    },
+    {
+      "start": 1796.9146757679182,
+      "end": 1800.0,
+      "scene": "teach-back-03",
+      "text": "Use those records to support the presentation."
+    }
+  ],
+  "references": {
+    "answers": {
+      "path": "docs/customer/answers.md",
+      "sha256": "e293eb26550a2c1577c689ccac845ad0321be7bbf2fd41c6aeeedbad3c5565ab"
+    },
+    "comparison": {
+      "path": "docs/customer/upstream-comparison.md",
+      "sha256": "a84e5fbffabc2b6ccc44351203b4b61f9f95dee7608765e3ef427d54e121b5ba"
+    },
+    "results": {
+      "path": "docs/customer/evidence/results.json",
+      "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+    },
+    "csv": {
+      "path": "docs/customer/evidence/uploaded-csv-profile.json",
+      "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+    },
+    "native": {
+      "path": "docs/customer/evidence/native-data-validation.json",
+      "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+    },
+    "lesson": {
+      "path": "docs/lesson.md",
+      "sha256": "bcd7710396fc5f088de56df470f4c8c708336790af728d7940f57bcf2b888afa"
+    },
+    "transfer": {
+      "path": "docs/customer/evidence/checkpoint-transfer.json",
+      "sha256": "819195d7d3a9aaccf534ce2cca88e3986eb56facf0891fd7cbfe27e1149b520e"
+    },
+    "runbook": {
+      "path": "docs/customer/runbook.md",
+      "sha256": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0"
+    },
+    "config": {
+      "path": "configs/ciciot2022.json",
+      "sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92"
+    },
+    "verification": {
+      "path": "docs/customer/verification.md",
+      "sha256": "88948b8336c729882a2a8835f69b03489161be769d3e6a4991a7ccc7a91bebbc"
+    },
+    "prediction": {
+      "path": "docs/customer/evidence/seed0/replay/predictions.json",
+      "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a"
+    },
+    "quickstart": {
+      "path": "docs/customer/quickstart.md",
+      "sha256": "6641b5d478ef02981014bf3d8c08f3f86c147de25e93ce9efc7dac5fae5d99bf"
+    },
+    "hardware": {
+      "path": "docs/customer/hardware-roadmap.md",
+      "sha256": "99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18"
+    },
+    "export": {
+      "path": "docs/customer/evidence/export-probe/metrics.json",
+      "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04"
+    },
+    "benchmark": {
+      "path": "docs/customer/evidence/benchmark/metrics.json",
+      "sha256": "1f06ba04717400b0f20a7e79f7c90e8e0d357f8bf7f2c8507ccdfc969eec0e9b"
+    },
+    "walkthrough": {
+      "path": "docs/repository-walkthrough.md",
+      "sha256": "4d48e57f5e4e777b262199e34a04e57bdf26225bdad67d405c0b38aa1472ac98"
+    },
+    "contract": {
+      "path": "docs/harness-reference.md",
+      "sha256": "bebbb49d3489a8bad584aa944def395ef0912d7d079e3f22b29e5af035205baa"
+    }
+  },
+  "artifacts": {
+    "NetMambaPlus-30-minute-course.mp4": {
+      "bytes": 37869975,
+      "sha256": "afc302395c9606e16300ab4910c2a43da3b22c979a1dd2999cff5b88bfc3a829"
+    },
+    "captions.srt": {
+      "sha256": "1f7c17cd65086a7939945f70db1983182647cdaf6642c98ad95f2f9475a2e918",
+      "bytes": 38036
+    },
+    "captions.vtt": {
+      "sha256": "5cf0504c070d40aede44c3612f7879c4deca3784fafe3001f090297a83e8047c",
+      "bytes": 36500
+    },
+    "transcript.md": {
+      "sha256": "e48a599556f8b755f25c9d372ee3c2eee8dd852abbfbf106d221fe01d99b15a8",
+      "bytes": 47522
+    },
+    "chapters.json": {
+      "bytes": 1087,
+      "sha256": "6ad2199cf458ff51499254cab4fc6ef9be4b57e7b24508f3c2379547e501764b"
+    },
+    "NetMambaPlus-30-minute-course.webm": {
+      "bytes": 37055191,
+      "sha256": "12bba939e07caebb06ce1c07da347078440b5b79c6448bbc423e0428d17de7ec"
+    },
+    "poster.png": {
+      "bytes": 56780,
+      "sha256": "a8ca1a7ffceccbb0e36650113dd579361dd5733ea1649da7a772a120d0b0311a"
+    }
+  },
+  "status": "built; encoded-media verification is separate",
+  "browser_fallback": {
+    "source_mp4_sha256": "afc302395c9606e16300ab4910c2a43da3b22c979a1dd2999cff5b88bfc3a829",
+    "codec": "VP9/Opus",
+    "reason": "The tested open-source Chromium build does not include H.264/AAC decoding"
+  }
+}

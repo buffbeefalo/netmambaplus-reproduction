@@ -1,0 +1,56 @@
+[
+  {
+    "id": "purpose",
+    "title": "The paper and the purpose",
+    "start": 0.0,
+    "end": 120.0
+  },
+  {
+    "id": "inputs",
+    "title": "The paper, the CSVs and compatible flows",
+    "start": 120.0,
+    "end": 360.0
+  },
+  {
+    "id": "lifecycle",
+    "title": "Preprocessing, training and inference",
+    "start": 360.0,
+    "end": 600.0
+  },
+  {
+    "id": "repository",
+    "title": "The authors\u2019 code and this repository",
+    "start": 600.0,
+    "end": 780.0
+  },
+  {
+    "id": "measurements",
+    "title": "Actual results versus the paper",
+    "start": 780.0,
+    "end": 1020.0
+  },
+  {
+    "id": "demo",
+    "title": "Investigate a recorded prediction",
+    "start": 1020.0,
+    "end": 1260.0
+  },
+  {
+    "id": "operate",
+    "title": "Set up, use and verify the project",
+    "start": 1260.0,
+    "end": 1500.0
+  },
+  {
+    "id": "future",
+    "title": "IDS, NPU and SmartNIC: what remains",
+    "start": 1500.0,
+    "end": 1620.0
+  },
+  {
+    "id": "teach-back",
+    "title": "Your two-minute customer explanation",
+    "start": 1620.0,
+    "end": 1800.0
+  }
+]

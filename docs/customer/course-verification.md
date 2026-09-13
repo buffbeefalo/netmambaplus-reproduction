@@ -10,7 +10,7 @@ Open the course and use **Download HTML** to save `NetMambaPlus-course.html`, th
 
 Use the schedule as a guide. Read a section, answer its question, review the explanation, then move on. Do the final explanation aloud before checking the five-point rubric. Reading, elapsed time, answer reveals and self-assessment checkboxes do not award objective quiz points. Answers are visible in the file: this is a study aid, not an examination or certificate.
 
-The current course is separate from the immutable `customer-2026-09-15-audited` release and is **not inside that historical ZIP**. That release still has seven named attachments. Its recorded 54-test result remains historical; current main adds 17 course regression tests for 71 total. The legacy quickstart preserves its audited 54-test expectation; use the current commands and receipt below for this course extension.
+The current course is separate from the immutable `customer-2026-09-15-audited` release and is **not inside that historical ZIP**. That release still has seven named attachments. Its recorded 54-test result remains historical; the HTML course added 17 regression tests for a 71-test snapshot. Current main also adds seven video tests, for 78 total. The legacy quickstart preserves its audited 54-test expectation; use the current commands and receipt below for this course extension.
 
 ## The complete timed route
 
@@ -43,7 +43,7 @@ python3 -m unittest discover -s tests -v
 python3 tools/verify_package.py
 ```
 
-The builder check must report an exact match; the two verifiers must report deterministic status `passed`; the current suite should finish with `Ran 71 tests` and `OK`. `fully_verified: false` and `required_real_world_checks_pending: ["human_rehearsal"]` are intentional once browser/publication checks are complete. They prevent automated success from being reported as a completed human rehearsal. These CPU checks do not retrain the model or provide a new dataset evaluation.
+The builder check must report an exact match; the two verifiers must report deterministic status `passed`; the current suite should finish with `Ran 78 tests` and `OK`. `fully_verified: false` and `required_real_world_checks_pending: ["human_rehearsal"]` are intentional once browser/publication checks are complete. They prevent automated success from being reported as a completed human rehearsal. These CPU checks do not retrain the model or provide a new dataset evaluation.
 
 To edit the course, change `course-source.json`, review its claims against the cited evidence, run `python3 tools/build_course.py`, and repeat the checks. Update this source/HTML-bound verification record only after performing the named checks. The default verifier is read-only. Its negative tests catch timing drift, missing practice time/topics, overloaded reading, altered measurements/predictions, invalid answer keys, stale HTML, broken references and false completion claims.
 
@@ -65,7 +65,7 @@ The authored source and its citations were reviewed against `docs/lesson.md`, th
 
 The lesson retains the 91.26%, 84.05%, 84.63% test accuracies and 86.65% mean; the paper’s 97.50% was not reproduced. It distinguishes short separate pretraining from the checkpoint used for fine-tuning, recorded replay from live inference, saved model tensors from graph export, and working GPU inference from unestablished IDS/NPU/SmartNIC execution. The selected recorded error is row 635: class 1 predicted, class 3 labeled, with an 84.43% top display score. It illustrates an error; it is not a newly measured operational false-positive rate.
 
-The course build has no narration dependency. A local Kokoro ONNX feasibility probe did produce 13.85 seconds of speech; that probe is not course audio or a completed course video. No course narration/video was published. This does not establish that narration is infeasible. No human learning record has been fabricated.
+The initial HTML-course delivery at commit `4907861` had no course video; its 13.85-second Kokoro probe established feasibility only. A later [actual narrated 30-minute video](video-verification.md) now has its own MP4, WebM, captions, transcript and media checks. The HTML course still has no narration dependency. Human learning and full video listening review have not been fabricated.
 
 ## Review and execution receipts
 
@@ -79,10 +79,10 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
   "checks": {
     "content_review": {
       "status": "passed",
-      "detail": "Reviewed the authored explanations, keys and evidence references; inspected global queues without clearing other work.",
+      "detail": "Reviewed the new video link and eighteen video file explanations. Teaching content, question keys, original fact bindings and protected experiment artifacts are unchanged.",
       "receipt": {
         "reviewer": "Codex ordinary implementation session; not a human learner",
-        "completed_at": "2026-09-13T05:31:38.859316+00:00",
+        "completed_at": "2026-09-13T06:59:52.479121+00:00",
         "baseline_commit": "1c424884cd0d691203fb94ba4da3c706eb6291e7",
         "reviewed_topics": [
           "each uploaded CSV and native flow distinction",
@@ -103,7 +103,7 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
           "docs/customer/evidence/native-data-validation.json": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
           "docs/customer/hardware-roadmap.md": "99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18",
           "docs/customer/runbook.md": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0",
-          "docs/repository-walkthrough.md": "2a46c560d920bd0dd6d7d14a77513a2453bed750f780019d70a8447b5930cf33"
+          "docs/repository-walkthrough.md": "4d48e57f5e4e777b262199e34a04e57bdf26225bdad67d405c0b38aa1472ac98"
         },
         "global_queues": {
           "pending-content-reviews.json": {
@@ -130,53 +130,22 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
     },
     "automated_checks": {
       "status": "passed",
-      "detail": "All four acceptance commands passed; 71 tests (54 original plus 17 course).",
+      "detail": "78 tests passed: 54 harness, 17 interactive-course, 7 video. The isolated stale-HTML fixture now includes the new navigation target.",
       "receipt": {
-        "completed_at": "2026-09-13T05:45:29.444880+00:00",
-        "commands": [
-          {
-            "command": "python3 tools/build_course.py --check",
-            "exit_code": 0,
-            "elapsed_seconds": 0.095,
-            "output_sha256": "a66ff4a2f3b5a9365f8fe7ac52ec94df7d2cd61ceb85d94b752e545fb753eaca",
-            "result": "Course render matches its reviewed source and evidence."
-          },
-          {
-            "command": "python3 tools/verify_course.py",
-            "exit_code": 0,
-            "elapsed_seconds": 0.072,
-            "output_sha256": "ebec853e08b52d59d5b820b2bc517f0d2b3e96ac2e0284c63acc102e571ef4ba",
-            "result": {
-              "status": "passed"
-            }
-          },
-          {
-            "command": "python3 -m unittest discover -s tests -v",
-            "exit_code": 0,
-            "elapsed_seconds": 0.741,
-            "output_sha256": "5f6956d00a5ff4216d1c83d866a73e791d775466f38b518e65465428bc3205fb",
-            "result": "----------------------------------------------------------------------\nRan 71 tests in 0.671s\n\nOK"
-          },
-          {
-            "command": "python3 tools/verify_package.py",
-            "exit_code": 0,
-            "elapsed_seconds": 0.094,
-            "output_sha256": "4ab0be841e7abbfa30f2760aa02b13ddbba4b5d01c25452613e52bd726627f7b",
-            "result": {
-              "status": "passed"
-            }
-          }
-        ],
-        "scope": "Current course candidate including direct-download behavior; no new GPU training."
+        "completed_at": "2026-09-13T07:04:01.123460+00:00",
+        "command": "python3 -m unittest discover -s tests -v",
+        "exit_code": 0,
+        "tests": 78,
+        "output_sha256": "43ac81c6562f7a71d566886e7f28ccabdbd52cac59fe9bdd5a97fc664acb6795"
       }
     },
     "browser_checks": {
       "status": "passed",
-      "detail": "Actual Chromium keyboard, quiz, offline/no-JS, four-width layout and print-answer checks.",
+      "detail": "Rechecked current HTML with the video navigation link and refreshed walkthrough citation.",
       "receipt": {
         "status": "passed",
-        "completed_at": "2026-09-13T05:44:16.180185+00:00",
-        "html_sha256": "5aa24cf4b7283f21a54dc775a3bda390516dcec191e32a7332c891045cd5e8f5",
+        "completed_at": "2026-09-13T06:56:24.368258+00:00",
+        "html_sha256": "416cefac99aa6848070f89c02f54543681f5c12578694b0af6cc9f92eccdbe32",
         "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
         "passed_checks": [
           "correct_answers",
@@ -196,28 +165,18 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
           1440
         ],
         "method": "automated browser functional rehearsal; not a human learning or timing study",
-        "elapsed_seconds": 33.796,
+        "elapsed_seconds": 33.55,
         "hosted_url": null,
         "download_bytes_equal": null,
-        "print_pdf_sha256": "b557c42c485940aefa839022067982edad8eee0432814b2169217dcef1942f7d",
+        "print_pdf_sha256": "8dff4c4029822056189737295ffe8e6190654f205696c53040488db9ffba623e",
         "screenshots": {
-          "course-1440.png": "3b9d65c1fb7b244fb7636371212ce1dafdd3e07dc56d35e7bc6fab95682b346c",
-          "course-320.png": "568069b407991443911234c4acd1a6a407d919d861d9df732e7da3b349d4a24a",
-          "course-390.png": "545762ed2a16005895962161c31ea43f968bfb43a51e7d120cd5466b3adac713",
-          "course-768.png": "c732d2d544f20925551e4826673ba79f7fe50be74feff1dd225c1cd431c897a0",
-          "course-no-js.png": "0a6089b4b4c5fbbba8600c12621679436d19cef789cf46e090b199dc57e60f79",
+          "course-1440.png": "146fe10e2ddd22f4ffa0b0088c7b8f355065a2f65bd327e576c884e737b7caba",
+          "course-320.png": "b496092b92691f197bf64e2e8bea634c1b9d7d2598c7e68acf8d61c01e97143d",
+          "course-390.png": "cd4b6ae2d72b02c98ae8352dd88b84d125e7bc60f92fd0dc6e86c35ad5951471",
+          "course-768.png": "dc814131b01894f991b6f03d3f3f008a6aacd25522cfb2089218356e99ce5869",
+          "course-no-js.png": "1a4cd555dec21589109df5129b6d82e781eb4cfb65262ca87546d1a3dbfbb516",
           "recorded-example.png": "ad5cd491cd138895a08f4e4e33215d8360fd7ef21ec7d84b29bb41c556a2004b"
-        },
-        "print_text_check": {
-          "status": "passed",
-          "method": "pdftotext comparison against all eight complete explanations, the known label and final rubric.",
-          "pdf_sha256": "b557c42c485940aefa839022067982edad8eee0432814b2169217dcef1942f7d"
-        },
-        "corrected_findings": [
-          "Print CSS originally concealed closed answer panels; explicit details-content visibility fixed it.",
-          "Print test originally indexed a shrinking open-details collection; stable details iteration fixed the automation.",
-          "Raw GitHub download navigated to source text; same-origin download was exercised and matched the HTML bytes."
-        ]
+        }
       }
     },
     "human_rehearsal": {
@@ -225,79 +184,18 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
       "detail": "No human has yet completed the full route with observed segment durations and teach-back. Planned timing and automated clicking are not substituted for this observation."
     },
     "publication": {
-      "status": "passed",
-      "detail": "Anonymous public page and same-origin download matched the reviewed HTML; hosted browser checks and both GitHub workflows passed. The historical release still has seven assets at its original commit.",
-      "receipt": {
-        "completed_at": "2026-09-13T05:48:30.908769+00:00",
-        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/course/",
-        "html_sha256": "5aa24cf4b7283f21a54dc775a3bda390516dcec191e32a7332c891045cd5e8f5",
-        "served_bytes_equal": true,
-        "download_bytes_equal": true,
-        "course_implementation_commit": "4ff6f6bc34425dfd5072588339151c4d3d8b6ef3",
-        "ci": [
-          {
-            "conclusion": "success",
-            "databaseId": 34741084725,
-            "headSha": "4ff6f6bc34425dfd5072588339151c4d3d8b6ef3",
-            "name": "CPU verification",
-            "status": "completed",
-            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34741084725"
-          },
-          {
-            "conclusion": "success",
-            "databaseId": 34741084759,
-            "headSha": "4ff6f6bc34425dfd5072588339151c4d3d8b6ef3",
-            "name": "Publish measured replay",
-            "status": "completed",
-            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34741084759"
-          }
-        ],
-        "hosted_browser": {
-          "status": "passed",
-          "completed_at": "2026-09-13T05:47:11.023607+00:00",
-          "html_sha256": "5aa24cf4b7283f21a54dc775a3bda390516dcec191e32a7332c891045cd5e8f5",
-          "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
-          "passed_checks": [
-            "correct_answers",
-            "keyboard",
-            "no_js_answers",
-            "no_page_errors",
-            "offline_core",
-            "print_answers",
-            "reveals_do_not_score",
-            "rubric_separate",
-            "wrong_answer_feedback"
-          ],
-          "viewport_widths_without_overflow": [
-            320,
-            390,
-            768,
-            1440
-          ],
-          "method": "automated browser functional rehearsal; not a human learning or timing study",
-          "elapsed_seconds": 33.968,
-          "hosted_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/course/",
-          "download_bytes_equal": true,
-          "print_pdf_sha256": "e0297439ed9e02bfbec1daa51302cb589dbe044df9202ffb4b455c0980a2d997",
-          "screenshots": {
-            "course-1440.png": "3b9d65c1fb7b244fb7636371212ce1dafdd3e07dc56d35e7bc6fab95682b346c",
-            "course-320.png": "568069b407991443911234c4acd1a6a407d919d861d9df732e7da3b349d4a24a",
-            "course-390.png": "545762ed2a16005895962161c31ea43f968bfb43a51e7d120cd5466b3adac713",
-            "course-768.png": "c732d2d544f20925551e4826673ba79f7fe50be74feff1dd225c1cd431c897a0",
-            "course-no-js.png": "1a4cd555dec21589109df5129b6d82e781eb4cfb65262ca87546d1a3dbfbb516",
-            "recorded-example.png": "ad5cd491cd138895a08f4e4e33215d8360fd7ef21ec7d84b29bb41c556a2004b"
-          }
-        },
-        "preserved_release": {
-          "tag": "customer-2026-09-15-audited",
-          "target_commit": "17b4aaebcf9327ae9967ca45ddfaf16325766993",
-          "named_assets": 7
-        }
-      }
+      "status": "pending",
+      "detail": "Rechecking the video navigation extension and refreshed walkthrough reference.",
+      "receipt": {}
     }
   },
-  "source_sha256": "86dfc769fec5afcf9a59348e73caf8c9261c7d1570dfcb480e0435e9284a186e",
-  "html_sha256": "5aa24cf4b7283f21a54dc775a3bda390516dcec191e32a7332c891045cd5e8f5"
+  "source_sha256": "1b290f90276eceb1d455580f19c78f2fd7f403942e9f504d46c6a21ef8508cfc",
+  "html_sha256": "416cefac99aa6848070f89c02f54543681f5c12578694b0af6cc9f92eccdbe32",
+  "prior_course_receipt": {
+    "commit": "49078618f77da068b45fb5b0b8dc51698a617ff6",
+    "path": "docs/customer/course-verification.md",
+    "scope": "Historical 71-test HTML course snapshot; no video delivered at that point."
+  }
 }
 ```
 

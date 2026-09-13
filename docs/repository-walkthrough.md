@@ -1,6 +1,6 @@
 # Every file in the NetMamba+ repository
 
-This is a plain-language map of **all 180 tracked files**, including this walkthrough. Each file has its own entry below. The 173-file audited experiment at commit `17b4aaebcf9327ae9967ca45ddfaf16325766993` was followed by this walkthrough, then six course files. The course adds teaching and verification; it does not change experiment code, data settings, results or the original customer presentation. The current checksum index adds the new course documents while preserving every previous artifact's fingerprint.
+This is a plain-language map of **all 198 tracked files**, including this walkthrough. Each file has its own entry below. The 173-file audited experiment at commit `17b4aaebcf9327ae9967ca45ddfaf16325766993` was followed by this walkthrough, then six interactive-course files and eighteen video files. The course adds teaching and verification; it does not change experiment code, data settings, results or the original customer presentation. The current checksum index adds the new course documents and video assets while preserving every previous artifact's fingerprint.
 
 “Tracked” means included in Git and visible in the GitHub repository. The downloaded authors’ code, raw data, locally trained weights, temporary files and Git’s internal history are outside that inventory. Their roles are explained near the end. The existing audited release remains a fixed package of its recorded commit; this later walkthrough is available from the current repository. The [standalone course HTML](https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/demo/course/index.html) is also a current-repository download. Save the linked file and open it in a browser; its essential lessons need no installation. It does not change the seven historical release attachments.
 
@@ -145,7 +145,7 @@ An important distinction: a probe manifest can say `succeeded` because the probe
 
 ## 6. `tests/`: CPU regression tests
 
-These use temporary examples and controlled substitutes for expensive components. Their purpose is to catch software mistakes and verify rejection behavior. The original audited suite contains 54 tests; 17 additional course tests bring current main to 71. The real GPU experiments have separate evidence.
+These use temporary examples and controlled substitutes for expensive components. Their purpose is to catch software mistakes and verify rejection behavior. The original audited suite contains 54 tests; 17 additional course tests brought the HTML-course snapshot to 71; seven video checks bring current main to 78. The real GPU experiments have separate evidence.
 
 | File | What it does and when you would open it |
 |---|---|
@@ -432,6 +432,31 @@ These are research and review records. Model-assisted review can identify issues
 | [final-council-receipt.json](research/final-council-receipt.json) | Records both pinned seats’ exact-hash acceptance of the final decision, with model/effort identity and scope. It is a ratification receipt, not a GitHub publication or GPU certification receipt. |
 | [final-council-review.md](research/final-council-review.md) | Readable explanation of that final council decision, its exact hash, the earlier escalation and the local corrections/checks that followed. Links to the separate final public release verification. |
 
+## 14. Narrated course video: every new file
+
+The [watch page](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) is the actual video. The MP4, WebM, transcript, captions, chapters and media manifest are also separately downloadable from [course-video-v1](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/course-video-v1). MP4 is the ordinary offline presentation file; WebM is the alternative browser format; VTT/SRT are subtitle formats; the transcript is readable text; chapter JSON provides navigation times; the manifest identifies exact bytes. Each download is explained individually below. This later release does not replace or modify the seven original audited attachments.
+
+| File | What it does and when you would open it |
+|---|---|
+| [docs/customer/video-course-source.json](customer/video-course-source.json) | Editable narration and visible teaching for all 60 video scenes. Uses evidence-bound numbers, exact chapter budgets and explicit practice durations; the speech cache follows these identities. |
+| [docs/customer/video-verification.md](customer/video-verification.md) | Video front door: watch/download links, setup and rebuild commands, all seven customer answers, every scene’s timecode, council decision and actual media/publication receipts. Human listening review stays visibly pending. |
+| [docs/customer/demo/video/NetMambaPlus-30-minute-course.mp4](customer/demo/video/NetMambaPlus-30-minute-course.mp4) | The actual narrated 30:00, 1080p H.264/AAC course. Download it for offline presentation; visible captions and countdowns are included in the picture. |
+| [docs/customer/demo/video/NetMambaPlus-30-minute-course.webm](customer/demo/video/NetMambaPlus-30-minute-course.webm) | The same course encoded as VP9/Opus for browsers that cannot decode the MP4 codecs. The watch page uses this compatible browser format. |
+| [docs/customer/demo/video/index.html](customer/demo/video/index.html) | Public watch page with native playback controls, keyboard-accessible chapter seeking, downloads and the complete reflowing transcript. It does not run inference. |
+| [docs/customer/demo/video/poster.png](customer/demo/video/poster.png) | Opening teaching image shown before playback. It is a course illustration, not a live network screenshot. |
+| [docs/customer/demo/video/captions.vtt](customer/demo/video/captions.vtt) | Timed WebVTT captions loaded by the browser’s optional English text track; also a separate download. The encoded video already includes visible captions. |
+| [docs/customer/demo/video/captions.srt](customer/demo/video/captions.srt) | The same timed caption text in SubRip format for desktop players and editing tools. |
+| [docs/customer/demo/video/transcript.md](customer/demo/video/transcript.md) | Complete timestamped narration, visible teaching points, announced practices and evidence links. Read or download it without playing audio. |
+| [docs/customer/demo/video/chapters.json](customer/demo/video/chapters.json) | Nine chapter titles and exact start/end seconds, from 00:00 through 30:00. |
+| [docs/customer/demo/video/media-manifest.json](customer/demo/video/media-manifest.json) | Binds the video source, local voice/model identities, 60 scenes, caption cues, cited files and downloadable media hashes. This build manifest is distinct from the verification receipt. |
+| [docs/research/video-council-decision.json](research/video-council-decision.json) | Immutable exact-hash two-seat video review. Defines treatment and acceptance criteria; does not certify unseen final media or turn a pending human review into a pass. |
+| [requirements/video.txt](../requirements/video.txt) | Pinned packages for the Python 3.12 narration/rendering roles. FFmpeg, fonts and local Kokoro model files are separate rebuild prerequisites; viewers install nothing. |
+| [tests/test_course_video.py](../tests/test_course_video.py) | Seven CPU regression tests check current source/media/page agreement and reject truncated or missing-audio metadata, silent audio windows, invalid captions, changed bytes and invalid frame budgets. |
+| [tools/narrate_course_video.py](../tools/narrate_course_video.py) | Runs local Kokoro sentence synthesis and writes WAV/timing caches. Hashes the source, voice and audio; refuses stale or changed inputs. No online voice calls. |
+| [tools/build_course_video.py](../tools/build_course_video.py) | Draws evidence-backed teaching layouts, fits measured speech without acceleration, writes captions and chapters, and encodes MP4. Its separate WebM mode creates the browser-compatible copy. |
+| [tools/build_video_page.py](../tools/build_video_page.py) | Generates the watch page and reflowing transcript from the media manifest. The read-only --check option detects stale page bytes. |
+| [tools/verify_course_video.py](../tools/verify_course_video.py) | Verifies source/caption/file agreement using standard Python. Optional FFmpeg mode completely decodes and measures MP4 audio; optional Playwright mode tests playback, seeking, captions and downloads. It records automated scope explicitly. |
+
 ## Files you may see locally that are not tracked in this repo
 
 The inventory above explains every repository file. Setup and execution create additional local files:
@@ -442,6 +467,7 @@ The inventory above explains every repository file. Setup and execution create a
 - **`assets/acquisition.json`**: locally generated receipt recording acquisition statuses, expected hashes and inventory identity.
 - **`runs/<new-name>/`**: a new experiment’s local manifest, logs, metrics and possibly checkpoints/predictions/HTML. A training directory can contain `checkpoint-best.pth`; the runbook requires fresh output directories to avoid mixing runs.
 - **Local model exports**: `seed0-classifier.pth`, `seed1-classifier.pth`, `seed2-classifier.pth` and their provenance JSON. These are generated by experiment review. Only their provenance and derived prediction evidence are published in the Git tree.
+- **`runs/video-course/`**: local speech WAVs, sentence timings, rendered frames, codec logs, speech-recognition checks and disposable negative-test videos. These are rebuild/verification intermediates; the published MP4 and its supporting files live under `docs/customer/demo/video/`.
 - **Virtual environments and build directories**: installed Python packages, compiler outputs and disposable copies of native dependency source. They are environment-specific and excluded from Git.
 - **`.git/` and `__pycache__/`**: Git’s internal history/index and Python’s generated bytecode caches. Neither is application source you need to edit.
 - **Original uploaded PDF/CSVs**: inputs supplied outside the Git tree. The shared package includes research explanations and CSV profiles, not copies of those original large uploads.
