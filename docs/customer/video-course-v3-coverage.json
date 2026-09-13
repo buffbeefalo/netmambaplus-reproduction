@@ -3476,7 +3476,7 @@
   "assembly": {
     "review_bundle": {
       "path": "docs/research/video-audit-v3.json",
-      "sha256": "a6e9ec172ecd81d148c8e128fd3eef126aa74f78d0974c13f05b5faf75cf801e"
+      "sha256": "2420b29a712780e54a5a1695b435e2f89d2e2da9dddccd945fb00fdde07c5fb2"
     },
     "method": "Exact reviewed source/guide excerpts and existing completed proof records; no status was synthesized.",
     "inventory_scope": "Every Git-tracked and nonignored file is mapped; no published files are excluded.",

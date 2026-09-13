@@ -148504,22 +148504,16 @@
     "scope": "Current code after the temporary-path assertion correction; remote OS matrix separately recorded."
   },
   "credential_pattern_scan": {
-    "identity": {
-      "path": "runs/video-course/v3-secret-pattern-scan.json",
-      "sha256": "f6d3a6131cbfe0873d8e5d1478de019f888eead2a9eb8153b72842f05398b586"
-    },
-    "record": {
-      "status": "passed",
-      "checked_text_files": 207,
-      "patterns": [
-        "private_key",
-        "github_token",
-        "openai_key",
-        "aws_access_key"
-      ],
-      "findings": [],
-      "scope": "Bounded credential-pattern scan of actual Git inventory; no matched secret content printed."
-    }
+    "status": "passed",
+    "checked_text_files": 222,
+    "patterns": [
+      "private_key",
+      "github_token",
+      "openai_key",
+      "aws_access_key"
+    ],
+    "findings": [],
+    "scope": "Bounded credential-pattern scan of the actual final Git text inventory after publication receipts were appended. No matched secret content printed; not a guarantee against every possible secret format."
   },
   "ci_portability_correction": {
     "initial_run": {
@@ -148585,7 +148579,13 @@
       ],
       "finding": "The test still checks exact resolved identity and the original checksum, geometry and duration guards. The existing file-guide explanation and video setup/testing description remain accurate. No production code or media bytes changed."
     },
-    "remote_retest_status": "pending_new_commit"
+    "remote_retest_status": "passed",
+    "successful_retest": {
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756231815",
+      "revision": "cd028059818f38c51f40589214eac5a6a521ad3e",
+      "jobs": 6,
+      "tests_per_job": 169
+    }
   },
   "cpu_local_before_path_fix": {
     "status": "passed",
@@ -148641,6 +148641,1383 @@
       "tools/verify_package.py": "74e83f6fc07477e0b67767a30ead3e54935faf8419baeabf52007d94e69a6085",
       "tools/verify_video_course_v3.py": "802833d97d0274281a3d235060207c02367ed60d0390a488dee05167111efbab",
       "tools/video_motion.py": "28a6a312efa35458a03499f9bdaf62c757116fcd9c9bd70ad02168250d8c0f0a"
+    }
+  },
+  "cpu_ci": {
+    "status": "passed",
+    "run_id": 34756231815,
+    "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756231815",
+    "head_sha": "cd028059818f38c51f40589214eac5a6a521ad3e",
+    "workflow": "CPU verification",
+    "created_at": "2026-09-13T12:07:29Z",
+    "updated_at": "2026-09-13T12:08:19Z",
+    "log_sha256": "623c5431686cc9e4b6d915871db4d97b18e4ccbf982df9ceeefb94860f5c0bbb",
+    "jobs": [
+      {
+        "id": 103720946068,
+        "name": "test (ubuntu-24.04, 3.12)",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756231815/job/103720946068",
+        "conclusion": "success",
+        "tests": {
+          "tests": 169,
+          "seconds": 4.717
+        },
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -v",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python repro.py --help",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_package.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_course_video.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_video_course_v3.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/build_video_page.py --check",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 103720946154,
+        "name": "test (windows-2022, 3.10)",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756231815/job/103720946154",
+        "conclusion": "success",
+        "tests": {
+          "tests": 169,
+          "seconds": 11.019
+        },
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -v",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python repro.py --help",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_package.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_course_video.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_video_course_v3.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/build_video_page.py --check",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 103720946178,
+        "name": "test (ubuntu-24.04, 3.10)",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756231815/job/103720946178",
+        "conclusion": "success",
+        "tests": {
+          "tests": 169,
+          "seconds": 3.73
+        },
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -v",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python repro.py --help",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_package.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_course_video.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_video_course_v3.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/build_video_page.py --check",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 103720946179,
+        "name": "test (windows-2022, 3.12)",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756231815/job/103720946179",
+        "conclusion": "success",
+        "tests": {
+          "tests": 169,
+          "seconds": 18.511
+        },
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -v",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python repro.py --help",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_package.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_course_video.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_video_course_v3.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/build_video_page.py --check",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 103720946181,
+        "name": "test (macos-14, 3.12)",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756231815/job/103720946181",
+        "conclusion": "success",
+        "tests": {
+          "tests": 169,
+          "seconds": 3.716
+        },
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -v",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python repro.py --help",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_package.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_course_video.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_video_course_v3.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/build_video_page.py --check",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 103720946233,
+        "name": "test (macos-14, 3.10)",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756231815/job/103720946233",
+        "conclusion": "success",
+        "tests": {
+          "tests": 169,
+          "seconds": 3.295
+        },
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -v",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python repro.py --help",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_package.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_course_video.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/verify_video_course_v3.py",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python tools/build_video_page.py --check",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ],
+    "scope": "Portable unit tests, CLI help, package/evidence checks, course/video readiness and watch-page freshness. No GPU training, media rendering or native Windows/macOS model execution."
+  },
+  "publication_v3": {
+    "status": "passed",
+    "recorded_at": "2026-09-13T12:20:55.859401+00:00",
+    "release": {
+      "status": "passed",
+      "started_at": "2026-09-13T12:09:49.050807+00:00",
+      "release_id": 387887732,
+      "tag_name": "course-video-v3",
+      "target_commitish": "cd028059818f38c51f40589214eac5a6a521ad3e",
+      "tag_commit": "cd028059818f38c51f40589214eac5a6a521ad3e",
+      "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/course-video-v3",
+      "draft": false,
+      "prerelease": true,
+      "latest_release_unchanged": {
+        "id": 387539191,
+        "tag_name": "customer-2026-09-15-audited"
+      },
+      "preserved_releases": [
+        {
+          "tag_name": "course-video-v2",
+          "release_id": 387842816,
+          "target_commitish": "89dd26909eaaa2948212e0d6c543ea30eb0b0885",
+          "assets": 6,
+          "metadata_and_asset_identities": "unchanged"
+        },
+        {
+          "tag_name": "course-video-v1",
+          "release_id": 387829662,
+          "target_commitish": "1b08fdcbd455c0bb4cede931cd01196385097c7b",
+          "assets": 6,
+          "metadata_and_asset_identities": "unchanged"
+        },
+        {
+          "tag_name": "customer-2026-09-15-audited",
+          "release_id": 387539191,
+          "target_commitish": "17b4aaebcf9327ae9967ca45ddfaf16325766993",
+          "assets": 7,
+          "metadata_and_asset_identities": "unchanged"
+        },
+        {
+          "tag_name": "customer-2026-09-15",
+          "release_id": 387503132,
+          "target_commitish": "9ef305e717eaee781bbdc19f5b7f635e3d50f055",
+          "assets": 6,
+          "metadata_and_asset_identities": "unchanged"
+        }
+      ],
+      "baseline_sha256": "8ca7636801339b4e03e229dc9b9b1a98156b7cdc10b9536e1b848ee421082f5a",
+      "downloads": [
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v2",
+          "name": "captions.srt",
+          "asset_id": 560890565,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/captions.srt",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 37993,
+          "sha256": "5ef8241d6d55257fa18a385b1a697296768cf55253b8d71f1a207838da2e9eeb",
+          "expected_sha256": "5ef8241d6d55257fa18a385b1a697296768cf55253b8d71f1a207838da2e9eeb",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v2",
+          "name": "chapters.json",
+          "asset_id": 560890570,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/chapters.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 1086,
+          "sha256": "0df6d396da78156e3724019119eaad6b35923a3420dbb28a8f7ee182d6ab4c15",
+          "expected_sha256": "0df6d396da78156e3724019119eaad6b35923a3420dbb28a8f7ee182d6ab4c15",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v2",
+          "name": "captions.vtt",
+          "asset_id": 560890569,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/captions.vtt",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 36461,
+          "sha256": "e519c6e38a56bb7d94741caaa410dff5d031c585756ada50fbe308a8eb337010",
+          "expected_sha256": "e519c6e38a56bb7d94741caaa410dff5d031c585756ada50fbe308a8eb337010",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v2",
+          "name": "media-manifest.json",
+          "asset_id": 560890566,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/media-manifest.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 136293,
+          "sha256": "4b7db9fcba435607dc7a17c423bfddd7ea58fc1f419adb7c32e1aca913752756",
+          "expected_sha256": "4b7db9fcba435607dc7a17c423bfddd7ea58fc1f419adb7c32e1aca913752756",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v2",
+          "name": "transcript.md",
+          "asset_id": 560890568,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/transcript.md",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 48313,
+          "sha256": "419def72f7215bd63c13459b67b4f53b34b5abde15ebe87e04ee18b6249e4e53",
+          "expected_sha256": "419def72f7215bd63c13459b67b4f53b34b5abde15ebe87e04ee18b6249e4e53",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v1",
+          "name": "captions.srt",
+          "asset_id": 560811569,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v1/captions.srt",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 38036,
+          "sha256": "1f7c17cd65086a7939945f70db1983182647cdaf6642c98ad95f2f9475a2e918",
+          "expected_sha256": "1f7c17cd65086a7939945f70db1983182647cdaf6642c98ad95f2f9475a2e918",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v1",
+          "name": "captions.vtt",
+          "asset_id": 560811573,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v1/captions.vtt",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 36500,
+          "sha256": "5cf0504c070d40aede44c3612f7879c4deca3784fafe3001f090297a83e8047c",
+          "expected_sha256": "5cf0504c070d40aede44c3612f7879c4deca3784fafe3001f090297a83e8047c",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v1",
+          "name": "chapters.json",
+          "asset_id": 560811571,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v1/chapters.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 1087,
+          "sha256": "6ad2199cf458ff51499254cab4fc6ef9be4b57e7b24508f3c2379547e501764b",
+          "expected_sha256": "6ad2199cf458ff51499254cab4fc6ef9be4b57e7b24508f3c2379547e501764b",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v1",
+          "name": "media-manifest.json",
+          "asset_id": 560811586,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v1/media-manifest.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 134798,
+          "sha256": "ad9d843f9defd331b93dd5e03b9774d51f052107b36bbd026912955676863474",
+          "expected_sha256": "ad9d843f9defd331b93dd5e03b9774d51f052107b36bbd026912955676863474",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v1",
+          "name": "transcript.md",
+          "asset_id": 560811572,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v1/transcript.md",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 47539,
+          "sha256": "9dab55f2849a0371ef1f2fc7c6b511809c814d96dbcc4b716029ac32247df560",
+          "expected_sha256": "9dab55f2849a0371ef1f2fc7c6b511809c814d96dbcc4b716029ac32247df560",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15-audited",
+          "name": "NetMambaPlus-customer-briefing.pdf",
+          "asset_id": 559094027,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/NetMambaPlus-customer-briefing.pdf",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 90959,
+          "sha256": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d",
+          "expected_sha256": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v2",
+          "name": "NetMambaPlus-30-minute-course.mp4",
+          "asset_id": 560891351,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/NetMambaPlus-30-minute-course.mp4",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 38130518,
+          "sha256": "6ebc3f93861997eb3894dbec98d1b496f3fe33374eeb74453277d89bb93dd416",
+          "expected_sha256": "6ebc3f93861997eb3894dbec98d1b496f3fe33374eeb74453277d89bb93dd416",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15-audited",
+          "name": "NetMambaPlus-customer-slides.pdf",
+          "asset_id": 559094026,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/NetMambaPlus-customer-slides.pdf",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 515749,
+          "sha256": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1",
+          "expected_sha256": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15-audited",
+          "name": "release-inventory.json",
+          "asset_id": 559094041,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/release-inventory.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 757,
+          "sha256": "cd4a3dd9cb6a42fbda582fbf02bb67b719e098c7ffc8101482abd347bebdf75d",
+          "expected_sha256": "cd4a3dd9cb6a42fbda582fbf02bb67b719e098c7ffc8101482abd347bebdf75d",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15-audited",
+          "name": "NetMambaPlus-customer-slides.pptx",
+          "asset_id": 559093990,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/NetMambaPlus-customer-slides.pptx",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 256511,
+          "sha256": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5",
+          "expected_sha256": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15-audited",
+          "name": "SHA256SUMS-release.txt",
+          "asset_id": 559094025,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/SHA256SUMS-release.txt",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 400,
+          "sha256": "b9c3e3c9b078281c97460f6fdf53bacd5a9b59206a6998f4d2b50c5389fbee3e",
+          "expected_sha256": "b9c3e3c9b078281c97460f6fdf53bacd5a9b59206a6998f4d2b50c5389fbee3e",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15-audited",
+          "name": "release-verification.json",
+          "asset_id": 559097138,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/release-verification.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 10070,
+          "sha256": "3201a2d1018a8676025fe6207b90dd2ab2dafdc7a2c80339ae031fe34d71899b",
+          "expected_sha256": "3201a2d1018a8676025fe6207b90dd2ab2dafdc7a2c80339ae031fe34d71899b",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15-audited",
+          "name": "netmambaplus-customer-package.zip",
+          "asset_id": 559094024,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/netmambaplus-customer-package.zip",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 3634849,
+          "sha256": "dc81df8442ac29f81a5a27e4a4f7ec277e76709204d3204aeb8cacea22ad9b8a",
+          "expected_sha256": "dc81df8442ac29f81a5a27e4a4f7ec277e76709204d3204aeb8cacea22ad9b8a",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "course-video-v1",
+          "name": "NetMambaPlus-30-minute-course.mp4",
+          "asset_id": 560814536,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v1/NetMambaPlus-30-minute-course.mp4",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 37861771,
+          "sha256": "1ff19bf545fe14a4bf1f61112a1fdfd7dc107a36ca4c91a749c4f6dfaea8082b",
+          "expected_sha256": "1ff19bf545fe14a4bf1f61112a1fdfd7dc107a36ca4c91a749c4f6dfaea8082b",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15",
+          "name": "NetMambaPlus-customer-briefing.pdf",
+          "asset_id": 558899244,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15/NetMambaPlus-customer-briefing.pdf",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 63738,
+          "sha256": "d9f8c2e22adb053445591fad2880bd993d23c5d42c772495ad568f1d71fe6219",
+          "expected_sha256": "d9f8c2e22adb053445591fad2880bd993d23c5d42c772495ad568f1d71fe6219",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15",
+          "name": "NetMambaPlus-customer-slides.pdf",
+          "asset_id": 558899237,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15/NetMambaPlus-customer-slides.pdf",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 480562,
+          "sha256": "2d3f99e32ed917080d47b20ca2d8d2990ed7a838de094f8414fa731c9874761e",
+          "expected_sha256": "2d3f99e32ed917080d47b20ca2d8d2990ed7a838de094f8414fa731c9874761e",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15",
+          "name": "netmambaplus-customer-package.zip",
+          "asset_id": 558899243,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15/netmambaplus-customer-package.zip",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 3148765,
+          "sha256": "772c917674e41a944fd96b2b0d57f4a41166bce35aecb8568eed23edec57960a",
+          "expected_sha256": "772c917674e41a944fd96b2b0d57f4a41166bce35aecb8568eed23edec57960a",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15",
+          "name": "release-verification.json",
+          "asset_id": 558901766,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15/release-verification.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 2848,
+          "sha256": "408de205c6f668ebbbbc1cf5a4361135948ede78c9f002ff3f9165b048d8f828",
+          "expected_sha256": "408de205c6f668ebbbbc1cf5a4361135948ede78c9f002ff3f9165b048d8f828",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15",
+          "name": "NetMambaPlus-customer-slides.pptx",
+          "asset_id": 558899241,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15/NetMambaPlus-customer-slides.pptx",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 244783,
+          "sha256": "73583bdc09fd56d4754016ec041f53212204408b98796ae82f31964d8ecc778a",
+          "expected_sha256": "73583bdc09fd56d4754016ec041f53212204408b98796ae82f31964d8ecc778a",
+          "status": "passed"
+        },
+        {
+          "scope": "preserved_release",
+          "tag_name": "customer-2026-09-15",
+          "name": "SHA256SUMS-release.txt",
+          "asset_id": 558899240,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15/SHA256SUMS-release.txt",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 400,
+          "sha256": "6320d38c38e7a587634a771bf043dedd24a3b368cdaa8739e7fede261dedfea2",
+          "expected_sha256": "6320d38c38e7a587634a771bf043dedd24a3b368cdaa8739e7fede261dedfea2",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "captions.srt",
+          "asset_id": 561153789,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/captions.srt",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 89933,
+          "sha256": "693274e9d52811763932fa989bb48021f5d5798ccc6e9d34f59b6b2d7d9e7873",
+          "expected_sha256": "693274e9d52811763932fa989bb48021f5d5798ccc6e9d34f59b6b2d7d9e7873",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "captions.vtt",
+          "asset_id": 561153775,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/captions.vtt",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 85893,
+          "sha256": "2ffb37d628c56ce80bd6a81cf4ad91a71c91baeabc0ea3c239c409bad30a7386",
+          "expected_sha256": "2ffb37d628c56ce80bd6a81cf4ad91a71c91baeabc0ea3c239c409bad30a7386",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "chapters.json",
+          "asset_id": 561153804,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/chapters.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 1525,
+          "sha256": "a9cbb062f7dcfef6ab8ad1c6a7b0b4da960f8270dcb648f350ed64d07db0c72f",
+          "expected_sha256": "a9cbb062f7dcfef6ab8ad1c6a7b0b4da960f8270dcb648f350ed64d07db0c72f",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "companion-manifest.json",
+          "asset_id": 561153880,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/companion-manifest.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 28363,
+          "sha256": "b99fa2d232cf89ff5bfcdf9a4819ce2e5871a6753673a96360462be26d459fbf",
+          "expected_sha256": "b99fa2d232cf89ff5bfcdf9a4819ce2e5871a6753673a96360462be26d459fbf",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "media-manifest.json",
+          "asset_id": 561153849,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/media-manifest.json",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 368447,
+          "sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709",
+          "expected_sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "NetMambaPlus-course-handbook.pdf",
+          "asset_id": 561154040,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-course-handbook.pdf",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 443865,
+          "sha256": "dfeaf712407a2d9aa023de7b21cc99d0fe9a5e835efd9b95920af0048a74005a",
+          "expected_sha256": "dfeaf712407a2d9aa023de7b21cc99d0fe9a5e835efd9b95920af0048a74005a",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "NetMambaPlus-course-slides.pdf",
+          "asset_id": 561153981,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-course-slides.pdf",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 5934158,
+          "sha256": "3a9fe8e1d4027ec5519fb52f0e8f014b8d7eb06650abd011c7d5730c326c476e",
+          "expected_sha256": "3a9fe8e1d4027ec5519fb52f0e8f014b8d7eb06650abd011c7d5730c326c476e",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "transcript.md",
+          "asset_id": 561153821,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/transcript.md",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 96602,
+          "sha256": "6442ae8081471ef12f5e06dc864c1aa55a0841d52ae5f1d6e0a2e6c6be9fbe8a",
+          "expected_sha256": "6442ae8081471ef12f5e06dc864c1aa55a0841d52ae5f1d6e0a2e6c6be9fbe8a",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "NetMambaPlus-course-slides.pptx",
+          "asset_id": 561153906,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-course-slides.pptx",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 5385872,
+          "sha256": "969ec7c3a08a0128b18f84aa4d3f2cd7a0595043118d002dc35ce8ad3cdd2e5c",
+          "expected_sha256": "969ec7c3a08a0128b18f84aa4d3f2cd7a0595043118d002dc35ce8ad3cdd2e5c",
+          "status": "passed"
+        },
+        {
+          "scope": "new_course_release",
+          "tag_name": "course-video-v3",
+          "name": "NetMambaPlus-one-hour-course.mp4",
+          "asset_id": 561154075,
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-one-hour-course.mp4",
+          "http_status": 200,
+          "anonymous": true,
+          "bytes": 83147523,
+          "sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29",
+          "expected_sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29",
+          "status": "passed"
+        }
+      ],
+      "completed_at": "2026-09-13T12:10:08.194032+00:00",
+      "new_course_downloads": 10,
+      "preserved_downloads": 25
+    },
+    "pages": {
+      "status": "passed",
+      "observed_at": "2026-09-13T12:13:17.132628+00:00",
+      "run_id": 34756376535,
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34756376535",
+      "head_sha": "cd028059818f38c51f40589214eac5a6a521ad3e",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "deploy",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python3 -m unittest discover -s tests -v",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python3 tools/verify_package.py",
+              "conclusion": "success"
+            },
+            {
+              "name": "Stage the public site without the retired interactive course",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/configure-pages@v5",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-pages-artifact@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Deploy measured replay",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ],
+      "retired_course": {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/course/",
+        "http_status": 404,
+        "body_sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+        "scope": "Anonymous HTTP GET after successful v3 Pages deployment."
+      }
+    },
+    "public_browser": {
+      "status": "passed",
+      "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/",
+      "completed_at": "2026-09-13T12:12:18.197329+00:00",
+      "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
+      "html_sha256": "1ba38abf4eaa4ca01973b7493a75818db77d210d226b0da5bd2a5540914aaf7e",
+      "mp4_sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29",
+      "decoded_frames_and_audio_bytes": {
+        "audio": 15595,
+        "video": 35,
+        "played_src": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-one-hour-course.webm"
+      },
+      "caption_count": 1073,
+      "keyboard_playback": true,
+      "keyboard_chapter_offsets": [
+        0.0,
+        283.0,
+        599.0,
+        900.0,
+        1206.0,
+        1500.0,
+        1800.0,
+        2086.0,
+        2373.0,
+        2641.0,
+        2929.0,
+        3233.0
+      ],
+      "scheduled_seconds": 3600,
+      "near_end_seek_seconds": 3590,
+      "seek_and_play_near_end": true,
+      "download_bytes_equal": true,
+      "served_bytes_equal": true,
+      "viewport_widths_without_overflow": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "page_errors": [],
+      "screenshots": {
+        "video-390.png": "f06d9361185a1cd649dcc979c69a11aa0a46053b6c03185bf8e42fd961efd309",
+        "video-320.png": "04b57d027ff200ae17de5f2972a2fe5a419136dca4ce7b8c02634e8ccaeaef66",
+        "video-1440.png": "75e51abe0a895179c9fda44bd32e0b03188ce92cf1be4c2e92f47392ba3b094d",
+        "video-768.png": "486149e3ec76d4e94214ff3e494d5ae52e1a8d3a5974a02c1aff9d5588e9fb89"
+      }
+    },
+    "public_surface_review": {
+      "schema_version": 1,
+      "status": "passed",
+      "completed_at": "2026-09-13T12:20:06.099Z",
+      "reviewer": "Codex",
+      "review_kind": "independent_publication_surface_review",
+      "material_findings": [],
+      "verdict": "No material publication-surface defect found. The reviewed public page and release promote one hour-long lesson, expose matching companion downloads, identify Andrew/Codex roles, map the seven questions to chapters and preserve measured-result and human-review limits.",
+      "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+      "mp4_sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29",
+      "webm_sha256": "ecc742ed80fa8ed6b811d6f2255acfccd1e250adfd533475fdca09f0141a8499",
+      "public_page": {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/",
+        "http_status": 200,
+        "bytes": 97291,
+        "sha256": "1ba38abf4eaa4ca01973b7493a75818db77d210d226b0da5bd2a5540914aaf7e",
+        "retrieved_at": "2026-09-13T12:14:08.081420+00:00",
+        "video_elements": 1,
+        "media_sources": [
+          {
+            "tag": "source",
+            "src": "v3/NetMambaPlus-one-hour-course.webm",
+            "type": "video/webm"
+          },
+          {
+            "tag": "source",
+            "src": "v3/NetMambaPlus-one-hour-course.mp4",
+            "type": "video/mp4"
+          }
+        ],
+        "caption_track": {
+          "tag": "track",
+          "kind": "captions",
+          "src": "v3/captions.vtt",
+          "srclang": "en",
+          "label": "English"
+        },
+        "scheduled_seconds": 3600,
+        "chapter_count": 12,
+        "retired_lesson_links_found": 0,
+        "assessment": "One player selects equivalent v3 WebM or MP4. Companion downloads and read-along navigation precede twelve chapters. Andrew renders Codex-authored narration. The page distinguishes the measured 86.65% from the unreproduced 97.50%, describes saved-prediction replay, and labels complete human watch-through and detailed caption review as pending."
+      },
+      "release": {
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/course-video-v3",
+        "api_url": "https://api.github.com/repos/buffbeefalo/netmambaplus-reproduction/releases/tags/course-video-v3",
+        "id": 387887732,
+        "tag_name": "course-video-v3",
+        "target_commitish": "cd028059818f38c51f40589214eac5a6a521ad3e",
+        "draft": false,
+        "prerelease": true,
+        "asset_count": 10,
+        "body_sha256": "46ec176414843133ea208ba0104b47ddc1e6619b8f984d9b1147ed7ee505ab70",
+        "body_updated_at": "2026-09-13T12:15:23Z",
+        "body_retrieved_at": "2026-09-13T12:16:14.563423+00:00",
+        "assessment": "The updated description links directly to the live watch page and identifies the matching PowerPoint, handbook, slide PDF and transcript. It links six-job CI results while retaining the distinction between automated checks and pending human watch/listening/all-caption acceptance. It claims no new training result or live IDS deployment."
+      },
+      "public_media_manifest": {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/media-manifest.json",
+        "http_status": 200,
+        "sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709",
+        "bytes": 368447,
+        "retrieved_at": "2026-09-13T12:15:53.209038+00:00"
+      },
+      "download_discovery": [
+        {
+          "name": "NetMambaPlus-one-hour-course.mp4",
+          "label": "Download MP4 · 79.3 MiB",
+          "page_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-one-hour-course.mp4",
+          "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-one-hour-course.mp4",
+          "release_asset_id": 561154075,
+          "bytes": 83147523,
+          "sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29",
+          "release_digest_matches_public_manifest": true,
+          "independent_head": null
+        },
+        {
+          "name": "NetMambaPlus-course-slides.pptx",
+          "label": "PowerPoint + speaker notes",
+          "page_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-slides.pptx",
+          "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-course-slides.pptx",
+          "release_asset_id": 561153906,
+          "bytes": 5385872,
+          "sha256": "969ec7c3a08a0128b18f84aa4d3f2cd7a0595043118d002dc35ce8ad3cdd2e5c",
+          "release_digest_matches_public_manifest": true,
+          "independent_head": {
+            "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-slides.pptx",
+            "final_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-slides.pptx",
+            "http_status": 200,
+            "content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "content_length": "5385872",
+            "method": "HEAD",
+            "downloaded_body": false
+          }
+        },
+        {
+          "name": "NetMambaPlus-course-slides.pdf",
+          "label": "PDF slides",
+          "page_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-slides.pdf",
+          "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-course-slides.pdf",
+          "release_asset_id": 561153981,
+          "bytes": 5934158,
+          "sha256": "3a9fe8e1d4027ec5519fb52f0e8f014b8d7eb06650abd011c7d5730c326c476e",
+          "release_digest_matches_public_manifest": true,
+          "independent_head": {
+            "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-slides.pdf",
+            "final_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-slides.pdf",
+            "http_status": 200,
+            "content_type": "application/pdf",
+            "content_length": "5934158",
+            "method": "HEAD",
+            "downloaded_body": false
+          }
+        },
+        {
+          "name": "NetMambaPlus-course-handbook.pdf",
+          "label": "PDF handbook + file guide",
+          "page_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-handbook.pdf",
+          "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-course-handbook.pdf",
+          "release_asset_id": 561154040,
+          "bytes": 443865,
+          "sha256": "dfeaf712407a2d9aa023de7b21cc99d0fe9a5e835efd9b95920af0048a74005a",
+          "release_digest_matches_public_manifest": true,
+          "independent_head": {
+            "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-handbook.pdf",
+            "final_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/NetMambaPlus-course-handbook.pdf",
+            "http_status": 200,
+            "content_type": "application/pdf",
+            "content_length": "443865",
+            "method": "HEAD",
+            "downloaded_body": false
+          }
+        },
+        {
+          "name": "transcript.md",
+          "label": "Download transcript",
+          "page_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/transcript.md",
+          "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/transcript.md",
+          "release_asset_id": 561153821,
+          "bytes": 96602,
+          "sha256": "6442ae8081471ef12f5e06dc864c1aa55a0841d52ae5f1d6e0a2e6c6be9fbe8a",
+          "release_digest_matches_public_manifest": true,
+          "independent_head": {
+            "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/transcript.md",
+            "final_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/transcript.md",
+            "http_status": 200,
+            "content_type": "text/markdown; charset=utf-8",
+            "content_length": "96602",
+            "method": "HEAD",
+            "downloaded_body": false
+          }
+        },
+        {
+          "name": "captions.vtt",
+          "label": "Download captions",
+          "page_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/captions.vtt",
+          "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/captions.vtt",
+          "release_asset_id": 561153775,
+          "bytes": 85893,
+          "sha256": "2ffb37d628c56ce80bd6a81cf4ad91a71c91baeabc0ea3c239c409bad30a7386",
+          "release_digest_matches_public_manifest": true,
+          "independent_head": {
+            "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/captions.vtt",
+            "final_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v3/captions.vtt",
+            "http_status": 200,
+            "content_type": "text/vtt; charset=utf-8",
+            "content_length": "85893",
+            "method": "HEAD",
+            "downloaded_body": false
+          }
+        }
+      ],
+      "seven_question_scope": {
+        "status": "passed",
+        "verification_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/video-verification-v3.md",
+        "verification_raw_url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/video-verification-v3.md",
+        "verification_sha256": "190c7caaeb584afb09788104435527d8bfa9b5cd4164549e99a2eef4657b66d9",
+        "retrieved_at": "2026-09-13T12:17:08.343859+00:00",
+        "answers_url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/answers.md",
+        "answers_sha256": "e293eb26550a2c1577c689ccac845ad0321be7bbf2fd41c6aeeedbad3c5565ab",
+        "question_map": [
+          {
+            "topic": "Completed work and working behavior",
+            "starts": [
+              "00:00",
+              "30:00",
+              "34:46"
+            ]
+          },
+          {
+            "topic": "Training and inference",
+            "starts": [
+              "20:06",
+              "25:00"
+            ]
+          },
+          {
+            "topic": "Inputs and outputs",
+            "starts": [
+              "09:59",
+              "15:00",
+              "20:06"
+            ]
+          },
+          {
+            "topic": "Measured results versus paper claims",
+            "starts": [
+              "04:43",
+              "34:46"
+            ]
+          },
+          {
+            "topic": "Recorded IDS demonstration",
+            "starts": [
+              "39:33"
+            ]
+          },
+          {
+            "topic": "NPU and SmartNIC roadmap",
+            "starts": [
+              "53:53"
+            ]
+          },
+          {
+            "topic": "Missing work and operational limits",
+            "starts": [
+              "53:53"
+            ]
+          }
+        ],
+        "method": "Read the public answers headings and the linked verification record's seven-question table. Every table chapter time is present in the public watch navigation."
+      },
+      "screenshots": [
+        {
+          "path": "runs/video-course/v3-public-browser-final/video-320.png",
+          "size": [
+            280,
+            158
+          ],
+          "sha256": "04b57d027ff200ae17de5f2972a2fe5a419136dca4ce7b8c02634e8ccaeaef66",
+          "viewport_width": 320,
+          "directly_viewed": true,
+          "method": "view_image at original dimensions",
+          "observation": "Complete 280 x 158 player crop with Play, volume, fullscreen and menu controls visible. Teaching body text is too small for comfortable inline reading."
+        },
+        {
+          "path": "runs/video-course/v3-public-browser-final/video-390.png",
+          "size": [
+            350,
+            198
+          ],
+          "sha256": "f06d9361185a1cd649dcc979c69a11aa0a46053b6c03185bf8e42fd961efd309",
+          "viewport_width": 390,
+          "directly_viewed": true,
+          "method": "view_image at original dimensions",
+          "observation": "The 350 x 198 player shows 59:51 / 1:00:00 and its controls without horizontal clipping. Teaching body text remains very small."
+        },
+        {
+          "path": "runs/video-course/v3-public-browser-final/video-768.png",
+          "size": [
+            712,
+            402
+          ],
+          "sha256": "486149e3ec76d4e94214ff3e494d5ae52e1a8d3a5974a02c1aff9d5588e9fb89",
+          "viewport_width": 768,
+          "directly_viewed": true,
+          "method": "view_image at original dimensions",
+          "observation": "At 712 x 402 the title and closing teaching statements are readable. Native paused-player controls shade the lower caption region."
+        },
+        {
+          "path": "runs/video-course/v3-public-browser-final/video-1440.png",
+          "size": [
+            1184,
+            667
+          ],
+          "sha256": "75e51abe0a895179c9fda44bd32e0b03188ce92cf1be4c2e92f47392ba3b094d",
+          "viewport_width": 1440,
+          "directly_viewed": true,
+          "method": "view_image at original dimensions",
+          "observation": "At 1184 x 667 the closing title and all three statements are readable. The progress display shows 59:51 / 1:00:00; the native controls partly shade the bottom caption."
+        }
+      ],
+      "nonmaterial_observations": [
+        "Mobile inline video is small. The page supplies a fullscreen affordance and a reflowing transcript; this review does not certify inline slide readability at 320/390 pixels.",
+        "Supplied screenshots capture only the player. They show native controls, including a temporary shaded area over the bottom caption; they do not establish caption readability with controls hidden."
+      ],
+      "actual_actions": [
+        "Opened the public release HTML with web.run and read the description.",
+        "The web.run watch-page request encountered a tool-level safe-open error. Independent anonymous urllib GET succeeded with HTTP 200; parsed the live HTML text, chapter anchors, downloads and media elements.",
+        "Fetched public release API metadata and re-read the updated release body at the recorded time.",
+        "Sent anonymous HEAD requests to the PowerPoint, both PDFs, transcript and VTT. All returned HTTP 200 with expected lengths. Did not download attachment bodies.",
+        "Fetched the linked public answers and verification documents; inspected seven-question coverage, chapter times, scientific-result boundaries and human-review limits.",
+        "Fetched the public media manifest and compared its identities with public release metadata. Independently fetched HTML matches the parent browser receipt's exact hash.",
+        "Directly viewed all four supplied public-browser player screenshots.",
+        "Read the parent download and browser receipts for their stated evidence; did not repeat those full checks."
+      ],
+      "supporting_receipts": [
+        {
+          "path": "runs/video-course/v3-public-release-check/receipt.json",
+          "sha256": "4c61a63724df95462e4e3d54504ba0c96821e44749988ed5354a1336d849e396",
+          "role": "Parent's 35-download identity verification; not repeated."
+        },
+        {
+          "path": "runs/video-course/v3-public-browser-final/browser-check.json",
+          "sha256": "b5866cc163bf75a2c13b750fe18d96cdd4c5e8f789d677ce10432494b2574387",
+          "role": "Parent's public playback, chapter controls, captions and screenshot provenance; not independently rerun."
+        },
+        {
+          "path": "runs/video-course/v3-final-webm/visual-review.json",
+          "sha256": "fd78f555d7c3865f08329a5f4e72ce4dc0ea5faf01385f0e3a3118519d5911e0",
+          "role": "Prior independent review of 20 full-resolution WebM samples."
+        }
+      ],
+      "scope": {
+        "independent_public_http_reads": true,
+        "public_screenshots_directly_viewed": 4,
+        "independent_browser_interaction": false,
+        "full_page_screenshot_review": false,
+        "full_video_decode_repeated": false,
+        "all_download_hashes_repeated": false,
+        "media_watched_or_audio_listened": false,
+        "tracked_files_changed": false,
+        "limits": [
+          "Navigation and download discoverability were assessed from fetched public HTML; screenshots show the video element only.",
+          "Playback, keyboard chapter interaction, all captions and complete media/download verification rely on the separately identified parent receipts, with their own scopes.",
+          "Small mobile slide text is not certified as comfortably readable inline; fullscreen and the reflowing transcript are available.",
+          "URLs and GitHub main documents may change. This review binds the recorded hashes and retrieval times."
+        ]
+      }
+    },
+    "historical_release_policy": "All four earlier release descriptions, targets and asset identities remain unchanged; 25 preserved assets were independently downloaded. The original audited customer release remains latest.",
+    "receipt_followup_scope": "This record follows publication of the pinned release revision. Receipt, checksum and documentation changes do not alter source, voice, media or companion bytes. Final follow-up CI is available in GitHub Actions.",
+    "fully_human_verified": false,
+    "limits": "Public control/playback checks and sampled screenshots do not establish a continuous human watch, perfect pronunciation, subjective voice approval or native model execution on every platform.",
+    "method": {
+      "path": "runs/video-course/check_v3_publication.py",
+      "sha256": "2ac360adc81485a3b7bb22c05a077b76ef148ca44825e2bf023d734e8fa8b555",
+      "source": "\"\"\"Read public release state and hash every new and preserved anonymous download.\"\"\"\nimport concurrent.futures\nimport hashlib\nimport json\nimport subprocess\nfrom datetime import datetime, timezone\nfrom pathlib import Path\n\nROOT = Path(__file__).resolve().parents[2]\nOUT = ROOT / 'runs/video-course/v3-public-release-check'\nOUT.mkdir(exist_ok=False)\nREPO = 'buffbeefalo/netmambaplus-reproduction'\n\n\ndef api(suffix):\n    return json.loads(subprocess.check_output(['gh', 'api', f'repos/{REPO}/{suffix}']))\n\n\ndef digest(path):\n    h = hashlib.sha256()\n    with path.open('rb') as stream:\n        for block in iter(lambda: stream.read(1024 * 1024), b''):\n            h.update(block)\n    return h.hexdigest()\n\n\nbefore_path = ROOT / 'runs/video-course/v3-release-state-before.json'\nbefore = json.loads(before_path.read_text())\nafter = api('releases?per_page=50')\ncurrent = next(r for r in after if r['tag_name'] == 'course-video-v3')\nassert not current['draft'] and current['prerelease']\nassert current['target_commitish'] == 'cd028059818f38c51f40589214eac5a6a521ad3e'\nuploaded = json.loads((ROOT / 'runs/video-course/v3-release-upload/receipt.json').read_text())\nassert uploaded['status'] == 'all_assets_uploaded'\nexpected = {a['name']: a for a in uploaded['assets']}\nassert set(expected) == {a['name'] for a in current['assets']}\nlatest = api('releases/latest')\nprior_latest = json.loads((ROOT / 'runs/video-course/v3-latest-release-before.json').read_text())\nassert latest['id'] == prior_latest['id'] == 387539191\ntag_ref = api('git/ref/tags/course-video-v3')\nassert tag_ref['object']['type'] == 'commit'\nassert tag_ref['object']['sha'] == current['target_commitish']\n\npreserved = []\ntasks = []\nfor old in before:\n    new = next(r for r in after if r['id'] == old['id'])\n    for field in ['id', 'tag_name', 'target_commitish', 'draft', 'prerelease', 'name', 'body']:\n        assert old[field] == new[field], (old['tag_name'], field)\n    assert {a['id'] for a in old['assets']} == {a['id'] for a in new['assets']}\n    for asset in old['assets']:\n        found = next(a for a in new['assets'] if a['id'] == asset['id'])\n        for field in ['id', 'name', 'size', 'digest', 'browser_download_url', 'state', 'created_at', 'updated_at']:\n            assert found[field] == asset[field], (old['tag_name'], asset['name'], field)\n        tasks.append((old['tag_name'], found, asset['digest'].removeprefix('sha256:'), 'preserved_release'))\n    preserved.append({'tag_name': old['tag_name'], 'release_id': old['id'],\n                      'target_commitish': old['target_commitish'], 'assets': len(old['assets']),\n                      'metadata_and_asset_identities': 'unchanged'})\nfor asset in current['assets']:\n    wanted = expected[asset['name']]\n    assert asset['id'] == wanted['id'] and asset['size'] == wanted['bytes']\n    assert asset['digest'] == 'sha256:' + wanted['sha256']\n    assert digest(ROOT / 'docs/customer/demo/video/v3' / asset['name']) == wanted['sha256']\n    tasks.append(('course-video-v3', asset, wanted['sha256'], 'new_course_release'))\n\n\ndef download(task):\n    tag, asset, expected_hash, scope = task\n    folder = OUT / tag\n    folder.mkdir(exist_ok=True)\n    target = folder / asset['name']\n    # -q disables personal curl configuration. No authorization or cookies are supplied.\n    result = subprocess.run(['curl', '-q', '--fail', '--location', '--silent', '--show-error',\n                             '--max-time', '180', '--output', str(target), '--write-out', '%{http_code}',\n                             asset['browser_download_url']], capture_output=True, text=True)\n    assert result.returncode == 0 and result.stdout == '200', (tag, asset['name'], result.returncode, result.stdout, result.stderr)\n    actual_hash = digest(target)\n    assert actual_hash == expected_hash and target.stat().st_size == asset['size'], (tag, asset['name'])\n    return {'scope': scope, 'tag_name': tag, 'name': asset['name'], 'asset_id': asset['id'],\n            'url': asset['browser_download_url'], 'http_status': 200, 'anonymous': True,\n            'bytes': target.stat().st_size, 'sha256': actual_hash, 'expected_sha256': expected_hash,\n            'status': 'passed'}\n\n\nreport = {'status': 'in_progress', 'started_at': datetime.now(timezone.utc).isoformat(),\n          'release_id': current['id'], 'tag_name': current['tag_name'],\n          'target_commitish': current['target_commitish'], 'tag_commit': tag_ref['object']['sha'],\n          'release_url': current['html_url'], 'draft': False, 'prerelease': True,\n          'latest_release_unchanged': {'id': latest['id'], 'tag_name': latest['tag_name']},\n          'preserved_releases': preserved, 'baseline_sha256': digest(before_path), 'downloads': []}\nwith concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:\n    for future in concurrent.futures.as_completed([pool.submit(download, task) for task in tasks]):\n        record = future.result()\n        report['downloads'].append(record)\n        (OUT / 'receipt.json').write_text(json.dumps(report, indent=2) + '\\n')\n        print(json.dumps({'tag': record['tag_name'], 'name': record['name'], 'status': 'passed'}), flush=True)\nreport['status'] = 'passed'\nreport['completed_at'] = datetime.now(timezone.utc).isoformat()\nreport['new_course_downloads'] = sum(r['scope'] == 'new_course_release' for r in report['downloads'])\nreport['preserved_downloads'] = sum(r['scope'] == 'preserved_release' for r in report['downloads'])\n(OUT / 'receipt.json').write_text(json.dumps(report, indent=2) + '\\n')\nprint(json.dumps({k: report[k] for k in ['status', 'new_course_downloads', 'preserved_downloads']}))\n"
+    },
+    "git_transport_history": {
+      "outcome": "Git push succeeded after two bounded transport-profile failures; the remote branch was checked before continuation.",
+      "attempts": [
+        {
+          "log_name": "v3-feature-push.log",
+          "sha256": "7158334efbeaa8db170a6c6e5426d71ce52f2e33eed70da6a25c9ab1a4d550e4",
+          "output": "error: RPC failed; HTTP 502 curl 22 The requested URL returned error: 502\nsend-pack: unexpected disconnect while reading sideband packet\nfatal: the remote end hung up unexpectedly\nEverything up-to-date\n"
+        },
+        {
+          "log_name": "v3-feature-push-tls12.log",
+          "sha256": "7158334efbeaa8db170a6c6e5426d71ce52f2e33eed70da6a25c9ab1a4d550e4",
+          "output": "error: RPC failed; HTTP 502 curl 22 The requested URL returned error: 502\nsend-pack: unexpected disconnect while reading sideband packet\nfatal: the remote end hung up unexpectedly\nEverything up-to-date\n"
+        },
+        {
+          "log_name": "v3-feature-push-fast.log",
+          "sha256": "54796d652ae03903277fc9e6f8e409bf3f125f1dfb739c3e010f728f55d852d1",
+          "output": "remote: warning: See https://gh.io/lfs for more information.        \nremote: warning: File docs/customer/demo/video/v3/NetMambaPlus-one-hour-course.webm is 92.89 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        \nremote: warning: File docs/customer/demo/video/v3/NetMambaPlus-one-hour-course.mp4 is 79.30 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        \nremote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        \nTo http://127.0.0.1:8792/buffbeefalo/netmambaplus-reproduction.git\n   4bf8947..aa7553e  course-video-handoff -> course-video-handoff\n"
+        }
+      ],
+      "scope": "Transport-profile changes include disabling Expect and using TLS 1.2/ChaCha with a localhost repository-scoped bridge. A successful transfer is observed; no definitive TLS root-cause diagnosis is claimed."
+    }
+  },
+  "credential_pattern_scan_before_publication": {
+    "identity": {
+      "path": "runs/video-course/v3-secret-pattern-scan.json",
+      "sha256": "f6d3a6131cbfe0873d8e5d1478de019f888eead2a9eb8153b72842f05398b586"
+    },
+    "record": {
+      "status": "passed",
+      "checked_text_files": 207,
+      "patterns": [
+        "private_key",
+        "github_token",
+        "openai_key",
+        "aws_access_key"
+      ],
+      "findings": [],
+      "scope": "Bounded credential-pattern scan of actual Git inventory; no matched secret content printed."
     }
   }
 }
