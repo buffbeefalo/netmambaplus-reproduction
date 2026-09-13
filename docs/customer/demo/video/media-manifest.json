@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source_sha256": "ace0c090ab6a702a00f2092e96d88db92c442ea142471f5cfff10ad221f171d4",
+  "source_sha256": "4b1ac47ed54ceff5327b460dc366859de22c6c414f1edbe35827514c21f77b02",
   "source_course_commit": "49078618f77da068b45fb5b0b8dc51698a617ff6",
   "voice": {
     "engine": "kokoro-onnx",
@@ -233,7 +233,7 @@
     },
     {
       "id": "inputs-03",
-      "kind": "flow",
+      "kind": "cards",
       "title": "Why five neighboring rows are insufficient",
       "bullets": [
         "Row order is not connection identity",
@@ -353,7 +353,7 @@
     },
     {
       "id": "lifecycle-01",
-      "kind": "flow",
+      "kind": "views",
       "title": "Three views become tensors",
       "bullets": [
         "5 packets × 320 stored bytes = 1,600 values",
@@ -396,9 +396,9 @@
       "kind": "flow",
       "title": "The classifier reads 443 tokens",
       "bullets": [
-        "400 byte tokens + 20 sizes + 20 intervals",
-        "Three summary tokens",
-        "Four Mamba blocks → six logits"
+        "443 tokens from the three flow views",
+        "Four Mamba blocks process the sequence",
+        "Three summaries added → six logits"
       ],
       "narration": "For classification, groups of four bytes create four hundred byte tokens. Add twenty size tokens, twenty interval tokens and three summary tokens, for four hundred forty-three input tokens. A token here is a numerical input unit, not a word in a chatbot. Position and modality information identify its location and type. Four Mamba blocks process the sequence. Three modality summaries are added, then a classification layer produces six raw outputs called logits. The model’s internal state belongs to this input computation. It is not an implemented cache of live network connections.",
       "references": [
@@ -3833,7 +3833,7 @@
     },
     "walkthrough": {
       "path": "docs/repository-walkthrough.md",
-      "sha256": "4d48e57f5e4e777b262199e34a04e57bdf26225bdad67d405c0b38aa1472ac98"
+      "sha256": "8cb5b8c6aa2afb53e748ab552b63e944f9f896baa9dcca00eac50377b53c39a4"
     },
     "contract": {
       "path": "docs/harness-reference.md",
@@ -3842,37 +3842,37 @@
   },
   "artifacts": {
     "NetMambaPlus-30-minute-course.mp4": {
-      "bytes": 37869975,
-      "sha256": "afc302395c9606e16300ab4910c2a43da3b22c979a1dd2999cff5b88bfc3a829"
+      "bytes": 37861771,
+      "sha256": "1ff19bf545fe14a4bf1f61112a1fdfd7dc107a36ca4c91a749c4f6dfaea8082b"
     },
     "captions.srt": {
-      "sha256": "1f7c17cd65086a7939945f70db1983182647cdaf6642c98ad95f2f9475a2e918",
-      "bytes": 38036
+      "bytes": 38036,
+      "sha256": "1f7c17cd65086a7939945f70db1983182647cdaf6642c98ad95f2f9475a2e918"
     },
     "captions.vtt": {
-      "sha256": "5cf0504c070d40aede44c3612f7879c4deca3784fafe3001f090297a83e8047c",
-      "bytes": 36500
+      "bytes": 36500,
+      "sha256": "5cf0504c070d40aede44c3612f7879c4deca3784fafe3001f090297a83e8047c"
     },
     "transcript.md": {
-      "sha256": "e48a599556f8b755f25c9d372ee3c2eee8dd852abbfbf106d221fe01d99b15a8",
-      "bytes": 47522
+      "bytes": 47539,
+      "sha256": "9dab55f2849a0371ef1f2fc7c6b511809c814d96dbcc4b716029ac32247df560"
     },
     "chapters.json": {
       "bytes": 1087,
       "sha256": "6ad2199cf458ff51499254cab4fc6ef9be4b57e7b24508f3c2379547e501764b"
     },
-    "NetMambaPlus-30-minute-course.webm": {
-      "bytes": 37055191,
-      "sha256": "12bba939e07caebb06ce1c07da347078440b5b79c6448bbc423e0428d17de7ec"
-    },
     "poster.png": {
       "bytes": 56780,
       "sha256": "a8ca1a7ffceccbb0e36650113dd579361dd5733ea1649da7a772a120d0b0311a"
+    },
+    "NetMambaPlus-30-minute-course.webm": {
+      "bytes": 37049922,
+      "sha256": "595b4521549956d06af104022683e3ebc0a070bdc358156687bcc04e9fab968d"
     }
   },
   "status": "built; encoded-media verification is separate",
   "browser_fallback": {
-    "source_mp4_sha256": "afc302395c9606e16300ab4910c2a43da3b22c979a1dd2999cff5b88bfc3a829",
+    "source_mp4_sha256": "1ff19bf545fe14a4bf1f61112a1fdfd7dc107a36ca4c91a749c4f6dfaea8082b",
     "codec": "VP9/Opus",
     "reason": "The tested open-source Chromium build does not include H.264/AAC decoding"
   }

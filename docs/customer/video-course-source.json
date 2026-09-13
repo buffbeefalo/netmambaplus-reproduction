@@ -140,7 +140,7 @@
         },
         {
           "id": "inputs-03",
-          "kind": "flow",
+          "kind": "cards",
           "title": "Why five neighboring rows are insufficient",
           "bullets": [
             "Row order is not connection identity",
@@ -232,7 +232,7 @@
       "scenes": [
         {
           "id": "lifecycle-01",
-          "kind": "flow",
+          "kind": "views",
           "title": "Three views become tensors",
           "bullets": [
             "5 packets × 320 stored bytes = 1,600 values",
@@ -263,9 +263,9 @@
           "kind": "flow",
           "title": "The classifier reads 443 tokens",
           "bullets": [
-            "400 byte tokens + 20 sizes + 20 intervals",
-            "Three summary tokens",
-            "Four Mamba blocks → six logits"
+            "443 tokens from the three flow views",
+            "Four Mamba blocks process the sequence",
+            "Three summaries added → six logits"
           ],
           "narration": "For classification, groups of four bytes create four hundred byte tokens. Add twenty size tokens, twenty interval tokens and three summary tokens, for four hundred forty-three input tokens. A token here is a numerical input unit, not a word in a chatbot. Position and modality information identify its location and type. Four Mamba blocks process the sequence. Three modality summaries are added, then a classification layer produces six raw outputs called logits. The model’s internal state belongs to this input computation. It is not an implemented cache of live network connections.",
           "references": [

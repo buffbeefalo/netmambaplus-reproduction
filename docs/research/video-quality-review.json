@@ -1,0 +1,344 @@
+{
+  "runId": "d2eb183c-3f57-4c06-bb98-872ea1fd699e",
+  "state": "ESCALATED",
+  "stamp": "UNRATIFIED",
+  "mutual": false,
+  "decisionHash": null,
+  "decision": null,
+  "category": "correction",
+  "axis": "steerability",
+  "tier": "lite",
+  "caller": "codex",
+  "mode": "verify",
+  "schemaVersion": 2,
+  "cwd": "/home/nvidia/netmambaplus-reproduction",
+  "intakeHash": "a6625078a30eeea36cabe486422f5fb6d738944b1d9d4d8e7f623886550dbc0c",
+  "blockers": [
+    "Human complete playback/listening is explicitly pending and must never be certified from automated checks. Decode exit 0, loudness (-16.3 LUFS / -1.1 dBTP), ASR (self-described as containing errors), and 60 cropped scene comparisons cannot establish intelligibility, pronunciation, critical spoken figures, or full-frame legibility outside the sampled crop [0,0,1920,850]. Release cannot proceed until this closes on the final candidate. [anchor: runs/video-course/quality-pack.json facts_and_checks.pending, facts_and_checks.asr, facts_and_checks.audio, image_crop]",
+    "Distributed ±0.5-second caption alignment is explicitly pending; the 413-cue count and passed Chromium behavioral checks do not establish per-caption synchronization. Alignment must be documented across all nine chapters, including chapter boundaries, practice-pause resumptions, and the closing teach-back section. [anchor: runs/video-course/quality-pack.json facts_and_checks.pending and facts_and_checks.browser.caption_count, chapters, practice_windows]",
+    "A green rerun of the corrected normal CPU suite (fixture was missing the new video navigation target) is not supplied. The corrected fixture must be confirmed to represent the intended navigation target and the successful retest recorded before handoff; if the fix reveals a real navigation defect rather than a stale fixture, the browser 'passed' status (keyboard_chapter_offsets, seek_and_play_near_end) must be re-evaluated rather than carried forward. [anchor: Evidence pack Question section ('normal CPU suite just exposed a fixture missing the new video navigation target; routine fixture correction and retest are ongoing') and runs/video-course/quality-pack.json facts_and_checks.browser]",
+    "Whole-course factual acceptance is incomplete: source bytes [11228,38003) — narration for measurements/demo/operate/future/teach-back and the crosswalk beyond measurements-03 — remain unreviewed by either seat. Results-versus-paper figures and replay/error interpretation are where factual errors would most mislead the target explainer. This is an evidence limitation, not a demonstrated defect; it resolves via the requested full source file or explicit coverage in the pending human pass using the three-connections rubric (recorded flow preprocessing→prediction→error interpretation; paper vs actual results with dataset/split/metric attached; repository commands tied to inputs/outputs/evidence). [anchor: Evidence pack section 'OMITTED source bytes [11228,38003)' ('Omitted evidence is unavailable, not proof of absence') and docs/customer/video-course-source.json]"
+  ],
+  "modelsUsed": {
+    "claude": "claude-fable-5",
+    "codex": "gpt-6-astra"
+  },
+  "budget": {
+    "spent": 10,
+    "limit": 14
+  },
+  "verdicts": null,
+  "arbitration": null,
+  "positions": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "881f326c0969e096c508139fb7d4c7fea32d5d64d6b2b70140cba22721bd55a9",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "data": {
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/video-course-source.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer/video-course-source.json",
+            "pattern": "{{",
+            "limit": 30
+          },
+          {
+            "kind": "glob",
+            "path": "runs/video-course",
+            "pattern": "*",
+            "limit": 20
+          },
+          {
+            "kind": "glob",
+            "path": "docs/customer",
+            "pattern": "*transcript*",
+            "limit": 5
+          },
+          {
+            "kind": "grep",
+            "path": "runs/video-course",
+            "pattern": "webm",
+            "limit": 10
+          }
+        ],
+        "recommendation": "Hand off the ONE continuous 30:00 lesson as a mechanically checked review candidate (codex's term, adopted), keeping the evidence-backed nine-chapter structure unchanged: MP4 (sha256 afc302395c…c829, 37,869,975 bytes) as the sole main download, WebM as the same lesson's internal Chromium-compatibility encoding, original seven release assets and latest tag preserved. No re-edit, re-render, or restructure: no anchored defect in the visible crosswalk or narration justifies it, and re-rendering would discard the completed decode, loudness, silence, scene-midpoint, negative-media, and browser measurements. Automated certification of the pending items is prohibited, so the handoff is gated, not certified. Gates before release: (1) human complete playback/listening and (2) distributed ±0.5-second caption alignment — both explicitly pending in runs/video-course/quality-pack.json facts_and_checks.pending; (3) green rerun of the corrected CPU-suite fixture for the new video navigation target (pack Question); a stale fixture does not itself invalidate the separately reported Chromium checks (adopting codex) — reassess browser evidence only if the fix reveals a real navigation defect. Scope the human pass concretely: (a) verify rendered captions and on-screen text carry the five substituted counts correctly — the source uses {{cic_rows}}/{{unsw_rows}}/{{train_rows}}/{{valid_rows}}/{{test_rows}}, the crosswalk shows them resolved, and ASR confirmed two spoken figures; this is a check to perform, not an established defect (adopting codex); (b) inspect the frame region outside the sampled crop [0,0,1920,850], which no automated diff covers — limit visual claims to the sampled crop (adopting codex; my 1080p frame-height assumption is dropped as unestablished); (c) review the chapters whose narration lies in the omitted source bytes [11227,27512) — measurements/demo/operate/future/teach-back — against codex's three-connections rubric: a recorded flow through preprocessing→prediction→error interpretation; paper vs actual results with dataset, split and metric attached; repository commands tied to inputs, outputs and evidence; (d) listen for critical numbers, technical terms, chapter boundaries, and re-entry points after practice pauses. Nonblocking due diligence: record the WebM's own sha256/duration/chapter parity (Chromium behavioral checks — 413 captions, keyboard offsets matching the nine exact starts, seek-near-end — already exercised it since Chromium lacks MP4 codecs); deliver chapter links, captions, transcript and verification status tied to the final media hashes. What the evidence establishes: exact 1800.0s duration; nine chapter starts matching keyboard offsets; clean full decode (exit 0); −16.3 LUFS / −1.1 dBTP; silence windows (181.18s, 1.0s tolerance) matching the nine declared practice windows summing to the scheduled 180s (1,620s explanation/worked answers are scheduled allocations, not a claim of uninterrupted audible speech — codex's phrasing adopted); 60 cropped scene-midpoint comparisons ≤2.16 mean abs pixel diff; three negative-media rejections; responsive playback at four viewport widths. What it cannot establish: heard intelligibility and pronunciation, per-caption ±0.5s timing, visual fidelity outside the sampled crop, and the factual content of the omitted-chapter narration. No new experiment or raw model/data publication is authorized by this review.",
+        "resolved_objections": [
+          "Placeholder objection downgraded per codex: template tokens are expected render-time inputs and the crosswalk shows all five counts resolved; caption/spoken-value verification is folded into the human pass as a check, not reported as an established defect.",
+          "Withdrawn my 1080p frame-height assumption; visual claims are limited to the sampled crop [0,0,1920,850] per codex — the excerpt does not establish frame height or content outside the crop.",
+          "Accepted codex's point that a stale CPU-suite fixture does not itself invalidate the separately reported Chromium browser checks; retest is the gate, with browser-evidence reassessment only if a real navigation defect emerges.",
+          "Independent WebM re-measurement downgraded from hold to a nonblocking recording task (hash/duration/chapter parity), since Chromium behavioral checks exercised the WebM.",
+          "Terminology converged: 'mechanically checked review candidate' (codex) adopted for the handoff status; 'gated handoff' retained as description of release posture — wording only, nonblocking.",
+          "Adopted codex's framing that 1,620/180 seconds are scheduled allocations, not claims of uninterrupted audible speech; silence totals corroborate the schedule.",
+          "Both re-render alternatives (my re-edit; codex's rebuild-around-one-recorded-flow) mutually rejected as unjustified by any anchored defect; targeted corrections within the existing timing preferred.",
+          "Automated-only certification alternative rejected by both seats as explicitly prohibited by the pack."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "Human complete playback/listening and distributed ±0.5-second caption alignment are explicitly pending and must never be certified from automated checks; the handoff cannot advance to release until both close. ASR (base.en/small.en, self-described as containing errors), 413 caption cues, and loudness numbers cannot establish intelligibility, pronunciation, or per-caption timing.",
+            "anchor": "runs/video-course/quality-pack.json facts_and_checks.pending and facts_and_checks.asr"
+          },
+          {
+            "claim": "The normal CPU suite exposed a fixture missing the new video navigation target; the corrected suite must be rerun green before handoff. If the fix reveals a real navigation defect rather than a stale fixture, the browser 'passed' status (keyboard_chapter_offsets, seek_and_play_near_end) must be re-evaluated instead of carried forward.",
+            "anchor": "Evidence pack Question section ('normal CPU suite just exposed a fixture missing the new video navigation target') and runs/video-course/quality-pack.json facts_and_checks.browser"
+          },
+          {
+            "claim": "Source bytes [11227,27512) — the measurements/demo/operate/future/teach-back narration and the crosswalk beyond measurements-01 — remain unreviewed by either seat; results-versus-paper figures and replay interpretation are where factual errors would most mislead the target explainer. This is an evidence limitation, not a demonstrated defect; it resolves via the requested full file docs/customer/video-course-source.json or explicit coverage in the pending human pass using codex's three-connections rubric.",
+            "anchor": "Evidence pack section 'OMITTED source bytes [11228,38003)' ('Omitted evidence is unavailable, not proof of absence')"
+          }
+        ]
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 3981,
+        "cacheReadTokens": 879,
+        "cacheCreationTokens": 18267,
+        "totalTokens": null
+      },
+      "costUsd": 0.5652889999999999
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.153.4",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "9b9cd884050bd8b17361e2a854bd22c433c8d9c74f9c8f225064490c2baab4ec",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "sessionId": "01a0999c-aff2-7a33-a9da-ae273f879e6a",
+      "data": {
+        "recommendation": "Adopt a gated handoff of the existing ONE continuous 30:00, nine-chapter course as a mechanically checked review candidate. Keep MP4 as the sole main download and WebM as the same lesson’s Chromium compatibility encoding. Compared with rebuilding around one recorded flow, retaining the structure with targeted, evidence-supported corrections is better justified; the excerpts establish no definite narration defect. The highest-value content review should connect recorded flow preprocessing to prediction and error interpretation, actual versus paper results to their datasets/splits/metrics, and repository commands to their inputs/outputs/evidence. Correct demonstrated gaps within the existing timing and practice allocation. Close the blockers below before final quality acceptance and public release. Provide chapter links, captions, transcript and verification outcomes tied to final media hashes. Record WebM hash, duration and chapter-navigation parity as a nonblocking documentation task. Preserve the original seven release assets and latest tag, verifying the published result. No new experiment or raw model/data publication is authorized.",
+        "resolved_objections": [
+          "The expanded crosswalk documents repository entry points and provenance questions (repository-02–04), plus all-three-seed results (measurements-01–02). Their coverage is no longer unavailable; the complete accompanying narration remains unreviewed.",
+          "Source template tokens are not demonstrated output defects. All five resolved dataset counts appear in inputs-01 and inputs-04. Checking generated captions/on-screen text for unresolved tokens and verifying spoken substitutions are routine checks, not grounds for assuming a correction is necessary.",
+          "A stale CPU fixture does not automatically invalidate separately reported Chromium behavior. Reassess browser evidence if the correction reveals an actual navigation defect.",
+          "The 60 image comparisons establish sampled fidelity within [0,0,1920,850]. They establish neither full-frame quality nor an assumed 1080-pixel height or the contents outside that crop. Include full-frame inspection in the pending playback review.",
+          "The 1,620 explanation/worked-answer seconds and 180 practice seconds are scheduled allocations. Detected silence totals approximately 181.18 seconds; it does not establish uninterrupted speech elsewhere.",
+          "A rerender requires verification tied to the resulting artifacts. It does not invalidate or alter historical council consensus or historical measurements."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "Complete human playback/listening remains pending. Record intelligibility, pronunciation, critical spoken figures, transitions and full-frame legibility on the final candidate. Decode success, loudness measurements, ASR and cropped image comparisons cannot certify these.",
+            "anchor": "runs/video-course/quality-pack.json: facts_and_checks.pending, asr, audio and image_crop"
+          },
+          {
+            "claim": "Distributed caption alignment within ±0.5 seconds remains pending. Document checks across the nine chapters, including boundaries, practice resumptions and the closing section; the count of 413 cues does not establish synchronization.",
+            "anchor": "runs/video-course/quality-pack.json: facts_and_checks.pending, browser.caption_count, chapters and practice_windows"
+          },
+          {
+            "claim": "A green result for the corrected normal CPU suite is not supplied. Confirm the fixture represents the intended video navigation target and record the successful rerun; investigate and recheck affected browser behavior if a product defect emerges.",
+            "anchor": "Evidence-pack Question: fixture correction and retest are ongoing; runs/video-course/quality-pack.json: facts_and_checks.browser"
+          },
+          {
+            "claim": "Whole-course factual acceptance remains incomplete because critical narration is unavailable, particularly results-versus-paper comparisons, replay/error interpretation, operations, future claims and teach-back. Complete targeted source/transcript review against existing referenced records. This is an evidence gap, not an established content defect.",
+            "anchor": "Evidence-pack section OMITTED source bytes [11228,38003); runs/video-course/quality-pack.json supplied crosswalk truncates at measurements-03; docs/customer/video-course-source.json"
+          }
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/video-course-source.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "glob",
+            "path": "docs/customer/*transcript*",
+            "pattern": null,
+            "limit": 5
+          },
+          {
+            "kind": "glob",
+            "path": "runs/video-course/*",
+            "pattern": null,
+            "limit": 20
+          }
+        ]
+      }
+    }
+  },
+  "reviews": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "651563385df3fbe39a905a8e517c8ee9caf14fb1d91afbeb32cfe2df5ebdbea6",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "data": {
+        "blocking_objections": [
+          {
+            "claim": "Human complete playback/listening is explicitly pending and must never be certified from automated checks. Decode exit 0, loudness (-16.3 LUFS / -1.1 dBTP), ASR (self-described as containing errors), and 60 cropped scene comparisons cannot establish intelligibility, pronunciation, critical spoken figures, or full-frame legibility outside the sampled crop [0,0,1920,850]. Release cannot proceed until this closes on the final candidate.",
+            "anchor": "runs/video-course/quality-pack.json facts_and_checks.pending, facts_and_checks.asr, facts_and_checks.audio, image_crop"
+          },
+          {
+            "claim": "Distributed ±0.5-second caption alignment is explicitly pending; the 413-cue count and passed Chromium behavioral checks do not establish per-caption synchronization. Alignment must be documented across all nine chapters, including chapter boundaries, practice-pause resumptions, and the closing teach-back section.",
+            "anchor": "runs/video-course/quality-pack.json facts_and_checks.pending and facts_and_checks.browser.caption_count, chapters, practice_windows"
+          },
+          {
+            "claim": "A green rerun of the corrected normal CPU suite (fixture was missing the new video navigation target) is not supplied. The corrected fixture must be confirmed to represent the intended navigation target and the successful retest recorded before handoff; if the fix reveals a real navigation defect rather than a stale fixture, the browser 'passed' status (keyboard_chapter_offsets, seek_and_play_near_end) must be re-evaluated rather than carried forward.",
+            "anchor": "Evidence pack Question section ('normal CPU suite just exposed a fixture missing the new video navigation target; routine fixture correction and retest are ongoing') and runs/video-course/quality-pack.json facts_and_checks.browser"
+          },
+          {
+            "claim": "Whole-course factual acceptance is incomplete: source bytes [11228,38003) — narration for measurements/demo/operate/future/teach-back and the crosswalk beyond measurements-03 — remain unreviewed by either seat. Results-versus-paper figures and replay/error interpretation are where factual errors would most mislead the target explainer. This is an evidence limitation, not a demonstrated defect; it resolves via the requested full source file or explicit coverage in the pending human pass using the three-connections rubric (recorded flow preprocessing→prediction→error interpretation; paper vs actual results with dataset/split/metric attached; repository commands tied to inputs/outputs/evidence).",
+            "anchor": "Evidence pack section 'OMITTED source bytes [11228,38003)' ('Omitted evidence is unavailable, not proof of absence') and docs/customer/video-course-source.json"
+          }
+        ],
+        "nonblocking_notes": [
+          "Terminology adopted from codex: the handoff status is a 'mechanically checked review candidate'; 'gated handoff' is retained only as a description of release posture — wording only.",
+          "Source template tokens ({{cic_rows}}, {{unsw_rows}}, {{train_rows}}, {{valid_rows}}, {{test_rows}}) are expected render-time inputs, not demonstrated output defects: the crosswalk shows all five counts resolved (inputs-01, inputs-04) and ASR confirmed 1,410,255 and 79,881 spoken. Verifying rendered captions/on-screen text for unresolved tokens is folded into the human pass as a routine check.",
+          "Visual claims are limited to the sampled crop [0,0,1920,850]; the earlier 1080p frame-height assumption is withdrawn as unestablished. Full-frame inspection belongs to the pending human playback review.",
+          "The 1,620 explanation/worked-answer seconds and 180 practice seconds are scheduled allocations, not a claim of uninterrupted audible speech (codex framing adopted); detected silence totals 181.18s within the 1.0s tolerance and matches the nine declared practice windows.",
+          "Record the WebM's own sha256, duration, and chapter-navigation parity as a nonblocking documentation task; Chromium behavioral checks (413 captions, keyboard offsets matching the nine exact starts, seek-near-end, equal download bytes) already exercised it since installed Chromium lacks MP4 codecs.",
+          "A stale CPU fixture does not itself invalidate the separately reported Chromium checks; browser evidence is reassessed only if the correction reveals a real navigation defect.",
+          "Both re-render alternatives (re-edit; rebuild around one recorded flow) were generated, compared, and mutually rejected: no anchored defect in the visible crosswalk or narration justifies discarding the completed decode, loudness, silence, scene-midpoint, negative-media, and browser measurements.",
+          "Deliver chapter links, captions, transcript, and verification outcomes tied to the final media hashes (MP4 sha256 afc302395c…c829, 37,869,975 bytes); preserve the original seven release assets and latest tag, verifying the published result.",
+          "No new experiment or raw model/data publication is authorized by this review; automated-only certification of the pending items is explicitly prohibited by the pack and was rejected by both seats."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/video-course-source.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer/video-course-source.json",
+            "pattern": "narration",
+            "limit": 30
+          },
+          {
+            "kind": "glob",
+            "path": "runs/video-course",
+            "pattern": "*",
+            "limit": 20
+          },
+          {
+            "kind": "grep",
+            "path": "runs/video-course/quality-pack.json",
+            "pattern": "webm",
+            "limit": 5
+          }
+        ],
+        "convergence_summary": "The two seats have materially converged. Shared recommendation: hand off the ONE continuous 30:00, nine-chapter lesson as a mechanically checked review candidate with the evidence-backed structure unchanged — MP4 (sha256 afc302395c…c829, 37,869,975 bytes) as sole main download, WebM as the same lesson's internal Chromium-compatibility encoding, original seven assets and latest tag preserved, and no re-edit/re-render since no anchored defect justifies discarding the completed measurements. Both seats carry the same four blockers: (1) pending human complete playback/listening, (2) pending distributed ±0.5s caption alignment, (3) green rerun of the corrected CPU-suite fixture, (4) unreviewed narration in omitted source bytes for the measurements→teach-back chapters (an evidence gap, not an established defect). All prior disagreements resolved nonblockingly: placeholder tokens downgraded to a human-pass check, crop-limited visual claims adopted, 1,620/180 seconds reframed as scheduled allocations, stale-fixture/browser-evidence separation accepted, and WebM re-measurement downgraded to documentation. What the evidence establishes: exact 1800.0s duration, nine chapter starts matching keyboard offsets, clean full decode, loudness within targets, silence windows matching declared practice windows, 60 cropped scene comparisons ≤2.16 mean abs pixel diff, three negative-media rejections, and responsive playback at four widths. What it cannot establish: heard intelligibility, per-caption timing, visual fidelity outside the crop, and factual content of the omitted narration. Review has converged; the orchestrator may proceed to freeze the artifact and hash once the shared evidence requests are fulfilled or the blockers are gated into the pending human pass."
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 3918,
+        "cacheReadTokens": 877,
+        "cacheCreationTokens": 15208,
+        "totalTokens": null
+      },
+      "costUsd": 0.500957
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.153.4",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "cc7afc3da8d34787f0f0e7db902eb6acfac1097d56fa352513014139855bb851",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "sessionId": "01a0999f-d5b5-70c2-b8e3-004bb59a280b",
+      "data": {
+        "blocking_objections": [],
+        "nonblocking_notes": [
+          "The other position already endorses targeted corrections. Carry that forward explicitly: avoid a speculative rebuild now, but permit corrections and any necessary rerender if pending checks reveal defects. Rerendering does not discard historical measurements; those remain evidence for their original hashes. Acceptance must cover the final artifacts.",
+          "Compared with rebuilding around one recorded prediction, retaining the nine-chapter structure with targeted corrections is better supported by the visible coverage. The preprocessing-to-prediction connection, paper-versus-actual comparisons, and commands-to-evidence mapping are useful review criteria, not demonstrated omissions.",
+          "The agreed release gates remain open: complete human playback/listening with full-frame inspection, distributed caption alignment within ±0.5 seconds, a successful corrected CPU-suite rerun, and factual review of unavailable critical narration against existing referenced records. These are blockers to final acceptance, not additional objections to the proposed conditional handoff. Automated measurements cannot close the human-review gates.",
+          "Correct the evidence bookkeeping: the supplied crosswalk includes measurements-02 and the beginning of measurements-03. Do not characterize everything beyond measurements-01 as unavailable. Likewise, reviewing the requested source must resolve the factual-review gap; merely obtaining the file is insufficient."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/video-course-source.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "glob",
+            "path": "docs/customer/*transcript*",
+            "pattern": null,
+            "limit": 5
+          },
+          {
+            "kind": "glob",
+            "path": "runs/video-course/*",
+            "pattern": null,
+            "limit": 20
+          }
+        ],
+        "convergence_summary": "The recommendations substantively converge on handing off one continuous 30:00 lesson as a mechanically checked review candidate, with final acceptance and release gated by the outstanding checks. Preserve the nine-chapter structure, use MP4 as the sole main download and WebM as its compatibility encoding, and allow evidence-driven corrections. No definite narration defect is established by the excerpt. Preserve and verify the original seven release assets and latest tag; authorize no new experiment or raw model/data publication."
+      }
+    }
+  },
+  "fileDeliveryEligible": false,
+  "fileDeliveryReasons": [
+    "state ESCALATED is not CONSENSUS",
+    "result is not a mutual ratification",
+    "artifact mode unknown is not architect",
+    "claude did not ACCEPT the frozen decision hash",
+    "codex did not ACCEPT the frozen decision hash"
+  ]
+}

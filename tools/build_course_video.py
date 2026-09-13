@@ -222,15 +222,16 @@ def render_scene(scene, path, facts, demo):
         draw.rounded_rectangle((90, 310, 1820, 735), radius=22, fill=ink)
         put(sample, 135, 343, 1640, 37, "#f8f6ef", mono=True)
         put("Synthetic schema illustration · not a captured flow or an extractor", 95, 770, 1740, 29, coral)
-    elif kind == "flow" and len(bullets) == 3:
+    elif kind in ("flow", "views") and len(bullets) == 3:
         for index, bullet in enumerate(bullets):
             x = 90 + index * 590
             draw.rounded_rectangle((x, 360, x + 530, 675), radius=24, fill="#ffffff", outline=blue, width=3)
             put(f"0{index + 1}", x + 30, 385, 400, 35, teal, True)
             put(bullet, x + 30, 458, 470, 37, ink, True)
-            if index < 2:
+            if index < 2 and kind == "flow":
                 put("→", x + 540, 472, 70, 50, teal)
-        put("Follow the direction; each stage has a defined input and output.", 95, 745, 1750, 30, muted)
+        note = "Three parallel feature views from the same flow." if kind == "views" else "Follow the direction; each stage has a defined input and output."
+        put(note, 95, 745, 1750, 30, muted)
     else:
         rows = len(bullets)
         height = min(122, 460 // rows)

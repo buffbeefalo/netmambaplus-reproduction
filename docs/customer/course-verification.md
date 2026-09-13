@@ -1,6 +1,6 @@
-# The 30-minute NetMamba+ course: use, evidence and verification
+# Archived interactive course: sources and historical verification
 
-[Open the course](https://buffbeefalo.github.io/netmambaplus-reproduction/course/) · [Download the standalone HTML](https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/demo/course/index.html) · [Editable lesson source](course-source.json)
+The public interactive `/course/` page was retired at the user’s request on 2026-09-13. Its HTML source is excluded from GitHub Pages deployment. Use the [single narrated video](video-verification.md). These archived sources retain the original reviewed fact bindings and historical checks; they are not an additional required lesson.
 
 The course is a complete browser lesson for someone preparing to explain this project to a customer. It contains nine sections, eight objective questions with explanations, a real saved prediction error and a separate two-minute customer teach-back. Thirty minutes is a planned reading-and-practice allocation, not a measured guarantee for every learner. **A human-paced full-route rehearsal remains pending. Automated verification is separate from human learning or mastery.**
 
@@ -79,7 +79,7 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
   "checks": {
     "content_review": {
       "status": "passed",
-      "detail": "Reviewed the new video link and eighteen video file explanations. Teaching content, question keys, original fact bindings and protected experiment artifacts are unchanged.",
+      "detail": "Reviewed archived teaching content and evidence bindings after public course retirement, video navigation and exact final quality-review inventory. No scientific measurements or exercise answers changed.",
       "receipt": {
         "reviewer": "Codex ordinary implementation session; not a human learner",
         "completed_at": "2026-09-13T06:59:52.479121+00:00",
@@ -103,7 +103,7 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
           "docs/customer/evidence/native-data-validation.json": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
           "docs/customer/hardware-roadmap.md": "99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18",
           "docs/customer/runbook.md": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0",
-          "docs/repository-walkthrough.md": "4d48e57f5e4e777b262199e34a04e57bdf26225bdad67d405c0b38aa1472ac98"
+          "docs/repository-walkthrough.md": "8cb5b8c6aa2afb53e748ab552b63e944f9f896baa9dcca00eac50377b53c39a4"
         },
         "global_queues": {
           "pending-content-reviews.json": {
@@ -130,54 +130,18 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
     },
     "automated_checks": {
       "status": "passed",
-      "detail": "78 tests passed: 54 harness, 17 interactive-course, 7 video. The isolated stale-HTML fixture now includes the new navigation target.",
+      "detail": "78 tests passed: 54 harness, 17 archived-course, 7 video. Corrected isolated navigation fixture included.",
       "receipt": {
-        "completed_at": "2026-09-13T07:04:01.123460+00:00",
+        "completed_at": "2026-09-13T07:42:52.539556+00:00",
         "command": "python3 -m unittest discover -s tests -v",
         "exit_code": 0,
         "tests": 78,
-        "output_sha256": "43ac81c6562f7a71d566886e7f28ccabdbd52cac59fe9bdd5a97fc664acb6795"
+        "output_sha256": "e65a4fcb85fb9f895e3c5b5dceae7fbf18f1274f2d5a8f8d356ddc999417d500"
       }
     },
     "browser_checks": {
-      "status": "passed",
-      "detail": "Rechecked current HTML with the video navigation link and refreshed walkthrough citation.",
-      "receipt": {
-        "status": "passed",
-        "completed_at": "2026-09-13T06:56:24.368258+00:00",
-        "html_sha256": "416cefac99aa6848070f89c02f54543681f5c12578694b0af6cc9f92eccdbe32",
-        "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
-        "passed_checks": [
-          "correct_answers",
-          "keyboard",
-          "no_js_answers",
-          "no_page_errors",
-          "offline_core",
-          "print_answers",
-          "reveals_do_not_score",
-          "rubric_separate",
-          "wrong_answer_feedback"
-        ],
-        "viewport_widths_without_overflow": [
-          320,
-          390,
-          768,
-          1440
-        ],
-        "method": "automated browser functional rehearsal; not a human learning or timing study",
-        "elapsed_seconds": 33.55,
-        "hosted_url": null,
-        "download_bytes_equal": null,
-        "print_pdf_sha256": "8dff4c4029822056189737295ffe8e6190654f205696c53040488db9ffba623e",
-        "screenshots": {
-          "course-1440.png": "146fe10e2ddd22f4ffa0b0088c7b8f355065a2f65bd327e576c884e737b7caba",
-          "course-320.png": "b496092b92691f197bf64e2e8bea634c1b9d7d2598c7e68acf8d61c01e97143d",
-          "course-390.png": "cd4b6ae2d72b02c98ae8352dd88b84d125e7bc60f92fd0dc6e86c35ad5951471",
-          "course-768.png": "dc814131b01894f991b6f03d3f3f008a6aacd25522cfb2089218356e99ce5869",
-          "course-no-js.png": "1a4cd555dec21589109df5129b6d82e781eb4cfb65262ca87546d1a3dbfbb516",
-          "recorded-example.png": "ad5cd491cd138895a08f4e4e33215d8360fd7ef21ec7d84b29bb41c556a2004b"
-        }
-      }
+      "status": "pending",
+      "detail": "The interactive course is retired. Prior browser receipts remain in commits 4907861 and 9e35b6b; no current human/browser acceptance is inferred from those historical files."
     },
     "human_rehearsal": {
       "status": "pending",
@@ -185,17 +149,17 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
     },
     "publication": {
       "status": "pending",
-      "detail": "Rechecking the video navigation extension and refreshed walkthrough reference.",
-      "receipt": {}
+      "detail": "Public interactive course withdrawn at the user\u2019s request. Pages excludes course/; the active video has a separate publication receipt."
     }
   },
-  "source_sha256": "1b290f90276eceb1d455580f19c78f2fd7f403942e9f504d46c6a21ef8508cfc",
-  "html_sha256": "416cefac99aa6848070f89c02f54543681f5c12578694b0af6cc9f92eccdbe32",
+  "source_sha256": "b317fb5b7e64ab3cb9319578eb3d97c2ea584094fcce3db0ae74b176a66440b8",
+  "html_sha256": "76f4c9e0f57ea5aa9fb7cd5b0f3fd8e61862b5d92c7bd3adf93988ffd4448a13",
   "prior_course_receipt": {
     "commit": "49078618f77da068b45fb5b0b8dc51698a617ff6",
     "path": "docs/customer/course-verification.md",
     "scope": "Historical 71-test HTML course snapshot; no video delivered at that point."
-  }
+  },
+  "retired": true
 }
 ```
 

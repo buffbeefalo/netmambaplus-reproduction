@@ -142,7 +142,7 @@ Evidence: [lesson](https://github.com/buffbeefalo/netmambaplus-reproduction/blob
 
 For classification, groups of four bytes create four hundred byte tokens. Add twenty size tokens, twenty interval tokens and three summary tokens, for four hundred forty-three input tokens. A token here is a numerical input unit, not a word in a chatbot. Position and modality information identify its location and type. Four Mamba blocks process the sequence. Three modality summaries are added, then a classification layer produces six raw outputs called logits. The model’s internal state belongs to this input computation. It is not an implemented cache of live network connections.
 
-On screen: 400 byte tokens + 20 sizes + 20 intervals · Three summary tokens · Four Mamba blocks → six logits
+On screen: 443 tokens from the three flow views · Four Mamba blocks process the sequence · Three summaries added → six logits
 
 Evidence: [lesson](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/lesson.md), [comparison](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/upstream-comparison.md)
 

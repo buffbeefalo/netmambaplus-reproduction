@@ -11,7 +11,6 @@ Test accuracy was **91.26%, 84.05% and 84.63%** across the three declared seeds:
 | Deliverable | Link |
 |---|---|
 | Watch the narrated 30-minute video | [Watch now](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Download MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v1/NetMambaPlus-30-minute-course.mp4) · [Transcript and media checks](docs/customer/video-verification.md) |
-| Learn the project in a planned 30-minute course | [Open the course](https://buffbeefalo.github.io/netmambaplus-reproduction/course/) · [HTML source / save file](https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/demo/course/index.html) · [Course checks](docs/customer/course-verification.md) |
 | Start here: results, downloads and completion checklist | [Customer index](docs/customer/README.md) |
 | Understand it without a technical background | [Slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
 | Simple setup, usage and test results | [Quickstart](docs/customer/quickstart.md) |
@@ -68,9 +67,9 @@ python3 tools/build_video_page.py --check
 
 CPU CI checks the harness and published evidence. It does not retrain the GPU model. The separately saved GPU records establish the actual experiments described in the customer package.
 
-The course adds nine timed lessons, eight questions with explanatory answers, a real prediction error to investigate and a two-minute customer teach-back. Its essential content works offline without JavaScript or an AI account. Thirty minutes is a reading-and-practice plan; a human-paced full-route rehearsal remains pending. The course is a separate addition to current `main`, outside the frozen audited release ZIP.
+The earlier interactive HTML course was retired at the user’s request. Its archived source and tests remain as evidence bindings used by the video; the public `/course/` page is excluded from deployment.
 
-The narrated video is a separate **30:00 audiovisual course**, with 27 minutes of explanation and worked answers plus three minutes of announced practice. It includes captions, chapter seeking, a reflowing transcript and MP4/WebM downloads. The media receipt separates actual decode, audio, image and browser checks from the still-pending human full-playback review. Its versioned release leaves the seven historical customer-release attachments intact.
+The narrated video is a separate **30:00 audiovisual course**, with 27 minutes allocated to explanation and worked answers plus three minutes of announced practice. It assumes no prior networking or machine-learning knowledge and explains what this repository adds to the authors’ research. It includes captions, chapter seeking, a reflowing transcript and one main MP4 download; an internal WebM encoding supports more browsers. The media receipt separates actual decode, audio, image and browser checks from the still-pending human full-playback review. Its versioned release leaves the seven historical customer-release attachments intact.
 
 Acquire the pinned original source and assets:
 
