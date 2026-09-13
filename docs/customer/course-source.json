@@ -1,0 +1,994 @@
+{
+  "schema_version": 1,
+  "title": "NetMamba+ in 30 minutes",
+  "subtitle": "Read the evidence. Explain the system.",
+  "mission": "Explain the tested model, its results and its limits.",
+  "orientation": "Read, answer, then review. Finish with a two-minute explanation. Setup and optional references are outside the planned 30 minutes; your pace may vary.",
+  "total_seconds": 1800,
+  "reading_words_per_minute": 120,
+  "required_topics": [
+    "paper",
+    "csvs",
+    "tried",
+    "learning",
+    "inputs",
+    "results",
+    "demo",
+    "hardware",
+    "gaps",
+    "upstream",
+    "files",
+    "setup",
+    "tests",
+    "downloads",
+    "evidence",
+    "research"
+  ],
+  "customer_questions": {
+    "tried": [
+      "purpose",
+      "measurements"
+    ],
+    "learning": [
+      "lifecycle"
+    ],
+    "inputs": [
+      "inputs",
+      "lifecycle"
+    ],
+    "results": [
+      "measurements",
+      "demo"
+    ],
+    "demo": [
+      "demo"
+    ],
+    "hardware": [
+      "future"
+    ],
+    "gaps": [
+      "future"
+    ]
+  },
+  "reviewed_baseline_commit": "1c424884cd0d691203fb94ba4da3c706eb6291e7",
+  "facts": {
+    "seed0": {
+      "file": "docs/customer/evidence/results.json",
+      "pointer": "/seeds/0/metrics/accuracy",
+      "format": "percent",
+      "expected": 0.9125840537944284
+    },
+    "seed1": {
+      "file": "docs/customer/evidence/results.json",
+      "pointer": "/seeds/1/metrics/accuracy",
+      "format": "percent",
+      "expected": 0.840537944284342
+    },
+    "seed2": {
+      "file": "docs/customer/evidence/results.json",
+      "pointer": "/seeds/2/metrics/accuracy",
+      "format": "percent",
+      "expected": 0.8463016330451489
+    },
+    "mean_accuracy": {
+      "file": "docs/customer/evidence/results.json",
+      "pointer": "/aggregate/accuracy/mean",
+      "format": "percent",
+      "expected": 0.8664745437079732
+    },
+    "accuracy_sd": {
+      "file": "docs/customer/evidence/results.json",
+      "pointer": "/aggregate/accuracy/sample_standard_deviation",
+      "format": "points",
+      "expected": 0.04003586164106568
+    },
+    "paper_accuracy": {
+      "file": "docs/customer/evidence/results.json",
+      "pointer": "/paper_ciciot2022_table_iv/accuracy",
+      "format": "percent",
+      "expected": 0.975
+    },
+    "epochs": {
+      "file": "docs/customer/evidence/results.json",
+      "pointer": "/seeds/0/completed_epochs",
+      "format": "integer",
+      "expected": 120
+    },
+    "updates": {
+      "file": "docs/customer/evidence/results.json",
+      "pointer": "/seeds/0/optimizer_updates_from_completed_batches",
+      "format": "integer",
+      "expected": 7920
+    },
+    "cic_rows": {
+      "file": "docs/customer/evidence/uploaded-csv-profile.json",
+      "pointer": "/files/0/rows",
+      "format": "integer",
+      "expected": 1410255
+    },
+    "unsw_rows": {
+      "file": "docs/customer/evidence/uploaded-csv-profile.json",
+      "pointer": "/files/1/rows",
+      "format": "integer",
+      "expected": 79881
+    },
+    "train_rows": {
+      "file": "docs/customer/evidence/native-data-validation.json",
+      "pointer": "/splits/train/rows",
+      "format": "integer",
+      "expected": 8323
+    },
+    "valid_rows": {
+      "file": "docs/customer/evidence/native-data-validation.json",
+      "pointer": "/splits/valid/rows",
+      "format": "integer",
+      "expected": 1040
+    },
+    "test_rows": {
+      "file": "docs/customer/evidence/native-data-validation.json",
+      "pointer": "/splits/test/rows",
+      "format": "integer",
+      "expected": 1041
+    },
+    "source_commit": {
+      "file": "docs/customer/evidence/seed0/replay/predictions.json",
+      "pointer": "/source_commit",
+      "format": "text",
+      "expected": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2"
+    },
+    "demo_score": {
+      "file": "docs/customer/evidence/seed0/replay/predictions.json",
+      "pointer": "/predictions/635/scores/1",
+      "format": "percent",
+      "expected": 0.8442760770989408
+    }
+  },
+  "references": {
+    "answers": {
+      "label": "Seven customer questions",
+      "path": "docs/customer/answers.md",
+      "selector": "# Answers and presentation map",
+      "kind": "text",
+      "sha256": "e293eb26550a2c1577c689ccac845ad0321be7bbf2fd41c6aeeedbad3c5565ab"
+    },
+    "comparison": {
+      "label": "Paper, datasets and upstream comparison",
+      "path": "docs/customer/upstream-comparison.md",
+      "selector": "## What is different from the authors’ GitHub repository?",
+      "kind": "text",
+      "sha256": "a84e5fbffabc2b6ccc44351203b4b61f9f95dee7608765e3ef427d54e121b5ba"
+    },
+    "results": {
+      "label": "Measured three-seed results",
+      "path": "docs/customer/evidence/results.json",
+      "selector": "/aggregate",
+      "kind": "json",
+      "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+    },
+    "csv": {
+      "label": "Full uploaded CSV metadata profiles",
+      "path": "docs/customer/evidence/uploaded-csv-profile.json",
+      "selector": "/files",
+      "kind": "json",
+      "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+    },
+    "native": {
+      "label": "Native flow validation and overlap counts",
+      "path": "docs/customer/evidence/native-data-validation.json",
+      "selector": "/splits",
+      "kind": "json",
+      "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+    },
+    "lesson": {
+      "label": "Original loader and model explanation",
+      "path": "docs/lesson.md",
+      "selector": "## Follow one flow into the model",
+      "kind": "text",
+      "sha256": "bcd7710396fc5f088de56df470f4c8c708336790af728d7940f57bcf2b888afa"
+    },
+    "transfer": {
+      "label": "Checkpoint transfer identities",
+      "path": "docs/customer/evidence/checkpoint-transfer.json",
+      "selector": "/",
+      "kind": "json",
+      "sha256": "819195d7d3a9aaccf534ce2cca88e3986eb56facf0891fd7cbfe27e1149b520e"
+    },
+    "runbook": {
+      "label": "Executed GPU runbook",
+      "path": "docs/customer/runbook.md",
+      "selector": "## 3. Exercise masked pretraining",
+      "kind": "text",
+      "sha256": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0"
+    },
+    "config": {
+      "label": "Pinned source-based configuration",
+      "path": "configs/ciciot2022.json",
+      "selector": "/",
+      "kind": "json",
+      "sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92"
+    },
+    "verification": {
+      "label": "Recorded experiment checks and limits",
+      "path": "docs/customer/verification.md",
+      "selector": "## What was executed and checked",
+      "kind": "text",
+      "sha256": "88948b8336c729882a2a8835f69b03489161be769d3e6a4991a7ccc7a91bebbc"
+    },
+    "prediction": {
+      "label": "Exact saved prediction row 635",
+      "path": "docs/customer/evidence/seed0/replay/predictions.json",
+      "selector": "/predictions/635",
+      "kind": "json",
+      "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a"
+    },
+    "quickstart": {
+      "label": "Setup and usage routes",
+      "path": "docs/customer/quickstart.md",
+      "selector": "## Route 2 — check the package without a GPU",
+      "kind": "text",
+      "sha256": "6641b5d478ef02981014bf3d8c08f3f86c147de25e93ce9efc7dac5fae5d99bf"
+    },
+    "hardware": {
+      "label": "Hardware roadmap and its limits",
+      "path": "docs/customer/hardware-roadmap.md",
+      "selector": "## What an AI NPU port would require",
+      "kind": "text",
+      "sha256": "99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18"
+    },
+    "export": {
+      "label": "Actual graph export result",
+      "path": "docs/customer/evidence/export-probe/metrics.json",
+      "selector": "/",
+      "kind": "json",
+      "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04"
+    },
+    "benchmark": {
+      "label": "Actual model-only latency measurements",
+      "path": "docs/customer/evidence/benchmark/metrics.json",
+      "selector": "/",
+      "kind": "json",
+      "sha256": "1f06ba04717400b0f20a7e79f7c90e8e0d357f8bf7f2c8507ccdfc969eec0e9b"
+    },
+    "walkthrough": {
+      "label": "Every file and every release attachment",
+      "path": "docs/repository-walkthrough.md",
+      "selector": "# Every file",
+      "kind": "text",
+      "sha256": "2a46c560d920bd0dd6d7d14a77513a2453bed750f780019d70a8447b5930cf33"
+    }
+  },
+  "protected_artifacts": {
+    "docs/customer/NetMambaPlus-customer-briefing.pdf": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d",
+    "docs/customer/NetMambaPlus-customer-slides.pdf": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1",
+    "docs/customer/NetMambaPlus-customer-slides.pptx": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5",
+    "docs/customer/demo/index.html": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af",
+    "docs/customer/demo/guide.html": "2fde58ccb145149e6fcf751dded4e6efc285d19a276b4fed4cc15c8ca3337b95",
+    "docs/customer/demo/recorded-demo.webm": "bb39d0979f8ed62cb5580ca493347238500862f54047ffff66ca828e591f8316",
+    "docs/customer/evidence/artifact-index.json": "d42f6df7090c817f8674d5d781a59542ed2ba06805304d6e9a31e0abe967f1ee",
+    "docs/customer/audit-evidence/index.json": "4c42b516af445f525d173c6a8e55458cdfe05fd38752b4e1122d02b3b0ef76b0"
+  },
+  "demo": {
+    "file": "docs/customer/evidence/seed0/replay/predictions.json",
+    "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+    "pointer": "/predictions/635",
+    "expected": {
+      "row": 635,
+      "label": 3,
+      "prediction": 1,
+      "logits": [
+        0.82421875,
+        3.109375,
+        -0.83642578125,
+        -0.67578125,
+        -0.77880859375,
+        -0.79443359375
+      ],
+      "scores": [
+        0.08591198110968394,
+        0.8442760770989408,
+        0.016324691301471416,
+        0.019169554103672656,
+        0.017292898967365418,
+        0.01702479741886576
+      ]
+    },
+    "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+    "class_mapping": {
+      "6-Attacks-1-Flood": 0,
+      "6-Attacks-2-RTSP Brute Force": 1,
+      "1-Power-Audio": 2,
+      "1-Power-Other": 3,
+      "1-Power-Cameras": 4,
+      "1-Power-Home Automation": 5
+    }
+  },
+  "segments": [
+    {
+      "id": "purpose",
+      "title": "The paper and the purpose",
+      "seconds": 120,
+      "teaching_seconds": 90,
+      "practice_seconds": 30,
+      "action_seconds": 10,
+      "topics": [
+        "paper",
+        "tried"
+      ],
+      "teaching": [
+        {
+          "type": "p",
+          "text": "A packet is one small network message. A flow groups related packets into a conversation. An intrusion detection system (IDS) observes traffic and raises alerts. A classifier assigns categories; capture, alert rules and blocking require additional components."
+        },
+        {
+          "type": "p",
+          "text": "The NetMamba+ paper combines bytes, packet sizes and time gaps: three views, or modalities. Mamba processes a sequence by updating a numerical state. The earlier NetMamba used bytes alone."
+        },
+        {
+          "type": "p",
+          "text": "This repository records a reproduction attempt on an NVIDIA GB10 GPU: native builds, short pretraining, three full fine-tuning runs and saved-model inference worked. A GPU accelerates many numerical operations in parallel."
+        }
+      ],
+      "activity": {
+        "instruction": "Choose, then review.",
+        "questions": [
+          {
+            "id": "q-purpose",
+            "prompt": "Which capability works?",
+            "options": [
+              "A tested flow classifier and recorded replay",
+              "A deployed traffic-blocking IDS"
+            ],
+            "correct": 0,
+            "explanation": "Classification works. Capture and operational alert handling remain future work."
+          }
+        ]
+      },
+      "references": [
+        "comparison",
+        "results"
+      ],
+      "slides": [
+        1,
+        2,
+        13
+      ],
+      "briefing_pages": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "inputs",
+      "title": "Three files, two different kinds of data",
+      "seconds": 240,
+      "teaching_seconds": 180,
+      "practice_seconds": 60,
+      "action_seconds": 20,
+      "topics": [
+        "csvs",
+        "inputs"
+      ],
+      "teaching": [
+        {
+          "type": "p",
+          "text": "The supplied PDF describes the research, not a ready-to-use dataset. The supplied CICIDS2017 CSV contains {{cic_rows}} packet rows and 15 labels. The UNSW CSV contains {{unsw_rows}} packet rows and 10 labels. Each has 1,500 payload-byte columns plus TTL (remaining network hops), total length, protocol, time delta and label."
+        },
+        {
+          "type": "p",
+          "text": "Neither CSV establishes connection identity and ordering. Adjacent rows cannot be assumed to form one conversation. The CICIDS2017 scan also found negative time deltas, with timing units unestablished. UNSW is a separate packet export, not a second native flow split. These were metadata profiles, not training runs or exhaustive payload validation. Training directly on them would create a packet-classifier adaptation."
+        },
+        {
+          "type": "p",
+          "text": "For the original model, we acquired the authors’ processed CICIoT2022 flow release. CICIoT2022 and CICIDS2017 are different datasets. There are {{train_rows}} training, {{valid_rows}} validation and {{test_rows}} test flows. Training examples teach weights; validation chooses a checkpoint; the test split measures that selected model."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Native field",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "data",
+              "Stored packet-byte sequences"
+            ],
+            [
+              "sizes",
+              "Packet lengths in sequence"
+            ],
+            [
+              "intervals",
+              "Time gaps in sequence"
+            ],
+            [
+              "label / class mapping",
+              "Known category / meaning of each class index"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The six class indices mean 0 Flood, 1 RTSP Brute Force, 2 Audio, 3 Other, 4 Cameras and 5 Home Automation. The last four are IoT device/power categories. A compatible JSON file must preserve the native structure and preprocessing assumptions; similar column names are insufficient. IoT means Internet of Things: connected cameras and home devices. Flood overwhelms with traffic; RTSP brute force repeatedly tries access to a streaming protocol."
+        }
+      ],
+      "activity": {
+        "instruction": "Choose, then review.",
+        "questions": [
+          {
+            "id": "q-inputs",
+            "prompt": "You receive five neighboring CSV rows. Can you pass them as one native flow?",
+            "options": [
+              "Yes; five rows satisfy the packet count",
+              "No; relatedness and order are unestablished"
+            ],
+            "correct": 1,
+            "explanation": "The model requires one established flow with byte, size and gap sequences. Arbitrary grouping changes the experiment. Use the compatible release or establish a validated extractor."
+          }
+        ]
+      },
+      "references": [
+        "csv",
+        "native",
+        "comparison"
+      ],
+      "slides": [
+        3,
+        4,
+        13
+      ],
+      "briefing_pages": [
+        2,
+        8
+      ]
+    },
+    {
+      "id": "lifecycle",
+      "title": "How the model learns and predicts",
+      "seconds": 240,
+      "teaching_seconds": 180,
+      "practice_seconds": 60,
+      "action_seconds": 20,
+      "topics": [
+        "learning",
+        "inputs"
+      ],
+      "teaching": [
+        {
+          "type": "p",
+          "text": "The original loader takes five packets, each with up to 320 stored bytes: 1,600 values. The paper’s packet layout is 80 header bytes plus 240 payload bytes. Released flows already contain this extraction; our wrapper does not reconstruct headers from the uploaded CSVs. Bytes are scaled to [-1, 1]. The loader also pads or truncates the first 20 sizes and 20 gaps."
+        },
+        {
+          "type": "p",
+          "text": "Sizes are clipped to 0–1,500; the size padding value 1,501 is clipped to 1,500. A finite nonnegative gap x becomes (1+x)/(2+x); padding infinity maps to 1. For classification, four-byte groups yield 400 byte tokens. Add 20 size tokens, 20 gap tokens and three summary tokens: 443. Four Mamba blocks process them; the three summary vectors are added before classification. Internal state belongs to this input computation, not an implemented live connection cache."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Stage",
+            "Input → operation → output"
+          ],
+          "rows": [
+            [
+              "Pretraining",
+              "Unlabeled flow features → reconstruct masked features → learned encoder"
+            ],
+            [
+              "Fine-tuning",
+              "Flows plus labels → update encoder/classifier weights → six-class checkpoint"
+            ],
+            [
+              "Inference",
+              "Flow features plus frozen checkpoint → forward calculation → six logits and a selected class"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Pretraining hides 90% of byte strides and 15% each of sizes and intervals in the source preset. A loss measures training error; the optimizer changes weights to reduce it. An epoch passes through the training loader. Our short pretraining check completed 132 updates. The three full fine-tuning runs instead began from the authors’ released pretrained checkpoint. They did not use that short-check checkpoint."
+        },
+        {
+          "type": "p",
+          "text": "Logits are raw outputs. Softmax normalizes them into display scores. Labeled evaluation compares predictions with known answers to compute accuracy. Unlabeled prediction has no known answers and therefore cannot report accuracy. A successful manifest or export provenance binds the checkpoint to its class meanings; six output numbers alone do not identify those meanings."
+        }
+      ],
+      "activity": {
+        "instruction": "Choose, then review.",
+        "questions": [
+          {
+            "id": "q-lifecycle",
+            "prompt": "At inference, which action is correct?",
+            "options": [
+              "Update weights using test labels",
+              "Freeze weights, use flow features, preserve the class mapping"
+            ],
+            "correct": 1,
+            "explanation": "Fine-tuning updates weights. Validation selects the checkpoint. Inference freezes it; known test labels are used afterward for scoring, not model selection or prediction inputs."
+          }
+        ]
+      },
+      "references": [
+        "lesson",
+        "transfer",
+        "runbook"
+      ],
+      "slides": [
+        4,
+        5
+      ],
+      "briefing_pages": [
+        3
+      ]
+    },
+    {
+      "id": "repository",
+      "title": "What we changed, and where it lives",
+      "seconds": 180,
+      "teaching_seconds": 120,
+      "practice_seconds": 60,
+      "action_seconds": 20,
+      "topics": [
+        "upstream",
+        "files",
+        "research"
+      ],
+      "teaching": [
+        {
+          "type": "p",
+          "text": "The authors’ repository provides the model, tensor loader and training engines. Our repository fetches that code at commit {{source_commit}} and checks source identity. The model and loader remain unchanged. For GB10/CUDA 13, disposable native-extension build copies receive architecture/compiler compatibility edits. This is a compatibility port, not proof of an identical paper environment."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Open this",
+            "Its job"
+          ],
+          "rows": [
+            [
+              "configs/ + requirements/",
+              "Pinned experiment recipe, asset identities and runtime dependencies"
+            ],
+            [
+              "repro.py",
+              "Validate source/data; launch original training; save run manifests"
+            ],
+            [
+              "evaluate.py / predict.py / replay.py",
+              "Labeled scoring / unlabeled inference / recorded browser output"
+            ],
+            [
+              "tools/ + tests/",
+              "Build, measure, publish and test important failure behavior"
+            ],
+            [
+              "docs/customer/evidence/",
+              "Actual logs, hashes and predictions behind claims"
+            ],
+            [
+              "docs/research/",
+              "Curated research and council records; not a raw private chat dump"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A manifest is a lab notebook for one run. A SHA-256 hash identifies file bytes; it does not prove scientific validity. Downloaded data, upstream source and trained weights stay local. The complete repository walkthrough explains every tracked file and release download; use it after this timed overview."
+        }
+      ],
+      "activity": {
+        "instruction": "Choose, then review.",
+        "questions": [
+          {
+            "id": "q-repository",
+            "prompt": "Which comparison is defensible?",
+            "options": [
+              "We replaced the authors’ neural model with a new implementation",
+              "We wrapped pinned original code and ported native builds for GB10"
+            ],
+            "correct": 1,
+            "explanation": "The wrapper adds validation, provenance, inference, measurement and teaching tools. Native compiler compatibility edits do not establish an exact reproduction of the paper’s hardware or protocol."
+          }
+        ]
+      },
+      "references": [
+        "comparison",
+        "walkthrough",
+        "config"
+      ],
+      "slides": [
+        13
+      ],
+      "briefing_pages": [
+        8
+      ]
+    },
+    {
+      "id": "measurements",
+      "title": "What actually ran, and what the numbers mean",
+      "seconds": 240,
+      "teaching_seconds": 150,
+      "practice_seconds": 90,
+      "action_seconds": 30,
+      "topics": [
+        "tried",
+        "results",
+        "evidence",
+        "tests"
+      ],
+      "teaching": [
+        {
+          "type": "p",
+          "text": "All three declared seeds completed {{epochs}} fine-tuning epochs and {{updates}} updates each. A seed controls random choices; the three seeds used the same dataset split. Checkpoints were selected by validation accuracy, then strictly reloaded for test inference. All three results were retained."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Result",
+            "Test accuracy"
+          ],
+          "rows": [
+            [
+              "Seed 0",
+              "{{seed0}}"
+            ],
+            [
+              "Seed 1",
+              "{{seed1}}"
+            ],
+            [
+              "Seed 2",
+              "{{seed2}}"
+            ],
+            [
+              "Mean",
+              "{{mean_accuracy}}"
+            ],
+            [
+              "Paper, different conditions",
+              "{{paper_accuracy}} — not reproduced"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The sample standard deviation is {{accuracy_sd}} percentage points, not a confidence interval. Accuracy is the fraction correct. F1 balances precision and recall; macro F1 treats classes equally, while weighted F1 weights their support. A confusion matrix exposes which true categories were confused with which predictions."
+        },
+        {
+          "type": "p",
+          "text": "Source-based training used batch 128 and an effective learning rate of 0.001 on GB10; the paper describes batch 64, rate 0.002 and A100 hardware. The released checkpoint’s full pretraining history is unknown. Short reconstruction pretraining worked, but the paper’s full 150,000-step pretraining was not repeated. The cause of the accuracy gap has not been isolated."
+        },
+        {
+          "type": "p",
+          "text": "Five raw-input overlaps were found between training/validation and six between training/test. Physical independence and original pretraining exposure remain unestablished. Rechecking the same test set demonstrates repeatability, not independent validation. GPU numerical checks and saved-model agreement support execution correctness, not operational detection accuracy."
+        }
+      ],
+      "activity": {
+        "instruction": "Choose, then review.",
+        "questions": [
+          {
+            "id": "q-results",
+            "prompt": "Which sentence belongs in the customer meeting?",
+            "options": [
+              "We reproduced the paper’s 97.50% result",
+              "Three runs averaged {{mean_accuracy}} on the released split; exact paper reproduction remains open",
+              "The 4.00-point spread proves customer accuracy"
+            ],
+            "correct": 1,
+            "explanation": "Keep all seeds and the comparison conditions. The best run is useful for the preselected demo but is not the three-run mean. Neither repeated test evaluation nor a sample standard deviation establishes generalization to customer traffic."
+          }
+        ]
+      },
+      "references": [
+        "results",
+        "native",
+        "verification"
+      ],
+      "slides": [
+        5,
+        6,
+        7,
+        9,
+        15
+      ],
+      "briefing_pages": [
+        4,
+        7
+      ]
+    },
+    {
+      "id": "demo",
+      "title": "Investigate one real prediction",
+      "seconds": 240,
+      "teaching_seconds": 90,
+      "practice_seconds": 150,
+      "action_seconds": 60,
+      "topics": [
+        "demo",
+        "results",
+        "evidence"
+      ],
+      "teaching": [
+        {
+          "type": "p",
+          "text": "This is recorded GPU output from seed 0, not live browser inference. The full saved replay has {{test_rows}} flows: 950 correct and 91 incorrect. Its 402 attack-category predictions are not 402 verified operational alerts. Changing replay speed changes display timing only."
+        },
+        {
+          "type": "p",
+          "text": "Read the saved row below. First identify the predicted category and its score; then reveal the dataset’s known label. The example was deliberately selected to examine a mistake, not estimate its frequency. Softmax can be confidently wrong. One row cannot establish a false-positive rate or a calibrated probability of attack."
+        },
+        {
+          "type": "demo"
+        }
+      ],
+      "activity": {
+        "instruction": "Choose, then review.",
+        "questions": [
+          {
+            "id": "q-demo",
+            "prompt": "How should an analyst describe this row after revealing its label?",
+            "options": [
+              "The {{demo_score}} score proves an RTSP attack",
+              "It predicts RTSP Brute Force but disagrees with the dataset’s Other label",
+              "A high score makes ground truth unnecessary"
+            ],
+            "correct": 1,
+            "explanation": "Row 635 is a recorded error: predicted class 1 versus labeled class 3. The score ranks these six classes; it is not a verified attack probability. An operational alert would need an independently validated policy and investigation."
+          }
+        ]
+      },
+      "references": [
+        "prediction",
+        "verification"
+      ],
+      "slides": [
+        8,
+        10
+      ],
+      "briefing_pages": [
+        5
+      ]
+    },
+    {
+      "id": "operate",
+      "title": "Set it up, use it and check it",
+      "seconds": 240,
+      "teaching_seconds": 150,
+      "practice_seconds": 90,
+      "action_seconds": 35,
+      "topics": [
+        "setup",
+        "tests",
+        "downloads",
+        "evidence",
+        "files"
+      ],
+      "teaching": [
+        {
+          "type": "table",
+          "headers": [
+            "Goal",
+            "Choose this route"
+          ],
+          "rows": [
+            [
+              "Learn or present",
+              "Open this HTML, the recorded replay, PDF or PowerPoint; no account/GPU needed"
+            ],
+            [
+              "Check code and saved evidence",
+              "Python 3.10+; clone the repository or extract the audited package"
+            ],
+            [
+              "Run fresh inference or training",
+              "Follow the tested GB10/CUDA runbook; separately fetch pinned source, data and original weights"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "For the current repository, the CPU commands below run harness/course tests and check saved evidence. Expect OK and verifier status passed. The audited release’s 54 tests are historical; current main adds course tests. These checks do not rerun GPU training. A failure is a finding to inspect, not a reason to blindly regenerate hashes."
+        },
+        {
+          "type": "code",
+          "text": "python3 -m unittest discover -s tests -v\npython3 tools/verify_package.py\npython3 tools/verify_course.py"
+        },
+        {
+          "type": "p",
+          "text": "The GPU route acquires assets, validates flows, builds two custom extensions, checks numerical operations, trains, then evaluates or predicts. Use a fresh output directory for each run and retain checkpoint provenance. predict.py accepts assembled native flow JSON, not either supplied CSV. GPU setup and execution are follow-up work outside these 30 minutes."
+        },
+        {
+          "type": "p",
+          "text": "The audited release offers the complete ZIP, briefing PDF, slide PDF, editable PPTX, SHA256SUMS-release.txt, release-inventory.json and release-verification.json. The inventory names files; checksums identify bytes; the receipt records tested downloads. The ZIP contains documents, code and evidence, not raw data or weights. This newer course is a separate HTML download and is not inside that historical ZIP."
+        },
+        {
+          "type": "p",
+          "text": "Two independent native builds passed seven numerical checks each. Strict evaluations matched the saved metrics for all seeds. A full seed-0 unlabeled recheck matched all 1,041 predicted classes and logits in that run. Linux was tested; a successful CPU check does not establish universal Windows, CPU-model or NPU support."
+        }
+      ],
+      "activity": {
+        "instruction": "Choose, then review.",
+        "questions": [
+          {
+            "id": "q-setup",
+            "prompt": "A colleague has a laptop and wants to verify the reported scores. Which route is appropriate?",
+            "options": [
+              "Use Python CPU tests and the package verifier; inspect the saved evidence",
+              "Treat opening the PPTX as a new model evaluation",
+              "Begin by converting five CSV rows into a flow"
+            ],
+            "correct": 0,
+            "explanation": "The verifier recomputes metrics from saved predictions and checks identities. Fresh predictions need the GPU setup and a provenance-bound classifier. If hashes disagree, preserve the failure and obtain a coherent package or review the intentional change."
+          }
+        ]
+      },
+      "references": [
+        "quickstart",
+        "verification",
+        "runbook",
+        "walkthrough"
+      ],
+      "slides": [
+        14,
+        15
+      ],
+      "briefing_pages": [
+        7
+      ]
+    },
+    {
+      "id": "future",
+      "title": "From classifier to IDS and accelerator",
+      "seconds": 120,
+      "teaching_seconds": 90,
+      "practice_seconds": 30,
+      "action_seconds": 10,
+      "topics": [
+        "gaps",
+        "hardware",
+        "demo"
+      ],
+      "teaching": [
+        {
+          "type": "p",
+          "text": "A live IDS would need capture → connection grouping → compatible tensors → inference → calibrated alert policy → analyst review. The source extractor has hardcoded paths and a missing helper; a compatible live pipeline has not been established."
+        },
+        {
+          "type": "p",
+          "text": "A SmartNIC or DPU could steer packets and prepare flows. A GPU or supported neural processing unit (NPU) could classify them. This is a proposed division of work. Eager GPU inference works, but tested Torch graph capture failed at a custom causal-convolution operator. Saving model-only weights did not solve graph export. No NPU compiler or SmartNIC deployment was tested."
+        },
+        {
+          "type": "p",
+          "text": "The model-only batch-one median was about 0.88 ms, excluding capture, flow waiting, preprocessing and transfers. It is not end-to-end IDS latency. The paper’s online throughput example concerns byte-only NetMamba. Next work includes independent traffic, extraction compatibility, alert calibration, export/operator support and inherited data/code rights."
+        }
+      ],
+      "activity": {
+        "instruction": "Choose, then review.",
+        "questions": [
+          {
+            "id": "q-hardware",
+            "prompt": "Which claim is defensible?",
+            "options": [
+              "SmartNIC deployment works",
+              "NPU support and live latency remain untested"
+            ],
+            "correct": 1,
+            "explanation": "GPU execution does not establish NPU export or live IDS behavior."
+          }
+        ]
+      },
+      "references": [
+        "hardware",
+        "comparison",
+        "export",
+        "benchmark"
+      ],
+      "slides": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "briefing_pages": [
+        6
+      ]
+    },
+    {
+      "id": "teach-back",
+      "title": "Explain it to the customer",
+      "seconds": 180,
+      "teaching_seconds": 0,
+      "practice_seconds": 180,
+      "action_seconds": 120,
+      "topics": [
+        "tried",
+        "learning",
+        "inputs",
+        "results",
+        "demo",
+        "hardware",
+        "gaps"
+      ],
+      "teaching": [],
+      "slides": [
+        16
+      ],
+      "briefing_pages": [
+        8
+      ],
+      "references": [
+        "answers"
+      ],
+      "activity": {
+        "instruction": "Speak for two minutes without reading. Use the remaining minute to check this rubric and correct one weak claim. Ask a colleague to score it if available.",
+        "questions": [],
+        "rubric": [
+          "Explain flows, the three inputs, training and frozen inference.",
+          "State all three runs’ mean, and distinguish the paper result.",
+          "Explain what the recorded demo proves and its error.",
+          "Name the working checks and where their evidence lives.",
+          "Separate future IDS/NPU work from tested execution."
+        ],
+        "closing": "A useful explanation meets all five points with no inflated claims. This is self-assessment, not independent certification."
+      }
+    }
+  ],
+  "resources": [
+    {
+      "label": "Complete file and download walkthrough",
+      "path": "docs/repository-walkthrough.md",
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/repository-walkthrough.md",
+      "counted_seconds": 0
+    },
+    {
+      "label": "Audited ZIP, PDFs, PowerPoint and download receipts",
+      "path": null,
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/customer-2026-09-15-audited",
+      "counted_seconds": 0
+    },
+    {
+      "label": "Full recorded inference replay",
+      "path": "docs/customer/demo/index.html",
+      "url": "../index.html",
+      "counted_seconds": 0
+    },
+    {
+      "label": "Slide-by-slide guide and presenter script",
+      "path": "docs/customer/demo/guide.html",
+      "url": "../guide.html",
+      "counted_seconds": 0
+    },
+    {
+      "label": "Curated AI-assisted research record",
+      "path": "docs/research/research-record.md",
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/research/research-record.md",
+      "counted_seconds": 0
+    },
+    {
+      "label": "GPU setup and training runbook",
+      "path": "docs/customer/runbook.md",
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/runbook.md",
+      "counted_seconds": 0
+    },
+    {
+      "label": "Course source, build instructions and verification",
+      "path": "docs/customer/course-verification.md",
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/course-verification.md",
+      "counted_seconds": 0
+    },
+    {
+      "label": "Paper v1 (original research)",
+      "path": null,
+      "url": "https://arxiv.org/abs/2601.21792v1",
+      "counted_seconds": 0
+    },
+    {
+      "label": "Authors’ original repository",
+      "path": null,
+      "url": "https://github.com/wangtz19/NetMambaPlus",
+      "counted_seconds": 0
+    }
+  ],
+  "protected_checksum_inventory": {
+    "sha256": "03b40bc9c10826b266d22174237596dbc0d16120e37d52aae27a384010d69c1b",
+    "text": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d  docs/customer/NetMambaPlus-customer-briefing.pdf\nf8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1  docs/customer/NetMambaPlus-customer-slides.pdf\n7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5  docs/customer/NetMambaPlus-customer-slides.pptx\nb3180a136bd8da6362b5b99d7f95fb5615d32cef867323b14df04d0ab26a26f6  docs/customer/README.md\n566fd0c0938c4f66ba17223e20267a80ad3976b6bf1b0e4b658c1756b5af1368  docs/customer/acceptance.md\ne293eb26550a2c1577c689ccac845ad0321be7bbf2fd41c6aeeedbad3c5565ab  docs/customer/answers.md\nd2e0718aed1da63c20a14bf74af533d2538d3d0989b528e4d5373702df2b7a9e  docs/customer/audit-evidence/benchmark/manifest.json\n2ce78196305918d3c1b910e322a1be2305c78814ff4be52111fee8c4c9268dc1  docs/customer/audit-evidence/benchmark/metrics.json\na26bac17c53c447db6ad2779319cb02d2aa80e628f2b0a7e903aa3ebed6fd13d  docs/customer/audit-evidence/benchmark-arithmetic.json\n1735d2c8541450584a944f5edee5b6cb5cbcb72dac1121552fe89dffedcb6cec  docs/customer/audit-evidence/cpu-tests.txt\n2552a68d8ecae3bb219408ef65de12f4fbc3694819d00c828bf089a28c969e82  docs/customer/audit-evidence/csv-profile.json\n122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9  docs/customer/audit-evidence/data-validation.json\nc846cade8db2256cdde884b28dbd758550bacd85901a07660bcd321940c33b05  docs/customer/audit-evidence/dependency-install.json\nacc08d6b9691b56d9131df9a33db57a216163123a669d94350d47043f4b43f42  docs/customer/audit-evidence/export-probe/manifest.json\ncef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04  docs/customer/audit-evidence/export-probe/metrics.json\n70ffbac23080cc92b3a93afc362ce8e4f01c3b60c606a652bd09df88299c14a9  docs/customer/audit-evidence/export-seed0/manifest.json\n04be64ef0b22ac9ac73ffc0264f1fa954e8cd70b809b03e84477f90393669b61  docs/customer/audit-evidence/export-seed0/metrics.json\neaef3caf96e34056716bdcf0af22a8e32d601a75681fe368c056fdcf447038b2  docs/customer/audit-evidence/export-seed1/manifest.json\n09efce568dd7bb0841d03193b7811ee39ec897887abca9e2719ebf11f0dfb042  docs/customer/audit-evidence/export-seed1/metrics.json\nb7a5ee1cf024b429bb358b54ce6b020bff5f9ef40c9c885815e71061d7bd5294  docs/customer/audit-evidence/export-seed2/manifest.json\n76999f3845dac5f5581640ba3c5a324b0c996a45a5d775104e875e2465d78062  docs/customer/audit-evidence/export-seed2/metrics.json\n0366f34e910ff0b1f650e81fa3c7cfc0e9dd0c559e89d0fc624b245614c7f2a0  docs/customer/audit-evidence/guide/browser-check.json\nb4d02d3bfb39e5ee314c78ca1a964256de711b95fc64943d9066c4df02411ef6  docs/customer/audit-evidence/guide/guide-1440.png\nb3c215d57796efb9917008d66fc6d10601a4d1063ae200c39b7bd6a741a92194  docs/customer/audit-evidence/guide/guide-390.png\n4c42b516af445f525d173c6a8e55458cdfe05fd38752b4e1122d02b3b0ef76b0  docs/customer/audit-evidence/index.json\ne0b02fc0f9d0183c42ba4e843dd3301a3babc23f27c8025a06260f9417238b71  docs/customer/audit-evidence/page-count-rejection.json\ne5d3aa1d2fd19b58cfa75bb90cb432cfdfc3ed78c93f94a41b89fee0013e6b00  docs/customer/audit-evidence/prediction-rejection-checks.json\n09357b1793aa8463a911de81038d2146c60fabf01646a2301bc7ba0e52693fcb  docs/customer/audit-evidence/pretrain/log.txt\nff90c1d04d438d1d9cc938a80ef89fba1667797a418082e12744908bc8aef0c6  docs/customer/audit-evidence/pretrain/manifest.json\n458daa511412ac1b182d0c94f3a5303a3770c897a119788e2641200d0bf21f99  docs/customer/audit-evidence/pretrain/native.log\nfbc4f7adc729fb7495ea16691be9abbf049d42a17d7a865582ba42c4963e3f42  docs/customer/audit-evidence/pretrain/train_stats.json\nedcafad2f8ea3c1581c42de66f8df7bbeba514e15e5980a46e63f82a0b68cc55  docs/customer/audit-evidence/primary-summary.json\nd5f9a74a52323cc9366f256b0d53aac57b5e50b52bacc8067f50eb79698e277a  docs/customer/audit-evidence/public-browser.json\nfd78580fea892f62ca9851222dc6267ad2f04e4d357b10cb8c003f7ffd697008  docs/customer/audit-evidence/runtime-main.json\n7c065933958796b10ad01b21969713672b3a0ba13106e547122e6b3826e61577  docs/customer/audit-evidence/runtime-rehearsal.json\nbd481e8a3bf528bbd9ca77da2895a524603dfa1cd15950e956e9eebced2853e0  docs/customer/audit-evidence/source-integrity.txt\nfb91364aa3294cca5e439e2d26df00ee76b16cf97c63125115ea0b53514d79ee  docs/customer/audit-evidence/unlabeled-agreement.json\nd62ef207a99bd28781aa74619a212b646f44340a4bd565e00b1c190a6b164b08  docs/customer/audit-evidence/unlabeled-export/manifest.json\n6d18dff6cea04f667ed451904ff85ec4b5f72943a2f441cf50d731b810a9322d  docs/customer/audit-evidence/unlabeled-export/metrics.json\n2dbb56ffcd6c9b95dec48a766a42827b73321e7aa41e59524d4af20b543e3382  docs/customer/audit-evidence/verifier-rejection-checks.json\n745007f082619c850d65f9e4264ae3499c0334e77d852acea255dca2b3507b72  docs/customer/briefing-source.md\n1328c7c02908abf53aa37dca545111bcc7072ef39249f37895fd49dcd0179592  docs/customer/briefing.md\ne20f009b47950b381ea965a91c6e29efa7963acd5794908d8c91f1c1b62d9759  docs/customer/demo/browser-check.json\n2fde58ccb145149e6fcf751dded4e6efc285d19a276b4fed4cc15c8ca3337b95  docs/customer/demo/guide.html\n55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af  docs/customer/demo/index.html\n307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a  docs/customer/demo/predictions.json\nbb39d0979f8ed62cb5580ca493347238500862f54047ffff66ca828e591f8316  docs/customer/demo/recorded-demo.webm\n262130fcfec90d64eebbaeb323a893a345b0816894d95db7beff1b45ae636a33  docs/customer/demo/replay-mobile.png\n69ba167f0ee65fad2861ad18cc1ae27cd326cfee897c35c18789a1744e31cc32  docs/customer/demo/replay-screenshot.png\n95466920b189bfbccf52f5c1084b9225cd0ba0ed30ebc56b70647b026cc39ec9  docs/customer/document-check.json\nd42f6df7090c817f8674d5d781a59542ed2ba06805304d6e9a31e0abe967f1ee  docs/customer/evidence/artifact-index.json\na7c0fb1d309580db809e742817bf196cc3d0ab9d9b620a14176fb164626403e9  docs/customer/evidence/benchmark/manifest.json\n1f06ba04717400b0f20a7e79f7c90e8e0d357f8bf7f2c8507ccdfc969eec0e9b  docs/customer/evidence/benchmark/metrics.json\ne20f009b47950b381ea965a91c6e29efa7963acd5794908d8c91f1c1b62d9759  docs/customer/evidence/browser-check.json\n819195d7d3a9aaccf534ce2cca88e3986eb56facf0891fd7cbfe27e1149b520e  docs/customer/evidence/checkpoint-transfer.json\n78c425dbcfb60ace7640714d1595fdd0e299283e9c9cd683040357f1b04d1923  docs/customer/evidence/export-probe/manifest.json\ncef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04  docs/customer/evidence/export-probe/metrics.json\n122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9  docs/customer/evidence/native-data-validation.json\n39e7ea851b92504057ed4a319d2081f02d2081f76927c7ccd62c32a8a63ff61a  docs/customer/evidence/pretrain-functional/log.txt\ne060653b9865ab472fdd0a628de061d0b304504cfb4ff7ae92e1853b7345a902  docs/customer/evidence/pretrain-functional/manifest.json\nd54559e2a24c22499790c1c03a9717e2aa06154bb1f49c1796953df24ae5b6d2  docs/customer/evidence/pretrain-functional/native.log\nca6e7472d08a4c69f14b3523599789799bb0c2b6f205460e622b56ccdd98aace  docs/customer/evidence/pretrain-functional/train_stats.json\n676e9a9907807456bad0dba547078c7257d6d8f8b8d93691b3ad45582f05156c  docs/customer/evidence/replay-render-manifest.json\nead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a  docs/customer/evidence/results.json\n9682b49df7e6975cd7b913fdf90b8c01bd6b04f28ccf94943ae18be55876f83c  docs/customer/evidence/runtime/build-report.json\n341494fd43d005c4da6253620975dd5a395309fc9e852349bd30185c983c2c90  docs/customer/evidence/runtime/numerical-check.json\n440e9d6e433905060b9b3bc984c20e6b77585465684b33b1bc4aeacd4ebff597  docs/customer/evidence/runtime/rehearsal-classifier-evaluation/manifest.json\n89cab36caa23eec55cc4c34b5999c837a5074061eea96872290fb5f10ab64d0b  docs/customer/evidence/runtime/rehearsal-classifier-evaluation/metrics.json\n4ff6e7466367c8b0835478941b0c5dfa592933db9feaf305a8e779b8e3aa7eb4  docs/customer/evidence/runtime/rehearsal-environment.json\ncfc9c1373fb77fdb33cdfc74f39debb8bf7e3236c316220a9e8abea8bf631346  docs/customer/evidence/runtime/rehearsal-numerical-check.json\nab9e3705cfa7936079fe28757a6513b538af53350da252841b5f0b12bac90133  docs/customer/evidence/runtime/training-environment.json\nb46d4b5c59a708fb1563083ba0986731184c7ef7fba0b2bfb1235026515a3209  docs/customer/evidence/seed0/eval/manifest.json\n89cab36caa23eec55cc4c34b5999c837a5074061eea96872290fb5f10ab64d0b  docs/customer/evidence/seed0/eval/metrics.json\n989fd6ea88fd60a053a8b182b7116f40d2819d845f17a11890f4329501cab865  docs/customer/evidence/seed0/model-export-provenance.json\nf237f786dab160d48936b0bba21358e7f5096cfa90e462a9496bde3ed5f01504  docs/customer/evidence/seed0/replay/manifest.json\nb8079ab158b8a7adcdbd57e3bead8aa32994c3b1f17d877dd149b4b486f1e987  docs/customer/evidence/seed0/replay/metrics.json\n307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a  docs/customer/evidence/seed0/replay/predictions.json\n2b0248f4489c3eea1b9389ea5f26ab6ce24d9cc1d00f7b646ddbd9178b071096  docs/customer/evidence/seed0/training/log.txt\n599c0c893849363ec5c271d24732692e28b49612d9fbe250f4a0bf235e4b775f  docs/customer/evidence/seed0/training/manifest.json\n5cc5be8932773d5f7085794c2220c8fdd2ad0978c8e26952a99bc8d298f89cd5  docs/customer/evidence/seed0/training/native.log\n0de16f052de6a2523177b54972cb2b39d4f7675fac327f06c73a192a8ced33a8  docs/customer/evidence/seed0/training/test_stats.json\n0c1913080ffde989fd01927f4ea047a9cec752121b3d6ed671add29fb62d0328  docs/customer/evidence/seed0/training/train_stats.json\n6a59429f134b75d2dca0e14599800d682791ee87062b9e1f9c050f8b2986289b  docs/customer/evidence/seed1/eval/manifest.json\n05721abb97d206d171192b08243c6da3590593c9f5a1f5740894e0090db88ac3  docs/customer/evidence/seed1/eval/metrics.json\n9b9b3849fed92842a93c5dd525db9e3a3ee731c125f695efa1b6d6886dcaa6ea  docs/customer/evidence/seed1/model-export-provenance.json\n0647eda8b2ecc94bd395093d7c9d47d4411131f47821f2a36603b93b3674d0da  docs/customer/evidence/seed1/replay/manifest.json\ncb4df458cad6703cc0735c5847f846309544e71123cb5b3b1cfd982f1072c5d1  docs/customer/evidence/seed1/replay/metrics.json\n5c53488b9bc7056c315a32a5c42036e637bd22e6c691d41e2e146110b034c095  docs/customer/evidence/seed1/replay/predictions.json\na6ab2f3247b0990928378e09cae71ff0cb6f7d024f662b560373515170a7d724  docs/customer/evidence/seed1/training/log.txt\nf8d64eb2de17dad5f2d7a573b7cfd40559bc437012cd71b18a5240f6e733abf9  docs/customer/evidence/seed1/training/manifest.json\n4acb009f46d37eff3934e3746aef903f52a7452d7c98a6ecd7a27c7db7297e41  docs/customer/evidence/seed1/training/native.log\nd8be654633d2c9e9d043e53c961bde1bd33adb063f016b68214ed9dd23e1d43e  docs/customer/evidence/seed1/training/test_stats.json\n4b9d54ae713f4d5d612dfcafb42fca3d1e3344faf085afd6771531cdae5f17c9  docs/customer/evidence/seed1/training/train_stats.json\n06cfcd6193158e9aa5235ba27fe467b349dcc2054a7c0d181b8661bd316fc411  docs/customer/evidence/seed2/eval/manifest.json\n9471dd343b3b33dfc4d6b1e0e66eb50719db85c115eee8dddd5737e5407dc065  docs/customer/evidence/seed2/eval/metrics.json\na479ec8a0b127fc8c356a42fad83d3b6ec4788964c5c15075e8c1fcf7b188243  docs/customer/evidence/seed2/model-export-provenance.json\n2d20eab8cedf7564da9ee380791dfd9e115030d580e3e33b27133a347d47ae99  docs/customer/evidence/seed2/replay/manifest.json\n8c1b1d537e9e8918d29bcf7aacdd9cc3fd50415d368f1084db7b90b996ceaf24  docs/customer/evidence/seed2/replay/metrics.json\n4811d8ed7f39541ca15999c27a9ed4ebeb7fe16e4dea8e262274caab7999088f  docs/customer/evidence/seed2/replay/predictions.json\ndb35cf012e8b76157048a88034c69242b8fc84fa76a862f1ae6825a60266e6c8  docs/customer/evidence/seed2/training/log.txt\n79439a3c0133cc4d1af4f6876d72f9c20166339c3b9599928f3c73072c83bb13  docs/customer/evidence/seed2/training/manifest.json\n52f27bbcef4308cd5761b6049c4903c9e085cbdba524826d47078c20ff6529bb  docs/customer/evidence/seed2/training/native.log\n7d620686a0a284e20cf6a7ad01d935b4efd96c1f25fb0eb016588e54cd625ee1  docs/customer/evidence/seed2/training/test_stats.json\n9fbfb4a6fb36655e1576408fe43ba123621a9b1c6770e7cbeeca27cbeac53d36  docs/customer/evidence/seed2/training/train_stats.json\n38af4880c8586503ab3e3404e2c05074d6d90318957300e2d92d7e55aa2c4aa9  docs/customer/evidence/unlabeled-inference-agreement.json\ne11e0a3a098a6c17f002b030db70e1c260ae270f5ee5a07c282d4956c1c3d43e  docs/customer/evidence/unlabeled-prediction/manifest.json\n0679152fd981ce62d49f0ac86541b18dce7533d675470c5249d382882e027a19  docs/customer/evidence/unlabeled-prediction/metrics.json\nf6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097  docs/customer/evidence/uploaded-csv-profile.json\nbe3a0248702de4f29b6e7b17529d109b76b1c4258d519b15e4375a65c03e94b9  docs/customer/figures/learning-curves.pdf\n7d92bc1d1d2dccf404fb70eeca6d7d3b76c53eb8aa1fb82e5c6d9284e9d0820f  docs/customer/figures/learning-curves.png\n74d0ef46a657d5cd9515e11b53e3e5ac8ed1f53c8460b2a671a6d308ad0fb5fa  docs/customer/figures/learning-curves.svg\ne516686fab1f1052c1b1c6ae17e863231bcae80b11668a49ce22ba4131d11aaa  docs/customer/figures/seed0-confusion.pdf\n8785d4fef14b0d08822522648072e7ff92c70fa876d01dd9fc2e2f0303284fdc  docs/customer/figures/seed0-confusion.png\nc7f98cc99efea8454d1946e0cfc49b0275701a05e5e80ed1dd5e5f67502783ab  docs/customer/figures/seed0-confusion.svg\n99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18  docs/customer/hardware-roadmap.md\n444ba5f4398c28a36547a8e2642cc49865feeca089b195f3cbb4db649f4f6742  docs/customer/presentation-source.json\nc0258d9410a13228d0f1dd0325c6390195e5ef7b25d3e1bc32cba4f8368a3553  docs/customer/publication-checks.json\ndcd7348b80f9b53707d3b3d702cabd894953a2186dbfe1778891d4357fdd3333  docs/customer/questions.md\n6641b5d478ef02981014bf3d8c08f3f86c147de25e93ce9efc7dac5fae5d99bf  docs/customer/quickstart.md\n582a7075602ad99c9b4faa46ecba6bab521e903aab7132669e5fd26b7f29decc  docs/customer/results.md\n854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0  docs/customer/runbook.md\nebd438636ce5ffef646d9b57fa260b30dcc5fb127d01ade070a3efa9bdfb6c4e  docs/customer/talk-track.md\na84e5fbffabc2b6ccc44351203b4b61f9f95dee7608765e3ef427d54e121b5ba  docs/customer/upstream-comparison.md\n88948b8336c729882a2a8835f69b03489161be769d3e6a4991a7ccc7a91bebbc  docs/customer/verification.md\n44308ec45761875e20c06609fc31cd1c7f6afe7449d7651c1c704da038666051  docs/research/audit-council-initial-result.json\nd60391c5825586a1ca7a1ff065eeba21ef60ac263486a0a32de9eb42819d69bc  docs/research/audit-primary-pack.json\n8bd76460d62e804cc06ed8f4de883f8be4f4f4e6de05aa3c9bf3272a9b9ac59e  docs/research/council-decision.json\n791d814a5034702bc2c77209f66225f0fda7a401e6e7d765dae9a7e7db37c109  docs/research/council-receipt.json\nea412c5b3c49ff06b9dfa7dc02faa360dd22b1094406bfd7d53db3e31c3f4ae4  docs/research/execution-plan.md\n18ff1e796e2fd1685df76a4a1b1b7dd5122cc06328c0f5dbf87a28a3616fed5d  docs/research/final-council-decision.json\ne3234a01ba6968c9b0439659de244db91130bec0dcef9e683bfe3393a7c277df  docs/research/final-council-receipt.json\nff78420373aa3ae1d9ecfbba4076da0333bfd4391810e80ef510be564190aef3  docs/research/final-council-review.md\n2194583c7940a6a43880f47f0600d7fdfbb8653b4563fbbd53bbe17c63b3b497  docs/research/research-record.md\n"
+  }
+}

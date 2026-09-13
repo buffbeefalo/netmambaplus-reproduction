@@ -10,6 +10,7 @@ Test accuracy was **91.26%, 84.05% and 84.63%** across the three declared seeds:
 
 | Deliverable | Link |
 |---|---|
+| Learn the project in a planned 30-minute course | [Open the course](https://buffbeefalo.github.io/netmambaplus-reproduction/course/) · [Download standalone HTML](https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/demo/course/index.html) · [Course checks](docs/customer/course-verification.md) |
 | Start here: results, downloads and completion checklist | [Customer index](docs/customer/README.md) |
 | Understand it without a technical background | [Slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
 | Simple setup, usage and test results | [Quickstart](docs/customer/quickstart.md) |
@@ -58,9 +59,13 @@ Python 3.10 or newer is sufficient for the standard-library tests:
 ```bash
 python3 -m unittest discover -s tests -v
 python3 tools/verify_package.py
+python3 tools/build_course.py --check
+python3 tools/verify_course.py
 ```
 
 CPU CI checks the harness and published evidence. It does not retrain the GPU model. The separately saved GPU records establish the actual experiments described in the customer package.
+
+The course adds nine timed lessons, eight questions with explanatory answers, a real prediction error to investigate and a two-minute customer teach-back. Its essential content works offline without JavaScript or an AI account. Thirty minutes is a reading-and-practice plan; a human-paced full-route rehearsal remains pending. The course is a separate addition to current `main`, outside the frozen audited release ZIP.
 
 Acquire the pinned original source and assets:
 
