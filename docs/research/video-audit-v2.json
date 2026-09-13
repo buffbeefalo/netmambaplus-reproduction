@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "status": "entire-video automated and source audit complete; public v2 publication checks pending; human acceptance unperformed",
-  "generated_at": "2026-09-13T08:37:34.182796+00:00",
+  "status": "entire-video source, automated media, six-platform CI and public-delivery checks complete; human acceptance unperformed",
+  "generated_at": "2026-09-13T08:46:46.855129+00:00",
   "source_sha256": "969e02cf8cee3cd5ffc543d1ae0153539597da607acf2c253ed9ead8930ed9b4",
   "mp4_sha256": "6ebc3f93861997eb3894dbec98d1b496f3fe33374eeb74453277d89bb93dd416",
   "artifacts": {
@@ -5928,7 +5928,294 @@
     ]
   },
   "publication_v2": {
-    "status": "pending"
+    "status": "passed",
+    "release": {
+      "status": "passed",
+      "completed_at": "2026-09-13T08:44:23.526581+00:00",
+      "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/course-video-v2",
+      "video_tag": "course-video-v2",
+      "video_target": "89dd26909eaaa2948212e0d6c543ea30eb0b0885",
+      "video_prerelease": true,
+      "original_latest_tag": "customer-2026-09-15-audited",
+      "original_target": "17b4aaebcf9327ae9967ca45ddfaf16325766993",
+      "original_seven_unchanged": true,
+      "downloads": [
+        {
+          "kind": "video",
+          "name": "captions.srt",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/captions.srt",
+          "bytes": 37993,
+          "sha256": "5ef8241d6d55257fa18a385b1a697296768cf55253b8d71f1a207838da2e9eeb",
+          "asset_id": 560890565
+        },
+        {
+          "kind": "video",
+          "name": "captions.vtt",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/captions.vtt",
+          "bytes": 36461,
+          "sha256": "e519c6e38a56bb7d94741caaa410dff5d031c585756ada50fbe308a8eb337010",
+          "asset_id": 560890569
+        },
+        {
+          "kind": "video",
+          "name": "chapters.json",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/chapters.json",
+          "bytes": 1086,
+          "sha256": "0df6d396da78156e3724019119eaad6b35923a3420dbb28a8f7ee182d6ab4c15",
+          "asset_id": 560890570
+        },
+        {
+          "kind": "video",
+          "name": "media-manifest.json",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/media-manifest.json",
+          "bytes": 136293,
+          "sha256": "4b7db9fcba435607dc7a17c423bfddd7ea58fc1f419adb7c32e1aca913752756",
+          "asset_id": 560890566
+        },
+        {
+          "kind": "video",
+          "name": "NetMambaPlus-30-minute-course.mp4",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/NetMambaPlus-30-minute-course.mp4",
+          "bytes": 38130518,
+          "sha256": "6ebc3f93861997eb3894dbec98d1b496f3fe33374eeb74453277d89bb93dd416",
+          "asset_id": 560891351
+        },
+        {
+          "kind": "video",
+          "name": "transcript.md",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/transcript.md",
+          "bytes": 48313,
+          "sha256": "419def72f7215bd63c13459b67b4f53b34b5abde15ebe87e04ee18b6249e4e53",
+          "asset_id": 560890568
+        },
+        {
+          "kind": "original",
+          "name": "NetMambaPlus-customer-briefing.pdf",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/NetMambaPlus-customer-briefing.pdf",
+          "bytes": 90959,
+          "sha256": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d",
+          "asset_id": 559094027
+        },
+        {
+          "kind": "original",
+          "name": "netmambaplus-customer-package.zip",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/netmambaplus-customer-package.zip",
+          "bytes": 3634849,
+          "sha256": "dc81df8442ac29f81a5a27e4a4f7ec277e76709204d3204aeb8cacea22ad9b8a",
+          "asset_id": 559094024
+        },
+        {
+          "kind": "original",
+          "name": "NetMambaPlus-customer-slides.pdf",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/NetMambaPlus-customer-slides.pdf",
+          "bytes": 515749,
+          "sha256": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1",
+          "asset_id": 559094026
+        },
+        {
+          "kind": "original",
+          "name": "NetMambaPlus-customer-slides.pptx",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/NetMambaPlus-customer-slides.pptx",
+          "bytes": 256511,
+          "sha256": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5",
+          "asset_id": 559093990
+        },
+        {
+          "kind": "original",
+          "name": "release-inventory.json",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/release-inventory.json",
+          "bytes": 757,
+          "sha256": "cd4a3dd9cb6a42fbda582fbf02bb67b719e098c7ffc8101482abd347bebdf75d",
+          "asset_id": 559094041
+        },
+        {
+          "kind": "original",
+          "name": "release-verification.json",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/release-verification.json",
+          "bytes": 10070,
+          "sha256": "3201a2d1018a8676025fe6207b90dd2ab2dafdc7a2c80339ae031fe34d71899b",
+          "asset_id": 559097138
+        },
+        {
+          "kind": "original",
+          "name": "SHA256SUMS-release.txt",
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/SHA256SUMS-release.txt",
+          "bytes": 400,
+          "sha256": "b9c3e3c9b078281c97460f6fdf53bacd5a9b59206a6998f4d2b50c5389fbee3e",
+          "asset_id": 559094025
+        }
+      ],
+      "scope": "All six v2 attachments and all seven original attachments anonymously downloaded and checked by complete-byte SHA-256 and size; no cached local files substituted for the downloads."
+    },
+    "pages_deployment": {
+      "conclusion": "success",
+      "databaseId": 34748371870,
+      "headSha": "89dd26909eaaa2948212e0d6c543ea30eb0b0885",
+      "jobs": [
+        {
+          "completedAt": "2026-09-13T08:43:17Z",
+          "conclusion": "success",
+          "databaseId": 103700351550,
+          "name": "deploy",
+          "startedAt": "2026-09-13T08:42:57Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:42:59Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:42:57Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:01Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v6",
+              "number": 2,
+              "startedAt": "2026-09-13T08:42:59Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:02Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:43:01Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:04Z",
+              "conclusion": "success",
+              "name": "Run python3 -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:43:02Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:04Z",
+              "conclusion": "success",
+              "name": "Run python3 tools/verify_package.py",
+              "number": 5,
+              "startedAt": "2026-09-13T08:43:04Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:04Z",
+              "conclusion": "success",
+              "name": "Stage the public site without the retired interactive course",
+              "number": 6,
+              "startedAt": "2026-09-13T08:43:04Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:05Z",
+              "conclusion": "success",
+              "name": "Run actions/configure-pages@v5",
+              "number": 7,
+              "startedAt": "2026-09-13T08:43:04Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:08Z",
+              "conclusion": "success",
+              "name": "Run actions/upload-pages-artifact@v4",
+              "number": 8,
+              "startedAt": "2026-09-13T08:43:05Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:14Z",
+              "conclusion": "success",
+              "name": "Deploy measured replay",
+              "number": 9,
+              "startedAt": "2026-09-13T08:43:08Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:14Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 17,
+              "startedAt": "2026-09-13T08:43:14Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:15Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v6",
+              "number": 18,
+              "startedAt": "2026-09-13T08:43:14Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:43:15Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 19,
+              "startedAt": "2026-09-13T08:43:15Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748371870/job/103700351550"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748371870"
+    },
+    "browser_public": {
+      "status": "passed",
+      "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/",
+      "completed_at": "2026-09-13T08:45:01.537675+00:00",
+      "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
+      "html_sha256": "af8269604d0a57eb2c207c16423cbe360b3e0886256d5c4ca12cd7193a8ec990",
+      "mp4_sha256": "6ebc3f93861997eb3894dbec98d1b496f3fe33374eeb74453277d89bb93dd416",
+      "decoded_frames_and_audio_bytes": {
+        "audio": 15463,
+        "video": 14,
+        "played_src": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/NetMambaPlus-30-minute-course.webm"
+      },
+      "caption_count": 412,
+      "keyboard_playback": true,
+      "keyboard_chapter_offsets": [
+        0,
+        120,
+        360,
+        600,
+        780,
+        1020,
+        1260,
+        1500,
+        1620
+      ],
+      "seek_and_play_near_end": true,
+      "download_bytes_equal": true,
+      "served_bytes_equal": true,
+      "viewport_widths_without_overflow": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "page_errors": [],
+      "screenshots": {
+        "video-390.png": "3b8f66f4fe083f78d20f0909a2911d91032741a63eab62c046f23390d46939c9",
+        "video-320.png": "825ac60c21ae9c45d8d8078a56c56416f1c50c81d92343e1a1cd783493e51afb",
+        "video-1440.png": "dbdc6569e4dfadc8ede19cd29d24ecd2f26c622264e3061dbf2d29dac878ada2",
+        "video-768.png": "368348fee318bb68166498d6073cf5c33fb6ebe483470667c93c2156c6fc1fbe"
+      }
+    },
+    "retired_course": {
+      "status": "passed",
+      "http_status": 404,
+      "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/course/",
+      "completed_at": "2026-09-13T08:44:46.249948+00:00",
+      "response_sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+      "scope": "Anonymous HTTP GET after v2 Pages deployment; retired course is absent."
+    },
+    "manifest_sha256": "4b7db9fcba435607dc7a17c423bfddd7ea58fc1f419adb7c32e1aca913752756",
+    "git_release_tag_commit": "89dd26909eaaa2948212e0d6c543ea30eb0b0885",
+    "notes": "Later audit-receipt-only commits may follow this immutable media tag. Their evidence/documentation updates do not change the checked video bytes, transcript, captions or watch page."
   },
   "fully_human_verified": false,
   "cpu_local": {
@@ -60877,5 +61164,1218 @@
       "source": "\"\"\"Ignored, deterministic final-MP4 sample verification; no provider/network calls.\"\"\"\n\nfrom concurrent.futures import ThreadPoolExecutor\nfrom datetime import datetime, timezone\nfrom decimal import Decimal, ROUND_CEILING\nimport hashlib\nimport json\nfrom pathlib import Path\nimport re\nimport subprocess\n\nfrom PIL import Image, ImageChops, ImageStat\n\n\nROOT = Path(__file__).resolve().parents[3]\nWORK = ROOT / \"runs/video-course\"\nOUTPUT = WORK / \"v2-frames\"\nMEDIA = ROOT / \"docs/customer/demo/video/NetMambaPlus-30-minute-course.mp4\"\nMANIFEST = ROOT / \"docs/customer/demo/video/media-manifest.json\"\nASS = WORK / \"captions.ass\"\nFFMPEG = \"/home/nvidia/learn/_video/bin/ffmpeg\"\nLIMIT = 3.0\n\n\ndef digest(path):\n    return hashlib.sha256(path.read_bytes()).hexdigest()\n\n\ndef timestamp(value):\n    hours, minutes, seconds = value.split(\":\")\n    return Decimal(hours) * 3600 + Decimal(minutes) * 60 + Decimal(seconds)\n\n\ndef main():\n    manifest = json.loads(MANIFEST.read_text())\n    scenes = manifest[\"scenes\"]\n    if len(scenes) != 60 or manifest[\"fps\"] != 10:\n        raise ValueError(\"Expected 60 scenes at 10 fps\")\n    original_identities = {\n        str(p.relative_to(ROOT)): digest(p)\n        for p in [MEDIA, ASS, *[WORK / \"frames\" / (s[\"id\"] + \".png\") for s in scenes]]\n    }\n    events = []\n    for line in ASS.read_text().splitlines():\n        if line.startswith(\"Dialogue: \"):\n            fields = line.removeprefix(\"Dialogue: \").split(\",\", 9)\n            events.append({\"start\": timestamp(fields[1]), \"end\": timestamp(fields[2]),\n                           \"style\": fields[3], \"text\": fields[9]})\n    samples = []\n    for scene in scenes:\n        midpoint = (Decimal(str(scene[\"start\"])) + Decimal(str(scene[\"end\"]))) / 2\n        sample_time = (midpoint * 10).to_integral_value(rounding=ROUND_CEILING) / 10\n        samples.append({\"name\": \"scene-\" + scene[\"id\"], \"kind\": \"scene_midpoint\",\n                        \"scene\": scene, \"requested_time\": midpoint, \"frame_time\": sample_time})\n    for number, chapter in enumerate(manifest[\"chapters\"], 1):\n        sample_time = Decimal(str(chapter[\"start\"])) + Decimal(\"0.2\")\n        scene = next(s for s in scenes if Decimal(str(s[\"start\"])) <= sample_time < Decimal(str(s[\"end\"])))\n        samples.append({\"name\": f\"chapter-{number:02d}-{chapter['id']}\", \"kind\": \"chapter_start_plus_0.2\",\n                        \"scene\": scene, \"requested_time\": sample_time, \"frame_time\": sample_time})\n\n    def command_frame(command, log_path):\n        result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)\n        log_path.write_text(result.stderr)\n        if result.returncode:\n            raise RuntimeError(f\"Frame command exited {result.returncode}; see {log_path}\")\n        matches = re.findall(r\"n:\\s*0\\s+pts:\\s*\\S+\\s+pts_time:([0-9.]+)\", result.stderr)\n        if len(matches) != 1:\n            raise ValueError(f\"Missing or ambiguous first-frame PTS; see {log_path}\")\n        return Decimal(matches[0])\n\n    def check(sample):\n        name, scene, frame_time = sample[\"name\"], sample[\"scene\"], sample[\"frame_time\"]\n        actual = OUTPUT / (name + \"-actual.png\")\n        expected = OUTPUT / (name + \"-expected.png\")\n        source = WORK / \"frames\" / (scene[\"id\"] + \".png\")\n        actual_log = OUTPUT / (name + \"-actual.log\")\n        expected_log = OUTPUT / (name + \"-expected.log\")\n        extract_command = [FFMPEG, \"-hide_banner\", \"-nostats\", \"-loglevel\", \"info\",\n                           \"-ss\", str(frame_time), \"-copyts\", \"-threads\", \"1\", \"-i\", str(MEDIA),\n                           \"-map\", \"0:v:0\", \"-vf\", \"showinfo\", \"-frames:v\", \"1\",\n                           \"-fps_mode\", \"passthrough\", \"-threads\", \"1\", \"-y\", str(actual)]\n        actual_time = command_frame(extract_command, actual_log)\n        if actual_time != frame_time:\n            raise ValueError(f\"Actual timestamp drift in {name}: {actual_time} != {frame_time}\")\n        # Rounding the integral 10-Hz PTS prevents floating arithmetic truncation.\n        overlay_command = [FFMPEG, \"-hide_banner\", \"-nostats\", \"-loglevel\", \"info\",\n                           \"-framerate\", \"10\", \"-i\", str(source), \"-vf\",\n                           f\"setpts=PTS+round({actual_time}/TB),ass=runs/video-course/captions.ass,showinfo\",\n                           \"-frames:v\", \"1\", \"-fps_mode\", \"passthrough\", \"-threads\", \"1\", \"-y\", str(expected)]\n        expected_time = command_frame(overlay_command, expected_log)\n        if expected_time != actual_time:\n            raise ValueError(f\"Overlay timestamp drift in {name}: {expected_time} != {actual_time}\")\n        with Image.open(actual) as im:\n            actual_image = im.convert(\"RGB\")\n        with Image.open(expected) as im:\n            expected_image = im.convert(\"RGB\")\n        with Image.open(source) as im:\n            source_image = im.convert(\"RGB\")\n        if {actual_image.size, expected_image.size, source_image.size} != {(1920, 1080)}:\n            raise ValueError(f\"Unexpected frame size in {name}\")\n        def mad(a, b, crop):\n            delta = ImageChops.difference(a.crop(crop), b.crop(crop))\n            return sum(ImageStat.Stat(delta).mean) / 3\n        differences = {\n            \"upper_850px_vs_source\": mad(actual_image, source_image, (0, 0, 1920, 850)),\n            \"bottom_230px_vs_overlay\": mad(actual_image, expected_image, (0, 850, 1920, 1080)),\n            \"full_frame_vs_overlay\": mad(actual_image, expected_image, (0, 0, 1920, 1080)),\n        }\n        return {\n            \"name\": name, \"kind\": sample[\"kind\"], \"scene\": scene[\"id\"], \"scene_kind\": scene[\"kind\"],\n            \"requested_time\": str(sample[\"requested_time\"]), \"extracted_frame_timestamp\": str(actual_time),\n            \"expected_overlay_timestamp\": str(expected_time), \"timestamps_equal\": actual_time == expected_time,\n            \"mean_absolute_rgb_difference\": differences,\n            \"within_limit\": all(value <= LIMIT for value in differences.values()),\n            \"active_ass_events\": [{**e, \"start\": str(e[\"start\"]), \"end\": str(e[\"end\"])}\n                                  for e in events if e[\"start\"] <= actual_time < e[\"end\"]],\n            \"source_png\": str(source.relative_to(ROOT)), \"source_png_sha256\": digest(source),\n            \"actual_png\": str(actual.relative_to(ROOT)), \"actual_png_sha256\": digest(actual),\n            \"expected_png\": str(expected.relative_to(ROOT)), \"expected_png_sha256\": digest(expected),\n            \"extract_command\": extract_command, \"overlay_command\": overlay_command,\n        }\n\n    with ThreadPoolExecutor(max_workers=2) as pool:\n        results = list(pool.map(check, samples))\n    drift = [path for path, identity in original_identities.items() if digest(ROOT / path) != identity]\n    failures = [sample for sample in results if not sample[\"within_limit\"]]\n    maxima = {key: max(s[\"mean_absolute_rgb_difference\"][key] for s in results)\n              for key in results[0][\"mean_absolute_rgb_difference\"]}\n    receipt = {\n        \"status\": \"passed\" if not failures and not drift else \"failed\",\n        \"completed_at\": datetime.now(timezone.utc).isoformat(),\n        \"mp4_sha256\": digest(MEDIA), \"ass_sha256\": digest(ASS),\n        \"source_manifest_sha256_at_completion\": digest(MANIFEST),\n        \"scene_count\": len(scenes), \"chapter_count\": len(manifest[\"chapters\"]), \"sample_count\": len(results),\n        \"frame_time_rule\": \"ceil(requested_scene_midpoint * 10) / 10; chapter start + 0.2\",\n        \"timestamp_evidence\": \"ffmpeg showinfo first-frame PTS in both extraction and overlay render\",\n        \"comparison\": \"RGB mean absolute difference over upper 850 px against uncaptioned scene PNG; bottom 230 px and full frame against PNG with exact-time ASS captions/countdown\",\n        \"limit_mean_absolute_rgb_difference\": LIMIT, \"max_mean_absolute_rgb_difference\": maxima,\n        \"source_or_media_drift\": drift, \"failures\": [s[\"name\"] for s in failures],\n        \"samples\": results,\n        \"human_full_playback_review\": \"not performed; this is deterministic frame/audio verification\",\n    }\n    (OUTPUT / \"frame-check.json\").write_text(json.dumps(receipt, indent=2) + \"\\n\")\n    print(json.dumps({k: v for k, v in receipt.items() if k != \"samples\"}, indent=2))\n    if failures or drift:\n        raise SystemExit(1)\n\n\nif __name__ == \"__main__\":\n    main()\n",
       "scope": "Exact local audit helper retained for inspection/repetition. Local paths/tool environments are explicit; media/voice models and temporary WAV/frame files are separate rebuild inputs."
     }
+  },
+  "cpu_ci": {
+    "status": "passed",
+    "tests_per_job": 103,
+    "combinations": 6,
+    "code_and_media_revision": {
+      "conclusion": "success",
+      "databaseId": 34748217173,
+      "headSha": "2dcbc305cc4d74f03a8e018d0037668cb3ff5312",
+      "jobs": [
+        {
+          "completedAt": "2026-09-13T08:39:24Z",
+          "conclusion": "success",
+          "databaseId": 103699940952,
+          "name": "test (macos-14, 3.12)",
+          "startedAt": "2026-09-13T08:39:13Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:39:14Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:39:13Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:17Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:39:14Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:17Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:39:17Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:18Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:39:17Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:19Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:39:18Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:19Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:39:19Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:19Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:39:19Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:19Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:39:19Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:19Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:39:19Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:19Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:39:19Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:19Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:39:19Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748217173/job/103699940952"
+        },
+        {
+          "completedAt": "2026-09-13T08:39:27Z",
+          "conclusion": "success",
+          "databaseId": 103699941108,
+          "name": "test (windows-2022, 3.10)",
+          "startedAt": "2026-09-13T08:39:08Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:39:10Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:39:09Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:15Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:39:10Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:15Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:39:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:21Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:39:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:22Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:39:21Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:22Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:39:22Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:23Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:39:22Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:23Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:39:23Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:24Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:39:23Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:26Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:39:24Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:26Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:39:26Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748217173/job/103699941108"
+        },
+        {
+          "completedAt": "2026-09-13T08:39:38Z",
+          "conclusion": "success",
+          "databaseId": 103699941113,
+          "name": "test (macos-14, 3.10)",
+          "startedAt": "2026-09-13T08:39:13Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:39:13Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:39:13Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:17Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:39:13Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:34Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:39:17Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:35Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:39:34Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:35Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:39:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:35Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:39:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:36Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:39:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:36Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:39:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:36Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:39:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:36Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:39:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:36Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:39:36Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748217173/job/103699941113"
+        },
+        {
+          "completedAt": "2026-09-13T08:39:17Z",
+          "conclusion": "success",
+          "databaseId": 103699941126,
+          "name": "test (ubuntu-24.04, 3.10)",
+          "startedAt": "2026-09-13T08:39:09Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:39:10Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:39:09Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:12Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:39:10Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:12Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:39:12Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:15Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:39:12Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:15Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:39:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:15Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:39:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:15Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:39:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:15Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:39:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:15Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:39:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:39:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:39:16Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748217173/job/103699941126"
+        },
+        {
+          "completedAt": "2026-09-13T08:39:33Z",
+          "conclusion": "success",
+          "databaseId": 103699941130,
+          "name": "test (windows-2022, 3.12)",
+          "startedAt": "2026-09-13T08:39:09Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:39:10Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:39:09Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:39:10Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:39:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:28Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:39:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:28Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:39:28Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:29Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:39:28Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:30Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:39:29Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:30Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:39:30Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:30Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:39:30Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:32Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:39:30Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:32Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:39:32Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748217173/job/103699941130"
+        },
+        {
+          "completedAt": "2026-09-13T08:39:19Z",
+          "conclusion": "success",
+          "databaseId": 103699941133,
+          "name": "test (ubuntu-24.04, 3.12)",
+          "startedAt": "2026-09-13T08:39:09Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:39:10Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:39:09Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:12Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:39:10Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:12Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:39:12Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:39:12Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:39:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:39:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:39:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:16Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:39:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:17Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:39:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:17Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:39:17Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:39:17Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:39:17Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748217173/job/103699941133"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748217173"
+    },
+    "complete_audit_documentation_revision": {
+      "conclusion": "success",
+      "databaseId": 34748276261,
+      "headSha": "89dd26909eaaa2948212e0d6c543ea30eb0b0885",
+      "jobs": [
+        {
+          "completedAt": "2026-09-13T08:40:54Z",
+          "conclusion": "success",
+          "databaseId": 103700099930,
+          "name": "test (windows-2022, 3.10)",
+          "startedAt": "2026-09-13T08:40:35Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:40:36Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:40:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:40:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:50Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:50Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:40:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:51Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:40:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:51Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:40:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:51Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:40:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:52Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:40:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:53Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:40:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:53Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:40:53Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748276261/job/103700099930"
+        },
+        {
+          "completedAt": "2026-09-13T08:40:48Z",
+          "conclusion": "success",
+          "databaseId": 103700100027,
+          "name": "test (ubuntu-24.04, 3.10)",
+          "startedAt": "2026-09-13T08:40:35Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:40:36Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:40:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:39Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:40:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:39Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:40:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:44Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:40:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:44Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:40:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:44Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:40:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:40:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:40:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:40:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:40:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:40:45Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748276261/job/103700100027"
+        },
+        {
+          "completedAt": "2026-09-13T08:40:47Z",
+          "conclusion": "success",
+          "databaseId": 103700100048,
+          "name": "test (ubuntu-24.04, 3.12)",
+          "startedAt": "2026-09-13T08:40:35Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:40:37Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:40:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:41Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:40:37Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:41Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:40:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:40:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:44Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:44Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:40:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:44Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:40:44Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748276261/job/103700100048"
+        },
+        {
+          "completedAt": "2026-09-13T08:40:51Z",
+          "conclusion": "success",
+          "databaseId": 103700100050,
+          "name": "test (macos-14, 3.12)",
+          "startedAt": "2026-09-13T08:40:39Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:40:41Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:40:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:40:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:40:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:46Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:40:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:46Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:46Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:46Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:46Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:47Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:40:46Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748276261/job/103700100050"
+        },
+        {
+          "completedAt": "2026-09-13T08:41:03Z",
+          "conclusion": "success",
+          "databaseId": 103700100070,
+          "name": "test (macos-14, 3.10)",
+          "startedAt": "2026-09-13T08:40:39Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:40:40Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:40:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:43Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:40:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:59Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:00Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:40:59Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:00Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:41:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:00Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:41:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:00Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:41:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:00Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:41:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:01Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:41:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:01Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:41:01Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:01Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:41:01Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748276261/job/103700100070"
+        },
+        {
+          "completedAt": "2026-09-13T08:41:03Z",
+          "conclusion": "success",
+          "databaseId": 103700100138,
+          "name": "test (windows-2022, 3.12)",
+          "startedAt": "2026-09-13T08:40:35Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-09-13T08:40:37Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-09-13T08:40:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "startedAt": "2026-09-13T08:40:37Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:45Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "startedAt": "2026-09-13T08:40:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:57Z",
+              "conclusion": "success",
+              "name": "Run python -m unittest discover -s tests -v",
+              "number": 4,
+              "startedAt": "2026-09-13T08:40:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:57Z",
+              "conclusion": "success",
+              "name": "Run python repro.py --help",
+              "number": 5,
+              "startedAt": "2026-09-13T08:40:57Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:58Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_package.py",
+              "number": 6,
+              "startedAt": "2026-09-13T08:40:57Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:58Z",
+              "conclusion": "success",
+              "name": "Run python tools/verify_course_video.py",
+              "number": 7,
+              "startedAt": "2026-09-13T08:40:58Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:59Z",
+              "conclusion": "success",
+              "name": "Run python tools/build_video_page.py --check",
+              "number": 8,
+              "startedAt": "2026-09-13T08:40:58Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:40:59Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@v5",
+              "number": 15,
+              "startedAt": "2026-09-13T08:40:59Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:01Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 16,
+              "startedAt": "2026-09-13T08:40:59Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-09-13T08:41:01Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "startedAt": "2026-09-13T08:41:01Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748276261/job/103700100138"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34748276261"
+    },
+    "initial_workflow_log_sha256": "275e966d2104c34e44bf6939d927e984b977bc723bf1f24c6072322bf1bff889",
+    "scope": "Six actual hosted jobs each ran103tests and package/video/page checks. CPU checks do not execute the CUDA model."
   }
 }
