@@ -10,7 +10,7 @@ Test accuracy was **91.26%, 84.05% and 84.63%** across the three declared seeds:
 
 | Deliverable | Link |
 |---|---|
-| Learn the project in a planned 30-minute course | [Open the course](https://buffbeefalo.github.io/netmambaplus-reproduction/course/) · [Download standalone HTML](https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/demo/course/index.html) · [Course checks](docs/customer/course-verification.md) |
+| Learn the project in a planned 30-minute course | [Open the course](https://buffbeefalo.github.io/netmambaplus-reproduction/course/) · [HTML source / save file](https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/demo/course/index.html) · [Course checks](docs/customer/course-verification.md) |
 | Start here: results, downloads and completion checklist | [Customer index](docs/customer/README.md) |
 | Understand it without a technical background | [Slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
 | Simple setup, usage and test results | [Quickstart](docs/customer/quickstart.md) |

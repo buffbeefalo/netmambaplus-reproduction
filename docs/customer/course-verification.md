@@ -6,7 +6,7 @@ The course is a complete browser lesson for someone preparing to explain this pr
 
 ## Open, download and use it
 
-Open the course link, or save the linked HTML file and open it locally. The essential explanations, prediction row and answer keys are embedded in that one file. There is no account, AI subscription, model call, GPU, package installation or network requirement for the core lesson. JavaScript adds immediate quiz scoring; with JavaScript disabled, native answer disclosures still work. Browser Print can make a personal PDF, including the answer keys. The existing reviewed PPTX, briefing PDF, slide PDF and presenter script remain linked through the optional resources.
+Open the course and use **Download HTML** to save `NetMambaPlus-course.html`, then open that file locally. The raw GitHub link is an alternative: save the linked file. The essential explanations, prediction row and answer keys are embedded in that one file. There is no account, AI subscription, model call, GPU, package installation or network requirement for the core lesson. JavaScript adds immediate quiz scoring; with JavaScript disabled, native answer disclosures still work. Browser Print can make a personal PDF, including the answer keys. The existing reviewed PPTX, briefing PDF, slide PDF and presenter script remain linked through the optional resources.
 
 Use the schedule as a guide. Read a section, answer its question, review the explanation, then move on. Do the final explanation aloud before checking the five-point rubric. Reading, elapsed time, answer reveals and self-assessment checkboxes do not award objective quiz points. Answers are visible in the file: this is a study aid, not an examination or certificate.
 
@@ -132,12 +132,12 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
       "status": "passed",
       "detail": "All four acceptance commands passed; 71 tests (54 original plus 17 course).",
       "receipt": {
-        "completed_at": "2026-09-13T05:37:50.718884+00:00",
+        "completed_at": "2026-09-13T05:45:29.444880+00:00",
         "commands": [
           {
             "command": "python3 tools/build_course.py --check",
             "exit_code": 0,
-            "elapsed_seconds": 0.082,
+            "elapsed_seconds": 0.095,
             "output_sha256": "a66ff4a2f3b5a9365f8fe7ac52ec94df7d2cd61ceb85d94b752e545fb753eaca",
             "result": "Course render matches its reviewed source and evidence."
           },
@@ -145,7 +145,7 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
             "command": "python3 tools/verify_course.py",
             "exit_code": 0,
             "elapsed_seconds": 0.072,
-            "output_sha256": "c3b915d1aeccc6094999957d7abb928719d855e78592516d7d05b42d97535fd5",
+            "output_sha256": "ebec853e08b52d59d5b820b2bc517f0d2b3e96ac2e0284c63acc102e571ef4ba",
             "result": {
               "status": "passed"
             }
@@ -153,21 +153,21 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
           {
             "command": "python3 -m unittest discover -s tests -v",
             "exit_code": 0,
-            "elapsed_seconds": 0.756,
-            "output_sha256": "ba7e174abdb698174105a5b5a4c970da7e056476bbcc2ff6c1b17dbdb087aeab",
-            "result": "----------------------------------------------------------------------\nRan 71 tests in 0.688s\n\nOK"
+            "elapsed_seconds": 0.741,
+            "output_sha256": "5f6956d00a5ff4216d1c83d866a73e791d775466f38b518e65465428bc3205fb",
+            "result": "----------------------------------------------------------------------\nRan 71 tests in 0.671s\n\nOK"
           },
           {
             "command": "python3 tools/verify_package.py",
             "exit_code": 0,
-            "elapsed_seconds": 0.107,
+            "elapsed_seconds": 0.094,
             "output_sha256": "4ab0be841e7abbfa30f2760aa02b13ddbba4b5d01c25452613e52bd726627f7b",
             "result": {
               "status": "passed"
             }
           }
         ],
-        "scope": "Actual local acceptance after the print fix, before publication; GPU training not repeated."
+        "scope": "Current course candidate including direct-download behavior; no new GPU training."
       }
     },
     "browser_checks": {
@@ -175,8 +175,8 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
       "detail": "Actual Chromium keyboard, quiz, offline/no-JS, four-width layout and print-answer checks.",
       "receipt": {
         "status": "passed",
-        "completed_at": "2026-09-13T05:37:02.529913+00:00",
-        "html_sha256": "f1e1b838afc627470b4e9855b354e6516a7eb18c5121e20a22490f23675f78b6",
+        "completed_at": "2026-09-13T05:44:16.180185+00:00",
+        "html_sha256": "5aa24cf4b7283f21a54dc775a3bda390516dcec191e32a7332c891045cd5e8f5",
         "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
         "passed_checks": [
           "correct_answers",
@@ -196,24 +196,28 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
           1440
         ],
         "method": "automated browser functional rehearsal; not a human learning or timing study",
-        "elapsed_seconds": 33.565,
+        "elapsed_seconds": 33.796,
         "hosted_url": null,
-        "print_pdf_sha256": "09f2ad28cc74d1e2ec9b18c8d2f0ae6fd32e6e9e32b6c9d25967e1aaddcbce97",
+        "download_bytes_equal": null,
+        "print_pdf_sha256": "b557c42c485940aefa839022067982edad8eee0432814b2169217dcef1942f7d",
         "screenshots": {
-          "course-1440.png": "ec9bad419c472ca624e2e56a9f68f3903b373f3652053239c353cddac6c087a8",
-          "course-320.png": "5a9be967982a21db21dc365aaf87e4c7c74e0a54c379e0065a7b9a65ebb63b6d",
-          "course-390.png": "caca67e31ffd8efe4b7e09362cfb1e55b742c6c427add0b3c801a3e01cfe61a2",
-          "course-768.png": "bc9c0f5f2ed766bb314ec898a307f515e08f3cfce71e1dc5508c36bcf69ea0c9",
-          "course-no-js.png": "1a4cd555dec21589109df5129b6d82e781eb4cfb65262ca87546d1a3dbfbb516",
+          "course-1440.png": "3b9d65c1fb7b244fb7636371212ce1dafdd3e07dc56d35e7bc6fab95682b346c",
+          "course-320.png": "568069b407991443911234c4acd1a6a407d919d861d9df732e7da3b349d4a24a",
+          "course-390.png": "545762ed2a16005895962161c31ea43f968bfb43a51e7d120cd5466b3adac713",
+          "course-768.png": "c732d2d544f20925551e4826673ba79f7fe50be74feff1dd225c1cd431c897a0",
+          "course-no-js.png": "0a6089b4b4c5fbbba8600c12621679436d19cef789cf46e090b199dc57e60f79",
           "recorded-example.png": "ad5cd491cd138895a08f4e4e33215d8360fd7ef21ec7d84b29bb41c556a2004b"
         },
         "print_text_check": {
           "status": "passed",
-          "method": "No-JavaScript Chromium A4 PDF; pdftotext output compared with all eight full answer explanations, the revealed class-3 label and final rubric.",
-          "pdf_sha256": "0637e21f94b5a19eee44a50bc40321928921e9a1c9195de6f8d7d50ac64430cc",
-          "initial_issue_and_fix": "Closed details content was omitted by print layout; explicit print visibility for ::details-content fixed it."
+          "method": "pdftotext comparison against all eight complete explanations, the known label and final rubric.",
+          "pdf_sha256": "b557c42c485940aefa839022067982edad8eee0432814b2169217dcef1942f7d"
         },
-        "automation_correction": "The first print-regression attempt timed out while indexing a shrinking details[open] locator collection. Iterating the stable details collection fixed the test; the complete corrected run passed."
+        "corrected_findings": [
+          "Print CSS originally concealed closed answer panels; explicit details-content visibility fixed it.",
+          "Print test originally indexed a shrinking open-details collection; stable details iteration fixed the automation.",
+          "Raw GitHub download navigated to source text; same-origin download was exercised and matched the HTML bytes."
+        ]
       }
     },
     "human_rehearsal": {
@@ -226,7 +230,7 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
     }
   },
   "source_sha256": "86dfc769fec5afcf9a59348e73caf8c9261c7d1570dfcb480e0435e9284a186e",
-  "html_sha256": "f1e1b838afc627470b4e9855b354e6516a7eb18c5121e20a22490f23675f78b6"
+  "html_sha256": "5aa24cf4b7283f21a54dc775a3bda390516dcec191e32a7332c891045cd5e8f5"
 }
 ```
 

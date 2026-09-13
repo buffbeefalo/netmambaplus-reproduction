@@ -61,7 +61,9 @@ def check_url(url, root=ROOT):
             build.local(unquote(parsed.path.split("/blob/main/", 1)[1]), root)
     elif not url.startswith("#"):
         target = ((root / build.OUTPUT.relative_to(ROOT)).parent / unquote(parsed.path)).resolve()
-        if not target.is_relative_to((root / "docs/customer/demo").resolve()) or not target.is_file():
+        course_target = (root / build.OUTPUT.relative_to(ROOT)).resolve()
+        if (not target.is_relative_to((root / "docs/customer/demo").resolve())
+                or (target != course_target and not target.is_file())):
             raise ValueError(f"Broken deployed link: {url}")
     return parsed
 
@@ -109,7 +111,8 @@ def verify_record(record, source, rendered, root=ROOT):
         raise ValueError("Pending checks cannot be reported as fully verified")
     if record["checks"]["publication"]["status"] == "passed":
         receipt = record["checks"]["publication"]["receipt"]
-        if receipt.get("url") != build.COURSE_URL or not receipt.get("served_bytes_equal"):
+        if (receipt.get("url") != build.COURSE_URL or not receipt.get("served_bytes_equal")
+                or not receipt.get("download_bytes_equal")):
             raise ValueError("Publication receipt must identify actual served agreement")
     return pending
 
@@ -291,6 +294,14 @@ def browser_check(output, url=None):
         page = context.new_page()
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(url or build.OUTPUT.as_uri())
+        if url:
+            with page.expect_download(timeout=15000) as download_event:
+                page.get_by_role("link", name="Download HTML", exact=True).click()
+            download = download_event.value
+            downloaded = output / "NetMambaPlus-course.html"
+            download.save_as(str(downloaded))
+            require(downloaded.read_bytes() == build.OUTPUT.read_bytes(), "Downloaded course bytes differ")
+            page.reload()
         page.keyboard.press("Tab")
         require(page.locator(":focus").get_attribute("href") == "#course-main", "Skip link keyboard failure")
         page.keyboard.press("Enter")
@@ -372,7 +383,8 @@ def browser_check(output, url=None):
                    passed_checks=sorted(checks), viewport_widths_without_overflow=widths,
                    method="automated browser functional rehearsal; not a human learning or timing study",
                    elapsed_seconds=round(time.monotonic() - started, 3),
-                   hosted_url=url, print_pdf_sha256=digest(output / "course-print.pdf"),
+                   hosted_url=url, download_bytes_equal=True if url else None,
+                   print_pdf_sha256=digest(output / "course-print.pdf"),
                    screenshots={p.name: digest(p) for p in sorted(output.glob("*.png"))})
     (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
     return receipt
