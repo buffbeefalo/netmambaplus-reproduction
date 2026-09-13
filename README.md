@@ -14,6 +14,7 @@ Test accuracy was **91.26%, 84.05% and 84.63%** across the three declared seeds:
 | Understand it without a technical background | [Slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
 | Simple setup, usage and test results | [Quickstart](docs/customer/quickstart.md) |
 | What the paper/data mean and what we changed | [Authors’ repository comparison](docs/customer/upstream-comparison.md) |
+| Understand every file and how the code fits together | [Complete repository walkthrough](docs/repository-walkthrough.md) |
 | Find each of your seven answers | [Question-to-slide/script/PDF map](docs/customer/answers.md) |
 | Download the complete offline customer bundle | [Release ZIP](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/latest/download/netmambaplus-customer-package.zip) |
 | Short technical briefing | [PDF](docs/customer/NetMambaPlus-customer-briefing.pdf) · [Markdown](docs/customer/briefing.md) |

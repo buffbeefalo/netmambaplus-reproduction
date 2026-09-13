@@ -4,6 +4,8 @@ The [README](../README.md) contains commands, acquisition links and the current 
 
 New to networking or machine learning? Start with the [slide-aligned field guide](customer/demo/guide.html), [simple setup and tests](customer/quickstart.md) and [paper/data/source comparison](customer/upstream-comparison.md). The field guide and presenter script are generated from the same slide source; the package verifier checks their alignment. This lesson remains the more detailed explanation of the native loader and harness.
 
+For a guided tour of the code, settings, presentation files and individual experiment records, use the [complete repository walkthrough](repository-walkthrough.md). It explains every tracked file, the recurring evidence filenames and which files to open for a particular question.
+
 ## Start with the unit of observation
 
 A **packet** is one message fragment on a network. A **flow** groups packets using an established connection rule and ordering. A traffic classifier learns a relationship between an observation and a target class. Changing the observation changes the task, even if the model keeps the same name.
