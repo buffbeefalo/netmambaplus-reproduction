@@ -1,0 +1,3048 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "completed_at": "2026-09-13T11:48:24.068508+00:00",
+  "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+  "manifest_sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709",
+  "artifacts": [
+    {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-one-hour-course.mp4",
+      "sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/captions.vtt",
+      "sha256": "2ffb37d628c56ce80bd6a81cf4ad91a71c91baeabc0ea3c239c409bad30a7386"
+    }
+  ],
+  "method": "Recomputed thirteen scientific quantities from pinned JSON evidence, verified units and decimal rounding, then checked their displayed, spoken and captioned scene attribution against complete content review.",
+  "known_material_defects": [],
+  "snapshot_registration_check": {
+    "snapshot": {
+      "path": "runs/video-course/v3-final-media-snapshot.json",
+      "sha256": "3ec8c07aa85bef504b511feffc2620d2d899dfba2dd6217a026937b3368348af"
+    },
+    "final_manifest": {
+      "path": "docs/customer/demo/video/v3/media-manifest.json",
+      "sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709"
+    },
+    "status": "passed",
+    "method": "Compared every original non-artifact field and all original artifact identities. Final registration adds only companion/browser output identities and browser encoder metadata; scene content, timing, captions, reference hashes and MP4 bytes are identical."
+  },
+  "quantity_and_caption_check": {
+    "identity": {
+      "path": "runs/video-course/v3-final-claims-captions/receipt.json",
+      "sha256": "bb43de3439785edc56d7ad5132c5aa1ec37038f5dd02f9c0bec3cc26a763db63"
+    },
+    "record": {
+      "status": "passed",
+      "completed_at": "2026-09-13T11:33:23.238271+00:00",
+      "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+      "manifest_sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709",
+      "mp4_sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29",
+      "vtt_sha256": "2ffb37d628c56ce80bd6a81cf4ad91a71c91baeabc0ea3c239c409bad30a7386",
+      "srt_sha256": "693274e9d52811763932fa989bb48021f5d5798ccc6e9d34f59b6b2d7d9e7873",
+      "method": "Recomputed thirteen pinned JSON quantities with decimal conversion and checked displayed/spoken attribution; parsed every serialized VTT and SRT cue against the complete source and measured scene windows.",
+      "quantities": [
+        {
+          "id": "cic_csv_rows",
+          "evidence": {
+            "path": "docs/customer/evidence/uploaded-csv-profile.json",
+            "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+          },
+          "pointer": "/files/0/rows",
+          "source_unit": "rows",
+          "unit": "rows",
+          "decimals": 0,
+          "expected": "1410255",
+          "scene_id": "cic-csv-01",
+          "display_phrase": "1,410,255 rows",
+          "spoken_phrase": "one million four hundred ten thousand two hundred fifty five packet records",
+          "status": "passed",
+          "actual_stored_quantity": 1410255
+        },
+        {
+          "id": "unsw_csv_rows",
+          "evidence": {
+            "path": "docs/customer/evidence/uploaded-csv-profile.json",
+            "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+          },
+          "pointer": "/files/1/rows",
+          "source_unit": "rows",
+          "unit": "rows",
+          "decimals": 0,
+          "expected": "79881",
+          "scene_id": "unsw-csv-01",
+          "display_phrase": "79,881 rows",
+          "spoken_phrase": "seventy nine thousand eight hundred eighty one rows",
+          "status": "passed",
+          "actual_stored_quantity": 79881
+        },
+        {
+          "id": "native_train_flows",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+          },
+          "pointer": "/splits/train/rows",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "8323",
+          "scene_id": "unsw-csv-05",
+          "display_phrase": "Train: 8,323 flows",
+          "spoken_phrase": "The training split has eight thousand three hundred twenty three flows",
+          "status": "passed",
+          "actual_stored_quantity": 8323
+        },
+        {
+          "id": "native_validation_flows",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+          },
+          "pointer": "/splits/valid/rows",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "1040",
+          "scene_id": "unsw-csv-05",
+          "display_phrase": "Validation: 1,040 flows",
+          "spoken_phrase": "validation has one thousand forty",
+          "status": "passed",
+          "actual_stored_quantity": 1040
+        },
+        {
+          "id": "native_test_flows",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+          },
+          "pointer": "/splits/test/rows",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "1041",
+          "scene_id": "unsw-csv-05",
+          "display_phrase": "Test: 1,041 flows",
+          "spoken_phrase": "the test split has one thousand forty one",
+          "status": "passed",
+          "actual_stored_quantity": 1041
+        },
+        {
+          "id": "classifier_tokens",
+          "evidence": {
+            "path": "docs/portability-evidence.json",
+            "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7"
+          },
+          "pointer": "/complete_classifier/tokens",
+          "source_unit": "tokens",
+          "unit": "tokens",
+          "decimals": 0,
+          "expected": "443",
+          "scene_id": "features-05",
+          "display_phrase": "443 total tokens",
+          "spoken_phrase": "Three learned summary tokens bring the total to four hundred forty three.",
+          "status": "passed",
+          "actual_stored_quantity": 443
+        },
+        {
+          "id": "classifier_parameters",
+          "evidence": {
+            "path": "docs/portability-evidence.json",
+            "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7"
+          },
+          "pointer": "/complete_classifier/parameter_count",
+          "source_unit": "parameters",
+          "unit": "parameters",
+          "decimals": 0,
+          "expected": "1870080",
+          "scene_id": "features-06",
+          "display_phrase": "Complete classifier: 1,870,080 parameters.",
+          "spoken_phrase": "The complete classifier has one million eight hundred seventy thousand eighty parameters.",
+          "status": "passed",
+          "actual_stored_quantity": 1870080
+        },
+        {
+          "id": "seed0_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/seeds/0/metrics/accuracy",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "91.26",
+          "scene_id": "results-01",
+          "display_phrase": "Seed 0: 91.26%",
+          "spoken_phrase": "ninety one point two six",
+          "status": "passed",
+          "actual_stored_quantity": 0.9125840537944284
+        },
+        {
+          "id": "seed1_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/seeds/1/metrics/accuracy",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "84.05",
+          "scene_id": "results-01",
+          "display_phrase": "Seed 1: 84.05%",
+          "spoken_phrase": "eighty four point zero five",
+          "status": "passed",
+          "actual_stored_quantity": 0.840537944284342
+        },
+        {
+          "id": "seed2_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/seeds/2/metrics/accuracy",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "84.63",
+          "scene_id": "results-01",
+          "display_phrase": "Seed 2: 84.63%",
+          "spoken_phrase": "eighty four point six three percent accuracy",
+          "status": "passed",
+          "actual_stored_quantity": 0.8463016330451489
+        },
+        {
+          "id": "mean_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/aggregate/accuracy/mean",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "86.65",
+          "scene_id": "results-02",
+          "display_phrase": "Mean: 86.65%",
+          "spoken_phrase": "The average accuracy is eighty six point six five percent.",
+          "status": "passed",
+          "actual_stored_quantity": 0.8664745437079732
+        },
+        {
+          "id": "accuracy_sample_sd",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/aggregate/accuracy/sample_standard_deviation",
+          "source_unit": "ratio",
+          "unit": "percentage_points",
+          "decimals": 2,
+          "expected": "4.00",
+          "scene_id": "results-02",
+          "display_phrase": "Sample standard deviation: 4.00 percentage points",
+          "spoken_phrase": "The sample standard deviation is four percentage points.",
+          "status": "passed",
+          "actual_stored_quantity": 0.04003586164106568
+        },
+        {
+          "id": "paper_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/paper_ciciot2022_table_iv/accuracy",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "97.50",
+          "scene_id": "paper-06",
+          "display_phrase": "Paper Table IV: 97.50% for CICIoT2022",
+          "spoken_phrase": "The paper's comparison includes a ninety seven point five percent accuracy figure",
+          "status": "passed",
+          "actual_stored_quantity": 0.975
+        }
+      ],
+      "caption_count": 1073,
+      "spoken_scenes_with_complete_caption_text": 84,
+      "practice_scenes": 12,
+      "maximum_timestamp_serialization_error_seconds": 0.002,
+      "scope": "Checks text, evidence identities, units, rounded values and serialized timing. Encoded speech, visual placement and human listening are separate reviews.",
+      "known_material_defects": []
+    }
+  },
+  "independent_seven_question_review": {
+    "identity": {
+      "path": "runs/video-course/v3-seven-question-review.json",
+      "sha256": "20704242ecb31a61941c62ff44758fd79eaef85bf7f02aad674200dfe61d2d48"
+    },
+    "record": {
+      "schema_version": 1,
+      "status": "passed_with_optional_pedagogical_precision",
+      "reviewed_at": "2026-09-13T11:21:51.033081+00:00",
+      "reviewer": "Codex portability_scout subagent; read-only documentation and deterministic evidence review",
+      "scope": "All 96 scenes and 84 narration texts, complete paper/data guide and complete repository walkthrough; seven original customer questions, beginner setup/use/test path, upstream distinctions and historical artifact preservation.",
+      "not_claimed": [
+        "Human listening or full video watch",
+        "Acceptance of every encoded caption or animated state",
+        "Final v3 decode/browser/publication readiness",
+        "Fresh model training or new dataset accuracy",
+        "Anonymous download or identity verification of external GitHub release attachments in this audit"
+      ],
+      "staging_policy": "Missing planned v3 output files and pending final production receipts were not counted as documentation defects. Final media and publication gates remain root-owned.",
+      "reviewed_inputs": {
+        "docs/customer/video-course-v3-source.json": {
+          "sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+          "chapters": 12,
+          "scenes": 96,
+          "spoken_scenes": 84,
+          "narration_sha256": "3829577ebdb17101ea6397c18a3ce7084f8bc54d0c3e089c860021088b10f7ee",
+          "narration_unchanged_from_prior_complete_text_review": true
+        },
+        "docs/repository-walkthrough.md": {
+          "sha256": "88f7705bbdcd261a7802bdb35d987cdeeea4abbfaada73cc67b218b8494ebcb3",
+          "full_text_reviewed": true
+        },
+        "docs/customer/paper-and-data-explained.md": {
+          "sha256": "f2e19f30df72e0cf61ee65968207dc2cbccfa069bf4deb9e93529e8ec448e3e9",
+          "full_text_reviewed": true
+        }
+      },
+      "scene_ids_reviewed": [
+        "orientation-01",
+        "orientation-02",
+        "orientation-03",
+        "orientation-04",
+        "orientation-05",
+        "orientation-06",
+        "orientation-07",
+        "orientation-08",
+        "paper-01",
+        "paper-02",
+        "paper-03",
+        "paper-04",
+        "paper-05",
+        "paper-06",
+        "paper-07",
+        "paper-08",
+        "cic-csv-01",
+        "cic-csv-02",
+        "cic-csv-03",
+        "cic-csv-04",
+        "cic-csv-05",
+        "cic-csv-06",
+        "cic-csv-07",
+        "cic-csv-08",
+        "unsw-csv-01",
+        "unsw-csv-02",
+        "unsw-csv-03",
+        "unsw-csv-04",
+        "unsw-csv-05",
+        "unsw-csv-06",
+        "unsw-csv-07",
+        "unsw-csv-08",
+        "features-01",
+        "features-02",
+        "features-03",
+        "features-04",
+        "features-05",
+        "features-06",
+        "features-07",
+        "features-08",
+        "learning-01",
+        "learning-02",
+        "learning-03",
+        "learning-04",
+        "learning-05",
+        "learning-06",
+        "learning-07",
+        "learning-08",
+        "code-01",
+        "code-02",
+        "code-03",
+        "code-04",
+        "code-05",
+        "code-06",
+        "code-07",
+        "code-08",
+        "results-01",
+        "results-02",
+        "results-03",
+        "results-04",
+        "results-05",
+        "results-06",
+        "results-07",
+        "results-08",
+        "demo-01",
+        "demo-02",
+        "demo-03",
+        "demo-04",
+        "demo-05",
+        "demo-06",
+        "demo-07",
+        "demo-08",
+        "setup-01",
+        "setup-02",
+        "setup-03",
+        "setup-04",
+        "setup-05",
+        "setup-06",
+        "setup-07",
+        "setup-08",
+        "repository-01",
+        "repository-02",
+        "repository-03",
+        "repository-04",
+        "repository-05",
+        "repository-06",
+        "repository-07",
+        "repository-08",
+        "hardware-01",
+        "hardware-02",
+        "hardware-03",
+        "hardware-04",
+        "hardware-05",
+        "hardware-07",
+        "hardware-08",
+        "hardware-06"
+      ],
+      "seven_questions": [
+        {
+          "id": "tried",
+          "question": "What did you try, and what works now?",
+          "scene_ids": [
+            "orientation-02",
+            "orientation-06",
+            "learning-03",
+            "learning-06",
+            "results-05",
+            "setup-04",
+            "setup-05",
+            "setup-06"
+          ],
+          "paper_guide_anchors": [
+            "7-pretraining-fine-tuning-and-saved-evidence",
+            "9-where-the-repository-fits"
+          ],
+          "walkthrough_anchors": [
+            "follow-one-experiment-through-the-files",
+            "15-current-portability-and-full-video-audit-additions"
+          ],
+          "answer": "Pinned native CUDA builds, separate short reconstruction pretraining, three complete native-flow fine-tunes, strict inference, metrics rechecks and a working recorded browser replay. The generalized build and full-model gate ran in a fresh environment on the same GB10, not a new physical GPU.",
+          "assessment": "Substantive positive evidence is paired with implemented/executed/validated scope and retained failures.",
+          "status": "answered",
+          "source_pointers": [
+            "/chapters/0/scenes/1",
+            "/chapters/0/scenes/5",
+            "/chapters/5/scenes/2",
+            "/chapters/5/scenes/5",
+            "/chapters/7/scenes/4",
+            "/chapters/9/scenes/3",
+            "/chapters/9/scenes/4",
+            "/chapters/9/scenes/5"
+          ]
+        },
+        {
+          "id": "learning",
+          "question": "How do NetMamba+ training and inference work?",
+          "scene_ids": [
+            "features-01",
+            "features-02",
+            "features-03",
+            "features-04",
+            "features-05",
+            "features-06",
+            "learning-01",
+            "learning-02",
+            "learning-03",
+            "learning-04",
+            "learning-05",
+            "learning-06",
+            "learning-07",
+            "code-03",
+            "code-04"
+          ],
+          "paper_guide_anchors": [
+            "6-follow-one-flow-into-the-configured-classifier",
+            "7-pretraining-fine-tuning-and-saved-evidence"
+          ],
+          "walkthrough_anchors": [
+            "vocabulary-for-reading-the-files",
+            "1-files-at-the-repository-root",
+            "v3-chapter-learning"
+          ],
+          "answer": "Reconstruct masked content during pretraining; transfer the released encoder to labeled six-class fine-tuning; use forward/loss/backward/optimizer updates; choose a checkpoint on validation; run fixed saved weights for inference. The short pretraining checkpoint did not initialize the three reported fine-tunes.",
+          "assessment": "Defines batch, epoch, loss, gradients, optimizer, seed, checkpoint, logits and strict reload, with a sequential worked model path.",
+          "status": "answered",
+          "source_pointers": [
+            "/chapters/4/scenes/0",
+            "/chapters/4/scenes/1",
+            "/chapters/4/scenes/2",
+            "/chapters/4/scenes/3",
+            "/chapters/4/scenes/4",
+            "/chapters/4/scenes/5",
+            "/chapters/5/scenes/0",
+            "/chapters/5/scenes/1",
+            "/chapters/5/scenes/2",
+            "/chapters/5/scenes/3",
+            "/chapters/5/scenes/4",
+            "/chapters/5/scenes/5",
+            "/chapters/5/scenes/6",
+            "/chapters/6/scenes/2",
+            "/chapters/6/scenes/3"
+          ]
+        },
+        {
+          "id": "inputs",
+          "question": "What data goes in and what comes out?",
+          "scene_ids": [
+            "orientation-03",
+            "orientation-04",
+            "cic-csv-01",
+            "cic-csv-02",
+            "cic-csv-07",
+            "unsw-csv-01",
+            "unsw-csv-04",
+            "unsw-csv-05",
+            "unsw-csv-06",
+            "features-01",
+            "features-02",
+            "features-03",
+            "features-04",
+            "features-05",
+            "features-06",
+            "code-04"
+          ],
+          "paper_guide_anchors": [
+            "2-read-a-csv-row-without-confusing-its-fields",
+            "3-why-packets-cannot-simply-be-renamed-flows",
+            "5-the-native-dataset-actually-used",
+            "6-follow-one-flow-into-the-configured-classifier"
+          ],
+          "walkthrough_anchors": [
+            "first-understand-what-the-repository-is",
+            "3-configs-recipes-and-input-identities",
+            "files-you-may-see-locally-that-are-not-tracked-in-this-repo"
+          ],
+          "answer": "The two uploads are packet tables with 1,500 payload positions and ttl, total_len, protocol, t_delta, label. Native JSON supplies already assembled packet-byte strings, sizes and intervals; the original transforms create 443 tokens, and the full classifier returns six logits/scores and a class name. Training uses native splits of 8,323 / 1,040 / 1,041 flows, not the uploaded CSVs.",
+          "assessment": "Explains schema, meaning, grouping/order/header/timing gaps, native class meanings, transformations and unlabeled output; both complete 25-label tables are available in the paper/data guide.",
+          "status": "answered",
+          "source_pointers": [
+            "/chapters/0/scenes/2",
+            "/chapters/0/scenes/3",
+            "/chapters/2/scenes/0",
+            "/chapters/2/scenes/1",
+            "/chapters/2/scenes/6",
+            "/chapters/3/scenes/0",
+            "/chapters/3/scenes/3",
+            "/chapters/3/scenes/4",
+            "/chapters/3/scenes/5",
+            "/chapters/4/scenes/0",
+            "/chapters/4/scenes/1",
+            "/chapters/4/scenes/2",
+            "/chapters/4/scenes/3",
+            "/chapters/4/scenes/4",
+            "/chapters/4/scenes/5",
+            "/chapters/6/scenes/3"
+          ]
+        },
+        {
+          "id": "results",
+          "question": "What results were actually reproduced versus reported by the paper?",
+          "scene_ids": [
+            "orientation-02",
+            "paper-06",
+            "paper-07",
+            "learning-03",
+            "learning-06",
+            "results-01",
+            "results-02",
+            "results-03",
+            "results-04",
+            "results-05",
+            "results-06",
+            "results-07"
+          ],
+          "paper_guide_anchors": [
+            "4-a-route-through-all-major-parts-of-the-pdf",
+            "8-paper-settings-and-this-repositorys-results",
+            "10-optional-technical-notes-for-reading-paper-and-source-together"
+          ],
+          "walkthrough_anchors": [
+            "11-docscustomerevidence-original-aggregate-and-input-records",
+            "12-docscustomeraudit-evidence-later-rechecks",
+            "v3-chapter-results"
+          ],
+          "answer": "Three full 120-epoch, 7,920-update runs gave 91.26%, 84.05% and 84.63%; mean 86.65% and sample SD 4.00 percentage points on one fixed test split. Paper Table IV NetMamba+ reports 97.50% under different conditions; the gap is not isolated. Repeated inference is an execution check, not new independent accuracy evidence.",
+          "assessment": "All seed results, actual error counts and statistical meanings are explained; batch/rate/runtime/pretraining differences and optional401/443 notation details are explicit.",
+          "status": "answered",
+          "source_pointers": [
+            "/chapters/0/scenes/1",
+            "/chapters/1/scenes/5",
+            "/chapters/1/scenes/6",
+            "/chapters/5/scenes/2",
+            "/chapters/5/scenes/5",
+            "/chapters/7/scenes/0",
+            "/chapters/7/scenes/1",
+            "/chapters/7/scenes/2",
+            "/chapters/7/scenes/3",
+            "/chapters/7/scenes/4",
+            "/chapters/7/scenes/5",
+            "/chapters/7/scenes/6"
+          ]
+        },
+        {
+          "id": "demo",
+          "question": "What could a simple working IDS demo look like?",
+          "scene_ids": [
+            "orientation-05",
+            "demo-01",
+            "demo-02",
+            "demo-03",
+            "demo-04",
+            "demo-05",
+            "demo-06",
+            "demo-07"
+          ],
+          "paper_guide_anchors": [
+            "8-paper-settings-and-this-repositorys-results",
+            "9-where-the-repository-fits"
+          ],
+          "walkthrough_anchors": [
+            "9-docscustomerdemo-files-used-for-the-browser-demonstration",
+            "v3-chapter-demo"
+          ],
+          "answer": "Show the actual saved-prediction browser replay, then inspect a confidently wrong result: JSON row 635 / display row 0636 predicts RTSP Brute Force at 84.43% although its true category is Other. New inference requires the GPU classifier and native flows. A future live IDS adds verified capture, grouping, features and reviewed alert policy.",
+          "assessment": "The existing hash-bound browser receipt establishes the working replay and controls. Source includes actual replay imagery and a bounded recorded controls clip. This text audit does not certify the pending v3 encode or claim live capture.",
+          "status": "answered",
+          "source_pointers": [
+            "/chapters/0/scenes/4",
+            "/chapters/8/scenes/0",
+            "/chapters/8/scenes/1",
+            "/chapters/8/scenes/2",
+            "/chapters/8/scenes/3",
+            "/chapters/8/scenes/4",
+            "/chapters/8/scenes/5",
+            "/chapters/8/scenes/6"
+          ]
+        },
+        {
+          "id": "hardware",
+          "question": "How could this map to an AI NPU or SmartNIC?",
+          "scene_ids": [
+            "hardware-01",
+            "hardware-02",
+            "hardware-03",
+            "hardware-04",
+            "setup-06"
+          ],
+          "paper_guide_anchors": [
+            "4-a-route-through-all-major-parts-of-the-pdf",
+            "9-where-the-repository-fits"
+          ],
+          "walkthrough_anchors": [
+            "vocabulary-for-reading-the-files",
+            "v3-chapter-hardware",
+            "file-docs-customer-hardware-roadmap-md"
+          ],
+          "answer": "A proposed NIC/SmartNIC packet and flow path, host orchestration/buffering/policy and supported NPU computation requires an actual preserved-model port. Model-only weight export differs from graph capture; the tested strict graph path failed on a custom CUDA operation. Validate precision, outputs/gradients as relevant, accuracy, full-path latency/throughput and drops.",
+          "assessment": "Defines hardware roles and separates the measured GB10 model-only timing from a future capture-to-alert system and from the paper online prototype.",
+          "status": "answered",
+          "source_pointers": [
+            "/chapters/9/scenes/5",
+            "/chapters/11/scenes/0",
+            "/chapters/11/scenes/1",
+            "/chapters/11/scenes/2",
+            "/chapters/11/scenes/3"
+          ]
+        },
+        {
+          "id": "gaps",
+          "question": "What is still missing or not working?",
+          "scene_ids": [
+            "unsw-csv-06",
+            "results-06",
+            "demo-06",
+            "setup-06",
+            "hardware-03",
+            "hardware-05",
+            "hardware-06"
+          ],
+          "paper_guide_anchors": [
+            "3-why-packets-cannot-simply-be-renamed-flows",
+            "7-pretraining-fine-tuning-and-saved-evidence",
+            "8-paper-settings-and-this-repositorys-results",
+            "9-where-the-repository-fits"
+          ],
+          "walkthrough_anchors": [
+            "15-current-portability-and-full-video-audit-additions",
+            "v3-chapter-hardware",
+            "a-short-self-check"
+          ],
+          "answer": "Exact paper accuracy/full pretraining; complete inherited checkpoint history; verified live extraction; capture-independent customer validation; calibrated confidence/alert policy; unknown attack detection; CPU/MPS/NPU/native Windows/macOS model backends; additional physical GPU validation; inherited asset terms.",
+          "assessment": "Missing work is named specifically throughout and repeated near the handoff. Existing positive checks never become universal hardware or customer-accuracy claims.",
+          "status": "answered",
+          "source_pointers": [
+            "/chapters/3/scenes/5",
+            "/chapters/7/scenes/5",
+            "/chapters/8/scenes/5",
+            "/chapters/9/scenes/5",
+            "/chapters/11/scenes/2",
+            "/chapters/11/scenes/4",
+            "/chapters/11/scenes/7"
+          ]
+        }
+      ],
+      "beginner_comprehension": {
+        "status": "sufficient_with_companions",
+        "evidence": [
+          "orientation-03/04 define packet, header, payload, byte and flow with a fictional conversation analogy",
+          "features-01/03/04 use a labeled synthetic container and concrete byte/interval arithmetic",
+          "learning-04 explains forward, loss, gradient and optimizer before discussing measured epoch/update budgets",
+          "results-03/04 define metrics and use the actual confusion matrix",
+          "demo-03/04 works through one saved error and distinguishes scores from calibrated probabilities",
+          "12 announced practices and the final 90-second teach-back require the learner to restate the distinctions",
+          "The file guide provides a glossary, exact file roles, source relationships and explicit reading routes instead of pretending 96 scenes narrate every file line"
+        ],
+        "limit": "Text coverage and practice prompts do not establish that a beginner has understood the lesson; no human teach-back acceptance was observed."
+      },
+      "setup_use_test": {
+        "status": "clear_current_route",
+        "paths": [
+          "Present with browser/document viewer",
+          "Recheck a clone with Python 3.10/3.12 standard-library tests and verifiers",
+          "For new model execution use the bounded Linux/Python 3.12 / Torch 2.9.1+cu130 / CUDA 13 profile, numerical and full-model gates, then verified external data and native runbook commands"
+        ],
+        "commands_reviewed": [
+          "setup-02 complete clone/test/package/video/v3/page commands",
+          "setup-05 numerical and model checks with build-report binding",
+          "demo-05 native prediction with fresh output",
+          "code-02 labeled command map; explicitly delegates complete training arguments to runbook",
+          "docs/support-matrix.md environment/build/acquisition sequence",
+          "docs/customer/runbook.md pretrain/finetune/evaluate/replay/predict command flags"
+        ],
+        "historical_guidance": "Walkthrough explicitly directs new installations to support-matrix.md and labels quickstart/old platform and test-count statements as historical.",
+        "staging_limit": "The complete standard-library suite and full v3 verifier will pass only after root finishes actual final artifacts and review receipts; this audit does not report those commands as executed now."
+      },
+      "upstream_distinctions": {
+        "status": "clear",
+        "evidence": [
+          "code-01/02 retains the pinned authors model, factory, loader, parser and training engine",
+          "paper/data guide sections6-8 bind original scientific source and exact configuration",
+          "Guide tool entries distinguish disposable compiler compatibility patches from unchanged model/loader",
+          "Config versus manifest versus history versus checkpoint versus model-only export versus prediction rows is explicit",
+          "Paper 150,000 pretraining steps and source 100,000 recipe are distinct from executed 132-update functional check",
+          "Paper offline/online/ablation/fewshot/OOD/LDA studies are not attributed to these three native-flow runs"
+        ]
+      },
+      "deterministic_checks": {
+        "quantity_bindings": {
+          "status": "passed",
+          "count": 13,
+          "ids": [
+            "cic_csv_rows",
+            "unsw_csv_rows",
+            "native_train_flows",
+            "native_validation_flows",
+            "native_test_flows",
+            "classifier_tokens",
+            "classifier_parameters",
+            "seed0_accuracy",
+            "seed1_accuracy",
+            "seed2_accuracy",
+            "mean_accuracy",
+            "accuracy_sample_sd",
+            "paper_accuracy"
+          ],
+          "method": "verify_video_course_v3.check_claims against actual13 published JSON pointer quantities, units/rounding and source scene display/spoken phrases; separate semantic text review assessed subject meaning"
+        },
+        "csv_label_tables": [
+          {
+            "profile_name": "CICIDS2017.csv",
+            "uploaded_file_sha256": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+            "labels": 15,
+            "rows": 1410255,
+            "all_exact_label_count_rows_present": true
+          },
+          {
+            "profile_name": "UNSW.csv",
+            "uploaded_file_sha256": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01",
+            "labels": 10,
+            "rows": 79881,
+            "all_exact_label_count_rows_present": true
+          }
+        ],
+        "demo_error": {
+          "row": 635,
+          "display_row": "0636",
+          "true_class": "1-Power-Other",
+          "predicted_class": "6-Attacks-2-RTSP Brute Force",
+          "display_score_percent": "84.43",
+          "source_prediction_sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a"
+        },
+        "demo_source_media_hashes": {
+          "image": {
+            "path": "docs/customer/video-figures/recorded-replay-controls.png",
+            "sha256": "82d78106618ccc97cb3a9a5f356baa28f3d1a91e7a68a05302935a4ac528131c"
+          },
+          "recorded_controls_clip": {
+            "path": "docs/customer/video-figures/recorded-controls.webm",
+            "sha256": "5f70b95ca71bf0228c2ed7b5092158cbcee7eb8e6490095686c3115213ebd118"
+          },
+          "scope": "Byte identity and source binding only; no fresh playback claimed"
+        }
+      },
+      "protection": {
+        "status": "passed",
+        "baseline_commit": "4bf8947e40ea7f49308d1a9eefd050211e672601",
+        "method": "Stream each present file through SHA256 and Git blob SHA1 (blob header plus actual bytes), compare with git ls-tree baseline; independently verify preserved original checksum inventory and artifact pins.",
+        "original_checksum_entries": 133,
+        "additional_artifact_pins": 8,
+        "unique_original_protected_files": 133,
+        "all_original_pin_checks_passed": true,
+        "original_protection_metadata_unchanged": true,
+        "baseline_customer_research_blobs": 152,
+        "byte_identical_blobs": 149,
+        "missing_blobs": 0,
+        "original_evidence_files": 58,
+        "later_audit_evidence_files": 34,
+        "v2_protected_files": 13,
+        "v2_protected_paths": [
+          "docs/customer/demo/video/NetMambaPlus-30-minute-course.mp4",
+          "docs/customer/demo/video/NetMambaPlus-30-minute-course.webm",
+          "docs/customer/demo/video/captions.srt",
+          "docs/customer/demo/video/captions.vtt",
+          "docs/customer/demo/video/chapters.json",
+          "docs/customer/demo/video/media-manifest.json",
+          "docs/customer/demo/video/poster.png",
+          "docs/customer/demo/video/transcript.md",
+          "docs/customer/video-course-source.json",
+          "docs/customer/video-verification.md",
+          "docs/research/video-audit-v2.json",
+          "docs/research/video-council-decision.json",
+          "docs/research/video-quality-review.json"
+        ],
+        "all_v2_protected_bytes_identical": true,
+        "active_video_page_at_review": "Also byte-identical while staging; current navigation is an authorized mutable surface.",
+        "reviewed_reference_refresh": {
+          "paths": [
+            "docs/customer/course-source.json",
+            "docs/customer/course-verification.md",
+            "docs/customer/demo/course/index.html"
+          ],
+          "course_source_changed_pointers": [
+            "/references/walkthrough/sha256"
+          ],
+          "archived_html_only_old_to_new_walkthrough_hash_substitution": true,
+          "all_lessons_questions_facts_demo_unchanged": true,
+          "receipt_change": "Current content review detail/date and source/HTML/walkthrough identities refreshed after review; earlier test/human/publication history retained. This is not a change to protected original evidence or v2 scientific/media records."
+        },
+        "pin_checks": [
+          {
+            "path": "docs/customer/NetMambaPlus-customer-briefing.pdf",
+            "sha256": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/NetMambaPlus-customer-slides.pdf",
+            "sha256": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/NetMambaPlus-customer-slides.pptx",
+            "sha256": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/README.md",
+            "sha256": "b3180a136bd8da6362b5b99d7f95fb5615d32cef867323b14df04d0ab26a26f6",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/acceptance.md",
+            "sha256": "566fd0c0938c4f66ba17223e20267a80ad3976b6bf1b0e4b658c1756b5af1368",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/answers.md",
+            "sha256": "e293eb26550a2c1577c689ccac845ad0321be7bbf2fd41c6aeeedbad3c5565ab",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/benchmark/manifest.json",
+            "sha256": "d2e0718aed1da63c20a14bf74af533d2538d3d0989b528e4d5373702df2b7a9e",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/benchmark/metrics.json",
+            "sha256": "2ce78196305918d3c1b910e322a1be2305c78814ff4be52111fee8c4c9268dc1",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/benchmark-arithmetic.json",
+            "sha256": "a26bac17c53c447db6ad2779319cb02d2aa80e628f2b0a7e903aa3ebed6fd13d",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/cpu-tests.txt",
+            "sha256": "1735d2c8541450584a944f5edee5b6cb5cbcb72dac1121552fe89dffedcb6cec",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/csv-profile.json",
+            "sha256": "2552a68d8ecae3bb219408ef65de12f4fbc3694819d00c828bf089a28c969e82",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/dependency-install.json",
+            "sha256": "c846cade8db2256cdde884b28dbd758550bacd85901a07660bcd321940c33b05",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-probe/manifest.json",
+            "sha256": "acc08d6b9691b56d9131df9a33db57a216163123a669d94350d47043f4b43f42",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-probe/metrics.json",
+            "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed0/manifest.json",
+            "sha256": "70ffbac23080cc92b3a93afc362ce8e4f01c3b60c606a652bd09df88299c14a9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed0/metrics.json",
+            "sha256": "04be64ef0b22ac9ac73ffc0264f1fa954e8cd70b809b03e84477f90393669b61",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed1/manifest.json",
+            "sha256": "eaef3caf96e34056716bdcf0af22a8e32d601a75681fe368c056fdcf447038b2",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed1/metrics.json",
+            "sha256": "09efce568dd7bb0841d03193b7811ee39ec897887abca9e2719ebf11f0dfb042",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed2/manifest.json",
+            "sha256": "b7a5ee1cf024b429bb358b54ce6b020bff5f9ef40c9c885815e71061d7bd5294",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed2/metrics.json",
+            "sha256": "76999f3845dac5f5581640ba3c5a324b0c996a45a5d775104e875e2465d78062",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/guide/browser-check.json",
+            "sha256": "0366f34e910ff0b1f650e81fa3c7cfc0e9dd0c559e89d0fc624b245614c7f2a0",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/guide/guide-1440.png",
+            "sha256": "b4d02d3bfb39e5ee314c78ca1a964256de711b95fc64943d9066c4df02411ef6",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/guide/guide-390.png",
+            "sha256": "b3c215d57796efb9917008d66fc6d10601a4d1063ae200c39b7bd6a741a92194",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/index.json",
+            "sha256": "4c42b516af445f525d173c6a8e55458cdfe05fd38752b4e1122d02b3b0ef76b0",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/page-count-rejection.json",
+            "sha256": "e0b02fc0f9d0183c42ba4e843dd3301a3babc23f27c8025a06260f9417238b71",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/prediction-rejection-checks.json",
+            "sha256": "e5d3aa1d2fd19b58cfa75bb90cb432cfdfc3ed78c93f94a41b89fee0013e6b00",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/pretrain/log.txt",
+            "sha256": "09357b1793aa8463a911de81038d2146c60fabf01646a2301bc7ba0e52693fcb",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/pretrain/manifest.json",
+            "sha256": "ff90c1d04d438d1d9cc938a80ef89fba1667797a418082e12744908bc8aef0c6",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/pretrain/native.log",
+            "sha256": "458daa511412ac1b182d0c94f3a5303a3770c897a119788e2641200d0bf21f99",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/pretrain/train_stats.json",
+            "sha256": "fbc4f7adc729fb7495ea16691be9abbf049d42a17d7a865582ba42c4963e3f42",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/primary-summary.json",
+            "sha256": "edcafad2f8ea3c1581c42de66f8df7bbeba514e15e5980a46e63f82a0b68cc55",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/public-browser.json",
+            "sha256": "d5f9a74a52323cc9366f256b0d53aac57b5e50b52bacc8067f50eb79698e277a",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/runtime-main.json",
+            "sha256": "fd78580fea892f62ca9851222dc6267ad2f04e4d357b10cb8c003f7ffd697008",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/runtime-rehearsal.json",
+            "sha256": "7c065933958796b10ad01b21969713672b3a0ba13106e547122e6b3826e61577",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/source-integrity.txt",
+            "sha256": "bd481e8a3bf528bbd9ca77da2895a524603dfa1cd15950e956e9eebced2853e0",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/unlabeled-agreement.json",
+            "sha256": "fb91364aa3294cca5e439e2d26df00ee76b16cf97c63125115ea0b53514d79ee",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/unlabeled-export/manifest.json",
+            "sha256": "d62ef207a99bd28781aa74619a212b646f44340a4bd565e00b1c190a6b164b08",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/unlabeled-export/metrics.json",
+            "sha256": "6d18dff6cea04f667ed451904ff85ec4b5f72943a2f441cf50d731b810a9322d",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/verifier-rejection-checks.json",
+            "sha256": "2dbb56ffcd6c9b95dec48a766a42827b73321e7aa41e59524d4af20b543e3382",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/briefing-source.md",
+            "sha256": "745007f082619c850d65f9e4264ae3499c0334e77d852acea255dca2b3507b72",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/briefing.md",
+            "sha256": "1328c7c02908abf53aa37dca545111bcc7072ef39249f37895fd49dcd0179592",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/browser-check.json",
+            "sha256": "e20f009b47950b381ea965a91c6e29efa7963acd5794908d8c91f1c1b62d9759",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/guide.html",
+            "sha256": "2fde58ccb145149e6fcf751dded4e6efc285d19a276b4fed4cc15c8ca3337b95",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/index.html",
+            "sha256": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/predictions.json",
+            "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/recorded-demo.webm",
+            "sha256": "bb39d0979f8ed62cb5580ca493347238500862f54047ffff66ca828e591f8316",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/replay-mobile.png",
+            "sha256": "262130fcfec90d64eebbaeb323a893a345b0816894d95db7beff1b45ae636a33",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/replay-screenshot.png",
+            "sha256": "69ba167f0ee65fad2861ad18cc1ae27cd326cfee897c35c18789a1744e31cc32",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/document-check.json",
+            "sha256": "95466920b189bfbccf52f5c1084b9225cd0ba0ed30ebc56b70647b026cc39ec9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/artifact-index.json",
+            "sha256": "d42f6df7090c817f8674d5d781a59542ed2ba06805304d6e9a31e0abe967f1ee",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/benchmark/manifest.json",
+            "sha256": "a7c0fb1d309580db809e742817bf196cc3d0ab9d9b620a14176fb164626403e9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/benchmark/metrics.json",
+            "sha256": "1f06ba04717400b0f20a7e79f7c90e8e0d357f8bf7f2c8507ccdfc969eec0e9b",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/browser-check.json",
+            "sha256": "e20f009b47950b381ea965a91c6e29efa7963acd5794908d8c91f1c1b62d9759",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/checkpoint-transfer.json",
+            "sha256": "819195d7d3a9aaccf534ce2cca88e3986eb56facf0891fd7cbfe27e1149b520e",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/export-probe/manifest.json",
+            "sha256": "78c425dbcfb60ace7640714d1595fdd0e299283e9c9cd683040357f1b04d1923",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/export-probe/metrics.json",
+            "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/pretrain-functional/log.txt",
+            "sha256": "39e7ea851b92504057ed4a319d2081f02d2081f76927c7ccd62c32a8a63ff61a",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/pretrain-functional/manifest.json",
+            "sha256": "e060653b9865ab472fdd0a628de061d0b304504cfb4ff7ae92e1853b7345a902",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/pretrain-functional/native.log",
+            "sha256": "d54559e2a24c22499790c1c03a9717e2aa06154bb1f49c1796953df24ae5b6d2",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/pretrain-functional/train_stats.json",
+            "sha256": "ca6e7472d08a4c69f14b3523599789799bb0c2b6f205460e622b56ccdd98aace",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/replay-render-manifest.json",
+            "sha256": "676e9a9907807456bad0dba547078c7257d6d8f8b8d93691b3ad45582f05156c",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/build-report.json",
+            "sha256": "9682b49df7e6975cd7b913fdf90b8c01bd6b04f28ccf94943ae18be55876f83c",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/numerical-check.json",
+            "sha256": "341494fd43d005c4da6253620975dd5a395309fc9e852349bd30185c983c2c90",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/rehearsal-classifier-evaluation/manifest.json",
+            "sha256": "440e9d6e433905060b9b3bc984c20e6b77585465684b33b1bc4aeacd4ebff597",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/rehearsal-classifier-evaluation/metrics.json",
+            "sha256": "89cab36caa23eec55cc4c34b5999c837a5074061eea96872290fb5f10ab64d0b",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/rehearsal-environment.json",
+            "sha256": "4ff6e7466367c8b0835478941b0c5dfa592933db9feaf305a8e779b8e3aa7eb4",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/rehearsal-numerical-check.json",
+            "sha256": "cfc9c1373fb77fdb33cdfc74f39debb8bf7e3236c316220a9e8abea8bf631346",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/training-environment.json",
+            "sha256": "ab9e3705cfa7936079fe28757a6513b538af53350da252841b5f0b12bac90133",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/eval/manifest.json",
+            "sha256": "b46d4b5c59a708fb1563083ba0986731184c7ef7fba0b2bfb1235026515a3209",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/eval/metrics.json",
+            "sha256": "89cab36caa23eec55cc4c34b5999c837a5074061eea96872290fb5f10ab64d0b",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/model-export-provenance.json",
+            "sha256": "989fd6ea88fd60a053a8b182b7116f40d2819d845f17a11890f4329501cab865",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/replay/manifest.json",
+            "sha256": "f237f786dab160d48936b0bba21358e7f5096cfa90e462a9496bde3ed5f01504",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/replay/metrics.json",
+            "sha256": "b8079ab158b8a7adcdbd57e3bead8aa32994c3b1f17d877dd149b4b486f1e987",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/replay/predictions.json",
+            "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/log.txt",
+            "sha256": "2b0248f4489c3eea1b9389ea5f26ab6ce24d9cc1d00f7b646ddbd9178b071096",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/manifest.json",
+            "sha256": "599c0c893849363ec5c271d24732692e28b49612d9fbe250f4a0bf235e4b775f",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/native.log",
+            "sha256": "5cc5be8932773d5f7085794c2220c8fdd2ad0978c8e26952a99bc8d298f89cd5",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/test_stats.json",
+            "sha256": "0de16f052de6a2523177b54972cb2b39d4f7675fac327f06c73a192a8ced33a8",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/train_stats.json",
+            "sha256": "0c1913080ffde989fd01927f4ea047a9cec752121b3d6ed671add29fb62d0328",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/eval/manifest.json",
+            "sha256": "6a59429f134b75d2dca0e14599800d682791ee87062b9e1f9c050f8b2986289b",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/eval/metrics.json",
+            "sha256": "05721abb97d206d171192b08243c6da3590593c9f5a1f5740894e0090db88ac3",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/model-export-provenance.json",
+            "sha256": "9b9b3849fed92842a93c5dd525db9e3a3ee731c125f695efa1b6d6886dcaa6ea",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/replay/manifest.json",
+            "sha256": "0647eda8b2ecc94bd395093d7c9d47d4411131f47821f2a36603b93b3674d0da",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/replay/metrics.json",
+            "sha256": "cb4df458cad6703cc0735c5847f846309544e71123cb5b3b1cfd982f1072c5d1",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/replay/predictions.json",
+            "sha256": "5c53488b9bc7056c315a32a5c42036e637bd22e6c691d41e2e146110b034c095",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/log.txt",
+            "sha256": "a6ab2f3247b0990928378e09cae71ff0cb6f7d024f662b560373515170a7d724",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/manifest.json",
+            "sha256": "f8d64eb2de17dad5f2d7a573b7cfd40559bc437012cd71b18a5240f6e733abf9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/native.log",
+            "sha256": "4acb009f46d37eff3934e3746aef903f52a7452d7c98a6ecd7a27c7db7297e41",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/test_stats.json",
+            "sha256": "d8be654633d2c9e9d043e53c961bde1bd33adb063f016b68214ed9dd23e1d43e",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/train_stats.json",
+            "sha256": "4b9d54ae713f4d5d612dfcafb42fca3d1e3344faf085afd6771531cdae5f17c9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/eval/manifest.json",
+            "sha256": "06cfcd6193158e9aa5235ba27fe467b349dcc2054a7c0d181b8661bd316fc411",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/eval/metrics.json",
+            "sha256": "9471dd343b3b33dfc4d6b1e0e66eb50719db85c115eee8dddd5737e5407dc065",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/model-export-provenance.json",
+            "sha256": "a479ec8a0b127fc8c356a42fad83d3b6ec4788964c5c15075e8c1fcf7b188243",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/replay/manifest.json",
+            "sha256": "2d20eab8cedf7564da9ee380791dfd9e115030d580e3e33b27133a347d47ae99",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/replay/metrics.json",
+            "sha256": "8c1b1d537e9e8918d29bcf7aacdd9cc3fd50415d368f1084db7b90b996ceaf24",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/replay/predictions.json",
+            "sha256": "4811d8ed7f39541ca15999c27a9ed4ebeb7fe16e4dea8e262274caab7999088f",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/log.txt",
+            "sha256": "db35cf012e8b76157048a88034c69242b8fc84fa76a862f1ae6825a60266e6c8",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/manifest.json",
+            "sha256": "79439a3c0133cc4d1af4f6876d72f9c20166339c3b9599928f3c73072c83bb13",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/native.log",
+            "sha256": "52f27bbcef4308cd5761b6049c4903c9e085cbdba524826d47078c20ff6529bb",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/test_stats.json",
+            "sha256": "7d620686a0a284e20cf6a7ad01d935b4efd96c1f25fb0eb016588e54cd625ee1",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/train_stats.json",
+            "sha256": "9fbfb4a6fb36655e1576408fe43ba123621a9b1c6770e7cbeeca27cbeac53d36",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/unlabeled-inference-agreement.json",
+            "sha256": "38af4880c8586503ab3e3404e2c05074d6d90318957300e2d92d7e55aa2c4aa9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/unlabeled-prediction/manifest.json",
+            "sha256": "e11e0a3a098a6c17f002b030db70e1c260ae270f5ee5a07c282d4956c1c3d43e",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/unlabeled-prediction/metrics.json",
+            "sha256": "0679152fd981ce62d49f0ac86541b18dce7533d675470c5249d382882e027a19",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/uploaded-csv-profile.json",
+            "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/figures/learning-curves.pdf",
+            "sha256": "be3a0248702de4f29b6e7b17529d109b76b1c4258d519b15e4375a65c03e94b9",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/figures/learning-curves.png",
+            "sha256": "7d92bc1d1d2dccf404fb70eeca6d7d3b76c53eb8aa1fb82e5c6d9284e9d0820f",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/figures/learning-curves.svg",
+            "sha256": "74d0ef46a657d5cd9515e11b53e3e5ac8ed1f53c8460b2a671a6d308ad0fb5fa",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/figures/seed0-confusion.pdf",
+            "sha256": "e516686fab1f1052c1b1c6ae17e863231bcae80b11668a49ce22ba4131d11aaa",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/figures/seed0-confusion.png",
+            "sha256": "8785d4fef14b0d08822522648072e7ff92c70fa876d01dd9fc2e2f0303284fdc",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/figures/seed0-confusion.svg",
+            "sha256": "c7f98cc99efea8454d1946e0cfc49b0275701a05e5e80ed1dd5e5f67502783ab",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/hardware-roadmap.md",
+            "sha256": "99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/presentation-source.json",
+            "sha256": "444ba5f4398c28a36547a8e2642cc49865feeca089b195f3cbb4db649f4f6742",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/publication-checks.json",
+            "sha256": "c0258d9410a13228d0f1dd0325c6390195e5ef7b25d3e1bc32cba4f8368a3553",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/questions.md",
+            "sha256": "dcd7348b80f9b53707d3b3d702cabd894953a2186dbfe1778891d4357fdd3333",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/quickstart.md",
+            "sha256": "6641b5d478ef02981014bf3d8c08f3f86c147de25e93ce9efc7dac5fae5d99bf",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/results.md",
+            "sha256": "582a7075602ad99c9b4faa46ecba6bab521e903aab7132669e5fd26b7f29decc",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/runbook.md",
+            "sha256": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/talk-track.md",
+            "sha256": "ebd438636ce5ffef646d9b57fa260b30dcc5fb127d01ade070a3efa9bdfb6c4e",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/upstream-comparison.md",
+            "sha256": "a84e5fbffabc2b6ccc44351203b4b61f9f95dee7608765e3ef427d54e121b5ba",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/verification.md",
+            "sha256": "88948b8336c729882a2a8835f69b03489161be769d3e6a4991a7ccc7a91bebbc",
+            "matches": true
+          },
+          {
+            "path": "docs/research/audit-council-initial-result.json",
+            "sha256": "44308ec45761875e20c06609fc31cd1c7f6afe7449d7651c1c704da038666051",
+            "matches": true
+          },
+          {
+            "path": "docs/research/audit-primary-pack.json",
+            "sha256": "d60391c5825586a1ca7a1ff065eeba21ef60ac263486a0a32de9eb42819d69bc",
+            "matches": true
+          },
+          {
+            "path": "docs/research/council-decision.json",
+            "sha256": "8bd76460d62e804cc06ed8f4de883f8be4f4f4e6de05aa3c9bf3272a9b9ac59e",
+            "matches": true
+          },
+          {
+            "path": "docs/research/council-receipt.json",
+            "sha256": "791d814a5034702bc2c77209f66225f0fda7a401e6e7d765dae9a7e7db37c109",
+            "matches": true
+          },
+          {
+            "path": "docs/research/execution-plan.md",
+            "sha256": "ea412c5b3c49ff06b9dfa7dc02faa360dd22b1094406bfd7d53db3e31c3f4ae4",
+            "matches": true
+          },
+          {
+            "path": "docs/research/final-council-decision.json",
+            "sha256": "18ff1e796e2fd1685df76a4a1b1b7dd5122cc06328c0f5dbf87a28a3616fed5d",
+            "matches": true
+          },
+          {
+            "path": "docs/research/final-council-receipt.json",
+            "sha256": "e3234a01ba6968c9b0439659de244db91130bec0dcef9e683bfe3393a7c277df",
+            "matches": true
+          },
+          {
+            "path": "docs/research/final-council-review.md",
+            "sha256": "ff78420373aa3ae1d9ecfbba4076da0333bfd4391810e80ef510be564190aef3",
+            "matches": true
+          },
+          {
+            "path": "docs/research/research-record.md",
+            "sha256": "2194583c7940a6a43880f47f0600d7fdfbb8653b4563fbbd53bbe17c63b3b497",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/NetMambaPlus-customer-briefing.pdf",
+            "sha256": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/NetMambaPlus-customer-slides.pdf",
+            "sha256": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/NetMambaPlus-customer-slides.pptx",
+            "sha256": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/index.html",
+            "sha256": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/guide.html",
+            "sha256": "2fde58ccb145149e6fcf751dded4e6efc285d19a276b4fed4cc15c8ca3337b95",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/demo/recorded-demo.webm",
+            "sha256": "bb39d0979f8ed62cb5580ca493347238500862f54047ffff66ca828e591f8316",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/evidence/artifact-index.json",
+            "sha256": "d42f6df7090c817f8674d5d781a59542ed2ba06805304d6e9a31e0abe967f1ee",
+            "matches": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/index.json",
+            "sha256": "4c42b516af445f525d173c6a8e55458cdfe05fd38752b4e1122d02b3b0ef76b0",
+            "matches": true
+          }
+        ],
+        "baseline_blob_checks": [
+          {
+            "path": "docs/customer/NetMambaPlus-customer-briefing.pdf",
+            "baseline_git_blob": "9cff1ae6478ec260c3ab5824fb56afcffec6e4cd",
+            "exists": true,
+            "bytes": 90959,
+            "current_git_blob": "9cff1ae6478ec260c3ab5824fb56afcffec6e4cd",
+            "sha256": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/NetMambaPlus-customer-slides.pdf",
+            "baseline_git_blob": "e64217639180b26fa26b7e1249083e7df864a5b1",
+            "exists": true,
+            "bytes": 515749,
+            "current_git_blob": "e64217639180b26fa26b7e1249083e7df864a5b1",
+            "sha256": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/NetMambaPlus-customer-slides.pptx",
+            "baseline_git_blob": "34a69102c29b92eca91d9b28060eac898cee396c",
+            "exists": true,
+            "bytes": 256511,
+            "current_git_blob": "34a69102c29b92eca91d9b28060eac898cee396c",
+            "sha256": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/README.md",
+            "baseline_git_blob": "1aede2a23bc71fb8e1c0550c723ae3860ca10b4b",
+            "exists": true,
+            "bytes": 7362,
+            "current_git_blob": "1aede2a23bc71fb8e1c0550c723ae3860ca10b4b",
+            "sha256": "b3180a136bd8da6362b5b99d7f95fb5615d32cef867323b14df04d0ab26a26f6",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/SHA256SUMS",
+            "baseline_git_blob": "280dd4ebeb006f0c074deb4713c460221f7d1107",
+            "exists": true,
+            "bytes": 16980,
+            "current_git_blob": "280dd4ebeb006f0c074deb4713c460221f7d1107",
+            "sha256": "987e222995d6120d82c915870a112a32af8f1dfd739d98ac4728d492d9cbc9be",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/acceptance.md",
+            "baseline_git_blob": "1b8c69bd8bd7c5ab18d9fa6e8853e90b1501c574",
+            "exists": true,
+            "bytes": 8454,
+            "current_git_blob": "1b8c69bd8bd7c5ab18d9fa6e8853e90b1501c574",
+            "sha256": "566fd0c0938c4f66ba17223e20267a80ad3976b6bf1b0e4b658c1756b5af1368",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/answers.md",
+            "baseline_git_blob": "a1fa6651f2c310ea68b3541b951db44d5036b51e",
+            "exists": true,
+            "bytes": 2916,
+            "current_git_blob": "a1fa6651f2c310ea68b3541b951db44d5036b51e",
+            "sha256": "e293eb26550a2c1577c689ccac845ad0321be7bbf2fd41c6aeeedbad3c5565ab",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/benchmark-arithmetic.json",
+            "baseline_git_blob": "7e325f05933addc2b790bc38032df421a21d51c1",
+            "exists": true,
+            "bytes": 2302,
+            "current_git_blob": "7e325f05933addc2b790bc38032df421a21d51c1",
+            "sha256": "a26bac17c53c447db6ad2779319cb02d2aa80e628f2b0a7e903aa3ebed6fd13d",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/benchmark/manifest.json",
+            "baseline_git_blob": "8d4e4cce586f0d6a38fdc2741b3a346b2954ec30",
+            "exists": true,
+            "bytes": 18507,
+            "current_git_blob": "8d4e4cce586f0d6a38fdc2741b3a346b2954ec30",
+            "sha256": "d2e0718aed1da63c20a14bf74af533d2538d3d0989b528e4d5373702df2b7a9e",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/benchmark/metrics.json",
+            "baseline_git_blob": "33118e363a5f275b5c7715b0e4c1dbdf1c06cb68",
+            "exists": true,
+            "bytes": 10402,
+            "current_git_blob": "33118e363a5f275b5c7715b0e4c1dbdf1c06cb68",
+            "sha256": "2ce78196305918d3c1b910e322a1be2305c78814ff4be52111fee8c4c9268dc1",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/cpu-tests.txt",
+            "baseline_git_blob": "27d9b775e330490934261bd3402f5c6153e76267",
+            "exists": true,
+            "bytes": 6545,
+            "current_git_blob": "27d9b775e330490934261bd3402f5c6153e76267",
+            "sha256": "1735d2c8541450584a944f5edee5b6cb5cbcb72dac1121552fe89dffedcb6cec",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/csv-profile.json",
+            "baseline_git_blob": "a00e22574b36227d218efe02c44a9b6f01b0abb1",
+            "exists": true,
+            "bytes": 17318,
+            "current_git_blob": "a00e22574b36227d218efe02c44a9b6f01b0abb1",
+            "sha256": "2552a68d8ecae3bb219408ef65de12f4fbc3694819d00c828bf089a28c969e82",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/data-validation.json",
+            "baseline_git_blob": "c884990daeb2080e124cf2fa26d572077c476736",
+            "exists": true,
+            "bytes": 2835,
+            "current_git_blob": "c884990daeb2080e124cf2fa26d572077c476736",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/dependency-install.json",
+            "baseline_git_blob": "b808fbd84fdd711f1a9b22deace138864500b3f5",
+            "exists": true,
+            "bytes": 366,
+            "current_git_blob": "b808fbd84fdd711f1a9b22deace138864500b3f5",
+            "sha256": "c846cade8db2256cdde884b28dbd758550bacd85901a07660bcd321940c33b05",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-probe/manifest.json",
+            "baseline_git_blob": "530e281d4636fb347cd31715e7c1304bc2fbd827",
+            "exists": true,
+            "bytes": 18534,
+            "current_git_blob": "530e281d4636fb347cd31715e7c1304bc2fbd827",
+            "sha256": "acc08d6b9691b56d9131df9a33db57a216163123a669d94350d47043f4b43f42",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-probe/metrics.json",
+            "baseline_git_blob": "079ef17fabc6061568009e3220bc99f2f8f27688",
+            "exists": true,
+            "bytes": 4197,
+            "current_git_blob": "079ef17fabc6061568009e3220bc99f2f8f27688",
+            "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed0/manifest.json",
+            "baseline_git_blob": "f9d192f200b867bf251fbaae59ab267b4d2a2537",
+            "exists": true,
+            "bytes": 18670,
+            "current_git_blob": "f9d192f200b867bf251fbaae59ab267b4d2a2537",
+            "sha256": "70ffbac23080cc92b3a93afc362ce8e4f01c3b60c606a652bd09df88299c14a9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed0/metrics.json",
+            "baseline_git_blob": "3b4c06daee649a65afb2eefafc6dee4a84b6fa11",
+            "exists": true,
+            "bytes": 2640,
+            "current_git_blob": "3b4c06daee649a65afb2eefafc6dee4a84b6fa11",
+            "sha256": "04be64ef0b22ac9ac73ffc0264f1fa954e8cd70b809b03e84477f90393669b61",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed1/manifest.json",
+            "baseline_git_blob": "d17522979f2ebdcf28080936a1e9c87612b4fe0e",
+            "exists": true,
+            "bytes": 18670,
+            "current_git_blob": "d17522979f2ebdcf28080936a1e9c87612b4fe0e",
+            "sha256": "eaef3caf96e34056716bdcf0af22a8e32d601a75681fe368c056fdcf447038b2",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed1/metrics.json",
+            "baseline_git_blob": "3e1f4e441834304aa4fa14d28b0c5a223c1707b3",
+            "exists": true,
+            "bytes": 2627,
+            "current_git_blob": "3e1f4e441834304aa4fa14d28b0c5a223c1707b3",
+            "sha256": "09efce568dd7bb0841d03193b7811ee39ec897887abca9e2719ebf11f0dfb042",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed2/manifest.json",
+            "baseline_git_blob": "20e00dff2d21dba2c6073678074aceab5c6460e6",
+            "exists": true,
+            "bytes": 18670,
+            "current_git_blob": "20e00dff2d21dba2c6073678074aceab5c6460e6",
+            "sha256": "b7a5ee1cf024b429bb358b54ce6b020bff5f9ef40c9c885815e71061d7bd5294",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/export-seed2/metrics.json",
+            "baseline_git_blob": "c3180c0b54b4fa5675c501e6e8ecf4a492e690ae",
+            "exists": true,
+            "bytes": 2625,
+            "current_git_blob": "c3180c0b54b4fa5675c501e6e8ecf4a492e690ae",
+            "sha256": "76999f3845dac5f5581640ba3c5a324b0c996a45a5d775104e875e2465d78062",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/guide/browser-check.json",
+            "baseline_git_blob": "58c6cbef6fc8fdf3fa6b4dedc1324ed1f3552069",
+            "exists": true,
+            "bytes": 808,
+            "current_git_blob": "58c6cbef6fc8fdf3fa6b4dedc1324ed1f3552069",
+            "sha256": "0366f34e910ff0b1f650e81fa3c7cfc0e9dd0c559e89d0fc624b245614c7f2a0",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/guide/guide-1440.png",
+            "baseline_git_blob": "7e13c8695f358b707b081d1cb3bd538e06c04e6a",
+            "exists": true,
+            "bytes": 143207,
+            "current_git_blob": "7e13c8695f358b707b081d1cb3bd538e06c04e6a",
+            "sha256": "b4d02d3bfb39e5ee314c78ca1a964256de711b95fc64943d9066c4df02411ef6",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/guide/guide-390.png",
+            "baseline_git_blob": "2371fc0103a763b628b3119efaadad0056eddf4c",
+            "exists": true,
+            "bytes": 78145,
+            "current_git_blob": "2371fc0103a763b628b3119efaadad0056eddf4c",
+            "sha256": "b3c215d57796efb9917008d66fc6d10601a4d1063ae200c39b7bd6a741a92194",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/index.json",
+            "baseline_git_blob": "a3dc501f7712c37ad8af0c7b4ba0b5d4bdb86d9d",
+            "exists": true,
+            "bytes": 7716,
+            "current_git_blob": "a3dc501f7712c37ad8af0c7b4ba0b5d4bdb86d9d",
+            "sha256": "4c42b516af445f525d173c6a8e55458cdfe05fd38752b4e1122d02b3b0ef76b0",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/page-count-rejection.json",
+            "baseline_git_blob": "a4872e5d1dc04aa87436cb9e42c99e05f86c0da7",
+            "exists": true,
+            "bytes": 366,
+            "current_git_blob": "a4872e5d1dc04aa87436cb9e42c99e05f86c0da7",
+            "sha256": "e0b02fc0f9d0183c42ba4e843dd3301a3babc23f27c8025a06260f9417238b71",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/prediction-rejection-checks.json",
+            "baseline_git_blob": "5462df0ceba0f3861c314bdc12438fa48b9e8588",
+            "exists": true,
+            "bytes": 722,
+            "current_git_blob": "5462df0ceba0f3861c314bdc12438fa48b9e8588",
+            "sha256": "e5d3aa1d2fd19b58cfa75bb90cb432cfdfc3ed78c93f94a41b89fee0013e6b00",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/pretrain/log.txt",
+            "baseline_git_blob": "7af9b198b40017c4dda4bbc188e31f377e3aead1",
+            "exists": true,
+            "bytes": 446,
+            "current_git_blob": "7af9b198b40017c4dda4bbc188e31f377e3aead1",
+            "sha256": "09357b1793aa8463a911de81038d2146c60fabf01646a2301bc7ba0e52693fcb",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/pretrain/manifest.json",
+            "baseline_git_blob": "5c75400496015326af60e6400e9d0bf4221eba17",
+            "exists": true,
+            "bytes": 18066,
+            "current_git_blob": "5c75400496015326af60e6400e9d0bf4221eba17",
+            "sha256": "ff90c1d04d438d1d9cc938a80ef89fba1667797a418082e12744908bc8aef0c6",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/pretrain/native.log",
+            "baseline_git_blob": "f9220f919f83c9e6ba7129f250c627d32a199263",
+            "exists": true,
+            "bytes": 9910,
+            "current_git_blob": "f9220f919f83c9e6ba7129f250c627d32a199263",
+            "sha256": "458daa511412ac1b182d0c94f3a5303a3770c897a119788e2641200d0bf21f99",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/pretrain/train_stats.json",
+            "baseline_git_blob": "383226bf9d625ef02dc36ddfc38812269cbf5332",
+            "exists": true,
+            "bytes": 74,
+            "current_git_blob": "383226bf9d625ef02dc36ddfc38812269cbf5332",
+            "sha256": "fbc4f7adc729fb7495ea16691be9abbf049d42a17d7a865582ba42c4963e3f42",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/primary-summary.json",
+            "baseline_git_blob": "411dcc8d892ce5f1172a71ce154936be4b8776e2",
+            "exists": true,
+            "bytes": 7074,
+            "current_git_blob": "411dcc8d892ce5f1172a71ce154936be4b8776e2",
+            "sha256": "edcafad2f8ea3c1581c42de66f8df7bbeba514e15e5980a46e63f82a0b68cc55",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/public-browser.json",
+            "baseline_git_blob": "d410a67034ded818c36e8973177c0b900c2f7f8f",
+            "exists": true,
+            "bytes": 820,
+            "current_git_blob": "d410a67034ded818c36e8973177c0b900c2f7f8f",
+            "sha256": "d5f9a74a52323cc9366f256b0d53aac57b5e50b52bacc8067f50eb79698e277a",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/runtime-main.json",
+            "baseline_git_blob": "563e8c7745a0274e5c592dbfde12370a00f714f7",
+            "exists": true,
+            "bytes": 2753,
+            "current_git_blob": "563e8c7745a0274e5c592dbfde12370a00f714f7",
+            "sha256": "fd78580fea892f62ca9851222dc6267ad2f04e4d357b10cb8c003f7ffd697008",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/runtime-rehearsal.json",
+            "baseline_git_blob": "ef72077a5cafcf08d516906f9071c964fb4b0a5a",
+            "exists": true,
+            "bytes": 2753,
+            "current_git_blob": "ef72077a5cafcf08d516906f9071c964fb4b0a5a",
+            "sha256": "7c065933958796b10ad01b21969713672b3a0ba13106e547122e6b3826e61577",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/source-integrity.txt",
+            "baseline_git_blob": "3048b31dcb996ad3b5041f57879182fe5163acd5",
+            "exists": true,
+            "bytes": 792,
+            "current_git_blob": "3048b31dcb996ad3b5041f57879182fe5163acd5",
+            "sha256": "bd481e8a3bf528bbd9ca77da2895a524603dfa1cd15950e956e9eebced2853e0",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/unlabeled-agreement.json",
+            "baseline_git_blob": "485b962871361e4292b496f633ba3002866fb47e",
+            "exists": true,
+            "bytes": 559,
+            "current_git_blob": "485b962871361e4292b496f633ba3002866fb47e",
+            "sha256": "fb91364aa3294cca5e439e2d26df00ee76b16cf97c63125115ea0b53514d79ee",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/unlabeled-export/manifest.json",
+            "baseline_git_blob": "02ba8bc00efb4b2fb2575f406f5c8a63d88bc80e",
+            "exists": true,
+            "bytes": 18675,
+            "current_git_blob": "02ba8bc00efb4b2fb2575f406f5c8a63d88bc80e",
+            "sha256": "d62ef207a99bd28781aa74619a212b646f44340a4bd565e00b1c190a6b164b08",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/unlabeled-export/metrics.json",
+            "baseline_git_blob": "19f7f26faf43ea7a42224d850c0b7b6ff862ab9a",
+            "exists": true,
+            "bytes": 478045,
+            "current_git_blob": "19f7f26faf43ea7a42224d850c0b7b6ff862ab9a",
+            "sha256": "6d18dff6cea04f667ed451904ff85ec4b5f72943a2f441cf50d731b810a9322d",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/audit-evidence/verifier-rejection-checks.json",
+            "baseline_git_blob": "aa52b0cd19700f527104dd9a6824550df6fca4b1",
+            "exists": true,
+            "bytes": 343,
+            "current_git_blob": "aa52b0cd19700f527104dd9a6824550df6fca4b1",
+            "sha256": "2dbb56ffcd6c9b95dec48a766a42827b73321e7aa41e59524d4af20b543e3382",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/briefing-source.md",
+            "baseline_git_blob": "d96d43a28d17562c12c189dea4f53b06c1588c2b",
+            "exists": true,
+            "bytes": 19172,
+            "current_git_blob": "d96d43a28d17562c12c189dea4f53b06c1588c2b",
+            "sha256": "745007f082619c850d65f9e4264ae3499c0334e77d852acea255dca2b3507b72",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/briefing.md",
+            "baseline_git_blob": "74da602d2a050792c704e7fc87c0b76a70c86efb",
+            "exists": true,
+            "bytes": 19514,
+            "current_git_blob": "74da602d2a050792c704e7fc87c0b76a70c86efb",
+            "sha256": "1328c7c02908abf53aa37dca545111bcc7072ef39249f37895fd49dcd0179592",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/course-source.json",
+            "baseline_git_blob": "589fa58024ffcc2743925587ced68aad38665b7f",
+            "exists": true,
+            "bytes": 52709,
+            "current_git_blob": "551b764cebbe632152f446032e16d167bb656026",
+            "sha256": "676f228f76ffe6072a27ee34bb3b3040a86a57202d2662494324a3eacc7c5d7b",
+            "byte_identical": false
+          },
+          {
+            "path": "docs/customer/course-verification.md",
+            "baseline_git_blob": "38b14a72bd859b0ee8e8521c71e38f8b7dfd8335",
+            "exists": true,
+            "bytes": 29490,
+            "current_git_blob": "b386bd06410e325bdfadf01acfa1f1badfdaa772",
+            "sha256": "d42e7c197e4002b1648ae2871e27f683835151f90e639c6601e7da38bd5cbe09",
+            "byte_identical": false
+          },
+          {
+            "path": "docs/customer/demo/browser-check.json",
+            "baseline_git_blob": "bc74923722eb95a75436c91f1a7a317ba40d22f5",
+            "exists": true,
+            "bytes": 934,
+            "current_git_blob": "bc74923722eb95a75436c91f1a7a317ba40d22f5",
+            "sha256": "e20f009b47950b381ea965a91c6e29efa7963acd5794908d8c91f1c1b62d9759",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/course/index.html",
+            "baseline_git_blob": "229676acde6cdcb72d0952e03072c45bb3b2ba9b",
+            "exists": true,
+            "bytes": 47589,
+            "current_git_blob": "0b0f0d1e52be521adcb66222581ad19fbe035a6b",
+            "sha256": "6bdb5e531aff12a33158dc1a4b3b241d9cd9c97f30d9f2342aa3aecc03a6f9da",
+            "byte_identical": false
+          },
+          {
+            "path": "docs/customer/demo/guide.html",
+            "baseline_git_blob": "0c1d904224585370580ecabf0d0d25d3430a2c7a",
+            "exists": true,
+            "bytes": 46677,
+            "current_git_blob": "0c1d904224585370580ecabf0d0d25d3430a2c7a",
+            "sha256": "2fde58ccb145149e6fcf751dded4e6efc285d19a276b4fed4cc15c8ca3337b95",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/index.html",
+            "baseline_git_blob": "610713af85c7411157f16adebfa3caccae91e63b",
+            "exists": true,
+            "bytes": 304385,
+            "current_git_blob": "610713af85c7411157f16adebfa3caccae91e63b",
+            "sha256": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/predictions.json",
+            "baseline_git_blob": "02d888261074b55f9d7a5bc872c7c7b351ae6a33",
+            "exists": true,
+            "bytes": 454738,
+            "current_git_blob": "02d888261074b55f9d7a5bc872c7c7b351ae6a33",
+            "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/recorded-demo.webm",
+            "baseline_git_blob": "8d9a1c9db822fa9e7536a1e331082ebe543285b8",
+            "exists": true,
+            "bytes": 1486567,
+            "current_git_blob": "8d9a1c9db822fa9e7536a1e331082ebe543285b8",
+            "sha256": "bb39d0979f8ed62cb5580ca493347238500862f54047ffff66ca828e591f8316",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/replay-mobile.png",
+            "baseline_git_blob": "8627cfb8c55fbdd987c227df998c5af82ff24ea3",
+            "exists": true,
+            "bytes": 61475,
+            "current_git_blob": "8627cfb8c55fbdd987c227df998c5af82ff24ea3",
+            "sha256": "262130fcfec90d64eebbaeb323a893a345b0816894d95db7beff1b45ae636a33",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/replay-screenshot.png",
+            "baseline_git_blob": "ffaa75d7a2f9587842c37cea99f2f65a4f710db5",
+            "exists": true,
+            "bytes": 174736,
+            "current_git_blob": "ffaa75d7a2f9587842c37cea99f2f65a4f710db5",
+            "sha256": "69ba167f0ee65fad2861ad18cc1ae27cd326cfee897c35c18789a1744e31cc32",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/NetMambaPlus-30-minute-course.mp4",
+            "baseline_git_blob": "5e7c18d14e1dfb9d101cae5e09493df5e3fb1033",
+            "exists": true,
+            "bytes": 38130518,
+            "current_git_blob": "5e7c18d14e1dfb9d101cae5e09493df5e3fb1033",
+            "sha256": "6ebc3f93861997eb3894dbec98d1b496f3fe33374eeb74453277d89bb93dd416",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/NetMambaPlus-30-minute-course.webm",
+            "baseline_git_blob": "e166d834a70bccfd9f9cd9875f8da64a2e8daf47",
+            "exists": true,
+            "bytes": 37214679,
+            "current_git_blob": "e166d834a70bccfd9f9cd9875f8da64a2e8daf47",
+            "sha256": "53bf29e07856cc20117b92ab2088ec9fd664f59902f5addb953067031c9c9c0b",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/captions.srt",
+            "baseline_git_blob": "5bd69beb55121fe598887210fc7ba211a00cc8a5",
+            "exists": true,
+            "bytes": 37993,
+            "current_git_blob": "5bd69beb55121fe598887210fc7ba211a00cc8a5",
+            "sha256": "5ef8241d6d55257fa18a385b1a697296768cf55253b8d71f1a207838da2e9eeb",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/captions.vtt",
+            "baseline_git_blob": "aac7cce2fde1eee1792f9d48be5595b0e1dc3173",
+            "exists": true,
+            "bytes": 36461,
+            "current_git_blob": "aac7cce2fde1eee1792f9d48be5595b0e1dc3173",
+            "sha256": "e519c6e38a56bb7d94741caaa410dff5d031c585756ada50fbe308a8eb337010",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/chapters.json",
+            "baseline_git_blob": "13d34f6ac5778fef8f84ce97fc6cde39ee974a51",
+            "exists": true,
+            "bytes": 1086,
+            "current_git_blob": "13d34f6ac5778fef8f84ce97fc6cde39ee974a51",
+            "sha256": "0df6d396da78156e3724019119eaad6b35923a3420dbb28a8f7ee182d6ab4c15",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/index.html",
+            "baseline_git_blob": "e461c5782f03ed460ad12828c7cb17659244ca56",
+            "exists": true,
+            "bytes": 51302,
+            "current_git_blob": "e461c5782f03ed460ad12828c7cb17659244ca56",
+            "sha256": "af8269604d0a57eb2c207c16423cbe360b3e0886256d5c4ca12cd7193a8ec990",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/media-manifest.json",
+            "baseline_git_blob": "4c63aa8d402c08ceef698218b115545180d7b805",
+            "exists": true,
+            "bytes": 136293,
+            "current_git_blob": "4c63aa8d402c08ceef698218b115545180d7b805",
+            "sha256": "4b7db9fcba435607dc7a17c423bfddd7ea58fc1f419adb7c32e1aca913752756",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/poster.png",
+            "baseline_git_blob": "fb96918aab603067e048cc9fc915e572cb50607e",
+            "exists": true,
+            "bytes": 56780,
+            "current_git_blob": "fb96918aab603067e048cc9fc915e572cb50607e",
+            "sha256": "a8ca1a7ffceccbb0e36650113dd579361dd5733ea1649da7a772a120d0b0311a",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/demo/video/transcript.md",
+            "baseline_git_blob": "7acb3713ffb0f89297738cc391dffe25f1a341c3",
+            "exists": true,
+            "bytes": 48313,
+            "current_git_blob": "7acb3713ffb0f89297738cc391dffe25f1a341c3",
+            "sha256": "419def72f7215bd63c13459b67b4f53b34b5abde15ebe87e04ee18b6249e4e53",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/document-check.json",
+            "baseline_git_blob": "cb3a8b1be8a300c4f9d2c81fb067e84158cf148c",
+            "exists": true,
+            "bytes": 616,
+            "current_git_blob": "cb3a8b1be8a300c4f9d2c81fb067e84158cf148c",
+            "sha256": "95466920b189bfbccf52f5c1084b9225cd0ba0ed30ebc56b70647b026cc39ec9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/artifact-index.json",
+            "baseline_git_blob": "b57783c9edcf6b7b95904fb2c569aacde1a04ce7",
+            "exists": true,
+            "bytes": 17854,
+            "current_git_blob": "b57783c9edcf6b7b95904fb2c569aacde1a04ce7",
+            "sha256": "d42f6df7090c817f8674d5d781a59542ed2ba06805304d6e9a31e0abe967f1ee",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/benchmark/manifest.json",
+            "baseline_git_blob": "e2899befc154b71cdac9446c558db700e4343f16",
+            "exists": true,
+            "bytes": 18460,
+            "current_git_blob": "e2899befc154b71cdac9446c558db700e4343f16",
+            "sha256": "a7c0fb1d309580db809e742817bf196cc3d0ab9d9b620a14176fb164626403e9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/benchmark/metrics.json",
+            "baseline_git_blob": "f95b01cdb946cf6755065b047837639cdf50f703",
+            "exists": true,
+            "bytes": 10377,
+            "current_git_blob": "f95b01cdb946cf6755065b047837639cdf50f703",
+            "sha256": "1f06ba04717400b0f20a7e79f7c90e8e0d357f8bf7f2c8507ccdfc969eec0e9b",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/browser-check.json",
+            "baseline_git_blob": "bc74923722eb95a75436c91f1a7a317ba40d22f5",
+            "exists": true,
+            "bytes": 934,
+            "current_git_blob": "bc74923722eb95a75436c91f1a7a317ba40d22f5",
+            "sha256": "e20f009b47950b381ea965a91c6e29efa7963acd5794908d8c91f1c1b62d9759",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/checkpoint-transfer.json",
+            "baseline_git_blob": "6ae0a9cc4a606ab3f5c877e434096506b19c747e",
+            "exists": true,
+            "bytes": 1603,
+            "current_git_blob": "6ae0a9cc4a606ab3f5c877e434096506b19c747e",
+            "sha256": "819195d7d3a9aaccf534ce2cca88e3986eb56facf0891fd7cbfe27e1149b520e",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/export-probe/manifest.json",
+            "baseline_git_blob": "3d2b383bcc2d386ab118b4c2523105f797e92ad4",
+            "exists": true,
+            "bytes": 18487,
+            "current_git_blob": "3d2b383bcc2d386ab118b4c2523105f797e92ad4",
+            "sha256": "78c425dbcfb60ace7640714d1595fdd0e299283e9c9cd683040357f1b04d1923",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/export-probe/metrics.json",
+            "baseline_git_blob": "079ef17fabc6061568009e3220bc99f2f8f27688",
+            "exists": true,
+            "bytes": 4197,
+            "current_git_blob": "079ef17fabc6061568009e3220bc99f2f8f27688",
+            "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "baseline_git_blob": "c884990daeb2080e124cf2fa26d572077c476736",
+            "exists": true,
+            "bytes": 2835,
+            "current_git_blob": "c884990daeb2080e124cf2fa26d572077c476736",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/pretrain-functional/log.txt",
+            "baseline_git_blob": "3d0ce4330e191459801b8c92014e0c60bafd00f7",
+            "exists": true,
+            "bytes": 446,
+            "current_git_blob": "3d0ce4330e191459801b8c92014e0c60bafd00f7",
+            "sha256": "39e7ea851b92504057ed4a319d2081f02d2081f76927c7ccd62c32a8a63ff61a",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/pretrain-functional/manifest.json",
+            "baseline_git_blob": "663a0917894d85d9f7aca9fe68ec0f3effe4d751",
+            "exists": true,
+            "bytes": 18011,
+            "current_git_blob": "663a0917894d85d9f7aca9fe68ec0f3effe4d751",
+            "sha256": "e060653b9865ab472fdd0a628de061d0b304504cfb4ff7ae92e1853b7345a902",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/pretrain-functional/native.log",
+            "baseline_git_blob": "5a340265ec3b2e9bc4c4e2d1246a26a09a325c65",
+            "exists": true,
+            "bytes": 9906,
+            "current_git_blob": "5a340265ec3b2e9bc4c4e2d1246a26a09a325c65",
+            "sha256": "d54559e2a24c22499790c1c03a9717e2aa06154bb1f49c1796953df24ae5b6d2",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/pretrain-functional/train_stats.json",
+            "baseline_git_blob": "b0e9b2cec37ed52e7ff0d037a250af71caba92f6",
+            "exists": true,
+            "bytes": 74,
+            "current_git_blob": "b0e9b2cec37ed52e7ff0d037a250af71caba92f6",
+            "sha256": "ca6e7472d08a4c69f14b3523599789799bb0c2b6f205460e622b56ccdd98aace",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/replay-render-manifest.json",
+            "baseline_git_blob": "7b9241da3055e9ae3be576b414a82206905bc74d",
+            "exists": true,
+            "bytes": 641,
+            "current_git_blob": "7b9241da3055e9ae3be576b414a82206905bc74d",
+            "sha256": "676e9a9907807456bad0dba547078c7257d6d8f8b8d93691b3ad45582f05156c",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/results.json",
+            "baseline_git_blob": "44b5b6cd0d93fe3d1fa96d764acad5aa3c5478d7",
+            "exists": true,
+            "bytes": 207925,
+            "current_git_blob": "44b5b6cd0d93fe3d1fa96d764acad5aa3c5478d7",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/build-report.json",
+            "baseline_git_blob": "83ecdd1c8a8618d6b3eb3a053537262d5023f048",
+            "exists": true,
+            "bytes": 3802,
+            "current_git_blob": "83ecdd1c8a8618d6b3eb3a053537262d5023f048",
+            "sha256": "9682b49df7e6975cd7b913fdf90b8c01bd6b04f28ccf94943ae18be55876f83c",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/numerical-check.json",
+            "baseline_git_blob": "44da8863e385a8ebadedf4969139c1294d1b62cd",
+            "exists": true,
+            "bytes": 2759,
+            "current_git_blob": "44da8863e385a8ebadedf4969139c1294d1b62cd",
+            "sha256": "341494fd43d005c4da6253620975dd5a395309fc9e852349bd30185c983c2c90",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/rehearsal-classifier-evaluation/manifest.json",
+            "baseline_git_blob": "62680cb2eae195da6ef28b6603a3abad2b403ad6",
+            "exists": true,
+            "bytes": 18635,
+            "current_git_blob": "62680cb2eae195da6ef28b6603a3abad2b403ad6",
+            "sha256": "440e9d6e433905060b9b3bc984c20e6b77585465684b33b1bc4aeacd4ebff597",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/rehearsal-classifier-evaluation/metrics.json",
+            "baseline_git_blob": "ffb5fe49fa1961d2ad313e2b8cda6638e0821d1e",
+            "exists": true,
+            "bytes": 2612,
+            "current_git_blob": "ffb5fe49fa1961d2ad313e2b8cda6638e0821d1e",
+            "sha256": "89cab36caa23eec55cc4c34b5999c837a5074061eea96872290fb5f10ab64d0b",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/rehearsal-environment.json",
+            "baseline_git_blob": "fad2329e1c966fb768b1b4b57137c451efb620c2",
+            "exists": true,
+            "bytes": 7800,
+            "current_git_blob": "fad2329e1c966fb768b1b4b57137c451efb620c2",
+            "sha256": "4ff6e7466367c8b0835478941b0c5dfa592933db9feaf305a8e779b8e3aa7eb4",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/rehearsal-numerical-check.json",
+            "baseline_git_blob": "90a2cb905d016c0d95332548f20744e85dd87eb1",
+            "exists": true,
+            "bytes": 2754,
+            "current_git_blob": "90a2cb905d016c0d95332548f20744e85dd87eb1",
+            "sha256": "cfc9c1373fb77fdb33cdfc74f39debb8bf7e3236c316220a9e8abea8bf631346",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/runtime/training-environment.json",
+            "baseline_git_blob": "a45afa4d3f470761ead42c9bca551b2812c93273",
+            "exists": true,
+            "bytes": 7884,
+            "current_git_blob": "a45afa4d3f470761ead42c9bca551b2812c93273",
+            "sha256": "ab9e3705cfa7936079fe28757a6513b538af53350da252841b5f0b12bac90133",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/eval/manifest.json",
+            "baseline_git_blob": "4f8afc46ca0d22a8996cf95f1ff0b996b33f08b2",
+            "exists": true,
+            "bytes": 18369,
+            "current_git_blob": "4f8afc46ca0d22a8996cf95f1ff0b996b33f08b2",
+            "sha256": "b46d4b5c59a708fb1563083ba0986731184c7ef7fba0b2bfb1235026515a3209",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/eval/metrics.json",
+            "baseline_git_blob": "ffb5fe49fa1961d2ad313e2b8cda6638e0821d1e",
+            "exists": true,
+            "bytes": 2612,
+            "current_git_blob": "ffb5fe49fa1961d2ad313e2b8cda6638e0821d1e",
+            "sha256": "89cab36caa23eec55cc4c34b5999c837a5074061eea96872290fb5f10ab64d0b",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/model-export-provenance.json",
+            "baseline_git_blob": "fc5bccc537373e9daef09b8e3a7a266f1217204b",
+            "exists": true,
+            "bytes": 961,
+            "current_git_blob": "fc5bccc537373e9daef09b8e3a7a266f1217204b",
+            "sha256": "989fd6ea88fd60a053a8b182b7116f40d2819d845f17a11890f4329501cab865",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/replay/manifest.json",
+            "baseline_git_blob": "b7faedb774f1b3a2b3ef10895c184e010644ee3f",
+            "exists": true,
+            "bytes": 18508,
+            "current_git_blob": "b7faedb774f1b3a2b3ef10895c184e010644ee3f",
+            "sha256": "f237f786dab160d48936b0bba21358e7f5096cfa90e462a9496bde3ed5f01504",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/replay/metrics.json",
+            "baseline_git_blob": "7c799d1aac0d90f171e930f8780ddaa29d4b59bf",
+            "exists": true,
+            "bytes": 3414,
+            "current_git_blob": "7c799d1aac0d90f171e930f8780ddaa29d4b59bf",
+            "sha256": "b8079ab158b8a7adcdbd57e3bead8aa32994c3b1f17d877dd149b4b486f1e987",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/replay/predictions.json",
+            "baseline_git_blob": "02d888261074b55f9d7a5bc872c7c7b351ae6a33",
+            "exists": true,
+            "bytes": 454738,
+            "current_git_blob": "02d888261074b55f9d7a5bc872c7c7b351ae6a33",
+            "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/log.txt",
+            "baseline_git_blob": "0e3cd12cc7eb2d725faea3b83da4bfb957ef2d7d",
+            "exists": true,
+            "bytes": 43699,
+            "current_git_blob": "0e3cd12cc7eb2d725faea3b83da4bfb957ef2d7d",
+            "sha256": "2b0248f4489c3eea1b9389ea5f26ab6ce24d9cc1d00f7b646ddbd9178b071096",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/manifest.json",
+            "baseline_git_blob": "af55da204ff10ab4e86dfd6a878ddfb225316181",
+            "exists": true,
+            "bytes": 20756,
+            "current_git_blob": "af55da204ff10ab4e86dfd6a878ddfb225316181",
+            "sha256": "599c0c893849363ec5c271d24732692e28b49612d9fbe250f4a0bf235e4b775f",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/native.log",
+            "baseline_git_blob": "2c5d2c30c4b5f00e75cb58e7a7597fc4af51b49b",
+            "exists": true,
+            "bytes": 228423,
+            "current_git_blob": "2c5d2c30c4b5f00e75cb58e7a7597fc4af51b49b",
+            "sha256": "5cc5be8932773d5f7085794c2220c8fdd2ad0978c8e26952a99bc8d298f89cd5",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/test_stats.json",
+            "baseline_git_blob": "c2a2a1a6bc83a026e621ba892423a92dba6a9b61",
+            "exists": true,
+            "bytes": 599,
+            "current_git_blob": "c2a2a1a6bc83a026e621ba892423a92dba6a9b61",
+            "sha256": "0de16f052de6a2523177b54972cb2b39d4f7675fac327f06c73a192a8ced33a8",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed0/training/train_stats.json",
+            "baseline_git_blob": "196c38a1ae2bc3821211d3dd81d1988f8bc22bc2",
+            "exists": true,
+            "bytes": 136,
+            "current_git_blob": "196c38a1ae2bc3821211d3dd81d1988f8bc22bc2",
+            "sha256": "0c1913080ffde989fd01927f4ea047a9cec752121b3d6ed671add29fb62d0328",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/eval/manifest.json",
+            "baseline_git_blob": "0e35b8efb0cc2abad1ead6d87e0b39191d39e890",
+            "exists": true,
+            "bytes": 18369,
+            "current_git_blob": "0e35b8efb0cc2abad1ead6d87e0b39191d39e890",
+            "sha256": "6a59429f134b75d2dca0e14599800d682791ee87062b9e1f9c050f8b2986289b",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/eval/metrics.json",
+            "baseline_git_blob": "437b018a0ae9964238c597e9d1bb115348053fe4",
+            "exists": true,
+            "bytes": 2599,
+            "current_git_blob": "437b018a0ae9964238c597e9d1bb115348053fe4",
+            "sha256": "05721abb97d206d171192b08243c6da3590593c9f5a1f5740894e0090db88ac3",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/model-export-provenance.json",
+            "baseline_git_blob": "c6ca125e4a5a271289a9273b91e82e23e74f2ed3",
+            "exists": true,
+            "bytes": 960,
+            "current_git_blob": "c6ca125e4a5a271289a9273b91e82e23e74f2ed3",
+            "sha256": "9b9b3849fed92842a93c5dd525db9e3a3ee731c125f695efa1b6d6886dcaa6ea",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/replay/manifest.json",
+            "baseline_git_blob": "d998a42045c64d098d7dc0b3a0b50c73575fbeae",
+            "exists": true,
+            "bytes": 18508,
+            "current_git_blob": "d998a42045c64d098d7dc0b3a0b50c73575fbeae",
+            "sha256": "0647eda8b2ecc94bd395093d7c9d47d4411131f47821f2a36603b93b3674d0da",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/replay/metrics.json",
+            "baseline_git_blob": "9deb2a4e8e33640da449414baa2a01a341e0887d",
+            "exists": true,
+            "bytes": 3384,
+            "current_git_blob": "9deb2a4e8e33640da449414baa2a01a341e0887d",
+            "sha256": "cb4df458cad6703cc0735c5847f846309544e71123cb5b3b1cfd982f1072c5d1",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/replay/predictions.json",
+            "baseline_git_blob": "f4143711f39ea95afbaad5df7f67003b26e3c326",
+            "exists": true,
+            "bytes": 453618,
+            "current_git_blob": "f4143711f39ea95afbaad5df7f67003b26e3c326",
+            "sha256": "5c53488b9bc7056c315a32a5c42036e637bd22e6c691d41e2e146110b034c095",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/log.txt",
+            "baseline_git_blob": "dae452064a22307b55d06542cc7a92f0c4c07a5b",
+            "exists": true,
+            "bytes": 43859,
+            "current_git_blob": "dae452064a22307b55d06542cc7a92f0c4c07a5b",
+            "sha256": "a6ab2f3247b0990928378e09cae71ff0cb6f7d024f662b560373515170a7d724",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/manifest.json",
+            "baseline_git_blob": "dbf5888f5cb8822fa4bee2d1d6a470e2c73983dd",
+            "exists": true,
+            "bytes": 20756,
+            "current_git_blob": "dbf5888f5cb8822fa4bee2d1d6a470e2c73983dd",
+            "sha256": "f8d64eb2de17dad5f2d7a573b7cfd40559bc437012cd71b18a5240f6e733abf9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/native.log",
+            "baseline_git_blob": "4658a3770dcef535bc128cfa5f847b892085b04d",
+            "exists": true,
+            "bytes": 228183,
+            "current_git_blob": "4658a3770dcef535bc128cfa5f847b892085b04d",
+            "sha256": "4acb009f46d37eff3934e3746aef903f52a7452d7c98a6ecd7a27c7db7297e41",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/test_stats.json",
+            "baseline_git_blob": "01e9aa781c93df1665ddc3a57964def56888d75f",
+            "exists": true,
+            "bytes": 598,
+            "current_git_blob": "01e9aa781c93df1665ddc3a57964def56888d75f",
+            "sha256": "d8be654633d2c9e9d043e53c961bde1bd33adb063f016b68214ed9dd23e1d43e",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed1/training/train_stats.json",
+            "baseline_git_blob": "f25e1f345b0e48a0797018a0818c99711ac5b629",
+            "exists": true,
+            "bytes": 135,
+            "current_git_blob": "f25e1f345b0e48a0797018a0818c99711ac5b629",
+            "sha256": "4b9d54ae713f4d5d612dfcafb42fca3d1e3344faf085afd6771531cdae5f17c9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/eval/manifest.json",
+            "baseline_git_blob": "86e086f40814e595301a5becb42376712fbc3ff6",
+            "exists": true,
+            "bytes": 18369,
+            "current_git_blob": "86e086f40814e595301a5becb42376712fbc3ff6",
+            "sha256": "06cfcd6193158e9aa5235ba27fe467b349dcc2054a7c0d181b8661bd316fc411",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/eval/metrics.json",
+            "baseline_git_blob": "8829ec4789e5dc84fbac34f7e9fa7b53658f2402",
+            "exists": true,
+            "bytes": 2597,
+            "current_git_blob": "8829ec4789e5dc84fbac34f7e9fa7b53658f2402",
+            "sha256": "9471dd343b3b33dfc4d6b1e0e66eb50719db85c115eee8dddd5737e5407dc065",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/model-export-provenance.json",
+            "baseline_git_blob": "2670ad6b3b5d6bd135754bf9de26f1ded3df4e42",
+            "exists": true,
+            "bytes": 960,
+            "current_git_blob": "2670ad6b3b5d6bd135754bf9de26f1ded3df4e42",
+            "sha256": "a479ec8a0b127fc8c356a42fad83d3b6ec4788964c5c15075e8c1fcf7b188243",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/replay/manifest.json",
+            "baseline_git_blob": "59c452af98b23a57a54072eef9c105e6fd0f371b",
+            "exists": true,
+            "bytes": 18508,
+            "current_git_blob": "59c452af98b23a57a54072eef9c105e6fd0f371b",
+            "sha256": "2d20eab8cedf7564da9ee380791dfd9e115030d580e3e33b27133a347d47ae99",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/replay/metrics.json",
+            "baseline_git_blob": "cdbe647c27d432b98749a3c81cbfc5e4c68bd322",
+            "exists": true,
+            "bytes": 3381,
+            "current_git_blob": "cdbe647c27d432b98749a3c81cbfc5e4c68bd322",
+            "sha256": "8c1b1d537e9e8918d29bcf7aacdd9cc3fd50415d368f1084db7b90b996ceaf24",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/replay/predictions.json",
+            "baseline_git_blob": "4cabcfea40143238844750127d3eb662d73b5a90",
+            "exists": true,
+            "bytes": 454160,
+            "current_git_blob": "4cabcfea40143238844750127d3eb662d73b5a90",
+            "sha256": "4811d8ed7f39541ca15999c27a9ed4ebeb7fe16e4dea8e262274caab7999088f",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/log.txt",
+            "baseline_git_blob": "b4a9135b592557666c4d3d67dc003122451ead10",
+            "exists": true,
+            "bytes": 43698,
+            "current_git_blob": "b4a9135b592557666c4d3d67dc003122451ead10",
+            "sha256": "db35cf012e8b76157048a88034c69242b8fc84fa76a862f1ae6825a60266e6c8",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/manifest.json",
+            "baseline_git_blob": "03cbd351f42462024fe349810c7b6d5aee279902",
+            "exists": true,
+            "bytes": 20756,
+            "current_git_blob": "03cbd351f42462024fe349810c7b6d5aee279902",
+            "sha256": "79439a3c0133cc4d1af4f6876d72f9c20166339c3b9599928f3c73072c83bb13",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/native.log",
+            "baseline_git_blob": "653ea50973cdaf422f290839c04aca0a40d25c1a",
+            "exists": true,
+            "bytes": 228183,
+            "current_git_blob": "653ea50973cdaf422f290839c04aca0a40d25c1a",
+            "sha256": "52f27bbcef4308cd5761b6049c4903c9e085cbdba524826d47078c20ff6529bb",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/test_stats.json",
+            "baseline_git_blob": "4731f4e14a7367a59c03438245b0c704a62f7f18",
+            "exists": true,
+            "bytes": 601,
+            "current_git_blob": "4731f4e14a7367a59c03438245b0c704a62f7f18",
+            "sha256": "7d620686a0a284e20cf6a7ad01d935b4efd96c1f25fb0eb016588e54cd625ee1",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/seed2/training/train_stats.json",
+            "baseline_git_blob": "b4e7eb4fd6cbe9c412203f56b8432c903f795e6b",
+            "exists": true,
+            "bytes": 134,
+            "current_git_blob": "b4e7eb4fd6cbe9c412203f56b8432c903f795e6b",
+            "sha256": "9fbfb4a6fb36655e1576408fe43ba123621a9b1c6770e7cbeeca27cbeac53d36",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/unlabeled-inference-agreement.json",
+            "baseline_git_blob": "f91d7c04887a0f55a95619aecd5bd6481f1c4935",
+            "exists": true,
+            "bytes": 702,
+            "current_git_blob": "f91d7c04887a0f55a95619aecd5bd6481f1c4935",
+            "sha256": "38af4880c8586503ab3e3404e2c05074d6d90318957300e2d92d7e55aa2c4aa9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/unlabeled-prediction/manifest.json",
+            "baseline_git_blob": "f18c6855c38116ec62c8512ecbe8e91ec173f7d9",
+            "exists": true,
+            "bytes": 18380,
+            "current_git_blob": "f18c6855c38116ec62c8512ecbe8e91ec173f7d9",
+            "sha256": "e11e0a3a098a6c17f002b030db70e1c260ae270f5ee5a07c282d4956c1c3d43e",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/unlabeled-prediction/metrics.json",
+            "baseline_git_blob": "b2ded0fda291f02ef30bf29c9849af142d64b9ef",
+            "exists": true,
+            "bytes": 59337,
+            "current_git_blob": "b2ded0fda291f02ef30bf29c9849af142d64b9ef",
+            "sha256": "0679152fd981ce62d49f0ac86541b18dce7533d675470c5249d382882e027a19",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/evidence/uploaded-csv-profile.json",
+            "baseline_git_blob": "47daafd188d3165b21c2a198cac4610f47003415",
+            "exists": true,
+            "bytes": 17318,
+            "current_git_blob": "47daafd188d3165b21c2a198cac4610f47003415",
+            "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/figures/learning-curves.pdf",
+            "baseline_git_blob": "d382d19bb8ebbdc46de1abd19d22baeb6d191c76",
+            "exists": true,
+            "bytes": 21815,
+            "current_git_blob": "d382d19bb8ebbdc46de1abd19d22baeb6d191c76",
+            "sha256": "be3a0248702de4f29b6e7b17529d109b76b1c4258d519b15e4375a65c03e94b9",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/figures/learning-curves.png",
+            "baseline_git_blob": "d9a7e919ad921cb63293315bea857e729fddb8a1",
+            "exists": true,
+            "bytes": 131041,
+            "current_git_blob": "d9a7e919ad921cb63293315bea857e729fddb8a1",
+            "sha256": "7d92bc1d1d2dccf404fb70eeca6d7d3b76c53eb8aa1fb82e5c6d9284e9d0820f",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/figures/learning-curves.svg",
+            "baseline_git_blob": "31c7ccb6668ab7270feee8c7fe6a04fcba324c58",
+            "exists": true,
+            "bytes": 71474,
+            "current_git_blob": "31c7ccb6668ab7270feee8c7fe6a04fcba324c58",
+            "sha256": "74d0ef46a657d5cd9515e11b53e3e5ac8ed1f53c8460b2a671a6d308ad0fb5fa",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/figures/seed0-confusion.pdf",
+            "baseline_git_blob": "e04261cc3c9c839b1e0c69670291d38309192d56",
+            "exists": true,
+            "bytes": 19027,
+            "current_git_blob": "e04261cc3c9c839b1e0c69670291d38309192d56",
+            "sha256": "e516686fab1f1052c1b1c6ae17e863231bcae80b11668a49ce22ba4131d11aaa",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/figures/seed0-confusion.png",
+            "baseline_git_blob": "eafcf87e38027e2339b85ea9c80300836a8bbb27",
+            "exists": true,
+            "bytes": 77771,
+            "current_git_blob": "eafcf87e38027e2339b85ea9c80300836a8bbb27",
+            "sha256": "8785d4fef14b0d08822522648072e7ff92c70fa876d01dd9fc2e2f0303284fdc",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/figures/seed0-confusion.svg",
+            "baseline_git_blob": "ceb4c9d4b7e27000cfe9097448151a5fdb4b41c7",
+            "exists": true,
+            "bytes": 50060,
+            "current_git_blob": "ceb4c9d4b7e27000cfe9097448151a5fdb4b41c7",
+            "sha256": "c7f98cc99efea8454d1946e0cfc49b0275701a05e5e80ed1dd5e5f67502783ab",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/hardware-roadmap.md",
+            "baseline_git_blob": "3d3a46ab826346d68cb509785f01b148598d2e80",
+            "exists": true,
+            "bytes": 7228,
+            "current_git_blob": "3d3a46ab826346d68cb509785f01b148598d2e80",
+            "sha256": "99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/presentation-source.json",
+            "baseline_git_blob": "92c1757e3db1eb09141dd8ee0f89e1459581ab90",
+            "exists": true,
+            "bytes": 35919,
+            "current_git_blob": "92c1757e3db1eb09141dd8ee0f89e1459581ab90",
+            "sha256": "444ba5f4398c28a36547a8e2642cc49865feeca089b195f3cbb4db649f4f6742",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/publication-checks.json",
+            "baseline_git_blob": "8d33639ff26bfefa62031654438973a545a31f99",
+            "exists": true,
+            "bytes": 3242,
+            "current_git_blob": "8d33639ff26bfefa62031654438973a545a31f99",
+            "sha256": "c0258d9410a13228d0f1dd0325c6390195e5ef7b25d3e1bc32cba4f8368a3553",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/questions.md",
+            "baseline_git_blob": "d73db0b39a19acd89eacdb7dd5197562eeea40fe",
+            "exists": true,
+            "bytes": 4159,
+            "current_git_blob": "d73db0b39a19acd89eacdb7dd5197562eeea40fe",
+            "sha256": "dcd7348b80f9b53707d3b3d702cabd894953a2186dbfe1778891d4357fdd3333",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/quickstart.md",
+            "baseline_git_blob": "68e94476be34d18823d75bce9912541cb51f2c43",
+            "exists": true,
+            "bytes": 8688,
+            "current_git_blob": "68e94476be34d18823d75bce9912541cb51f2c43",
+            "sha256": "6641b5d478ef02981014bf3d8c08f3f86c147de25e93ce9efc7dac5fae5d99bf",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/results.md",
+            "baseline_git_blob": "040b15ebf3f68996eec9a594aef9af7bbae2ee56",
+            "exists": true,
+            "bytes": 4232,
+            "current_git_blob": "040b15ebf3f68996eec9a594aef9af7bbae2ee56",
+            "sha256": "582a7075602ad99c9b4faa46ecba6bab521e903aab7132669e5fd26b7f29decc",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/runbook.md",
+            "baseline_git_blob": "a93b3db6a27c6a76a65e99103e06405730325534",
+            "exists": true,
+            "bytes": 11606,
+            "current_git_blob": "a93b3db6a27c6a76a65e99103e06405730325534",
+            "sha256": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/talk-track.md",
+            "baseline_git_blob": "bd2c87786d6de637b0392b4c201284f306455a2b",
+            "exists": true,
+            "bytes": 11278,
+            "current_git_blob": "bd2c87786d6de637b0392b4c201284f306455a2b",
+            "sha256": "ebd438636ce5ffef646d9b57fa260b30dcc5fb127d01ade070a3efa9bdfb6c4e",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/upstream-comparison.md",
+            "baseline_git_blob": "3db332c86f597573f58a4c76a883a70b380bf9e2",
+            "exists": true,
+            "bytes": 10432,
+            "current_git_blob": "3db332c86f597573f58a4c76a883a70b380bf9e2",
+            "sha256": "a84e5fbffabc2b6ccc44351203b4b61f9f95dee7608765e3ef427d54e121b5ba",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/verification.md",
+            "baseline_git_blob": "b4b3a3ec968c5acbad662cc8042594cbd15f59a9",
+            "exists": true,
+            "bytes": 13413,
+            "current_git_blob": "b4b3a3ec968c5acbad662cc8042594cbd15f59a9",
+            "sha256": "88948b8336c729882a2a8835f69b03489161be769d3e6a4991a7ccc7a91bebbc",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/video-course-source.json",
+            "baseline_git_blob": "4d8db49472ecaa2178ecf12f08f1eb89c013c723",
+            "exists": true,
+            "bytes": 51746,
+            "current_git_blob": "4d8db49472ecaa2178ecf12f08f1eb89c013c723",
+            "sha256": "969e02cf8cee3cd5ffc543d1ae0153539597da607acf2c253ed9ead8930ed9b4",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/customer/video-verification.md",
+            "baseline_git_blob": "158d52cfd6d5132bd858943567295d3a67b75061",
+            "exists": true,
+            "bytes": 22877,
+            "current_git_blob": "158d52cfd6d5132bd858943567295d3a67b75061",
+            "sha256": "835ae6e315c93e89fd50abaf82fb2f90bb783690f3e393003abd5bdede190b24",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/audit-council-initial-result.json",
+            "baseline_git_blob": "ac9599c917813316cefcad64d8452d3a49afac29",
+            "exists": true,
+            "bytes": 31529,
+            "current_git_blob": "ac9599c917813316cefcad64d8452d3a49afac29",
+            "sha256": "44308ec45761875e20c06609fc31cd1c7f6afe7449d7651c1c704da038666051",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/audit-primary-pack.json",
+            "baseline_git_blob": "c0602c2a03d9b31d557ed94f1c13307bcde8e10b",
+            "exists": true,
+            "bytes": 4833,
+            "current_git_blob": "c0602c2a03d9b31d557ed94f1c13307bcde8e10b",
+            "sha256": "d60391c5825586a1ca7a1ff065eeba21ef60ac263486a0a32de9eb42819d69bc",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/council-decision.json",
+            "baseline_git_blob": "01b0bfe8c0eaf7eed0b97c6b807b678490a5096c",
+            "exists": true,
+            "bytes": 12691,
+            "current_git_blob": "01b0bfe8c0eaf7eed0b97c6b807b678490a5096c",
+            "sha256": "8bd76460d62e804cc06ed8f4de883f8be4f4f4e6de05aa3c9bf3272a9b9ac59e",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/council-receipt.json",
+            "baseline_git_blob": "83a281e811751f944c5697380a8c2d1289a351a1",
+            "exists": true,
+            "bytes": 1638,
+            "current_git_blob": "83a281e811751f944c5697380a8c2d1289a351a1",
+            "sha256": "791d814a5034702bc2c77209f66225f0fda7a401e6e7d765dae9a7e7db37c109",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/execution-plan.md",
+            "baseline_git_blob": "b2b64e43416c1449dd54bf28d97ad8791f23cde3",
+            "exists": true,
+            "bytes": 3901,
+            "current_git_blob": "b2b64e43416c1449dd54bf28d97ad8791f23cde3",
+            "sha256": "ea412c5b3c49ff06b9dfa7dc02faa360dd22b1094406bfd7d53db3e31c3f4ae4",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/final-council-decision.json",
+            "baseline_git_blob": "63c3f8a3b17ac053389221a50b7cd055b4a1688f",
+            "exists": true,
+            "bytes": 7658,
+            "current_git_blob": "63c3f8a3b17ac053389221a50b7cd055b4a1688f",
+            "sha256": "18ff1e796e2fd1685df76a4a1b1b7dd5122cc06328c0f5dbf87a28a3616fed5d",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/final-council-receipt.json",
+            "baseline_git_blob": "c2745f871dd53cb553855ddeec678c6930af4cd2",
+            "exists": true,
+            "bytes": 3423,
+            "current_git_blob": "c2745f871dd53cb553855ddeec678c6930af4cd2",
+            "sha256": "e3234a01ba6968c9b0439659de244db91130bec0dcef9e683bfe3393a7c277df",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/final-council-review.md",
+            "baseline_git_blob": "379818f5b61bb2df279091506aaa6b6ea197271d",
+            "exists": true,
+            "bytes": 4695,
+            "current_git_blob": "379818f5b61bb2df279091506aaa6b6ea197271d",
+            "sha256": "ff78420373aa3ae1d9ecfbba4076da0333bfd4391810e80ef510be564190aef3",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/portability-council-review.json",
+            "baseline_git_blob": "01443a2a3370adab5f5d09d440d844cb55c8d4be",
+            "exists": true,
+            "bytes": 25544,
+            "current_git_blob": "01443a2a3370adab5f5d09d440d844cb55c8d4be",
+            "sha256": "4a12ecec3fcd825f3eca3095c797a57be14f21e11ead71233fee3996f86b665d",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/research-record.md",
+            "baseline_git_blob": "8ffe4a1b60e76bb8c88ce48e45cc02bc503bf74e",
+            "exists": true,
+            "bytes": 17655,
+            "current_git_blob": "8ffe4a1b60e76bb8c88ce48e45cc02bc503bf74e",
+            "sha256": "2194583c7940a6a43880f47f0600d7fdfbb8653b4563fbbd53bbe17c63b3b497",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/video-audit-v2.json",
+            "baseline_git_blob": "86b527f98e8f3a238f30b14e02b7de986252f577",
+            "exists": true,
+            "bytes": 2078364,
+            "current_git_blob": "86b527f98e8f3a238f30b14e02b7de986252f577",
+            "sha256": "2f81ab99ea8a5ae37b45574fff390b99f694eb8a7417fa14d7c0f7a703c186ee",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/video-council-decision.json",
+            "baseline_git_blob": "0761bb1776665827cf9a134f3d03e072b8c28ce0",
+            "exists": true,
+            "bytes": 11002,
+            "current_git_blob": "0761bb1776665827cf9a134f3d03e072b8c28ce0",
+            "sha256": "812de7b76131f1eb983a0d2082adefc553f01b9ea006ceffcb293e4c37d31ddd",
+            "byte_identical": true
+          },
+          {
+            "path": "docs/research/video-quality-review.json",
+            "baseline_git_blob": "758e76c8da22f90215f4ab6f6553615ce793d926",
+            "exists": true,
+            "bytes": 30600,
+            "current_git_blob": "758e76c8da22f90215f4ab6f6553615ce793d926",
+            "sha256": "b019fbdc29bffb4823e76a745cd4ac2aad85ef7e1e481ebd48c8936b541a2713",
+            "byte_identical": true
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "optional-fixed-value-embedding-precision",
+          "category": "optional_pedagogical_precision",
+          "severity": "informational",
+          "material": false,
+          "scene_ids": [
+            "features-05"
+          ],
+          "observation": "The broad explanation says an embedding is a learned numerical representation. In this specific model, the byte projection is learned; size and interval base value encodings use parameter-free FixedCosineEmbed, with learned positional and modality additions. Neither reviewed companion explicitly names fixed cosine encoding: paper/data guide section 6, item 4 says original value embedding, while docs/lesson.md line 25 explicitly identifies learned position and modality indicators. Their pinned source links make the exact implementation inspectable.",
+          "source_anchors": [
+            "docs/customer/video-course-v3-source.json:features-05",
+            "docs/customer/paper-and-data-explained.md:181",
+            "docs/lesson.md:25",
+            "upstream/NetMambaPlus/src/models/models_net_mamba_fuse3.py:49",
+            "upstream/NetMambaPlus/src/models/models_net_mamba_fuse3.py:53",
+            "upstream/NetMambaPlus/src/models/models_net_mamba_fuse3.py:56",
+            "upstream/NetMambaPlus/src/models/common.py:82"
+          ],
+          "suggestion": "At a future wording pass,define embedding as a numerical vector representation and separately state which parts are learned. No model,result,input-dimension or portability claim changes.",
+          "disposition": "No tracked edit requested by this bounded audit; nonblocking precision note.",
+          "reader_links": [
+            {
+              "path": "docs/customer/paper-and-data-explained.md",
+              "section": "6. Follow one flow into the configured classifier, item 4: Make tokens",
+              "line": 181,
+              "explicit_fixed_cosine_wording": false
+            },
+            {
+              "path": "docs/lesson.md",
+              "line": 25,
+              "explicit_fixed_cosine_wording": false,
+              "explains_learned_position_and_modality": true,
+              "section": "Follow one flow into the model"
+            },
+            {
+              "url": "https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/models/models_net_mamba_fuse3.py#L45-L60",
+              "meaning": "Learned byte projection and summary/position/modality parameters; FixedCosineEmbed selected for sizes and intervals."
+            },
+            {
+              "url": "https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/models/common.py#L82-L101",
+              "meaning": "Parameter-free sine/cosine encoding of a scalar value into a vector."
+            }
+          ],
+          "optional_receipt_text": "Embedding means representing an input as a numerical vector. Here the byte projection, summary tokens, position vectors and modality indicators are learned. The initial numerical encodings of packet sizes and intervals are fixed sine/cosine functions in the pinned source. The combined tokens still contain learned components. This qualification does not change the 443-token layout, parameter count or measured results."
+        }
+      ],
+      "known_material_defects": [],
+      "primary_evidence": [
+        {
+          "path": "docs/customer/evidence/uploaded-csv-profile.json",
+          "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+        },
+        {
+          "path": "docs/customer/evidence/native-data-validation.json",
+          "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+        },
+        {
+          "path": "docs/customer/evidence/results.json",
+          "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+        },
+        {
+          "path": "docs/portability-evidence.json",
+          "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7"
+        },
+        {
+          "path": "configs/ciciot2022.json",
+          "sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92"
+        },
+        {
+          "path": "docs/customer/evidence/checkpoint-transfer.json",
+          "sha256": "819195d7d3a9aaccf534ce2cca88e3986eb56facf0891fd7cbfe27e1149b520e"
+        },
+        {
+          "path": "docs/customer/demo/predictions.json",
+          "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a"
+        },
+        {
+          "path": "docs/customer/demo/browser-check.json",
+          "sha256": "e20f009b47950b381ea965a91c6e29efa7963acd5794908d8c91f1c1b62d9759"
+        },
+        {
+          "path": "docs/customer/evidence/benchmark/metrics.json",
+          "sha256": "1f06ba04717400b0f20a7e79f7c90e8e0d357f8bf7f2c8507ccdfc969eec0e9b"
+        },
+        {
+          "path": "docs/customer/evidence/export-probe/metrics.json",
+          "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04"
+        },
+        {
+          "path": "docs/support-matrix.md",
+          "sha256": "ef6e4f2333415a948f9e9703aae4c8fa8116bae6611781be57ad8dcba1e0071f"
+        },
+        {
+          "path": "docs/customer/runbook.md",
+          "sha256": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0"
+        },
+        {
+          "path": "docs/customer/answers.md",
+          "sha256": "e293eb26550a2c1577c689ccac845ad0321be7bbf2fd41c6aeeedbad3c5565ab"
+        },
+        {
+          "path": "docs/customer/upstream-comparison.md",
+          "sha256": "a84e5fbffabc2b6ccc44351203b4b61f9f95dee7608765e3ef427d54e121b5ba"
+        },
+        {
+          "path": "docs/research/video-v3-council-decision.json",
+          "sha256": "ccf15591f6d9ad08151aca425c47ce17a75e6bc72b5da2a8e05af0c4098c98ea"
+        },
+        {
+          "path": "upstream/NetMambaPlus/src/util/loader_data.py",
+          "sha256": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c"
+        },
+        {
+          "path": "upstream/NetMambaPlus/src/models/models_net_mamba_fuse3.py",
+          "sha256": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d"
+        },
+        {
+          "path": "upstream/NetMambaPlus/src/models/common.py",
+          "sha256": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470"
+        },
+        {
+          "path": "docs/lesson.md",
+          "sha256": "bcd7710396fc5f088de56df470f4c8c708336790af728d7940f57bcf2b888afa"
+        }
+      ]
+    }
+  }
+}

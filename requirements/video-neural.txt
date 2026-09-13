@@ -1,0 +1,2 @@
+# Speech rendering only; the provider does not expose an immutable model revision.
+edge-tts==7.2.7

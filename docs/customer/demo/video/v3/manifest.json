@@ -1,0 +1,111 @@
+{
+  "schema_version": 3,
+  "status": "scoped_readiness_passed_human_acceptance_pending",
+  "generated_at": "2026-09-13T11:48:26.333200+00:00",
+  "release_tag": "course-video-v3",
+  "title": "NetMamba+ — understand the complete repository",
+  "measured_seconds": 3600.0,
+  "source": {
+    "path": "docs/customer/video-course-v3-source.json",
+    "bytes": 107677,
+    "sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e"
+  },
+  "media_manifest": {
+    "path": "docs/customer/demo/video/v3/media-manifest.json",
+    "bytes": 368447,
+    "sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709"
+  },
+  "coverage": {
+    "path": "docs/customer/video-course-v3-coverage.json",
+    "bytes": 127764,
+    "sha256": "b6448c3c6b1225b28aec43c0879b6124139d6ea113c213cb6658ea9c942501d7"
+  },
+  "audit": {
+    "path": "docs/research/video-audit-v3.json",
+    "bytes": 5159295,
+    "sha256": "d6e3bc7d42768dbc911cb950c92747c2f5798d10af8a5618e3804536f80d97a5"
+  },
+  "file_guide": {
+    "path": "docs/repository-walkthrough.md",
+    "bytes": 151134,
+    "sha256": "88f7705bbdcd261a7802bdb35d987cdeeea4abbfaada73cc67b218b8494ebcb3"
+  },
+  "paper_and_data": {
+    "path": "docs/customer/paper-and-data-explained.md",
+    "bytes": 37092,
+    "sha256": "f2e19f30df72e0cf61ee65968207dc2cbccfa069bf4deb9e93529e8ec448e3e9"
+  },
+  "downloads": {
+    "NetMambaPlus-one-hour-course.mp4": {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-one-hour-course.mp4",
+      "bytes": 83147523,
+      "sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29"
+    },
+    "captions.srt": {
+      "path": "docs/customer/demo/video/v3/captions.srt",
+      "bytes": 89933,
+      "sha256": "693274e9d52811763932fa989bb48021f5d5798ccc6e9d34f59b6b2d7d9e7873"
+    },
+    "captions.vtt": {
+      "path": "docs/customer/demo/video/v3/captions.vtt",
+      "bytes": 85893,
+      "sha256": "2ffb37d628c56ce80bd6a81cf4ad91a71c91baeabc0ea3c239c409bad30a7386"
+    },
+    "transcript.md": {
+      "path": "docs/customer/demo/video/v3/transcript.md",
+      "bytes": 96602,
+      "sha256": "6442ae8081471ef12f5e06dc864c1aa55a0841d52ae5f1d6e0a2e6c6be9fbe8a"
+    },
+    "chapters.json": {
+      "path": "docs/customer/demo/video/v3/chapters.json",
+      "bytes": 1525,
+      "sha256": "a9cbb062f7dcfef6ab8ad1c6a7b0b4da960f8270dcb648f350ed64d07db0c72f"
+    },
+    "poster.png": {
+      "path": "docs/customer/demo/video/v3/poster.png",
+      "bytes": 63780,
+      "sha256": "ba08a4145572e4b293e9b3bc2e7d36269a541b3130e9f6472b5f4db0314a1d3f"
+    },
+    "motion-manifest.json": {
+      "path": "docs/customer/demo/video/v3/motion-manifest.json",
+      "bytes": 58294,
+      "sha256": "41a8ded1679082cd2f79acb1ecfdf1814114162b7ce31636e42048189578fe19"
+    },
+    "narration-manifest.json": {
+      "path": "docs/customer/demo/video/v3/narration-manifest.json",
+      "bytes": 282001,
+      "sha256": "7844fda9c58dbd3c253e0e5643475cb410104a60aad32095651f867494c8f6da"
+    },
+    "NetMambaPlus-one-hour-course.webm": {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-one-hour-course.webm",
+      "bytes": 97397099,
+      "sha256": "ecc742ed80fa8ed6b811d6f2255acfccd1e250adfd533475fdca09f0141a8499"
+    },
+    "NetMambaPlus-course-slides.pptx": {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-course-slides.pptx",
+      "bytes": 5385872,
+      "sha256": "969ec7c3a08a0128b18f84aa4d3f2cd7a0595043118d002dc35ce8ad3cdd2e5c"
+    },
+    "NetMambaPlus-course-slides.pdf": {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-course-slides.pdf",
+      "bytes": 5934158,
+      "sha256": "3a9fe8e1d4027ec5519fb52f0e8f014b8d7eb06650abd011c7d5730c326c476e"
+    },
+    "NetMambaPlus-course-handbook.pdf": {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-course-handbook.pdf",
+      "bytes": 443865,
+      "sha256": "dfeaf712407a2d9aa023de7b21cc99d0fe9a5e835efd9b95920af0048a74005a"
+    },
+    "companion-manifest.json": {
+      "path": "docs/customer/demo/video/v3/companion-manifest.json",
+      "bytes": 28363,
+      "sha256": "b99fa2d232cf89ff5bfcdf9a4819ce2e5871a6753673a96360462be26d459fbf"
+    }
+  },
+  "scenes": 96,
+  "chapters": 12,
+  "repository_files": 341,
+  "human_full_watch": "pending",
+  "all_caption_acceptance": "pending",
+  "scope": "Index of the actual checked course and companions. Publication observations are kept in the current audit. A readiness pass does not constitute a human watch or universal model-deployment claim."
+}

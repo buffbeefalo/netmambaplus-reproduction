@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "completed_at": "2026-09-13T11:48:24.068508+00:00",
+  "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+  "manifest_sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709",
+  "artifacts": [
+    {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-one-hour-course.mp4",
+      "sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/captions.vtt",
+      "sha256": "2ffb37d628c56ce80bd6a81cf4ad91a71c91baeabc0ea3c239c409bad30a7386"
+    }
+  ],
+  "method": "Played both picture and audio in Chromium, exercised every keyboard chapter control and near-end seeking, loaded all captions and hash-checked the downloaded MP4 at four responsive widths.",
+  "known_material_defects": [],
+  "snapshot_registration_check": {
+    "snapshot": {
+      "path": "runs/video-course/v3-final-media-snapshot.json",
+      "sha256": "3ec8c07aa85bef504b511feffc2620d2d899dfba2dd6217a026937b3368348af"
+    },
+    "final_manifest": {
+      "path": "docs/customer/demo/video/v3/media-manifest.json",
+      "sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709"
+    },
+    "status": "passed",
+    "method": "Compared every original non-artifact field and all original artifact identities. Final registration adds only companion/browser output identities and browser encoder metadata; scene content, timing, captions, reference hashes and MP4 bytes are identical."
+  },
+  "staged_browser": {
+    "identity": {
+      "path": "runs/video-course/v3-final-browser-staged/browser-check.json",
+      "sha256": "4adb6b00a2a3f087ef0e018c95995f89312078e65adb3324100b645921a7ce33"
+    },
+    "record": {
+      "status": "passed",
+      "url": "http://127.0.0.1:8787/video/",
+      "completed_at": "2026-09-13T11:33:28.263118+00:00",
+      "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
+      "html_sha256": "1ba38abf4eaa4ca01973b7493a75818db77d210d226b0da5bd2a5540914aaf7e",
+      "mp4_sha256": "6d12789f1faf6eea70c75247b06a07e4793e275277dc6c817c6245c434186f29",
+      "decoded_frames_and_audio_bytes": {
+        "audio": 15595,
+        "video": 35,
+        "played_src": "http://127.0.0.1:8787/video/v3/NetMambaPlus-one-hour-course.webm"
+      },
+      "caption_count": 1073,
+      "keyboard_playback": true,
+      "keyboard_chapter_offsets": [
+        0.0,
+        283.0,
+        599.0,
+        900.0,
+        1206.0,
+        1500.0,
+        1800.0,
+        2086.0,
+        2373.0,
+        2641.0,
+        2929.0,
+        3233.0
+      ],
+      "scheduled_seconds": 3600,
+      "near_end_seek_seconds": 3590,
+      "seek_and_play_near_end": true,
+      "download_bytes_equal": true,
+      "served_bytes_equal": true,
+      "viewport_widths_without_overflow": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "page_errors": [],
+      "screenshots": {
+        "video-390.png": "f06d9361185a1cd649dcc979c69a11aa0a46053b6c03185bf8e42fd961efd309",
+        "video-320.png": "04b57d027ff200ae17de5f2972a2fe5a419136dca4ce7b8c02634e8ccaeaef66",
+        "video-1440.png": "75e51abe0a895179c9fda44bd32e0b03188ce92cf1be4c2e92f47392ba3b094d",
+        "video-768.png": "486149e3ec76d4e94214ff3e494d5ae52e1a8d3a5974a02c1aff9d5588e9fb89"
+      }
+    }
+  }
+}

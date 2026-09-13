@@ -69,10 +69,11 @@ class PublishedTextTests(unittest.TestCase):
         expected = build_video_page.render().encode("utf-8")
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory)
-            (path / "media-manifest.json").write_bytes(manifest)
-            with (patch.object(build_video_page, "DESTINATION", path),
-                  patch.object(build_video_page, "ROOT", path),
-                  patch.object(sys, "argv", ["build_video_page.py"]),
+            media = path / "v3"
+            media.mkdir()
+            (media / "media-manifest.json").write_bytes(manifest)
+            with (patch.object(sys, "argv", ["build_video_page.py", "--media-dir", str(media),
+                                             "--output", str(path / "index.html")]),
                   windows_text_defaults(), redirect_stdout(io.StringIO())):
                 build_video_page.main()
             self.assertEqual((path / "index.html").read_bytes(), expected)

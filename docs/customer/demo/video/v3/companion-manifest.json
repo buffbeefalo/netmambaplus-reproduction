@@ -1,0 +1,602 @@
+{
+  "schema_version": 1,
+  "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+  "walkthrough_sha256": "88f7705bbdcd261a7802bdb35d987cdeeea4abbfaada73cc67b218b8494ebcb3",
+  "slide_count": 96,
+  "spoken_scenes": 84,
+  "slide_images": {
+    "orientation-01.png": "ba08a4145572e4b293e9b3bc2e7d36269a541b3130e9f6472b5f4db0314a1d3f",
+    "orientation-02.png": "bca21edaab3c55787292427ac6419e1d7ccdc58e3063535f623c7e384ed2bb9d",
+    "orientation-03.png": "29614e66c785de7e21d77f27a550b27144d70effba6256558828915f5ee624c8",
+    "orientation-04.png": "e8dfc6a59d413c71be4d8d4b828dea4779f80c087ff472b1ab9c75883bc4697f",
+    "orientation-05.png": "4e6a7f3b76938cd4582e58d7f92a4b5fe97cc743d219a66cd66fddf372cd52f4",
+    "orientation-06.png": "b1ff4ca997c9c3017d1386dd99d088bca8f5f72f0e692484e545f26beb20a3c1",
+    "orientation-07.png": "d7f035e0f4ade5d7d47015df6609b4e03db2fa29b11de374259ac2870f87577f",
+    "orientation-08.png": "754950563135ca42bc2a9f09b837aadb111099060d27a6b5b1926b432fd670fb",
+    "paper-01.png": "f1f2c8fcf5f42a985d55b955487af49d80016c67efe2766eaa8035018c25dc02",
+    "paper-02.png": "661fc4cf3e011a0d4826a6bb9006c65736039a66c653a0ffc6a6b593de58cd73",
+    "paper-03.png": "446879bf1d913fe4bb8d38c9b367188fac76f6ad20a6a7eba8ba0009f9d8f1d1",
+    "paper-04.png": "257f79e923c01d92992b4a275baf9f52fa08a4a9e1998a79e799297302f60f49",
+    "paper-05.png": "e7c3d52a3fad5b015856d633daaac4a62faaacfcf5122dfde138d9dd7b8ae1f9",
+    "paper-06.png": "08f21cbf37b18e485b6f4189baedbd6330bd0683408df5e38e58aadc8a5ed6c6",
+    "paper-07.png": "b5fe7db4af6483e9851c977c0e4f4cc5dd944e7f538d997ef8f0db338644f199",
+    "paper-08.png": "e5be32fa54a53708857bc6f538f48b9a95162473139927a9c4b1f316a583b84d",
+    "cic-csv-01.png": "a88036b568220e9c8b1207d6caf01a07f638ecebd7c860b8a32a616ab7e36b59",
+    "cic-csv-02.png": "ac9b326df2fd919648eb276cb56755046fc9b208c37a5ef03a6e2bacc1ed4d68",
+    "cic-csv-03.png": "22139b8cdcaa63437bcc35156d14893ff8245493156bea849b9e985d47a70720",
+    "cic-csv-04.png": "38734ebb5e5ddca072e4f41eaeb4afe12270fdac24b64e23a07d7f48e254fa2d",
+    "cic-csv-05.png": "d7ddc5c81e95ac066c19b3fc9017c3bf8dd0945f0c59fb24984b33ee4ac5463b",
+    "cic-csv-06.png": "675ea312eeb7b915e454d95471b4b3b3f6d9425c51d121feabcdbc8f7d2fee43",
+    "cic-csv-07.png": "d0560c9e739ab391c3762b078d0e7a0e7bb98670c03cdf3820c581539560c111",
+    "cic-csv-08.png": "6531a3634ad3cacc91a4f790a89428963e002fe232af6dca92744df59955d838",
+    "unsw-csv-01.png": "f495cc15be7fcbb62e11834ee4eccf8399e12443a24826461c09bf68951b9459",
+    "unsw-csv-02.png": "99b15c8fff6a9ba290791391a3914e225a74f07a93d2092e8a77ccfb30cec854",
+    "unsw-csv-03.png": "c0084072d5c933de0b5d18fe8bb8497463781d283085b12c69da359739102c3a",
+    "unsw-csv-04.png": "dee617960a02b2953e0027977dcbcc7b03706210d8cd6ee23ff0579c4e732ae9",
+    "unsw-csv-05.png": "2ca17d9d92a3744a82621fc3672980dbbd543826467a97dee8589371c1971ac7",
+    "unsw-csv-06.png": "b3c83943b1e78f7ff9ed170a7b61dfee2e870c02c95f07761bcf03fd371aad09",
+    "unsw-csv-07.png": "920d4f280ce2eeb81064f8d86a15c85c505b7a06b05754b6f20c8a967d1621c0",
+    "unsw-csv-08.png": "1712e0600372c60303744e287de5f19a199d463c6a54adc00c279f5798396520",
+    "features-01.png": "940cf27ecc947fb00021d02d6c8b25ad20c1981b526f2bd26b95ad47545098da",
+    "features-02.png": "3f19a6fab4e1c7c3aad0f746411bde4bd016973a42267d21981d0f81828fd77e",
+    "features-03.png": "57616d2ce75d568eeb5f4e4cb4afb2c4bcffe1aac657420e796658c0980dcbe7",
+    "features-04.png": "23667acdb874d4d902c3c493b81f3e51db22b35b2a5d66425813a32235f0fdfe",
+    "features-05.png": "50d9712ab12ad63f3d76497a0cc6b330956df940bb0d52f9d475058ca47d8422",
+    "features-06.png": "de323e58eddab34846e2c9de370c841e9463d6422fed2f644744983baf6ffd17",
+    "features-07.png": "c5062ce4fd2a7b86da3979861565b1261bd06197e68a33d9d2ee0a7e4db59eee",
+    "features-08.png": "115d8a047bfe79b471760cdf01aaa96269fc9702240bd40406d8fb192a952431",
+    "learning-01.png": "9e7083753de59a0e8bb546d6d0f8affe33539c576781afa3b73bfd0dea363420",
+    "learning-02.png": "07255f9593b32ddb46a81145c4a27bcf8d9a3f239cedfd4f86fd6c6c1f45cad9",
+    "learning-03.png": "d77e07a3c977300654cde00431bfc75ce6d33a9d336344b685cb3776f389abbf",
+    "learning-04.png": "c1ed8562df6ecfc3638470672984cba1a65f7077c26445107e4702b93be87b48",
+    "learning-05.png": "0a898be0ce98ae98bcbc75a3d3d9f61870eec52d3e564c60df5b3dcdad61e65d",
+    "learning-06.png": "36631e469c2d12770050e215268f10dca88adddf97e0a2f2ed1fa683cad4d7df",
+    "learning-07.png": "9813d1d4f765090db6b6008d6a21b1b697ff52b48c4193cd79440418f84a5c57",
+    "learning-08.png": "4983ba8361a865329d5a1728ae4b8d4ae95d203988ea348bd6956396c549acb2",
+    "code-01.png": "6baa4d36006a8c99bc3459369271f2fbd1ad3af9f25256637338b2100572727c",
+    "code-02.png": "c71e4cb124dbe30769508f96f84e5d1aeb072990af1252d913d2519afe5fd5c0",
+    "code-03.png": "96fb971626a3e4c0f54fc4aab351e1be27367914fd57b0434c2cea8eb143c119",
+    "code-04.png": "d2fe89c89a69d2325aaceda08003b86ef4707751c8ae185daa5bc36fcce9c530",
+    "code-05.png": "6f0f146546d4b18524fd2a5b2a90d6090f7b8a647cc9557ce723674f1c108228",
+    "code-06.png": "1ee50a588db75ae7f3860876d3e8f8359f0da328d14a1b13fb9b9a34c1e97dcc",
+    "code-07.png": "e45a92cd564461368392326969fbf3ca0b1977bf50856db6472f13023018d975",
+    "code-08.png": "b5e24bc7b2dd9b0c4ff74844c268a688fc89b6bc8c4fa7a5c7c57a5b81e1c3dd",
+    "results-01.png": "1ca8433697ab0f2464d38e8277e8013647195eb6fc75ef00d965fa0a1231d8cc",
+    "results-02.png": "89f691a0b866f68c80e9ba597d45a0a095afc0d2ed1de863b3f5b8269ad0f7c8",
+    "results-03.png": "80c637bfbe15438c14f518ea1ffb9d0d88d4f94780a2b951914e46f7e28b0366",
+    "results-04.png": "5abb5c75970e1a9ec277d0f864930dcb4384cbf865c0d6855aca6b9eafba46ac",
+    "results-05.png": "105ea80d8230725dafd9b61cca55d270cdcd885dfd2d01e3809e715cbf21975f",
+    "results-06.png": "d1c4b5afa4b71c7d8bb41ddc2dd60014743459e3c75c4de1b4434e4d8c7fe2ad",
+    "results-07.png": "5a2c6f5e834f34c205a1eb02cb1a0c25b3171e8c543bb92c35c478dbcfc92762",
+    "results-08.png": "994dd66c0831b3613622b10ce2716b6cd223354190d6d7a7dbf9545e1e542dbf",
+    "demo-01.png": "fd7c445a81a448321773328ed6b8145152cdad2caa33586fad14c92ed79c426c",
+    "demo-02.png": "695c7a42be6122a87d0fff370b95ffa85cb217d8f10376b22c6c6fe425da1f11",
+    "demo-03.png": "917e3005331b5afa4899f2294bec8c84b0b11dfbb756b1f42833ed8774f90ee9",
+    "demo-04.png": "3de65d7546cafef89ae9e1a179ce9fba2831beae7fd208624b6f4c8b7a01d889",
+    "demo-05.png": "03a27e3c8f08c34fe38b8a5f0209690e3938eb3bd18bf10c65d91f23f39f4f35",
+    "demo-06.png": "0aab5a61c0f7b946506c9f8b935f81377711172e01c487d582153f01d430879f",
+    "demo-07.png": "63e4dacdff5b109c3be6eeadf428d8049a6f03fadc31892a093f0138e268e199",
+    "demo-08.png": "a888619538ccb5e67f59c6caea3af63688f459d15204fdec33a995b937f33e17",
+    "setup-01.png": "b5243d6e56b1d293f71861573b6ad5721843dce8c61b61776c0d22aadbf52bc1",
+    "setup-02.png": "e5d0ba5883c9062aecf68ac4f5ac8c9f72f05721e2dd1400eb1807fabd93a3a7",
+    "setup-03.png": "3d11cdc25642f9250c62544753e4a552fa89af309d7ca13d6e8fd1aed76caa03",
+    "setup-04.png": "dbd8e0095151ce0a675e7b847ecba3bc92cad6617b8ba29658665df8e57e7806",
+    "setup-05.png": "ab82a35ae5807fde434a63b9a26fa619992dc1f8bc0116f8b24fdefce974b682",
+    "setup-06.png": "11af15b789c925d41fadda3f4a44fed71bd0c843f110ca7cdf5021b8505d0247",
+    "setup-07.png": "64cd9b61b167ab9fd87896aabf3685609eaaa097d7fe39df984ba63557e5d699",
+    "setup-08.png": "b870303501ca4fed655d59e883e831e0c473c4c5e3798633972ff50961928ab1",
+    "repository-01.png": "c80a8066ff1146c82d07791252e3488a489b4578715035272a997466309134b3",
+    "repository-02.png": "49ff88f17fa8f169000cd84ff59a1c5c4d8224c1e63597c7dc76ad87aaa56ee4",
+    "repository-03.png": "38d71cc9811ff94ea6a2be5b6426900b31021e634f3da8941a1986f31c54dcac",
+    "repository-04.png": "b3c0efc8117307d4cd59d0cbf8a2e47ed014182b802614cd8ebb349a210a0785",
+    "repository-05.png": "4be41b02003a6dadadafe6bdf0515d91948cd885a768276a97441ce8a8c1004b",
+    "repository-06.png": "8af78f9eec0be5e26013412c34fd3b2bfebea58cc1feb6fe42f468986c2aa759",
+    "repository-07.png": "7a61a586962b433134f0f7edbca43dc551a648bcee3ea7773c591ef7a585dd37",
+    "repository-08.png": "5f121483745cfd330abc9546a562cb80d1f2eb9f9e4bdbcb27174a4a018d1f93",
+    "hardware-01.png": "8ca0c071a26af8d304abe2efcb95bfcf06f1aee866904af34e81fcb3c21f0ef6",
+    "hardware-02.png": "fce62825d79c72142bea4edfa2e4e267716ee29c034a95eea90c01e0255656cf",
+    "hardware-03.png": "eede4d0c110b71bbe5b383770b8e927e973bb9955d4beeb284a1088b8513025b",
+    "hardware-04.png": "c9ae3a503fc9028700f53b6255ea2da305051db0cf1e98d1eca6b301cc2a004e",
+    "hardware-05.png": "d83fee616c94ce331827cff956090cf18f6138fec95a49fb5f862f36a6fceac0",
+    "hardware-07.png": "b3bc24610ef270c1943f567d464504f29d99217f7410d58f7f9e41461b6b3661",
+    "hardware-08.png": "95c0fbd90672ee3db4cae644500f213d697236fa96a892739a2a8290b5fc04e3",
+    "hardware-06.png": "b9ca28d1a2a99cb12ffb423cac3f8de0042642e3358ea686503e22f26db8097a"
+  },
+  "frames": [
+    {
+      "scene_id": "orientation-01",
+      "path": "docs/customer/demo/video/v3/frames/orientation-01.png",
+      "sha256": "ba08a4145572e4b293e9b3bc2e7d36269a541b3130e9f6472b5f4db0314a1d3f"
+    },
+    {
+      "scene_id": "orientation-02",
+      "path": "docs/customer/demo/video/v3/frames/orientation-02.png",
+      "sha256": "bca21edaab3c55787292427ac6419e1d7ccdc58e3063535f623c7e384ed2bb9d"
+    },
+    {
+      "scene_id": "orientation-03",
+      "path": "docs/customer/demo/video/v3/frames/orientation-03.png",
+      "sha256": "29614e66c785de7e21d77f27a550b27144d70effba6256558828915f5ee624c8"
+    },
+    {
+      "scene_id": "orientation-04",
+      "path": "docs/customer/demo/video/v3/frames/orientation-04.png",
+      "sha256": "e8dfc6a59d413c71be4d8d4b828dea4779f80c087ff472b1ab9c75883bc4697f"
+    },
+    {
+      "scene_id": "orientation-05",
+      "path": "docs/customer/demo/video/v3/frames/orientation-05.png",
+      "sha256": "4e6a7f3b76938cd4582e58d7f92a4b5fe97cc743d219a66cd66fddf372cd52f4"
+    },
+    {
+      "scene_id": "orientation-06",
+      "path": "docs/customer/demo/video/v3/frames/orientation-06.png",
+      "sha256": "b1ff4ca997c9c3017d1386dd99d088bca8f5f72f0e692484e545f26beb20a3c1"
+    },
+    {
+      "scene_id": "orientation-07",
+      "path": "docs/customer/demo/video/v3/frames/orientation-07.png",
+      "sha256": "d7f035e0f4ade5d7d47015df6609b4e03db2fa29b11de374259ac2870f87577f"
+    },
+    {
+      "scene_id": "orientation-08",
+      "path": "docs/customer/demo/video/v3/frames/orientation-08.png",
+      "sha256": "754950563135ca42bc2a9f09b837aadb111099060d27a6b5b1926b432fd670fb"
+    },
+    {
+      "scene_id": "paper-01",
+      "path": "docs/customer/demo/video/v3/frames/paper-01.png",
+      "sha256": "f1f2c8fcf5f42a985d55b955487af49d80016c67efe2766eaa8035018c25dc02"
+    },
+    {
+      "scene_id": "paper-02",
+      "path": "docs/customer/demo/video/v3/frames/paper-02.png",
+      "sha256": "661fc4cf3e011a0d4826a6bb9006c65736039a66c653a0ffc6a6b593de58cd73"
+    },
+    {
+      "scene_id": "paper-03",
+      "path": "docs/customer/demo/video/v3/frames/paper-03.png",
+      "sha256": "446879bf1d913fe4bb8d38c9b367188fac76f6ad20a6a7eba8ba0009f9d8f1d1"
+    },
+    {
+      "scene_id": "paper-04",
+      "path": "docs/customer/demo/video/v3/frames/paper-04.png",
+      "sha256": "257f79e923c01d92992b4a275baf9f52fa08a4a9e1998a79e799297302f60f49"
+    },
+    {
+      "scene_id": "paper-05",
+      "path": "docs/customer/demo/video/v3/frames/paper-05.png",
+      "sha256": "e7c3d52a3fad5b015856d633daaac4a62faaacfcf5122dfde138d9dd7b8ae1f9"
+    },
+    {
+      "scene_id": "paper-06",
+      "path": "docs/customer/demo/video/v3/frames/paper-06.png",
+      "sha256": "08f21cbf37b18e485b6f4189baedbd6330bd0683408df5e38e58aadc8a5ed6c6"
+    },
+    {
+      "scene_id": "paper-07",
+      "path": "docs/customer/demo/video/v3/frames/paper-07.png",
+      "sha256": "b5fe7db4af6483e9851c977c0e4f4cc5dd944e7f538d997ef8f0db338644f199"
+    },
+    {
+      "scene_id": "paper-08",
+      "path": "docs/customer/demo/video/v3/frames/paper-08.png",
+      "sha256": "e5be32fa54a53708857bc6f538f48b9a95162473139927a9c4b1f316a583b84d"
+    },
+    {
+      "scene_id": "cic-csv-01",
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-01.png",
+      "sha256": "a88036b568220e9c8b1207d6caf01a07f638ecebd7c860b8a32a616ab7e36b59"
+    },
+    {
+      "scene_id": "cic-csv-02",
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-02.png",
+      "sha256": "ac9b326df2fd919648eb276cb56755046fc9b208c37a5ef03a6e2bacc1ed4d68"
+    },
+    {
+      "scene_id": "cic-csv-03",
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-03.png",
+      "sha256": "22139b8cdcaa63437bcc35156d14893ff8245493156bea849b9e985d47a70720"
+    },
+    {
+      "scene_id": "cic-csv-04",
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-04.png",
+      "sha256": "38734ebb5e5ddca072e4f41eaeb4afe12270fdac24b64e23a07d7f48e254fa2d"
+    },
+    {
+      "scene_id": "cic-csv-05",
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-05.png",
+      "sha256": "d7ddc5c81e95ac066c19b3fc9017c3bf8dd0945f0c59fb24984b33ee4ac5463b"
+    },
+    {
+      "scene_id": "cic-csv-06",
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-06.png",
+      "sha256": "675ea312eeb7b915e454d95471b4b3b3f6d9425c51d121feabcdbc8f7d2fee43"
+    },
+    {
+      "scene_id": "cic-csv-07",
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-07.png",
+      "sha256": "d0560c9e739ab391c3762b078d0e7a0e7bb98670c03cdf3820c581539560c111"
+    },
+    {
+      "scene_id": "cic-csv-08",
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-08.png",
+      "sha256": "6531a3634ad3cacc91a4f790a89428963e002fe232af6dca92744df59955d838"
+    },
+    {
+      "scene_id": "unsw-csv-01",
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-01.png",
+      "sha256": "f495cc15be7fcbb62e11834ee4eccf8399e12443a24826461c09bf68951b9459"
+    },
+    {
+      "scene_id": "unsw-csv-02",
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-02.png",
+      "sha256": "99b15c8fff6a9ba290791391a3914e225a74f07a93d2092e8a77ccfb30cec854"
+    },
+    {
+      "scene_id": "unsw-csv-03",
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-03.png",
+      "sha256": "c0084072d5c933de0b5d18fe8bb8497463781d283085b12c69da359739102c3a"
+    },
+    {
+      "scene_id": "unsw-csv-04",
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-04.png",
+      "sha256": "dee617960a02b2953e0027977dcbcc7b03706210d8cd6ee23ff0579c4e732ae9"
+    },
+    {
+      "scene_id": "unsw-csv-05",
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-05.png",
+      "sha256": "2ca17d9d92a3744a82621fc3672980dbbd543826467a97dee8589371c1971ac7"
+    },
+    {
+      "scene_id": "unsw-csv-06",
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-06.png",
+      "sha256": "b3c83943b1e78f7ff9ed170a7b61dfee2e870c02c95f07761bcf03fd371aad09"
+    },
+    {
+      "scene_id": "unsw-csv-07",
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-07.png",
+      "sha256": "920d4f280ce2eeb81064f8d86a15c85c505b7a06b05754b6f20c8a967d1621c0"
+    },
+    {
+      "scene_id": "unsw-csv-08",
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-08.png",
+      "sha256": "1712e0600372c60303744e287de5f19a199d463c6a54adc00c279f5798396520"
+    },
+    {
+      "scene_id": "features-01",
+      "path": "docs/customer/demo/video/v3/frames/features-01.png",
+      "sha256": "940cf27ecc947fb00021d02d6c8b25ad20c1981b526f2bd26b95ad47545098da"
+    },
+    {
+      "scene_id": "features-02",
+      "path": "docs/customer/demo/video/v3/frames/features-02.png",
+      "sha256": "3f19a6fab4e1c7c3aad0f746411bde4bd016973a42267d21981d0f81828fd77e"
+    },
+    {
+      "scene_id": "features-03",
+      "path": "docs/customer/demo/video/v3/frames/features-03.png",
+      "sha256": "57616d2ce75d568eeb5f4e4cb4afb2c4bcffe1aac657420e796658c0980dcbe7"
+    },
+    {
+      "scene_id": "features-04",
+      "path": "docs/customer/demo/video/v3/frames/features-04.png",
+      "sha256": "23667acdb874d4d902c3c493b81f3e51db22b35b2a5d66425813a32235f0fdfe"
+    },
+    {
+      "scene_id": "features-05",
+      "path": "docs/customer/demo/video/v3/frames/features-05.png",
+      "sha256": "50d9712ab12ad63f3d76497a0cc6b330956df940bb0d52f9d475058ca47d8422"
+    },
+    {
+      "scene_id": "features-06",
+      "path": "docs/customer/demo/video/v3/frames/features-06.png",
+      "sha256": "de323e58eddab34846e2c9de370c841e9463d6422fed2f644744983baf6ffd17"
+    },
+    {
+      "scene_id": "features-07",
+      "path": "docs/customer/demo/video/v3/frames/features-07.png",
+      "sha256": "c5062ce4fd2a7b86da3979861565b1261bd06197e68a33d9d2ee0a7e4db59eee"
+    },
+    {
+      "scene_id": "features-08",
+      "path": "docs/customer/demo/video/v3/frames/features-08.png",
+      "sha256": "115d8a047bfe79b471760cdf01aaa96269fc9702240bd40406d8fb192a952431"
+    },
+    {
+      "scene_id": "learning-01",
+      "path": "docs/customer/demo/video/v3/frames/learning-01.png",
+      "sha256": "9e7083753de59a0e8bb546d6d0f8affe33539c576781afa3b73bfd0dea363420"
+    },
+    {
+      "scene_id": "learning-02",
+      "path": "docs/customer/demo/video/v3/frames/learning-02.png",
+      "sha256": "07255f9593b32ddb46a81145c4a27bcf8d9a3f239cedfd4f86fd6c6c1f45cad9"
+    },
+    {
+      "scene_id": "learning-03",
+      "path": "docs/customer/demo/video/v3/frames/learning-03.png",
+      "sha256": "d77e07a3c977300654cde00431bfc75ce6d33a9d336344b685cb3776f389abbf"
+    },
+    {
+      "scene_id": "learning-04",
+      "path": "docs/customer/demo/video/v3/frames/learning-04.png",
+      "sha256": "c1ed8562df6ecfc3638470672984cba1a65f7077c26445107e4702b93be87b48"
+    },
+    {
+      "scene_id": "learning-05",
+      "path": "docs/customer/demo/video/v3/frames/learning-05.png",
+      "sha256": "0a898be0ce98ae98bcbc75a3d3d9f61870eec52d3e564c60df5b3dcdad61e65d"
+    },
+    {
+      "scene_id": "learning-06",
+      "path": "docs/customer/demo/video/v3/frames/learning-06.png",
+      "sha256": "36631e469c2d12770050e215268f10dca88adddf97e0a2f2ed1fa683cad4d7df"
+    },
+    {
+      "scene_id": "learning-07",
+      "path": "docs/customer/demo/video/v3/frames/learning-07.png",
+      "sha256": "9813d1d4f765090db6b6008d6a21b1b697ff52b48c4193cd79440418f84a5c57"
+    },
+    {
+      "scene_id": "learning-08",
+      "path": "docs/customer/demo/video/v3/frames/learning-08.png",
+      "sha256": "4983ba8361a865329d5a1728ae4b8d4ae95d203988ea348bd6956396c549acb2"
+    },
+    {
+      "scene_id": "code-01",
+      "path": "docs/customer/demo/video/v3/frames/code-01.png",
+      "sha256": "6baa4d36006a8c99bc3459369271f2fbd1ad3af9f25256637338b2100572727c"
+    },
+    {
+      "scene_id": "code-02",
+      "path": "docs/customer/demo/video/v3/frames/code-02.png",
+      "sha256": "c71e4cb124dbe30769508f96f84e5d1aeb072990af1252d913d2519afe5fd5c0"
+    },
+    {
+      "scene_id": "code-03",
+      "path": "docs/customer/demo/video/v3/frames/code-03.png",
+      "sha256": "96fb971626a3e4c0f54fc4aab351e1be27367914fd57b0434c2cea8eb143c119"
+    },
+    {
+      "scene_id": "code-04",
+      "path": "docs/customer/demo/video/v3/frames/code-04.png",
+      "sha256": "d2fe89c89a69d2325aaceda08003b86ef4707751c8ae185daa5bc36fcce9c530"
+    },
+    {
+      "scene_id": "code-05",
+      "path": "docs/customer/demo/video/v3/frames/code-05.png",
+      "sha256": "6f0f146546d4b18524fd2a5b2a90d6090f7b8a647cc9557ce723674f1c108228"
+    },
+    {
+      "scene_id": "code-06",
+      "path": "docs/customer/demo/video/v3/frames/code-06.png",
+      "sha256": "1ee50a588db75ae7f3860876d3e8f8359f0da328d14a1b13fb9b9a34c1e97dcc"
+    },
+    {
+      "scene_id": "code-07",
+      "path": "docs/customer/demo/video/v3/frames/code-07.png",
+      "sha256": "e45a92cd564461368392326969fbf3ca0b1977bf50856db6472f13023018d975"
+    },
+    {
+      "scene_id": "code-08",
+      "path": "docs/customer/demo/video/v3/frames/code-08.png",
+      "sha256": "b5e24bc7b2dd9b0c4ff74844c268a688fc89b6bc8c4fa7a5c7c57a5b81e1c3dd"
+    },
+    {
+      "scene_id": "results-01",
+      "path": "docs/customer/demo/video/v3/frames/results-01.png",
+      "sha256": "1ca8433697ab0f2464d38e8277e8013647195eb6fc75ef00d965fa0a1231d8cc"
+    },
+    {
+      "scene_id": "results-02",
+      "path": "docs/customer/demo/video/v3/frames/results-02.png",
+      "sha256": "89f691a0b866f68c80e9ba597d45a0a095afc0d2ed1de863b3f5b8269ad0f7c8"
+    },
+    {
+      "scene_id": "results-03",
+      "path": "docs/customer/demo/video/v3/frames/results-03.png",
+      "sha256": "80c637bfbe15438c14f518ea1ffb9d0d88d4f94780a2b951914e46f7e28b0366"
+    },
+    {
+      "scene_id": "results-04",
+      "path": "docs/customer/demo/video/v3/frames/results-04.png",
+      "sha256": "5abb5c75970e1a9ec277d0f864930dcb4384cbf865c0d6855aca6b9eafba46ac"
+    },
+    {
+      "scene_id": "results-05",
+      "path": "docs/customer/demo/video/v3/frames/results-05.png",
+      "sha256": "105ea80d8230725dafd9b61cca55d270cdcd885dfd2d01e3809e715cbf21975f"
+    },
+    {
+      "scene_id": "results-06",
+      "path": "docs/customer/demo/video/v3/frames/results-06.png",
+      "sha256": "d1c4b5afa4b71c7d8bb41ddc2dd60014743459e3c75c4de1b4434e4d8c7fe2ad"
+    },
+    {
+      "scene_id": "results-07",
+      "path": "docs/customer/demo/video/v3/frames/results-07.png",
+      "sha256": "5a2c6f5e834f34c205a1eb02cb1a0c25b3171e8c543bb92c35c478dbcfc92762"
+    },
+    {
+      "scene_id": "results-08",
+      "path": "docs/customer/demo/video/v3/frames/results-08.png",
+      "sha256": "994dd66c0831b3613622b10ce2716b6cd223354190d6d7a7dbf9545e1e542dbf"
+    },
+    {
+      "scene_id": "demo-01",
+      "path": "docs/customer/demo/video/v3/frames/demo-01.png",
+      "sha256": "fd7c445a81a448321773328ed6b8145152cdad2caa33586fad14c92ed79c426c"
+    },
+    {
+      "scene_id": "demo-02",
+      "path": "docs/customer/demo/video/v3/frames/demo-02.png",
+      "sha256": "695c7a42be6122a87d0fff370b95ffa85cb217d8f10376b22c6c6fe425da1f11"
+    },
+    {
+      "scene_id": "demo-03",
+      "path": "docs/customer/demo/video/v3/frames/demo-03.png",
+      "sha256": "917e3005331b5afa4899f2294bec8c84b0b11dfbb756b1f42833ed8774f90ee9"
+    },
+    {
+      "scene_id": "demo-04",
+      "path": "docs/customer/demo/video/v3/frames/demo-04.png",
+      "sha256": "3de65d7546cafef89ae9e1a179ce9fba2831beae7fd208624b6f4c8b7a01d889"
+    },
+    {
+      "scene_id": "demo-05",
+      "path": "docs/customer/demo/video/v3/frames/demo-05.png",
+      "sha256": "03a27e3c8f08c34fe38b8a5f0209690e3938eb3bd18bf10c65d91f23f39f4f35"
+    },
+    {
+      "scene_id": "demo-06",
+      "path": "docs/customer/demo/video/v3/frames/demo-06.png",
+      "sha256": "0aab5a61c0f7b946506c9f8b935f81377711172e01c487d582153f01d430879f"
+    },
+    {
+      "scene_id": "demo-07",
+      "path": "docs/customer/demo/video/v3/frames/demo-07.png",
+      "sha256": "63e4dacdff5b109c3be6eeadf428d8049a6f03fadc31892a093f0138e268e199"
+    },
+    {
+      "scene_id": "demo-08",
+      "path": "docs/customer/demo/video/v3/frames/demo-08.png",
+      "sha256": "a888619538ccb5e67f59c6caea3af63688f459d15204fdec33a995b937f33e17"
+    },
+    {
+      "scene_id": "setup-01",
+      "path": "docs/customer/demo/video/v3/frames/setup-01.png",
+      "sha256": "b5243d6e56b1d293f71861573b6ad5721843dce8c61b61776c0d22aadbf52bc1"
+    },
+    {
+      "scene_id": "setup-02",
+      "path": "docs/customer/demo/video/v3/frames/setup-02.png",
+      "sha256": "e5d0ba5883c9062aecf68ac4f5ac8c9f72f05721e2dd1400eb1807fabd93a3a7"
+    },
+    {
+      "scene_id": "setup-03",
+      "path": "docs/customer/demo/video/v3/frames/setup-03.png",
+      "sha256": "3d11cdc25642f9250c62544753e4a552fa89af309d7ca13d6e8fd1aed76caa03"
+    },
+    {
+      "scene_id": "setup-04",
+      "path": "docs/customer/demo/video/v3/frames/setup-04.png",
+      "sha256": "dbd8e0095151ce0a675e7b847ecba3bc92cad6617b8ba29658665df8e57e7806"
+    },
+    {
+      "scene_id": "setup-05",
+      "path": "docs/customer/demo/video/v3/frames/setup-05.png",
+      "sha256": "ab82a35ae5807fde434a63b9a26fa619992dc1f8bc0116f8b24fdefce974b682"
+    },
+    {
+      "scene_id": "setup-06",
+      "path": "docs/customer/demo/video/v3/frames/setup-06.png",
+      "sha256": "11af15b789c925d41fadda3f4a44fed71bd0c843f110ca7cdf5021b8505d0247"
+    },
+    {
+      "scene_id": "setup-07",
+      "path": "docs/customer/demo/video/v3/frames/setup-07.png",
+      "sha256": "64cd9b61b167ab9fd87896aabf3685609eaaa097d7fe39df984ba63557e5d699"
+    },
+    {
+      "scene_id": "setup-08",
+      "path": "docs/customer/demo/video/v3/frames/setup-08.png",
+      "sha256": "b870303501ca4fed655d59e883e831e0c473c4c5e3798633972ff50961928ab1"
+    },
+    {
+      "scene_id": "repository-01",
+      "path": "docs/customer/demo/video/v3/frames/repository-01.png",
+      "sha256": "c80a8066ff1146c82d07791252e3488a489b4578715035272a997466309134b3"
+    },
+    {
+      "scene_id": "repository-02",
+      "path": "docs/customer/demo/video/v3/frames/repository-02.png",
+      "sha256": "49ff88f17fa8f169000cd84ff59a1c5c4d8224c1e63597c7dc76ad87aaa56ee4"
+    },
+    {
+      "scene_id": "repository-03",
+      "path": "docs/customer/demo/video/v3/frames/repository-03.png",
+      "sha256": "38d71cc9811ff94ea6a2be5b6426900b31021e634f3da8941a1986f31c54dcac"
+    },
+    {
+      "scene_id": "repository-04",
+      "path": "docs/customer/demo/video/v3/frames/repository-04.png",
+      "sha256": "b3c0efc8117307d4cd59d0cbf8a2e47ed014182b802614cd8ebb349a210a0785"
+    },
+    {
+      "scene_id": "repository-05",
+      "path": "docs/customer/demo/video/v3/frames/repository-05.png",
+      "sha256": "4be41b02003a6dadadafe6bdf0515d91948cd885a768276a97441ce8a8c1004b"
+    },
+    {
+      "scene_id": "repository-06",
+      "path": "docs/customer/demo/video/v3/frames/repository-06.png",
+      "sha256": "8af78f9eec0be5e26013412c34fd3b2bfebea58cc1feb6fe42f468986c2aa759"
+    },
+    {
+      "scene_id": "repository-07",
+      "path": "docs/customer/demo/video/v3/frames/repository-07.png",
+      "sha256": "7a61a586962b433134f0f7edbca43dc551a648bcee3ea7773c591ef7a585dd37"
+    },
+    {
+      "scene_id": "repository-08",
+      "path": "docs/customer/demo/video/v3/frames/repository-08.png",
+      "sha256": "5f121483745cfd330abc9546a562cb80d1f2eb9f9e4bdbcb27174a4a018d1f93"
+    },
+    {
+      "scene_id": "hardware-01",
+      "path": "docs/customer/demo/video/v3/frames/hardware-01.png",
+      "sha256": "8ca0c071a26af8d304abe2efcb95bfcf06f1aee866904af34e81fcb3c21f0ef6"
+    },
+    {
+      "scene_id": "hardware-02",
+      "path": "docs/customer/demo/video/v3/frames/hardware-02.png",
+      "sha256": "fce62825d79c72142bea4edfa2e4e267716ee29c034a95eea90c01e0255656cf"
+    },
+    {
+      "scene_id": "hardware-03",
+      "path": "docs/customer/demo/video/v3/frames/hardware-03.png",
+      "sha256": "eede4d0c110b71bbe5b383770b8e927e973bb9955d4beeb284a1088b8513025b"
+    },
+    {
+      "scene_id": "hardware-04",
+      "path": "docs/customer/demo/video/v3/frames/hardware-04.png",
+      "sha256": "c9ae3a503fc9028700f53b6255ea2da305051db0cf1e98d1eca6b301cc2a004e"
+    },
+    {
+      "scene_id": "hardware-05",
+      "path": "docs/customer/demo/video/v3/frames/hardware-05.png",
+      "sha256": "d83fee616c94ce331827cff956090cf18f6138fec95a49fb5f862f36a6fceac0"
+    },
+    {
+      "scene_id": "hardware-07",
+      "path": "docs/customer/demo/video/v3/frames/hardware-07.png",
+      "sha256": "b3bc24610ef270c1943f567d464504f29d99217f7410d58f7f9e41461b6b3661"
+    },
+    {
+      "scene_id": "hardware-08",
+      "path": "docs/customer/demo/video/v3/frames/hardware-08.png",
+      "sha256": "95c0fbd90672ee3db4cae644500f213d697236fa96a892739a2a8290b5fc04e3"
+    },
+    {
+      "scene_id": "hardware-06",
+      "path": "docs/customer/demo/video/v3/frames/hardware-06.png",
+      "sha256": "b9ca28d1a2a99cb12ffb423cac3f8de0042642e3358ea686503e22f26db8097a"
+    }
+  ],
+  "artifacts": {
+    "NetMambaPlus-course-slides.pptx": {
+      "bytes": 5385872,
+      "sha256": "969ec7c3a08a0128b18f84aa4d3f2cd7a0595043118d002dc35ce8ad3cdd2e5c"
+    },
+    "NetMambaPlus-course-slides.pdf": {
+      "bytes": 5934158,
+      "sha256": "3a9fe8e1d4027ec5519fb52f0e8f014b8d7eb06650abd011c7d5730c326c476e"
+    },
+    "NetMambaPlus-course-handbook.pdf": {
+      "bytes": 443865,
+      "sha256": "dfeaf712407a2d9aa023de7b21cc99d0fe9a5e835efd9b95920af0048a74005a"
+    }
+  },
+  "scope": "Generated slides share the rendered frames; speaker notes and searchable handbook share narration. Handbook appends the reviewed complete file guide. Separate artifact checks are required."
+}

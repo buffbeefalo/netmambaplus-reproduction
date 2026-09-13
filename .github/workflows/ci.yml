@@ -20,4 +20,5 @@ jobs:
       - run: python repro.py --help
       - run: python tools/verify_package.py
       - run: python tools/verify_course_video.py
+      - run: python tools/verify_video_course_v3.py
       - run: python tools/build_video_page.py --check

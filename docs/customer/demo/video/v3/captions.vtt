@@ -1,0 +1,3885 @@
+WEBVTT
+
+00:00:00.101 --> 00:00:00.493
+Welcome.
+
+00:00:00.898 --> 00:00:03.947
+This course will take you from the three files
+you started with
+
+00:00:03.947 --> 00:00:07.047
+to a clear explanation of the repository you now
+have.
+
+00:00:07.452 --> 00:00:10.235
+You do not need a networking or machine learning
+background.
+
+00:00:10.627 --> 00:00:14.486
+We will read the paper&#x27;s ideas, inspect both
+spreadsheet shaped
+
+00:00:14.486 --> 00:00:19.002
+datasets, follow a flow through the original
+model, and examine
+
+00:00:19.002 --> 00:00:20.837
+the experiments that actually ran.
+
+00:00:21.254 --> 00:00:25.252
+Then we will walk through the code, setup,
+tests, downloads,
+
+00:00:25.454 --> 00:00:27.719
+demonstration, and hardware roadmap.
+
+00:00:28.124 --> 00:00:30.363
+Codex wrote and produced this lesson.
+
+00:00:30.768 --> 00:00:33.285
+A synthetic voice renders the narration.
+
+00:00:33.690 --> 00:00:36.423
+The research claims come from recorded evidence.
+
+00:00:36.901 --> 00:00:40.885
+The central result is a working, measured
+reproduction attempt.
+
+00:00:41.290 --> 00:00:45.059
+The original multimodal classifier trained and
+performed
+
+00:00:45.072 --> 00:00:49.802
+inference on compatible research flows using an
+NVIDIA G B ten
+
+00:00:49.802 --> 00:00:50.978
+graphics processor.
+
+00:00:51.433 --> 00:00:55.911
+Three full fine tuning runs achieved an average
+test accuracy of
+
+00:00:56.037 --> 00:00:57.859
+eighty six point six five percent.
+
+00:00:58.263 --> 00:01:02.222
+The paper reports ninety seven point five
+percent for its
+
+00:01:02.222 --> 00:01:02.842
+comparison.
+
+00:01:03.247 --> 00:01:04.891
+We did not reproduce that number.
+
+00:01:05.308 --> 00:01:08.989
+We also did not build a complete live intrusion
+detection system.
+
+00:01:09.406 --> 00:01:11.834
+Those limits do not erase the work.
+
+00:01:12.252 --> 00:01:15.679
+They tell you precisely what the work
+establishes and what a next
+
+00:01:15.679 --> 00:01:17.387
+experiment needs to resolve.
+
+00:01:17.843 --> 00:01:20.270
+A network moves information in packets.
+
+00:01:20.713 --> 00:01:23.293
+Think of one packet as a small delivery
+envelope.
+
+00:01:23.685 --> 00:01:26.833
+Its header contains information used to handle
+the delivery.
+
+00:01:27.251 --> 00:01:31.031
+Its payload contains the carried content, which
+may be encrypted.
+
+00:01:31.436 --> 00:01:35.306
+A byte is a small numerical unit with values
+from zero to two
+
+00:01:35.306 --> 00:01:36.241
+hundred fifty five.
+
+00:01:36.646 --> 00:01:40.048
+The model can process those numbers without
+turning them into
+
+00:01:40.060 --> 00:01:41.135
+readable sentences.
+
+00:01:41.540 --> 00:01:45.890
+The envelope analogy is only a starting point:
+real packets use
+
+00:01:45.902 --> 00:01:49.835
+several protocol layers, and a payload is not
+guaranteed to
+
+00:01:49.848 --> 00:01:51.997
+contain a complete application message.
+
+00:01:52.415 --> 00:01:55.829
+One conversation usually spans many packets.
+
+00:01:56.289 --> 00:02:00.274
+A flow is a set of related packets, grouped
+using an explicit
+
+00:02:00.274 --> 00:02:00.640
+rule.
+
+00:02:01.058 --> 00:02:04.815
+A common starting point uses source and
+destination addresses,
+
+00:02:05.081 --> 00:02:08.206
+source and destination ports, and the transport
+protocol.
+
+00:02:08.598 --> 00:02:12.317
+Direction handling, timeouts, and packet
+ordering also need a
+
+00:02:12.317 --> 00:02:12.937
+definition.
+
+00:02:13.329 --> 00:02:16.618
+Imagine two cameras sending messages at the same
+time.
+
+00:02:17.023 --> 00:02:20.654
+The next two captured packets could belong to
+different cameras.
+
+00:02:21.059 --> 00:02:25.069
+Their proximity in a file does not make them one
+conversation.
+
+00:02:25.487 --> 00:02:29.231
+This matters because Net Mamba Plus learns from
+a structured view
+
+00:02:29.231 --> 00:02:29.876
+of a flow.
+
+00:02:30.294 --> 00:02:34.874
+Supplying unrelated packet rows changes the
+meaning of its input.
+
+00:02:35.309 --> 00:02:40.371
+An intrusion detection system, often shortened
+to I D S, observes
+
+00:02:40.384 --> 00:02:42.978
+traffic and raises alerts for investigation.
+
+00:02:43.396 --> 00:02:46.661
+The neural classifier is one component that can
+help assign a
+
+00:02:46.674 --> 00:02:47.269
+category.
+
+00:02:47.686 --> 00:02:52.571
+Capture, flow assembly, data transformation,
+alert thresholds,
+
+00:02:52.824 --> 00:02:56.115
+event storage, and operational response are
+additional
+
+00:02:56.115 --> 00:02:56.811
+components.
+
+00:02:57.191 --> 00:03:00.544
+A prediction alone does not decide whether to
+block a customer
+
+00:03:00.557 --> 00:03:01.076
+connection.
+
+00:03:01.455 --> 00:03:05.379
+In this project the browser demonstration
+displays previously
+
+00:03:05.391 --> 00:03:06.594
+recorded predictions.
+
+00:03:07.011 --> 00:03:10.365
+That is useful for explaining behavior and
+mistakes, but opening
+
+00:03:10.365 --> 00:03:14.516
+the page does not connect to a network tap or
+execute a model
+
+00:03:14.516 --> 00:03:15.566
+inside your browser.
+
+00:03:16.085 --> 00:03:19.171
+Throughout the lesson, separate three claims.
+
+00:03:19.563 --> 00:03:22.649
+Implemented means there is code intended to do a
+job.
+
+00:03:23.067 --> 00:03:26.203
+Executed means a recorded command actually ran.
+
+00:03:26.621 --> 00:03:30.010
+Validated means a specific check passed against
+a stated
+
+00:03:30.023 --> 00:03:30.820
+expectation.
+
+00:03:31.212 --> 00:03:34.336
+A script can exist without its hardware path
+being tested.
+
+00:03:34.728 --> 00:03:38.181
+A training job can complete without matching a
+published
+
+00:03:38.194 --> 00:03:38.864
+accuracy.
+
+00:03:39.256 --> 00:03:43.076
+A checksum can match without proving the dataset
+is unbiased.
+
+00:03:43.443 --> 00:03:47.578
+When someone says everything works, ask which
+activity, on which
+
+00:03:47.578 --> 00:03:49.387
+environment, with which evidence.
+
+00:03:49.792 --> 00:03:54.446
+The repository&#x27;s manifests, logs, predictions,
+and failure
+
+00:03:54.446 --> 00:03:56.255
+records make that question answerable.
+
+00:03:56.735 --> 00:03:59.619
+You now have the vocabulary needed for the rest
+of the course.
+
+00:04:00.037 --> 00:04:03.744
+We will use short questions to check
+understanding, with clearly
+
+00:04:03.744 --> 00:04:06.300
+labeled pauses that resume automatically.
+
+00:04:06.730 --> 00:04:10.412
+The transcript repeats the narration and links
+each scene to
+
+00:04:10.412 --> 00:04:11.513
+supporting files.
+
+00:04:11.918 --> 00:04:16.232
+The companion file guide explains every tracked
+file and every
+
+00:04:16.232 --> 00:04:19.433
+release download, so you can look up a
+particular filename
+
+00:04:19.522 --> 00:04:21.382
+without memorizing the directory tree.
+
+00:04:21.837 --> 00:04:24.469
+First, practice the most important boundary.
+
+00:04:24.874 --> 00:04:28.531
+Does a working classifier prove that a complete
+live security
+
+00:04:28.543 --> 00:04:29.644
+system has been deployed?
+
+00:04:30.036 --> 00:04:32.617
+Take ten seconds to formulate your answer.
+
+00:04:33.000 --> 00:04:43.000
+[Practice pause: 10 seconds] Does a working
+classifier prove a complete live IDS?
+
+00:04:43.101 --> 00:04:46.905
+The answer is no: the classifier is one tested
+component.
+
+00:04:47.322 --> 00:04:49.634
+Now open the attached paper conceptually.
+
+00:04:50.051 --> 00:04:54.423
+It is the January twenty twenty six first arXiv
+version of Net
+
+00:04:54.423 --> 00:04:58.631
+Mamba Plus, a framework of pretrained models for
+efficient and
+
+00:04:58.694 --> 00:05:00.627
+accurate network traffic classification.
+
+00:05:01.032 --> 00:05:04.380
+A research paper describes a problem, a proposed
+method,
+
+00:05:04.772 --> 00:05:06.655
+experiments, and conclusions.
+
+00:05:07.059 --> 00:05:10.559
+It is not an installation manual or a complete
+specification of
+
+00:05:10.698 --> 00:05:12.088
+every released data file.
+
+00:05:12.505 --> 00:05:15.917
+This paper covers several model variants and
+datasets.
+
+00:05:16.321 --> 00:05:20.807
+Our repository exercises a particular multimodal
+Mamba classifier
+
+00:05:21.262 --> 00:05:25.609
+and one compatible downstream dataset, so its
+scope is narrower.
+
+00:05:26.068 --> 00:05:28.986
+The authors identify three difficulties.
+
+00:05:29.429 --> 00:05:33.775
+First, some sequence models become expensive
+when processing many
+
+00:05:33.838 --> 00:05:34.799
+input units.
+
+00:05:35.203 --> 00:05:39.929
+Second, a traffic representation may discard
+useful content while
+
+00:05:39.929 --> 00:05:43.795
+keeping misleading clues, such as identifiers
+tied to the
+
+00:05:43.795 --> 00:05:44.831
+collection environment.
+
+00:05:45.299 --> 00:05:49.152
+Third, common categories can dominate learning
+while rare
+
+00:05:49.152 --> 00:05:50.757
+categories perform poorly.
+
+00:05:51.174 --> 00:05:52.539
+These are distinct problems.
+
+00:05:52.930 --> 00:05:57.100
+A faster model does not automatically fix biased
+input data.
+
+00:05:57.517 --> 00:06:01.661
+Adding packet timing does not automatically
+solve a rare class
+
+00:06:01.661 --> 00:06:02.129
+problem.
+
+00:06:02.558 --> 00:06:06.576
+The paper combines architectural,
+representation, and training
+
+00:06:06.576 --> 00:06:08.042
+ideas to address them.
+
+00:06:08.434 --> 00:06:11.744
+Our measurements should be interpreted against
+the parts actually
+
+00:06:11.757 --> 00:06:12.300
+enabled.
+
+00:06:12.768 --> 00:06:16.522
+Multimodal means using several views of the same
+observation.
+
+00:06:16.939 --> 00:06:21.047
+Here it means packet byte content, packet
+lengths, and time gaps.
+
+00:06:21.451 --> 00:06:25.635
+Suppose two flows contain similarly encrypted
+bytes, but one
+
+00:06:25.635 --> 00:06:29.389
+sends a steady series of small packets while
+another sends large
+
+00:06:29.402 --> 00:06:29.983
+bursts.
+
+00:06:30.400 --> 00:06:33.611
+Size and timing can provide additional
+structure.
+
+00:06:34.028 --> 00:06:37.668
+This is an explanatory example, not a measured
+claim about our
+
+00:06:37.681 --> 00:06:38.439
+test set.
+
+00:06:38.856 --> 00:06:42.496
+The important requirement is that all three
+views describe the
+
+00:06:42.496 --> 00:06:43.381
+same flow.
+
+00:06:43.773 --> 00:06:46.731
+Combining bytes from one connection with timing
+from another
+
+00:06:46.731 --> 00:06:50.750
+would create a physically inconsistent example
+even if the tensor
+
+00:06:50.750 --> 00:06:52.115
+dimensions still matched.
+
+00:06:52.580 --> 00:06:56.208
+The paper discusses Mamba and an alternative
+optimized
+
+00:06:56.208 --> 00:06:58.116
+Transformer called Net Trans.
+
+00:06:58.218 --> 00:07:01.238
+Flash Attention belongs to that alternative&#x27;s
+attention
+
+00:07:01.238 --> 00:07:04.209
+implementation; it is not evidence that our
+active Mamba
+
+00:07:04.221 --> 00:07:06.420
+classifier uses an attention layer.
+
+00:07:06.800 --> 00:07:10.162
+A Mamba block processes a sequence while
+updating numerical
+
+00:07:10.162 --> 00:07:13.182
+state, with updates influenced by the input.
+
+00:07:13.587 --> 00:07:15.799
+This can make sequence processing efficient.
+
+00:07:16.203 --> 00:07:20.134
+It does not mean the software maintains a live
+table of network
+
+00:07:20.147 --> 00:07:21.853
+connections between predictions.
+
+00:07:22.257 --> 00:07:26.163
+In our tested configuration the classifier uses
+four Mamba
+
+00:07:26.163 --> 00:07:26.744
+blocks.
+
+00:07:27.149 --> 00:07:30.347
+Other branches present in a source repository
+are not
+
+00:07:30.435 --> 00:07:33.216
+automatically exercised by that configuration.
+
+00:07:33.739 --> 00:07:37.178
+For a first reading, use the framework diagram
+to understand the
+
+00:07:37.191 --> 00:07:38.202
+overall path.
+
+00:07:38.606 --> 00:07:41.982
+Then read the traffic representation section to
+see how raw
+
+00:07:41.982 --> 00:07:44.334
+traffic becomes structured inputs.
+
+00:07:44.751 --> 00:07:48.329
+The model details explain embeddings, sequence
+processing,
+
+00:07:48.594 --> 00:07:50.617
+pretraining, and classification.
+
+00:07:51.022 --> 00:07:54.903
+The online system section adds capture and
+shared memory around a
+
+00:07:54.916 --> 00:07:55.725
+classifier.
+
+00:07:56.129 --> 00:08:00.352
+The evaluation section reports dataset
+comparisons, efficiency,
+
+00:08:00.605 --> 00:08:01.983
+and other experiments.
+
+00:08:02.400 --> 00:08:06.977
+Keep a note beside each number identifying the
+model, task, and
+
+00:08:06.977 --> 00:08:08.165
+machine that produced it.
+
+00:08:08.582 --> 00:08:11.857
+This reading habit prevents a result from one
+experiment being
+
+00:08:11.933 --> 00:08:15.308
+accidentally used as proof for a different
+system.
+
+00:08:15.780 --> 00:08:19.686
+The paper&#x27;s comparison includes a ninety seven
+point five percent
+
+00:08:19.800 --> 00:08:25.299
+accuracy figure for the relevant C I C IoT
+twenty twenty two
+
+00:08:25.299 --> 00:08:25.754
+result.
+
+00:08:26.158 --> 00:08:29.698
+Our three seed mean is eighty six point six five
+percent.
+
+00:08:30.102 --> 00:08:33.945
+We preserve both numbers and the differences in
+runtime and
+
+00:08:33.945 --> 00:08:34.956
+training settings.
+
+00:08:35.348 --> 00:08:37.611
+We did not isolate the cause of the gap.
+
+00:08:38.015 --> 00:08:41.782
+The paper also studies few shot learning,
+unfamiliar
+
+00:08:41.782 --> 00:08:45.410
+distributions, and a label distribution aware
+strategy for
+
+00:08:45.422 --> 00:08:46.560
+imbalanced classes.
+
+00:08:46.977 --> 00:08:51.136
+Those results do not become reproduced merely
+because our basic
+
+00:08:51.136 --> 00:08:52.425
+classifier runs.
+
+00:08:52.842 --> 00:08:55.965
+Each additional claim would need its own
+matching protocol,
+
+00:08:56.394 --> 00:08:58.227
+inputs, and measured outputs.
+
+00:08:58.701 --> 00:09:00.976
+Two details deserve special care.
+
+00:09:01.380 --> 00:09:05.298
+A token is a numerical input unit for the
+sequence model; we will
+
+00:09:05.311 --> 00:09:06.663
+build those units later.
+
+00:09:07.093 --> 00:09:10.998
+The paper&#x27;s hyperparameter table shows four
+hundred one tokens
+
+00:09:11.099 --> 00:09:12.768
+for its byte representation.
+
+00:09:13.172 --> 00:09:17.318
+Our actual multimodal classifier receives four
+hundred forty
+
+00:09:17.318 --> 00:09:21.792
+three tokens, after including sizes, intervals,
+and three summary
+
+00:09:21.792 --> 00:09:22.398
+tokens.
+
+00:09:22.803 --> 00:09:27.049
+Later, the paper reports online throughput of
+two hundred sixty
+
+00:09:27.062 --> 00:09:31.055
+one point eight seven megabits per second for
+its Net Mamba
+
+00:09:31.068 --> 00:09:32.774
+prototype on different hardware.
+
+00:09:33.179 --> 00:09:35.820
+That is not our measured multimodal deployment.
+
+00:09:36.225 --> 00:09:40.484
+Before presenting any paper number, identify the
+exact experiment
+
+00:09:40.484 --> 00:09:41.356
+it describes.
+
+00:09:41.773 --> 00:09:46.752
+Take ten seconds to name one paper claim that
+this repository has
+
+00:09:46.752 --> 00:09:48.636
+not independently reproduced.
+
+00:09:49.000 --> 00:09:59.000
+[Practice pause: 10 seconds] Name one paper
+claim that has not been reproduced here.
+
+00:09:59.101 --> 00:10:02.560
+Examples include the paper&#x27;s headline accuracy,
+its full
+
+00:10:02.572 --> 00:10:05.752
+pretraining protocol, and its online throughput.
+
+00:10:06.170 --> 00:10:08.932
+Next, inspect your first attached data file.
+
+00:10:09.337 --> 00:10:13.797
+A C S V is plain text organized as rows and
+comma separated
+
+00:10:13.809 --> 00:10:14.430
+fields.
+
+00:10:14.823 --> 00:10:18.167
+A spreadsheet can display it as a table, but
+this file is not a
+
+00:10:18.180 --> 00:10:20.752
+database server or a network capture program.
+
+00:10:21.157 --> 00:10:24.717
+The full profile counted one million four
+hundred ten thousand
+
+00:10:24.881 --> 00:10:29.480
+two hundred fifty five packet records in the C I
+C I D S
+
+00:10:29.670 --> 00:10:31.000
+twenty seventeen file.
+
+00:10:31.406 --> 00:10:33.585
+Each row has fifteen hundred five columns.
+
+00:10:34.003 --> 00:10:37.246
+The stored profile lets you inspect that
+structure without
+
+00:10:37.258 --> 00:10:39.665
+opening a multi gigabyte spreadsheet.
+
+00:10:40.185 --> 00:10:43.557
+Fifteen hundred columns are named payload byte
+one through
+
+00:10:43.557 --> 00:10:47.309
+payload byte fifteen hundred, using underscores
+in the exact
+
+00:10:47.309 --> 00:10:48.019
+header names.
+
+00:10:48.438 --> 00:10:50.973
+They describe payload byte positions.
+
+00:10:51.429 --> 00:10:55.688
+Five additional columns are time to live, total
+length, protocol,
+
+00:10:55.967 --> 00:10:58.109
+a delta time field, and the label.
+
+00:10:58.515 --> 00:11:02.584
+Time to live is a protocol field limiting how
+far a packet can
+
+00:11:02.597 --> 00:11:04.625
+travel; it is not a timestamp.
+
+00:11:05.043 --> 00:11:07.730
+Total length is a recorded packet length value.
+
+00:11:08.136 --> 00:11:10.874
+Protocol describes the communication protocol.
+
+00:11:11.292 --> 00:11:15.754
+Delta time suggests a time difference, but the
+CSV alone does not
+
+00:11:15.754 --> 00:11:18.366
+establish its units or how it was computed.
+
+00:11:18.784 --> 00:11:21.319
+The label is the category supplied with the
+record.
+
+00:11:21.801 --> 00:11:24.843
+This CSV contains fifteen label names.
+
+00:11:25.249 --> 00:11:29.470
+The largest group is labeled benign, with three
+hundred sixty two
+
+00:11:29.622 --> 00:11:31.472
+thousand one hundred eight rows.
+
+00:11:31.878 --> 00:11:35.883
+Do S Hulk has two hundred fifty thousand, and D
+Do S has two
+
+00:11:35.883 --> 00:11:38.190
+hundred forty one thousand four hundred five.
+
+00:11:38.595 --> 00:11:42.347
+In general terms, a denial of service attack
+attempts to disrupt
+
+00:11:42.347 --> 00:11:46.263
+availability, and a distributed denial of
+service uses multiple
+
+00:11:46.263 --> 00:11:46.948
+sources.
+
+00:11:47.391 --> 00:11:50.953
+Here those are dataset labels, not events newly
+detected by our
+
+00:11:50.953 --> 00:11:51.396
+model.
+
+00:11:51.827 --> 00:11:56.048
+The table also contains credential attack, web
+attack, scanning,
+
+00:11:56.302 --> 00:11:59.369
+bot, infiltration, and other categories.
+
+00:11:59.774 --> 00:12:04.730
+Their counts describe this supplied extract, not
+every version of
+
+00:12:04.730 --> 00:12:05.858
+the original dataset.
+
+00:12:06.335 --> 00:12:09.932
+At the small end, Port Scan has eight hundred
+thirty rows.
+
+00:12:10.363 --> 00:12:13.581
+The web attack SQL injection label has only
+twelve.
+
+00:12:13.999 --> 00:12:17.267
+That is why a single overall accuracy can hide a
+serious
+
+00:12:17.280 --> 00:12:17.901
+weakness.
+
+00:12:18.294 --> 00:12:22.347
+Imagine a model that handles a common label well
+but fails every
+
+00:12:22.360 --> 00:12:23.196
+rare example.
+
+00:12:23.589 --> 00:12:26.224
+Its aggregate score might still look impressive.
+
+00:12:26.604 --> 00:12:30.151
+A defensible packet classifier study would
+examine per class
+
+00:12:30.164 --> 00:12:34.547
+support, precision, recall, and a confusion
+matrix, with careful
+
+00:12:34.547 --> 00:12:34.990
+splitting.
+
+00:12:35.396 --> 00:12:37.930
+We have not trained that packet classifier here.
+
+00:12:38.335 --> 00:12:41.679
+These counts explain a possible future
+adaptation and its
+
+00:12:41.692 --> 00:12:45.176
+evaluation requirements; they do not report new
+model
+
+00:12:45.189 --> 00:12:45.987
+performance.
+
+00:12:46.468 --> 00:12:51.131
+The full metadata scan also found negative delta
+times, with a
+
+00:12:51.144 --> 00:12:55.668
+minimum of negative zero point zero zero zero
+zero one eight.
+
+00:12:56.073 --> 00:12:58.126
+We do not know the time unit from this extract.
+
+00:12:58.544 --> 00:13:02.764
+Some recorded total lengths exceed fifteen
+hundred even though
+
+00:13:02.777 --> 00:13:04.677
+there are fifteen hundred payload columns.
+
+00:13:05.083 --> 00:13:08.504
+Those observations are reasons to investigate
+the extraction
+
+00:13:08.504 --> 00:13:09.201
+procedure.
+
+00:13:09.619 --> 00:13:13.320
+They are not enough to diagnose corruption,
+reconstruct missing
+
+00:13:13.320 --> 00:13:15.423
+headers, or invent time ordering.
+
+00:13:15.816 --> 00:13:19.301
+A field name is a clue, not a complete data
+contract.
+
+00:13:19.694 --> 00:13:23.330
+Our strict native flow path requires observed
+intervals to be
+
+00:13:23.343 --> 00:13:27.512
+finite and nonnegative, so blindly copying these
+values would be
+
+00:13:27.525 --> 00:13:28.957
+unsafe scientifically.
+
+00:13:29.435 --> 00:13:33.745
+The profiling program scans the full file to
+count rows and
+
+00:13:33.758 --> 00:13:35.685
+aggregate the selected metadata.
+
+00:13:36.103 --> 00:13:39.564
+That is stronger evidence than looking at the
+first fifty rows.
+
+00:13:39.995 --> 00:13:43.824
+However, it is narrower than exhaustively
+validating every
+
+00:13:43.836 --> 00:13:45.104
+payload byte cell.
+
+00:13:45.522 --> 00:13:48.400
+The report states that limit explicitly.
+
+00:13:48.793 --> 00:13:53.116
+It records file size and a content hash so
+another person can
+
+00:13:53.116 --> 00:13:54.612
+identify the same input.
+
+00:13:55.030 --> 00:13:59.150
+It does not recover capture history, packet
+direction, or a flow
+
+00:13:59.150 --> 00:14:01.496
+identifier that the columns do not supply.
+
+00:14:01.889 --> 00:14:06.224
+Keeping the exact scope of a data audit visible
+prevents a useful
+
+00:14:06.237 --> 00:14:09.571
+profile from being mistaken for a complete
+certification.
+
+00:14:10.022 --> 00:14:13.902
+Most importantly, the supplied schema does not
+establish source
+
+00:14:13.902 --> 00:14:18.453
+and destination addresses, ports, a flow
+identifier, or packet
+
+00:14:18.453 --> 00:14:19.429
+order within a flow.
+
+00:14:19.835 --> 00:14:23.841
+Its payload byte columns also do not establish
+the paper&#x27;s header
+
+00:14:24.133 --> 00:14:25.553
+and payload representation.
+
+00:14:25.958 --> 00:14:30.206
+Taking five neighboring rows and calling them
+one flow would add
+
+00:14:30.218 --> 00:14:31.524
+an unsupported assumption.
+
+00:14:31.930 --> 00:14:35.835
+A classifier trained directly on these rows
+could still be an
+
+00:14:35.847 --> 00:14:39.220
+interesting project, but it would be a packet
+based adaptation
+
+00:14:39.232 --> 00:14:41.261
+with its own labels and evaluation.
+
+00:14:41.666 --> 00:14:45.280
+Take ten seconds: explain why matching the
+number of numeric
+
+00:14:45.292 --> 00:14:48.982
+columns would not make these rows compatible Net
+Mamba Plus
+
+00:14:48.994 --> 00:14:49.628
+inputs.
+
+00:14:50.000 --> 00:15:00.000
+[Practice pause: 10 seconds] Why is matching a
+tensor shape insufficient to establish
+compatible flow data?
+
+00:15:00.089 --> 00:15:04.347
+A tensor shape describes dimensions, not the
+meaning or origin of
+
+00:15:04.347 --> 00:15:05.006
+the numbers.
+
+00:15:05.411 --> 00:15:08.326
+Your second CSV makes that distinction clearer.
+
+00:15:08.744 --> 00:15:13.534
+The U N S W extract contains seventy nine
+thousand eight hundred
+
+00:15:13.686 --> 00:15:14.764
+eighty one rows.
+
+00:15:15.169 --> 00:15:18.768
+It has the same broad structure: fifteen hundred
+payload byte
+
+00:15:18.768 --> 00:15:23.216
+columns followed by time to live, total length,
+protocol, delta
+
+00:15:23.216 --> 00:15:24.382
+time, and label.
+
+00:15:24.800 --> 00:15:26.549
+There are ten category names.
+
+00:15:26.942 --> 00:15:30.212
+The common column layout makes joint profiling
+convenient.
+
+00:15:30.630 --> 00:15:34.432
+It does not prove the two files were captured,
+labeled, or
+
+00:15:34.444 --> 00:15:37.638
+extracted with the same procedure, and it does
+not make their
+
+00:15:37.650 --> 00:15:39.349
+category names interchangeable.
+
+00:15:39.835 --> 00:15:44.713
+The largest U N S W category is normal, with
+twenty one thousand
+
+00:15:44.713 --> 00:15:45.220
+rows.
+
+00:15:45.638 --> 00:15:49.731
+Generic contains seventeen thousand five hundred
+eighty, and
+
+00:15:49.744 --> 00:15:53.583
+exploits contains thirteen thousand nine hundred
+ninety two.
+
+00:15:54.027 --> 00:15:57.398
+Fuzzers and reconnaissance are also substantial
+groups.
+
+00:15:57.816 --> 00:16:01.199
+At a high level, reconnaissance means attempts
+to learn about a
+
+00:16:01.199 --> 00:16:05.812
+target, and fuzzing probes how software handles
+unusual inputs.
+
+00:16:06.230 --> 00:16:09.829
+These descriptions help interpret the names, but
+the exact
+
+00:16:09.841 --> 00:16:12.743
+labeling rules come from the dataset&#x27;s
+production process.
+
+00:16:13.174 --> 00:16:15.277
+The table is a count of stored labels.
+
+00:16:15.683 --> 00:16:19.294
+It is not a claim that our trained six class
+model recognizes
+
+00:16:19.307 --> 00:16:20.790
+these ten categories.
+
+00:16:21.281 --> 00:16:26.404
+The remaining labels are do s, backdoor,
+analysis, shellcode, and
+
+00:16:26.404 --> 00:16:26.975
+worms.
+
+00:16:27.380 --> 00:16:29.562
+Worms has only ninety three rows.
+
+00:16:29.955 --> 00:16:34.051
+Unlike the mostly T C P and U D P protocol
+entries in the
+
+00:16:34.051 --> 00:16:37.969
+first extract, this file includes a broader
+range of protocol
+
+00:16:37.982 --> 00:16:38.552
+strings.
+
+00:16:38.971 --> 00:16:42.357
+Some may be uncommon to a beginner, but the
+practical lesson is
+
+00:16:42.369 --> 00:16:46.643
+simple: a future preprocessing program must
+handle the actual
+
+00:16:46.643 --> 00:16:49.585
+declared values rather than assume two
+protocols.
+
+00:16:49.991 --> 00:16:52.628
+The full profile records their counts by label.
+
+00:16:53.034 --> 00:16:57.460
+Again, no packet model was trained on this
+extract, and these
+
+00:16:57.460 --> 00:17:01.340
+category frequencies do not describe the native
+flow dataset used
+
+00:17:01.353 --> 00:17:02.152
+in our experiment.
+
+00:17:02.635 --> 00:17:06.274
+All three data sources concern network traffic,
+but they define
+
+00:17:06.286 --> 00:17:07.529
+different learning problems.
+
+00:17:07.947 --> 00:17:12.804
+Your C I C I D S extract has fifteen packet
+label names.
+
+00:17:13.222 --> 00:17:15.859
+Your U N S W extract has ten.
+
+00:17:16.265 --> 00:17:21.375
+The authors&#x27; compatible C I C IoT twenty twenty
+two flow release
+
+00:17:21.578 --> 00:17:23.048
+has six class meanings.
+
+00:17:23.441 --> 00:17:27.626
+A classifier&#x27;s output layer is tied to its
+training labels.
+
+00:17:28.044 --> 00:17:31.949
+Six output numbers cannot simply be relabeled
+with a new ten
+
+00:17:31.962 --> 00:17:33.293
+category vocabulary.
+
+00:17:33.712 --> 00:17:36.615
+Changing the dataset can require a new class
+mapping,
+
+00:17:36.970 --> 00:17:40.698
+classification head, training protocol, and
+evaluation.
+
+00:17:41.104 --> 00:17:44.857
+The repository checks that a saved classifier
+stays attached to
+
+00:17:44.857 --> 00:17:46.378
+the correct class meanings.
+
+00:17:46.868 --> 00:17:50.872
+To exercise the original Net Mamba Plus path, we
+acquired the
+
+00:17:50.936 --> 00:17:55.282
+authors&#x27; native flow release rather than
+silently fabricate flow
+
+00:17:55.282 --> 00:17:57.157
+context for the CSV rows.
+
+00:17:57.563 --> 00:18:00.756
+The training split has eight thousand three
+hundred twenty three
+
+00:18:00.756 --> 00:18:05.216
+flows, validation has one thousand forty, and
+the test split has
+
+00:18:05.216 --> 00:18:06.559
+one thousand forty one.
+
+00:18:06.977 --> 00:18:11.260
+Those three files total ten thousand four
+hundred four flows.
+
+00:18:11.679 --> 00:18:13.757
+The provided split boundaries were retained.
+
+00:18:14.175 --> 00:18:18.027
+This choice makes the original loader and
+classifier executable
+
+00:18:18.217 --> 00:18:19.547
+with meaningful inputs.
+
+00:18:19.953 --> 00:18:23.729
+It also means the actual training result is not
+a result on
+
+00:18:23.894 --> 00:18:25.655
+either of your uploaded CSVs.
+
+00:18:26.060 --> 00:18:28.988
+That distinction belongs in the customer
+presentation.
+
+00:18:29.455 --> 00:18:33.538
+Compatibility is not a guarantee of independent
+evaluation.
+
+00:18:33.944 --> 00:18:37.773
+The validation report found five identical
+stored inputs shared
+
+00:18:37.773 --> 00:18:41.755
+between training and validation, and six shared
+between training
+
+00:18:41.869 --> 00:18:42.541
+and test.
+
+00:18:42.997 --> 00:18:47.778
+File names and hashes identify records, but they
+cannot establish
+
+00:18:47.790 --> 00:18:49.959
+that all physical captures are independent.
+
+00:18:50.364 --> 00:18:53.991
+The released pretrained checkpoint&#x27;s earlier
+exposure is also
+
+00:18:54.067 --> 00:18:54.574
+unknown.
+
+00:18:54.980 --> 00:18:58.746
+We preserved the authors&#x27; splits and disclosed
+these issues.
+
+00:18:59.139 --> 00:19:03.653
+A stronger future generalization study would
+define a new capture
+
+00:19:03.742 --> 00:19:06.582
+independent holdout and document its provenance.
+
+00:19:06.988 --> 00:19:10.145
+Repeating inference on the existing test file
+checks
+
+00:19:10.196 --> 00:19:14.228
+reproducibility of that result; it does not
+create a new holdout.
+
+00:19:14.701 --> 00:19:17.959
+This is the connection between your original
+three files and the
+
+00:19:17.959 --> 00:19:18.771
+repository.
+
+00:19:19.176 --> 00:19:21.661
+The PDF provides the research method.
+
+00:19:22.054 --> 00:19:26.110
+The CSVs provide packet records that can be
+profiled, but do not
+
+00:19:26.110 --> 00:19:28.696
+establish the method&#x27;s required flow context.
+
+00:19:29.114 --> 00:19:33.107
+The repository therefore preserves that finding
+and runs a
+
+00:19:33.120 --> 00:19:35.744
+compatible native flow experiment instead.
+
+00:19:36.162 --> 00:19:39.813
+If you later obtain raw captures with
+trustworthy grouping and
+
+00:19:39.813 --> 00:19:43.781
+extraction rules, you can investigate a matching
+data preparation
+
+00:19:43.781 --> 00:19:44.288
+path.
+
+00:19:44.694 --> 00:19:48.522
+Alternatively, you can explicitly design a
+packet classifier
+
+00:19:48.522 --> 00:19:49.219
+adaptation.
+
+00:19:49.637 --> 00:19:53.681
+Take ten seconds to explain which data was
+actually used for the
+
+00:19:53.694 --> 00:19:55.633
+published training runs, and why.
+
+00:19:56.000 --> 00:20:06.000
+[Practice pause: 10 seconds] Which data was
+actually used for training, and why were the
+uploaded CSVs not used?
+
+00:20:06.101 --> 00:20:09.883
+The actual experiment uses the authors&#x27; native
+flow files.
+
+00:20:10.301 --> 00:20:13.324
+Each file contains a JSON array of flow objects.
+
+00:20:13.742 --> 00:20:17.271
+JSON is structured text with named fields and
+lists.
+
+00:20:17.688 --> 00:20:20.547
+The data field holds a list of packet byte
+strings.
+
+00:20:20.939 --> 00:20:24.772
+Sizes and intervals are space separated numeric
+strings.
+
+00:20:25.177 --> 00:20:28.061
+Labeled examples also carry class information.
+
+00:20:28.466 --> 00:20:31.464
+The small example on screen is synthetic and
+deliberately
+
+00:20:31.476 --> 00:20:33.424
+shortened to explain the schema.
+
+00:20:33.829 --> 00:20:35.613
+It is not a recovered packet capture.
+
+00:20:36.030 --> 00:20:39.155
+The real loader converts these fields into fixed
+numerical
+
+00:20:39.167 --> 00:20:43.380
+arrays, so variable length flows can enter the
+same neural model.
+
+00:20:43.868 --> 00:20:47.765
+The byte branch uses the first five packets and
+up to three
+
+00:20:47.777 --> 00:20:49.675
+hundred twenty stored bytes from each.
+
+00:20:50.130 --> 00:20:53.154
+Five times three hundred twenty gives sixteen
+hundred byte
+
+00:20:53.167 --> 00:20:53.888
+positions.
+
+00:20:54.293 --> 00:20:58.278
+Short inputs receive padding and long inputs are
+truncated.
+
+00:20:58.683 --> 00:21:02.339
+The paper describes an eighty byte header
+allocation and a two
+
+00:21:02.339 --> 00:21:05.021
+hundred forty byte payload allocation per
+packet.
+
+00:21:05.426 --> 00:21:08.412
+The released stored bytes can be loaded, but
+their complete
+
+00:21:08.412 --> 00:21:12.068
+extraction history has not been independently
+verified.
+
+00:21:12.473 --> 00:21:16.180
+We therefore say stored bytes when describing
+what our executed
+
+00:21:16.180 --> 00:21:17.761
+loader actually consumed.
+
+00:21:18.179 --> 00:21:21.000
+This preserves the difference between a paper&#x27;s
+intended
+
+00:21:21.000 --> 00:21:24.479
+representation and a release&#x27;s established
+provenance.
+
+00:21:24.968 --> 00:21:28.281
+The loader scales a byte value by dividing by
+two hundred fifty
+
+00:21:28.281 --> 00:21:28.800
+five.
+
+00:21:29.217 --> 00:21:32.290
+It then subtracts one half and divides by one
+half.
+
+00:21:32.695 --> 00:21:36.489
+Zero becomes negative one, and two hundred fifty
+five becomes
+
+00:21:36.489 --> 00:21:37.323
+positive one.
+
+00:21:37.728 --> 00:21:40.548
+This puts byte inputs on a common numerical
+scale.
+
+00:21:40.966 --> 00:21:44.355
+A tensor is simply a multidimensional array of
+numbers.
+
+00:21:44.810 --> 00:21:49.135
+For a batch of flows, the byte tensor has
+dimensions batch, one,
+
+00:21:49.679 --> 00:21:51.222
+one, and sixteen hundred.
+
+00:21:51.627 --> 00:21:55.205
+The extra dimensions match the original model&#x27;s
+interface.
+
+00:21:55.572 --> 00:21:59.391
+A matching shape is necessary for execution, but
+it still does
+
+00:21:59.404 --> 00:22:02.502
+not prove that the underlying bytes mean the
+right thing.
+
+00:22:02.981 --> 00:22:06.598
+The size branch uses the first twenty packet
+sizes, clipped
+
+00:22:06.598 --> 00:22:08.811
+between zero and fifteen hundred.
+
+00:22:09.216 --> 00:22:11.872
+Its padding value is clipped to the same upper
+limit.
+
+00:22:12.290 --> 00:22:16.034
+The timing branch uses the first twenty gaps and
+maps an observed
+
+00:22:16.034 --> 00:22:20.182
+gap x to one plus x divided by two plus x.
+
+00:22:20.688 --> 00:22:24.432
+Zero maps to one half; one maps to two thirds.
+
+00:22:24.837 --> 00:22:28.442
+Those are numerical examples, not an assertion
+about seconds.
+
+00:22:28.859 --> 00:22:31.680
+Missing intervals use padding that maps to one.
+
+00:22:32.072 --> 00:22:35.816
+The wrapper requires actual observed gaps to be
+finite and
+
+00:22:35.828 --> 00:22:36.524
+nonnegative.
+
+00:22:36.916 --> 00:22:40.938
+Training and inference must use the same rules
+or they present
+
+00:22:40.951 --> 00:22:42.405
+different problems to the model.
+
+00:22:42.868 --> 00:22:46.218
+A token here is one input unit for the sequence
+model.
+
+00:22:46.623 --> 00:22:48.342
+It is not a word from a language model.
+
+00:22:48.760 --> 00:22:52.034
+The sixteen hundred byte positions are grouped
+into four byte
+
+00:22:52.034 --> 00:22:55.018
+strides, producing four hundred byte tokens.
+
+00:22:55.410 --> 00:23:00.252
+Twenty size tokens and twenty interval tokens
+add forty more.
+
+00:23:00.695 --> 00:23:04.172
+Three learned summary tokens bring the total to
+four hundred
+
+00:23:04.172 --> 00:23:04.968
+forty three.
+
+00:23:05.360 --> 00:23:09.494
+Each token is embedded into a vector with two
+hundred fifty six
+
+00:23:09.494 --> 00:23:10.164
+coordinates.
+
+00:23:10.556 --> 00:23:13.376
+An embedding is a learned numerical
+representation.
+
+00:23:13.780 --> 00:23:17.143
+The model learns how useful patterns in those
+coordinates relate
+
+00:23:17.156 --> 00:23:18.648
+to the dataset categories.
+
+00:23:19.122 --> 00:23:22.056
+The sequence passes through four Mamba blocks.
+
+00:23:22.460 --> 00:23:26.342
+The active configuration uses the unidirectional
+branch and its
+
+00:23:26.342 --> 00:23:28.125
+fast execution path.
+
+00:23:28.530 --> 00:23:32.134
+After processing, the three summary vectors are
+added together
+
+00:23:32.539 --> 00:23:34.473
+and passed to the classification head.
+
+00:23:34.878 --> 00:23:39.519
+The result is six logits, or raw category
+scores, for each flow.
+
+00:23:39.936 --> 00:23:44.602
+The six class meanings are Flood, R T S P brute
+force, Audio,
+
+00:23:44.893 --> 00:23:47.182
+Other, Cameras, and Home Automation.
+
+00:23:47.625 --> 00:23:51.406
+Four describe device or activity groups, so
+these are not six
+
+00:23:51.406 --> 00:23:52.304
+attack types.
+
+00:23:52.721 --> 00:23:56.262
+The complete classifier has one million eight
+hundred seventy
+
+00:23:56.274 --> 00:23:57.994
+thousand eighty parameters.
+
+00:23:58.411 --> 00:24:01.497
+Parameters are the learned numbers updated
+during training.
+
+00:24:01.901 --> 00:24:04.165
+They are different from the input tensor values.
+
+00:24:04.570 --> 00:24:08.477
+The runtime checks exercise this complete model
+rather than
+
+00:24:08.477 --> 00:24:10.614
+replacing it with a smaller lookalike.
+
+00:24:11.068 --> 00:24:14.115
+To explain the input contract, cover three
+levels.
+
+00:24:14.507 --> 00:24:16.719
+The fields must describe the correct flow.
+
+00:24:17.124 --> 00:24:20.816
+Their dimensions and transformations must match
+the original
+
+00:24:20.816 --> 00:24:21.233
+loader.
+
+00:24:21.688 --> 00:24:26.075
+Finally, the label vocabulary must match the
+saved classifier.
+
+00:24:26.480 --> 00:24:30.462
+A file can pass a basic JSON parser and still
+fail one of these
+
+00:24:30.462 --> 00:24:31.233
+requirements.
+
+00:24:31.638 --> 00:24:36.430
+Our wrappers reject incompatible or invalid
+inputs before model
+
+00:24:36.430 --> 00:24:39.009
+execution where those conditions can be checked.
+
+00:24:39.426 --> 00:24:43.737
+Take ten seconds to describe the three feature
+views and the six
+
+00:24:43.737 --> 00:24:47.568
+number output, without using the word artificial
+intelligence as
+
+00:24:47.568 --> 00:24:49.641
+a substitute for the actual process.
+
+00:24:50.000 --> 00:25:00.000
+[Practice pause: 10 seconds] Describe the three
+feature views and the six-number output.
+
+00:25:00.114 --> 00:25:04.699
+Bytes, sizes, and intervals enter the model; six
+raw scores come
+
+00:25:04.699 --> 00:25:05.015
+out.
+
+00:25:05.420 --> 00:25:08.283
+Now separate learning from using what was
+learned.
+
+00:25:08.701 --> 00:25:12.855
+Pretraining teaches a representation from a
+reconstruction task.
+
+00:25:13.311 --> 00:25:17.705
+Fine tuning adapts that representation to known
+categories using
+
+00:25:17.705 --> 00:25:18.693
+labeled examples.
+
+00:25:19.098 --> 00:25:22.568
+Inference uses a fixed classifier to produce
+scores without
+
+00:25:22.670 --> 00:25:24.012
+updating its parameters.
+
+00:25:24.430 --> 00:25:28.153
+A checkpoint saves model state so a later
+process can reload it.
+
+00:25:28.559 --> 00:25:32.067
+Some training checkpoints also include optimizer
+state and
+
+00:25:32.067 --> 00:25:32.738
+settings.
+
+00:25:33.156 --> 00:25:36.765
+The word checkpoint therefore describes a file&#x27;s
+role, not a
+
+00:25:36.765 --> 00:25:39.628
+guarantee that it contains a complete deployment
+package.
+
+00:25:40.101 --> 00:25:43.940
+During masked pretraining, parts of the input
+are hidden or
+
+00:25:43.940 --> 00:25:46.500
+zeroed according to the original procedure.
+
+00:25:46.892 --> 00:25:50.795
+A reconstruction decoder tries to recover the
+missing content and
+
+00:25:50.795 --> 00:25:51.821
+feature values.
+
+00:25:52.239 --> 00:25:54.253
+The loss measures reconstruction error.
+
+00:25:54.659 --> 00:25:58.156
+The optimizer adjusts parameters to reduce that
+error over
+
+00:25:58.156 --> 00:25:58.840
+examples.
+
+00:25:59.245 --> 00:26:02.996
+Labels such as Flood or Cameras are not the
+reconstruction
+
+00:26:02.996 --> 00:26:03.452
+target.
+
+00:26:03.857 --> 00:26:07.291
+Learning a useful representation this way may
+help a later
+
+00:26:07.303 --> 00:26:11.307
+classification task, but a falling
+reconstruction loss does not
+
+00:26:11.320 --> 00:26:13.854
+itself prove attack detection accuracy.
+
+00:26:14.272 --> 00:26:18.301
+The full paper uses a much larger pretraining
+protocol than the
+
+00:26:18.301 --> 00:26:20.214
+short functional check we executed.
+
+00:26:20.689 --> 00:26:24.364
+Our limited check completed two epochs and one
+hundred thirty two
+
+00:26:24.478 --> 00:26:27.127
+optimizer updates on downstream training data.
+
+00:26:27.533 --> 00:26:31.690
+Reconstruction loss fell from about nine point
+five two to six
+
+00:26:31.690 --> 00:26:32.704
+point one three.
+
+00:26:33.109 --> 00:26:36.734
+The requested short step budget was rounded by
+the original loop
+
+00:26:36.937 --> 00:26:38.103
+to complete epochs.
+
+00:26:38.496 --> 00:26:41.867
+This demonstrates that the masked training path
+executes and
+
+00:26:41.867 --> 00:26:43.033
+learns on that check.
+
+00:26:43.438 --> 00:26:46.848
+It does not recreate the paper&#x27;s one hundred
+fifty thousand step
+
+00:26:46.860 --> 00:26:47.583
+pretraining.
+
+00:26:47.988 --> 00:26:51.119
+The three main fine tuning runs started from the
+authors&#x27;
+
+00:26:51.132 --> 00:26:54.592
+released pretrained checkpoint, not the output
+of our short
+
+00:26:54.592 --> 00:26:55.022
+check.
+
+00:26:55.428 --> 00:26:58.913
+Keep those two branches separate when drawing
+the workflow.
+
+00:26:59.368 --> 00:27:03.322
+In fine tuning, a batch contains multiple
+labeled flows.
+
+00:27:03.753 --> 00:27:06.109
+The forward pass computes category scores.
+
+00:27:06.515 --> 00:27:10.291
+A classification loss compares those scores with
+the supplied
+
+00:27:10.291 --> 00:27:12.496
+labels, with the configured smoothing.
+
+00:27:12.902 --> 00:27:16.310
+The backward pass computes gradients, which
+describe how
+
+00:27:16.323 --> 00:27:18.566
+parameter changes affect the loss.
+
+00:27:18.984 --> 00:27:21.671
+The optimizer then updates those parameters.
+
+00:27:22.089 --> 00:27:26.017
+Repeating this process across the training
+loader forms an epoch.
+
+00:27:26.410 --> 00:27:29.172
+A learning rate controls the scale of updates.
+
+00:27:29.578 --> 00:27:33.658
+This is why training needs much more computation
+than simply
+
+00:27:33.671 --> 00:27:35.115
+opening the recorded demo.
+
+00:27:35.521 --> 00:27:39.956
+The demo reads saved outputs; a training command
+repeatedly
+
+00:27:39.969 --> 00:27:40.945
+changes the model.
+
+00:27:41.435 --> 00:27:43.982
+The training split supplies parameter updates.
+
+00:27:44.400 --> 00:27:46.794
+Validation results select a checkpoint.
+
+00:27:47.225 --> 00:27:50.672
+The test split measures the selected
+classifier&#x27;s performance
+
+00:27:50.684 --> 00:27:51.166
+afterward.
+
+00:27:51.571 --> 00:27:54.726
+Choosing a checkpoint by its test score would
+use the test set as
+
+00:27:54.726 --> 00:27:55.575
+a tuning signal.
+
+00:27:55.993 --> 00:27:59.896
+The native fine tuner selects the best
+validation accuracy and
+
+00:27:59.896 --> 00:28:02.050
+then performs its final test pass.
+
+00:28:02.468 --> 00:28:07.118
+Separate evaluation strictly reloads that
+selected classifier.
+
+00:28:07.536 --> 00:28:11.680
+This separation is necessary, although the
+previously disclosed
+
+00:28:11.794 --> 00:28:16.355
+input overlaps and unknown capture history still
+limit the
+
+00:28:16.368 --> 00:28:16.964
+evidence.
+
+00:28:17.407 --> 00:28:22.095
+Following the split procedure cannot undo
+uncertainty in how the
+
+00:28:22.171 --> 00:28:24.085
+underlying data was collected.
+
+00:28:24.555 --> 00:28:28.571
+Each of the three declared seeds completed one
+hundred twenty
+
+00:28:28.571 --> 00:28:32.055
+epochs and seven thousand nine hundred twenty
+updates.
+
+00:28:32.460 --> 00:28:36.514
+A seed sets the starting values for randomized
+operations; the
+
+00:28:36.514 --> 00:28:38.996
+seeds are not three independent datasets.
+
+00:28:39.402 --> 00:28:43.329
+The source based recipe uses batch size one
+hundred twenty eight
+
+00:28:43.607 --> 00:28:46.964
+and a base learning rate that resolves to an
+effective rate of
+
+00:28:46.964 --> 00:28:48.877
+zero point zero zero one.
+
+00:28:49.283 --> 00:28:52.829
+The paper describes different batch and runtime
+conditions.
+
+00:28:53.235 --> 00:28:57.263
+Our training ran without mixed precision, while
+native evaluation
+
+00:28:57.580 --> 00:28:59.911
+used its recorded mixed precision path.
+
+00:29:00.316 --> 00:29:03.888
+These details help another engineer reproduce
+our execution
+
+00:29:04.218 --> 00:29:07.714
+rather than accidentally claim an exact paper
+configuration.
+
+00:29:08.201 --> 00:29:12.675
+Strict reloading rejects missing or unexpected
+model tensors
+
+00:29:12.979 --> 00:29:14.804
+rather than quietly ignoring them.
+
+00:29:15.210 --> 00:29:18.657
+The wrapper also checks the class meaning
+associated with each
+
+00:29:18.657 --> 00:29:19.645
+output index.
+
+00:29:20.063 --> 00:29:23.168
+This matters because a numerically valid
+classifier could
+
+00:29:23.181 --> 00:29:25.906
+otherwise display the wrong category names.
+
+00:29:26.311 --> 00:29:30.785
+Inference can return logits, display scores, and
+a selected class
+
+00:29:30.797 --> 00:29:32.267
+for unlabeled flows.
+
+00:29:32.686 --> 00:29:36.462
+It cannot calculate accuracy without ground
+truth.
+
+00:29:36.868 --> 00:29:40.784
+Take ten seconds: explain the difference between
+demonstrating a
+
+00:29:40.796 --> 00:29:44.763
+short pretraining update, completing fine
+tuning, and using a
+
+00:29:44.763 --> 00:29:46.461
+saved classifier to predict.
+
+00:29:46.854 --> 00:29:49.629
+Name the separate output produced by each
+activity.
+
+00:29:50.000 --> 00:30:00.000
+[Practice pause: 10 seconds] What does each of
+pretraining, fine-tuning and inference produce?
+
+00:30:00.114 --> 00:30:04.003
+Pretraining produces representation weights,
+fine tuning produces
+
+00:30:04.016 --> 00:30:08.082
+a task specific classifier, and inference
+produces predictions.
+
+00:30:08.487 --> 00:30:11.692
+Now follow the code that organizes those
+activities.
+
+00:30:12.110 --> 00:30:16.227
+This repository is an execution and evidence
+layer around the
+
+00:30:16.240 --> 00:30:17.316
+authors&#x27; source.
+
+00:30:17.734 --> 00:30:20.318
+It does not claim authorship of Net Mamba Plus.
+
+00:30:20.724 --> 00:30:24.081
+The source is fetched at a pinned commit, with a
+recorded
+
+00:30:24.093 --> 00:30:27.931
+inventory of one hundred three source files and
+additional core
+
+00:30:27.931 --> 00:30:28.539
+hashes.
+
+00:30:28.945 --> 00:30:31.998
+Keeping the original loader avoids writing a
+second
+
+00:30:31.998 --> 00:30:35.139
+interpretation of byte padding and
+normalization.
+
+00:30:35.557 --> 00:30:39.889
+The surrounding code supplies validation,
+reproducible commands,
+
+00:30:40.130 --> 00:30:42.613
+manifests, and independent output checks.
+
+00:30:43.101 --> 00:30:45.774
+The main entry point is repro dot p y.
+
+00:30:46.179 --> 00:30:49.764
+Its commands acquire or validate the pinned
+source and data,
+
+00:30:50.258 --> 00:30:53.577
+resolve the original command line settings, and
+launch training
+
+00:30:53.590 --> 00:30:54.565
+subprocesses.
+
+00:30:54.970 --> 00:30:58.859
+A subprocess is a separately running program
+invoked by the
+
+00:30:58.859 --> 00:30:59.568
+coordinator.
+
+00:30:59.974 --> 00:31:04.078
+The wrapper creates a fresh output directory and
+a manifest
+
+00:31:04.090 --> 00:31:08.372
+recording identities, configuration,
+environment, and status.
+
+00:31:08.777 --> 00:31:11.450
+A failed job should leave an informative record.
+
+00:31:11.868 --> 00:31:15.706
+It should not overwrite a prior successful
+result and make the
+
+00:31:15.719 --> 00:31:18.138
+two runs impossible to distinguish.
+
+00:31:18.543 --> 00:31:22.293
+Shared preparation helpers are reused by the
+other entry points.
+
+00:31:22.768 --> 00:31:27.999
+Evaluate dot p y loads a saved classifier
+strictly and evaluates
+
+00:31:28.012 --> 00:31:32.027
+labeled test flows through the original loader
+and evaluation
+
+00:31:32.027 --> 00:31:32.344
+engine.
+
+00:31:32.749 --> 00:31:34.117
+It does not train the model again.
+
+00:31:34.522 --> 00:31:38.778
+It also does not choose a checkpoint by
+maximizing test accuracy.
+
+00:31:39.196 --> 00:31:43.161
+Its result is a set of metrics attached to the
+evaluated model
+
+00:31:43.174 --> 00:31:43.731
+and data.
+
+00:31:44.136 --> 00:31:47.315
+If someone sends you a number without a
+checkpoint identity or
+
+00:31:47.569 --> 00:31:50.710
+class mapping, you cannot establish that it
+describes the
+
+00:31:50.723 --> 00:31:52.040
+intended classifier.
+
+00:31:52.458 --> 00:31:56.575
+This wrapper records those bindings so the
+reported accuracy can
+
+00:31:56.575 --> 00:31:58.639
+be traced to a particular execution.
+
+00:31:59.114 --> 00:32:03.406
+Predict dot p y is for native flows whose true
+categories are
+
+00:32:03.406 --> 00:32:03.925
+unknown.
+
+00:32:04.305 --> 00:32:07.647
+It adapts those records to the original loader&#x27;s
+expected
+
+00:32:07.647 --> 00:32:11.331
+structure, removes target information before
+prediction, and
+
+00:32:11.331 --> 00:32:14.092
+returns the classifier outputs with class names.
+
+00:32:14.509 --> 00:32:18.016
+This is useful for testing the inference
+interface with already
+
+00:32:18.092 --> 00:32:19.270
+assembled flows.
+
+00:32:19.688 --> 00:32:23.258
+It is not a packet capture tool, and it cannot
+reconstruct
+
+00:32:23.271 --> 00:32:26.069
+missing flow context from an arbitrary CSV.
+
+00:32:26.474 --> 00:32:29.867
+It does not calculate accuracy for unlabeled
+records.
+
+00:32:30.272 --> 00:32:33.855
+That behavior prevents a common reporting error:
+presenting
+
+00:32:33.855 --> 00:32:37.932
+confident looking predictions as evidence that
+those predictions
+
+00:32:37.944 --> 00:32:38.755
+are correct.
+
+00:32:39.222 --> 00:32:43.188
+Replay dot p y records labeled model predictions
+and
+
+00:32:43.238 --> 00:32:46.241
+independently recomputes metrics from the saved
+outputs.
+
+00:32:46.659 --> 00:32:50.080
+It also builds the self contained browser
+demonstration.
+
+00:32:50.498 --> 00:32:54.172
+The browser page displays the data already
+written into it.
+
+00:32:54.565 --> 00:32:57.973
+It does not need CUDA or a model checkpoint to
+replay those
+
+00:32:57.973 --> 00:32:58.581
+results.
+
+00:32:59.000 --> 00:33:02.661
+This split is intentional: the numerical
+experiment can be
+
+00:33:02.661 --> 00:33:06.158
+reviewed once and then explained on another
+computer without
+
+00:33:06.171 --> 00:33:07.070
+rerunning training.
+
+00:33:07.476 --> 00:33:11.061
+The tradeoff is that the page is a recorded
+demonstration.
+
+00:33:11.467 --> 00:33:14.735
+New customer flows require actual inference
+through a checked
+
+00:33:14.748 --> 00:33:17.561
+runtime, not just a browser refresh.
+
+00:33:18.035 --> 00:33:21.556
+The configuration files are recipes and identity
+checks.
+
+00:33:21.974 --> 00:33:26.546
+They contain settings, source pins, expected
+asset hashes, and
+
+00:33:26.558 --> 00:33:27.508
+class metadata.
+
+00:33:27.914 --> 00:33:32.017
+The assets directory holds separately acquired
+data and weights
+
+00:33:32.030 --> 00:33:32.638
+on your machine.
+
+00:33:33.043 --> 00:33:37.311
+The downloaded authors&#x27; source lives in the
+local upstream slash
+
+00:33:37.324 --> 00:33:39.401
+Net Mamba Plus directory.
+
+00:33:39.806 --> 00:33:43.555
+Those external assets are not mirrored as public
+repository
+
+00:33:43.555 --> 00:33:44.303
+contents.
+
+00:33:44.708 --> 00:33:48.406
+This distinction explains why cloning the
+repository is enough
+
+00:33:48.419 --> 00:33:51.686
+for document checks but not enough for neural
+training.
+
+00:33:52.104 --> 00:33:56.335
+The acquisition tools must obtain the additional
+files, verify
+
+00:33:56.347 --> 00:33:59.640
+their identities, and preserve their unresolved
+inherited
+
+00:33:59.653 --> 00:34:01.793
+redistribution and commercial terms.
+
+00:34:02.268 --> 00:34:05.017
+When auditing a run, start with its manifest.
+
+00:34:05.422 --> 00:34:08.678
+Then inspect the log and the saved metrics or
+predictions.
+
+00:34:09.096 --> 00:34:12.770
+A configuration file proves what was requested,
+not that the run
+
+00:34:12.770 --> 00:34:13.365
+completed.
+
+00:34:13.745 --> 00:34:17.913
+A model file proves saved state exists, not
+which data produced
+
+00:34:17.926 --> 00:34:18.078
+it.
+
+00:34:18.496 --> 00:34:21.929
+A chart is a presentation of measurements, not
+their origin.
+
+00:34:22.347 --> 00:34:23.639
+The records work together.
+
+00:34:24.045 --> 00:34:27.465
+Take ten seconds to decide which entry point you
+would use for an
+
+00:34:27.528 --> 00:34:30.607
+unlabeled native flow, and which one you would
+use to score a
+
+00:34:30.620 --> 00:34:31.582
+labeled test set.
+
+00:34:31.988 --> 00:34:35.623
+Then identify the file that records the run&#x27;s
+provenance.
+
+00:34:36.000 --> 00:34:46.000
+[Practice pause: 10 seconds] Which scripts
+handle unlabeled prediction and labeled
+evaluation? Where is run provenance recorded?
+
+00:34:46.101 --> 00:34:50.642
+Use predict for unlabeled flows, evaluate for
+labeled scoring,
+
+00:34:50.920 --> 00:34:52.728
+and the manifest for run provenance.
+
+00:34:53.133 --> 00:34:55.182
+Now examine the recorded results.
+
+00:34:55.587 --> 00:35:00.608
+Seed zero correctly classified nine hundred
+fifty of one thousand
+
+00:35:00.608 --> 00:35:02.189
+forty one test flows.
+
+00:35:02.606 --> 00:35:05.173
+Seed one got eight hundred seventy five correct.
+
+00:35:05.578 --> 00:35:07.500
+Seed two got eight hundred eighty one.
+
+00:35:07.918 --> 00:35:12.155
+Those correspond to ninety one point two six,
+eighty four point
+
+00:35:12.155 --> 00:35:16.619
+zero five, and eighty four point six three
+percent accuracy.
+
+00:35:17.011 --> 00:35:18.466
+All three results are retained.
+
+00:35:18.870 --> 00:35:21.868
+Selecting only the strongest seed would give a
+misleading
+
+00:35:21.868 --> 00:35:25.700
+impression of this training procedure&#x27;s observed
+variability.
+
+00:35:26.168 --> 00:35:30.013
+The average accuracy is eighty six point six
+five percent.
+
+00:35:30.418 --> 00:35:33.656
+The sample standard deviation is four percentage
+points.
+
+00:35:34.074 --> 00:35:38.324
+The mean summarizes these three runs; the
+standard deviation
+
+00:35:38.615 --> 00:35:39.943
+summarizes their spread.
+
+00:35:40.348 --> 00:35:43.232
+It is not a confidence interval and does not
+prove how
+
+00:35:43.232 --> 00:35:45.585
+performance will vary on a customer&#x27;s network.
+
+00:35:45.989 --> 00:35:48.658
+All three seeds used the same test split.
+
+00:35:49.088 --> 00:35:53.022
+One result has therefore been repeated under
+different randomized
+
+00:35:53.035 --> 00:35:57.184
+training conditions, rather than evaluated on
+three independently
+
+00:35:57.197 --> 00:35:58.310
+collected networks.
+
+00:35:58.714 --> 00:36:01.611
+Those are useful measurements, but they answer a
+narrower
+
+00:36:01.611 --> 00:36:03.989
+question than real world generalization.
+
+00:36:04.455 --> 00:36:08.616
+Accuracy counts correct predictions across the
+full test set.
+
+00:36:09.021 --> 00:36:12.536
+Precision asks how many predictions of a
+category were right.
+
+00:36:12.928 --> 00:36:17.114
+Recall asks how many actual examples of that
+category were found.
+
+00:36:17.519 --> 00:36:20.074
+F one combines precision and recall.
+
+00:36:20.478 --> 00:36:24.829
+Macro F one treats categories equally, while
+weighted F one
+
+00:36:24.829 --> 00:36:28.673
+accounts for how many true examples each
+category has.
+
+00:36:29.078 --> 00:36:33.175
+These metrics can disagree when class sizes
+differ or errors
+
+00:36:33.175 --> 00:36:34.997
+concentrate in one category.
+
+00:36:35.414 --> 00:36:39.221
+The repository preserves independent metrics and
+a confusion
+
+00:36:39.221 --> 00:36:42.951
+matrix so you can inspect the pattern, rather
+than trust a single
+
+00:36:42.951 --> 00:36:43.697
+percentage.
+
+00:36:44.155 --> 00:36:48.962
+In the matrix, each row is a known category and
+each column is
+
+00:36:48.975 --> 00:36:49.949
+the model&#x27;s prediction.
+
+00:36:50.367 --> 00:36:52.226
+Counts on the diagonal are correct.
+
+00:36:52.644 --> 00:36:56.793
+Off diagonal counts show which categories were
+confused.
+
+00:36:57.185 --> 00:37:01.132
+Our test set has two hundred examples for each
+category except
+
+00:37:01.183 --> 00:37:02.777
+Other, which has forty one.
+
+00:37:03.182 --> 00:37:06.332
+That support difference matters when comparing
+percentages.
+
+00:37:06.749 --> 00:37:10.291
+The matrix is computed from saved predictions,
+so another
+
+00:37:10.304 --> 00:37:11.594
+reviewer can recompute it.
+
+00:37:11.999 --> 00:37:15.313
+A large diagonal is encouraging, but the
+mistakes remain
+
+00:37:15.326 --> 00:37:19.817
+important: an operational system must understand
+the cost of both
+
+00:37:19.817 --> 00:37:23.245
+missed attacks and incorrect alerts on benign
+activity.
+
+00:37:23.734 --> 00:37:28.134
+The final native evaluation, strict reloaded
+evaluation, and
+
+00:37:28.134 --> 00:37:30.966
+recorded replay agree for the three seeds.
+
+00:37:31.358 --> 00:37:35.833
+A later fresh environment on the same G B ten
+hardware reproduced
+
+00:37:36.048 --> 00:37:40.081
+all one thousand forty one seed zero predictions
+and all six
+
+00:37:40.081 --> 00:37:43.583
+thousand two hundred forty six saved logits
+exactly.
+
+00:37:44.000 --> 00:37:47.034
+That is strong evidence that the checked
+environment can
+
+00:37:47.034 --> 00:37:50.132
+reexecute the frozen classifier result.
+
+00:37:50.536 --> 00:37:53.520
+It is not another training run or an independent
+dataset
+
+00:37:53.520 --> 00:37:54.253
+evaluation.
+
+00:37:54.658 --> 00:37:58.564
+Smaller differences in an earlier limited
+comparison remain
+
+00:37:58.577 --> 00:37:59.765
+recorded separately.
+
+00:38:00.157 --> 00:38:03.899
+Each check retains its own inputs, environment,
+and scope.
+
+00:38:04.381 --> 00:38:07.176
+The paper comparison is higher than our measured
+result.
+
+00:38:07.593 --> 00:38:11.325
+Possible contributing factors include runtime
+differences,
+
+00:38:11.590 --> 00:38:15.752
+training settings, extraction details, and
+checkpoint history,
+
+00:38:16.207 --> 00:38:18.572
+but we have not isolated their effects.
+
+00:38:18.977 --> 00:38:22.810
+Naming plausible causes is not the same as
+testing them.
+
+00:38:23.202 --> 00:38:27.060
+A defensible follow up would change one relevant
+factor under a
+
+00:38:27.060 --> 00:38:30.019
+controlled protocol and retain every outcome.
+
+00:38:30.437 --> 00:38:33.902
+It would also address data independence and
+record exact
+
+00:38:33.902 --> 00:38:34.864
+preprocessing.
+
+00:38:35.294 --> 00:38:39.329
+For now the accurate statement is that the model
+executes and
+
+00:38:39.329 --> 00:38:42.769
+trains, while the paper&#x27;s headline accuracy has
+not been
+
+00:38:42.769 --> 00:38:44.945
+reproduced under our measured conditions.
+
+00:38:45.434 --> 00:38:48.519
+A customer can reasonably ask what confidence
+these checks
+
+00:38:48.519 --> 00:38:49.037
+provide.
+
+00:38:49.454 --> 00:38:51.692
+Answer with the activity actually tested.
+
+00:38:52.147 --> 00:38:55.876
+Three complete training runs produced recorded
+classifiers.
+
+00:38:56.293 --> 00:38:58.960
+Strict inference and independent metrics agree.
+
+00:38:59.427 --> 00:39:02.524
+Fresh runtime checks reproduce the frozen
+result.
+
+00:39:02.929 --> 00:39:06.317
+The data and runtime limitations remain
+explicit.
+
+00:39:06.734 --> 00:39:09.413
+None of those statements requires pretending
+that the paper
+
+00:39:09.426 --> 00:39:13.029
+number was matched or that an operational
+network was protected.
+
+00:39:13.446 --> 00:39:17.453
+Take ten seconds to practice explaining the
+average accuracy and
+
+00:39:17.453 --> 00:39:20.828
+the four percentage point spread, while
+mentioning that all seeds
+
+00:39:20.828 --> 00:39:22.623
+used the same fixed test set.
+
+00:39:23.000 --> 00:39:33.000
+[Practice pause: 10 seconds] Explain the mean
+and spread without claiming customer-network
+validation.
+
+00:39:33.101 --> 00:39:36.071
+Now use the browser replay to make the result
+concrete.
+
+00:39:36.488 --> 00:39:39.092
+The page can be opened on a presentation machine
+without
+
+00:39:39.105 --> 00:39:42.492
+installing CUDA, Python, or a checkpoint.
+
+00:39:42.896 --> 00:39:46.802
+It displays seed zero&#x27;s saved predictions and
+their known labels.
+
+00:39:47.219 --> 00:39:51.087
+Its controls let you inspect the recorded
+sequence and errors.
+
+00:39:51.516 --> 00:39:53.779
+The screenshot comes from the actual working
+page.
+
+00:39:54.196 --> 00:39:57.634
+This is a good customer demonstration because
+the evidence is
+
+00:39:57.634 --> 00:40:01.033
+available offline and can be inspected
+consistently.
+
+00:40:01.438 --> 00:40:06.013
+Say recorded replay before presenting it, so a
+moving table is
+
+00:40:06.013 --> 00:40:08.503
+not mistaken for a live packet feed.
+
+00:40:08.968 --> 00:40:12.100
+Seed zero was declared as the demonstration
+model.
+
+00:40:12.517 --> 00:40:15.056
+The other two results remain published beside
+it.
+
+00:40:15.435 --> 00:40:20.147
+A demo often needs one fixed model and a
+manageable story, but
+
+00:40:20.160 --> 00:40:22.459
+that choice must not hide variability.
+
+00:40:22.876 --> 00:40:27.031
+Also, the number of predictions assigned to
+attack categories is
+
+00:40:27.044 --> 00:40:29.621
+not the number of operational security alerts.
+
+00:40:30.000 --> 00:40:33.676
+A real alert policy might combine repeated
+observations,
+
+00:40:34.042 --> 00:40:37.567
+thresholds, exceptions, and analyst context.
+
+00:40:37.971 --> 00:40:40.965
+Those policy components have not been
+implemented here.
+
+00:40:41.369 --> 00:40:45.563
+The recorded page lets you explain
+classification behavior; it
+
+00:40:45.563 --> 00:40:48.556
+does not establish an incident response
+workflow.
+
+00:40:49.022 --> 00:40:52.673
+Look at the saved prediction with JSON index six
+hundred thirty
+
+00:40:52.686 --> 00:40:53.179
+five.
+
+00:40:53.583 --> 00:40:57.487
+The browser numbers rows from one, so it
+displays that record as
+
+00:40:57.500 --> 00:40:59.168
+zero six three six.
+
+00:40:59.585 --> 00:41:02.870
+The highest score belongs to R T S P brute
+force.
+
+00:41:03.287 --> 00:41:07.014
+Its normalized display score is eighty four
+point four three
+
+00:41:07.014 --> 00:41:07.570
+percent.
+
+00:41:07.987 --> 00:41:11.689
+Before looking at the true label, notice how
+confident that
+
+00:41:11.689 --> 00:41:13.003
+display can appear.
+
+00:41:13.408 --> 00:41:17.034
+Softmax converts six logits into scores that add
+to one.
+
+00:41:17.463 --> 00:41:20.989
+That arithmetic does not establish that the top
+score is a
+
+00:41:20.989 --> 00:41:23.212
+calibrated probability of an attack.
+
+00:41:23.701 --> 00:41:25.193
+The known label is Other.
+
+00:41:25.610 --> 00:41:26.760
+This prediction is wrong.
+
+00:41:27.164 --> 00:41:30.880
+That single record gives you a useful way to
+explain why a high
+
+00:41:30.893 --> 00:41:34.862
+display score is not sufficient evidence to
+block traffic.
+
+00:41:35.279 --> 00:41:38.855
+The model must assign one of its known
+categories, even when a
+
+00:41:38.855 --> 00:41:43.153
+flow is ambiguous or unlike its training
+examples.
+
+00:41:43.583 --> 00:41:47.475
+The project has not validated an unknown attack
+detector or a
+
+00:41:47.488 --> 00:41:49.270
+confidence calibration procedure.
+
+00:41:49.662 --> 00:41:53.618
+Showing a real error makes the demonstration
+more informative: it
+
+00:41:53.631 --> 00:41:57.852
+reveals the gap between a classifier&#x27;s output
+and an operational
+
+00:41:57.852 --> 00:41:58.813
+security decision.
+
+00:41:59.301 --> 00:42:02.168
+If you want new predictions, use the prediction
+command with
+
+00:42:02.181 --> 00:42:05.048
+already assembled native flows and a checked
+classifier
+
+00:42:05.061 --> 00:42:05.642
+checkpoint.
+
+00:42:06.058 --> 00:42:09.014
+The input path identifies your flow JSON.
+
+00:42:09.443 --> 00:42:11.692
+The checkpoint path identifies the model.
+
+00:42:12.108 --> 00:42:15.367
+The output path must be fresh so that provenance
+stays
+
+00:42:15.493 --> 00:42:16.479
+unambiguous.
+
+00:42:16.908 --> 00:42:20.963
+The command returns class names, logits, and
+display scores.
+
+00:42:21.379 --> 00:42:25.181
+It will not invent accuracy when no correct
+labels are supplied.
+
+00:42:25.585 --> 00:42:29.160
+This interface is a useful component for a
+future service, but
+
+00:42:29.160 --> 00:42:33.303
+capture, flow creation, and customer data
+validation still need
+
+00:42:33.303 --> 00:42:34.161
+to be built around it.
+
+00:42:34.634 --> 00:42:38.197
+A simple future prototype would capture packets,
+group them into
+
+00:42:38.209 --> 00:42:42.858
+flows, produce the exact expected feature
+representation, invoke
+
+00:42:42.858 --> 00:42:45.334
+the classifier, and log outputs for review.
+
+00:42:45.751 --> 00:42:49.212
+Initially, it could run in observation mode
+while comparing
+
+00:42:49.212 --> 00:42:51.789
+predictions with independently established
+labels.
+
+00:42:52.205 --> 00:42:55.907
+The original extraction code has unresolved
+dependencies and path
+
+00:42:55.907 --> 00:42:59.545
+assumptions, so that capture to feature route is
+not currently
+
+00:42:59.545 --> 00:43:01.187
+established by this repository.
+
+00:43:01.604 --> 00:43:05.507
+Do not insert a box labeled preprocessing into a
+diagram and
+
+00:43:05.520 --> 00:43:07.553
+assume the engineering is complete.
+
+00:43:07.957 --> 00:43:12.328
+Its grouping, timing, byte extraction, and
+truncation rules are
+
+00:43:12.341 --> 00:43:14.501
+part of the model&#x27;s effective specification.
+
+00:43:14.968 --> 00:43:18.605
+To hand this demo to another presenter, show the
+saved result,
+
+00:43:19.035 --> 00:43:23.203
+reveal the incorrect example, and explain the
+missing operational
+
+00:43:23.203 --> 00:43:23.885
+stages.
+
+00:43:24.302 --> 00:43:27.863
+Keep the native inference command available for
+an engineer who
+
+00:43:27.863 --> 00:43:30.339
+wants to run new compatible flows.
+
+00:43:30.756 --> 00:43:34.709
+Keep the offline replay available for a meeting
+with unreliable
+
+00:43:34.722 --> 00:43:35.202
+internet.
+
+00:43:35.581 --> 00:43:38.688
+Neither route needs a chatbot to classify
+traffic.
+
+00:43:39.092 --> 00:43:43.828
+Take ten seconds to explain why the eighty four
+point four three
+
+00:43:43.828 --> 00:43:47.491
+percent score was not enough to trust this
+particular prediction,
+
+00:43:47.971 --> 00:43:50.636
+even though the score calculation itself was
+valid.
+
+00:43:51.000 --> 00:44:01.000
+[Practice pause: 10 seconds] Why was the 84.43%
+display score insufficient to trust this
+prediction?
+
+00:44:01.101 --> 00:44:04.340
+The score was uncalibrated and the known label
+showed an error.
+
+00:44:04.732 --> 00:44:06.921
+Next, choose the setup you actually need.
+
+00:44:07.376 --> 00:44:11.399
+For a presentation, use the video, documents,
+and recorded
+
+00:44:11.399 --> 00:44:12.222
+browser demo.
+
+00:44:12.639 --> 00:44:15.751
+For portable evidence checks, use Git and
+Python.
+
+00:44:16.194 --> 00:44:20.255
+For new neural training or inference, use the
+checked Linux CUDA
+
+00:44:20.255 --> 00:44:22.962
+environment and separately acquired assets.
+
+00:44:23.367 --> 00:44:25.303
+These routes have different requirements.
+
+00:44:25.708 --> 00:44:28.972
+A laptop can display the presentation without
+supporting the
+
+00:44:28.972 --> 00:44:30.401
+model&#x27;s CUDA extensions.
+
+00:44:30.819 --> 00:44:34.753
+This separation makes the project usable on
+other systems while
+
+00:44:34.766 --> 00:44:38.194
+keeping the model execution claims tied to
+hardware that was
+
+00:44:38.207 --> 00:44:39.131
+actually tested.
+
+00:44:39.601 --> 00:44:42.941
+For the portable route, clone the repository,
+enter its
+
+00:44:42.941 --> 00:44:45.105
+directory, and run the commands shown.
+
+00:44:45.523 --> 00:44:48.977
+Use Python three if that is your system&#x27;s
+executable name.
+
+00:44:49.394 --> 00:44:53.000
+The unit tests and the package and video source
+checks use the
+
+00:44:53.000 --> 00:44:55.885
+standard library without downloading research
+data.
+
+00:44:56.302 --> 00:45:00.528
+A successful suite ends with O K, and the
+verifiers exit
+
+00:45:00.541 --> 00:45:01.338
+successfully.
+
+00:45:01.743 --> 00:45:05.577
+These checks protect important behavior such as
+input rejection,
+
+00:45:05.994 --> 00:45:09.081
+file identity, and consistent published
+artifacts.
+
+00:45:09.499 --> 00:45:12.574
+They are deliberately different from a GPU
+training test.
+
+00:45:12.978 --> 00:45:16.597
+Read the workflow record for the exact test
+count and commit that
+
+00:45:16.610 --> 00:45:17.192
+passed.
+
+00:45:17.668 --> 00:45:20.731
+The automated workflow runs the portable checks
+on Linux and
+
+00:45:20.731 --> 00:45:25.541
+Windows with x eighty six processors, and macOS
+on ARM, using
+
+00:45:25.541 --> 00:45:28.464
+Python three point ten and three point twelve.
+
+00:45:28.895 --> 00:45:30.528
+That makes six combinations.
+
+00:45:30.945 --> 00:45:35.540
+Earlier failures exposed text encoding, newline,
+and temporary
+
+00:45:35.540 --> 00:45:36.565
+directory issues.
+
+00:45:36.970 --> 00:45:40.856
+Those were corrected and retained as regression
+tests rather than
+
+00:45:40.856 --> 00:45:42.830
+removing platforms from the matrix.
+
+00:45:43.223 --> 00:45:46.868
+A green workflow means those particular checks
+passed on the
+
+00:45:46.868 --> 00:45:47.691
+recorded commit.
+
+00:45:48.108 --> 00:45:52.627
+It does not establish native Windows or macOS
+execution of the
+
+00:45:52.627 --> 00:45:53.804
+original neural model.
+
+00:45:54.222 --> 00:45:56.918
+The support matrix keeps those boundaries
+separate.
+
+00:45:57.401 --> 00:46:00.854
+The GPU route uses a specific environment
+profile.
+
+00:46:01.272 --> 00:46:05.231
+It includes Python three point twelve, Torch two
+point nine point
+
+00:46:05.231 --> 00:46:09.266
+one with CUDA thirteen, and pinned native
+extensions for Mamba
+
+00:46:09.569 --> 00:46:10.733
+and causal convolution.
+
+00:46:11.150 --> 00:46:14.426
+These extensions contain compiled GPU code.
+
+00:46:14.818 --> 00:46:19.182
+A compatible Python package name alone is not
+enough: the driver,
+
+00:46:19.385 --> 00:46:23.786
+compiler, selected GPU architecture, and
+installed binaries must
+
+00:46:23.786 --> 00:46:24.469
+work together.
+
+00:46:24.887 --> 00:46:27.872
+The current support guide provides the full
+commands.
+
+00:46:28.277 --> 00:46:32.893
+The generalized builder uses disposable source
+copies, checks the
+
+00:46:32.893 --> 00:46:36.486
+selected target, and records actual compiler
+flags.
+
+00:46:36.878 --> 00:46:39.698
+It preserves the original model&#x27;s source
+identity.
+
+00:46:40.168 --> 00:46:43.937
+After building, run the numerical checker and
+the complete model
+
+00:46:43.950 --> 00:46:44.494
+checker.
+
+00:46:44.898 --> 00:46:48.908
+The numerical checker compares selected GPU
+operations with
+
+00:46:48.920 --> 00:46:50.248
+reference computations.
+
+00:46:50.653 --> 00:46:54.056
+The complete model checker processes six
+synthetic fixtures
+
+00:46:54.233 --> 00:46:58.862
+through all four blocks, performs an optimizer
+update, saves and
+
+00:46:58.862 --> 00:47:02.100
+strictly reloads the state, and checks
+inference.
+
+00:47:02.505 --> 00:47:06.059
+It can bind installed extension hashes to the
+completed build
+
+00:47:06.059 --> 00:47:06.577
+report.
+
+00:47:06.969 --> 00:47:10.018
+This catches failures that a successful import
+would miss.
+
+00:47:10.435 --> 00:47:14.116
+Synthetic fixtures prove functionality, not
+accuracy.
+
+00:47:14.520 --> 00:47:18.214
+Only after those gates pass should you acquire
+and validate the
+
+00:47:18.214 --> 00:47:21.566
+real flow assets and start a new measured
+experiment.
+
+00:47:22.035 --> 00:47:25.804
+The original model has measured execution on G B
+ten.
+
+00:47:26.222 --> 00:47:29.637
+A fresh environment on that same hardware also
+passed the
+
+00:47:29.650 --> 00:47:31.952
+generalized build and model checks.
+
+00:47:32.357 --> 00:47:36.127
+Other physical NVIDIA GPUs still need their own
+validation.
+
+00:47:36.532 --> 00:47:40.795
+There is no complete CPU model fallback, Apple
+graphics backend,
+
+00:47:41.250 --> 00:47:43.337
+or validated N P U implementation.
+
+00:47:43.742 --> 00:47:47.575
+Some reference formulas exist, but normal
+imports and active
+
+00:47:47.575 --> 00:47:51.573
+execution still depend on CUDA and fused
+operations.
+
+00:47:51.977 --> 00:47:56.380
+If a setup fails, inspect the fresh build report
+and logs.
+
+00:47:56.759 --> 00:48:00.504
+Do not turn off checks until it appears green;
+determine which
+
+00:48:00.504 --> 00:48:03.362
+prerequisite or computation actually failed.
+
+00:48:03.822 --> 00:48:07.162
+You can now explain setup without promising that
+every machine
+
+00:48:07.174 --> 00:48:08.566
+runs every layer.
+
+00:48:08.983 --> 00:48:10.666
+Use the simplest route for the job.
+
+00:48:11.083 --> 00:48:13.600
+Preserve output directories and their manifests.
+
+00:48:14.005 --> 00:48:17.762
+Read failures before retrying with a corrected
+configuration.
+
+00:48:18.180 --> 00:48:21.785
+When someone asks whether it works elsewhere,
+specify whether
+
+00:48:21.798 --> 00:48:26.225
+they mean opening the materials, rechecking
+evidence, or running
+
+00:48:26.238 --> 00:48:26.997
+the neural model.
+
+00:48:27.402 --> 00:48:31.513
+Take ten seconds to choose the correct route for
+a colleague who
+
+00:48:31.589 --> 00:48:34.992
+only needs to present the demo on a Windows
+laptop, and the
+
+00:48:34.992 --> 00:48:38.623
+separate route for an engineer who wants new GPU
+predictions.
+
+00:48:39.000 --> 00:48:49.000
+[Practice pause: 10 seconds] Which setup is
+enough to present, and which setup is needed for
+new model predictions?
+
+00:48:49.089 --> 00:48:52.605
+A presenter needs the viewing route; new neural
+predictions
+
+00:48:52.605 --> 00:48:54.604
+require the checked GPU route.
+
+00:48:54.996 --> 00:48:57.298
+Now tour the rest of the repository.
+
+00:48:57.716 --> 00:49:02.004
+The file guide is the complete inventory, with
+one entry for
+
+00:49:02.193 --> 00:49:03.307
+every tracked file.
+
+00:49:03.711 --> 00:49:07.215
+This chapter explains how the areas fit together
+so that the
+
+00:49:07.228 --> 00:49:12.085
+inventory is useful instead of becoming a wall
+of unfamiliar
+
+00:49:12.085 --> 00:49:12.655
+names.
+
+00:49:13.059 --> 00:49:14.679
+Tracked means included in Git.
+
+00:49:15.083 --> 00:49:19.776
+Locally downloaded source, raw data,
+checkpoints, environments,
+
+00:49:19.953 --> 00:49:21.585
+and temporary runs are separate.
+
+00:49:21.977 --> 00:49:25.481
+A GitHub release attachment is another separate
+object: it
+
+00:49:25.481 --> 00:49:29.048
+belongs to its tagged release, not automatically
+to the current
+
+00:49:29.048 --> 00:49:29.795
+working tree.
+
+00:49:30.268 --> 00:49:33.707
+At the root, the read me is the front door and
+the four Python
+
+00:49:33.720 --> 00:49:35.553
+entry points coordinate execution.
+
+00:49:35.971 --> 00:49:39.954
+Configs contains the source based fine tuning
+recipe, the short
+
+00:49:39.954 --> 00:49:42.748
+pretraining recipe, and the asset inventory.
+
+00:49:43.153 --> 00:49:46.592
+Requirements separates packages used for
+different activities,
+
+00:49:46.832 --> 00:49:50.992
+such as GPU execution, browser checks, and video
+production.
+
+00:49:51.410 --> 00:49:56.101
+Dot git ignore keeps local outputs and sensitive
+settings out of
+
+00:49:56.101 --> 00:49:56.910
+normal tracking.
+
+00:49:57.315 --> 00:50:01.045
+Dot git attributes preserves the exact bytes of
+recorded
+
+00:50:01.045 --> 00:50:04.383
+documents and configurations across platforms.
+
+00:50:04.775 --> 00:50:08.720
+Neither file establishes data rights or
+scientific correctness;
+
+00:50:09.125 --> 00:50:11.527
+they support reliable repository handling.
+
+00:50:12.001 --> 00:50:14.708
+The tools directory groups supporting programs.
+
+00:50:15.177 --> 00:50:18.694
+Fetch assets obtains verified external files.
+
+00:50:19.111 --> 00:50:22.577
+Profile C S Vs produces the data profiles.
+
+00:50:22.995 --> 00:50:25.348
+Capture runtime records the environment.
+
+00:50:25.765 --> 00:50:29.105
+The CUDA builders compile the pinned extensions,
+while the
+
+00:50:29.118 --> 00:50:31.787
+numerical and model checkers exercise them.
+
+00:50:32.217 --> 00:50:35.329
+Benchmark measures model execution timing.
+
+00:50:35.722 --> 00:50:38.037
+Probe export tests graph capture.
+
+00:50:38.404 --> 00:50:40.959
+Review experiments collects run results.
+
+00:50:41.377 --> 00:50:45.311
+Publish evidence copies reviewed records into
+the package; its
+
+00:50:45.311 --> 00:50:48.879
+name does not mean arbitrary files are
+automatically sent to
+
+00:50:48.879 --> 00:50:49.397
+GitHub.
+
+00:50:49.815 --> 00:50:54.331
+Each tool&#x27;s entry in the file guide states its
+input, output, and
+
+00:50:54.331 --> 00:50:55.115
+when you would use it.
+
+00:50:55.589 --> 00:50:58.840
+Other tools build the customer package, the
+plain language
+
+00:50:58.840 --> 00:51:02.471
+learning guide, replay outputs, and teaching
+materials.
+
+00:51:02.876 --> 00:51:06.786
+The video pipeline separates the lesson source,
+speech rendering,
+
+00:51:07.013 --> 00:51:09.442
+visual assembly, and browser page.
+
+00:51:09.860 --> 00:51:12.947
+Codex authors the narration and explanations.
+
+00:51:13.352 --> 00:51:17.072
+Microsoft&#x27;s Andrew neural voice converts that
+text into sound;
+
+00:51:17.540 --> 00:51:20.513
+the speech service does not research or write
+the lesson.
+
+00:51:20.930 --> 00:51:25.220
+Verification tools compare identities and
+inspect encoded media.
+
+00:51:25.637 --> 00:51:29.142
+The archived interactive course builders remain
+for reference
+
+00:51:29.154 --> 00:51:33.165
+continuity, but the retired public course route
+is excluded from
+
+00:51:33.165 --> 00:51:33.747
+deployment.
+
+00:51:34.152 --> 00:51:36.859
+The one active video is the current teaching
+path.
+
+00:51:37.335 --> 00:51:41.243
+Tests contains controlled cases for the
+wrappers, acquisition,
+
+00:51:41.647 --> 00:51:45.100
+portability, runtime checking, and presentation
+tooling.
+
+00:51:45.530 --> 00:51:49.868
+The workflow files run portable checks and
+publish the selected
+
+00:51:49.868 --> 00:51:50.791
+browser material.
+
+00:51:51.209 --> 00:51:54.990
+Docs contains foundational explanations and the
+customer package.
+
+00:51:55.445 --> 00:51:59.556
+Figures are reusable charts; evidence contains
+original
+
+00:51:59.556 --> 00:52:03.780
+experiment records; audit evidence contains
+later rechecks.
+
+00:52:04.185 --> 00:52:07.663
+Research records preserve plans and council
+outcomes.
+
+00:52:08.067 --> 00:52:11.166
+A council discussion can improve a design, but
+it is not an
+
+00:52:11.280 --> 00:52:12.937
+executed GPU test.
+
+00:52:13.341 --> 00:52:17.730
+An unratified review remains unratified even
+when ordinary
+
+00:52:17.730 --> 00:52:20.525
+implementation later fixes a technical problem.
+
+00:52:20.930 --> 00:52:24.256
+Read the status and evidence scope of each
+record.
+
+00:52:24.735 --> 00:52:29.175
+The original customer release contains a
+briefing PDF, editable
+
+00:52:29.188 --> 00:52:33.528
+PowerPoint, slide PDF, offline package, and
+supporting
+
+00:52:33.540 --> 00:52:36.020
+presentation materials at its recorded revision.
+
+00:52:36.438 --> 00:52:38.892
+It remains a frozen experiment package.
+
+00:52:39.310 --> 00:52:43.371
+The new course has its own versioned video,
+transcript, captions,
+
+00:52:43.586 --> 00:52:44.915
+and companion materials.
+
+00:52:45.307 --> 00:52:47.584
+A transcript is the narration in text.
+
+00:52:47.989 --> 00:52:51.102
+Caption files add time boundaries for video
+players.
+
+00:52:51.507 --> 00:52:55.846
+Chapter metadata supports navigation, and the
+media manifest
+
+00:52:55.859 --> 00:52:57.997
+records hashes and provenance.
+
+00:52:58.415 --> 00:53:01.881
+Use the current support matrix for later
+portability work.
+
+00:53:02.299 --> 00:53:06.348
+Do not assume the original release ZIP silently
+changes whenever
+
+00:53:06.348 --> 00:53:08.600
+the repository gains a new file.
+
+00:53:09.106 --> 00:53:12.823
+For a new colleague, begin with the read me and
+this course, then
+
+00:53:12.823 --> 00:53:15.857
+use the file guide to explore a specific task.
+
+00:53:16.262 --> 00:53:19.903
+Before running commands, read the current
+support matrix and the
+
+00:53:19.903 --> 00:53:20.447
+runbook.
+
+00:53:20.864 --> 00:53:24.037
+Before presenting a result, trace it from the
+results document to
+
+00:53:24.050 --> 00:53:27.135
+its manifest, log, and predictions.
+
+00:53:27.527 --> 00:53:30.498
+You do not need to memorize every audit JSON
+file.
+
+00:53:30.915 --> 00:53:33.317
+You need to know which question it answers and
+how it was
+
+00:53:33.317 --> 00:53:33.924
+produced.
+
+00:53:34.341 --> 00:53:37.793
+Take ten seconds to choose the file you would
+open to check a
+
+00:53:37.793 --> 00:53:41.864
+platform claim, and the record you would open to
+verify an actual
+
+00:53:41.864 --> 00:53:42.623
+training result.
+
+00:53:43.000 --> 00:53:53.000
+[Practice pause: 10 seconds] Where would you
+verify a platform claim and an actual training
+result?
+
+00:53:53.101 --> 00:53:56.849
+Use the support matrix for platform claims and
+the run records
+
+00:53:56.849 --> 00:53:57.951
+for training evidence.
+
+00:53:58.432 --> 00:54:00.420
+Finally, consider hardware deployment.
+
+00:54:00.825 --> 00:54:04.852
+The model only benchmark measured a median batch
+one latency of
+
+00:54:04.864 --> 00:54:08.473
+about zero point eight eight milliseconds on G B
+ten.
+
+00:54:08.878 --> 00:54:12.271
+It used twenty warmup iterations and one hundred
+measured
+
+00:54:12.271 --> 00:54:13.107
+repetitions.
+
+00:54:13.500 --> 00:54:17.501
+That timing excludes packet capture, waiting for
+enough packets,
+
+00:54:17.665 --> 00:54:21.666
+preprocessing, transfers, model loading, and
+alert handling.
+
+00:54:22.059 --> 00:54:25.123
+A fast classifier can still be part of a slow
+pipeline.
+
+00:54:25.503 --> 00:54:29.542
+End to end latency must be measured across the
+complete path a
+
+00:54:29.555 --> 00:54:31.429
+real observation follows.
+
+00:54:31.876 --> 00:54:35.635
+A network interface card moves traffic into and
+out of a machine.
+
+00:54:36.040 --> 00:54:39.319
+A Smart N I C can take on additional packet
+handling or
+
+00:54:39.319 --> 00:54:40.091
+computation.
+
+00:54:40.496 --> 00:54:44.976
+An N P U accelerates neural operations that its
+runtime supports.
+
+00:54:45.381 --> 00:54:49.179
+A possible future division places capture and
+some flow handling
+
+00:54:49.191 --> 00:54:52.457
+near the network interface, with a host
+coordinating buffers,
+
+00:54:52.697 --> 00:54:55.583
+features, inference, and alert policy.
+
+00:54:55.988 --> 00:54:57.735
+This is an architectural proposal.
+
+00:54:58.140 --> 00:55:02.950
+Our repository has not executed Net Mamba Plus
+on a Smart N I C
+
+00:55:03.077 --> 00:55:07.342
+or N P U, and it does not establish a direct
+memory transfer path
+
+00:55:07.342 --> 00:55:08.291
+on the measured hardware.
+
+00:55:08.743 --> 00:55:12.971
+A model only checkpoint export saves parameter
+tensors without
+
+00:55:12.984 --> 00:55:14.326
+the training optimizer.
+
+00:55:14.718 --> 00:55:18.681
+A graph export tries to represent the
+computation for another
+
+00:55:18.694 --> 00:55:19.744
+execution system.
+
+00:55:20.162 --> 00:55:21.416
+These are different operations.
+
+00:55:21.821 --> 00:55:25.277
+Our strict graph capture probe failed at the
+custom causal
+
+00:55:25.277 --> 00:55:29.873
+convolution CUDA operator, while ordinary eager
+GPU inference
+
+00:55:29.873 --> 00:55:30.379
+works.
+
+00:55:30.797 --> 00:55:34.494
+Copying the weight file to an N P U therefore
+does not solve
+
+00:55:34.494 --> 00:55:35.076
+deployment.
+
+00:55:35.481 --> 00:55:39.305
+A port needs supported operators or equivalent
+implementations,
+
+00:55:39.520 --> 00:55:42.824
+compatible layouts, controlled precision, and
+numerical
+
+00:55:42.837 --> 00:55:44.736
+validation against the known outputs.
+
+00:55:45.141 --> 00:55:48.965
+The recorded failure is useful because it
+identifies a concrete
+
+00:55:49.066 --> 00:55:52.193
+obstacle rather than a vague future
+optimization.
+
+00:55:52.668 --> 00:55:56.339
+After implementing a target backend, first
+compare its full model
+
+00:55:56.339 --> 00:55:57.959
+outputs with the checked reference.
+
+00:55:58.364 --> 00:56:01.920
+Where training is part of the target, compare
+gradients as well.
+
+00:56:02.338 --> 00:56:06.237
+If reducing numerical precision through
+quantization, measure the
+
+00:56:06.237 --> 00:56:10.603
+effect on the labeled task instead of assuming
+the same accuracy.
+
+00:56:10.996 --> 00:56:15.565
+Then measure throughput, tail latency, memory,
+buffering, and
+
+00:56:15.565 --> 00:56:18.160
+packet drops under an actual traffic path.
+
+00:56:18.552 --> 00:56:23.008
+A compiler success message proves a build stage,
+not useful
+
+00:56:23.020 --> 00:56:24.084
+security behavior.
+
+00:56:24.489 --> 00:56:28.134
+Only a complete measured pipeline can support a
+deployment claim,
+
+00:56:28.590 --> 00:56:32.260
+and none of those N P U or Smart N I C
+measurements exists
+
+00:56:32.260 --> 00:56:32.830
+here yet.
+
+00:56:33.301 --> 00:56:35.036
+The remaining work is specific.
+
+00:56:35.429 --> 00:56:39.494
+We have not matched the paper&#x27;s accuracy or
+repeated its full
+
+00:56:39.494 --> 00:56:40.178
+pretraining.
+
+00:56:40.583 --> 00:56:43.952
+We have not established the live capture and
+extraction path,
+
+00:56:44.205 --> 00:56:47.498
+capture independent customer validation,
+calibrated attack
+
+00:56:47.498 --> 00:56:51.601
+confidence, unknown attack detection, or an N P
+U deployment.
+
+00:56:52.006 --> 00:56:55.906
+Other physical GPU configurations still need
+their own checks.
+
+00:56:56.312 --> 00:56:59.959
+Data and inherited asset terms remain
+unresolved.
+
+00:57:00.377 --> 00:57:03.454
+Those items should stay beside the positive
+evidence.
+
+00:57:03.872 --> 00:57:07.734
+They define the next engineering and research
+milestones rather
+
+00:57:07.747 --> 00:57:11.559
+than being hidden behind a claim that everything
+is complete.
+
+00:57:12.035 --> 00:57:14.857
+Now explain the project aloud in your own words.
+
+00:57:15.262 --> 00:57:18.844
+Start with the paper&#x27;s idea, distinguish the
+uploaded packet
+
+00:57:18.844 --> 00:57:22.692
+files from the training flows, and follow inputs
+through training
+
+00:57:22.856 --> 00:57:23.666
+and inference.
+
+00:57:24.084 --> 00:57:26.615
+Give the measured result and one real error.
+
+00:57:26.995 --> 00:57:30.298
+Explain what the repository adds and which setup
+your listener
+
+00:57:30.311 --> 00:57:30.842
+needs.
+
+00:57:31.285 --> 00:57:33.235
+Finish with the remaining deployment work.
+
+00:57:33.652 --> 00:57:36.639
+You have ninety seconds, and you can pause
+longer.
+
+00:57:37.057 --> 00:57:41.246
+The transcript, slides, and every file guide
+remain available
+
+00:57:41.246 --> 00:57:41.752
+afterward.
+
+00:57:42.170 --> 00:57:46.372
+Your strongest presentation is one in which each
+claim leads to
+
+00:57:46.372 --> 00:57:50.663
+evidence and each limitation leads to a clear
+next test.
+
+00:57:51.033 --> 00:59:21.033
+[Practice pause: 90 seconds] Explain the data
+choice, tested result, repository and remaining
+deployment work.
+
+00:59:21.147 --> 00:59:22.578
+Here is a concise handoff.
+
+00:59:22.970 --> 00:59:26.515
+We built a checked execution and evidence layer
+around the
+
+00:59:26.528 --> 00:59:29.731
+authors&#x27; original Net Mamba Plus model.
+
+00:59:30.136 --> 00:59:34.492
+We profiled the two uploaded packet CSVs and
+established why they
+
+00:59:34.504 --> 00:59:36.467
+were not compatible flow inputs.
+
+00:59:36.859 --> 00:59:40.784
+Using the authors&#x27; native flow data, three full
+training runs
+
+00:59:40.898 --> 00:59:44.785
+averaged eighty six point six five percent test
+accuracy.
+
+00:59:45.190 --> 00:59:49.761
+The repository includes strict inference,
+independent results, a
+
+00:59:49.862 --> 00:59:53.470
+recorded demo, setup checks, and teaching
+materials.
+
+00:59:53.888 --> 00:59:57.509
+The paper number and a live deployed intrusion
+detection system
+
+00:59:57.699 --> 00:59:59.623
+remain unproven by this work.

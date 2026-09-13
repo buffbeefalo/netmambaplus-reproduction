@@ -1,0 +1,3507 @@
+{
+  "schema_version": 3,
+  "source": {
+    "path": "docs/customer/video-course-v3-source.json",
+    "sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e"
+  },
+  "media_manifest": {
+    "path": "docs/customer/demo/video/v3/media-manifest.json",
+    "sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709"
+  },
+  "companion": {
+    "path": "docs/repository-walkthrough.md",
+    "sha256": "88f7705bbdcd261a7802bdb35d987cdeeea4abbfaada73cc67b218b8494ebcb3"
+  },
+  "inventory_sha256": "49421b744e8909af8ddbacbc70f81f37a9889f57fb5cc33bdeb88730f8faa871",
+  "inventory": [
+    {
+      "path": ".gitattributes",
+      "scene_id": "repository-02",
+      "companion_anchor": "file--gitattributes"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "scene_id": "setup-03",
+      "companion_anchor": "file--github-workflows-ci-yml"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "scene_id": "setup-03",
+      "companion_anchor": "file--github-workflows-pages-yml"
+    },
+    {
+      "path": ".gitignore",
+      "scene_id": "repository-02",
+      "companion_anchor": "file--gitignore"
+    },
+    {
+      "path": "README.md",
+      "scene_id": "repository-02",
+      "companion_anchor": "file-README-md"
+    },
+    {
+      "path": "configs/assets.json",
+      "scene_id": "code-06",
+      "companion_anchor": "file-configs-assets-json"
+    },
+    {
+      "path": "configs/ciciot2022-pretrain-smoke.json",
+      "scene_id": "code-06",
+      "companion_anchor": "file-configs-ciciot2022-pretrain-smoke-json"
+    },
+    {
+      "path": "configs/ciciot2022.json",
+      "scene_id": "code-06",
+      "companion_anchor": "file-configs-ciciot2022-json"
+    },
+    {
+      "path": "docs/audit.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-audit-md"
+    },
+    {
+      "path": "docs/customer/NetMambaPlus-customer-briefing.pdf",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-NetMambaPlus-customer-briefing-pdf"
+    },
+    {
+      "path": "docs/customer/NetMambaPlus-customer-slides.pdf",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-NetMambaPlus-customer-slides-pdf"
+    },
+    {
+      "path": "docs/customer/NetMambaPlus-customer-slides.pptx",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-NetMambaPlus-customer-slides-pptx"
+    },
+    {
+      "path": "docs/customer/README.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-README-md"
+    },
+    {
+      "path": "docs/customer/SHA256SUMS",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-SHA256SUMS"
+    },
+    {
+      "path": "docs/customer/acceptance.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-acceptance-md"
+    },
+    {
+      "path": "docs/customer/answers.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-answers-md"
+    },
+    {
+      "path": "docs/customer/audit-evidence/benchmark-arithmetic.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-benchmark-arithmetic-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/benchmark/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-benchmark-manifest-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/benchmark/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-benchmark-metrics-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/cpu-tests.txt",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-cpu-tests-txt"
+    },
+    {
+      "path": "docs/customer/audit-evidence/csv-profile.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-csv-profile-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/data-validation.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-data-validation-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/dependency-install.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-dependency-install-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/export-probe/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-export-probe-manifest-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/export-probe/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-export-probe-metrics-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/export-seed0/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-export-seed0-manifest-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/export-seed0/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-export-seed0-metrics-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/export-seed1/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-export-seed1-manifest-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/export-seed1/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-export-seed1-metrics-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/export-seed2/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-export-seed2-manifest-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/export-seed2/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-export-seed2-metrics-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/guide/browser-check.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-guide-browser-check-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/guide/guide-1440.png",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-guide-guide-1440-png"
+    },
+    {
+      "path": "docs/customer/audit-evidence/guide/guide-390.png",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-guide-guide-390-png"
+    },
+    {
+      "path": "docs/customer/audit-evidence/index.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-index-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/page-count-rejection.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-page-count-rejection-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/prediction-rejection-checks.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-prediction-rejection-checks-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/pretrain/log.txt",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-pretrain-log-txt"
+    },
+    {
+      "path": "docs/customer/audit-evidence/pretrain/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-pretrain-manifest-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/pretrain/native.log",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-pretrain-native-log"
+    },
+    {
+      "path": "docs/customer/audit-evidence/pretrain/train_stats.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-pretrain-train_stats-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/primary-summary.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-primary-summary-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/public-browser.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-public-browser-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/runtime-main.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-runtime-main-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/runtime-rehearsal.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-runtime-rehearsal-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/source-integrity.txt",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-source-integrity-txt"
+    },
+    {
+      "path": "docs/customer/audit-evidence/unlabeled-agreement.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-unlabeled-agreement-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/unlabeled-export/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-unlabeled-export-manifest-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/unlabeled-export/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-unlabeled-export-metrics-json"
+    },
+    {
+      "path": "docs/customer/audit-evidence/verifier-rejection-checks.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-audit-evidence-verifier-rejection-checks-json"
+    },
+    {
+      "path": "docs/customer/briefing-source.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-briefing-source-md"
+    },
+    {
+      "path": "docs/customer/briefing.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-briefing-md"
+    },
+    {
+      "path": "docs/customer/course-source.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-course-source-json"
+    },
+    {
+      "path": "docs/customer/course-verification.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-course-verification-md"
+    },
+    {
+      "path": "docs/customer/demo/browser-check.json",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-browser-check-json"
+    },
+    {
+      "path": "docs/customer/demo/course/index.html",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-course-index-html"
+    },
+    {
+      "path": "docs/customer/demo/guide.html",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-guide-html"
+    },
+    {
+      "path": "docs/customer/demo/index.html",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-index-html"
+    },
+    {
+      "path": "docs/customer/demo/predictions.json",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-predictions-json"
+    },
+    {
+      "path": "docs/customer/demo/recorded-demo.webm",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-recorded-demo-webm"
+    },
+    {
+      "path": "docs/customer/demo/replay-mobile.png",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-replay-mobile-png"
+    },
+    {
+      "path": "docs/customer/demo/replay-screenshot.png",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-replay-screenshot-png"
+    },
+    {
+      "path": "docs/customer/demo/video/NetMambaPlus-30-minute-course.mp4",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-NetMambaPlus-30-minute-course-mp4"
+    },
+    {
+      "path": "docs/customer/demo/video/NetMambaPlus-30-minute-course.webm",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-NetMambaPlus-30-minute-course-webm"
+    },
+    {
+      "path": "docs/customer/demo/video/captions.srt",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-captions-srt"
+    },
+    {
+      "path": "docs/customer/demo/video/captions.vtt",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-captions-vtt"
+    },
+    {
+      "path": "docs/customer/demo/video/chapters.json",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-chapters-json"
+    },
+    {
+      "path": "docs/customer/demo/video/index.html",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-index-html"
+    },
+    {
+      "path": "docs/customer/demo/video/media-manifest.json",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-media-manifest-json"
+    },
+    {
+      "path": "docs/customer/demo/video/poster.png",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-poster-png"
+    },
+    {
+      "path": "docs/customer/demo/video/transcript.md",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-transcript-md"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-course-handbook.pdf",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-NetMambaPlus-course-handbook-pdf"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-course-slides.pdf",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-NetMambaPlus-course-slides-pdf"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-course-slides.pptx",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-NetMambaPlus-course-slides-pptx"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-one-hour-course.mp4",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-NetMambaPlus-one-hour-course-mp4"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/NetMambaPlus-one-hour-course.webm",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-NetMambaPlus-one-hour-course-webm"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/captions.srt",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-captions-srt"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/captions.vtt",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-captions-vtt"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/chapters.json",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-chapters-json"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/companion-manifest.json",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-companion-manifest-json"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-01.png",
+      "scene_id": "cic-csv-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-cic-csv-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-02.png",
+      "scene_id": "cic-csv-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-cic-csv-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-03.png",
+      "scene_id": "cic-csv-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-cic-csv-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-04.png",
+      "scene_id": "cic-csv-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-cic-csv-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-05.png",
+      "scene_id": "cic-csv-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-cic-csv-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-06.png",
+      "scene_id": "cic-csv-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-cic-csv-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-07.png",
+      "scene_id": "cic-csv-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-cic-csv-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/cic-csv-08.png",
+      "scene_id": "cic-csv-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-cic-csv-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/code-01.png",
+      "scene_id": "code-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-code-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/code-02.png",
+      "scene_id": "code-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-code-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/code-03.png",
+      "scene_id": "code-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-code-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/code-04.png",
+      "scene_id": "code-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-code-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/code-05.png",
+      "scene_id": "code-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-code-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/code-06.png",
+      "scene_id": "code-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-code-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/code-07.png",
+      "scene_id": "code-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-code-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/code-08.png",
+      "scene_id": "code-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-code-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/demo-01.png",
+      "scene_id": "demo-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-demo-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/demo-02.png",
+      "scene_id": "demo-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-demo-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/demo-03.png",
+      "scene_id": "demo-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-demo-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/demo-04.png",
+      "scene_id": "demo-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-demo-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/demo-05.png",
+      "scene_id": "demo-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-demo-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/demo-06.png",
+      "scene_id": "demo-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-demo-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/demo-07.png",
+      "scene_id": "demo-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-demo-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/demo-08.png",
+      "scene_id": "demo-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-demo-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/features-01.png",
+      "scene_id": "features-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-features-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/features-02.png",
+      "scene_id": "features-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-features-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/features-03.png",
+      "scene_id": "features-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-features-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/features-04.png",
+      "scene_id": "features-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-features-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/features-05.png",
+      "scene_id": "features-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-features-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/features-06.png",
+      "scene_id": "features-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-features-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/features-07.png",
+      "scene_id": "features-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-features-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/features-08.png",
+      "scene_id": "features-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-features-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/hardware-01.png",
+      "scene_id": "hardware-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-hardware-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/hardware-02.png",
+      "scene_id": "hardware-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-hardware-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/hardware-03.png",
+      "scene_id": "hardware-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-hardware-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/hardware-04.png",
+      "scene_id": "hardware-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-hardware-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/hardware-05.png",
+      "scene_id": "hardware-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-hardware-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/hardware-06.png",
+      "scene_id": "hardware-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-hardware-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/hardware-07.png",
+      "scene_id": "hardware-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-hardware-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/hardware-08.png",
+      "scene_id": "hardware-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-hardware-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/learning-01.png",
+      "scene_id": "learning-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-learning-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/learning-02.png",
+      "scene_id": "learning-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-learning-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/learning-03.png",
+      "scene_id": "learning-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-learning-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/learning-04.png",
+      "scene_id": "learning-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-learning-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/learning-05.png",
+      "scene_id": "learning-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-learning-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/learning-06.png",
+      "scene_id": "learning-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-learning-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/learning-07.png",
+      "scene_id": "learning-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-learning-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/learning-08.png",
+      "scene_id": "learning-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-learning-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/orientation-01.png",
+      "scene_id": "orientation-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-orientation-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/orientation-02.png",
+      "scene_id": "orientation-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-orientation-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/orientation-03.png",
+      "scene_id": "orientation-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-orientation-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/orientation-04.png",
+      "scene_id": "orientation-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-orientation-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/orientation-05.png",
+      "scene_id": "orientation-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-orientation-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/orientation-06.png",
+      "scene_id": "orientation-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-orientation-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/orientation-07.png",
+      "scene_id": "orientation-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-orientation-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/orientation-08.png",
+      "scene_id": "orientation-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-orientation-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/paper-01.png",
+      "scene_id": "paper-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-paper-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/paper-02.png",
+      "scene_id": "paper-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-paper-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/paper-03.png",
+      "scene_id": "paper-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-paper-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/paper-04.png",
+      "scene_id": "paper-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-paper-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/paper-05.png",
+      "scene_id": "paper-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-paper-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/paper-06.png",
+      "scene_id": "paper-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-paper-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/paper-07.png",
+      "scene_id": "paper-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-paper-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/paper-08.png",
+      "scene_id": "paper-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-paper-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/repository-01.png",
+      "scene_id": "repository-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-repository-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/repository-02.png",
+      "scene_id": "repository-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-repository-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/repository-03.png",
+      "scene_id": "repository-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-repository-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/repository-04.png",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-repository-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/repository-05.png",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-repository-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/repository-06.png",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-repository-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/repository-07.png",
+      "scene_id": "repository-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-repository-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/repository-08.png",
+      "scene_id": "repository-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-repository-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/results-01.png",
+      "scene_id": "results-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-results-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/results-02.png",
+      "scene_id": "results-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-results-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/results-03.png",
+      "scene_id": "results-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-results-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/results-04.png",
+      "scene_id": "results-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-results-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/results-05.png",
+      "scene_id": "results-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-results-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/results-06.png",
+      "scene_id": "results-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-results-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/results-07.png",
+      "scene_id": "results-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-results-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/results-08.png",
+      "scene_id": "results-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-results-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/setup-01.png",
+      "scene_id": "setup-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-setup-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/setup-02.png",
+      "scene_id": "setup-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-setup-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/setup-03.png",
+      "scene_id": "setup-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-setup-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/setup-04.png",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-setup-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/setup-05.png",
+      "scene_id": "setup-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-setup-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/setup-06.png",
+      "scene_id": "setup-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-setup-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/setup-07.png",
+      "scene_id": "setup-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-setup-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/setup-08.png",
+      "scene_id": "setup-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-setup-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-01.png",
+      "scene_id": "unsw-csv-01",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-unsw-csv-01-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-02.png",
+      "scene_id": "unsw-csv-02",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-unsw-csv-02-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-03.png",
+      "scene_id": "unsw-csv-03",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-unsw-csv-03-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-04.png",
+      "scene_id": "unsw-csv-04",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-unsw-csv-04-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-05.png",
+      "scene_id": "unsw-csv-05",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-unsw-csv-05-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-06.png",
+      "scene_id": "unsw-csv-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-unsw-csv-06-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-07.png",
+      "scene_id": "unsw-csv-07",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-unsw-csv-07-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/frames/unsw-csv-08.png",
+      "scene_id": "unsw-csv-08",
+      "companion_anchor": "file-docs-customer-demo-video-v3-frames-unsw-csv-08-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/manifest.json",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-manifest-json"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/media-manifest.json",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-media-manifest-json"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/motion-manifest.json",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-motion-manifest-json"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/narration-manifest.json",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-narration-manifest-json"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/poster.png",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-poster-png"
+    },
+    {
+      "path": "docs/customer/demo/video/v3/transcript.md",
+      "scene_id": "repository-06",
+      "companion_anchor": "file-docs-customer-demo-video-v3-transcript-md"
+    },
+    {
+      "path": "docs/customer/document-check.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-document-check-json"
+    },
+    {
+      "path": "docs/customer/evidence/artifact-index.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-artifact-index-json"
+    },
+    {
+      "path": "docs/customer/evidence/benchmark/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-benchmark-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/benchmark/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-benchmark-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/browser-check.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-browser-check-json"
+    },
+    {
+      "path": "docs/customer/evidence/checkpoint-transfer.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-checkpoint-transfer-json"
+    },
+    {
+      "path": "docs/customer/evidence/export-probe/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-export-probe-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/export-probe/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-export-probe-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/native-data-validation.json",
+      "scene_id": "unsw-csv-05",
+      "companion_anchor": "file-docs-customer-evidence-native-data-validation-json"
+    },
+    {
+      "path": "docs/customer/evidence/pretrain-functional/log.txt",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-pretrain-functional-log-txt"
+    },
+    {
+      "path": "docs/customer/evidence/pretrain-functional/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-pretrain-functional-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/pretrain-functional/native.log",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-pretrain-functional-native-log"
+    },
+    {
+      "path": "docs/customer/evidence/pretrain-functional/train_stats.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-pretrain-functional-train_stats-json"
+    },
+    {
+      "path": "docs/customer/evidence/replay-render-manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-replay-render-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/results.json",
+      "scene_id": "results-01",
+      "companion_anchor": "file-docs-customer-evidence-results-json"
+    },
+    {
+      "path": "docs/customer/evidence/runtime/build-report.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-runtime-build-report-json"
+    },
+    {
+      "path": "docs/customer/evidence/runtime/numerical-check.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-runtime-numerical-check-json"
+    },
+    {
+      "path": "docs/customer/evidence/runtime/rehearsal-classifier-evaluation/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-runtime-rehearsal-classifier-evaluation-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/runtime/rehearsal-classifier-evaluation/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-runtime-rehearsal-classifier-evaluation-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/runtime/rehearsal-environment.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-runtime-rehearsal-environment-json"
+    },
+    {
+      "path": "docs/customer/evidence/runtime/rehearsal-numerical-check.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-runtime-rehearsal-numerical-check-json"
+    },
+    {
+      "path": "docs/customer/evidence/runtime/training-environment.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-runtime-training-environment-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/eval/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-eval-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/eval/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-eval-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/model-export-provenance.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-model-export-provenance-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/replay/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-replay-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/replay/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-replay-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/replay/predictions.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-replay-predictions-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/training/log.txt",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-training-log-txt"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/training/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-training-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/training/native.log",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-training-native-log"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/training/test_stats.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-training-test_stats-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed0/training/train_stats.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed0-training-train_stats-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/eval/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-eval-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/eval/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-eval-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/model-export-provenance.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-model-export-provenance-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/replay/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-replay-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/replay/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-replay-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/replay/predictions.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-replay-predictions-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/training/log.txt",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-training-log-txt"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/training/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-training-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/training/native.log",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-training-native-log"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/training/test_stats.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-training-test_stats-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed1/training/train_stats.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed1-training-train_stats-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/eval/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-eval-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/eval/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-eval-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/model-export-provenance.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-model-export-provenance-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/replay/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-replay-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/replay/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-replay-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/replay/predictions.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-replay-predictions-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/training/log.txt",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-training-log-txt"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/training/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-training-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/training/native.log",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-training-native-log"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/training/test_stats.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-training-test_stats-json"
+    },
+    {
+      "path": "docs/customer/evidence/seed2/training/train_stats.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-seed2-training-train_stats-json"
+    },
+    {
+      "path": "docs/customer/evidence/unlabeled-inference-agreement.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-unlabeled-inference-agreement-json"
+    },
+    {
+      "path": "docs/customer/evidence/unlabeled-prediction/manifest.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-unlabeled-prediction-manifest-json"
+    },
+    {
+      "path": "docs/customer/evidence/unlabeled-prediction/metrics.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-evidence-unlabeled-prediction-metrics-json"
+    },
+    {
+      "path": "docs/customer/evidence/uploaded-csv-profile.json",
+      "scene_id": "cic-csv-06",
+      "companion_anchor": "file-docs-customer-evidence-uploaded-csv-profile-json"
+    },
+    {
+      "path": "docs/customer/figures/learning-curves.pdf",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-figures-learning-curves-pdf"
+    },
+    {
+      "path": "docs/customer/figures/learning-curves.png",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-figures-learning-curves-png"
+    },
+    {
+      "path": "docs/customer/figures/learning-curves.svg",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-figures-learning-curves-svg"
+    },
+    {
+      "path": "docs/customer/figures/seed0-confusion.pdf",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-figures-seed0-confusion-pdf"
+    },
+    {
+      "path": "docs/customer/figures/seed0-confusion.png",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-figures-seed0-confusion-png"
+    },
+    {
+      "path": "docs/customer/figures/seed0-confusion.svg",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-figures-seed0-confusion-svg"
+    },
+    {
+      "path": "docs/customer/hardware-roadmap.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-hardware-roadmap-md"
+    },
+    {
+      "path": "docs/customer/paper-and-data-explained.md",
+      "scene_id": "paper-05",
+      "companion_anchor": "file-docs-customer-paper-and-data-explained-md"
+    },
+    {
+      "path": "docs/customer/presentation-source.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-presentation-source-json"
+    },
+    {
+      "path": "docs/customer/publication-checks.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-publication-checks-json"
+    },
+    {
+      "path": "docs/customer/questions.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-questions-md"
+    },
+    {
+      "path": "docs/customer/quickstart.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-quickstart-md"
+    },
+    {
+      "path": "docs/customer/results.md",
+      "scene_id": "results-01",
+      "companion_anchor": "file-docs-customer-results-md"
+    },
+    {
+      "path": "docs/customer/runbook.md",
+      "scene_id": "setup-02",
+      "companion_anchor": "file-docs-customer-runbook-md"
+    },
+    {
+      "path": "docs/customer/talk-track.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-talk-track-md"
+    },
+    {
+      "path": "docs/customer/upstream-comparison.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-upstream-comparison-md"
+    },
+    {
+      "path": "docs/customer/verification.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-verification-md"
+    },
+    {
+      "path": "docs/customer/video-course-source.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-video-course-source-json"
+    },
+    {
+      "path": "docs/customer/video-course-v3-coverage.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-video-course-v3-coverage-json"
+    },
+    {
+      "path": "docs/customer/video-course-v3-source.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-video-course-v3-source-json"
+    },
+    {
+      "path": "docs/customer/video-figures/recorded-controls.webm",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-video-figures-recorded-controls-webm"
+    },
+    {
+      "path": "docs/customer/video-figures/recorded-replay-controls.png",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-video-figures-recorded-replay-controls-png"
+    },
+    {
+      "path": "docs/customer/video-verification-v3.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-video-verification-v3-md"
+    },
+    {
+      "path": "docs/customer/video-verification.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-customer-video-verification-md"
+    },
+    {
+      "path": "docs/harness-reference.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-harness-reference-md"
+    },
+    {
+      "path": "docs/lesson.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-lesson-md"
+    },
+    {
+      "path": "docs/portability-evidence.json",
+      "scene_id": "setup-05",
+      "companion_anchor": "file-docs-portability-evidence-json"
+    },
+    {
+      "path": "docs/repository-walkthrough.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-repository-walkthrough-md"
+    },
+    {
+      "path": "docs/research/audit-council-initial-result.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-audit-council-initial-result-json"
+    },
+    {
+      "path": "docs/research/audit-primary-pack.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-audit-primary-pack-json"
+    },
+    {
+      "path": "docs/research/council-decision.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-council-decision-json"
+    },
+    {
+      "path": "docs/research/council-receipt.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-council-receipt-json"
+    },
+    {
+      "path": "docs/research/execution-plan.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-execution-plan-md"
+    },
+    {
+      "path": "docs/research/final-council-decision.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-final-council-decision-json"
+    },
+    {
+      "path": "docs/research/final-council-receipt.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-final-council-receipt-json"
+    },
+    {
+      "path": "docs/research/final-council-review.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-final-council-review-md"
+    },
+    {
+      "path": "docs/research/portability-council-review.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-portability-council-review-json"
+    },
+    {
+      "path": "docs/research/research-record.md",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-research-record-md"
+    },
+    {
+      "path": "docs/research/video-audit-v2.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-audit-v2-json"
+    },
+    {
+      "path": "docs/research/video-audit-v3.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-audit-v3-json"
+    },
+    {
+      "path": "docs/research/video-council-decision.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-council-decision-json"
+    },
+    {
+      "path": "docs/research/video-quality-review.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-quality-review-json"
+    },
+    {
+      "path": "docs/research/video-v3-council-decision.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-v3-council-decision-json"
+    },
+    {
+      "path": "docs/research/video-v3/browser.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-v3-browser-json"
+    },
+    {
+      "path": "docs/research/video-v3/captions.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-v3-captions-json"
+    },
+    {
+      "path": "docs/research/video-v3/claims.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-v3-claims-json"
+    },
+    {
+      "path": "docs/research/video-v3/decode.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-v3-decode-json"
+    },
+    {
+      "path": "docs/research/video-v3/rendered_samples.json",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-docs-research-video-v3-rendered_samples-json"
+    },
+    {
+      "path": "docs/support-matrix.md",
+      "scene_id": "setup-01",
+      "companion_anchor": "file-docs-support-matrix-md"
+    },
+    {
+      "path": "evaluate.py",
+      "scene_id": "code-03",
+      "companion_anchor": "file-evaluate-py"
+    },
+    {
+      "path": "predict.py",
+      "scene_id": "code-04",
+      "companion_anchor": "file-predict-py"
+    },
+    {
+      "path": "replay.py",
+      "scene_id": "code-05",
+      "companion_anchor": "file-replay-py"
+    },
+    {
+      "path": "repro.py",
+      "scene_id": "code-02",
+      "companion_anchor": "file-repro-py"
+    },
+    {
+      "path": "requirements/browser.txt",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-requirements-browser-txt"
+    },
+    {
+      "path": "requirements/gb10.txt",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-requirements-gb10-txt"
+    },
+    {
+      "path": "requirements/presentation.txt",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-requirements-presentation-txt"
+    },
+    {
+      "path": "requirements/video-documents.txt",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-requirements-video-documents-txt"
+    },
+    {
+      "path": "requirements/video-neural.txt",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-requirements-video-neural-txt"
+    },
+    {
+      "path": "requirements/video.txt",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-requirements-video-txt"
+    },
+    {
+      "path": "tests/test_assets.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_assets-py"
+    },
+    {
+      "path": "tests/test_build_cuda.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_build_cuda-py"
+    },
+    {
+      "path": "tests/test_course.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_course-py"
+    },
+    {
+      "path": "tests/test_course_video.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_course_video-py"
+    },
+    {
+      "path": "tests/test_course_video_v3.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_course_video_v3-py"
+    },
+    {
+      "path": "tests/test_model_runtime.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_model_runtime-py"
+    },
+    {
+      "path": "tests/test_portability.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_portability-py"
+    },
+    {
+      "path": "tests/test_predict.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_predict-py"
+    },
+    {
+      "path": "tests/test_replay.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_replay-py"
+    },
+    {
+      "path": "tests/test_repro.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_repro-py"
+    },
+    {
+      "path": "tests/test_video_motion.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_video_motion-py"
+    },
+    {
+      "path": "tests/test_video_neural.py",
+      "scene_id": "repository-05",
+      "companion_anchor": "file-tests-test_video_neural-py"
+    },
+    {
+      "path": "tools/benchmark.py",
+      "scene_id": "hardware-01",
+      "companion_anchor": "file-tools-benchmark-py"
+    },
+    {
+      "path": "tools/build_course.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-build_course-py"
+    },
+    {
+      "path": "tools/build_course_video.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-build_course_video-py"
+    },
+    {
+      "path": "tools/build_cuda.py",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-tools-build_cuda-py"
+    },
+    {
+      "path": "tools/build_customer_package.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-build_customer_package-py"
+    },
+    {
+      "path": "tools/build_gb10.py",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-tools-build_gb10-py"
+    },
+    {
+      "path": "tools/build_learning_guide.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-build_learning_guide-py"
+    },
+    {
+      "path": "tools/build_video_documents.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-build_video_documents-py"
+    },
+    {
+      "path": "tools/build_video_page.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-build_video_page-py"
+    },
+    {
+      "path": "tools/capture_runtime.py",
+      "scene_id": "setup-04",
+      "companion_anchor": "file-tools-capture_runtime-py"
+    },
+    {
+      "path": "tools/check_gpu_runtime.py",
+      "scene_id": "setup-05",
+      "companion_anchor": "file-tools-check_gpu_runtime-py"
+    },
+    {
+      "path": "tools/check_learning_guide.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-check_learning_guide-py"
+    },
+    {
+      "path": "tools/check_model_runtime.py",
+      "scene_id": "setup-05",
+      "companion_anchor": "file-tools-check_model_runtime-py"
+    },
+    {
+      "path": "tools/fetch_assets.py",
+      "scene_id": "repository-03",
+      "companion_anchor": "file-tools-fetch_assets-py"
+    },
+    {
+      "path": "tools/learning-guide.css",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-learning-guide-css"
+    },
+    {
+      "path": "tools/narrate_course_video.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-narrate_course_video-py"
+    },
+    {
+      "path": "tools/narrate_video_neural.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-narrate_video_neural-py"
+    },
+    {
+      "path": "tools/probe_export.py",
+      "scene_id": "hardware-03",
+      "companion_anchor": "file-tools-probe_export-py"
+    },
+    {
+      "path": "tools/profile_csvs.py",
+      "scene_id": "cic-csv-06",
+      "companion_anchor": "file-tools-profile_csvs-py"
+    },
+    {
+      "path": "tools/publish_evidence.py",
+      "scene_id": "repository-03",
+      "companion_anchor": "file-tools-publish_evidence-py"
+    },
+    {
+      "path": "tools/record_demo.py",
+      "scene_id": "repository-03",
+      "companion_anchor": "file-tools-record_demo-py"
+    },
+    {
+      "path": "tools/render_replay.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-render_replay-py"
+    },
+    {
+      "path": "tools/review_experiments.py",
+      "scene_id": "results-05",
+      "companion_anchor": "file-tools-review_experiments-py"
+    },
+    {
+      "path": "tools/summarize_audit.py",
+      "scene_id": "repository-03",
+      "companion_anchor": "file-tools-summarize_audit-py"
+    },
+    {
+      "path": "tools/verify_course.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-verify_course-py"
+    },
+    {
+      "path": "tools/verify_course_video.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-verify_course_video-py"
+    },
+    {
+      "path": "tools/verify_package.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-verify_package-py"
+    },
+    {
+      "path": "tools/verify_video_course_v3.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-verify_video_course_v3-py"
+    },
+    {
+      "path": "tools/video_motion.py",
+      "scene_id": "repository-04",
+      "companion_anchor": "file-tools-video_motion-py"
+    }
+  ],
+  "exclusions": [],
+  "clusters": [
+    {
+      "id": "orientation",
+      "scene_ids": [
+        "orientation-01",
+        "orientation-02",
+        "orientation-03",
+        "orientation-04",
+        "orientation-05",
+        "orientation-06",
+        "orientation-07",
+        "orientation-08"
+      ],
+      "purpose": "This course will take you from the three files you started with to a clear explanation of the repository you now have.",
+      "relationship": "The neural classifier is one component that can help assign a category. Capture, flow assembly, data transformation, alert thresholds, event storage, and operational response are additional components.",
+      "example": "Imagine two cameras sending messages at the same time. The next two captured packets could belong to different cameras. Their proximity in a file does not make them one conversation.",
+      "review": {
+        "id": "orientation",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Packet/flow membership and order, classifier/IDS/response distinction and evidence definitions match the reviewed narration."
+      }
+    },
+    {
+      "id": "paper",
+      "scene_ids": [
+        "paper-01",
+        "paper-02",
+        "paper-03",
+        "paper-04",
+        "paper-05",
+        "paper-06",
+        "paper-07",
+        "paper-08"
+      ],
+      "purpose": "A research paper describes a problem, a proposed method, experiments, and conclusions.",
+      "relationship": "The paper combines architectural, representation, and training ideas to address them. Our measurements should be interpreted against the parts actually enabled.",
+      "example": "Suppose two flows contain similarly encrypted bytes, but one sends a steady series of small packets while another sends large bursts. Size and timing can provide additional structure.",
+      "review": {
+        "id": "paper",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Paper Table IV 97.50% versus measured 86.65%, parallel modalities, 401 versus 443 tokens and separate online prototype are represented accurately."
+      }
+    },
+    {
+      "id": "cic-csv",
+      "scene_ids": [
+        "cic-csv-01",
+        "cic-csv-02",
+        "cic-csv-03",
+        "cic-csv-04",
+        "cic-csv-05",
+        "cic-csv-06",
+        "cic-csv-07",
+        "cic-csv-08"
+      ],
+      "purpose": "The profiling program scans the full file to count rows and aggregate the selected metadata. That is stronger evidence than looking at the first fifty rows.",
+      "relationship": "Most importantly, the supplied schema does not establish source and destination addresses, ports, a flow identifier, or packet order within a flow. Its payload byte columns also do not establish the paper's header and payload representation. Taking five neighboring rows and calling them one flow would add an unsupported assumption.",
+      "example": "Imagine a model that handles a common label well but fails every rare example. Its aggregate score might still look impressive.",
+      "review": {
+        "id": "cic-csv",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Consecutive payload_byte headers, 1,410,255 rows, 1,505 columns, shown class counts, negative t_delta and missing flow identity/order agree with saved profiling."
+      }
+    },
+    {
+      "id": "unsw-csv",
+      "scene_ids": [
+        "unsw-csv-01",
+        "unsw-csv-02",
+        "unsw-csv-03",
+        "unsw-csv-04",
+        "unsw-csv-05",
+        "unsw-csv-06",
+        "unsw-csv-07",
+        "unsw-csv-08"
+      ],
+      "purpose": "All three data sources concern network traffic, but they define different learning problems.",
+      "relationship": "The PDF provides the research method. The CSVs provide packet records that can be profiled, but do not establish the method's required flow context. The repository therefore preserves that finding and runs a compatible native flow experiment instead.",
+      "example": "Six output numbers cannot simply be relabeled with a new ten category vocabulary.",
+      "review": {
+        "id": "unsw-csv",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: 79,881 rows, ten labels, split counts and overlap limits agree with evidence. Revised split-count cards contain no misleading arrows."
+      }
+    },
+    {
+      "id": "features",
+      "scene_ids": [
+        "features-01",
+        "features-02",
+        "features-03",
+        "features-04",
+        "features-05",
+        "features-06",
+        "features-07",
+        "features-08"
+      ],
+      "purpose": "The actual experiment uses the authors' native flow files. Each file contains a JSON array of flow objects.",
+      "relationship": "The fields must describe the correct flow. Their dimensions and transformations must match the original loader. Finally, the label vocabulary must match the saved classifier.",
+      "example": "Zero maps to one half; one maps to two thirds.",
+      "review": {
+        "id": "features",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Five by 320 stored bytes, normalization, interval transforms, 400+20+20+3 tokens, width 256, four blocks, three summaries and six logits agree with source. Full-classifier parameter attribution is explicit."
+      }
+    },
+    {
+      "id": "learning",
+      "scene_ids": [
+        "learning-01",
+        "learning-02",
+        "learning-03",
+        "learning-04",
+        "learning-05",
+        "learning-06",
+        "learning-07",
+        "learning-08"
+      ],
+      "purpose": "Now separate learning from using what was learned. Pretraining teaches a representation from a reconstruction task. Fine tuning adapts that representation to known categories using labeled examples. Inference uses a fixed classifier to produce scores without updating its parameters.",
+      "relationship": "The training split supplies parameter updates. Validation results select a checkpoint. The test split measures the selected classifier's performance afterward.",
+      "example": "Our limited check completed two epochs and one hundred thirty two optimizer updates on downstream training data. Reconstruction loss fell from about nine point five two to six point one three.",
+      "review": {
+        "id": "learning",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Two-epoch/132-update pretraining check stays separate from full fine-tuning. Cycle, split uses, three seeds, 120 epochs, 7,920 updates, batch 128 and 0.001 effective learning rate agree with records."
+      }
+    },
+    {
+      "id": "code",
+      "scene_ids": [
+        "code-01",
+        "code-02",
+        "code-03",
+        "code-04",
+        "code-05",
+        "code-06",
+        "code-07",
+        "code-08"
+      ],
+      "purpose": "This repository is an execution and evidence layer around the authors' source.",
+      "relationship": "Keeping the original loader avoids writing a second interpretation of byte padding and normalization. The surrounding code supplies validation, reproducible commands, manifests, and independent output checks.",
+      "example": "If someone sends you a number without a checkpoint identity or class mapping, you cannot establish that it describes the intended classifier.",
+      "review": {
+        "id": "code",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Script roles, current upstream path and displayed command examples match the repository. No code panel text is cropped."
+      }
+    },
+    {
+      "id": "results",
+      "scene_ids": [
+        "results-01",
+        "results-02",
+        "results-03",
+        "results-04",
+        "results-05",
+        "results-06",
+        "results-07",
+        "results-08"
+      ],
+      "purpose": "Now examine the recorded results. Seed zero correctly classified nine hundred fifty of one thousand forty one test flows.",
+      "relationship": "The mean summarizes these three runs; the standard deviation summarizes their spread.",
+      "example": "Our test set has two hundred examples for each category except Other, which has forty one. That support difference matters when comparing percentages.",
+      "review": {
+        "id": "results",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Accuracies, sample SD, confusion-matrix counts/labels/orientation and 1,041 prediction/6,246 logit recheck claims agree with evidence. Measurement limits remain visible."
+      }
+    },
+    {
+      "id": "demo",
+      "scene_ids": [
+        "demo-01",
+        "demo-02",
+        "demo-03",
+        "demo-04",
+        "demo-05",
+        "demo-06",
+        "demo-07",
+        "demo-08"
+      ],
+      "purpose": "The page can be opened on a presentation machine without installing CUDA, Python, or a checkpoint. It displays seed zero's saved predictions and their known labels.",
+      "relationship": "This interface is a useful component for a future service, but capture, flow creation, and customer data validation still need to be built around it.",
+      "example": "The known label is Other. This prediction is wrong. That single record gives you a useful way to explain why a high display score is not sufficient evidence to block traffic.",
+      "review": {
+        "id": "demo",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Actual interface crop shows saved seed-0 metrics and controls. Row 635 scores and later class-3 error reveal match saved predictions. Recorded display is distinguished from new GPU inference."
+      }
+    },
+    {
+      "id": "setup",
+      "scene_ids": [
+        "setup-01",
+        "setup-02",
+        "setup-03",
+        "setup-04",
+        "setup-05",
+        "setup-06",
+        "setup-07",
+        "setup-08"
+      ],
+      "purpose": "Next, choose the setup you actually need. For a presentation, use the video, documents, and recorded browser demo. For portable evidence checks, use Git and Python. For new neural training or inference, use the checked Linux CUDA environment and separately acquired assets.",
+      "relationship": "These extensions contain compiled GPU code. A compatible Python package name alone is not enough: the driver, compiler, selected GPU architecture, and installed binaries must work together.",
+      "example": "A laptop can display the presentation without supporting the model's CUDA extensions.",
+      "review": {
+        "id": "setup",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: New v3 verifier exists; six CI combinations and GB10/other-backend boundaries agree with support. Revised three-route cards present alternatives without arrows."
+      }
+    },
+    {
+      "id": "repository",
+      "scene_ids": [
+        "repository-01",
+        "repository-02",
+        "repository-03",
+        "repository-04",
+        "repository-05",
+        "repository-06",
+        "repository-07",
+        "repository-08"
+      ],
+      "purpose": "The file guide is the complete inventory, with one entry for every tracked file. This chapter explains how the areas fit together so that the inventory is useful instead of becoming a wall of unfamiliar names.",
+      "relationship": "The video pipeline separates the lesson source, speech rendering, visual assembly, and browser page.",
+      "example": "Publish evidence copies reviewed records into the package; its name does not mean arbitrary files are automatically sent to GitHub.",
+      "review": {
+        "id": "repository",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Current lesson and historical downloads are distinguished. Current walkthrough includes new tools and the corrected six-job CI description."
+      }
+    },
+    {
+      "id": "hardware",
+      "scene_ids": [
+        "hardware-01",
+        "hardware-02",
+        "hardware-03",
+        "hardware-04",
+        "hardware-05",
+        "hardware-07",
+        "hardware-08",
+        "hardware-06"
+      ],
+      "purpose": "Finally, consider hardware deployment. The model only benchmark measured a median batch one latency of about zero point eight eight milliseconds on G B ten. It used twenty warmup iterations and one hundred measured repetitions. That timing excludes packet capture, waiting for enough packets, preprocessing, transfers, model loading, and alert handling. A fast classifier can still be part of a slow pipeline. End to end latency must be measured across the complete path a real observation follows.",
+      "relationship": "A possible future division places capture and some flow handling near the network interface, with a host coordinating buffers, features, inference, and alert policy.",
+      "example": "Our strict graph capture probe failed at the custom causal convolution CUDA operator, while ordinary eager GPU inference works.",
+      "review": {
+        "id": "hardware",
+        "status": "passed",
+        "reviewer": "Codex",
+        "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+        "method": "Complete narration and static visual review: Model-only benchmark scope, unmeasured SmartNIC/NPU proposal, graph-export failure and deployment gaps are explicit. Ninety-second practice precedes the closing explanation."
+      }
+    }
+  ],
+  "paper": {
+    "version": "2601.21792v1",
+    "guide": {
+      "path": "docs/customer/paper-and-data-explained.md",
+      "sha256": "f2e19f30df72e0cf61ee65968207dc2cbccfa069bf4deb9e93529e8ec448e3e9"
+    },
+    "sections": [
+      {
+        "id": "abstract",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "The authors want traffic classification that combines accuracy with efficient processing. The opening claims describe their research contribution."
+      },
+      {
+        "id": "I",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "The authors want traffic classification that combines accuracy with efficient processing. The opening claims describe their research contribution."
+      },
+      {
+        "id": "II",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Earlier Transformers, Mamba work, traffic representations and long-tailed classification. “Long-tailed” means many examples in common categories and relatively few in others. Table I compares representation choices."
+      },
+      {
+        "id": "III",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "State-space models carry a numerical state through a sequence. Mamba’s input-dependent selection changes how information is retained and used. The continuous/discrete equations explain that mechanism."
+      },
+      {
+        "id": "IV",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Prepare traffic representations, pretrain by reconstructing hidden content, then fine-tune for labels. Dashed boxes identify pluggable components."
+      },
+      {
+        "id": "V",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Five steps: split flows, parse packets, crop/pad/concatenate bytes, form byte strides, and construct size/time sequences. These steps define what an example means."
+      },
+      {
+        "id": "VI",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Turn inputs into vectors, process them with the encoder, reconstruct missing values during pretraining, and learn categories during fine-tuning. The optional distribution-aware loss changes the treatment of imbalanced classes."
+      },
+      {
+        "id": "VII",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Capture and flow extraction feed a GPU classifier through shared memory; Redis and Flask make results available. These surrounding services are part of the authors’ prototype."
+      },
+      {
+        "id": "VIII-A",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Datasets, baselines, metrics, hardware and hyperparameters define the conditions under which the reported results apply."
+      },
+      {
+        "id": "VIII-B",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Compare accuracy and resource/speed results. Check each model’s input unit, batch size and hardware before comparing numbers."
+      },
+      {
+        "id": "VIII-C",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Compare accuracy and resource/speed results. Check each model’s input unit, batch size and hardware before comparing numbers."
+      },
+      {
+        "id": "VIII-D",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "An ablation removes or changes a component to investigate its contribution. These tests concern byte choices, the three input modalities and the optional long-tail method."
+      },
+      {
+        "id": "VIII-E",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "An ablation removes or changes a component to investigate its contribution. These tests concern byte choices, the three input modalities and the optional long-tail method."
+      },
+      {
+        "id": "VIII-F",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "An ablation removes or changes a component to investigate its contribution. These tests concern byte choices, the three input modalities and the optional long-tail method."
+      },
+      {
+        "id": "VIII-G",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Study limited labeled training data and examples unlike the training distribution. The novelty-detection evaluation uses different outputs and metrics from ordinary category accuracy."
+      },
+      {
+        "id": "VIII-H",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Study limited labeled training data and examples unlike the training distribution. The novelty-detection evaluation uses different outputs and metrics from ordinary category accuracy."
+      },
+      {
+        "id": "VIII-I",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Report the online prototype and discuss limitations, including degradation when a chronological split changes the traffic distribution."
+      },
+      {
+        "id": "VIII-J",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Report the online prototype and discuss limitations, including degradation when a chronological split changes the traffic distribution."
+      },
+      {
+        "id": "IX",
+        "scene_ids": [
+          "paper-05"
+        ],
+        "companion_anchor": "4-a-route-through-all-major-parts-of-the-pdf",
+        "depth": "companion",
+        "explanation": "Review the claimed contributions and future directions, then follow the cited research. These pages do not add another executed experiment in this repository."
+      }
+    ]
+  },
+  "csv_profiles": [
+    {
+      "file": "CICIDS2017.csv",
+      "profile": {
+        "path": "docs/customer/evidence/uploaded-csv-profile.json",
+        "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+      },
+      "source_sha256": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+      "scene_ids": [
+        "cic-csv-07"
+      ],
+      "explanation": "Most importantly, the supplied schema does not establish source and destination addresses, ports, a flow identifier, or packet order within a flow. Its payload byte columns also do not establish the paper's header and payload representation. Taking five neighboring rows and calling them one flow would add an unsupported assumption."
+    },
+    {
+      "file": "UNSW.csv",
+      "profile": {
+        "path": "docs/customer/evidence/uploaded-csv-profile.json",
+        "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+      },
+      "source_sha256": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01",
+      "scene_ids": [
+        "unsw-csv-01"
+      ],
+      "explanation": "The U N S W extract contains seventy nine thousand eight hundred eighty one rows. It has the same broad structure: fifteen hundred payload byte columns followed by time to live, total length, protocol, delta time, and label. There are ten category names."
+    }
+  ],
+  "claims": [
+    {
+      "id": "cic_csv_rows",
+      "evidence": {
+        "path": "docs/customer/evidence/uploaded-csv-profile.json",
+        "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+      },
+      "pointer": "/files/0/rows",
+      "source_unit": "rows",
+      "unit": "rows",
+      "decimals": 0,
+      "expected": "1410255"
+    },
+    {
+      "id": "unsw_csv_rows",
+      "evidence": {
+        "path": "docs/customer/evidence/uploaded-csv-profile.json",
+        "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+      },
+      "pointer": "/files/1/rows",
+      "source_unit": "rows",
+      "unit": "rows",
+      "decimals": 0,
+      "expected": "79881"
+    },
+    {
+      "id": "native_train_flows",
+      "evidence": {
+        "path": "docs/customer/evidence/native-data-validation.json",
+        "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+      },
+      "pointer": "/splits/train/rows",
+      "source_unit": "flows",
+      "unit": "flows",
+      "decimals": 0,
+      "expected": "8323"
+    },
+    {
+      "id": "native_validation_flows",
+      "evidence": {
+        "path": "docs/customer/evidence/native-data-validation.json",
+        "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+      },
+      "pointer": "/splits/valid/rows",
+      "source_unit": "flows",
+      "unit": "flows",
+      "decimals": 0,
+      "expected": "1040"
+    },
+    {
+      "id": "native_test_flows",
+      "evidence": {
+        "path": "docs/customer/evidence/native-data-validation.json",
+        "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+      },
+      "pointer": "/splits/test/rows",
+      "source_unit": "flows",
+      "unit": "flows",
+      "decimals": 0,
+      "expected": "1041"
+    },
+    {
+      "id": "classifier_tokens",
+      "evidence": {
+        "path": "docs/portability-evidence.json",
+        "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7"
+      },
+      "pointer": "/complete_classifier/tokens",
+      "source_unit": "tokens",
+      "unit": "tokens",
+      "decimals": 0,
+      "expected": "443"
+    },
+    {
+      "id": "classifier_parameters",
+      "evidence": {
+        "path": "docs/portability-evidence.json",
+        "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7"
+      },
+      "pointer": "/complete_classifier/parameter_count",
+      "source_unit": "parameters",
+      "unit": "parameters",
+      "decimals": 0,
+      "expected": "1870080"
+    },
+    {
+      "id": "seed0_accuracy",
+      "evidence": {
+        "path": "docs/customer/evidence/results.json",
+        "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+      },
+      "pointer": "/seeds/0/metrics/accuracy",
+      "source_unit": "ratio",
+      "unit": "percent",
+      "decimals": 2,
+      "expected": "91.26"
+    },
+    {
+      "id": "seed1_accuracy",
+      "evidence": {
+        "path": "docs/customer/evidence/results.json",
+        "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+      },
+      "pointer": "/seeds/1/metrics/accuracy",
+      "source_unit": "ratio",
+      "unit": "percent",
+      "decimals": 2,
+      "expected": "84.05"
+    },
+    {
+      "id": "seed2_accuracy",
+      "evidence": {
+        "path": "docs/customer/evidence/results.json",
+        "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+      },
+      "pointer": "/seeds/2/metrics/accuracy",
+      "source_unit": "ratio",
+      "unit": "percent",
+      "decimals": 2,
+      "expected": "84.63"
+    },
+    {
+      "id": "mean_accuracy",
+      "evidence": {
+        "path": "docs/customer/evidence/results.json",
+        "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+      },
+      "pointer": "/aggregate/accuracy/mean",
+      "source_unit": "ratio",
+      "unit": "percent",
+      "decimals": 2,
+      "expected": "86.65"
+    },
+    {
+      "id": "accuracy_sample_sd",
+      "evidence": {
+        "path": "docs/customer/evidence/results.json",
+        "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+      },
+      "pointer": "/aggregate/accuracy/sample_standard_deviation",
+      "source_unit": "ratio",
+      "unit": "percentage_points",
+      "decimals": 2,
+      "expected": "4.00"
+    },
+    {
+      "id": "paper_accuracy",
+      "evidence": {
+        "path": "docs/customer/evidence/results.json",
+        "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+      },
+      "pointer": "/paper_ciciot2022_table_iv/accuracy",
+      "source_unit": "ratio",
+      "unit": "percent",
+      "decimals": 2,
+      "expected": "97.50"
+    }
+  ],
+  "reviews": {
+    "content": {
+      "status": "passed",
+      "reviewer": "Codex",
+      "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+      "method": "Read all 84 narrations, 12 practice prompts and worked answers against scientific records, original source and the complete file guide; independent question review confirms substantive coverage.",
+      "scope": [
+        "script",
+        "worked_answers"
+      ],
+      "scene_ids": [
+        "orientation-01",
+        "orientation-02",
+        "orientation-03",
+        "orientation-04",
+        "orientation-05",
+        "orientation-06",
+        "orientation-07",
+        "orientation-08",
+        "paper-01",
+        "paper-02",
+        "paper-03",
+        "paper-04",
+        "paper-05",
+        "paper-06",
+        "paper-07",
+        "paper-08",
+        "cic-csv-01",
+        "cic-csv-02",
+        "cic-csv-03",
+        "cic-csv-04",
+        "cic-csv-05",
+        "cic-csv-06",
+        "cic-csv-07",
+        "cic-csv-08",
+        "unsw-csv-01",
+        "unsw-csv-02",
+        "unsw-csv-03",
+        "unsw-csv-04",
+        "unsw-csv-05",
+        "unsw-csv-06",
+        "unsw-csv-07",
+        "unsw-csv-08",
+        "features-01",
+        "features-02",
+        "features-03",
+        "features-04",
+        "features-05",
+        "features-06",
+        "features-07",
+        "features-08",
+        "learning-01",
+        "learning-02",
+        "learning-03",
+        "learning-04",
+        "learning-05",
+        "learning-06",
+        "learning-07",
+        "learning-08",
+        "code-01",
+        "code-02",
+        "code-03",
+        "code-04",
+        "code-05",
+        "code-06",
+        "code-07",
+        "code-08",
+        "results-01",
+        "results-02",
+        "results-03",
+        "results-04",
+        "results-05",
+        "results-06",
+        "results-07",
+        "results-08",
+        "demo-01",
+        "demo-02",
+        "demo-03",
+        "demo-04",
+        "demo-05",
+        "demo-06",
+        "demo-07",
+        "demo-08",
+        "setup-01",
+        "setup-02",
+        "setup-03",
+        "setup-04",
+        "setup-05",
+        "setup-06",
+        "setup-07",
+        "setup-08",
+        "repository-01",
+        "repository-02",
+        "repository-03",
+        "repository-04",
+        "repository-05",
+        "repository-06",
+        "repository-07",
+        "repository-08",
+        "hardware-01",
+        "hardware-02",
+        "hardware-03",
+        "hardware-04",
+        "hardware-05",
+        "hardware-07",
+        "hardware-08",
+        "hardware-06"
+      ]
+    },
+    "visuals": {
+      "status": "passed",
+      "reviewer": "Codex",
+      "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+      "manifest_sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709",
+      "method": "Individually inspected all 96 frozen teaching PNGs and confirmed identical final frame hashes; added actual encoded-frame and exported-document checks with scopes retained separately.",
+      "items": [
+        {
+          "scene_id": "orientation-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/orientation-01.png",
+              "sha256": "ba08a4145572e4b293e9b3bc2e7d36269a541b3130e9f6472b5f4db0314a1d3f"
+            }
+          ]
+        },
+        {
+          "scene_id": "orientation-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/orientation-02.png",
+              "sha256": "bca21edaab3c55787292427ac6419e1d7ccdc58e3063535f623c7e384ed2bb9d"
+            }
+          ]
+        },
+        {
+          "scene_id": "orientation-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/orientation-03.png",
+              "sha256": "29614e66c785de7e21d77f27a550b27144d70effba6256558828915f5ee624c8"
+            }
+          ]
+        },
+        {
+          "scene_id": "orientation-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/orientation-04.png",
+              "sha256": "e8dfc6a59d413c71be4d8d4b828dea4779f80c087ff472b1ab9c75883bc4697f"
+            }
+          ]
+        },
+        {
+          "scene_id": "orientation-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/orientation-05.png",
+              "sha256": "4e6a7f3b76938cd4582e58d7f92a4b5fe97cc743d219a66cd66fddf372cd52f4"
+            }
+          ]
+        },
+        {
+          "scene_id": "orientation-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/orientation-06.png",
+              "sha256": "b1ff4ca997c9c3017d1386dd99d088bca8f5f72f0e692484e545f26beb20a3c1"
+            }
+          ]
+        },
+        {
+          "scene_id": "orientation-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/orientation-07.png",
+              "sha256": "d7f035e0f4ade5d7d47015df6609b4e03db2fa29b11de374259ac2870f87577f"
+            }
+          ]
+        },
+        {
+          "scene_id": "orientation-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/orientation-08.png",
+              "sha256": "754950563135ca42bc2a9f09b837aadb111099060d27a6b5b1926b432fd670fb"
+            }
+          ]
+        },
+        {
+          "scene_id": "paper-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/paper-01.png",
+              "sha256": "f1f2c8fcf5f42a985d55b955487af49d80016c67efe2766eaa8035018c25dc02"
+            }
+          ]
+        },
+        {
+          "scene_id": "paper-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/paper-02.png",
+              "sha256": "661fc4cf3e011a0d4826a6bb9006c65736039a66c653a0ffc6a6b593de58cd73"
+            }
+          ]
+        },
+        {
+          "scene_id": "paper-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/paper-03.png",
+              "sha256": "446879bf1d913fe4bb8d38c9b367188fac76f6ad20a6a7eba8ba0009f9d8f1d1"
+            }
+          ]
+        },
+        {
+          "scene_id": "paper-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/paper-04.png",
+              "sha256": "257f79e923c01d92992b4a275baf9f52fa08a4a9e1998a79e799297302f60f49"
+            }
+          ]
+        },
+        {
+          "scene_id": "paper-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/paper-05.png",
+              "sha256": "e7c3d52a3fad5b015856d633daaac4a62faaacfcf5122dfde138d9dd7b8ae1f9"
+            }
+          ]
+        },
+        {
+          "scene_id": "paper-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/paper-06.png",
+              "sha256": "08f21cbf37b18e485b6f4189baedbd6330bd0683408df5e38e58aadc8a5ed6c6"
+            }
+          ]
+        },
+        {
+          "scene_id": "paper-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/paper-07.png",
+              "sha256": "b5fe7db4af6483e9851c977c0e4f4cc5dd944e7f538d997ef8f0db338644f199"
+            }
+          ]
+        },
+        {
+          "scene_id": "paper-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/paper-08.png",
+              "sha256": "e5be32fa54a53708857bc6f538f48b9a95162473139927a9c4b1f316a583b84d"
+            }
+          ]
+        },
+        {
+          "scene_id": "cic-csv-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/cic-csv-01.png",
+              "sha256": "a88036b568220e9c8b1207d6caf01a07f638ecebd7c860b8a32a616ab7e36b59"
+            }
+          ]
+        },
+        {
+          "scene_id": "cic-csv-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/cic-csv-02.png",
+              "sha256": "ac9b326df2fd919648eb276cb56755046fc9b208c37a5ef03a6e2bacc1ed4d68"
+            }
+          ]
+        },
+        {
+          "scene_id": "cic-csv-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/cic-csv-03.png",
+              "sha256": "22139b8cdcaa63437bcc35156d14893ff8245493156bea849b9e985d47a70720"
+            }
+          ]
+        },
+        {
+          "scene_id": "cic-csv-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/cic-csv-04.png",
+              "sha256": "38734ebb5e5ddca072e4f41eaeb4afe12270fdac24b64e23a07d7f48e254fa2d"
+            }
+          ]
+        },
+        {
+          "scene_id": "cic-csv-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/cic-csv-05.png",
+              "sha256": "d7ddc5c81e95ac066c19b3fc9017c3bf8dd0945f0c59fb24984b33ee4ac5463b"
+            }
+          ]
+        },
+        {
+          "scene_id": "cic-csv-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/cic-csv-06.png",
+              "sha256": "675ea312eeb7b915e454d95471b4b3b3f6d9425c51d121feabcdbc8f7d2fee43"
+            }
+          ]
+        },
+        {
+          "scene_id": "cic-csv-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/cic-csv-07.png",
+              "sha256": "d0560c9e739ab391c3762b078d0e7a0e7bb98670c03cdf3820c581539560c111"
+            }
+          ]
+        },
+        {
+          "scene_id": "cic-csv-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/cic-csv-08.png",
+              "sha256": "6531a3634ad3cacc91a4f790a89428963e002fe232af6dca92744df59955d838"
+            }
+          ]
+        },
+        {
+          "scene_id": "unsw-csv-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/unsw-csv-01.png",
+              "sha256": "f495cc15be7fcbb62e11834ee4eccf8399e12443a24826461c09bf68951b9459"
+            }
+          ]
+        },
+        {
+          "scene_id": "unsw-csv-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/unsw-csv-02.png",
+              "sha256": "99b15c8fff6a9ba290791391a3914e225a74f07a93d2092e8a77ccfb30cec854"
+            }
+          ]
+        },
+        {
+          "scene_id": "unsw-csv-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/unsw-csv-03.png",
+              "sha256": "c0084072d5c933de0b5d18fe8bb8497463781d283085b12c69da359739102c3a"
+            }
+          ]
+        },
+        {
+          "scene_id": "unsw-csv-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/unsw-csv-04.png",
+              "sha256": "dee617960a02b2953e0027977dcbcc7b03706210d8cd6ee23ff0579c4e732ae9"
+            }
+          ]
+        },
+        {
+          "scene_id": "unsw-csv-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/unsw-csv-05.png",
+              "sha256": "2ca17d9d92a3744a82621fc3672980dbbd543826467a97dee8589371c1971ac7"
+            }
+          ]
+        },
+        {
+          "scene_id": "unsw-csv-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/unsw-csv-06.png",
+              "sha256": "b3c83943b1e78f7ff9ed170a7b61dfee2e870c02c95f07761bcf03fd371aad09"
+            }
+          ]
+        },
+        {
+          "scene_id": "unsw-csv-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/unsw-csv-07.png",
+              "sha256": "920d4f280ce2eeb81064f8d86a15c85c505b7a06b05754b6f20c8a967d1621c0"
+            }
+          ]
+        },
+        {
+          "scene_id": "unsw-csv-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/unsw-csv-08.png",
+              "sha256": "1712e0600372c60303744e287de5f19a199d463c6a54adc00c279f5798396520"
+            }
+          ]
+        },
+        {
+          "scene_id": "features-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/features-01.png",
+              "sha256": "940cf27ecc947fb00021d02d6c8b25ad20c1981b526f2bd26b95ad47545098da"
+            }
+          ]
+        },
+        {
+          "scene_id": "features-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/features-02.png",
+              "sha256": "3f19a6fab4e1c7c3aad0f746411bde4bd016973a42267d21981d0f81828fd77e"
+            }
+          ]
+        },
+        {
+          "scene_id": "features-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/features-03.png",
+              "sha256": "57616d2ce75d568eeb5f4e4cb4afb2c4bcffe1aac657420e796658c0980dcbe7"
+            }
+          ]
+        },
+        {
+          "scene_id": "features-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/features-04.png",
+              "sha256": "23667acdb874d4d902c3c493b81f3e51db22b35b2a5d66425813a32235f0fdfe"
+            }
+          ]
+        },
+        {
+          "scene_id": "features-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/features-05.png",
+              "sha256": "50d9712ab12ad63f3d76497a0cc6b330956df940bb0d52f9d475058ca47d8422"
+            }
+          ]
+        },
+        {
+          "scene_id": "features-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/features-06.png",
+              "sha256": "de323e58eddab34846e2c9de370c841e9463d6422fed2f644744983baf6ffd17"
+            }
+          ]
+        },
+        {
+          "scene_id": "features-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/features-07.png",
+              "sha256": "c5062ce4fd2a7b86da3979861565b1261bd06197e68a33d9d2ee0a7e4db59eee"
+            }
+          ]
+        },
+        {
+          "scene_id": "features-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/features-08.png",
+              "sha256": "115d8a047bfe79b471760cdf01aaa96269fc9702240bd40406d8fb192a952431"
+            }
+          ]
+        },
+        {
+          "scene_id": "learning-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/learning-01.png",
+              "sha256": "9e7083753de59a0e8bb546d6d0f8affe33539c576781afa3b73bfd0dea363420"
+            }
+          ]
+        },
+        {
+          "scene_id": "learning-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/learning-02.png",
+              "sha256": "07255f9593b32ddb46a81145c4a27bcf8d9a3f239cedfd4f86fd6c6c1f45cad9"
+            }
+          ]
+        },
+        {
+          "scene_id": "learning-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/learning-03.png",
+              "sha256": "d77e07a3c977300654cde00431bfc75ce6d33a9d336344b685cb3776f389abbf"
+            }
+          ]
+        },
+        {
+          "scene_id": "learning-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/learning-04.png",
+              "sha256": "c1ed8562df6ecfc3638470672984cba1a65f7077c26445107e4702b93be87b48"
+            }
+          ]
+        },
+        {
+          "scene_id": "learning-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/learning-05.png",
+              "sha256": "0a898be0ce98ae98bcbc75a3d3d9f61870eec52d3e564c60df5b3dcdad61e65d"
+            }
+          ]
+        },
+        {
+          "scene_id": "learning-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/learning-06.png",
+              "sha256": "36631e469c2d12770050e215268f10dca88adddf97e0a2f2ed1fa683cad4d7df"
+            }
+          ]
+        },
+        {
+          "scene_id": "learning-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/learning-07.png",
+              "sha256": "9813d1d4f765090db6b6008d6a21b1b697ff52b48c4193cd79440418f84a5c57"
+            }
+          ]
+        },
+        {
+          "scene_id": "learning-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/learning-08.png",
+              "sha256": "4983ba8361a865329d5a1728ae4b8d4ae95d203988ea348bd6956396c549acb2"
+            }
+          ]
+        },
+        {
+          "scene_id": "code-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/code-01.png",
+              "sha256": "6baa4d36006a8c99bc3459369271f2fbd1ad3af9f25256637338b2100572727c"
+            }
+          ]
+        },
+        {
+          "scene_id": "code-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/code-02.png",
+              "sha256": "c71e4cb124dbe30769508f96f84e5d1aeb072990af1252d913d2519afe5fd5c0"
+            }
+          ]
+        },
+        {
+          "scene_id": "code-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/code-03.png",
+              "sha256": "96fb971626a3e4c0f54fc4aab351e1be27367914fd57b0434c2cea8eb143c119"
+            }
+          ]
+        },
+        {
+          "scene_id": "code-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/code-04.png",
+              "sha256": "d2fe89c89a69d2325aaceda08003b86ef4707751c8ae185daa5bc36fcce9c530"
+            }
+          ]
+        },
+        {
+          "scene_id": "code-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/code-05.png",
+              "sha256": "6f0f146546d4b18524fd2a5b2a90d6090f7b8a647cc9557ce723674f1c108228"
+            }
+          ]
+        },
+        {
+          "scene_id": "code-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/code-06.png",
+              "sha256": "1ee50a588db75ae7f3860876d3e8f8359f0da328d14a1b13fb9b9a34c1e97dcc"
+            }
+          ]
+        },
+        {
+          "scene_id": "code-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/code-07.png",
+              "sha256": "e45a92cd564461368392326969fbf3ca0b1977bf50856db6472f13023018d975"
+            }
+          ]
+        },
+        {
+          "scene_id": "code-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/code-08.png",
+              "sha256": "b5e24bc7b2dd9b0c4ff74844c268a688fc89b6bc8c4fa7a5c7c57a5b81e1c3dd"
+            }
+          ]
+        },
+        {
+          "scene_id": "results-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/results-01.png",
+              "sha256": "1ca8433697ab0f2464d38e8277e8013647195eb6fc75ef00d965fa0a1231d8cc"
+            }
+          ]
+        },
+        {
+          "scene_id": "results-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/results-02.png",
+              "sha256": "89f691a0b866f68c80e9ba597d45a0a095afc0d2ed1de863b3f5b8269ad0f7c8"
+            }
+          ]
+        },
+        {
+          "scene_id": "results-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/results-03.png",
+              "sha256": "80c637bfbe15438c14f518ea1ffb9d0d88d4f94780a2b951914e46f7e28b0366"
+            }
+          ]
+        },
+        {
+          "scene_id": "results-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/results-04.png",
+              "sha256": "5abb5c75970e1a9ec277d0f864930dcb4384cbf865c0d6855aca6b9eafba46ac"
+            }
+          ]
+        },
+        {
+          "scene_id": "results-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/results-05.png",
+              "sha256": "105ea80d8230725dafd9b61cca55d270cdcd885dfd2d01e3809e715cbf21975f"
+            }
+          ]
+        },
+        {
+          "scene_id": "results-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/results-06.png",
+              "sha256": "d1c4b5afa4b71c7d8bb41ddc2dd60014743459e3c75c4de1b4434e4d8c7fe2ad"
+            }
+          ]
+        },
+        {
+          "scene_id": "results-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/results-07.png",
+              "sha256": "5a2c6f5e834f34c205a1eb02cb1a0c25b3171e8c543bb92c35c478dbcfc92762"
+            }
+          ]
+        },
+        {
+          "scene_id": "results-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/results-08.png",
+              "sha256": "994dd66c0831b3613622b10ce2716b6cd223354190d6d7a7dbf9545e1e542dbf"
+            }
+          ]
+        },
+        {
+          "scene_id": "demo-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/demo-01.png",
+              "sha256": "fd7c445a81a448321773328ed6b8145152cdad2caa33586fad14c92ed79c426c"
+            }
+          ]
+        },
+        {
+          "scene_id": "demo-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/demo-02.png",
+              "sha256": "695c7a42be6122a87d0fff370b95ffa85cb217d8f10376b22c6c6fe425da1f11"
+            }
+          ]
+        },
+        {
+          "scene_id": "demo-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/demo-03.png",
+              "sha256": "917e3005331b5afa4899f2294bec8c84b0b11dfbb756b1f42833ed8774f90ee9"
+            }
+          ]
+        },
+        {
+          "scene_id": "demo-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/demo-04.png",
+              "sha256": "3de65d7546cafef89ae9e1a179ce9fba2831beae7fd208624b6f4c8b7a01d889"
+            }
+          ]
+        },
+        {
+          "scene_id": "demo-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/demo-05.png",
+              "sha256": "03a27e3c8f08c34fe38b8a5f0209690e3938eb3bd18bf10c65d91f23f39f4f35"
+            }
+          ]
+        },
+        {
+          "scene_id": "demo-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/demo-06.png",
+              "sha256": "0aab5a61c0f7b946506c9f8b935f81377711172e01c487d582153f01d430879f"
+            }
+          ]
+        },
+        {
+          "scene_id": "demo-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/demo-07.png",
+              "sha256": "63e4dacdff5b109c3be6eeadf428d8049a6f03fadc31892a093f0138e268e199"
+            }
+          ]
+        },
+        {
+          "scene_id": "demo-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/demo-08.png",
+              "sha256": "a888619538ccb5e67f59c6caea3af63688f459d15204fdec33a995b937f33e17"
+            }
+          ]
+        },
+        {
+          "scene_id": "setup-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/setup-01.png",
+              "sha256": "b5243d6e56b1d293f71861573b6ad5721843dce8c61b61776c0d22aadbf52bc1"
+            }
+          ]
+        },
+        {
+          "scene_id": "setup-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/setup-02.png",
+              "sha256": "e5d0ba5883c9062aecf68ac4f5ac8c9f72f05721e2dd1400eb1807fabd93a3a7"
+            }
+          ]
+        },
+        {
+          "scene_id": "setup-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/setup-03.png",
+              "sha256": "3d11cdc25642f9250c62544753e4a552fa89af309d7ca13d6e8fd1aed76caa03"
+            }
+          ]
+        },
+        {
+          "scene_id": "setup-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/setup-04.png",
+              "sha256": "dbd8e0095151ce0a675e7b847ecba3bc92cad6617b8ba29658665df8e57e7806"
+            }
+          ]
+        },
+        {
+          "scene_id": "setup-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/setup-05.png",
+              "sha256": "ab82a35ae5807fde434a63b9a26fa619992dc1f8bc0116f8b24fdefce974b682"
+            }
+          ]
+        },
+        {
+          "scene_id": "setup-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/setup-06.png",
+              "sha256": "11af15b789c925d41fadda3f4a44fed71bd0c843f110ca7cdf5021b8505d0247"
+            }
+          ]
+        },
+        {
+          "scene_id": "setup-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/setup-07.png",
+              "sha256": "64cd9b61b167ab9fd87896aabf3685609eaaa097d7fe39df984ba63557e5d699"
+            }
+          ]
+        },
+        {
+          "scene_id": "setup-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/setup-08.png",
+              "sha256": "b870303501ca4fed655d59e883e831e0c473c4c5e3798633972ff50961928ab1"
+            }
+          ]
+        },
+        {
+          "scene_id": "repository-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/repository-01.png",
+              "sha256": "c80a8066ff1146c82d07791252e3488a489b4578715035272a997466309134b3"
+            }
+          ]
+        },
+        {
+          "scene_id": "repository-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/repository-02.png",
+              "sha256": "49ff88f17fa8f169000cd84ff59a1c5c4d8224c1e63597c7dc76ad87aaa56ee4"
+            }
+          ]
+        },
+        {
+          "scene_id": "repository-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/repository-03.png",
+              "sha256": "38d71cc9811ff94ea6a2be5b6426900b31021e634f3da8941a1986f31c54dcac"
+            }
+          ]
+        },
+        {
+          "scene_id": "repository-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/repository-04.png",
+              "sha256": "b3c0efc8117307d4cd59d0cbf8a2e47ed014182b802614cd8ebb349a210a0785"
+            }
+          ]
+        },
+        {
+          "scene_id": "repository-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/repository-05.png",
+              "sha256": "4be41b02003a6dadadafe6bdf0515d91948cd885a768276a97441ce8a8c1004b"
+            }
+          ]
+        },
+        {
+          "scene_id": "repository-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/repository-06.png",
+              "sha256": "8af78f9eec0be5e26013412c34fd3b2bfebea58cc1feb6fe42f468986c2aa759"
+            }
+          ]
+        },
+        {
+          "scene_id": "repository-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/repository-07.png",
+              "sha256": "7a61a586962b433134f0f7edbca43dc551a648bcee3ea7773c591ef7a585dd37"
+            }
+          ]
+        },
+        {
+          "scene_id": "repository-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/repository-08.png",
+              "sha256": "5f121483745cfd330abc9546a562cb80d1f2eb9f9e4bdbcb27174a4a018d1f93"
+            }
+          ]
+        },
+        {
+          "scene_id": "hardware-01",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/hardware-01.png",
+              "sha256": "8ca0c071a26af8d304abe2efcb95bfcf06f1aee866904af34e81fcb3c21f0ef6"
+            }
+          ]
+        },
+        {
+          "scene_id": "hardware-02",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/hardware-02.png",
+              "sha256": "fce62825d79c72142bea4edfa2e4e267716ee29c034a95eea90c01e0255656cf"
+            }
+          ]
+        },
+        {
+          "scene_id": "hardware-03",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/hardware-03.png",
+              "sha256": "eede4d0c110b71bbe5b383770b8e927e973bb9955d4beeb284a1088b8513025b"
+            }
+          ]
+        },
+        {
+          "scene_id": "hardware-04",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/hardware-04.png",
+              "sha256": "c9ae3a503fc9028700f53b6255ea2da305051db0cf1e98d1eca6b301cc2a004e"
+            }
+          ]
+        },
+        {
+          "scene_id": "hardware-05",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/hardware-05.png",
+              "sha256": "d83fee616c94ce331827cff956090cf18f6138fec95a49fb5f862f36a6fceac0"
+            }
+          ]
+        },
+        {
+          "scene_id": "hardware-07",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/hardware-07.png",
+              "sha256": "b3bc24610ef270c1943f567d464504f29d99217f7410d58f7f9e41461b6b3661"
+            }
+          ]
+        },
+        {
+          "scene_id": "hardware-08",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/hardware-08.png",
+              "sha256": "95c0fbd90672ee3db4cae644500f213d697236fa96a892739a2a8290b5fc04e3"
+            }
+          ]
+        },
+        {
+          "scene_id": "hardware-06",
+          "status": "passed",
+          "frames": [
+            {
+              "path": "docs/customer/demo/video/v3/frames/hardware-06.png",
+              "sha256": "b9ca28d1a2a99cb12ffb423cac3f8de0042642e3358ea686503e22f26db8097a"
+            }
+          ]
+        }
+      ]
+    },
+    "human_full_watch": {
+      "status": "pending",
+      "reason": "No person has reported a complete watch/listen-through of the final hour; computational decode and Codex frame review do not establish that."
+    },
+    "all_caption_acceptance": {
+      "status": "pending",
+      "reason": "Every cue is text-checked and machine timing diagnostics were reviewed; a person has not accepted every final caption against heard speech."
+    }
+  },
+  "checks": {
+    "decode": {
+      "path": "docs/research/video-v3/decode.json",
+      "sha256": "a2d86af0c3732f03e3b6e8e88a0e72e08b91a3fd5141bf8fc2bfa6936cfd8e13"
+    },
+    "browser": {
+      "path": "docs/research/video-v3/browser.json",
+      "sha256": "1ee35f299dbb6fb7a8c380014239ad851a98d702e488a591ae21da994e597ce4"
+    },
+    "captions": {
+      "path": "docs/research/video-v3/captions.json",
+      "sha256": "a6b1202c0f104005879337d5fb58218151dac0ae75918aa8e462e585fd1a4d7b"
+    },
+    "claims": {
+      "path": "docs/research/video-v3/claims.json",
+      "sha256": "c69b7bddcb0243737ffacf4a8e588e5d3165e0a96075f57849dceadf681564e5"
+    },
+    "rendered_samples": {
+      "path": "docs/research/video-v3/rendered_samples.json",
+      "sha256": "f3fac54eb9ec0507bae91e67371564e05535e792a01b7751f3a6ebab8fa6bc96"
+    }
+  },
+  "known_material_defects": [],
+  "assembly": {
+    "review_bundle": {
+      "path": "docs/research/video-audit-v3.json",
+      "sha256": "d6e3bc7d42768dbc911cb950c92747c2f5798d10af8a5618e3804536f80d97a5"
+    },
+    "method": "Exact reviewed source/guide excerpts and existing completed proof records; no status was synthesized.",
+    "inventory_scope": "Every Git-tracked and nonignored file is mapped; no published files are excluded.",
+    "local_only_inputs_scope": "Historical production-workspace observations outside the published inventory; these directories are not required in a consumer clone.",
+    "local_only_inputs": [
+      {
+        "path": "upstream",
+        "kind": "external_input",
+        "reason": "The fetched original scientific source is local and ignored; its pinned identity and role remain documented separately."
+      },
+      {
+        "path": ".evidence",
+        "kind": "external_input",
+        "reason": "Local extracted paper text and investigation material are ignored; public paper links and published evidence provide the source trail."
+      },
+      {
+        "path": "runs",
+        "kind": "ignored_cache",
+        "reason": "Production intermediates and this assembler stay local; selected final artifacts and actual audit records are published separately."
+      },
+      {
+        "path": "checkpoints",
+        "kind": "external_input",
+        "reason": "Local trained and inherited weight files are ignored; public manifests preserve their identity without redistributing the tensors."
+      }
+    ]
+  }
+}

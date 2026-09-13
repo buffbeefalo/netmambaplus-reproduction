@@ -9,7 +9,8 @@ from pathlib import Path
 
 from build_course import ROOT, TOKEN, fact_values, read
 
-SOURCE = ROOT / "docs/customer/video-course-source.json"
+LEGACY_SOURCE = ROOT / "docs/customer/video-course-source.json"
+SOURCE = ROOT / "docs/customer/video-course-v3-source.json"
 
 
 def digest(path):
@@ -20,8 +21,8 @@ def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode()
 
 
-def load_source():
-    source = read(SOURCE)
+def load_source(source_path=SOURCE):
+    source = read(source_path)
     course = read(ROOT / "docs/customer/course-source.json")
     if hashlib.sha256(canonical(course["facts"])).hexdigest() != source["fact_bindings_sha256"]:
         raise ValueError("Video fact bindings have changed; review the video source first")
@@ -41,6 +42,7 @@ def load_source():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=LEGACY_SOURCE)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--voices", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
@@ -51,9 +53,11 @@ def main():
     import soundfile as sf
     from kokoro_onnx import Kokoro
 
-    source_hash = digest(SOURCE)
-    source = load_source()
+    source_hash = digest(args.source)
+    source = load_source(args.source)
     voice = source["voice"]
+    if voice.get("engine") != "kokoro-onnx":
+        raise ValueError("This renderer is for legacy Kokoro sources; use narrate_video_neural.py for the current course")
     model_hash, voices_hash = digest(args.model), digest(args.voices)
     if model_hash != voice["model_sha256"]:
         raise ValueError("Kokoro model does not match the reviewed voice specification")
@@ -104,7 +108,7 @@ def main():
             record_path.write_text(json.dumps(record, indent=2) + "\n")
             records.append(record)
             print(f"Narrated {scene['id']}: {record['seconds']:.2f}s", flush=True)
-    if digest(SOURCE) != source_hash:
+    if digest(args.source) != source_hash:
         raise ValueError("Video source changed during synthesis; cached matching scenes can be reused")
     result = {"schema_version": 1, "source_sha256": source_hash,
               "voice": voice, "voices_sha256": voices_hash, "scenes": records}

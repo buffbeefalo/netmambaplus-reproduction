@@ -79,10 +79,10 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
   "checks": {
     "content_review": {
       "status": "passed",
-      "detail": "Reviewed archived teaching content and evidence bindings after public course retirement, video navigation and exact final quality-review inventory. No scientific measurements or exercise answers changed.",
+      "detail": "Reviewed the retired course and its exercises after the expanded every-file companion update. Only the walkthrough reference identity changed; scientific teaching and answer keys remain unchanged.",
       "receipt": {
         "reviewer": "Codex ordinary implementation session; not a human learner",
-        "completed_at": "2026-09-13T06:59:52.479121+00:00",
+        "completed_at": "2026-09-13T10:35:16.904272+00:00",
         "baseline_commit": "1c424884cd0d691203fb94ba4da3c706eb6291e7",
         "reviewed_topics": [
           "each uploaded CSV and native flow distinction",
@@ -103,7 +103,7 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
           "docs/customer/evidence/native-data-validation.json": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
           "docs/customer/hardware-roadmap.md": "99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18",
           "docs/customer/runbook.md": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0",
-          "docs/repository-walkthrough.md": "8cb5b8c6aa2afb53e748ab552b63e944f9f896baa9dcca00eac50377b53c39a4"
+          "docs/repository-walkthrough.md": "88f7705bbdcd261a7802bdb35d987cdeeea4abbfaada73cc67b218b8494ebcb3"
         },
         "global_queues": {
           "pending-content-reviews.json": {
@@ -152,8 +152,8 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
       "detail": "Public interactive course withdrawn at the user’s request. Pages excludes course/; the active video has a separate publication receipt."
     }
   },
-  "source_sha256": "f01438fe0d4e3a4c0ff26f03b5a49ce973e0387a276c9bd0c8b521dfaa84e10b",
-  "html_sha256": "343a5bd940d1e9ef32c625813a445d821bf758f424081ace17608386e80a1c57",
+  "source_sha256": "676f228f76ffe6072a27ee34bb3b3040a86a57202d2662494324a3eacc7c5d7b",
+  "html_sha256": "6bdb5e531aff12a33158dc1a4b3b241d9cd9c97f30d9f2342aa3aecc03a6f9da",
   "prior_course_receipt": {
     "commit": "49078618f77da068b45fb5b0b8dc51698a617ff6",
     "path": "docs/customer/course-verification.md",

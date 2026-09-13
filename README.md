@@ -10,11 +10,12 @@ Test accuracy was **91.26%, 84.05% and 84.63%** across the three declared seeds:
 
 | Deliverable | Link |
 |---|---|
-| Watch the narrated 30-minute video | [Watch now](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Download MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v2/NetMambaPlus-30-minute-course.mp4) · [Transcript and media checks](docs/customer/video-verification.md) |
+| Watch the complete one-hour course | [Watch now](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Download MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v3/NetMambaPlus-one-hour-course.mp4) · [Exact checks and review limits](docs/customer/video-verification-v3.md) |
+| Matching course documents | [PDF handbook and every-file appendix](docs/customer/demo/video/v3/NetMambaPlus-course-handbook.pdf) · [PowerPoint with speaker notes](docs/customer/demo/video/v3/NetMambaPlus-course-slides.pptx) · [PDF slides](docs/customer/demo/video/v3/NetMambaPlus-course-slides.pdf) · [Full transcript](docs/customer/demo/video/v3/transcript.md) |
 | Start here: results, downloads and completion checklist | [Customer index](docs/customer/README.md) |
 | Understand it without a technical background | [Slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
 | Current setup, usage and test results on other systems | [Setup and support matrix](docs/support-matrix.md) · [Original experiment quickstart](docs/customer/quickstart.md) |
-| What the paper/data mean and what we changed | [Authors’ repository comparison](docs/customer/upstream-comparison.md) |
+| Understand the paper, both CSVs and our changes | [Complete paper/data explanation](docs/customer/paper-and-data-explained.md) · [Authors’ repository comparison](docs/customer/upstream-comparison.md) |
 | Understand every file and how the code fits together | [Complete repository walkthrough](docs/repository-walkthrough.md) |
 | Find each of your seven answers | [Question-to-slide/script/PDF map](docs/customer/answers.md) |
 | Download the complete offline customer bundle | [Release ZIP](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/latest/download/netmambaplus-customer-package.zip) |
@@ -62,6 +63,7 @@ python3 tools/verify_package.py
 python3 tools/build_course.py --check
 python3 tools/verify_course.py
 python3 tools/verify_course_video.py
+python3 tools/verify_video_course_v3.py
 python3 tools/build_video_page.py --check
 ```
 
@@ -69,7 +71,7 @@ CPU CI runs on Linux x86-64, Windows x86-64 and macOS ARM64 with Python 3.10 and
 
 The earlier interactive HTML course was retired at the user’s request. Its archived source and tests remain as evidence bindings used by the video; the public `/course/` page is excluded from deployment.
 
-The narrated video is a separate **30:00 audiovisual course**, with 27 minutes allocated to explanation and worked answers plus three minutes of announced practice. It assumes no prior networking or machine-learning knowledge and explains what this repository adds to the authors’ research. It includes captions, chapter seeking, a reflowing transcript and one main MP4 download; an internal WebM encoding supports more browsers. The media receipt separates actual decode, audio, image and browser checks from the still-pending human full-playback review. Its versioned release leaves the seven historical customer-release attachments intact.
+The **60:00 course** has 12 chapters and 96 teaching scenes, including 3:20 of announced practice. Codex wrote and directed the lesson; Microsoft Andrew synthetic speech renders that text. Moving packet/token diagrams, code emphasis, measured-result reveals and an actual recording of the replay controls support the explanation. The course explains every subsystem; the matching handbook and [file guide](docs/repository-walkthrough.md) provide the individual-file detail. Captions, chapter controls and a reflowing transcript accompany one MP4 lesson and its equivalent browser encoding. The [v3 receipt](docs/customer/video-verification-v3.md) separates computational checks, Codex review and the pending human full-watch/all-caption acceptance. The [coverage record](docs/customer/video-course-v3-coverage.json) maps files, paper sections, CSVs and scientific quantities to their explanations. The historical customer ZIP and earlier video releases retain their original contents.
 
 Acquire the pinned original source and assets:
 
