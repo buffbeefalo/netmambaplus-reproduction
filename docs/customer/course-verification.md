@@ -225,8 +225,75 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
       "detail": "No human has yet completed the full route with observed segment durations and teach-back. Planned timing and automated clicking are not substituted for this observation."
     },
     "publication": {
-      "status": "pending",
-      "detail": "Public course URL and served-byte agreement will be checked after the authorized push."
+      "status": "passed",
+      "detail": "Anonymous public page and same-origin download matched the reviewed HTML; hosted browser checks and both GitHub workflows passed. The historical release still has seven assets at its original commit.",
+      "receipt": {
+        "completed_at": "2026-09-13T05:48:30.908769+00:00",
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/course/",
+        "html_sha256": "5aa24cf4b7283f21a54dc775a3bda390516dcec191e32a7332c891045cd5e8f5",
+        "served_bytes_equal": true,
+        "download_bytes_equal": true,
+        "course_implementation_commit": "4ff6f6bc34425dfd5072588339151c4d3d8b6ef3",
+        "ci": [
+          {
+            "conclusion": "success",
+            "databaseId": 34741084725,
+            "headSha": "4ff6f6bc34425dfd5072588339151c4d3d8b6ef3",
+            "name": "CPU verification",
+            "status": "completed",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34741084725"
+          },
+          {
+            "conclusion": "success",
+            "databaseId": 34741084759,
+            "headSha": "4ff6f6bc34425dfd5072588339151c4d3d8b6ef3",
+            "name": "Publish measured replay",
+            "status": "completed",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34741084759"
+          }
+        ],
+        "hosted_browser": {
+          "status": "passed",
+          "completed_at": "2026-09-13T05:47:11.023607+00:00",
+          "html_sha256": "5aa24cf4b7283f21a54dc775a3bda390516dcec191e32a7332c891045cd5e8f5",
+          "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
+          "passed_checks": [
+            "correct_answers",
+            "keyboard",
+            "no_js_answers",
+            "no_page_errors",
+            "offline_core",
+            "print_answers",
+            "reveals_do_not_score",
+            "rubric_separate",
+            "wrong_answer_feedback"
+          ],
+          "viewport_widths_without_overflow": [
+            320,
+            390,
+            768,
+            1440
+          ],
+          "method": "automated browser functional rehearsal; not a human learning or timing study",
+          "elapsed_seconds": 33.968,
+          "hosted_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/course/",
+          "download_bytes_equal": true,
+          "print_pdf_sha256": "e0297439ed9e02bfbec1daa51302cb589dbe044df9202ffb4b455c0980a2d997",
+          "screenshots": {
+            "course-1440.png": "3b9d65c1fb7b244fb7636371212ce1dafdd3e07dc56d35e7bc6fab95682b346c",
+            "course-320.png": "568069b407991443911234c4acd1a6a407d919d861d9df732e7da3b349d4a24a",
+            "course-390.png": "545762ed2a16005895962161c31ea43f968bfb43a51e7d120cd5466b3adac713",
+            "course-768.png": "c732d2d544f20925551e4826673ba79f7fe50be74feff1dd225c1cd431c897a0",
+            "course-no-js.png": "1a4cd555dec21589109df5129b6d82e781eb4cfb65262ca87546d1a3dbfbb516",
+            "recorded-example.png": "ad5cd491cd138895a08f4e4e33215d8360fd7ef21ec7d84b29bb41c556a2004b"
+          }
+        },
+        "preserved_release": {
+          "tag": "customer-2026-09-15-audited",
+          "target_commit": "17b4aaebcf9327ae9967ca45ddfaf16325766993",
+          "named_assets": 7
+        }
+      }
     }
   },
   "source_sha256": "86dfc769fec5afcf9a59348e73caf8c9261c7d1570dfcb480e0435e9284a186e",
