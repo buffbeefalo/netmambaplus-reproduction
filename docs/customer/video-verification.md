@@ -90,8 +90,8 @@ The original paper accuracy of **97.50% remains unreproduced**. The three measur
 | Audio analysis | −16.3 LUFS integrated, −1.0 dBFS true peak; all nine announced practice intervals detected, no unexplained long silence. |
 | Every scene and chapter boundary | 69 extracted frames passed comparison against their expected picture and exact-time captions/countdowns; maximum full-frame RGB difference 2.143 against limit 3.0. Changed teaching layouts were also visually inspected. |
 | Captions and source identity | 412 ordered cues; exact source, reference and download hashes checked. Timed words are unchanged by recognition output. |
-| Independent speech/caption audit | Detailed final results are recorded in the structured receipt. ASR uncertainty is retained, not converted to a pass. |
-| Browser playback | Local Chromium checked actual decoded audio/video, keyboard play and all nine chapter links, seeking near the end, captions, download equality and widths 320/390/768/1440. Public verification is recorded separately after deployment. |
+| Independent speech/caption audit | All 51 spoken scenes transcribed from encoded audio. All 89 strong paired within-sentence anchors were within 0.5 seconds; no reliable boundary exceeded one second. Uncertain matches and endpoint-estimation limits remain in the receipt. |
+| Browser playback | Local Chromium passed actual decoded audio/video, keyboard play and all nine chapter links, seeking near the end, captions, download equality and widths 320/390/768/1440. Public verification is recorded separately after deployment. |
 | Regression tests | Source/media disagreement, truncation, missing audio, silence, altered captions, bad checksums, invalid pacing and stale/invalid caption anchors are rejected. |
 | Full human listening and ±0.5-second caption acceptance | **Not performed / not established.** No machine check or AI review is reported as human acceptance. |
 
