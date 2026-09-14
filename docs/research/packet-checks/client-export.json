@@ -1,0 +1,4007 @@
+{
+  "schema_version": 1,
+  "status": "verified_delivery_with_recorded_numerical_failures",
+  "created_at": "2026-09-14T10:04:09.961614+00:00",
+  "source_commit": "25f72a4c02bf8cdc176e51e10cd212b4ef42e309",
+  "scope": "Packet-only client packaging and execution audit; existing GB10 runtime, upstream source, prepared data and weights reused; no fresh installation, full training, customer-network or hardware-deployment claim",
+  "client_inventory": {
+    "shared_files": 117,
+    "template_files": 6,
+    "total_including_manifest": 124,
+    "packet_evidence_files": 75,
+    "manifest_sha256": "fe7b9f9b5533cd3e6f84ab98f95b1752969f8a8e0082cce939591d4d44eaf48e",
+    "selection_sha256": "538a85127a40c58836c53dd74164327267779395ff94000c8a494265cf91ce12"
+  },
+  "source_local_suite": {
+    "discovered": 468,
+    "passed": 432,
+    "skipped": 36,
+    "failures": 0,
+    "errors": 0,
+    "log_sha256": "17e85b6b3f9445b40082a2807f8b5860cbd6685c3a6fba2e0c7fa44cc2b49d07"
+  },
+  "source_additional_checks": {
+    "commands": [
+      "tools/verify_package.py",
+      "tools/review_calibration.py --check",
+      "tools/review_packet_study.py",
+      "tools/verify_packet_briefing.py",
+      "tools/verify_repository_guide.py",
+      "tools/build_course.py --check",
+      "tools/verify_course.py",
+      "tools/verify_course_video.py",
+      "tools/verify_video_course_v3.py",
+      "tools/verify_video_course_v4.py",
+      "tools/build_video_page.py --check"
+    ],
+    "all_exit_codes_zero": true,
+    "scope": "Current package/packet/guide checks and preserved historical media checks"
+  },
+  "client_local_suite": {
+    "discovered": 185,
+    "passed": 149,
+    "skipped": 36,
+    "failures": 0,
+    "errors": 0,
+    "log": "test_asset_inventory_cannot_escape_or_replace_the_acquisition_record (test_assets.AssetChecks.test_asset_inventory_cannot_escape_or_replace_the_acquisition_record) ... ok\ntest_download_hash_failure_never_publishes_target (test_assets.AssetChecks.test_download_hash_failure_never_publishes_target) ... ok\ntest_existing_mismatch_is_preserved (test_assets.AssetChecks.test_existing_mismatch_is_preserved) ... ok\ntest_matching_existing_asset_is_reused_without_network (test_assets.AssetChecks.test_matching_existing_asset_is_reused_without_network) ... ok\ntest_named_acquisition_selects_only_the_requested_checkpoint (test_assets.AssetChecks.test_named_acquisition_selects_only_the_requested_checkpoint) ... ok\ntest_architecture_patch_preserves_surrounding_setup_and_has_one_target (test_build_cuda.CudaBuildChecks.test_architecture_patch_preserves_surrounding_setup_and_has_one_target) ... ok\ntest_compiler_target_matches_selected_gpu_on_both_host_architectures (test_build_cuda.CudaBuildChecks.test_compiler_target_matches_selected_gpu_on_both_host_architectures) ... ok\ntest_distutils_compiler_log_establishes_actual_flags_without_ninja (test_build_cuda.CudaBuildChecks.test_distutils_compiler_log_establishes_actual_flags_without_ninja) ... ok\ntest_failed_preflight_never_launches_install_and_retains_reason (test_build_cuda.CudaBuildChecks.test_failed_preflight_never_launches_install_and_retains_reason) ... CUDA build failed: CUDA is unavailable; this is not a CPU model backend. See /tmp/claude-1000/tmp70v4bcvn/build/build-report.json\nok\ntest_failed_process_is_logged_and_stops_following_work (test_build_cuda.CudaBuildChecks.test_failed_process_is_logged_and_stops_following_work) ... ok\ntest_installed_source_mismatch_is_rejected (test_build_cuda.CudaBuildChecks.test_installed_source_mismatch_is_rejected) ... ok\ntest_observed_extension_flags_must_match_requested_target (test_build_cuda.CudaBuildChecks.test_observed_extension_flags_must_match_requested_target) ... ok\ntest_patch_preimage_mismatch_preserves_original (test_build_cuda.CudaBuildChecks.test_patch_preimage_mismatch_preserves_original) ... ok\ntest_unsafe_build_location_is_rejected (test_build_cuda.CudaBuildChecks.test_unsafe_build_location_is_rejected) ... ok\ntest_unsupported_profiles_are_rejected (test_build_cuda.CudaBuildChecks.test_unsupported_profiles_are_rejected) ... ok\ntest_reindexed_false_accuracy_is_rejected_by_prediction_arithmetic (test_client_verification.ClientPacketEvidenceTests.test_reindexed_false_accuracy_is_rejected_by_prediction_arithmetic) ... ok\ntest_reindexed_incomplete_training_is_rejected (test_client_verification.ClientPacketEvidenceTests.test_reindexed_incomplete_training_is_rejected) ... ok\ntest_complete_source_zip_inventory_passes_without_git (test_client_verification.ClientVerificationTests.test_complete_source_zip_inventory_passes_without_git) ... ok\ntest_invalid_source_identity_is_rejected (test_client_verification.ClientVerificationTests.test_invalid_source_identity_is_rejected) ... ok\ntest_local_runtime_outputs_do_not_invalidate_delivery (test_client_verification.ClientVerificationTests.test_local_runtime_outputs_do_not_invalidate_delivery) ... ok\ntest_modified_delivered_bytes_are_rejected (test_client_verification.ClientVerificationTests.test_modified_delivered_bytes_are_rejected) ... ok\ntest_omitted_file_is_rejected (test_client_verification.ClientVerificationTests.test_omitted_file_is_rejected) ... ok\ntest_unlisted_file_is_rejected (test_client_verification.ClientVerificationTests.test_unlisted_file_is_rejected) ... ok\ntest_unsafe_inventory_path_is_rejected (test_client_verification.ClientVerificationTests.test_unsafe_inventory_path_is_rejected) ... ok\ntest_evaluation_requires_completed_frozen_controls (test_packet_controls.ControlContracts.test_evaluation_requires_completed_frozen_controls) ... ok\ntest_existing_fit_output_is_preserved_without_loading_data (test_packet_controls.ControlContracts.test_existing_fit_output_is_preserved_without_loading_data) ... ok\ntest_import_without_loading_training_dependencies (test_packet_controls.ControlContracts.test_import_without_loading_training_dependencies) ... ok\ntest_metadata_numeric_values_and_protocol_categories (test_packet_controls.ControlContracts.test_metadata_numeric_values_and_protocol_categories) ... ok\ntest_changed_frozen_model_is_rejected_before_evaluation_output (test_packet_controls.ControlFits.test_changed_frozen_model_is_rejected_before_evaluation_output) ... skipped 'tiny CPU fits require NumPy and scikit-learn'\ntest_group_metadata_means_and_protocol_fractions_reconcile (test_packet_controls.ControlFits.test_group_metadata_means_and_protocol_fractions_reconcile) ... skipped 'tiny CPU fits require NumPy and scikit-learn'\ntest_histogram_counts_stored_zeros_and_all_1500_bytes (test_packet_controls.ControlFits.test_histogram_counts_stored_zeros_and_all_1500_bytes) ... skipped 'tiny CPU fits require NumPy and scikit-learn'\ntest_portable_linear_scores_apply_saved_scaler_and_intercept (test_packet_controls.ControlFits.test_portable_linear_scores_apply_saved_scaler_and_intercept) ... skipped 'tiny CPU fits require NumPy and scikit-learn'\ntest_public_fit_interface_works_as_tools_module (test_packet_controls.ControlFits.test_public_fit_interface_works_as_tools_module) ... skipped 'tiny CPU fits require NumPy and scikit-learn'\ntest_soft_targets_and_joint_source_mass_are_preserved (test_packet_controls.ControlFits.test_soft_targets_and_joint_source_mass_are_preserved) ... skipped 'tiny CPU fits require NumPy and scikit-learn'\ntest_train_only_freeze_portable_reload_and_strict_evaluation (test_packet_controls.ControlFits.test_train_only_freeze_portable_reload_and_strict_evaluation) ... skipped 'tiny CPU fits require NumPy and scikit-learn'\ntest_complete_control_evidence_verifies_without_ml_packages (test_packet_controls_review.ControlEvidenceReviewTests.test_complete_control_evidence_verifies_without_ml_packages) ... ok\ntest_frozen_source_weights_must_match_selected_training_groups (test_packet_controls_review.ControlEvidenceReviewTests.test_frozen_source_weights_must_match_selected_training_groups) ... ok\ntest_incomplete_model_inventory_is_rejected (test_packet_controls_review.ControlEvidenceReviewTests.test_incomplete_model_inventory_is_rejected) ... ok\ntest_independent_checker_failure_is_not_silently_ignored (test_packet_controls_review.ControlEvidenceReviewTests.test_independent_checker_failure_is_not_silently_ignored) ... ok\ntest_manifest_aggregate_truth_totals_are_checked (test_packet_controls_review.ControlEvidenceReviewTests.test_manifest_aggregate_truth_totals_are_checked) ... ok\ntest_nonconvergence_remains_visible_in_verified_summary (test_packet_controls_review.ControlEvidenceReviewTests.test_nonconvergence_remains_visible_in_verified_summary) ... ok\ntest_replaced_group_identity_fails_manifest_membership (test_packet_controls_review.ControlEvidenceReviewTests.test_replaced_group_identity_fails_manifest_membership) ... ok\ntest_reported_metrics_are_recomputed (test_packet_controls_review.ControlEvidenceReviewTests.test_reported_metrics_are_recomputed) ... ok\ntest_updated_hash_does_not_hide_changed_predictions_or_metrics (test_packet_controls_review.ControlEvidenceReviewTests.test_updated_hash_does_not_hide_changed_predictions_or_metrics) ... ok\ntest_updated_hash_does_not_hide_changed_truth (test_packet_controls_review.ControlEvidenceReviewTests.test_updated_hash_does_not_hide_changed_truth) ... ok\ntest_all_observed_labels_map_explicitly (test_packet_data.PacketContractTests.test_all_observed_labels_map_explicitly) ... ok\ntest_caps_are_validated_before_dependencies_or_files (test_packet_data.PacketContractTests.test_caps_are_validated_before_dependencies_or_files) ... ok\ntest_existing_outputs_and_broken_symlinks_are_never_overwritten (test_packet_data.PacketContractTests.test_existing_outputs_and_broken_symlinks_are_never_overwritten) ... ok\ntest_import_and_cli_help_need_only_standard_library (test_packet_data.PacketContractTests.test_import_and_cli_help_need_only_standard_library) ... ok\ntest_integer_valued_slots_keep_all_stored_zeros (test_packet_data.PacketContractTests.test_integer_valued_slots_keep_all_stored_zeros) ... ok\ntest_invalid_digest_and_seed_fail_before_assignment (test_packet_data.PacketContractTests.test_invalid_digest_and_seed_fail_before_assignment) ... ok\ntest_invalid_slots_cannot_be_cast_or_rounded_into_valid_bytes (test_packet_data.PacketContractTests.test_invalid_slots_cannot_be_cast_or_rounded_into_valid_bytes) ... ok\ntest_payload_identity_is_sha256_of_exact_bytes (test_packet_data.PacketContractTests.test_payload_identity_is_sha256_of_exact_bytes) ... ok\ntest_payload_shape_must_be_exactly_1500 (test_packet_data.PacketContractTests.test_payload_shape_must_be_exactly_1500) ... ok\ntest_split_has_fixed_vectors_for_all_three_partitions (test_packet_data.PacketContractTests.test_split_has_fixed_vectors_for_all_three_partitions) ... ok\ntest_unknown_source_or_label_cannot_become_an_attack (test_packet_data.PacketContractTests.test_unknown_source_or_label_cannot_become_an_attack) ... ok\ntest_caps_choose_fixed_hash_order_and_report_exact_membership_and_support (test_packet_data.PacketPreparationTests.test_caps_choose_fixed_hash_order_and_report_exact_membership_and_support) ... skipped 'NumPy is optional; contract tests remain dependency-free'\ntest_cli_prepares_both_sources_with_declared_caps (test_packet_data.PacketPreparationTests.test_cli_prepares_both_sources_with_declared_caps) ... skipped 'NumPy is optional; contract tests remain dependency-free'\ntest_cross_source_duplicates_and_conflicting_labels_retain_every_count (test_packet_data.PacketPreparationTests.test_cross_source_duplicates_and_conflicting_labels_retain_every_count) ... skipped 'NumPy is optional; contract tests remain dependency-free'\ntest_empty_source_is_rejected (test_packet_data.PacketPreparationTests.test_empty_source_is_rejected) ... skipped 'NumPy is optional; contract tests remain dependency-free'\ntest_original_row_metadata_remains_traceable_and_lexically_unchanged (test_packet_data.PacketPreparationTests.test_original_row_metadata_remains_traceable_and_lexically_unchanged) ... skipped 'NumPy is optional; contract tests remain dependency-free'\ntest_preparation_validates_every_slot_before_uint8_cast (test_packet_data.PacketPreparationTests.test_preparation_validates_every_slot_before_uint8_cast) ... skipped 'NumPy is optional; contract tests remain dependency-free'\ntest_schema_drift_unknown_labels_and_row_width_errors_fail (test_packet_data.PacketPreparationTests.test_schema_drift_unknown_labels_and_row_width_errors_fail) ... skipped 'NumPy is optional; contract tests remain dependency-free'\ntest_source_labels_metadata_row_order_and_duplicates_cannot_change_split_or_selection (test_packet_data.PacketPreparationTests.test_source_labels_metadata_row_order_and_duplicates_cannot_change_split_or_selection) ... skipped 'NumPy is optional; contract tests remain dependency-free'\ntest_conflicting_labels_keep_both_counts_and_group_weighting (test_packet_demo.PacketDemoTests.test_conflicting_labels_keep_both_counts_and_group_weighting) ... ok\ntest_embedded_json_cannot_close_the_script_element (test_packet_demo.PacketDemoTests.test_embedded_json_cannot_close_the_script_element) ... ok\ntest_existing_output_is_preserved_before_evidence_access (test_packet_demo.PacketDemoTests.test_existing_output_is_preserved_before_evidence_access) ... ok\ntest_invalid_logits_and_duplicate_groups_are_rejected (test_packet_demo.PacketDemoTests.test_invalid_logits_and_duplicate_groups_are_rejected) ... ok\ntest_tie_uses_the_same_benign_class_as_packet_inference (test_packet_demo.PacketDemoTests.test_tie_uses_the_same_benign_class_as_packet_inference) ... ok\ntest_independent_comparison_rejects_a_wrong_ranking_metric (test_packet_evidence_review.IndependentPacketMetricTests.test_independent_comparison_rejects_a_wrong_ranking_metric) ... skipped 'Independent metric comparison requires optional scikit-learn'\ntest_independent_library_agrees_with_hand_computed_conflicting_group_metrics (test_packet_evidence_review.IndependentPacketMetricTests.test_independent_library_agrees_with_hand_computed_conflicting_group_metrics) ... skipped 'Independent metric comparison requires optional scikit-learn'\ntest_a_source_specific_arm_cannot_select_using_the_other_source (test_packet_evidence_review.PacketEvidenceReviewTests.test_a_source_specific_arm_cannot_select_using_the_other_source) ... ok\ntest_changed_bytes_and_unlisted_files_are_rejected (test_packet_evidence_review.PacketEvidenceReviewTests.test_changed_bytes_and_unlisted_files_are_rejected) ... ok\ntest_changed_metric_is_rejected_even_with_a_fresh_evidence_index (test_packet_evidence_review.PacketEvidenceReviewTests.test_changed_metric_is_rejected_even_with_a_fresh_evidence_index) ... ok\ntest_complete_review_requires_control_evidence (test_packet_evidence_review.PacketEvidenceReviewTests.test_complete_review_requires_control_evidence) ... ok\ntest_complete_review_requires_inference_evidence (test_packet_evidence_review.PacketEvidenceReviewTests.test_complete_review_requires_inference_evidence) ... ok\ntest_later_checkpoint_cannot_win_an_exact_validation_tie (test_packet_evidence_review.PacketEvidenceReviewTests.test_later_checkpoint_cannot_win_an_exact_validation_tie) ... ok\ntest_original_attack_subtype_totals_cannot_change_with_binary_counts_unchanged (test_packet_evidence_review.PacketEvidenceReviewTests.test_original_attack_subtype_totals_cannot_change_with_binary_counts_unchanged) ... ok\ntest_paired_arms_require_identical_batch_streams (test_packet_evidence_review.PacketEvidenceReviewTests.test_paired_arms_require_identical_batch_streams) ... ok\ntest_prediction_ids_must_match_frozen_membership (test_packet_evidence_review.PacketEvidenceReviewTests.test_prediction_ids_must_match_frozen_membership) ... ok\ntest_selection_scores_must_follow_recorded_validation_metrics (test_packet_evidence_review.PacketEvidenceReviewTests.test_selection_scores_must_follow_recorded_validation_metrics) ... ok\ntest_structurally_consistent_synthetic_receipts_exercise_all_prediction_sets (test_packet_evidence_review.PacketEvidenceReviewTests.test_structurally_consistent_synthetic_receipts_exercise_all_prediction_sets) ... ok\ntest_test_truth_must_match_declared_support_not_only_rows_and_ids (test_packet_evidence_review.PacketEvidenceReviewTests.test_test_truth_must_match_declared_support_not_only_rows_and_ids) ... ok\ntest_changed_compressed_bytes_fail_hash (test_packet_inference_review.InferenceReviewTests.test_changed_compressed_bytes_fail_hash) ... ok\ntest_changed_protocol_implementation_hash_is_rejected_against_retained_receipts (test_packet_inference_review.InferenceReviewTests.test_changed_protocol_implementation_hash_is_rejected_against_retained_receipts) ... ok\ntest_class_agreement_does_not_hide_strict_numeric_failure (test_packet_inference_review.InferenceReviewTests.test_class_agreement_does_not_hide_strict_numeric_failure) ... ok\ntest_false_class_rejected_with_fresh_hashes (test_packet_inference_review.InferenceReviewTests.test_false_class_rejected_with_fresh_hashes) ... ok\ntest_historical_protocol_hashes_survive_newer_current_implementation (test_packet_inference_review.InferenceReviewTests.test_historical_protocol_hashes_survive_newer_current_implementation) ... ok\ntest_missing_or_malformed_protocol_implementation_hashes_are_rejected (test_packet_inference_review.InferenceReviewTests.test_missing_or_malformed_protocol_implementation_hashes_are_rejected) ... ok\ntest_prior_failure_summary_cannot_lose_rows (test_packet_inference_review.InferenceReviewTests.test_prior_failure_summary_cannot_lose_rows) ... ok\ntest_receipt_checkpoint_binding_rejected (test_packet_inference_review.InferenceReviewTests.test_receipt_checkpoint_binding_rejected) ... ok\ntest_receipt_implementation_drift_is_rejected_with_fresh_hashes (test_packet_inference_review.InferenceReviewTests.test_receipt_implementation_drift_is_rejected_with_fresh_hashes) ... ok\ntest_receipt_uncompressed_hash_is_verified (test_packet_inference_review.InferenceReviewTests.test_receipt_uncompressed_hash_is_verified) ... ok\ntest_tolerance_cannot_be_loosened (test_packet_inference_review.InferenceReviewTests.test_tolerance_cannot_be_loosened) ... ok\ntest_tolerance_pass_cannot_be_claimed (test_packet_inference_review.InferenceReviewTests.test_tolerance_pass_cannot_be_claimed) ... ok\ntest_wrong_row_or_payload_rejected (test_packet_inference_review.InferenceReviewTests.test_wrong_row_or_payload_rejected) ... ok\ntest_wrong_softmax_rejected_with_fresh_hashes (test_packet_inference_review.InferenceReviewTests.test_wrong_softmax_rejected_with_fresh_hashes) ... ok\ntest_capped_check_preserves_original_full_test_numeric_failure (test_packet_inference_review.PostStudyIOReviewTests.test_capped_check_preserves_original_full_test_numeric_failure) ... ok\ntest_capped_receipt_must_validate_entire_original_input (test_packet_inference_review.PostStudyIOReviewTests.test_capped_receipt_must_validate_entire_original_input) ... ok\ntest_changed_comparison_maximum_or_pass_flag_is_rejected (test_packet_inference_review.PostStudyIOReviewTests.test_changed_comparison_maximum_or_pass_flag_is_rejected) ... ok\ntest_checkpoint_and_full_input_identities_cannot_change (test_packet_inference_review.PostStudyIOReviewTests.test_checkpoint_and_full_input_identities_cannot_change) ... ok\ntest_embedded_class_and_probability_are_checked (test_packet_inference_review.PostStudyIOReviewTests.test_embedded_class_and_probability_are_checked) ... ok\ntest_embedded_jsonl_hash_must_reconstruct_exactly (test_packet_inference_review.PostStudyIOReviewTests.test_embedded_jsonl_hash_must_reconstruct_exactly) ... ok\ntest_new_predictor_cannot_change_model_code_declaration (test_packet_inference_review.PostStudyIOReviewTests.test_new_predictor_cannot_change_model_code_declaration) ... ok\ntest_payload_prefix_must_match_primary_records (test_packet_inference_review.PostStudyIOReviewTests.test_payload_prefix_must_match_primary_records) ... ok\ntest_post_study_record_must_match_evidence_index (test_packet_inference_review.PostStudyIOReviewTests.test_post_study_record_must_match_evidence_index) ... ok\ntest_forward_rejects_wrong_dtype_shape_and_device (test_packet_model.NativePacketTests.test_forward_rejects_wrong_dtype_shape_and_device) ... skipped 'set PACKET_MODEL_NATIVE_TESTS=1 for the checked CUDA environment'\ntest_pretrain_checks_every_loaded_and_excluded_tensor_shape (test_packet_model.NativePacketTests.test_pretrain_checks_every_loaded_and_excluded_tensor_shape) ... skipped 'set PACKET_MODEL_NATIVE_TESTS=1 for the checked CUDA environment'\ntest_pretrain_maps_all_trunk_states_and_keeps_fresh_binary_head (test_packet_model.NativePacketTests.test_pretrain_maps_all_trunk_states_and_keeps_fresh_binary_head) ... skipped 'set PACKET_MODEL_NATIVE_TESTS=1 for the checked CUDA environment'\ntest_real_payload_gradients_and_safe_checkpoint_roundtrip (test_packet_model.NativePacketTests.test_real_payload_gradients_and_safe_checkpoint_roundtrip) ... skipped 'set PACKET_MODEL_NATIVE_TESTS=1 for the checked CUDA environment'\ntest_saved_checkpoint_rejects_flow_contract_state_and_provenance_drift (test_packet_model.NativePacketTests.test_saved_checkpoint_rejects_flow_contract_state_and_provenance_drift) ... skipped 'set PACKET_MODEL_NATIVE_TESTS=1 for the checked CUDA environment'\ntest_scratch_positions_equal_fresh_native_full_table_after_same_mapping (test_packet_model.NativePacketTests.test_scratch_positions_equal_fresh_native_full_table_after_same_mapping) ... skipped 'set PACKET_MODEL_NATIVE_TESTS=1 for the checked CUDA environment'\ntest_changed_packet_semantics_or_class_order_is_rejected (test_packet_model.PacketContractTests.test_changed_packet_semantics_or_class_order_is_rejected) ... ok\ntest_changed_source_and_false_initialization_claims_are_rejected (test_packet_model.PacketContractTests.test_changed_source_and_false_initialization_claims_are_rejected) ... ok\ntest_existing_checkpoint_is_preserved_before_runtime_access (test_packet_model.PacketContractTests.test_existing_checkpoint_is_preserved_before_runtime_access) ... ok\ntest_flow_checkpoint_metadata_is_rejected (test_packet_model.PacketContractTests.test_flow_checkpoint_metadata_is_rejected) ... ok\ntest_import_works_without_loading_ml_packages (test_packet_model.PacketContractTests.test_import_works_without_loading_ml_packages) ... ok\ntest_missing_or_malformed_data_identities_are_rejected (test_packet_model.PacketContractTests.test_missing_or_malformed_data_identities_are_rejected) ... ok\ntest_missing_source_fails_before_torch_import (test_packet_model.PacketContractTests.test_missing_source_fails_before_torch_import) ... ok\ntest_non_json_or_nonfinite_metadata_is_rejected (test_packet_model.PacketContractTests.test_non_json_or_nonfinite_metadata_is_rejected) ... ok\ntest_old_compact_scratch_positions_and_fixed_position_claims_are_rejected (test_packet_model.PacketContractTests.test_old_compact_scratch_positions_and_fixed_position_claims_are_rejected) ... ok\ntest_unknown_initialization_fails_before_source_or_torch_import (test_packet_model.PacketContractTests.test_unknown_initialization_fails_before_source_or_torch_import) ... ok\ntest_valid_metadata_preserves_exact_study_binding (test_packet_model.PacketContractTests.test_valid_metadata_preserves_exact_study_binding) ... ok\ntest_a_cap_at_or_above_file_length_does_not_claim_missing_predictions (test_packet_predict.PacketPredictionTests.test_a_cap_at_or_above_file_length_does_not_claim_missing_predictions) ... ok\ntest_bad_tail_after_cap_leaves_only_explicit_partial_predictions (test_packet_predict.PacketPredictionTests.test_bad_tail_after_cap_leaves_only_explicit_partial_predictions) ... ok\ntest_checkpoint_binding_mismatch_fails_before_prediction (test_packet_predict.PacketPredictionTests.test_checkpoint_binding_mismatch_fails_before_prediction) ... ok\ntest_cli_failure_returns_nonzero_and_names_the_incomplete_receipt (test_packet_predict.PacketPredictionTests.test_cli_failure_returns_nonzero_and_names_the_incomplete_receipt) ... ok\ntest_complete_predictions_bind_checkpoint_input_and_native_study (test_packet_predict.PacketPredictionTests.test_complete_predictions_bind_checkpoint_input_and_native_study) ... ok\ntest_empty_source_and_checkpoint_rejection_are_recorded_as_incomplete (test_packet_predict.PacketPredictionTests.test_empty_source_and_checkpoint_rejection_are_recorded_as_incomplete) ... ok\ntest_existing_outputs_and_broken_symlinks_are_never_overwritten (test_packet_predict.PacketPredictionTests.test_existing_outputs_and_broken_symlinks_are_never_overwritten) ... ok\ntest_explicit_cap_predicts_prefix_but_validates_and_hashes_the_full_file (test_packet_predict.PacketPredictionTests.test_explicit_cap_predicts_prefix_but_validates_and_hashes_the_full_file) ... ok\ntest_fingerprints_use_handle_metadata_when_directory_metadata_is_stale (test_packet_predict.PacketPredictionTests.test_fingerprints_use_handle_metadata_when_directory_metadata_is_stale) ... ok\ntest_four_metadata_fields_never_change_forward_payload_or_predictions (test_packet_predict.PacketPredictionTests.test_four_metadata_fields_never_change_forward_payload_or_predictions) ... ok\ntest_help_and_import_do_not_load_ml_dependencies (test_packet_predict.PacketPredictionTests.test_help_and_import_do_not_load_ml_dependencies) ... ok\ntest_input_mutation_during_inference_prevents_completion (test_packet_predict.PacketPredictionTests.test_input_mutation_during_inference_prevents_completion) ... ok\ntest_invalid_caps_and_batch_sizes_fail_before_creating_output (test_packet_predict.PacketPredictionTests.test_invalid_caps_and_batch_sizes_fail_before_creating_output) ... ok\ntest_labeled_reordered_duplicated_and_extended_headers_are_rejected (test_packet_predict.PacketPredictionTests.test_labeled_reordered_duplicated_and_extended_headers_are_rejected) ... ok\ntest_malformed_fractional_nonfinite_and_out_of_range_bytes_are_rejected (test_packet_predict.PacketPredictionTests.test_malformed_fractional_nonfinite_and_out_of_range_bytes_are_rejected) ... ok\ntest_missing_and_extra_row_columns_cannot_be_silently_trimmed (test_packet_predict.PacketPredictionTests.test_missing_and_extra_row_columns_cannot_be_silently_trimmed) ... ok\ntest_replaced_path_during_fingerprinting_is_rejected (test_packet_predict.PacketPredictionTests.test_replaced_path_during_fingerprinting_is_rejected) ... ok\ntest_wrong_logit_shape_nonfinite_values_and_lost_rows_are_rejected (test_packet_predict.PacketPredictionTests.test_wrong_logit_shape_nonfinite_values_and_lost_rows_are_rejected) ... ok\ntest_array_shapes_and_declared_dtypes_are_bound (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_array_shapes_and_declared_dtypes_are_bound) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_binary_counts_cannot_disagree_with_original_label_counts (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_binary_counts_cannot_disagree_with_original_label_counts) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_count_dtypes_and_negative_counts_are_rejected_before_training (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_count_dtypes_and_negative_counts_are_rejected_before_training) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_declared_source_and_split_support_must_match_the_arrays (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_declared_source_and_split_support_must_match_the_arrays) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_fingerprint_for_a_different_source_cannot_cover_the_loaded_path (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_fingerprint_for_a_different_source_cannot_cover_the_loaded_path) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_hashes_must_be_unique_and_sorted (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_hashes_must_be_unique_and_sorted) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_label_order_and_observed_source_identity_declarations_are_bound (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_label_order_and_observed_source_identity_declarations_are_bound) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_matching_cross_source_split_edits_still_violate_the_fixed_hash_rule (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_matching_cross_source_split_edits_still_violate_the_fixed_hash_rule) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_omitting_a_payload_fingerprint_cannot_bypass_byte_drift (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_omitting_a_payload_fingerprint_cannot_bypass_byte_drift) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_real_preparation_loads_with_fixed_capped_memberships (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_real_preparation_loads_with_fixed_capped_memberships) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_rehashed_payload_array_cannot_introduce_train_test_duplicates (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_rehashed_payload_array_cannot_introduce_train_test_duplicates) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_reloading_rejects_a_mapped_payload_changed_since_initial_verification (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_reloading_rejects_a_mapped_payload_changed_since_initial_verification) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_selection_cannot_exchange_groups_within_the_same_split (test_packet_prepared_integrity.PreparedPacketIntegrityTests.test_selection_cannot_exchange_groups_within_the_same_split) ... skipped 'Prepared-data verification requires optional NumPy'\ntest_existing_protocol_is_never_overwritten (test_packet_protocol_freeze.PacketProtocolFreezeTests.test_existing_protocol_is_never_overwritten) ... ok\ntest_freeze_binds_bytes_and_the_six_prespecified_comparisons (test_packet_protocol_freeze.PacketProtocolFreezeTests.test_freeze_binds_bytes_and_the_six_prespecified_comparisons) ... ok\ntest_incomplete_preparation_and_invalid_budgets_do_not_create_protocols (test_packet_protocol_freeze.PacketProtocolFreezeTests.test_incomplete_preparation_and_invalid_budgets_do_not_create_protocols) ... ok\ntest_measured_freeze_rejects_a_different_input_export (test_packet_protocol_freeze.PacketProtocolFreezeTests.test_measured_freeze_rejects_a_different_input_export) ... ok\ntest_measured_freeze_requires_the_successful_original_source_identity_check (test_packet_protocol_freeze.PacketProtocolFreezeTests.test_measured_freeze_requires_the_successful_original_source_identity_check) ... ok\ntest_timing_budget_mismatch_cannot_silently_change_the_protocol (test_packet_protocol_freeze.PacketProtocolFreezeTests.test_timing_budget_mismatch_cannot_silently_change_the_protocol) ... ok\ntest_trainer_rejects_a_changed_manifest_after_freezing (test_packet_protocol_freeze.PacketProtocolFreezeTests.test_trainer_rejects_a_changed_manifest_after_freezing) ... ok\ntest_trainer_rejects_missing_and_mismatched_code_fingerprints (test_packet_protocol_freeze.PacketProtocolFreezeTests.test_trainer_rejects_missing_and_mismatched_code_fingerprints) ... ok\ntest_completed_native_suite_reports_achieved_counts (test_packet_runtime.PacketRuntimeTests.test_completed_native_suite_reports_achieved_counts) ... ok\ntest_existing_output_is_preserved_before_loading_dependencies (test_packet_runtime.PacketRuntimeTests.test_existing_output_is_preserved_before_loading_dependencies) ... ok\ntest_skipped_empty_and_failed_suites_cannot_pass_the_native_gate (test_packet_runtime.PacketRuntimeTests.test_skipped_empty_and_failed_suites_cannot_pass_the_native_gate) ... ok\ntest_absent_class_metric_is_explicitly_undefined (test_packet_study.PacketMetricTests.test_absent_class_metric_is_explicitly_undefined) ... ok\ntest_conflicting_slice_is_explicit (test_packet_study.PacketMetricTests.test_conflicting_slice_is_explicit) ... ok\ntest_duplicate_group_records_are_rejected (test_packet_study.PacketMetricTests.test_duplicate_group_records_are_rejected) ... ok\ntest_empty_groups_are_rejected (test_packet_study.PacketMetricTests.test_empty_groups_are_rejected) ... ok\ntest_fractional_negative_or_boolean_counts_are_rejected (test_packet_study.PacketMetricTests.test_fractional_negative_or_boolean_counts_are_rejected) ... ok\ntest_group_weighting_prevents_duplicate_mass_from_counting_as_new_groups (test_packet_study.PacketMetricTests.test_group_weighting_prevents_duplicate_mass_from_counting_as_new_groups) ... ok\ntest_mixed_label_groups_preserve_all_labels (test_packet_study.PacketMetricTests.test_mixed_label_groups_preserve_all_labels) ... ok\ntest_nonfinite_or_wrong_sized_logits_are_rejected (test_packet_study.PacketMetricTests.test_nonfinite_or_wrong_sized_logits_are_rejected) ... ok\ntest_original_label_slices_keep_conflicting_targets (test_packet_study.PacketMetricTests.test_original_label_slices_keep_conflicting_targets) ... ok\ntest_original_labels_must_reconcile_with_binary_counts (test_packet_study.PacketMetricTests.test_original_labels_must_reconcile_with_binary_counts) ... ok\ntest_ranking_metrics_retain_conflicts_and_score_ties (test_packet_study.PacketMetricTests.test_ranking_metrics_retain_conflicts_and_score_ties) ... ok\ntest_tie_uses_class_zero_like_native_argmax (test_packet_study.PacketMetricTests.test_tie_uses_class_zero_like_native_argmax) ... ok\ntest_both_source_digests_required (test_packet_training.FrozenProtocolTests.test_both_source_digests_required) ... ok\ntest_code_fingerprint_change_rejected (test_packet_training.FrozenProtocolTests.test_code_fingerprint_change_rejected) ... ok\ntest_measured_study_requires_at_least_100_updates (test_packet_training.FrozenProtocolTests.test_measured_study_requires_at_least_100_updates) ... ok\ntest_no_arm_can_escape_output_directory (test_packet_training.FrozenProtocolTests.test_no_arm_can_escape_output_directory) ... ok\ntest_no_code_fingerprint_can_escape_repository (test_packet_training.FrozenProtocolTests.test_no_code_fingerprint_can_escape_repository) ... ok\ntest_optimizer_and_resource_limits_must_be_finite_and_positive (test_packet_training.FrozenProtocolTests.test_optimizer_and_resource_limits_must_be_finite_and_positive) ... ok\ntest_required_implementation_fingerprint_cannot_be_omitted (test_packet_training.FrozenProtocolTests.test_required_implementation_fingerprint_cannot_be_omitted) ... ok\ntest_valid_frozen_protocol (test_packet_training.FrozenProtocolTests.test_valid_frozen_protocol) ... ok\n\n----------------------------------------------------------------------\nRan 185 tests in 5.397s\n\nOK (skipped=36)",
+    "export_result": {
+      "status": "passed",
+      "source_commit": "25f72a4c02bf8cdc176e51e10cd212b4ef42e309",
+      "payload_files": 123,
+      "commands": 6,
+      "scope": "Fresh packet-only client export; offline tests/evidence/demo only"
+    }
+  },
+  "native_packet_gate": {
+    "receipt": {
+      "data": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/prepared",
+      "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+      "initialization": "/home/nvidia/.cache/netmambaplus-reproduction/checkpoints/fuse3_mamba.pth",
+      "initialization_sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9",
+      "model_probe": {
+        "bytes": 13082,
+        "path": "model-probe.json",
+        "sha256": "96dd0644fc7069f2b0e48959f11f13e41d5d51314a70889bd0ca3fea01f34854"
+      },
+      "runner_sha256": "a674dbf0db6752d5ced8d3317292a6f5723f7cff24d74ed6f91a897a83fa422d",
+      "scope": "Native packet functional checks; synthetic loss targets, no benchmark training",
+      "source_sha256": {
+        "cic": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+        "unsw": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01"
+      },
+      "status": "passed",
+      "test_log": {
+        "bytes": 2901,
+        "path": "tests.log",
+        "sha256": "eb8581e909fc3e9affa72524e3024b531c92495ab5f89645a7be654cc62a2c24"
+      },
+      "test_source_sha256": "cf098bc4e330fe4505d12f54690c03578318c7926781d9406983f4189f392316",
+      "tests": {
+        "errors": 0,
+        "failures": 0,
+        "passed": true,
+        "skipped": 0,
+        "tests_run": 17
+      },
+      "upstream": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/packet-model-clean-upstream"
+    },
+    "tests_log": "test_forward_rejects_wrong_dtype_shape_and_device (packet_runtime_suite.NativePacketTests.test_forward_rejects_wrong_dtype_shape_and_device) ... ok\ntest_pretrain_checks_every_loaded_and_excluded_tensor_shape (packet_runtime_suite.NativePacketTests.test_pretrain_checks_every_loaded_and_excluded_tensor_shape) ... ok\ntest_pretrain_maps_all_trunk_states_and_keeps_fresh_binary_head (packet_runtime_suite.NativePacketTests.test_pretrain_maps_all_trunk_states_and_keeps_fresh_binary_head) ... ok\ntest_real_payload_gradients_and_safe_checkpoint_roundtrip (packet_runtime_suite.NativePacketTests.test_real_payload_gradients_and_safe_checkpoint_roundtrip) ... ok\ntest_saved_checkpoint_rejects_flow_contract_state_and_provenance_drift (packet_runtime_suite.NativePacketTests.test_saved_checkpoint_rejects_flow_contract_state_and_provenance_drift) ... ok\ntest_scratch_positions_equal_fresh_native_full_table_after_same_mapping (packet_runtime_suite.NativePacketTests.test_scratch_positions_equal_fresh_native_full_table_after_same_mapping) ... ok\ntest_changed_packet_semantics_or_class_order_is_rejected (packet_runtime_suite.PacketContractTests.test_changed_packet_semantics_or_class_order_is_rejected) ... ok\ntest_changed_source_and_false_initialization_claims_are_rejected (packet_runtime_suite.PacketContractTests.test_changed_source_and_false_initialization_claims_are_rejected) ... ok\ntest_existing_checkpoint_is_preserved_before_runtime_access (packet_runtime_suite.PacketContractTests.test_existing_checkpoint_is_preserved_before_runtime_access) ... ok\ntest_flow_checkpoint_metadata_is_rejected (packet_runtime_suite.PacketContractTests.test_flow_checkpoint_metadata_is_rejected) ... ok\ntest_import_works_without_loading_ml_packages (packet_runtime_suite.PacketContractTests.test_import_works_without_loading_ml_packages) ... ok\ntest_missing_or_malformed_data_identities_are_rejected (packet_runtime_suite.PacketContractTests.test_missing_or_malformed_data_identities_are_rejected) ... ok\ntest_missing_source_fails_before_torch_import (packet_runtime_suite.PacketContractTests.test_missing_source_fails_before_torch_import) ... ok\ntest_non_json_or_nonfinite_metadata_is_rejected (packet_runtime_suite.PacketContractTests.test_non_json_or_nonfinite_metadata_is_rejected) ... ok\ntest_old_compact_scratch_positions_and_fixed_position_claims_are_rejected (packet_runtime_suite.PacketContractTests.test_old_compact_scratch_positions_and_fixed_position_claims_are_rejected) ... ok\ntest_unknown_initialization_fails_before_source_or_torch_import (packet_runtime_suite.PacketContractTests.test_unknown_initialization_fails_before_source_or_torch_import) ... ok\ntest_valid_metadata_preserves_exact_study_binding (packet_runtime_suite.PacketContractTests.test_valid_metadata_preserves_exact_study_binding) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 6.483s\n\nOK\n",
+    "model_probe": {
+      "status": "passed",
+      "scope": "mechanical check with synthetic targets; not measured training",
+      "real_payloads_per_source": 2,
+      "device": "NVIDIA GB10",
+      "torch": "2.9.1+cu130",
+      "loss": 1.011905312538147,
+      "gradient_norms": {
+        "byte_cls_token": 2.941835880279541,
+        "size_cls_token": 3.7178990840911865,
+        "iat_cls_token": 4.363871097564697,
+        "byte_indicator": 3.048717737197876,
+        "size_indicator": 3.7178990840911865,
+        "iat_indicator": 4.363871097564697,
+        "pos_embed": 6.461918830871582,
+        "byte_embed.proj.weight": 1.2240921258926392,
+        "byte_embed.proj.bias": 0.6044740676879883,
+        "encoder_blocks.0.mixer.A_log": 0.01719120517373085,
+        "encoder_blocks.0.mixer.D": 0.5337151288986206,
+        "encoder_blocks.0.mixer.in_proj.weight": 9.129589080810547,
+        "encoder_blocks.0.mixer.conv1d.weight": 2.8426599502563477,
+        "encoder_blocks.0.mixer.conv1d.bias": 1.6026331186294556,
+        "encoder_blocks.0.mixer.x_proj.weight": 0.7821211814880371,
+        "encoder_blocks.0.mixer.dt_proj.weight": 0.2930780351161957,
+        "encoder_blocks.0.mixer.dt_proj.bias": 0.12757952511310577,
+        "encoder_blocks.0.mixer.out_proj.weight": 10.345928192138672,
+        "encoder_blocks.0.norm.weight": 0.8884292244911194,
+        "encoder_blocks.1.mixer.A_log": 0.5380297899246216,
+        "encoder_blocks.1.mixer.D": 0.3642793297767639,
+        "encoder_blocks.1.mixer.in_proj.weight": 9.342852592468262,
+        "encoder_blocks.1.mixer.conv1d.weight": 2.873148202896118,
+        "encoder_blocks.1.mixer.conv1d.bias": 1.2275099754333496,
+        "encoder_blocks.1.mixer.x_proj.weight": 4.298635482788086,
+        "encoder_blocks.1.mixer.dt_proj.weight": 1.5631308555603027,
+        "encoder_blocks.1.mixer.dt_proj.bias": 0.18089383840560913,
+        "encoder_blocks.1.mixer.out_proj.weight": 10.0369873046875,
+        "encoder_blocks.1.norm.weight": 0.7091688513755798,
+        "encoder_blocks.2.mixer.A_log": 0.13835401833057404,
+        "encoder_blocks.2.mixer.D": 0.3122221827507019,
+        "encoder_blocks.2.mixer.in_proj.weight": 5.590751647949219,
+        "encoder_blocks.2.mixer.conv1d.weight": 1.9562394618988037,
+        "encoder_blocks.2.mixer.conv1d.bias": 0.8028512597084045,
+        "encoder_blocks.2.mixer.x_proj.weight": 0.5747464895248413,
+        "encoder_blocks.2.mixer.dt_proj.weight": 0.1394284963607788,
+        "encoder_blocks.2.mixer.dt_proj.bias": 0.03612685948610306,
+        "encoder_blocks.2.mixer.out_proj.weight": 3.714966058731079,
+        "encoder_blocks.2.norm.weight": 0.35552331805229187,
+        "encoder_blocks.3.mixer.A_log": 0.17630580067634583,
+        "encoder_blocks.3.mixer.D": 0.11462759971618652,
+        "encoder_blocks.3.mixer.in_proj.weight": 7.870347023010254,
+        "encoder_blocks.3.mixer.conv1d.weight": 3.624335765838623,
+        "encoder_blocks.3.mixer.conv1d.bias": 1.8130476474761963,
+        "encoder_blocks.3.mixer.x_proj.weight": 1.9555236101150513,
+        "encoder_blocks.3.mixer.dt_proj.weight": 0.4169084131717682,
+        "encoder_blocks.3.mixer.dt_proj.bias": 0.19251851737499237,
+        "encoder_blocks.3.mixer.out_proj.weight": 5.598191738128662,
+        "encoder_blocks.3.norm.weight": 0.5564760565757751,
+        "norm_f.weight": 0.29807811975479126,
+        "head.weight": 41.69911575317383
+      },
+      "checkpoint_roundtrip_exact": true,
+      "checkpoint_sha256": "035735048e18a38fcff54e7f383c3cf7e7332f7e5b1148b3980551bcd84927e3",
+      "provenance": {
+        "upstream": {
+          "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+          "model_files_sha256": {
+            "src/models/models_net_mamba_fuse3.py": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d",
+            "src/models/models_mamba.py": "c59dcc8375ad54ed9295f92c902019022cdf53b6fe4f0fb911311284872c3841",
+            "src/models/common.py": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470"
+          },
+          "tracked_files_verified": 103
+        },
+        "initialization": {
+          "kind": "registered_pretrain",
+          "sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9",
+          "position_indices": [
+            20,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179,
+            180,
+            181,
+            182,
+            183,
+            184,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            193,
+            194,
+            195,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            202,
+            203,
+            204,
+            205,
+            206,
+            207,
+            208,
+            209,
+            210,
+            211,
+            212,
+            213,
+            214,
+            215,
+            216,
+            217,
+            218,
+            219,
+            220,
+            221,
+            222,
+            223,
+            224,
+            225,
+            226,
+            227,
+            228,
+            229,
+            230,
+            231,
+            232,
+            233,
+            234,
+            235,
+            236,
+            237,
+            238,
+            239,
+            240,
+            241,
+            242,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273,
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            284,
+            285,
+            286,
+            287,
+            288,
+            289,
+            290,
+            291,
+            292,
+            293,
+            294,
+            295,
+            296,
+            297,
+            298,
+            299,
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319,
+            320,
+            321,
+            322,
+            323,
+            324,
+            325,
+            326,
+            327,
+            328,
+            329,
+            330,
+            331,
+            332,
+            333,
+            334,
+            335,
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            343,
+            344,
+            345,
+            346,
+            347,
+            348,
+            349,
+            350,
+            351,
+            352,
+            353,
+            354,
+            355,
+            356,
+            357,
+            358,
+            359,
+            360,
+            361,
+            362,
+            363,
+            364,
+            365,
+            366,
+            367,
+            368,
+            369,
+            370,
+            371,
+            372,
+            373,
+            374,
+            375,
+            376,
+            377,
+            378,
+            379,
+            380,
+            381,
+            382,
+            383,
+            384,
+            385,
+            386,
+            387,
+            388,
+            389,
+            390,
+            391,
+            392,
+            393,
+            394,
+            395,
+            396,
+            397,
+            398,
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            413,
+            414,
+            415,
+            416,
+            442
+          ],
+          "position_table": {
+            "parameterization": "learned",
+            "trainable": true,
+            "source_shape": [
+              1,
+              443,
+              256
+            ],
+            "target_shape": [
+              1,
+              378,
+              256
+            ],
+            "origin": "registered_pretrain",
+            "source_architecture": {
+              "model": "fuse3_mamba_pretrain",
+              "arr_length": 1600,
+              "stride_size": 4,
+              "seq_len": 20,
+              "drop_path_rate": 0.1,
+              "size_key": "signed_sizes"
+            }
+          },
+          "copied_state_names": [
+            "byte_cls_token",
+            "byte_embed.proj.bias",
+            "byte_embed.proj.weight",
+            "byte_indicator",
+            "encoder_blocks.0.mixer.A_log",
+            "encoder_blocks.0.mixer.D",
+            "encoder_blocks.0.mixer.conv1d.bias",
+            "encoder_blocks.0.mixer.conv1d.weight",
+            "encoder_blocks.0.mixer.dt_proj.bias",
+            "encoder_blocks.0.mixer.dt_proj.weight",
+            "encoder_blocks.0.mixer.in_proj.weight",
+            "encoder_blocks.0.mixer.out_proj.weight",
+            "encoder_blocks.0.mixer.x_proj.weight",
+            "encoder_blocks.0.norm.weight",
+            "encoder_blocks.1.mixer.A_log",
+            "encoder_blocks.1.mixer.D",
+            "encoder_blocks.1.mixer.conv1d.bias",
+            "encoder_blocks.1.mixer.conv1d.weight",
+            "encoder_blocks.1.mixer.dt_proj.bias",
+            "encoder_blocks.1.mixer.dt_proj.weight",
+            "encoder_blocks.1.mixer.in_proj.weight",
+            "encoder_blocks.1.mixer.out_proj.weight",
+            "encoder_blocks.1.mixer.x_proj.weight",
+            "encoder_blocks.1.norm.weight",
+            "encoder_blocks.2.mixer.A_log",
+            "encoder_blocks.2.mixer.D",
+            "encoder_blocks.2.mixer.conv1d.bias",
+            "encoder_blocks.2.mixer.conv1d.weight",
+            "encoder_blocks.2.mixer.dt_proj.bias",
+            "encoder_blocks.2.mixer.dt_proj.weight",
+            "encoder_blocks.2.mixer.in_proj.weight",
+            "encoder_blocks.2.mixer.out_proj.weight",
+            "encoder_blocks.2.mixer.x_proj.weight",
+            "encoder_blocks.2.norm.weight",
+            "encoder_blocks.3.mixer.A_log",
+            "encoder_blocks.3.mixer.D",
+            "encoder_blocks.3.mixer.conv1d.bias",
+            "encoder_blocks.3.mixer.conv1d.weight",
+            "encoder_blocks.3.mixer.dt_proj.bias",
+            "encoder_blocks.3.mixer.dt_proj.weight",
+            "encoder_blocks.3.mixer.in_proj.weight",
+            "encoder_blocks.3.mixer.out_proj.weight",
+            "encoder_blocks.3.mixer.x_proj.weight",
+            "encoder_blocks.3.norm.weight",
+            "iat_cls_token",
+            "iat_indicator",
+            "norm_f.weight",
+            "pos_embed",
+            "size_cls_token",
+            "size_indicator"
+          ],
+          "excluded_state_names": [
+            "byte_decoder_blocks.0.mixer.A_log",
+            "byte_decoder_blocks.0.mixer.D",
+            "byte_decoder_blocks.0.mixer.conv1d.bias",
+            "byte_decoder_blocks.0.mixer.conv1d.weight",
+            "byte_decoder_blocks.0.mixer.dt_proj.bias",
+            "byte_decoder_blocks.0.mixer.dt_proj.weight",
+            "byte_decoder_blocks.0.mixer.in_proj.weight",
+            "byte_decoder_blocks.0.mixer.out_proj.weight",
+            "byte_decoder_blocks.0.mixer.x_proj.weight",
+            "byte_decoder_blocks.0.norm.weight",
+            "byte_decoder_blocks.1.mixer.A_log",
+            "byte_decoder_blocks.1.mixer.D",
+            "byte_decoder_blocks.1.mixer.conv1d.bias",
+            "byte_decoder_blocks.1.mixer.conv1d.weight",
+            "byte_decoder_blocks.1.mixer.dt_proj.bias",
+            "byte_decoder_blocks.1.mixer.dt_proj.weight",
+            "byte_decoder_blocks.1.mixer.in_proj.weight",
+            "byte_decoder_blocks.1.mixer.out_proj.weight",
+            "byte_decoder_blocks.1.mixer.x_proj.weight",
+            "byte_decoder_blocks.1.norm.weight",
+            "byte_decoder_embed.bias",
+            "byte_decoder_embed.weight",
+            "byte_decoder_pos_embed",
+            "byte_decoder_pred.bias",
+            "byte_decoder_pred.weight",
+            "byte_mask_token",
+            "decoder_norm_f.weight",
+            "iat_decoder_pred.bias",
+            "iat_decoder_pred.weight",
+            "size_decoder_pred.bias",
+            "size_decoder_pred.weight"
+          ],
+          "new_state_names": [
+            "head.weight"
+          ]
+        },
+        "seed": 23,
+        "parameter_count": 1852416,
+        "runtime": {
+          "torch": "2.9.1+cu130",
+          "cuda": "13.0"
+        }
+      }
+    }
+  },
+  "native_packet_inference": {
+    "receipt": {
+      "all_rows_predicted": false,
+      "batch_size": 64,
+      "checkpoint": {
+        "bytes": 7435722,
+        "path": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/measured-study/joint_pretrained/checkpoint-step-01000.pth",
+        "sha256": "7113adce6090af28a179b5e98f5dac8d5d7f1a9898681969924f9651815f947a"
+      },
+      "checkpoint_metadata": {
+        "architecture": {
+          "arr_length": 1500,
+          "cls_fusion": "add",
+          "drop_path_rate": 0.1,
+          "embed_dim": 256,
+          "encoder_depth": 4,
+          "head_bias": false,
+          "model": "fuse3_mamba_classifier",
+          "num_classes": 2,
+          "seq_len": 0,
+          "stride_size": 4
+        },
+        "class_mapping": {
+          "attack": 1,
+          "benign": 0
+        },
+        "format": "netmambaplus-packet-v1",
+        "input_contract": {
+          "dtype": "uint8",
+          "learned_input_independent_prefixes": 2,
+          "metadata_used": [],
+          "normalization": "float32(payload)/127.5-1",
+          "numeric_sequence_lengths": {
+            "iat": 0,
+            "size": 0
+          },
+          "retained_zero_bytes": true,
+          "shape": [
+            "B",
+            1500
+          ],
+          "unit": "stored_packet_payload"
+        },
+        "provenance": {
+          "initialization": {
+            "copied_state_names": [
+              "byte_cls_token",
+              "byte_embed.proj.bias",
+              "byte_embed.proj.weight",
+              "byte_indicator",
+              "encoder_blocks.0.mixer.A_log",
+              "encoder_blocks.0.mixer.D",
+              "encoder_blocks.0.mixer.conv1d.bias",
+              "encoder_blocks.0.mixer.conv1d.weight",
+              "encoder_blocks.0.mixer.dt_proj.bias",
+              "encoder_blocks.0.mixer.dt_proj.weight",
+              "encoder_blocks.0.mixer.in_proj.weight",
+              "encoder_blocks.0.mixer.out_proj.weight",
+              "encoder_blocks.0.mixer.x_proj.weight",
+              "encoder_blocks.0.norm.weight",
+              "encoder_blocks.1.mixer.A_log",
+              "encoder_blocks.1.mixer.D",
+              "encoder_blocks.1.mixer.conv1d.bias",
+              "encoder_blocks.1.mixer.conv1d.weight",
+              "encoder_blocks.1.mixer.dt_proj.bias",
+              "encoder_blocks.1.mixer.dt_proj.weight",
+              "encoder_blocks.1.mixer.in_proj.weight",
+              "encoder_blocks.1.mixer.out_proj.weight",
+              "encoder_blocks.1.mixer.x_proj.weight",
+              "encoder_blocks.1.norm.weight",
+              "encoder_blocks.2.mixer.A_log",
+              "encoder_blocks.2.mixer.D",
+              "encoder_blocks.2.mixer.conv1d.bias",
+              "encoder_blocks.2.mixer.conv1d.weight",
+              "encoder_blocks.2.mixer.dt_proj.bias",
+              "encoder_blocks.2.mixer.dt_proj.weight",
+              "encoder_blocks.2.mixer.in_proj.weight",
+              "encoder_blocks.2.mixer.out_proj.weight",
+              "encoder_blocks.2.mixer.x_proj.weight",
+              "encoder_blocks.2.norm.weight",
+              "encoder_blocks.3.mixer.A_log",
+              "encoder_blocks.3.mixer.D",
+              "encoder_blocks.3.mixer.conv1d.bias",
+              "encoder_blocks.3.mixer.conv1d.weight",
+              "encoder_blocks.3.mixer.dt_proj.bias",
+              "encoder_blocks.3.mixer.dt_proj.weight",
+              "encoder_blocks.3.mixer.in_proj.weight",
+              "encoder_blocks.3.mixer.out_proj.weight",
+              "encoder_blocks.3.mixer.x_proj.weight",
+              "encoder_blocks.3.norm.weight",
+              "iat_cls_token",
+              "iat_indicator",
+              "norm_f.weight",
+              "pos_embed",
+              "size_cls_token",
+              "size_indicator"
+            ],
+            "excluded_state_names": [
+              "byte_decoder_blocks.0.mixer.A_log",
+              "byte_decoder_blocks.0.mixer.D",
+              "byte_decoder_blocks.0.mixer.conv1d.bias",
+              "byte_decoder_blocks.0.mixer.conv1d.weight",
+              "byte_decoder_blocks.0.mixer.dt_proj.bias",
+              "byte_decoder_blocks.0.mixer.dt_proj.weight",
+              "byte_decoder_blocks.0.mixer.in_proj.weight",
+              "byte_decoder_blocks.0.mixer.out_proj.weight",
+              "byte_decoder_blocks.0.mixer.x_proj.weight",
+              "byte_decoder_blocks.0.norm.weight",
+              "byte_decoder_blocks.1.mixer.A_log",
+              "byte_decoder_blocks.1.mixer.D",
+              "byte_decoder_blocks.1.mixer.conv1d.bias",
+              "byte_decoder_blocks.1.mixer.conv1d.weight",
+              "byte_decoder_blocks.1.mixer.dt_proj.bias",
+              "byte_decoder_blocks.1.mixer.dt_proj.weight",
+              "byte_decoder_blocks.1.mixer.in_proj.weight",
+              "byte_decoder_blocks.1.mixer.out_proj.weight",
+              "byte_decoder_blocks.1.mixer.x_proj.weight",
+              "byte_decoder_blocks.1.norm.weight",
+              "byte_decoder_embed.bias",
+              "byte_decoder_embed.weight",
+              "byte_decoder_pos_embed",
+              "byte_decoder_pred.bias",
+              "byte_decoder_pred.weight",
+              "byte_mask_token",
+              "decoder_norm_f.weight",
+              "iat_decoder_pred.bias",
+              "iat_decoder_pred.weight",
+              "size_decoder_pred.bias",
+              "size_decoder_pred.weight"
+            ],
+            "kind": "registered_pretrain",
+            "new_state_names": [
+              "head.weight"
+            ],
+            "position_indices": [
+              20,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131,
+              132,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143,
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165,
+              166,
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187,
+              188,
+              189,
+              190,
+              191,
+              192,
+              193,
+              194,
+              195,
+              196,
+              197,
+              198,
+              199,
+              200,
+              201,
+              202,
+              203,
+              204,
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              218,
+              219,
+              220,
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229,
+              230,
+              231,
+              232,
+              233,
+              234,
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              248,
+              249,
+              250,
+              251,
+              252,
+              253,
+              254,
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              261,
+              262,
+              263,
+              264,
+              265,
+              266,
+              267,
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              275,
+              276,
+              277,
+              278,
+              279,
+              280,
+              281,
+              282,
+              283,
+              284,
+              285,
+              286,
+              287,
+              288,
+              289,
+              290,
+              291,
+              292,
+              293,
+              294,
+              295,
+              296,
+              297,
+              298,
+              299,
+              300,
+              301,
+              302,
+              303,
+              304,
+              305,
+              306,
+              307,
+              308,
+              309,
+              310,
+              311,
+              312,
+              313,
+              314,
+              315,
+              316,
+              317,
+              318,
+              319,
+              320,
+              321,
+              322,
+              323,
+              324,
+              325,
+              326,
+              327,
+              328,
+              329,
+              330,
+              331,
+              332,
+              333,
+              334,
+              335,
+              336,
+              337,
+              338,
+              339,
+              340,
+              341,
+              342,
+              343,
+              344,
+              345,
+              346,
+              347,
+              348,
+              349,
+              350,
+              351,
+              352,
+              353,
+              354,
+              355,
+              356,
+              357,
+              358,
+              359,
+              360,
+              361,
+              362,
+              363,
+              364,
+              365,
+              366,
+              367,
+              368,
+              369,
+              370,
+              371,
+              372,
+              373,
+              374,
+              375,
+              376,
+              377,
+              378,
+              379,
+              380,
+              381,
+              382,
+              383,
+              384,
+              385,
+              386,
+              387,
+              388,
+              389,
+              390,
+              391,
+              392,
+              393,
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405,
+              406,
+              407,
+              408,
+              409,
+              410,
+              411,
+              412,
+              413,
+              414,
+              415,
+              416,
+              442
+            ],
+            "position_table": {
+              "origin": "registered_pretrain",
+              "parameterization": "learned",
+              "source_architecture": {
+                "arr_length": 1600,
+                "drop_path_rate": 0.1,
+                "model": "fuse3_mamba_pretrain",
+                "seq_len": 20,
+                "size_key": "signed_sizes",
+                "stride_size": 4
+              },
+              "source_shape": [
+                1,
+                443,
+                256
+              ],
+              "target_shape": [
+                1,
+                378,
+                256
+              ],
+              "trainable": true
+            },
+            "sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9"
+          },
+          "parameter_count": 1852416,
+          "runtime": {
+            "cuda": "13.0",
+            "torch": "2.9.1+cu130"
+          },
+          "seed": 0,
+          "upstream": {
+            "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+            "model_files_sha256": {
+              "src/models/common.py": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470",
+              "src/models/models_mamba.py": "c59dcc8375ad54ed9295f92c902019022cdf53b6fe4f0fb911311284872c3841",
+              "src/models/models_net_mamba_fuse3.py": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d"
+            },
+            "tracked_files_verified": 103
+          }
+        },
+        "schema_version": 1,
+        "study_metadata": {
+          "arm": "joint_pretrained",
+          "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+          "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+          "seed": 0,
+          "selection": {
+            "selection_score": 0.9385902170791537,
+            "sources": {
+              "cic": {
+                "binary_conflicting_groups": 0,
+                "conflicting_slice": {
+                  "group_weighted": null,
+                  "groups": 0,
+                  "row_weighted": null,
+                  "rows": 0
+                },
+                "group_weighted": {
+                  "accuracy": 0.9689,
+                  "attack_average_precision": 0.9800559777396258,
+                  "attack_precision": 0.9194012665515257,
+                  "attack_recall": 0.9903875968992248,
+                  "auroc": 0.9916131010612431,
+                  "balanced_accuracy": 0.9745295918075461,
+                  "benign_false_positive_rate": 0.041328413284132844,
+                  "confusion_matrix": [
+                    [
+                      12990.0,
+                      560.0
+                    ],
+                    [
+                      62.0,
+                      6388.0
+                    ]
+                  ],
+                  "macro_f1": 0.9650967299238495,
+                  "support": [
+                    13550.0,
+                    6450.0
+                  ]
+                },
+                "groups": 20000,
+                "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+                "original_labels": {
+                  "BENIGN": {
+                    "correct": 15300,
+                    "recall_of_supplied_binary_target": 0.9508420856379343,
+                    "rows": 16091
+                  },
+                  "Bot": {
+                    "correct": 36,
+                    "recall_of_supplied_binary_target": 0.37894736842105264,
+                    "rows": 95
+                  },
+                  "DDoS": {
+                    "correct": 1,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 1
+                  },
+                  "DoS GoldenEye": {
+                    "correct": 5979,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 5979
+                  },
+                  "DoS Hulk": {
+                    "correct": 10355,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 10355
+                  },
+                  "DoS Slowhttptest": {
+                    "correct": 3968,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 3968
+                  },
+                  "DoS slowloris": {
+                    "correct": 3315,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 3315
+                  },
+                  "FTP-Patator": {
+                    "correct": 627,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 627
+                  },
+                  "Heartbleed": {
+                    "correct": 495,
+                    "recall_of_supplied_binary_target": 0.9,
+                    "rows": 550
+                  },
+                  "Infiltration": {
+                    "correct": 4482,
+                    "recall_of_supplied_binary_target": 0.9312279243714938,
+                    "rows": 4813
+                  },
+                  "PortScan": {
+                    "correct": 0,
+                    "recall_of_supplied_binary_target": null,
+                    "rows": 0
+                  },
+                  "SSH-Patator": {
+                    "correct": 1965,
+                    "recall_of_supplied_binary_target": 0.9964503042596349,
+                    "rows": 1972
+                  },
+                  "Web Attack \u2013 Brute Force": {
+                    "correct": 165,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 165
+                  },
+                  "Web Attack \u2013 Sql Injection": {
+                    "correct": 0,
+                    "recall_of_supplied_binary_target": null,
+                    "rows": 0
+                  },
+                  "Web Attack \u2013 XSS": {
+                    "correct": 87,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 87
+                  }
+                },
+                "row_weighted": {
+                  "accuracy": 0.9741138739639302,
+                  "attack_average_precision": 0.9946693215775305,
+                  "attack_precision": 0.9754850306824521,
+                  "attack_recall": 0.9858427036677421,
+                  "auroc": 0.9917654343365184,
+                  "balanced_accuracy": 0.9683423946528382,
+                  "benign_false_positive_rate": 0.04915791436206575,
+                  "confusion_matrix": [
+                    [
+                      15300,
+                      791
+                    ],
+                    [
+                      452,
+                      31475
+                    ]
+                  ],
+                  "macro_f1": 0.9708006256113887,
+                  "support": [
+                    16091,
+                    31927
+                  ]
+                },
+                "rows": 48018
+              },
+              "unsw": {
+                "binary_conflicting_groups": 2,
+                "conflicting_slice": {
+                  "group_weighted": {
+                    "accuracy": 0.7495551601423487,
+                    "attack_precision": 0.7495551601423487,
+                    "attack_recall": 1.0,
+                    "balanced_accuracy": 0.5,
+                    "benign_false_positive_rate": 1.0,
+                    "confusion_matrix": [
+                      [
+                        0.0,
+                        0.5008896797153025
+                      ],
+                      [
+                        0.0,
+                        1.4991103202846974
+                      ]
+                    ],
+                    "macro_f1": 0.4284261378082888,
+                    "support": [
+                      0.5008896797153025,
+                      1.4991103202846974
+                    ]
+                  },
+                  "groups": 2,
+                  "row_weighted": {
+                    "accuracy": 0.9982238010657194,
+                    "attack_precision": 0.9982238010657194,
+                    "attack_recall": 1.0,
+                    "balanced_accuracy": 0.5,
+                    "benign_false_positive_rate": 1.0,
+                    "confusion_matrix": [
+                      [
+                        0,
+                        2
+                      ],
+                      [
+                        0,
+                        1124
+                      ]
+                    ],
+                    "macro_f1": 0.49955555555555553,
+                    "support": [
+                      2,
+                      1124
+                    ]
+                  },
+                  "rows": 1126
+                },
+                "group_weighted": {
+                  "accuracy": 0.9427277416046919,
+                  "attack_average_precision": 0.9957904913691785,
+                  "attack_precision": 0.9823887793306245,
+                  "attack_recall": 0.9462648724460957,
+                  "auroc": 0.984821672840606,
+                  "balanced_accuracy": 0.936952290019798,
+                  "benign_false_positive_rate": 0.07236029240649973,
+                  "confusion_matrix": [
+                    [
+                      1032.0,
+                      80.5008896797153
+                    ],
+                    [
+                      255.0,
+                      4490.499110320285
+                    ]
+                  ],
+                  "macro_f1": 0.9120837042344578,
+                  "support": [
+                    1112.5008896797153,
+                    4745.499110320285
+                  ]
+                },
+                "groups": 5858,
+                "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+                "original_labels": {
+                  "analysis": {
+                    "correct": 142,
+                    "recall_of_supplied_binary_target": 1.0,
+                    "rows": 142
+                  },
+                  "backdoor": {
+                    "correct": 143,
+                    "recall_of_supplied_binary_target": 0.9794520547945206,
+                    "rows": 146
+                  },
+                  "dos": {
+                    "correct": 429,
+                    "recall_of_supplied_binary_target": 0.9285714285714286,
+                    "rows": 462
+                  },
+                  "exploits": {
+                    "correct": 1920,
+                    "recall_of_supplied_binary_target": 0.9407153356197943,
+                    "rows": 2041
+                  },
+                  "fuzzers": {
+                    "correct": 2390,
+                    "recall_of_supplied_binary_target": 0.9602249899558055,
+                    "rows": 2489
+                  },
+                  "generic": {
+                    "correct": 2769,
+                    "recall_of_supplied_binary_target": 0.9868139700641483,
+                    "rows": 2806
+                  },
+                  "normal": {
+                    "correct": 2469,
+                    "recall_of_supplied_binary_target": 0.7662942271880819,
+                    "rows": 3222
+                  },
+                  "reconnaissance": {
+                    "correct": 1063,
+                    "recall_of_supplied_binary_target": 0.992530345471522,
+                    "rows": 1071
+                  },
+                  "shellcode": {
+                    "correct": 70,
+                    "recall_of_supplied_binary_target": 0.3482587064676617,
+                    "rows": 201
+                  },
+                  "worms": {
+                    "correct": 7,
+                    "recall_of_supplied_binary_target": 0.5,
+                    "rows": 14
+                  }
+                },
+                "row_weighted": {
+                  "accuracy": 0.9053517548038749,
+                  "attack_average_precision": 0.9891215589333546,
+                  "attack_precision": 0.922258930415032,
+                  "attack_recall": 0.9531583440034144,
+                  "auroc": 0.968849357265047,
+                  "balanced_accuracy": 0.8597262855957482,
+                  "benign_false_positive_rate": 0.23370577281191807,
+                  "confusion_matrix": [
+                    [
+                      2469,
+                      753
+                    ],
+                    [
+                      439,
+                      8933
+                    ]
+                  ],
+                  "macro_f1": 0.8715002900906771,
+                  "support": [
+                    3222,
+                    9372
+                  ]
+                },
+                "rows": 12594
+              }
+            },
+            "step": 1000
+          },
+          "source_sha256": {
+            "cic": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+            "unsw": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01"
+          },
+          "sources": [
+            "cic",
+            "unsw"
+          ],
+          "step": 1000
+        }
+      },
+      "class_mapping": {
+        "attack": 1,
+        "benign": 0
+      },
+      "code_sha256": {
+        "packet_data.py": "783a569a9b4ec459232c899fdb1d15fef2314719883cf9b599ff65d0fa1a8309",
+        "packet_model.py": "1d8abd6e13d53992cfad040cda8b01ee4142187968015415acbe9f4764870c74",
+        "tools/predict_packets.py": "0d575ce777252e64d16c13a007d1a487164d5e00c89f77919e5ed6258a03143c"
+      },
+      "counts_finalized": true,
+      "device": "cuda",
+      "finished_at": "2026-09-14T10:02:26.095039+00:00",
+      "ignored_metadata_columns": [],
+      "input": {
+        "bytes": 74289323,
+        "path": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/heldout-cic-unlabeled.csv",
+        "sha256": "075223cddf6cb34c78e3e1e5173121dab90d9fcf2b7f45e1040b65e2cda5d710",
+        "sha256_scope": "entire_file"
+      },
+      "input_fully_validated": true,
+      "input_rows": 20000,
+      "kind": "netmambaplus_unlabeled_packet_inference_v1",
+      "max_rows": 128,
+      "predicted_rows": 128,
+      "predictions": {
+        "bytes": 40713,
+        "path": "predictions.jsonl",
+        "sha256": "dc66394e1dedf1cd6833eb499beac016f4efed856038f920af4e3d90a0f9af8f"
+      },
+      "probability_kind": "uncalibrated_softmax",
+      "schema_version": 1,
+      "scope": "CSV-supplied stored payloads only. No labels, flow reconstruction, padding inference, ground-truth metrics, calibrated risk estimates, or live traffic decisions.",
+      "stage": "finished",
+      "started_at": "2026-09-14T10:02:21.023133+00:00",
+      "status": "capped",
+      "upstream": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/packet-model-clean-upstream",
+      "validated_rows": 20000
+    },
+    "predictions": [
+      {
+        "row_id": 0,
+        "payload_sha256": "0000b88b75f3fffd861f4e3cbd55537dc59105c591d5f337119a16a16649a95e",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.1519265174865723,
+          -4.130203723907471
+        ],
+        "probabilities": [
+          0.9981340741416181,
+          0.0018659258583819632
+        ],
+        "probability": 0.9981340741416181,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 1,
+        "payload_sha256": "0002d34b621085027d6bb4f39cce91ccea9cd46a91ac380e403d4860563cea4e",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          -0.02746449038386345,
+          -1.7892725467681885
+        ],
+        "probabilities": [
+          0.8534359619054195,
+          0.1465640380945804
+        ],
+        "probability": 0.8534359619054195,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 2,
+        "payload_sha256": "000334d80349fa8c7dde1b5c2e4766d0ddcf46150e9bebad49158b0d5a8b0dbd",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.297325849533081,
+          3.734651565551758
+        ],
+        "probabilities": [
+          0.0023949922598351385,
+          0.9976050077401648
+        ],
+        "probability": 0.9976050077401648,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 3,
+        "payload_sha256": "0003979053adc5e6e543a9279ce2e82753a66f13152f774de7cb1ec753382240",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.9055122137069702,
+          2.5292866230010986
+        ],
+        "probabilities": [
+          0.011718499419512392,
+          0.9882815005804877
+        ],
+        "probability": 0.9882815005804877,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 4,
+        "payload_sha256": "00065821ad31115370f343b5da76054b9ccfc45da94a6c0bf1b73751d8dfbf20",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.1986403465270996,
+          2.009767532348633
+        ],
+        "probabilities": [
+          0.014652146604139491,
+          0.9853478533958605
+        ],
+        "probability": 0.9853478533958605,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 5,
+        "payload_sha256": "0006f504016cf7d0ad711e333f04915160d371dbe164a60fffe7ee4e3078288e",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.2561611533164978,
+          -2.324993371963501
+        ],
+        "probabilities": [
+          0.929638824629677,
+          0.07036117537032309
+        ],
+        "probability": 0.929638824629677,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 6,
+        "payload_sha256": "0006fcc11f3d15d7fbdbfa6f0b48eadc8c0b47f35925f15aa29ef062f6fe6159",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.711010456085205,
+          0.9319137930870056
+        ],
+        "probabilities": [
+          0.06642646114202032,
+          0.9335735388579797
+        ],
+        "probability": 0.9335735388579797,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 7,
+        "payload_sha256": "00089be7a6fad0d9f7692cfe7f1f895ec6d3286b5ed5641b014107851047fc46",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.245908737182617,
+          -3.662315845489502
+        ],
+        "probabilities": [
+          0.997290355692935,
+          0.002709644307064937
+        ],
+        "probability": 0.997290355692935,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 8,
+        "payload_sha256": "0009105e6a0f9fe8ffb8c49068cfb79b1dce5bf4685c4941c8401b650008f8f4",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.5505715608596802,
+          -3.156097412109375
+        ],
+        "probabilities": [
+          0.9910460743781082,
+          0.008953925621891755
+        ],
+        "probability": 0.9910460743781082,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 9,
+        "payload_sha256": "00094bbf573b7f3f5842256fa2dcf1a22afa263b6d0fcaea3e884da964119baa",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          -0.2556115984916687,
+          -1.3339959383010864
+        ],
+        "probabilities": [
+          0.7461881128995717,
+          0.25381188710042835
+        ],
+        "probability": 0.7461881128995717,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 10,
+        "payload_sha256": "0009d6cb72a7b01bcb969a0d8083c8051abff494fc3eb2e2222b44e39cb2707b",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.5473427772521973,
+          -4.896973133087158
+        ],
+        "probabilities": [
+          0.9994155857505984,
+          0.0005844142494016264
+        ],
+        "probability": 0.9994155857505984,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 11,
+        "payload_sha256": "000a281512fe9ec25dd52b096fb875ac3d4a05dba907a6f7573426c0c282d003",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.6738808155059814,
+          -4.0794782638549805
+        ],
+        "probabilities": [
+          0.9988344070507617,
+          0.001165592949238498
+        ],
+        "probability": 0.9988344070507617,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 12,
+        "payload_sha256": "000cc25114e8cb187b8d32fce3686c674ed366721824f3e78770a9ee57a5a46d",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.133978843688965,
+          -4.165503025054932
+        ],
+        "probabilities": [
+          0.998166112850572,
+          0.001833887149428004
+        ],
+        "probability": 0.998166112850572,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 13,
+        "payload_sha256": "000cf961c1670e6044600cdf355ae3a0e3386acc7f0761c095d4ec11d0d10f74",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.9646531343460083,
+          1.368829607963562
+        ],
+        "probabilities": [
+          0.03444022685991302,
+          0.965559773140087
+        ],
+        "probability": 0.965559773140087,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 14,
+        "payload_sha256": "0010c05f0ba17d66dec589a883d441b8afc80bec16a3c7b0ae706f525475d39d",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          -0.49684417247772217,
+          -1.2491040229797363
+        ],
+        "probabilities": [
+          0.6796709097724841,
+          0.32032909022751593
+        ],
+        "probability": 0.6796709097724841,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 15,
+        "payload_sha256": "0011a7d01c10bf9cd6a7f03a615b4dfed4d8222541976a0193a34243dd682967",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.0858426094055176,
+          -4.197578430175781
+        ],
+        "probabilities": [
+          0.9981364766360734,
+          0.001863523363926584
+        ],
+        "probability": 0.9981364766360734,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 16,
+        "payload_sha256": "0013c244da9e57385c7f8a8331609726e2542cdd7a1c5ddccdd312bac3a56b14",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.42438334226608276,
+          -2.6776041984558105
+        ],
+        "probabilities": [
+          0.9569746547563515,
+          0.043025345243648566
+        ],
+        "probability": 0.9569746547563515,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 17,
+        "payload_sha256": "0013e12f1062696e89cfbd33ee2caf76e27ec632777bd3016f64946fc24dcead",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.3420515060424805,
+          -3.9186887741088867
+        ],
+        "probabilities": [
+          0.9980938090405973,
+          0.0019061909594026935
+        ],
+        "probability": 0.9980938090405973,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 18,
+        "payload_sha256": "001a08a69d647bcf6b688f241cc35124de8fd6b8c467ccd8ca159af8c3d8f982",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.5743000507354736,
+          -4.446033954620361
+        ],
+        "probabilities": [
+          0.9991072706775547,
+          0.0008927293224454723
+        ],
+        "probability": 0.9991072706775547,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 19,
+        "payload_sha256": "001bb2a6c767d2f388ec48f9cb720cb7815a04d6c9c8da81dd1f95daf953e2de",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.9734187126159668,
+          2.938077211380005
+        ],
+        "probabilities": [
+          0.007307672696153278,
+          0.9926923273038467
+        ],
+        "probability": 0.9926923273038467,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 20,
+        "payload_sha256": "001dd66c0d03bfb5ba70ea023aa5c261e0642e486975584f9306843ec1abcf5a",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.245295763015747,
+          3.651245355606079
+        ],
+        "probabilities": [
+          0.002741400702681128,
+          0.9972585992973189
+        ],
+        "probability": 0.9972585992973189,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 21,
+        "payload_sha256": "0020aec71cb7dfad3d652401f5a2de0113ada49804b8d4f19b0310057258ce6b",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.1147451400756836,
+          -3.6472785472869873
+        ],
+        "probabilities": [
+          0.9968651172132353,
+          0.003134882786764695
+        ],
+        "probability": 0.9968651172132353,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 22,
+        "payload_sha256": "002141f76f7c392c72babe4979b945ea09aa24f3871d361331112cc5a53f6f6f",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          -0.26492342352867126,
+          -1.2148959636688232
+        ],
+        "probabilities": [
+          0.7211096555896949,
+          0.27889034441030514
+        ],
+        "probability": 0.7211096555896949,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 23,
+        "payload_sha256": "002279cdaa8ac917c2bcb9e77fc8a262796443931bd5b42143e7be559e25a3fc",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.5050098896026611,
+          1.5359208583831787
+        ],
+        "probabilities": [
+          0.04561063789899105,
+          0.954389362101009
+        ],
+        "probability": 0.954389362101009,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 24,
+        "payload_sha256": "0022aa4d78f098da41d5a2479fb6a16400d3e15f1e5679f6838c31e04053047e",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.012331485748291,
+          3.1601810455322266
+        ],
+        "probabilities": [
+          0.005638333027213197,
+          0.9943616669727868
+        ],
+        "probability": 0.9943616669727868,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 25,
+        "payload_sha256": "00238ba37489642129a22f32008794a1e884132a49dce8c0451807f507ccd0df",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.0992202758789062,
+          1.7446098327636719
+        ],
+        "probabilities": [
+          0.0209625966720475,
+          0.9790374033279524
+        ],
+        "probability": 0.9790374033279524,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 26,
+        "payload_sha256": "00245bec96ffd0f400bf7a3861d0d93f72b97c513cd87194f6c4d4e0cd666e63",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.6934070587158203,
+          -4.52028226852417
+        ],
+        "probabilities": [
+          0.9992641067506447,
+          0.0007358932493553585
+        ],
+        "probability": 0.9992641067506447,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 27,
+        "payload_sha256": "00255969087effe1df17cd5ce941eef690b1db872696099ab7b9370b442d80b1",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.104811668395996,
+          -4.0057878494262695
+        ],
+        "probabilities": [
+          0.9977856940798898,
+          0.0022143059201103106
+        ],
+        "probability": 0.9977856940798898,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 28,
+        "payload_sha256": "002562687ff23c8032aae6a939e82175a456e51fab8e3d7d6a6fff26650b279f",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.6717137098312378,
+          -3.615912914276123
+        ],
+        "probabilities": [
+          0.9949716714045972,
+          0.005028328595402856
+        ],
+        "probability": 0.9949716714045972,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 29,
+        "payload_sha256": "00287fa971bcf19abea9e93800572dbe09e8fb0ff192f27b33a301d6bf80ba3a",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.0173964500427246,
+          2.8553993701934814
+        ],
+        "probabilities": [
+          0.007593834320849159,
+          0.9924061656791509
+        ],
+        "probability": 0.9924061656791509,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 30,
+        "payload_sha256": "002a72ac17cd11b8820dd77d0428a43b4dc273c288dcb59b90f0736d02cf4781",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.1695001125335693,
+          2.903430938720703
+        ],
+        "probabilities": [
+          0.006225039154625354,
+          0.9937749608453745
+        ],
+        "probability": 0.9937749608453745,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 31,
+        "payload_sha256": "002b1b36a81d6caa604bd9343c6d4ced1852734d997e6c9f8312f04edaa0cbd9",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.89595103263855,
+          -4.645040512084961
+        ],
+        "probabilities": [
+          0.9994694106960343,
+          0.0005305893039657078
+        ],
+        "probability": 0.9994694106960343,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 32,
+        "payload_sha256": "002be578f116befc703b87ee32c8cefa5d99494b1f18d129651cbfacecdb0963",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.2227315604686737,
+          -2.0987021923065186
+        ],
+        "probabilities": [
+          0.9106366846150712,
+          0.08936331538492881
+        ],
+        "probability": 0.9106366846150712,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 33,
+        "payload_sha256": "002ccbd653342b1ad11951031f504849f02ee5d02ad968b43edb5cae330bf62e",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.896951675415039,
+          -4.564804553985596
+        ],
+        "probabilities": [
+          0.9994256839540264,
+          0.0005743160459736437
+        ],
+        "probability": 0.9994256839540264,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 34,
+        "payload_sha256": "0030176a04fe79058cf985320fdbb18bcbc1eb0918afa4d4a7b45d28316ee866",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.7619813680648804,
+          -3.6261534690856934
+        ],
+        "probabilities": [
+          0.9954503042403957,
+          0.004549695759604336
+        ],
+        "probability": 0.9954503042403957,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 35,
+        "payload_sha256": "0030f7ac0696f514208e307e7422eca4d7b0c3506c37a36c2d09e4d81c500ff3",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.8647499084472656,
+          -3.3788154125213623
+        ],
+        "probabilities": [
+          0.9947463532091312,
+          0.005253646790868772
+        ],
+        "probability": 0.9947463532091312,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 36,
+        "payload_sha256": "003133313b2b933047f08cab8ca087095b775969e26ed181dea750e8dec8da73",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.2443432807922363,
+          -3.595417022705078
+        ],
+        "probabilities": [
+          0.9970989009148971,
+          0.0029010990851029593
+        ],
+        "probability": 0.9970989009148971,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 37,
+        "payload_sha256": "0032ebed3f6b7c3de5121063f4eab5935df93162eef2fe81b4dae4728dd7dc2d",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.6750123500823975,
+          -2.6770079135894775
+        ],
+        "probabilities": [
+          0.9661709297046719,
+          0.03382907029532821
+        ],
+        "probability": 0.9661709297046719,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 38,
+        "payload_sha256": "0032f07b04410d780bc793e2fcf020b14a4c3c9387223c88cc0bac66ffbf5be7",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.487938642501831,
+          -4.767519950866699
+        ],
+        "probabilities": [
+          0.9992941901227707,
+          0.0007058098772293159
+        ],
+        "probability": 0.9992941901227707,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 39,
+        "payload_sha256": "00334e08b79225aa56406fee9707c840237e0ff1c68b4d14925b7f5edd07b170",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.1753623485565186,
+          -4.217251777648926
+        ],
+        "probabilities": [
+          0.9983289224173899,
+          0.0016710775826100563
+        ],
+        "probability": 0.9983289224173899,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 40,
+        "payload_sha256": "0035dbd9993b982f9be4a6b5799ac9ac399af26706e19fcf36448e4d7be009fe",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.8425763845443726,
+          1.3222935199737549
+        ],
+        "probabilities": [
+          0.04050934434692975,
+          0.9594906556530702
+        ],
+        "probability": 0.9594906556530702,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 41,
+        "payload_sha256": "00383cf691d535580f5a7758a1d03c8b5e4b73e956e72a7c953d4d5970e3a77e",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.1382036209106445,
+          -3.2575647830963135
+        ],
+        "probabilities": [
+          0.995484746205781,
+          0.004515253794218926
+        ],
+        "probability": 0.995484746205781,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 42,
+        "payload_sha256": "00388525e00dda853e554041a644c538a888e95dbdd96550abbfdddd2f58b454",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.7336695194244385,
+          -4.877814292907715
+        ],
+        "probabilities": [
+          0.9995055074274849,
+          0.0004944925725149924
+        ],
+        "probability": 0.9995055074274849,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 43,
+        "payload_sha256": "0038b582570759e975902dff60bdaa8758bc0abe3ee1837c6ba6c45748e61a20",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.21952748298645,
+          -4.0866923332214355
+        ],
+        "probabilities": [
+          0.998178405516884,
+          0.0018215944831159615
+        ],
+        "probability": 0.998178405516884,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 44,
+        "payload_sha256": "00399517f4afc47eaf0af540b6fdc60e118e33b775ea108cde79e57c3ec9d9be",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.285557270050049,
+          -3.9154436588287354
+        ],
+        "probabilities": [
+          0.9979767016988307,
+          0.002023298301169277
+        ],
+        "probability": 0.9979767016988307,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 45,
+        "payload_sha256": "0039c4872a26b8cba3d1882993c3260ab7623c5cf9019979d2a656c97d1eb757",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.312518835067749,
+          3.6922049522399902
+        ],
+        "probabilities": [
+          0.0024609992316701364,
+          0.9975390007683298
+        ],
+        "probability": 0.9975390007683298,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 46,
+        "payload_sha256": "0039f932e320e91fa4930b62951e8e01dd0acbf0ba6307744778d238519f4416",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.9843684434890747,
+          2.840850830078125
+        ],
+        "probabilities": [
+          0.007960909393888995,
+          0.992039090606111
+        ],
+        "probability": 0.992039090606111,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 47,
+        "payload_sha256": "003a199e88479d87027cb279a0ac5b1c5911022c8062f0343d55c8ca7b804ce1",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.001800775527954,
+          2.9682159423828125
+        ],
+        "probabilities": [
+          0.006895158653878511,
+          0.9931048413461215
+        ],
+        "probability": 0.9931048413461215,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 48,
+        "payload_sha256": "003a9e3d79c09c6e719d9f2d1a67afbca7e29e0cffc60f6d3c16324fce93c698",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.1200225353240967,
+          3.349273681640625
+        ],
+        "probabilities": [
+          0.004196512066386703,
+          0.9958034879336133
+        ],
+        "probability": 0.9958034879336133,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 49,
+        "payload_sha256": "003b3c0e6682344d49aebbb481473101fd092e30b98a1acd3a56734779cc3974",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.624556064605713,
+          -4.851749897003174
+        ],
+        "probabilities": [
+          0.9994339749070751,
+          0.0005660250929247528
+        ],
+        "probability": 0.9994339749070751,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 50,
+        "payload_sha256": "003b4df29f792a6da55dd3d23b327c61cd012f5e385b3fd4c1b9933e4fea5953",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.2979784607887268,
+          -2.5273444652557373
+        ],
+        "probabilities": [
+          0.9440289862350967,
+          0.055971013764903293
+        ],
+        "probability": 0.9440289862350967,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 51,
+        "payload_sha256": "003b7db670559633f74793950e5bfd7b6c33a24a6f19215400acdbac7f987a31",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.8700501918792725,
+          -3.2376842498779297
+        ],
+        "probabilities": [
+          0.9939866061473255,
+          0.0060133938526744585
+        ],
+        "probability": 0.9939866061473255,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 52,
+        "payload_sha256": "003cc3cd8c91d79f40f0e4574714157fc5aec4b8ed493dc9d5f1f9bee8c901b4",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.7455170154571533,
+          -3.87437105178833
+        ],
+        "probabilities": [
+          0.9963880466523605,
+          0.0036119533476394903
+        ],
+        "probability": 0.9963880466523605,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 53,
+        "payload_sha256": "003f1927a78c6ddabac4ca522e83e7adc3e2fb8e6fcb5f9489235f9cc76feb64",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.9774242639541626,
+          3.00270938873291
+        ],
+        "probabilities": [
+          0.006826226246792432,
+          0.9931737737532076
+        ],
+        "probability": 0.9931737737532076,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 54,
+        "payload_sha256": "003f31e071d8f3e936321381edbee76bd093b6292a504cbda98c39354e352ab1",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.9124884605407715,
+          -3.4470624923706055
+        ],
+        "probabilities": [
+          0.9953189973277223,
+          0.004681002672277626
+        ],
+        "probability": 0.9953189973277223,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 55,
+        "payload_sha256": "003f7464f86f2ea4880527e8bc2b6b640b5b52341fdb074a26040f312227f3c7",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.0973827838897705,
+          2.8568129539489746
+        ],
+        "probabilities": [
+          0.007004344163904316,
+          0.9929956558360956
+        ],
+        "probability": 0.9929956558360956,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 56,
+        "payload_sha256": "003fc3da8f10b7a2dc0287913bb641c5f14037de8001b9ae39182b035d4f135f",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.649522304534912,
+          -4.9843573570251465
+        ],
+        "probabilities": [
+          0.9995164536213329,
+          0.0004835463786671493
+        ],
+        "probability": 0.9995164536213329,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 57,
+        "payload_sha256": "0041eddf4eced00e9ebfe46f1ee1f13e891cd21cfb89d200e32fb923a4141405",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.3024158477783203,
+          -4.025543212890625
+        ],
+        "probabilities": [
+          0.9982175084438212,
+          0.0017824915561789547
+        ],
+        "probability": 0.9982175084438212,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 58,
+        "payload_sha256": "004297948c0a40b41618d5e67b9ff1ba71836a47d4a0790c0f3ce482a1b42032",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.5090148448944092,
+          -3.1030502319335938
+        ],
+        "probabilities": [
+          0.9901663723468658,
+          0.00983362765313419
+        ],
+        "probability": 0.9901663723468658,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 59,
+        "payload_sha256": "0043068f177435b2438bd45d4ce8e44933c16a41b2f887049e0caefe265f41eb",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.7210700511932373,
+          -4.6995768547058105
+        ],
+        "probabilities": [
+          0.9994015966232711,
+          0.000598403376728948
+        ],
+        "probability": 0.9994015966232711,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 60,
+        "payload_sha256": "00433ee665ada942f1f9efc7ba899d9e80a4fc0ff3b53fa31387e50533b61757",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.383049964904785,
+          -3.5651960372924805
+        ],
+        "probabilities": [
+          0.9973963813578527,
+          0.0026036186421471976
+        ],
+        "probability": 0.9973963813578527,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 61,
+        "payload_sha256": "004368d6843a485928611235f8d71c77a181d8b2c754325cc87a8b17fc5a5f27",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.01145076751709,
+          -4.013688087463379
+        ],
+        "probabilities": [
+          0.9975886129415488,
+          0.002411387058451221
+        ],
+        "probability": 0.9975886129415488,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 62,
+        "payload_sha256": "004475c70ae2698313bb918f94eec5be1e4170c56d762a0629e1f794bf2a6dbe",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.712162971496582,
+          -4.159592628479004
+        ],
+        "probabilities": [
+          0.9989644180280298,
+          0.001035581971970078
+        ],
+        "probability": 0.9989644180280298,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 63,
+        "payload_sha256": "004492e9517e6ceeef29b08b9eb4af1f34c7b46a196c5fe6fce723d2a37d66dc",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.64082932472229,
+          -4.90803337097168
+        ],
+        "probabilities": [
+          0.9994735684613223,
+          0.0005264315386777778
+        ],
+        "probability": 0.9994735684613223,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 64,
+        "payload_sha256": "00459fd9119fabc6a7ae603c988542b974fc5c3a6153d4ca4a3067b080a9ab77",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.205151319503784,
+          -3.803241014480591
+        ],
+        "probabilities": [
+          0.9975479904218637,
+          0.0024520095781363667
+        ],
+        "probability": 0.9975479904218637,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 65,
+        "payload_sha256": "0046fbcbc7bbe53075a5aad828b590833849b91743cd2e68eebb91c300dcd141",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.440661907196045,
+          -4.353200435638428
+        ],
+        "probabilities": [
+          0.9988806222713913,
+          0.0011193777286086664
+        ],
+        "probability": 0.9988806222713913,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 66,
+        "payload_sha256": "00498e9bb8a1c37adf04cb1f5a3bfc9f3c2e96a705dd57f5a9bc60c0f2d00055",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.061840295791626,
+          2.9738945960998535
+        ],
+        "probabilities": [
+          0.006459423107962145,
+          0.993540576892038
+        ],
+        "probability": 0.993540576892038,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 67,
+        "payload_sha256": "004a354fd327b3855a6a7f0c93e1681e6d4081b695ce55883afa8a9ea30d72ea",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.378854513168335,
+          -4.213342189788818
+        ],
+        "probabilities": [
+          0.9986308522169667,
+          0.0013691477830332782
+        ],
+        "probability": 0.9986308522169667,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 68,
+        "payload_sha256": "004a541552abd7b0977645d284a5d7a256018cad4ac3604d9466d71f78abd68f",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.5082461833953857,
+          -3.9341349601745605
+        ],
+        "probabilities": [
+          0.998409922444095,
+          0.001590077555904954
+        ],
+        "probability": 0.998409922444095,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 69,
+        "payload_sha256": "004b4db50fb305319600d30c2c3579fe70a7a2490721a5364e6fefa3afdd2398",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.273977041244507,
+          -4.221059322357178
+        ],
+        "probabilities": [
+          0.9984913591662242,
+          0.001508640833775793
+        ],
+        "probability": 0.9984913591662242,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 70,
+        "payload_sha256": "004c5bc25a48c12c3483bf540940fd116748c238deb6522b88773555df10cf6d",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.4564976990222931,
+          -2.1122353076934814
+        ],
+        "probabilities": [
+          0.9288219783181688,
+          0.07117802168183106
+        ],
+        "probability": 0.9288219783181688,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 71,
+        "payload_sha256": "004db770b71f19d4e1949b2a714f8c4d8133b23ddd1b5443e3096f13ace83f04",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.3981773853302,
+          3.9509458541870117
+        ],
+        "probabilities": [
+          0.001745228140481391,
+          0.9982547718595187
+        ],
+        "probability": 0.9982547718595187,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 72,
+        "payload_sha256": "004e1b12827060a523aa250fb44865eda251f98ad9fb0f06243cff0e7fb3512f",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.4089607000350952,
+          -2.585806131362915
+        ],
+        "probabilities": [
+          0.9523371490285829,
+          0.04766285097141716
+        ],
+        "probability": 0.9523371490285829,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 73,
+        "payload_sha256": "004e95a7d94f9fb06169b4a79289231345c2791856ee9a7affc206355ee11f8c",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.7415623664855957,
+          -4.151974201202393
+        ],
+        "probabilities": [
+          0.9989867075251238,
+          0.001013292474876329
+        ],
+        "probability": 0.9989867075251238,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 74,
+        "payload_sha256": "004f9ec7e5abce89fcab23f0390b14a5c7b36831f0e6b1dbce8d7b57f47c0d3d",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.9565552473068237,
+          1.3904517889022827
+        ],
+        "probabilities": [
+          0.033993309438333175,
+          0.9660066905616669
+        ],
+        "probability": 0.9660066905616669,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 75,
+        "payload_sha256": "004fbbba089b343c7155d57414e99c45c631ba3030e38e3790f1c5c49d591863",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.8712724447250366,
+          1.567557454109192
+        ],
+        "probabilities": [
+          0.031103727322030164,
+          0.9688962726779698
+        ],
+        "probability": 0.9688962726779698,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 76,
+        "payload_sha256": "00512f1882f613487535c81e5de8aaebbab50e9a079586f7927101d2493d15e5",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          3.165822744369507,
+          -4.490678787231445
+        ],
+        "probabilities": [
+          0.9995272644321365,
+          0.0004727355678635094
+        ],
+        "probability": 0.9995272644321365,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 77,
+        "payload_sha256": "00518271b230be1501b0ff5d63ed41b8f307690107cbac2299c32f35f08b74a2",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.4341394901275635,
+          2.38095760345459
+        ],
+        "probabilities": [
+          0.008041249094129016,
+          0.9919587509058709
+        ],
+        "probability": 0.9919587509058709,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 78,
+        "payload_sha256": "00522948064dff1891f2d2486f419275479282ba39e7e0071216f57f4e52254c",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.0723724365234375,
+          2.880466938018799
+        ],
+        "probabilities": [
+          0.007013784365964009,
+          0.9929862156340359
+        ],
+        "probability": 0.9929862156340359,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 79,
+        "payload_sha256": "00524d9e1c4252691578f04968114dee6e85fc97dcc3e7b74707be58677b2e65",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.3523178100585938,
+          3.7270748615264893
+        ],
+        "probabilities": [
+          0.002284336608557668,
+          0.9977156633914422
+        ],
+        "probability": 0.9977156633914422,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 80,
+        "payload_sha256": "0053419830f50bfd9c756ebfee26e5dad8d872b1f240a0143a732b6c57215df0",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.537822961807251,
+          -3.9817419052124023
+        ],
+        "probabilities": [
+          0.9985278599076562,
+          0.001472140092343628
+        ],
+        "probability": 0.9985278599076562,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 81,
+        "payload_sha256": "00543ad851f5e01078aea09b973d60136847e44496e81d1ff5e94370d80f95ce",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.209782361984253,
+          1.8389191627502441
+        ],
+        "probabilities": [
+          0.017145901402536034,
+          0.9828540985974639
+        ],
+        "probability": 0.9828540985974639,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 82,
+        "payload_sha256": "005661e20c666301e020bcd2de5ca247a32d6a7606b4d2968193893103e2dd5b",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.062694787979126,
+          -4.300459861755371
+        ],
+        "probabilities": [
+          0.9982790470231001,
+          0.0017209529768999485
+        ],
+        "probability": 0.9982790470231001,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 83,
+        "payload_sha256": "00579a20711f64de52a080e462382d0022019bd22ada293dd02ff0624a393f9d",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.127647876739502,
+          -3.704333543777466
+        ],
+        "probabilities": [
+          0.9970763118393973,
+          0.0029236881606026868
+        ],
+        "probability": 0.9970763118393973,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 84,
+        "payload_sha256": "00580e0b15913c30f6f6aecbfc23b7a8878016961a75f99275ad9453fbe569c8",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.4165842533111572,
+          2.325922727584839
+        ],
+        "probabilities": [
+          0.008641440588931576,
+          0.9913585594110685
+        ],
+        "probability": 0.9913585594110685,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 85,
+        "payload_sha256": "0058a70eea03e95f5361043970a1f56a3efeb218acda3861a0bd88c869e23ee3",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.35983115434646606,
+          -2.592794418334961
+        ],
+        "probabilities": [
+          0.9503874337350107,
+          0.04961256626498939
+        ],
+        "probability": 0.9503874337350107,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 86,
+        "payload_sha256": "0058fb6bd6558a37fed4a0a204603b2f7cb8573d6f240ff639298f949752d21d",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.7688679695129395,
+          -4.136289596557617
+        ],
+        "probabilities": [
+          0.99899840311224,
+          0.001001596887759974
+        ],
+        "probability": 0.99899840311224,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 87,
+        "payload_sha256": "005a9f27799f4e4ec4bc752588d89647fccfb4c43cdab514fea9f876878dffbf",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.5738892555236816,
+          -4.028714656829834
+        ],
+        "probabilities": [
+          0.9986450081278169,
+          0.0013549918721831456
+        ],
+        "probability": 0.9986450081278169,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 88,
+        "payload_sha256": "005c6712a1cbef744360e28c1751b1d42d4174e793be24200a0d23d96dfd3ac5",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.9508538246154785,
+          -2.163759231567383
+        ],
+        "probabilities": [
+          0.9574915109236819,
+          0.04250848907631798
+        ],
+        "probability": 0.9574915109236819,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 89,
+        "payload_sha256": "005e294bbc3b2b9cbfd21aaff715259d952272394510d85aea989339b0518600",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.4979618787765503,
+          1.922641396522522
+        ],
+        "probabilities": [
+          0.031657729436388345,
+          0.9683422705636118
+        ],
+        "probability": 0.9683422705636118,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 90,
+        "payload_sha256": "005f79cb41bdc50f4cdd2730fb370dec6f3e56ff11a7e5ddf19c2c7c321e0d93",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.3911352157592773,
+          3.6586430072784424
+        ],
+        "probabilities": [
+          0.0023528360906476535,
+          0.9976471639093524
+        ],
+        "probability": 0.9976471639093524,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 91,
+        "payload_sha256": "00613bc52a3f7e780246a4cd996eb74174677432d3660703cf588e14ba4372ad",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.496544122695923,
+          -4.136351585388184
+        ],
+        "probabilities": [
+          0.998685384679739,
+          0.001314615320261055
+        ],
+        "probability": 0.998685384679739,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 92,
+        "payload_sha256": "0062ae63cce54df935b94849c49726b663673212d784d4500f3021c597444455",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.176374077796936,
+          1.6819472312927246
+        ],
+        "probabilities": [
+          0.054252768691706865,
+          0.9457472313082932
+        ],
+        "probability": 0.9457472313082932,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 93,
+        "payload_sha256": "00638134170fe7eafddcce3245b9c0d4828202b924c63b855a332cb90f99ad1a",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.2886195182800293,
+          -3.9366073608398438
+        ],
+        "probabilities": [
+          0.9980250334125627,
+          0.0019749665874373252
+        ],
+        "probability": 0.9980250334125627,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 94,
+        "payload_sha256": "00655a4d3e2f1d3330afb5f80aeaa692db14b31a74d21db1a136b5cef35bb985",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.0013577938079834,
+          -3.0414505004882812
+        ],
+        "probabilities": [
+          0.98275450323534,
+          0.017245496764660053
+        ],
+        "probability": 0.98275450323534,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 95,
+        "payload_sha256": "0065a40990178f65d7777cfb95ce6ffcd1dfc8a3b6ffc17ffffe15d123beecab",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.0017526522278785706,
+          -1.9296408891677856
+        ],
+        "probabilities": [
+          0.8734035836154131,
+          0.1265964163845867
+        ],
+        "probability": 0.8734035836154131,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 96,
+        "payload_sha256": "0066023280e3adc4d3bcb57a98391dcd6c8a5a9007f9442353f40f125563f482",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.2594776153564453,
+          -3.5559885501861572
+        ],
+        "probabilities": [
+          0.9970277701636766,
+          0.002972229836323391
+        ],
+        "probability": 0.9970277701636766,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 97,
+        "payload_sha256": "006a84b1d4c93d7294e5f85fc3ec159dc3c7febb7e9effb72ac4ffcb23d537e3",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          3.0166330337524414,
+          -4.058602809906006
+        ],
+        "probabilities": [
+          0.9991549217059614,
+          0.0008450782940385504
+        ],
+        "probability": 0.9991549217059614,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 98,
+        "payload_sha256": "006c11b7884513c98f49641c3643e248f505603a3b04a5836391cd0c2cb6777a",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.31195068359375,
+          1.9414830207824707
+        ],
+        "probabilities": [
+          0.014016095199343818,
+          0.9859839048006562
+        ],
+        "probability": 0.9859839048006562,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 99,
+        "payload_sha256": "006cd14db99f23e47b95ea1f27592134c87e0db1988578e86c5fd752da3316ad",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.6774487495422363,
+          1.5820285081863403
+        ],
+        "probabilities": [
+          0.03698782472688908,
+          0.9630121752731109
+        ],
+        "probability": 0.9630121752731109,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 100,
+        "payload_sha256": "006de25bf5a82aa5065e2a1c17d44809e000c8ed70818d51a0484db3ca5edfb2",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.3598625659942627,
+          0.334444522857666
+        ],
+        "probabilities": [
+          0.15521025545386752,
+          0.8447897445461324
+        ],
+        "probability": 0.8447897445461324,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 101,
+        "payload_sha256": "006f4d12a85f53d42cc0e146899aeb7ea6223794b7147bca5cbb2ffdc354a158",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.0459885597229004,
+          2.8593766689300537
+        ],
+        "probabilities": [
+          0.007352281021038924,
+          0.992647718978961
+        ],
+        "probability": 0.992647718978961,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 102,
+        "payload_sha256": "00718b529e155e2b03be9b967faee131188a7bd8a2a443699618d2c812631aaa",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.9278446435928345,
+          -3.801896095275879
+        ],
+        "probabilities": [
+          0.9967625956440476,
+          0.0032374043559523146
+        ],
+        "probability": 0.9967625956440476,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 103,
+        "payload_sha256": "0071e1118c23cec73b98a1db6a6c224c6093edd0e5dd3c16e94866569fb8ac7e",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.443711757659912,
+          -2.5307464599609375
+        ],
+        "probabilities": [
+          0.9815570547776284,
+          0.01844294522237165
+        ],
+        "probability": 0.9815570547776284,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 104,
+        "payload_sha256": "00723bde3cfaa1aece3909268dbc02798eb71eaaff3907bd8f2bd1b9d0c0fc4e",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.2325470447540283,
+          3.5520827770233154
+        ],
+        "probabilities": [
+          0.003065024998269864,
+          0.9969349750017301
+        ],
+        "probability": 0.9969349750017301,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 105,
+        "payload_sha256": "0072796a2ad3fc6089c9d030259a203a93e6316c232217387a0115b945ee014d",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.6445447206497192,
+          1.6316395998001099
+        ],
+        "probabilities": [
+          0.036397305478756144,
+          0.9636026945212439
+        ],
+        "probability": 0.9636026945212439,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 106,
+        "payload_sha256": "0073ee8a9d8d4a072c919c8ce32b9e653ccf2ff4abd126847fa8d65d67126441",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.7129724621772766,
+          -2.703519105911255
+        ],
+        "probabilities": [
+          0.9682159810347472,
+          0.03178401896525291
+        ],
+        "probability": 0.9682159810347472,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 107,
+        "payload_sha256": "0075369f2c2940f19936ef23987753d35118b2837b9425aa280faa6adc69b093",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.3056517541408539,
+          -1.7432551383972168
+        ],
+        "probabilities": [
+          0.8858371196870889,
+          0.11416288031291105
+        ],
+        "probability": 0.8858371196870889,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 108,
+        "payload_sha256": "00777ff988789f1e4eab69c989ac4b58cdab301ed20e4fc5c3b80aa26ca9483a",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.2029330730438232,
+          -2.838541030883789
+        ],
+        "probabilities": [
+          0.982731876687325,
+          0.017268123312675097
+        ],
+        "probability": 0.982731876687325,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 109,
+        "payload_sha256": "0078380287729a58a46749d4ee30ea91aca16cb93e9be8679e96f8398af96d21",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.9046214818954468,
+          2.9105236530303955
+        ],
+        "probabilities": [
+          0.008040865897208612,
+          0.9919591341027915
+        ],
+        "probability": 0.9919591341027915,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 110,
+        "payload_sha256": "007a923e5b6bf427ca7fa031e6f56fb0c0689152100aef1edbb9cdd2119e50e3",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.840798020362854,
+          1.3931365013122559
+        ],
+        "probabilities": [
+          0.037908488236635174,
+          0.9620915117633647
+        ],
+        "probability": 0.9620915117633647,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 111,
+        "payload_sha256": "007b87eb42f8349c6c80a6864106156470302ae714cb0351b3e86d0c8a428316",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.267162799835205,
+          -3.844419479370117
+        ],
+        "probabilities": [
+          0.9977878643337385,
+          0.002212135666261669
+        ],
+        "probability": 0.9977878643337385,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 112,
+        "payload_sha256": "007be29ee0db46cdf256f68e2a7fe3fad56c5a76ac59df943d377fa9bc8d1514",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.579707682132721,
+          -2.5179085731506348
+        ],
+        "probabilities": [
+          0.956794310766865,
+          0.043205689233134933
+        ],
+        "probability": 0.956794310766865,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 113,
+        "payload_sha256": "007da4af3be03d0f563336fb91bfc5b728e363fab27167a8ab4c66ab8b344644",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.387449026107788,
+          -3.906956672668457
+        ],
+        "probabilities": [
+          0.995005473864967,
+          0.00499452613503313
+        ],
+        "probability": 0.995005473864967,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 114,
+        "payload_sha256": "007dea35d606a04baae2421b59c97e39b2664490598514e4f424daf20518e480",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.9519118070602417,
+          2.7638425827026367
+        ],
+        "probabilities": [
+          0.008873662513423461,
+          0.9911263374865766
+        ],
+        "probability": 0.9911263374865766,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 115,
+        "payload_sha256": "007ed4095e16c3e24a7e2d61c23f9f3b652545d87f8c27c75b435c0f1c901a7b",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.1011962890625,
+          2.8348805904388428
+        ],
+        "probabilities": [
+          0.007131498285099511,
+          0.9928685017149006
+        ],
+        "probability": 0.9928685017149006,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 116,
+        "payload_sha256": "007fa6d0677f63be19cb288fc2ba3b8d300bb99e425fc05ccb168601d3dabc2b",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.3130382299423218,
+          -2.5960631370544434
+        ],
+        "probabilities": [
+          0.9803359142113747,
+          0.019664085788625454
+        ],
+        "probability": 0.9803359142113747,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 117,
+        "payload_sha256": "0080201b8946e331cabcb5e83403899906d0b4db2c83a3196e736660fc929827",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.4515089988708496,
+          -4.055666446685791
+        ],
+        "probabilities": [
+          0.9985095348440762,
+          0.0014904651559237898
+        ],
+        "probability": 0.9985095348440762,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 118,
+        "payload_sha256": "00806c0da3c8c0cd4eaf1c90da5d35925ead225e6c3647acb92cc0d04afa180f",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.6822947263717651,
+          2.6357932090759277
+        ],
+        "probabilities": [
+          0.013150108464524607,
+          0.9868498915354754
+        ],
+        "probability": 0.9868498915354754,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 119,
+        "payload_sha256": "00807243cad43b3480dae8206dc165b4a6461fa2c10fa90f1ac8e6c748e726ac",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.6029720902442932,
+          -2.5227413177490234
+        ],
+        "probabilities": [
+          0.9579410246974256,
+          0.04205897530257443
+        ],
+        "probability": 0.9579410246974256,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 120,
+        "payload_sha256": "0081bbaab9eff70c35fdbd3e46532fe97aa7e5ae9be1c5fe4bae0eb2f5469de7",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.1215598583221436,
+          -0.25067245960235596
+        ],
+        "probabilities": [
+          0.29506968634209957,
+          0.7049303136579004
+        ],
+        "probability": 0.7049303136579004,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 121,
+        "payload_sha256": "00844415e1f1ef9d42a03fd9834d9baf8ee3517842ebb8aaa0793f3bcf8b34b4",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.013859987258911,
+          2.5587260723114014
+        ],
+        "probabilities": [
+          0.0102255655772791,
+          0.9897744344227208
+        ],
+        "probability": 0.9897744344227208,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 122,
+        "payload_sha256": "0084fab98a78593a1c7c3d5f57c548543bf119a0bb2c8f55c1a3b8cb14ebb829",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.187119722366333,
+          3.4395368099212646
+        ],
+        "probabilities": [
+          0.00358767593005827,
+          0.9964123240699416
+        ],
+        "probability": 0.9964123240699416,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 123,
+        "payload_sha256": "0086b92ebedc416e1e865a33f9e96821945ddcae850329954d1b6f9c5e312c68",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          0.7647666931152344,
+          -2.7401840686798096
+        ],
+        "probabilities": [
+          0.9708283056184686,
+          0.029171694381531287
+        ],
+        "probability": 0.9708283056184686,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 124,
+        "payload_sha256": "008832f56f6ef3cdbedee40630ac3f6ec89b561e062a08a7262b3613c8449cd2",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          2.0228021144866943,
+          -3.5507888793945312
+        ],
+        "probabilities": [
+          0.9962175397667464,
+          0.0037824602332534505
+        ],
+        "probability": 0.9962175397667464,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 125,
+        "payload_sha256": "0089a08854247fc5316238073dbfdcd3286dc63e8a603419884fd45e6ff7eaa4",
+        "class_index": 0,
+        "class_name": "benign",
+        "logits": [
+          1.3504023551940918,
+          -2.9042863845825195
+        ],
+        "probabilities": [
+          0.9860012383689553,
+          0.013998761631044843
+        ],
+        "probability": 0.9860012383689553,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 126,
+        "payload_sha256": "008c15720f7b06e5872c4828cf51a6a252ebd88bf045e246056219fa331dda22",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -2.023669719696045,
+          2.9819295406341553
+        ],
+        "probabilities": [
+          0.006655729356809325,
+          0.9933442706431906
+        ],
+        "probability": 0.9933442706431906,
+        "probability_kind": "uncalibrated_softmax"
+      },
+      {
+        "row_id": 127,
+        "payload_sha256": "008c4e22869acd9d92ee656f992ec343e418dbddefdb8ad9a7dc114e33f33cb5",
+        "class_index": 1,
+        "class_name": "attack",
+        "logits": [
+          -1.4166929721832275,
+          1.2380766868591309
+        ],
+        "probabilities": [
+          0.06569564198288091,
+          0.9343043580171191
+        ],
+        "probability": 0.9343043580171191,
+        "probability_kind": "uncalibrated_softmax"
+      }
+    ],
+    "comparison": {
+      "source_commit": "25f72a4c02bf8cdc176e51e10cd212b4ef42e309",
+      "prediction_rows": 128,
+      "matching_classes": 128,
+      "logit_tolerance_failures": 76,
+      "failed_rows": [
+        1,
+        3,
+        5,
+        7,
+        8,
+        9,
+        11,
+        15,
+        16,
+        21,
+        22,
+        23,
+        24,
+        27,
+        28,
+        29,
+        30,
+        32,
+        34,
+        35,
+        37,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        64,
+        66,
+        69,
+        70,
+        72,
+        74,
+        77,
+        78,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89,
+        90,
+        92,
+        93,
+        94,
+        95,
+        97,
+        98,
+        99,
+        100,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        113,
+        114,
+        116,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        125,
+        126,
+        127
+      ],
+      "maximum_absolute_logit_difference": 0.006159305572509766,
+      "relative_tolerance": 0.0001,
+      "absolute_tolerance": 1e-06,
+      "comparison_scope": "First 128 CIC input rows joined to frozen joint-model test predictions by payload hash; entire 20000-row input validated; not full training or full-study reexecution",
+      "prediction_sha256": "dc66394e1dedf1cd6833eb499beac016f4efed856038f920af4e3d90a0f9af8f",
+      "status": "numerical_tolerance_failed"
+    },
+    "execution_log": "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:158: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.\n  @custom_fwd\n/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:227: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.\n  @custom_bwd\n/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:295: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.\n  @custom_fwd\n/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:368: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.\n  @custom_bwd\n/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:440: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.\n  @custom_fwd\n/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:520: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.\n  @custom_bwd\n/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/triton/layernorm.py:507: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.\n  @custom_fwd\n/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/triton/layernorm.py:566: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.\n  @custom_bwd\n/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/torch/cuda/__init__.py:283: UserWarning: \n    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.\n    Minimum and Maximum cuda capability supported by this version of PyTorch is\n    (8.0) - (12.0)\n    \n  warnings.warn(\n{\"status\": \"capped\", \"input_rows\": 20000, \"predicted_rows\": 128, \"receipt\": \"runs/native-predictions/receipt.json\"}\n"
+  },
+  "publication": {
+    "runs": {
+      "source_ci": {
+        "conclusion": "success",
+        "databaseId": 34831162329,
+        "headSha": "25f72a4c02bf8cdc176e51e10cd212b4ef42e309",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162329",
+        "jobs": [
+          {
+            "name": "test (ubuntu-24.04, 3.12)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162329/job/103934592345",
+            "startedAt": "2026-09-14T10:03:11Z",
+            "completedAt": "2026-09-14T10:04:55Z"
+          },
+          {
+            "name": "test (ubuntu-24.04, 3.10)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162329/job/103934592478",
+            "startedAt": "2026-09-14T10:03:11Z",
+            "completedAt": "2026-09-14T10:05:17Z"
+          },
+          {
+            "name": "test (windows-2022, 3.10)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162329/job/103934592512",
+            "startedAt": "2026-09-14T10:03:11Z",
+            "completedAt": "2026-09-14T10:06:53Z"
+          },
+          {
+            "name": "test (macos-14, 3.12)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162329/job/103934592578",
+            "startedAt": "2026-09-14T10:03:16Z",
+            "completedAt": "2026-09-14T10:05:23Z"
+          },
+          {
+            "name": "test (windows-2022, 3.12)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162329/job/103934592594",
+            "startedAt": "2026-09-14T10:03:11Z",
+            "completedAt": "2026-09-14T10:06:48Z"
+          },
+          {
+            "name": "test (macos-14, 3.10)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162329/job/103934592653",
+            "startedAt": "2026-09-14T10:03:15Z",
+            "completedAt": "2026-09-14T10:05:57Z"
+          }
+        ]
+      },
+      "pages": {
+        "conclusion": "success",
+        "databaseId": 34831162274,
+        "headSha": "25f72a4c02bf8cdc176e51e10cd212b4ef42e309",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162274",
+        "jobs": [
+          {
+            "name": "deploy",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162274/job/103934592365",
+            "startedAt": "2026-09-14T10:03:12Z",
+            "completedAt": "2026-09-14T10:05:05Z"
+          }
+        ]
+      },
+      "client_sync": {
+        "conclusion": "success",
+        "databaseId": 34831503653,
+        "headSha": "25f72a4c02bf8cdc176e51e10cd212b4ef42e309",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831503653",
+        "jobs": [
+          {
+            "name": "prepare",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831503653/job/103935656639",
+            "startedAt": "2026-09-14T10:06:58Z",
+            "completedAt": "2026-09-14T10:07:48Z"
+          },
+          {
+            "name": "publish",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831503653/job/103935916791",
+            "startedAt": "2026-09-14T10:07:51Z",
+            "completedAt": "2026-09-14T10:08:07Z"
+          }
+        ]
+      },
+      "client_ci": {
+        "conclusion": "success",
+        "databaseId": 34831609260,
+        "headSha": "53807c1c09e41a48a8bb0544ee26941973184d94",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34831609260",
+        "jobs": [
+          {
+            "name": "test (windows-2022, 3.12)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34831609260/job/103935998650",
+            "startedAt": "2026-09-14T10:08:08Z",
+            "completedAt": "2026-09-14T10:09:08Z"
+          },
+          {
+            "name": "test (ubuntu-24.04, 3.10)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34831609260/job/103935998784",
+            "startedAt": "2026-09-14T10:08:08Z",
+            "completedAt": "2026-09-14T10:08:48Z"
+          },
+          {
+            "name": "test (macos-14, 3.10)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34831609260/job/103935998824",
+            "startedAt": "2026-09-14T10:08:13Z",
+            "completedAt": "2026-09-14T10:09:02Z"
+          },
+          {
+            "name": "test (macos-14, 3.12)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34831609260/job/103935999026",
+            "startedAt": "2026-09-14T10:08:15Z",
+            "completedAt": "2026-09-14T10:08:51Z"
+          },
+          {
+            "name": "test (ubuntu-24.04, 3.12)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34831609260/job/103935999035",
+            "startedAt": "2026-09-14T10:08:09Z",
+            "completedAt": "2026-09-14T10:08:47Z"
+          },
+          {
+            "name": "test (windows-2022, 3.10)",
+            "conclusion": "success",
+            "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34831609260/job/103935999055",
+            "startedAt": "2026-09-14T10:08:10Z",
+            "completedAt": "2026-09-14T10:09:12Z"
+          }
+        ]
+      }
+    },
+    "public_http": [
+      {
+        "url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/25f72a4c02bf8cdc176e51e10cd212b4ef42e309/README.md",
+        "status": 200,
+        "bytes": 6889,
+        "sha256": "358fbaf82e208ed14d30d33586e307f7d13f53a40515d5e8b6c80397461f67dc",
+        "expected_sha256": "358fbaf82e208ed14d30d33586e307f7d13f53a40515d5e8b6c80397461f67dc",
+        "passed": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/25f72a4c02bf8cdc176e51e10cd212b4ef42e309/docs/customer/client-project-guide.md",
+        "status": 200,
+        "bytes": 31066,
+        "sha256": "b645bc740c563f3c6d64613e9aeeacc599cbcc72edc79c292233a81fb938afe3",
+        "expected_sha256": "b645bc740c563f3c6d64613e9aeeacc599cbcc72edc79c292233a81fb938afe3",
+        "passed": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/25f72a4c02bf8cdc176e51e10cd212b4ef42e309/docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pdf",
+        "status": 200,
+        "bytes": 30787,
+        "sha256": "6d90acb4430d0c53ec0e6ad2b5722e3d0b6f6c0af547411455e47b2a3db94d3d",
+        "expected_sha256": "6d90acb4430d0c53ec0e6ad2b5722e3d0b6f6c0af547411455e47b2a3db94d3d",
+        "passed": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/25f72a4c02bf8cdc176e51e10cd212b4ef42e309/docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pptx",
+        "status": 200,
+        "bytes": 54499,
+        "sha256": "1063cb5274d4e9c3cccd2644bb818c7899eb5d673e9e555a3acaca4cea38dc3d",
+        "expected_sha256": "1063cb5274d4e9c3cccd2644bb818c7899eb5d673e9e555a3acaca4cea38dc3d",
+        "passed": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/25f72a4c02bf8cdc176e51e10cd212b4ef42e309/docs/customer/packet-addendum/packet-addendum-script.md",
+        "status": 200,
+        "bytes": 5751,
+        "sha256": "ba9a245edb8737daed8ed0d543f9b267fd3b4a3d169ad6cb85881c77e9adbaa6",
+        "expected_sha256": "ba9a245edb8737daed8ed0d543f9b267fd3b4a3d169ad6cb85881c77e9adbaa6",
+        "passed": true
+      },
+      {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/",
+        "status": 200,
+        "bytes": 4840929,
+        "sha256": "00f4b0bf9f15bd1c39a2404fd12a0bf1ca3901ce46705d08d8f9cdd1a10a1028",
+        "expected_sha256": "00f4b0bf9f15bd1c39a2404fd12a0bf1ca3901ce46705d08d8f9cdd1a10a1028",
+        "passed": true
+      },
+      {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/packet-receipt.json",
+        "status": 200,
+        "bytes": 7886,
+        "sha256": "380c1319e6de4cbdf2a9b1cff30163c69f798654fadc3094ae2228a627b39ddc",
+        "expected_sha256": null,
+        "passed": true
+      },
+      {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/course/",
+        "status": 404,
+        "bytes": 9379,
+        "sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+        "expected_sha256": null,
+        "passed": true
+      }
+    ],
+    "anonymous_client_zip": {
+      "status": "passed",
+      "access": "Anonymous HTTPS; no GitHub token supplied",
+      "url": "https://codeload.github.com/buffbeefalo/netmambaplus-client/zip/53807c1c09e41a48a8bb0544ee26941973184d94",
+      "client_commit": "53807c1c09e41a48a8bb0544ee26941973184d94",
+      "source_commit": "25f72a4c02bf8cdc176e51e10cd212b4ef42e309",
+      "zip_sha256": "3519b8da3f9ba9d36d81b78fcd5627e82a14b262f23ccfd36aafa640f85ed2cc",
+      "files": 124,
+      "packet_evidence_files_verified": 75,
+      "manifest_exactly_matches_native_tested_export": true,
+      "client_verifier_exit_code": 0,
+      "packet_demo_exit_code": 0,
+      "demo_sha256": "00f4b0bf9f15bd1c39a2404fd12a0bf1ca3901ce46705d08d8f9cdd1a10a1028",
+      "scope": "Downloaded client ZIP with no source Git history; byte identity, whole-client inventory, frozen packet evidence and recorded demo checks; native execution not repeated from the ZIP"
+    },
+    "client_changes": {
+      "previous_commit": "7b92200247e0b5f810a040bf2610ef5c718f1e9e",
+      "published_commit": "53807c1c09e41a48a8bb0544ee26941973184d94",
+      "added": 5,
+      "modified": 10,
+      "removed": 99,
+      "previous_files": 218,
+      "current_files": 124,
+      "mechanism": "Existing verified export and ordinary fast-forward publisher; client not hand-edited"
+    },
+    "platform_counts": {
+      "source": {
+        "tests_per_job": 468,
+        "linux_macos_passed": 432,
+        "linux_macos_skipped": 36,
+        "windows_passed": 431,
+        "windows_skipped": 37
+      },
+      "client": {
+        "tests_per_job": 185,
+        "linux_macos_passed": 149,
+        "linux_macos_skipped": 36,
+        "windows_passed": 148,
+        "windows_skipped": 37
+      }
+    },
+    "source_ci_count_lines": [
+      "test (ubuntu-24.04, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:04:08.0605782Z Ran 468 tests in 40.221s",
+      "test (ubuntu-24.04, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:04:08.0606014Z OK (skipped=36)",
+      "test (ubuntu-24.04, 3.12)\tRun python tools/check_client_export.py\t2026-09-14T10:04:40.9758865Z Ran 185 tests in 8.171s",
+      "test (ubuntu-24.04, 3.12)\tRun python tools/check_client_export.py\t2026-09-14T10:04:40.9759115Z OK (skipped=36)",
+      "test (ubuntu-24.04, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:04:09.7755926Z Ran 468 tests in 44.064s",
+      "test (ubuntu-24.04, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:04:09.7756389Z OK (skipped=36)",
+      "test (ubuntu-24.04, 3.10)\tRun python tools/check_client_export.py\t2026-09-14T10:04:54.0196307Z Ran 185 tests in 12.436s",
+      "test (ubuntu-24.04, 3.10)\tRun python tools/check_client_export.py\t2026-09-14T10:04:54.0196776Z OK (skipped=36)",
+      "test (windows-2022, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:05:17.0254405Z Ran 468 tests in 105.742s",
+      "test (windows-2022, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:05:17.0254805Z OK (skipped=37)",
+      "test (windows-2022, 3.10)\tRun python tools/check_client_export.py\t2026-09-14T10:06:28.4068621Z Ran 185 tests in 22.884s",
+      "test (windows-2022, 3.10)\tRun python tools/check_client_export.py\t2026-09-14T10:06:28.4068998Z OK (skipped=37)",
+      "test (macos-14, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:04:22.2296860Z Ran 468 tests in 48.357s",
+      "test (macos-14, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:04:22.2297460Z OK (skipped=36)",
+      "test (macos-14, 3.12)\tRun python tools/check_client_export.py\t2026-09-14T10:05:02.6523000Z Ran 185 tests in 10.722s",
+      "test (macos-14, 3.12)\tRun python tools/check_client_export.py\t2026-09-14T10:05:02.6523630Z OK (skipped=36)",
+      "test (windows-2022, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:05:22.3990092Z Ran 468 tests in 106.543s",
+      "test (windows-2022, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:05:22.3990358Z OK (skipped=37)",
+      "test (windows-2022, 3.12)\tRun python tools/check_client_export.py\t2026-09-14T10:06:28.6583536Z Ran 185 tests in 20.817s",
+      "test (windows-2022, 3.12)\tRun python tools/check_client_export.py\t2026-09-14T10:06:28.6583724Z OK (skipped=37)",
+      "test (macos-14, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:04:51.1679880Z Ran 468 tests in 48.581s",
+      "test (macos-14, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:04:51.1680170Z OK (skipped=36)",
+      "test (macos-14, 3.10)\tRun python tools/check_client_export.py\t2026-09-14T10:05:35.2098170Z Ran 185 tests in 11.084s",
+      "test (macos-14, 3.10)\tRun python tools/check_client_export.py\t2026-09-14T10:05:35.2098530Z OK (skipped=36)"
+    ],
+    "client_ci_count_lines": [
+      "test (windows-2022, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:43.5927651Z Ran 185 tests in 22.371s",
+      "test (windows-2022, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:43.5928124Z OK (skipped=37)",
+      "test (ubuntu-24.04, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:25.1763260Z Ran 185 tests in 12.621s",
+      "test (ubuntu-24.04, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:25.1763588Z OK (skipped=36)",
+      "test (macos-14, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:44.8524300Z Ran 185 tests in 9.314s",
+      "test (macos-14, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:44.8524470Z OK (skipped=36)",
+      "test (macos-14, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:31.4544420Z Ran 185 tests in 10.678s",
+      "test (macos-14, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:31.4544750Z OK (skipped=36)",
+      "test (ubuntu-24.04, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:25.4326602Z Ran 185 tests in 12.016s",
+      "test (ubuntu-24.04, 3.12)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:25.4327003Z OK (skipped=36)",
+      "test (windows-2022, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:46.3251981Z Ran 185 tests in 24.849s",
+      "test (windows-2022, 3.10)\tRun python -m unittest discover -s tests -v\t2026-09-14T10:08:46.3252242Z OK (skipped=37)"
+    ]
+  },
+  "completed_at": "2026-09-14T10:12:00.521717+00:00"
+}

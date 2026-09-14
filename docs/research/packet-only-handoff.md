@@ -15,11 +15,27 @@ The user changed the handoff to one supported route, using both packet CSVs. The
 
 [Native gate receipt](packet-checks/native-receipt.json), [17-case log](packet-checks/native-tests.log), [model probe](packet-checks/native-model-probe.json), [default asset acquisition](packet-checks/acquisition.json), [browser checks](packet-checks/browser.json), and [packet presentation review](../customer/packet-addendum/verification.json).
 
-The complete source suite ran 468 tests: 432 passed and 36 optional tests skipped. All 11 package, packet, presentation, repository-guide and historical-course checks exited successfully. The every-file guide covers 655 files. A Gitleaks scan of the changed text found no secrets. These portable checks are separate from the 17 native GB10 cases above, which all executed without skips.
+The complete source suite ran 468 tests: 432 passed and 36 optional tests skipped. All 11 package, packet, presentation, repository-guide and historical-course checks exited successfully. The every-file guide covers 656 files including the final delivery receipt. A Gitleaks scan of the changed text found no secrets. These portable checks are separate from the 17 native GB10 cases above, which all executed without skips.
 
 The updated eight-slide PDF was visually reviewed after rendering. The PowerPoint was rendered with LibreOffice, and all eight slides and extracted slide titles were checked; this does not claim a Microsoft PowerPoint rendering. Browser checks used Chromium 140.0.7339.16 at 1440×1000 and 390×844. All checks passed after the mobile overflow correction, with no external requests or JavaScript errors.
 
-Committed-export and publication checks follow the local checks. The historical two-route client audit remains in [its original receipt](client-edition-validation.json); its counts are not reused as the current packet-only client's test count.
+The fresh export of source `25f72a4c02bf8cdc176e51e10cd212b4ef42e309` contains 124 files, including its manifest, and preserves all 75 packet-study evidence files byte-for-byte. Its six offline acceptance commands passed. Its suite ran 185 tests: 149 passed, with 36 optional skips on local Linux. The packet demo rendered the same reviewed HTML. The reduced export also passed all 17 native GB10 cases without skips using the existing runtime, upstream source, prepared bytes and pretrained initialization; this was not a fresh installation.
+
+Fresh inference from that export fully validated 20,000 CIC input rows and predicted the first 128 with the selected joint checkpoint. All 128 classes matched the frozen test predictions. Strict comparisons retained 76 failures at relative tolerance `1e-4` and absolute tolerance `1e-6`, with maximum absolute logit difference 0.006159305572509766. These match the earlier capped check; they are not the original full study's two strict failures and do not establish bit-identical scores. The historical two-route client audit remains in [its original receipt](client-edition-validation.json).
+
+The [complete client-export receipt](packet-checks/client-export.json) contains actual native logs/probe, all 128 predictions, comparison failures, platform counts, publication records and anonymous HTTP/ZIP checks. It states that existing local runtime/data/weights were reused. It does not convert the numerical failures into successful comparisons.
+
+## Published client and platform checks
+
+Source [25f72a4](https://github.com/buffbeefalo/netmambaplus-reproduction/commit/25f72a4c02bf8cdc176e51e10cd212b4ef42e309) passed all six [source platform jobs](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162329). The [automatic publication](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831503653) then produced client [53807c1](https://github.com/buffbeefalo/netmambaplus-client/commit/53807c1c09e41a48a8bb0544ee26941973184d94) with five added, ten modified and 99 removed files. That client passed all six [client platform jobs](https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34831609260).
+
+Both matrices used Linux, Windows and macOS with Python 3.10 and 3.12. Every source job discovered 468 tests; every client job discovered 185. Linux/macOS skipped 36 optional cases; Windows skipped 37. The remaining cases passed. Each source job also tested a fresh client export. These are portable software/evidence checks, distinct from the local native GB10 execution.
+
+An anonymous HTTPS download of the published client ZIP contained exactly the 124 expected files and matched the native-tested export manifest. All 75 packet-study files matched the source bytes. Without source Git history, the downloaded client passed its verifier and rendered the same reviewed packet-demo HTML.
+
+The [packet Pages deployment](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34831162274) succeeded. The public root returned the reviewed 4,840,929-byte packet page with SHA-256 `00f4b0bf9f15bd1c39a2404fd12a0bf1ca3901ce46705d08d8f9cdd1a10a1028`; `/course/` returned 404. Anonymous downloads of the source README, client guide, PDF, PowerPoint and script at the recorded source revision matched their reviewed local hashes.
+
+The final audit and explanation update affects source-only documentation. The client manifest can continue to identify source 25f72a4 because excluded-only documentation changes do not change its delivered files. Future selected code/template updates continue through the same verified publication workflow.
 
 ## Council outcome and implementation scope
 

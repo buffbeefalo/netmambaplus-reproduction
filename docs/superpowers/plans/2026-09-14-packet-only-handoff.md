@@ -13,9 +13,9 @@
 - [x] Provide one packet-native runtime check with prepared input paths, explicit completed/skipped counts and a retained receipt. Execute it on GB10; keep this functional check separate from full training.
 - [x] Narrow client files, verifier, offline export checks and CI/publication checks to the packet workflow. Preserve shared source identity helpers required by the packet model/builders.
 - [x] Rewrite active source/client instructions and the complete client guide around the single CSV workflow. Mark earlier flow/calibration media and commands historical, explain paper differences and all known score-comparison failures, and review affected lesson references.
-- [ ] Present packet predictions at the public demo root while preserving historical media bytes and keeping `/course/` retired.
+- [x] Present packet predictions at the public demo root while preserving historical media bytes and keeping `/course/` retired.
 - [x] Review the current packet presentation for the new handoff scope; update/render/check PDF, PowerPoint and script if their wording advertises a second supported route.
-- [ ] Verify all source tests, current documents/links/individual-file guide, historical artifact checks and a fresh isolated client export. Update checksums only after content review.
-- [ ] Commit and publish source, observe automatic client synchronization and both repositories' platform CI, and verify public downloads/demo.
+- [x] Verify all source tests, current documents/links/individual-file guide, historical artifact checks and a fresh isolated client export. Update checksums only after content review.
+- [x] Commit and publish source, observe automatic client synchronization and both repositories' platform CI, and verify public downloads/demo.
 
 No new scientific accuracy, full training, customer-network validation or hardware deployment claim follows from this packaging change. Keep the six-arm study as evidence within one packet workflow; use its validation-selected joint pretrained checkpoint for the demonstrated client prediction.
