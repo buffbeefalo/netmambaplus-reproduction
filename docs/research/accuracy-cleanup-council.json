@@ -1,0 +1,399 @@
+{
+  "runId": "7b5313e7-d426-4af7-a5ca-35db5cb14288",
+  "state": "ESCALATED",
+  "stamp": "UNRATIFIED",
+  "mutual": false,
+  "decisionHash": null,
+  "decision": null,
+  "category": "correction",
+  "axis": "steerability",
+  "tier": "lite",
+  "caller": "codex",
+  "mode": "verify",
+  "schemaVersion": 2,
+  "cwd": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection",
+  "intakeHash": "02430d3c4175da49b8761e5778f48d0a59067ec3a06bfcd1ba032a4b5c6965e3",
+  "blockers": [
+    "Packet-study metric integrity remains unverified: the headline 97.56% CIC / 94.29% UNSW / 99.34% UNSW-metadata figures in prose cannot be matched to their JSON fields or recomputed, because the primary and control results files are budget-excluded. The agreed C2/P1 acceptance check (exact prose-to-JSON match plus bounded recomputation from retained predictions with declared group weighting, denominators, comparable control populations, and completed-updates vs selected-checkpoint distinction) cannot yet run. No numerical defect is established; verification is simply not yet possible. [anchor: docs/customer/packet-model-study.md opening metrics vs excluded docs/customer/evidence/packet-study/results.json and controls/evaluation/results.json (pack 'REQUEST EXCLUDED' entries; partial controls excerpt at Source bytes [37831,49230))]",
+    "Packet reproducibility remains unverified: docs/customer/packet-study-setup.md and tools/review_packet_study.py are budget-excluded, while README.md:152 presents docs/customer/verification.md as 'the checks actually performed' and its visible content covers only flow-experiment checks. The agreed C3/P1 bounded review (external input provenance/hashes, preprocessing, checkpoint loading, documented bounded unlabeled inference; disclose unavailable dependencies; no fresh-reproduction claim) cannot yet run. [anchor: pack sections 'REQUEST EXCLUDED: file docs/customer/packet-study-setup.md' and 'REQUEST EXCLUDED: file tools/review_packet_study.py'; README.md:152 (scout.json)]",
+    "The advertised customer ZIP's edition and coverage remain unestablished: docs/customer/README.md:15 links a 'Complete customer ZIP' via a floating releases/latest/download URL that cannot be resolved from the pack, and README.md:40 states the original ZIP predates later calibration/packet additions. The agreed C1/P1 check (inspect actual asset members and hashes where the environment permits; at minimum pin to a versioned release with a manifest, and state edition/coverage beside the link, or label the original ZIP explicitly historical with a separate current supplement) cannot yet be confirmed. No broken download is established. [anchor: docs/customer/README.md:15 and README.md:40 (runs/accuracy-cleanup/scout.json observations)]",
+    "C1's pin-plus-manifest fallback cannot establish the advertised ZIP's contents or coverage. Require actual asset inspection and hash verification before describing it as verified, current and complete. If inspection is unavailable, retain an explicit unresolved check, label the original ZIP as historical, and provide separately verified current documentation. [anchor: docs/customer/README.md:15 and README.md:40, reproduced in runs/accuracy-cleanup/scout.json; other-position C1.]"
+  ],
+  "modelsUsed": {
+    "claude": "claude-fable-5",
+    "codex": "gpt-6-astra"
+  },
+  "budget": {
+    "spent": 10,
+    "limit": 14
+  },
+  "verdicts": null,
+  "arbitration": null,
+  "positions": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "2e59405b1d9678843ed963280c9fdbf5b2461a8d887cfe3954a079ebcad4664b",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "data": {
+        "recommendation": "DECISION (revised, converged): Adopt a FOCUSED CORRECTION of current-facing material at commit c90153e4, with an explicit edition-and-coverage table and a versioned handoff manifest (adopting codex's terms). Reject/defer archive relocation and generated-asset removal as unsupported presently — no dependency/reference inventory exists, and file size alone never justifies deletion. Preserve unchanged as frozen records: v3/v4/30-minute media in both codecs, the historical 16-slide deck, answers.md, original briefing/ZIP bytes, the 7 September unratified audit, the council decision record, and the six-class CICIoT2022 flow results (README.md:40, :46, :152; paper-and-data-explained.md:3). The flow/packet distinction (README.md:5/:46; upstream-comparison.md:47; paper-and-data-explained.md:3) is already well drawn and must not be rewritten. No history rewriting, fabricated flow assembly, or invented council consensus is needed for any accepted fix.\n\nCORRECTIONS AND ACCEPTANCE CHECKS:\n[C1, HIGH — packaging] The floating `releases/latest/download/...` ZIP link (docs/customer/README.md:15) plus README.md:40's statement that the original ZIP predates later additions creates a material edition/coverage gap. Acceptance (bounded, per codex refinement): resolve the advertised asset, inspect its actual members and hashes where the environment permits; at minimum pin to an explicit versioned release with a manifest/SHA256SUMS statement (tools/verify_package.py), and state the ZIP's edition and coverage beside the download link. A separately versioned packet supplement/current bundle is compatible with preserving the frozen historical ZIP.\n[C2, HIGH — metric integrity, verification gate not established defect] packet-model-study.md's 97.56% CIC / 94.29% UNSW / 99.34% UNSW-metadata figures vs excluded evidence/packet-study/results.json and controls/evaluation/results.json. Acceptance (codex's stronger check adopted as the standard): exact prose-to-JSON field match AND bounded recomputation from retained predictions (e.g., evaluation/cic_byte_histogram_linear-test-cic.jsonl.gz, sha256 26dbf6a3…) using the declared group weighting and denominators; confirm comparable evaluation populations before ranking controls; distinguish completed 1,000-update runs from the selected checkpoint's update count. Omitted evidence never justifies changing numbers.\n[C3, MEDIUM — reproducibility, codex blocker adopted] verification.md's visible content covers only flow-experiment checks; README.md:152 points to it as \"the checks actually performed.\" Acceptance: bounded review of docs/customer/packet-study-setup.md and tools/review_packet_study.py covering external input provenance, preprocessing, checkpoint loading and documented bounded unlabeled inference; record supported checks and unavailable dependencies without asserting a fresh reproduction; add a one-line scope note to current navigation stating where packet-study verification is recorded.\n[C4, MEDIUM — claim disambiguation] README.md:46 \"validates every payload cell\" (packet-study preparation) vs verification.md \"Payload-byte values were not exhaustively numerically audited\" (original CSV profiling) are two distinct validation events; anchor each claim to its record with one sentence each, moving nothing between records.\n[C5, LOW] Pin or annotate the raw.githubusercontent.com/.../main/... offline-HTML link (drifts from the published commit).\n[C6, LOW — navigation] The edition-and-coverage table must map each PDF, PPT, video, transcript, setup guide and ZIP to its actual coverage (flow / calibration / packet) and route packet readers from the customer index to the packet study; preserve historical documents' scoped statements in context rather than treating them as contradictions of later packet validation.\n\nCustomer-ready declaration is deferred until C1–C3's acceptance checks are supported by the requested evidence; no supplied evidence establishes incorrect metrics or a broken download today.",
+        "resolved_objections": [
+          "codex blocker 1 (metric integrity): RESOLVED by adoption — C2 now requires bounded recomputation from retained predictions with declared group weighting/denominators, comparable control populations, and completed-updates vs selected-checkpoint distinction; prose-to-JSON match is retained only as the minimum bound.",
+          "codex blocker 2 (packet reproducibility): RESOLVED by adoption — C3 now requires a bounded review of packet-study-setup.md and tools/review_packet_study.py (input provenance, preprocessing, checkpoint loading, documented inference), recording supported checks and unavailable dependencies without claiming fresh reproduction; the scope-note fix alone is no longer treated as sufficient.",
+          "Terminology unified: 'edition and coverage table' and 'versioned handoff manifest' adopted from codex; 'defer/unsupported presently, inventory required' adopted for asset removal in place of 'reject' (nonblocking wording).",
+          "codex's correction accepted: deletion can reduce checkout/bundle size even though Git history retains objects; my earlier reclamation rationale is dropped — the retention recommendation stands on frozen-record and link-integrity grounds.",
+          "codex nonblocking note on C1 accepted: pinning the ZIP URL alone establishes neither contents nor coverage; member/hash inspection added where the environment permits, with pin+manifest as the bounded fallback.",
+          "My F4 (payload-validation conflation) and F5 (raw main-branch link drift) are additive findings both seats can carry; no objection from codex, folded into C4/C5."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "Packet-study metric integrity is unverified: the 97.56/94.29/99.34 prose figures cannot be matched or recomputed because the primary and control results JSONs are budget-excluded; C2's acceptance check cannot yet run.",
+            "anchor": "pack sections 'REQUEST EXCLUDED: file docs/customer/packet-study-setup.md' sibling exclusions and docs/customer/packet-model-study.md metrics vs docs/customer/evidence/packet-study/results.json (excluded)"
+          },
+          {
+            "claim": "Packet reproducibility path is unverified: packet-study-setup.md and tools/review_packet_study.py are budget-excluded, and verification.md's visible table covers only flow checks while README.md:152 presents it as the record of checks actually performed.",
+            "anchor": "pack sections 'REQUEST EXCLUDED: file docs/customer/packet-study-setup.md' and 'REQUEST EXCLUDED: file tools/review_packet_study.py'; docs/customer/verification.md visible flow table; README.md:152"
+          },
+          {
+            "claim": "The advertised customer ZIP's edition and coverage are unestablished: the floating releases/latest link cannot be resolved from the pack, and README.md:40 states the original ZIP predates later additions; C1's edition/coverage statement cannot yet be verified.",
+            "anchor": "docs/customer/README.md:15 (scout.json) and README.md:40 (scout.json)"
+          }
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/results.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/controls/evaluation/results.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/packet-study-setup.md",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_packet_study.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/unlabeled/agreement.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer/README.md",
+            "pattern": "packet",
+            "limit": 15
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer/verification.md",
+            "pattern": "packet",
+            "limit": 15
+          },
+          {
+            "kind": "git-log",
+            "path": "docs/customer/verification.md",
+            "pattern": null,
+            "limit": 5
+          }
+        ]
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 3973,
+        "cacheReadTokens": 0,
+        "cacheCreationTokens": 18357,
+        "totalTokens": null
+      },
+      "costUsd": 0.5658099999999999
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.154.0",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "9aa7afdc3f788f98068aabb75bdf2ce1a8e90b01d0200dc0e709642227fe5679",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "sessionId": "01a09ebe-85d7-7412-8525-560430d427b7",
+      "data": {
+        "recommendation": "Adopt focused current-facing corrections at c90153e4e5048cb29af9ea8ff7dbd38820b96dc1. Update README.md navigation and add an edition-and-coverage table plus a versioned handoff manifest identifying each PDF, PPT, video, transcript, setup guide and ZIP's actual scope. Clearly distinguish six-class flow measurements, later calibration and the binary packet adaptation. Preserve the historical customer index, ZIP, science, media and review outcomes; place clarifications in current-facing documentation. Scope downloads accurately and use verified immutable URLs for the audited handoff. A separately versioned packet supplement is permissible. Compared with archive relocation or generated-asset deletion, focused correction addresses the visible presentation risks without unsupported dependency changes. Removal remains unsupported without a reference and provenance inventory. Apply supported documentation corrections, but retain the following gates before describing the package as verified and complete.",
+        "resolved_objections": [
+          "Metric acceptance now requires prose-to-JSON matching with documented percentage rounding, plus bounded recomputation of published headline model/control/source combinations from retained predictions. Check weighting, denominators, comparable evaluation populations and selected-checkpoint updates versus completed training updates. No numerical defect is established by the supplied excerpt.",
+          "Reproducibility acceptance now includes the packet setup and checker: external input provenance and hashes, preprocessing, checkpoint loading and documented unlabeled inference. Record actual checks and unavailable dependencies; historical flow verification does not establish later packet reproducibility.",
+          "P2 presentation findings are resolved through explicit coverage and chronology: original CSV profiling and later exhaustive packet-byte validation are different events, and v4 predates the packet addition. Preserve historical statements in context. Truncated evidence does not establish missing packet navigation or a contradiction.",
+          "P3 link drift belongs in the handoff checks. Pin or explicitly identify floating current-facing download links. Pinning alone does not verify ZIP contents; the original ZIP can remain a clearly labeled historical edition.",
+          "Archive terminology is nonblocking. Deletion could reduce checkout or future bundle size, but file size does not establish redundancy or justify removing frozen records. A new supplement does not require rewriting older editions."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "P1 — Metric verification remains open. The visible controls excerpt distinguishes group-weighted and row-weighted metrics but does not establish the quoted 97.56%, 94.29% and 99.34% headlines. Obtain compact excerpts identifying those model/control entries, metric fields, evaluation populations and checkpoint selection, then perform the bounded consistency and prediction-recomputation checks. Preserve recorded results; publish separate errata if a discrepancy is demonstrated.",
+            "anchor": "docs/customer/packet-model-study.md opening metrics; evidence-pack Source bytes [13197,24576), controls results entry cic_byte_histogram_linear, tests.cic.metrics."
+          },
+          {
+            "claim": "P1 — Packet reproducibility remains unverified. Review the setup's acquisition, preparation, checkpoint-loading and inference sections, the checker's corresponding coverage and the unlabeled agreement record. Confirm documented prerequisites and a bounded inference example where dependencies are available. Disclose any unavailable checks and narrow reproducibility claims accordingly; do not claim a fresh training reproduction.",
+            "anchor": "README.md:5 and :152; evidence-pack REQUEST EXCLUDED entries for docs/customer/packet-study-setup.md, tools/review_packet_study.py and docs/customer/evidence/packet-study/unlabeled/agreement.json."
+          },
+          {
+            "claim": "P1 — Advertised package coverage remains unverified. Before calling a download the current complete package, inspect the actual advertised asset's members and verify hashes against its manifest; record its edition, exclusions and opening instructions. A repository manifest or pinned URL alone cannot establish remote asset contents. Alternatively, advertise the original ZIP explicitly as historical and provide verified current documentation separately. No broken download is established.",
+            "anchor": "docs/customer/README.md:15 advertises a Complete customer ZIP through releases/latest/download; README.md:40 states the original ZIP and customer index predate calibration."
+          }
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/results.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/controls/evaluation/results.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/packet-study-setup.md",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_packet_study.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/unlabeled/agreement.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/verify_package.py",
+            "pattern": null,
+            "limit": 30
+          }
+        ]
+      }
+    }
+  },
+  "reviews": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "6573b85c39492325ea7623699911513696befde27137c0e8a31c2a7424c55c06",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "data": {
+        "blocking_objections": [
+          {
+            "claim": "Packet-study metric integrity remains unverified: the headline 97.56% CIC / 94.29% UNSW / 99.34% UNSW-metadata figures in prose cannot be matched to their JSON fields or recomputed, because the primary and control results files are budget-excluded. The agreed C2/P1 acceptance check (exact prose-to-JSON match plus bounded recomputation from retained predictions with declared group weighting, denominators, comparable control populations, and completed-updates vs selected-checkpoint distinction) cannot yet run. No numerical defect is established; verification is simply not yet possible.",
+            "anchor": "docs/customer/packet-model-study.md opening metrics vs excluded docs/customer/evidence/packet-study/results.json and controls/evaluation/results.json (pack 'REQUEST EXCLUDED' entries; partial controls excerpt at Source bytes [37831,49230))"
+          },
+          {
+            "claim": "Packet reproducibility remains unverified: docs/customer/packet-study-setup.md and tools/review_packet_study.py are budget-excluded, while README.md:152 presents docs/customer/verification.md as 'the checks actually performed' and its visible content covers only flow-experiment checks. The agreed C3/P1 bounded review (external input provenance/hashes, preprocessing, checkpoint loading, documented bounded unlabeled inference; disclose unavailable dependencies; no fresh-reproduction claim) cannot yet run.",
+            "anchor": "pack sections 'REQUEST EXCLUDED: file docs/customer/packet-study-setup.md' and 'REQUEST EXCLUDED: file tools/review_packet_study.py'; README.md:152 (scout.json)"
+          },
+          {
+            "claim": "The advertised customer ZIP's edition and coverage remain unestablished: docs/customer/README.md:15 links a 'Complete customer ZIP' via a floating releases/latest/download URL that cannot be resolved from the pack, and README.md:40 states the original ZIP predates later calibration/packet additions. The agreed C1/P1 check (inspect actual asset members and hashes where the environment permits; at minimum pin to a versioned release with a manifest, and state edition/coverage beside the link, or label the original ZIP explicitly historical with a separate current supplement) cannot yet be confirmed. No broken download is established.",
+            "anchor": "docs/customer/README.md:15 and README.md:40 (runs/accuracy-cleanup/scout.json observations)"
+          }
+        ],
+        "nonblocking_notes": [
+          "Terminology fully unified on codex's terms: 'edition-and-coverage table', 'versioned handoff manifest', and 'deferred/unsupported presently pending reference-and-provenance inventory' for archive relocation or generated-asset removal.",
+          "Codex's correction accepted and retained: deletion can reduce checkout/bundle size even though Git history retains objects; the retention recommendation stands on frozen-record and link-integrity grounds, not storage reclamation.",
+          "Codex's refinement of C1 accepted: pinning the ZIP URL alone establishes neither contents nor coverage; member/hash inspection of the actual asset is the primary check, pin+manifest the bounded fallback.",
+          "C4 (nonblocking): README.md:46 'validates every payload cell' (packet-study preparation) and verification.md's non-exhaustive original CSV profiling are two distinct validation events; anchor each claim to its own record with one sentence each, moving nothing between records. Codex concurs these are different events resolved by explicit chronology.",
+          "C5 (nonblocking): pin or annotate the raw.githubusercontent.com/.../main/... offline-HTML link, which drifts from the published commit; belongs in the handoff link checks per codex's P3 placement.",
+          "C6 (nonblocking): the edition-and-coverage table should map each PDF, PPT, video, transcript, setup guide and ZIP to its actual coverage (flow / calibration / packet) and route packet readers from the customer index to the packet study; historical documents' scoped statements are preserved in context, not treated as contradictions.",
+          "A separately versioned packet supplement/current bundle is compatible with preserving the frozen historical ZIP bytes; no history rewriting, fabricated flow assembly, or invented council consensus is needed for any accepted fix.",
+          "The flow/packet distinction (README.md:5/:46; upstream-comparison.md:47; paper-and-data-explained.md:3) is already well drawn in current material and must not be rewritten.",
+          "If a metric discrepancy were demonstrated after evidence arrives, the remedy is separate errata in current-facing documentation, preserving recorded results (codex's formulation adopted).",
+          "No supplied evidence establishes incorrect metrics or a broken download today; the blockers are open verification gates, not established defects."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/results.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/controls/evaluation/results.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/packet-study-setup.md",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_packet_study.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/packet-study/unlabeled/agreement.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/verify_package.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "grep",
+            "path": "docs/customer/verification.md",
+            "pattern": "packet",
+            "limit": 15
+          },
+          {
+            "kind": "git-log",
+            "path": "docs/customer/verification.md",
+            "pattern": null,
+            "limit": 5
+          }
+        ],
+        "convergence_summary": "Converged on substance: both seats recommend a focused correction of current-facing material at c90153e4 with an edition-and-coverage table and a versioned handoff manifest; both defer archive relocation and generated-asset removal as unsupported without a reference/provenance inventory; both preserve all frozen records (historical ZIP, 16-slide deck, answers.md, v3/v4/30-minute media, 7 September audit, council decision record, six-class CICIoT2022 flow results) and the flow/packet distinction. The three remaining blockers are identical in substance across seats — (1) packet-study metric integrity via prose-to-JSON match plus bounded recomputation from retained predictions, (2) packet reproducibility via bounded review of packet-study-setup.md and review_packet_study.py, (3) advertised ZIP edition/coverage via asset member/hash inspection or pinned versioned release with explicit coverage statement — each open only because the required evidence is budget-excluded or externally unresolvable, not because a defect is established. All remaining differences are wording-level and adopted as nonblocking on codex's terms. Once the union of evidence requests is fulfilled and the three acceptance checks pass or produce anchored errata, both seats can accept the same frozen artifact; customer-ready declaration stays deferred until then."
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 3170,
+        "cacheReadTokens": 877,
+        "cacheCreationTokens": 14514,
+        "totalTokens": null
+      },
+      "costUsd": 0.449677
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.154.0",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "1dd851b9f0aad3e750cedec53bc3c7773072692d2e1795929920cc8b2576153d",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "sessionId": "01a09ec1-9819-7c40-9c87-96345d548a11",
+      "data": {
+        "blocking_objections": [
+          {
+            "claim": "C1's pin-plus-manifest fallback cannot establish the advertised ZIP's contents or coverage. Require actual asset inspection and hash verification before describing it as verified, current and complete. If inspection is unavailable, retain an explicit unresolved check, label the original ZIP as historical, and provide separately verified current documentation.",
+            "anchor": "docs/customer/README.md:15 and README.md:40, reproduced in runs/accuracy-cleanup/scout.json; other-position C1."
+          }
+        ],
+        "nonblocking_notes": [
+          "Focused current-facing correction remains preferable to archive relocation or asset removal. No dependency inventory is supplied; that does not establish that none exists. Preserve frozen science, media, historical package bytes and review outcomes.",
+          "C2 is an appropriate verification gate, not evidence of incorrect numbers. Recomputation must cover the three headline combinations: joint pretrained on CIC, joint pretrained on UNSW, and UNSW metadata on UNSW. The supplied CIC byte-histogram example cannot substitute for those checks. Match exact metric fields, weighting, populations, rounding and selected-checkpoint updates.",
+          "C3/C4's assertions about verification.md and C5's raw main-branch link are not independently established by the visible excerpt. Verify them before reporting defects. The proposed bounded reproducibility checks remain appropriate.",
+          "Place edition guidance and packet navigation in current-facing documentation or a new current index while preserving the historical index. Missing packet navigation is not established by the truncated evidence."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "docs/customer/README.md",
+            "pattern": null,
+            "limit": 22
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/verification.md",
+            "pattern": null,
+            "limit": 24
+          },
+          {
+            "kind": "file",
+            "path": "tools/verify_package.py",
+            "pattern": null,
+            "limit": 20
+          }
+        ],
+        "convergence_summary": "Codex supports focused corrections, historical retention, and the proposed metric and reproducibility gates. The packaging fallback remains a material objection. Customer readiness is unverified; no numerical defect or broken download is established."
+      }
+    }
+  },
+  "fileDeliveryEligible": false,
+  "fileDeliveryReasons": [
+    "state ESCALATED is not CONSENSUS",
+    "result is not a mutual ratification",
+    "artifact mode unknown is not architect",
+    "claude did not ACCEPT the frozen decision hash",
+    "codex did not ACCEPT the frozen decision hash"
+  ]
+}

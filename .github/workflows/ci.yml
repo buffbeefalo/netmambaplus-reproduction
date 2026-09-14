@@ -23,7 +23,9 @@ jobs:
       - run: python tools/verify_package.py
       - run: python tools/review_calibration.py --check
       - run: python tools/review_packet_study.py
+      - run: python tools/verify_packet_briefing.py
       - run: python tools/verify_repository_guide.py
+      - run: python tools/build_course.py --check
       - run: python tools/verify_course_video.py
       - run: python tools/verify_video_course_v3.py
       - run: python tools/verify_video_course_v4.py

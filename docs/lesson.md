@@ -1,6 +1,6 @@
 # Understand and defend a NetMamba+ experiment
 
-The [README](../README.md) contains commands, acquisition links and the current evidence record. This lesson explains what those commands mean. Its references and exercises were reviewed against this repository's CLI and tests; it does not claim external course publication or video generation.
+The [README](../README.md) contains commands, acquisition links and the current evidence record. This lesson explains the original six-class flow model and harness. The later [packet study](customer/packet-model-study.md) and [eight-slide script](customer/packet-addendum/packet-addendum-script.md) teach the separate two-CSV adaptation. Its code and presentation checks are covered by the [current acceptance map](customer/acceptance.md). This content review does not claim a newly generated video.
 
 New to networking or machine learning? Start with the [slide-aligned field guide](customer/demo/guide.html), [simple setup and tests](customer/quickstart.md) and [paper/data/source comparison](customer/upstream-comparison.md). The field guide and presenter script are generated from the same slide source; the package verifier checks their alignment. This lesson remains the more detailed explanation of the native loader and harness.
 
@@ -12,7 +12,7 @@ A **packet** is one message fragment on a network. A **flow** groups packets usi
 
 The supplied Payload-Byte CSVs expose individual packet payloads, TTL, total length, protocol and a time-difference field. They do not retain sufficient connection identity and order to reconstruct the original flows. Five neighboring rows are not evidence of a five-packet connection. The time-difference column alone does not establish same-flow arrival intervals.
 
-NetMamba+ uses three views of a flow: byte content, packet sizes and packet arrival intervals. A packet-only implementation on the CSVs would be a useful separate adaptation, but it could not support a claim of reproducing this flow representation. The authors' processed CICIoT2022 release gives this repository compatible native inputs to begin testing. This is a different dataset from CICIDS2017.
+NetMamba+ uses three views of a flow: byte content, packet sizes and packet arrival intervals. The later packet implementation trains on both CSVs through the native encoder, with 1,500 bytes, 378 token positions, empty size/IAT sequences and a two-class head. It is a separate adaptation and does not reproduce this flow representation. The authors' processed CICIoT2022 release supplies the compatible native inputs for the original flow experiment. This is a different dataset from CICIDS2017.
 
 ## Follow one flow into the model
 
@@ -140,3 +140,7 @@ Run these commands from the repository root. Each test intentionally creates tem
    The second test removes training/validation files and installs access traps, verifies the original evaluator interface and checks complete metric serialization. These are interface tests with stubs, not Torch or CUDA integration tests.
 
 To repeat the real experiment, follow the customer runbook's acquisition, tested GB10 environment, validation, training and inference sequence. Freeze the comparison protocol before viewing test performance, retain every run manifest and report the uncertainties alongside the measured result. These lesson sources and references were reviewed for the customer package; no external course publication, shared coverage reset or video refresh is claimed.
+
+## Keep historical teaching checks separate from current instructions
+
+The original interactive course is retired from the public site. `python3 tools/build_course.py --check` and `python3 tools/verify_course.py` verify its preserved source, HTML and receipt against immutable Git references. They do not rebuild or republish it, and current packet/setup explanations can evolve. `python3 tools/verify_repository_guide.py` separately checks every current file entry. The packet presentation has its own `python3 tools/verify_packet_briefing.py` content/identity check; none of these commands establishes human video acceptance.

@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-14T07:26:16.813802+00:00",
+  "baseline_commit": "c90153e4e5048cb29af9ea8ff7dbd38820b96dc1",
+  "scope": "Cleanup and evidence recheck; no new model training, checkpoint selection, full GPU inference or media generation.",
+  "input_integrity": {
+    "status": "passed",
+    "scope": "Fresh raw source fingerprints and full prepared-array integrity validation; no retraining.",
+    "sources": {
+      "cic": {
+        "source_sha256": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+        "bytes": 4910831729,
+        "prepared_groups": 438886,
+        "selected_test_groups": 20000
+      },
+      "unsw": {
+        "source_sha256": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01",
+        "bytes": 270111802,
+        "prepared_groups": 39168,
+        "selected_test_groups": 5930
+      }
+    }
+  },
+  "independent_packet_evidence": {
+    "status": "passed",
+    "native_arms": 6,
+    "prediction_sets_recomputed": 12,
+    "group_predictions_recomputed": 155580,
+    "row_weighted_predictions_represented": 354960,
+    "independent_sklearn_metrics": true,
+    "controls": {
+      "status": "verified",
+      "models": 9,
+      "test_sets": 18,
+      "independent": true,
+      "frozen_controls_sha256": "d2e059b32b14c679f454ecbba149ed3e7346bfab5bf162e3ffb8e6f0a0bd50d9",
+      "convergence": {
+        "all_converged": true,
+        "warning_count": 0,
+        "models": {
+          "cic_byte_histogram_linear": {
+            "converged": true,
+            "n_iter": [
+              99
+            ],
+            "warnings": []
+          },
+          "cic_majority": {
+            "converged": true,
+            "n_iter": [],
+            "warnings": []
+          },
+          "cic_metadata_linear": {
+            "converged": true,
+            "n_iter": [
+              14
+            ],
+            "warnings": []
+          },
+          "joint_byte_histogram_linear": {
+            "converged": true,
+            "n_iter": [
+              171
+            ],
+            "warnings": []
+          },
+          "joint_majority": {
+            "converged": true,
+            "n_iter": [],
+            "warnings": []
+          },
+          "joint_metadata_linear": {
+            "converged": true,
+            "n_iter": [
+              15
+            ],
+            "warnings": []
+          },
+          "unsw_byte_histogram_linear": {
+            "converged": true,
+            "n_iter": [
+              187
+            ],
+            "warnings": []
+          },
+          "unsw_majority": {
+            "converged": true,
+            "n_iter": [],
+            "warnings": []
+          },
+          "unsw_metadata_linear": {
+            "converged": true,
+            "n_iter": [
+              18
+            ],
+            "warnings": []
+          }
+        }
+      },
+      "scope": "Artifact bindings, selected-group membership and supplied-label arithmetic verified. Without raw CSVs/features, this does not prove original capture independence, original label truth, fitting history, or linear-model predictions from saved weights."
+    },
+    "unlabeled_inference": {
+      "status": "class_predictions_verified",
+      "rows": 25930,
+      "class_agreements": 25930,
+      "strict_logit_tolerance_passed": false,
+      "strict_logit_tolerance_failures": 2,
+      "relative_tolerance": 0.0001,
+      "absolute_tolerance": 1e-06,
+      "comparison": "math.isclose: abs(a-b) <= max(atol, rtol*max(abs(a), abs(b)))",
+      "sources": {
+        "cic": {
+          "rows": 20000,
+          "class_agreements": 20000,
+          "failed_rows": [
+            4793,
+            8431
+          ],
+          "strict_logit_tolerance_failures": 2,
+          "maximum_absolute_logit_difference": 4.410743713378906e-06
+        },
+        "unsw": {
+          "rows": 5930,
+          "class_agreements": 5930,
+          "failed_rows": [],
+          "strict_logit_tolerance_failures": 0,
+          "maximum_absolute_logit_difference": 2.4437904357910156e-06
+        }
+      },
+      "prior_comparisons": {
+        "default": {
+          "status": "numerical_tolerance_failed",
+          "rows": 25930,
+          "class_agreements": 25930,
+          "failed_rows": [
+            1931,
+            8431,
+            12484,
+            25858,
+            25859,
+            25861,
+            25863,
+            25864,
+            25868,
+            25872,
+            25875,
+            25877,
+            25878,
+            25879,
+            25881,
+            25882,
+            25883,
+            25885,
+            25887,
+            25889,
+            25890,
+            25892,
+            25894,
+            25895,
+            25899,
+            25900,
+            25905,
+            25909,
+            25911,
+            25913,
+            25916,
+            25917,
+            25919,
+            25920,
+            25921,
+            25922,
+            25923,
+            25927,
+            25928
+          ],
+          "logit_tolerance_failures": 39,
+          "maximum_absolute_logit_difference": 0.0018935203552246094,
+          "relative_tolerance": 0.0001,
+          "absolute_tolerance": 1e-06,
+          "verification": "Retained summary consistency only; prediction records are not public."
+        },
+        "override-only": {
+          "status": "numerical_tolerance_failed",
+          "rows": 25930,
+          "class_agreements": 25930,
+          "failed_rows": [
+            1931,
+            4793,
+            6971,
+            11209,
+            14131,
+            17114,
+            20477,
+            24467
+          ],
+          "logit_tolerance_failures": 8,
+          "maximum_absolute_logit_difference": 6.67572021484375e-06,
+          "relative_tolerance": 0.0001,
+          "absolute_tolerance": 1e-06,
+          "verification": "Retained summary consistency only; prediction records are not public."
+        }
+      },
+      "post_study_io": {
+        "status": "class_predictions_verified",
+        "rows": 128,
+        "class_agreements": 128,
+        "failed_rows": [],
+        "maximum_absolute_logit_difference": 2.1457672119140625e-06,
+        "relative_tolerance": 0.0001,
+        "absolute_tolerance": 1e-06,
+        "strict_logit_tolerance_passed": true,
+        "validated_rows": 25930,
+        "inference_code_sha256": {
+          "packet_data.py": "783a569a9b4ec459232c899fdb1d15fef2314719883cf9b599ff65d0fa1a8309",
+          "packet_model.py": "1d8abd6e13d53992cfad040cda8b01ee4142187968015415acbe9f4764870c74",
+          "tools/predict_packets.py": "0d575ce777252e64d16c13a007d1a487164d5e00c89f77919e5ed6258a03143c"
+        },
+        "predictions_sha256": "e2554d3dc97b20e7a1fdb9083d6691e501742a8b93c46645fccbb68b1a4b4e4b",
+        "historical_implementation_revision": "7eeb4980eea9fd5ad17bfacd29ed88687cb3e1e5",
+        "scope": "Separate capped post-study I/O check on the first 128 CIC groups. Full input validation is recorded in the bound receipt; raw CSVs are not present. The new predictor hash is a retained declaration; model/data hashes match the frozen protocol. This check does not replace the original full-test inference comparison or establish bit-exact replay."
+      },
+      "scope": "Offline saved-artifact and arithmetic audit. Class agreement does not imply bit-exact logits. Raw input CSVs and checkpoint weights are not public here; their recorded identities are bound, not independently reconstructed. Earlier comparisons have summaries only."
+    },
+    "scope": "Offline artifact and arithmetic verification; does not rerun GPU training or establish capture independence."
+  },
+  "headline_metrics": [
+    {
+      "model": "joint_pretrained",
+      "test_source": "cic",
+      "weighting": "one total weight per distinct payload within source",
+      "metric": "balanced_accuracy",
+      "value": 0.9756120782587729,
+      "display": "97.56%",
+      "class_support": [
+        13553.494505494506,
+        6446.505494505494
+      ],
+      "total_group_weight": 20000.0
+    },
+    {
+      "model": "joint_pretrained",
+      "test_source": "unsw",
+      "weighting": "one total weight per distinct payload within source",
+      "metric": "balanced_accuracy",
+      "value": 0.9428742393780996,
+      "display": "94.29%",
+      "class_support": [
+        1091.5044510385756,
+        4838.495548961424
+      ],
+      "total_group_weight": 5930.0
+    },
+    {
+      "model": "unsw_metadata_linear",
+      "test_source": "unsw",
+      "weighting": "one total weight per distinct payload within source",
+      "metric": "balanced_accuracy",
+      "value": 0.9933557526839334,
+      "display": "99.34%",
+      "class_support": [
+        1091.5044510385756,
+        4838.495548961424
+      ],
+      "total_group_weight": 5930.0
+    }
+  ],
+  "training_and_selection": {
+    "cic_pretrained": {
+      "completed_updates": 1000,
+      "selected_checkpoint_step": 1000,
+      "selected_checkpoint_sha256": "0c30d8967224bda197e8bf01f6eec003689b975f017b334d318b38f2d44027fc"
+    },
+    "cic_scratch": {
+      "completed_updates": 1000,
+      "selected_checkpoint_step": 100,
+      "selected_checkpoint_sha256": "724ea207b74a7158ce99186fe51bfe7452d5d71b0520f2c0c5c466da5a71a698"
+    },
+    "joint_pretrained": {
+      "completed_updates": 1000,
+      "selected_checkpoint_step": 1000,
+      "selected_checkpoint_sha256": "7113adce6090af28a179b5e98f5dac8d5d7f1a9898681969924f9651815f947a"
+    },
+    "joint_scratch": {
+      "completed_updates": 1000,
+      "selected_checkpoint_step": 1000,
+      "selected_checkpoint_sha256": "09f637cbe21db5829619e44bdee0972ae610ae023d9ad99149949c6ab6f0613a"
+    },
+    "unsw_pretrained": {
+      "completed_updates": 1000,
+      "selected_checkpoint_step": 1000,
+      "selected_checkpoint_sha256": "3043dcd94f44b797926e3265c9124beb87e3fc0036f72dec31bca0a8ac8eaba1"
+    },
+    "unsw_scratch": {
+      "completed_updates": 1000,
+      "selected_checkpoint_step": 100,
+      "selected_checkpoint_sha256": "5ff01b2a9b950a1f48293b4de51d7a7563cd396096a4fb7838c115cc6ed912fb"
+    }
+  },
+  "historical_release_inspection": {
+    "status": "passed",
+    "checked_at": "2026-09-14T07:21:20.446532+00:00",
+    "release_tag": "customer-2026-09-15-audited",
+    "source_commit": "17b4aaebcf9327ae9967ca45ddfaf16325766993",
+    "zip_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/netmambaplus-customer-package.zip",
+    "zip_identity": {
+      "name": "netmambaplus-customer-package.zip",
+      "bytes": 3634849,
+      "sha256": "dc81df8442ac29f81a5a27e4a4f7ec277e76709204d3204aeb8cacea22ad9b8a"
+    },
+    "archive_members": 214,
+    "tracked_files_matching_git_snapshot": 173,
+    "embedded_package_checksums_verified": 133,
+    "source_commit_marker_verified": true,
+    "contains_packet_study": false,
+    "contains_calibration": false,
+    "contains_one_hour_course": false,
+    "scope": "Anonymous download; outer identity matches published inventory and release checksum; every archived source file compared byte-for-byte with recorded Git revision; every embedded package checksum verified. No historical code executed."
+  },
+  "council": {
+    "run_id": "7b5313e7-d426-4af7-a5ca-35db5cb14288",
+    "state": "ESCALATED",
+    "stamp": "UNRATIFIED",
+    "mutual": false,
+    "decision_sha256": null,
+    "result_file": "docs/research/accuracy-cleanup-council.json",
+    "result_file_sha256": "7c6553eff9bb319ec88b81f86d581532f43832b92404f5ccfff751e45981b5f1",
+    "resolution": "Directly checked metric arithmetic, reproducibility source/commands and actual historical ZIP contents; retained council outcome unchanged."
+  },
+  "local_selected_checkpoint_hashes_rechecked": 6,
+  "local_tests": {
+    "status": "passed",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "discovered": 423,
+    "passed": 387,
+    "skipped": 36,
+    "seconds": 22.011,
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
+    "log_sha256": "c36875fc4918eac57fe89374a643f0cd1a9f73fdecfc737989410722b3a6727e",
+    "output_tail": "---------------------------------------------------------\nRan 423 tests in 22.011s\n\nOK (skipped=36)\n",
+    "limit": "Optional numerical/native tests skipped in this standard-library environment; no new GPU execution."
+  },
+  "verification_commands": [
+    {
+      "command": [
+        "python3",
+        "tools/verify_package.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.43846393504645675,
+      "log": "runs/accuracy-cleanup/verify_package-final.log",
+      "log_sha256": "4ab0be841e7abbfa30f2760aa02b13ddbba4b5d01c25452613e52bd726627f7b"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/review_calibration.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.7327051149914041,
+      "log": "runs/accuracy-cleanup/review_calibration-final.log",
+      "log_sha256": "273b94ac7b2b6509a4c5a451fd01c2557c065307d4a53967aae0e3d4f141397c"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/review_packet_study.py"
+      ],
+      "exit_code": 0,
+      "seconds": 3.923597355023958,
+      "log": "runs/accuracy-cleanup/review_packet_study-final.log",
+      "log_sha256": "2f939337cc3ef4e8765b41a94e765e4e30754a6dad872115c16f300faab011eb"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/verify_packet_briefing.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.041712062899023294,
+      "log": "runs/accuracy-cleanup/verify_packet_briefing-final.log",
+      "log_sha256": "ba779d5a36797b4af84864df1a50d95796b4c78c69584ce6a804e57fbb36be3d"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/verify_repository_guide.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.10235790198203176,
+      "log": "runs/accuracy-cleanup/verify_repository_guide-final.log",
+      "log_sha256": "f3de5c9e8960f7a2582a842bb37e5a716c447e189457d2ce3e60c9f07c7851ec"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/build_course.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 2.266925281030126,
+      "log": "runs/accuracy-cleanup/build_course-final.log",
+      "log_sha256": "2ad587974fe9991dee99843674171c7d022db6cbe089e31c8355239dbbaa16ab"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/verify_course.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.2475988080259413,
+      "log": "runs/accuracy-cleanup/verify_course-final.log",
+      "log_sha256": "2ad587974fe9991dee99843674171c7d022db6cbe089e31c8355239dbbaa16ab"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/verify_course_video.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.399274140014313,
+      "log": "runs/accuracy-cleanup/verify_course_video-final.log",
+      "log_sha256": "4fe5150e8e3a149b4ec76c47e9974b0d73ec4a690c608814106d42c5154618c9"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/verify_video_course_v3.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.06363146903459,
+      "log": "runs/accuracy-cleanup/verify_video_course_v3-final.log",
+      "log_sha256": "e99811adb2bc26496ae19ec92c5bb138b88cc9e2b16b84048a189ee998e53ec0"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/verify_video_course_v4.py"
+      ],
+      "exit_code": 0,
+      "seconds": 3.430599478073418,
+      "log": "runs/accuracy-cleanup/verify_video_course_v4-final.log",
+      "log_sha256": "08f44a539a88615e500d9c73e0643f5846ca0e2460cd07ee5783d92852344d07"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/build_video_page.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 2.2413770189741626,
+      "log": "runs/accuracy-cleanup/build_video_page-final.log",
+      "log_sha256": "4cb6a9d10ab3003094111e181e97d8ef627207dccdcbdbf7e1b6a2c0c8892fa6"
+    }
+  ],
+  "packet_document_check": {
+    "status": "passed",
+    "slides": 8,
+    "source_matches_completed_evidence": true,
+    "powerpoint_content_and_notes": "match shared source in presentation order",
+    "presenter_script": "matches shared source",
+    "reviewed_file_identities": 4,
+    "pdf_check": "reviewed file identity only",
+    "powerpoint_rendered": false,
+    "limit": "Content consistency and recorded file identities; no fresh visual, video or model execution certification."
+  },
+  "current_guide_check": {
+    "status": "passed",
+    "level": "repository-guide",
+    "guide": "docs/repository-walkthrough.md",
+    "inventory_files": 610,
+    "guide_entries": 610,
+    "inventory_sha256": "df02ecdffdbf583df97aaed0bf8d5d293bcc16511d2f477d3856d9e41e2ab1ad",
+    "inventory_scope": "Current tracked and nonignored repository files",
+    "video_coverage": "not checked",
+    "limit": "Individual links and nonempty descriptions are checked; prose accuracy and human content review are not established."
+  },
+  "course_builder_correction": {
+    "before_error": "Evidence reference hash changed: comparison",
+    "regression": "tests/test_course.py: test_builder_check_verifies_history_without_rewriting_the_retired_course",
+    "course_tests_passed": 23,
+    "after": "Check mode verifies immutable historical source, HTML, receipt and reference bytes; no public route restored."
+  },
+  "changed_code_identities": {
+    "tools/build_course.py": "9e3d21ad7eec1ff2086f0ae91db5c925179f39a8954e8aee1b7f90f151602778",
+    "tools/build_packet_briefing.py": "14281d4728c32b75a504fa437e27cb1a4473e2deeda9387be721ba7188c73102",
+    "tools/verify_packet_briefing.py": "a8f6dc3971b0c49a30a6ff4e593797d87fe033476018ae946014e261607955c5",
+    "tests/test_course.py": "d44f70d0b0c707606101c6b13adae8d65e3fae4d1ebe40ef236f2a92d0cefb68",
+    "tests/test_packet_briefing.py": "5672b6321f2486daca3e353a38802119f713a524dc0d072d43c47168c3487fae",
+    ".github/workflows/ci.yml": "00b16cb173db2a180cc4adbf45ab0f50287b75d750fd418bf809ce1dfd2a77f8"
+  },
+  "handoff_editions": [
+    {
+      "edition": "packet-addendum",
+      "scope": "Later two-CSV native packet adaptation; separate from the flow experiment.",
+      "file_reference_revision": "7eeb4980eea9fd5ad17bfacd29ed88687cb3e1e5",
+      "files": [
+        {
+          "path": "docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pdf",
+          "bytes": 30776,
+          "sha256": "deabc5b829aed220bceb7bd6880a1159c002a3597b0e6c1de083b6a02ee8a9d9"
+        },
+        {
+          "path": "docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pptx",
+          "bytes": 54093,
+          "sha256": "d9fe250027ece225a54339629cc6f2d66b9c57beae3c2086ffdc53b41c3d161d"
+        },
+        {
+          "path": "docs/customer/packet-addendum/packet-addendum-script.md",
+          "bytes": 4819,
+          "sha256": "0f54be2fb9fed81f8ca48927277437c066c73bdea5ee846df68555058a0e2593"
+        },
+        {
+          "path": "docs/customer/packet-addendum/packet-addendum-source.json",
+          "bytes": 8948,
+          "sha256": "29ed24771b407cfe8934d081e0feca31c0a062804169baf0d73edc289117d790"
+        }
+      ]
+    },
+    {
+      "edition": "course-video-v4",
+      "scope": "Original flows and confidence calibration; predates packet training.",
+      "file_reference_revision": "4eba1da479238a10ff29097b2e0a27d98a79f063",
+      "files": [
+        {
+          "path": "docs/customer/demo/video/v4/NetMambaPlus-one-hour-course.mp4",
+          "bytes": 83140052,
+          "sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce"
+        },
+        {
+          "path": "docs/customer/demo/video/v4/NetMambaPlus-course-handbook.pdf",
+          "bytes": 577152,
+          "sha256": "1beb1902bbd1d74ef306aa71893c67d31483dac8bbaf91b9e87ea98cbce79cef"
+        },
+        {
+          "path": "docs/customer/demo/video/v4/NetMambaPlus-course-slides.pptx",
+          "bytes": 5406718,
+          "sha256": "36288371b0021f4a55ac42780f4b8f70ad633aac1bf6bb846b9cc71e0655d278"
+        },
+        {
+          "path": "docs/customer/demo/video/v4/NetMambaPlus-course-slides.pdf",
+          "bytes": 5954490,
+          "sha256": "9223539e0407e24e2d249c5263c0f056bee37e719175c2aa12b9637ad351efe0"
+        },
+        {
+          "path": "docs/customer/demo/video/v4/transcript.md",
+          "bytes": 97516,
+          "sha256": "4fa2168f929fb0873b50bae82936d1348c99d091712af853a4641cea97fee3d3"
+        }
+      ]
+    },
+    {
+      "edition": "original-customer",
+      "scope": "Archived 16-slide flow-only presentation; predates calibration and packet training.",
+      "file_reference_revision": "17b4aaebcf9327ae9967ca45ddfaf16325766993",
+      "files": [
+        {
+          "path": "docs/customer/NetMambaPlus-customer-briefing.pdf",
+          "bytes": 90959,
+          "sha256": "7c8f4038b186b44322a2bda233e07e9df208724779b138a2c056c24b5b58dd4d"
+        },
+        {
+          "path": "docs/customer/NetMambaPlus-customer-slides.pptx",
+          "bytes": 256511,
+          "sha256": "7b6bc5877dc72885a28b07fcce114117f98258695edd9a7ecbae06153e2e51e5"
+        },
+        {
+          "path": "docs/customer/NetMambaPlus-customer-slides.pdf",
+          "bytes": 515749,
+          "sha256": "f8ff0b54d45403f71ada51504a2b9b2362cef51d239a70522b8760f7d82bb4d1"
+        },
+        {
+          "path": "docs/customer/talk-track.md",
+          "bytes": 11278,
+          "sha256": "ebd438636ce5ffef646d9b57fa260b30dcc5fb127d01ade070a3efa9bdfb6c4e"
+        }
+      ]
+    }
+  ],
+  "course_content_review": {
+    "reviewed": [
+      "docs/lesson.md",
+      "docs/repository-walkthrough.md",
+      "docs/customer/paper-and-data-explained.md",
+      "docs/customer/quickstart.md",
+      "docs/customer/packet-addendum/packet-addendum-script.md"
+    ],
+    "queue_files_inspected": [
+      "~/learn/_state/pending-content-reviews.json",
+      "~/learn/_state/video-refresh-queue.json"
+    ],
+    "netmamba_references_in_queues": 0,
+    "shared_queue_changes": false,
+    "historical_coverage_baselines_changed": false,
+    "new_video_claimed": false
+  }
+}

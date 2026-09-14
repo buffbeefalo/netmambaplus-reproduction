@@ -1,6 +1,6 @@
 # Run the measured experiment and demo
 
-The [customer index](README.md) is the presentation entry point. The recorded HTML replay opens offline without Python or a GPU. Regenerating predictions requires the saved classifier and research runtime. Training a new classifier uses the externally acquired authors' checkpoint and data.
+**Scope: the original six-class CICIoT2022 flow experiment.** For the later CSV packet adaptation use the [packet setup](packet-study-setup.md); for flow score scaling use the [calibration guide](confidence-calibration.md). The [customer index](README.md) is the current presentation entry point. The recorded HTML replay opens offline without Python or a GPU. Regenerating predictions requires the saved classifier and research runtime. Training a new classifier uses the externally acquired authors' checkpoint and data.
 
 For the short version, use the [setup / use / test guide](quickstart.md). For background before executing commands, use the [plain-language page](demo/guide.html) and [paper/data/source comparison](upstream-comparison.md).
 

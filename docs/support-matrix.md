@@ -5,8 +5,8 @@ You can present the project, recheck its evidence, or run new neural-model exper
 | Machine / activity | Current status | Evidence and limits |
 |---|---|---|
 | Browser or document viewer | The video, recorded demo, transcript, PDF and PowerPoint are available without CUDA or Python. | Actual Chromium playback, seeking, captions, downloads and phone-width layouts were checked. This does not execute the neural model. |
-| Linux x86-64, Windows x86-64 and macOS ARM64; Python 3.10 / 3.12 | The Python tools and saved-evidence checks passed on all six hosted combinations. | [Workflow run 34746716601](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34746716601), commit `5183bfaeeb8d5be75353e269e75de3a21bdfb711`: 94 tests per job plus package/video checks. These jobs do not train or run the model. |
-| Linux ARM64 + NVIDIA GB10 | The original model has measured training and inference evidence. | Three 120-epoch runs, strict inference, numerical checks and the original [runbook](customer/runbook.md). The generalized builder receives a separate execution receipt below. |
+| Linux x86-64, Windows x86-64 and macOS ARM64; Python 3.10 / 3.12 | The Python tools and saved-evidence checks passed on all six hosted combinations. | [Workflow run 34815032176](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34815032176), commit `c90153e4e5048cb29af9ea8ff7dbd38820b96dc1`: 412 discovered tests per job, with optional numerical/native skips, plus package/packet/video checks. See the [cleanup audit](research/accuracy-cleanup.md) for the newer revision. These jobs do not train or run the neural model. |
+| Linux ARM64 + NVIDIA GB10 | Both the original flow model and the packet adaptation have measured training and inference evidence. | Three 120-epoch flow runs; six 1,000-update packet runs; strict inference and numerical checks. Follow the [flow runbook](customer/runbook.md) or [packet setup](customer/packet-study-setup.md). The generalized builder has a separate execution receipt below. |
 | Other Linux x86-64 / ARM64 + NVIDIA CUDA GPUs | A generalized source-build route is provided; additional physical GPU configurations remain unverified. | The new builder detects the selected GPU and checks compiler support. Each machine must pass the numerical and complete-model gates below before it is called tested. |
 | CPU-only model execution, native Windows/macOS model execution, AMD/Intel GPUs, Apple MPS, NPU or SmartNIC | Not implemented or validated by this work. | The pinned model uses CUDA extensions and fused Triton normalization. Passing the portable Python checks does not establish these execution backends. |
 
@@ -23,13 +23,18 @@ git clone https://github.com/buffbeefalo/netmambaplus-reproduction.git
 cd netmambaplus-reproduction
 python -m unittest discover -s tests -v
 python tools/verify_package.py
+python tools/review_packet_study.py
+python tools/verify_packet_briefing.py
+python tools/verify_repository_guide.py
 python tools/verify_course_video.py
 python tools/verify_video_course_v4.py
 python tools/review_calibration.py --check
 python tools/build_video_page.py --check
 ```
 
-On a system where the command is named `python3`, use that name instead of `python`. No Python packages or research-data downloads are needed for these checks. The unit tests should end with `OK`; the verifiers should exit successfully. The workflow is the record of the test count for its particular commit.
+On a system where the command is named `python3`, use that name instead of `python`. Use a full Git clone: historical video checks need the pinned release objects, which a source ZIP does not contain. For an existing shallow clone, fetch them with `git fetch --unshallow origin`. No Python packages or research-data downloads are needed for these checks. The unit tests should end with `OK`; optional native/numerical tests may be skipped. The verifiers should exit successfully. The workflow is the record of the test count for its particular commit.
+
+The packet evidence checker preserves two strict raw-score tolerance failures while confirming all 25,930 predicted classes. Successful evidence verification means the saved measurements and those limitations agree; it does not erase the failures or run a new GPU experiment. The briefing checker validates current content and reviewed file identities without rendering PowerPoint.
 
 The first cross-platform workflow exposed Windows UTF-8/newline problems and temporary-directory aliases on macOS and Windows. The fixes use explicit UTF-8, preserve committed document/configuration bytes, keep checksum paths in repository notation and resolve temporary paths. Six additional regressions test those failure modes. The original failed workflow remains [available](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34746175880); its failure was not hidden by skipping platforms.
 
@@ -75,7 +80,7 @@ python tools/fetch_assets.py --output assets
 python repro.py validate --data assets/data/ciciot2022 --report runs/data-validation-new.json
 ```
 
-Then follow the [runbook's training, evaluation and prediction commands](customer/runbook.md#3-exercise-masked-pretraining). The same pinned model, data contract and six-class mapping apply. Raw CSV rows are not interchangeable with native flow records. Keep classifier checkpoints with their class-mapping provenance when moving to another checked runtime.
+Then follow the [runbook's training, evaluation and prediction commands](customer/runbook.md#3-exercise-masked-pretraining) for the original flow experiment, or the [packet setup guide](customer/packet-study-setup.md) for the supplied CSVs. The original flow route retains its native data contract and six-class mapping; the packet route uses 1,500 bytes, empty size/IAT sequences and a separate two-class head. Raw CSV rows are not interchangeable with native flow records, and the two routes need their corresponding checkpoints. Keep classifier checkpoints with their class-mapping provenance when moving to another checked runtime.
 
 The old package warnings remain documented: a `buildtools` dependency warning, the cuSPARSELt SBSA tag warning on ARM, and Torch's reported architecture-range warning on GB10. This guide does not claim a warning-free `pip check`. Other hardware may expose additional compiler, memory or operator constraints; failed checks must remain visible.
 

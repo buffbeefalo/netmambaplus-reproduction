@@ -2,6 +2,7 @@
 
 import json
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -149,6 +150,18 @@ class CourseTests(unittest.TestCase):
         self.assertEqual(result["reference_revision"], course_history.V4_REVISION)
         self.assertEqual(result["historical_release_bytes"], "unchanged")
         self.assertEqual(result["current_repository_coverage"], "not checked")
+
+    def test_builder_check_verifies_history_without_rewriting_the_retired_course(self):
+        paths = [build_course.SOURCE, build_course.OUTPUT, verify_course.RECORD]
+        before = {path: path.read_bytes() for path in paths}
+        result = subprocess.run([sys.executable, str(ROOT / "tools/build_course.py"), "--check"],
+                                capture_output=True, text=True, encoding="utf-8", check=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        report = json.loads(result.stdout)
+        self.assertEqual(report["reference_revision"], course_history.V4_REVISION)
+        self.assertEqual(report["historical_release_bytes"], "unchanged")
+        self.assertEqual(report["current_repository_coverage"], "not checked")
+        self.assertEqual({path: path.read_bytes() for path in paths}, before)
 
     def test_explicit_root_reads_its_own_source_without_ignoring_mutation(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -1,8 +1,8 @@
 # The paper and the two packet CSVs, explained
 
-**Later packet addition:** Both uploaded CSVs now have a separate native NetMamba+ training and inference path. Read the [packet study](packet-model-study.md) and [setup guide](packet-study-setup.md) for its measurements and exact adapter changes. References below to CSV profiling or exclusion from training describe the original CICIoT2022 flow experiment, which is preserved. The v4 video predates the packet addition.
+**Current scope:** This guide covers the paper, both supplied CSVs, the original flow experiment and the later packet adaptation. Read the [packet study](packet-model-study.md) for all packet measurements and the [setup guide](packet-study-setup.md) to run it. The preserved v4 video covers flows and calibration; the [packet PDF/PPT/script](README.md#current-packet-study-both-uploaded-csvs) explains the later addition.
 
-This guide explains what the three supplied files contain, how NetMamba+ turns traffic into model inputs, and which experiment this repository actually ran. You do not need a machine-learning background. **The PDF describes the authors’ research; the two CSVs are packet exports; the measured classifier used a separate release of CICIoT2022 flows.**
+This guide explains what the three supplied files contain, how NetMamba+ turns traffic into model inputs, and which experiment this repository actually ran. You do not need a machine-learning background. **The PDF describes the authors’ research. The two CSVs supply the later packet training. The original six-class experiment uses a separate CICIoT2022 flow release.**
 
 The paper is Tongze Wang and colleagues’ [*NetMamba+: A Framework of Pre-trained Models for Efficient and Accurate Network Traffic Classification*, arXiv 2601.21792v1](https://arxiv.org/abs/2601.21792v1), dated 29 January 2026. Its 16 PDF pages are linked below. The code reference throughout this guide is [the authors’ repository at commit `eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2`](https://github.com/wangtz19/NetMambaPlus/tree/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2). A commit identifies a particular source version, so later upstream edits do not silently change this reference.
 
@@ -11,12 +11,12 @@ The paper is Tongze Wang and colleagues’ [*NetMamba+: A Framework of Pre-train
 | Supplied file | What it contains | Its role here |
 |---|---|---|
 | `2601.21792v1.pdf` | The research paper: methods, experiments, comparisons and limitations | Explains the proposed approach and the authors’ reported results |
-| `Payload_data_CICIDS2017.csv` | 1,410,255 packet rows, 1,505 columns, 15 labels | Inspected for compatibility with the original model’s input contract |
-| `Payload_data_UNSW.csv` | 79,881 packet rows, 1,505 columns, 10 labels | The same compatibility investigation |
+| `Payload_data_CICIDS2017.csv` | 1,410,255 packet rows, 1,505 columns, 15 labels | Validated and used for CIC-only and joint native-encoder packet training |
+| `Payload_data_UNSW.csv` | 79,881 packet rows, 1,505 columns, 10 labels | Validated and used for UNSW-only and joint native-encoder packet training |
 
 A CSV is a text table: the first record names the columns and later records contain values. It is not a running database server, a trained model or a packet-capture program. These files do not need to be imported into a database to understand their schema.
 
-The published [full CSV metadata profile](evidence/uploaded-csv-profile.json) names the two exports `CICIDS2017.csv` and `UNSW.csv`. Their hashes identify the supplied files despite those shortened names. It records full-file row counts, label counts and metadata aggregates. It does **not** establish exhaustive numerical validity of all payload cells, and neither export was used to train the reported classifier. A familiar dataset name in a filename does not establish the export’s complete production history.
+The published [full CSV metadata profile](evidence/uploaded-csv-profile.json) names the two exports `CICIDS2017.csv` and `UNSW.csv`. Their hashes identify the supplied files despite those shortened names. It records full-file row counts, label counts and metadata aggregates. That original profile did **not** establish exhaustive numerical validity of payload cells, and neither export trained the original flow classifier. The later [packet preparation record](evidence/packet-study/manifest.json) separately validates all 2,235,204,000 stored byte cells as exact integers from 0 through 255 and supplies the [completed packet study](packet-model-study.md). These are two distinct validation events. A familiar dataset name in a filename does not establish the export’s complete production history.
 
 ## 2. Read a CSV row without confusing its fields
 
@@ -95,7 +95,7 @@ Both exports lack source and destination addresses, source and destination ports
 
 The paper’s byte representation also reserves **80 header bytes and 240 payload bytes per packet**. A table of payload slots does not automatically supply the missing headers. A compatible adapter would need evidence for grouping, direction, order, byte extraction, interval units and padding. No such CSV-to-native-flow adapter was established here. See [paper page 5](https://arxiv.org/pdf/2601.21792v1#page=5) and the pinned [packet-feature preparation code](https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/dataset_scripts/dataset_mm_uni_common.py).
 
-Training a classifier directly on these packet tables is a possible separate research task. It would change the unit of prediction and preprocessing, so its results would describe a packet-level adaptation. They would not be the native flow experiment documented below.
+The completed packet study takes the direct route: one row's 1,500 stored bytes enter a packet-level adaptation of the native NetMamba+ encoder. It changes the unit of prediction, token layout and classification head. Its results are separate from the native flow experiment documented below; no missing headers, connections or time sequences are invented.
 
 ## 4. A route through all major parts of the PDF
 
@@ -247,6 +247,12 @@ Inference converts logits into normalized class scores and reports the selected 
 
 The original model and tensor loader remain in the verified upstream checkout. [repro.py](../../repro.py) checks source, data and settings before launching the native training program. [evaluate.py](../../evaluate.py) strictly reloads the saved classifier for labeled evaluation. [predict.py](../../predict.py) handles already assembled flows without labels. [replay.py](../../replay.py) records predictions and builds their browser presentation. None of these commands supplies the authors’ live packet-capture prototype.
 
+The separate packet route starts at [packet_data.py](../../packet_data.py), which validates both CSVs, groups identical payloads globally and preserves contradictory label proportions. [packet_model.py](../../packet_model.py) gives the original encoder 375 four-byte patches plus three summary positions, with empty size and interval sequences and a fresh two-class head. The two leading summary positions contain no observed size/timing data. Labels supervise training; TTL, length, protocol, time delta and source identity never enter its forward call.
+
+[train_packet_model.py](../../tools/train_packet_model.py) ran six 1,000-update comparisons. [predict_packets.py](../../tools/predict_packets.py) strictly loads their packet checkpoints and accepts unlabeled packet CSVs. This does not use the six-class flow checkpoint. The joint pretrained packet model's group-weighted balanced accuracy was 97.56% on CIC and 94.29% on UNSW; the UNSW metadata-only control reached 99.34%. All 25,930 predicted classes agreed in the later inference check, with two strict logit-tolerance failures retained. These are one-seed export-specific results, with duplicate grouping and test caps; they are not the paper's 97.50% flow accuracy. The [packet report](packet-model-study.md) explains weaker transfer, row weighting and missing subtype coverage.
+
+The [packet addendum](packet-addendum/packet-addendum-script.md) provides an eight-slide explanation of this path. The [current acceptance map](acceptance.md) covers both experiments and the separate flow-calibration extension.
+
 Presentation, evidence verification and neural execution have different requirements. The recorded demo can be viewed in a browser. Portable Python checks run on the documented Linux, Windows and macOS combinations. Actual model training and inference are measured on NVIDIA GB10; a generalized Linux NVIDIA CUDA build route is provided, but other physical GPU configurations remain unverified. CPU-only and native Windows/macOS model execution are not implemented by this work. The [support matrix](../support-matrix.md) contains the current setup commands and boundaries; the [execution receipt](../portability-evidence.json) contains actual build, numerical and full-classifier checks.
 
 The full-classifier runtime check uses explicitly synthetic native-schema fixtures to verify loss, gradients, an optimizer update, strict reload and inference. It is a functionality test with no dataset-accuracy claim. The separate frozen seed-0 inference comparison reproduces the saved real-data outputs; it does not retrain the classifier. Use the [runbook](runbook.md) for the recorded training/evaluation workflow and the [repository walkthrough](../repository-walkthrough.md) for the wider file inventory.
@@ -281,4 +287,4 @@ These SHA-256 fingerprints identify the supplied files discussed here. The publi
 | `Payload_data_CICIDS2017.csv` | `2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e` |
 | `Payload_data_UNSW.csv` | `39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01` |
 
-For the main evidence trail, open the [CSV profile](evidence/uploaded-csv-profile.json), [native flow validation](evidence/native-data-validation.json), [configuration](../../configs/ciciot2022.json), [checkpoint-transfer record](evidence/checkpoint-transfer.json), [results](evidence/results.json) and [hardware execution receipt](../portability-evidence.json). Each supports a different part of the explanation; none alone proves the whole scientific experiment.
+For the main evidence trail, open the [packet validation and training inventory](evidence/packet-study/index.json), the original [CSV profile](evidence/uploaded-csv-profile.json), [native flow validation](evidence/native-data-validation.json), [configuration](../../configs/ciciot2022.json), [checkpoint-transfer record](evidence/checkpoint-transfer.json), [results](evidence/results.json) and [hardware execution receipt](../portability-evidence.json). Each supports a different part of the explanation; none alone proves the whole scientific experiment.

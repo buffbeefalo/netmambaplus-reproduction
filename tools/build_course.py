@@ -256,20 +256,18 @@ def render(source, root=ROOT):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="Compare without changing any files")
+    parser.add_argument("--check", action="store_true", help="Verify the preserved historical edition without changing files")
     args = parser.parse_args()
     from verify_course import verify
+    if args.check:
+        print(json.dumps(verify(), indent=2))
+        return
     source = read(SOURCE)
     verify(source, check_render=False, check_record=False)
     output = render(source)
-    if args.check:
-        if not OUTPUT.is_file() or OUTPUT.read_text(encoding="utf-8") != output:
-            raise SystemExit("Course render is stale; review the source and run tools/build_course.py")
-        print("Course render matches its reviewed source and evidence.")
-    else:
-        OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-        OUTPUT.write_text(output, encoding="utf-8", newline="\n")
-        print(str(OUTPUT.relative_to(ROOT)))
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(output, encoding="utf-8", newline="\n")
+    print(str(OUTPUT.relative_to(ROOT)))
 
 
 if __name__ == "__main__":

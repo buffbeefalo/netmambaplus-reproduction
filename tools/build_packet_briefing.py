@@ -78,6 +78,13 @@ def content(evidence):
     ]
 
 
+def script_text(slides):
+    script = '# NetMamba+ packet addendum — presenter script\n\nThis follows the eight-slide PDF and PowerPoint. It is a later addition to the preserved v4 course.\n\n'
+    for index,item in enumerate(slides,1):
+        script += f"## Slide {index}: {item['title']}\n\n{item['notes']}\n\n"
+    return script.rstrip()+'\n'
+
+
 def build(evidence, output):
     from pptx import Presentation
     from pptx.dml.color import RGBColor
@@ -139,10 +146,7 @@ def build(evidence, output):
         slide.notes_slide.notes_text_frame.text=item['notes']
         pdf.showPage()
     deck.save(ppt_path);pdf.save()
-    script = '# NetMamba+ packet addendum — presenter script\n\nThis follows the eight-slide PDF and PowerPoint. It is a later addition to the preserved v4 course.\n\n'
-    for index,item in enumerate(slides,1):
-        script += f"## Slide {index}: {item['title']}\n\n{item['notes']}\n\n"
-    (output/'packet-addendum-script.md').write_text(script.rstrip()+'\n',encoding='utf-8')
+    (output/'packet-addendum-script.md').write_text(script_text(slides),encoding='utf-8')
     (output/'packet-addendum-source.json').write_text(json.dumps(slides,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
     print(json.dumps({'slides':len(slides),'pdf':str(pdf_path),'pptx':str(ppt_path)}))
 

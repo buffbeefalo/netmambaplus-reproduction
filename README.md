@@ -14,30 +14,21 @@ The fixed **0.90** acceptance threshold also exposes a tradeoff: seed 0 accepted
 
 ## Open the customer package
 
-| Deliverable | Link |
+| Start here | Link and scope |
 |---|---|
-| Both CSVs connected to NetMamba+ | [Packet study and actual results](docs/customer/packet-model-study.md) · [Setup and unlabeled use](docs/customer/packet-study-setup.md) |
-| Packet presentation addendum | [PDF](docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pdf) · [PowerPoint](docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pptx) · [Matching script](docs/customer/packet-addendum/packet-addendum-script.md) |
-| Preserved v4 one-hour course: flows and calibration | [Watch v4](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Download MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v4/NetMambaPlus-one-hour-course.mp4) · [Exact checks and review limits](docs/customer/video-verification-v4.md) |
-| Matching historical v4 course documents | [PDF handbook and every-file appendix](docs/customer/demo/video/v4/NetMambaPlus-course-handbook.pdf) · [PowerPoint with speaker notes](docs/customer/demo/video/v4/NetMambaPlus-course-slides.pptx) · [PDF slides](docs/customer/demo/video/v4/NetMambaPlus-course-slides.pdf) · [Full transcript](docs/customer/demo/video/v4/transcript.md) |
-| Use the new confidence feature | [Calibration method, measured results and commands](docs/customer/confidence-calibration.md) · [Recomputable evidence](docs/customer/evidence/calibration/results.json) |
-| Original customer package and checklist | [Frozen customer index](docs/customer/README.md) |
-| Read the original 16-slide presentation simply | [Historical slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
-| Current setup, usage and test results on other systems | [Setup and support matrix](docs/support-matrix.md) · [Original experiment quickstart](docs/customer/quickstart.md) |
-| Understand the paper, both CSVs and our changes | [Complete paper/data explanation](docs/customer/paper-and-data-explained.md) · [Authors’ repository comparison](docs/customer/upstream-comparison.md) |
-| Understand every file and how the code fits together | [Complete repository walkthrough](docs/repository-walkthrough.md) |
-| Find each of your seven answers | [Current v4 question map](docs/customer/video-verification-v4.md#seven-questions) · [Historical 16-slide map](docs/customer/answers.md) |
-| Download the original offline customer bundle | [Frozen release ZIP](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/netmambaplus-customer-package.zip) |
-| Original short technical briefing | [PDF](docs/customer/NetMambaPlus-customer-briefing.pdf) · [Markdown](docs/customer/briefing.md) |
-| Original editable 16-slide presentation | [PowerPoint](docs/customer/NetMambaPlus-customer-slides.pptx) · [Slide PDF](docs/customer/NetMambaPlus-customer-slides.pdf) |
-| Working recorded-inference demo | [Open in browser](https://buffbeefalo.github.io/netmambaplus-reproduction/) · [Download HTML](https://raw.githubusercontent.com/buffbeefalo/netmambaplus-reproduction/main/docs/customer/demo/index.html) |
-| Measured results, errors and learning curves | [Results](docs/customer/results.md) · [Machine-readable evidence](docs/customer/evidence/results.json) |
-| Research and AI-assisted findings | [Reviewed research record](docs/research/research-record.md) |
-| Repeat the experiment | [Tested runbook](docs/customer/runbook.md) |
-| Explain it yourself | [Teaching lesson](docs/lesson.md) · [Presenter talk track](docs/customer/talk-track.md) |
-| Future IDS / NPU / SmartNIC integration | [Hardware roadmap](docs/customer/hardware-roadmap.md) |
+| Current handoff and seven answers | [Customer index](docs/customer/README.md) · [Acceptance and question map](docs/customer/acceptance.md) |
+| Both CSVs connected to NetMamba+ | [Packet study](docs/customer/packet-model-study.md) · [Packet setup and unlabeled use](docs/customer/packet-study-setup.md) |
+| Current packet presentation | [PDF](docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pdf) · [PowerPoint](docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pptx) · [Script](docs/customer/packet-addendum/packet-addendum-script.md) |
+| Preserved v4 one-hour course: flows and calibration | [Watch](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v4/NetMambaPlus-one-hour-course.mp4) · [Handbook](docs/customer/demo/video/v4/NetMambaPlus-course-handbook.pdf) · [PPT](docs/customer/demo/video/v4/NetMambaPlus-course-slides.pptx) · [Slide PDF](docs/customer/demo/video/v4/NetMambaPlus-course-slides.pdf) · [Transcript](docs/customer/demo/video/v4/transcript.md) |
+| Setup and tests | [Current quickstart](docs/customer/quickstart.md) · [Platform support and measured GPU checks](docs/support-matrix.md) |
+| Understand the supplied files and our changes | [Paper and both CSVs](docs/customer/paper-and-data-explained.md) · [Authors' repository comparison](docs/customer/upstream-comparison.md) |
+| One guide to every file and download | [Complete repository walkthrough](docs/repository-walkthrough.md) |
+| Recorded original flow demo and results | [Browser replay](https://buffbeefalo.github.io/netmambaplus-reproduction/) · [Offline replay](docs/customer/demo/index.html) · [All flow results](docs/customer/results.md) · [Calibration extension](docs/customer/confidence-calibration.md) |
+| Audit and research | [Cleanup and accuracy audit](docs/research/accuracy-cleanup.md) · [Reviewed research record](docs/research/research-record.md) · [Video checks and review limits](docs/customer/video-verification-v4.md) |
+| Historical 16-slide customer edition | [Archived-scope downloads](docs/customer/README.md#earlier-customer-presentation-archived-scope) · [Versioned original ZIP](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-2026-09-15-audited/netmambaplus-customer-package.zip) |
+| Native flow commands and future deployment | [Flow runbook](docs/customer/runbook.md) · [Teaching lesson](docs/lesson.md) · [IDS / NPU / SmartNIC roadmap](docs/customer/hardware-roadmap.md) |
 
-The demo shows recorded predictions from the original GPU inference run. It does not apply the new calibration feature, capture or block packets. Display pace is unrelated to model latency. Its known errors remain visible. The current v4 course and documents explain both this replay and the actual calibrated command-line outputs. The original customer index, ZIP, 16-slide deck and briefing retain their historical bytes and do not include the later calibration addition.
+The demo shows recorded predictions from the original GPU inference run. It does not apply the new calibration feature, capture or block packets. Display pace is unrelated to model latency. Its known errors remain visible. The preserved v4 course and documents explain this replay and the calibrated command-line outputs. They predate the packet training, so send the packet addendum with them. The original ZIP, 16-slide deck and briefing retain their historical bytes and cover the earlier flow-only edition. The customer index, quickstart and acceptance map describe the current project.
 
 ## How the CSVs connect, and why they are separate from the original flows
 
@@ -45,7 +36,7 @@ The starting files were [paper v1](https://arxiv.org/abs/2601.21792v1), `Payload
 
 The new packet classifier uses both exports as an explicit adaptation. The original flow experiment uses the authors’ processed **CICIoT2022** flow release: 8,323 training, 1,040 validation and 1,041 test flows across six classes. CICIoT2022 and CICIDS2017 are different datasets. The original CSV profiling record remains unchanged. The new packet study validates every payload cell and trains directly on packet bytes; it never invents flow inputs.
 
-## What goes through the model
+## What goes through the original flow model
 
 ```mermaid
 flowchart LR
@@ -64,13 +55,14 @@ The loader owns padding, truncation and normalization. The model’s six classes
 
 ## Start with the offline checks
 
-Python 3.10 or newer is sufficient for the standard-library tests:
+Use Git and Python 3.10 or 3.12 for the portable checks. Start from a full clone: historical course verification needs pinned Git objects, which a source ZIP lacks. These checks do not download research assets or execute native GPU training:
 
 ```bash
 python3 -m unittest discover -s tests -v
 python3 tools/verify_package.py
 python3 tools/review_calibration.py --check
 python3 tools/review_packet_study.py
+python3 tools/verify_packet_briefing.py
 python3 tools/verify_repository_guide.py
 python3 tools/build_course.py --check
 python3 tools/verify_course.py
@@ -80,7 +72,7 @@ python3 tools/verify_video_course_v4.py
 python3 tools/build_video_page.py --check
 ```
 
-CPU CI runs on Linux x86-64, Windows x86-64 and macOS ARM64 with Python 3.10 and 3.12. It checks the harness and published evidence; it does not retrain the GPU model. The [support matrix](docs/support-matrix.md) links actual workflow results and separate GPU execution evidence. The original customer PDF, PPT, quickstart and ZIP preserve their audited snapshot; their older test counts and platform statements are superseded by this current setup guide.
+CPU CI runs on Linux x86-64, Windows x86-64 and macOS ARM64 with Python 3.10 and 3.12. It checks the harness and published evidence; it does not retrain the GPU model. The [support matrix](docs/support-matrix.md) links actual workflow results and separate GPU execution evidence. The original customer PDF, PPT and ZIP preserve their audited snapshot. The current quickstart and support matrix supersede that older edition's test counts and platform statements.
 
 The earlier interactive HTML course was retired at the user’s request. Its archived source and tests remain as evidence bindings used by the video; the public `/course/` page is excluded from deployment.
 
@@ -149,6 +141,6 @@ The short pretraining run validates reconstruction learning on downstream traini
 
 Raw data, upstream source and original weights are acquired from their authors rather than mirrored in this repository. Locally produced classifier exports and their hashes are recorded; inherited asset redistribution/commercial terms remain unresolved, so the customer package shares prediction evidence and a repeatable training route rather than asserting new rights over those assets. The authors’ inspected repository root has no license file.
 
-The [7 September audit](docs/audit.md) is historical. The later [focused council decision](docs/research/research-record.md#council-decision-and-its-limits) reviewed the staged experiment plan; it did not independently certify later numerical results or replace the earlier unratified audit. The current package’s [verification record](docs/customer/verification.md) states the checks actually performed.
+The [7 September audit](docs/audit.md) is historical. The later [focused council decision](docs/research/research-record.md#council-decision-and-its-limits) reviewed the staged experiment plan; it did not independently certify later numerical results or replace the earlier unratified audit. The [12 September flow verification](docs/customer/verification.md) is a dated record. Current checks and packet evidence are mapped in the [accuracy audit](docs/research/accuracy-cleanup.md) and [acceptance map](docs/customer/acceptance.md).
 
-The [final council review](docs/research/final-council-review.md) records the exact ratified handoff criteria, retained evidence limits and applied corrections. Its initial escalated review is preserved separately. The final release receipt binds publication checks to the downloaded revision.
+The [historical final council review](docs/research/final-council-review.md) records the earlier ratified flow-package handoff criteria. The later packet and cleanup councils have their own preserved outcomes; the [cleanup result](docs/research/accuracy-cleanup-council.json) is ESCALATED / UNRATIFIED. Direct source checks, implementation and publication do not alter those records.
