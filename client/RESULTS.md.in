@@ -1,0 +1,48 @@
+# Recorded results and limits
+
+The client edition carries the same saved scientific evidence as the source project. Exporting or passing CPU CI does not constitute a new GPU experiment.
+
+## Original flow experiment
+
+The native model combines five 320-byte packet representations, 20 sizes and 20 arrival intervals into 443 tokens. Four 256-wide Mamba blocks feed a six-class head. Compatible CICIoT2022 data contains 8,323 training, 1,040 validation and 1,041 test flows.
+
+| Seed | Completed training | Test accuracy |
+|---|---|---|
+| 0 | 120 epochs / 7,920 updates | 91.26% |
+| 1 | 120 epochs / 7,920 updates | 84.05% |
+| 2 | 120 epochs / 7,920 updates | 84.63% |
+
+Mean accuracy is **86.65%**, with a **4.00 percentage-point sample standard deviation**. The paper reports 97.50% under different conditions. Our batch size 128 / maximum learning rate 0.001 follow the inspected source preset; the paper states 64 / 0.002. A separate 132-update masked-pretraining run tested functionality; it did not recreate the paper's full pretraining corpus. The main experiments used the released pretrained checkpoint.
+
+Validation-fitted temperature scaling preserved every predicted class. Mean NLL changed from 0.4416 to 0.4172 and 15-bin calibration error from 7.03% to 3.82%. At the illustrative 0.90 acceptance threshold, seed 0 accepted 620 flows with 9 mistakes before scaling and 893 with 37 afterward. Better calibration does not guarantee safer alert acceptance.
+
+## Both CSVs in the packet model
+
+CICIDS2017 contains **1,410,255 rows**; UNSW contains **79,881**. Each has 1,500 payload columns, four metadata columns and a label. Every payload cell was validated. The native packet model consumes bytes only: metadata and labels are not model inputs. Its adaptation uses 378 tokens and a two-class head; its size/interval sequences are empty.
+
+Payload hashes define one global train/validation/test split across both sources. Duplicate packets stay in one partition; conflicting labels remain disclosed as soft targets. Training used capped group subsets and replacement sampling. All six native arms completed 1,000 updates with one model seed; all nine simple controls completed.
+
+| Training source / initialization | CIC held-out balanced accuracy | UNSW held-out balanced accuracy |
+|---|---:|---:|
+| CIC / pretrained | 98.67% | 53.73% |
+| CIC / scratch | 50.00% | 50.00% |
+| UNSW / pretrained | 71.52% | 93.22% |
+| UNSW / scratch | 50.00% | 50.00% |
+| Joint / pretrained | 97.56% | 94.29% |
+| Joint / scratch | 55.57% | 50.00% |
+
+These are group-weighted metrics. An UNSW metadata-only control reached **99.34%**, above the neural models on that test. All 25,930 held-out unlabeled classes matched joint-model evaluation. Two strict raw-score comparisons failed at the retained tolerance; class agreement does not establish identical logits.
+
+## Evidence and remaining work
+
+| Record | What it supports |
+|---|---|
+| [Flow results](docs/customer/evidence/results.json) | Three-seed training, evaluation, checkpoints and metric summaries |
+| [Calibration results](docs/customer/evidence/calibration/results.json) | Paired confidence metrics and fixed-threshold tradeoffs |
+| [Packet results](docs/customer/evidence/packet-study/results.json) | Six arms, two source tests, support and group/row metrics |
+| [Packet inference comparison](docs/customer/evidence/packet-study/unlabeled/agreement.json) | Complete class agreement and retained numerical failures |
+| [GB10 portability receipt](docs/portability-evidence.json) | Native build, numerical gates, optimizer/reload and inference checks |
+
+The original flow data includes five exact train/validation overlaps and six train/test overlaps. Prior pretrained-data exposure is unknown. CSV payload grouping does not establish independent captures; the selected CIC test subset contains no PortScan rows and only four DDoS rows. Neither experiment validates customer traffic, unknown attacks or production alert thresholds.
+
+Graph export failed in the tested custom-convolution path. Live capture, reliable flow assembly, sustained end-to-end throughput and NPU/SmartNIC compilation remain future work. A hardware deployment would need those components plus operator support, numerical parity and accuracy/latency tests on the target device.

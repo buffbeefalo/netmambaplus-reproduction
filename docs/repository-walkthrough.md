@@ -1357,3 +1357,29 @@ Before presenting, try explaining these three distinctions aloud:
 3. **A successful check versus a stronger claim:** passing CPU tests verifies selected software behavior; it does not establish the paper’s 97.50%, independent customer-traffic performance, live intrusion prevention or NPU/SmartNIC deployment.
 
 The original flow result remains three completed source-based fine-tuning runs with **86.65% mean test accuracy**. The packet study has a separate input contract, frozen protocol and six completed native comparison records, with markedly different familiar-source and transfer outcomes. This file map keeps each claim attached to its own records and limits.
+
+## Client edition maintenance files
+
+| File | Purpose |
+|---|---|
+| <a id="file-client-edition--github-workflows-client-sync-yml"></a>[.github/workflows/client-sync.yml](../.github/workflows/client-sync.yml) | Publishes checked client snapshots after verified source main; isolates its write key and rejects stale or diverged copies. |
+| <a id="file-client-edition-client-NOTICE-md-in"></a>[client/NOTICE.md.in](../client/NOTICE.md.in) | Source template preserving paper/upstream attribution and inherited-asset boundaries. |
+| <a id="file-client-edition-client-README-md-in"></a>[client/README.md.in](../client/README.md.in) | Source template for the concise client landing page, experiment boundaries and entry commands. |
+| <a id="file-client-edition-client-RESULTS-md-in"></a>[client/RESULTS.md.in](../client/RESULTS.md.in) | Source template for the measured flow and packet results and their scientific limitations. |
+| <a id="file-client-edition-client-SETUP-md-in"></a>[client/SETUP.md.in](../client/SETUP.md.in) | Source template for client GPU setup, both training routes, unlabeled prediction and offline verification. |
+| <a id="file-client-edition-client-ci-yml-in"></a>[client/ci.yml.in](../client/ci.yml.in) | Read-only portable verification workflow exported to the client repository. |
+| <a id="file-client-edition-client-gitattributes-in"></a>[client/gitattributes.in](../client/gitattributes.in) | Prevents Git checkout newline conversion for all delivered client files. |
+| <a id="file-client-edition-configs-client-manifest-json"></a>[configs/client-manifest.json](../configs/client-manifest.json) | Explicitly selects unchanged runtime, test and evidence files plus the compact client templates. |
+| <a id="file-client-edition-docs-research-client-edition-md"></a>[docs/research/client-edition.md](../docs/research/client-edition.md) | Explains client publication, maintenance, update direction, credentials and executed-check scope. |
+| <a id="file-client-edition-docs-superpowers-plans-2026-09-14-client-edition-md"></a>[docs/superpowers/plans/2026-09-14-client-edition.md](../docs/superpowers/plans/2026-09-14-client-edition.md) | Implementation and acceptance plan for the public client edition and automatic updates. |
+| <a id="file-client-edition-tests-test-client-export-py"></a>[tests/test_client_export.py](../tests/test_client_export.py) | Tests real Git export boundaries, deterministic output, path safety, drift, rollback and managed deletion. |
+| <a id="file-client-edition-tests-test-client-publication-py"></a>[tests/test_client_publication.py](../tests/test_client_publication.py) | Tests the archive publisher against a real local bare remote, including competing pushes and tampering. |
+| <a id="file-client-edition-tests-test-client-sync-gate-py"></a>[tests/test_client_sync_gate.py](../tests/test_client_sync_gate.py) | Tests canonical successful-main eligibility and rejection of stale, failed, PR and wrong-repository events. |
+| <a id="file-client-edition-tests-test-client-verification-py"></a>[tests/test_client_verification.py](../tests/test_client_verification.py) | Tests delivered-file inventory checks, missing/modified files, unsafe paths and source identity. |
+| <a id="file-client-edition-tools-check-client-export-py"></a>[tools/check_client_export.py](../tools/check_client_export.py) | Runs the exported tests, evidence checks and replay generation in a fresh temporary directory. |
+| <a id="file-client-edition-tools-client-sync-gate-py"></a>[tools/client_sync_gate.py](../tools/client_sync_gate.py) | Allows publication only for successful canonical main push verification at the current source revision. |
+| <a id="file-client-edition-tools-export-client-py"></a>[tools/export_client.py](../tools/export_client.py) | Builds deterministic client snapshots from explicitly selected immutable Git blobs. |
+| <a id="file-client-edition-tools-publish-client-py"></a>[tools/publish_client.py](../tools/publish_client.py) | Packages checked managed files and publishes a hash-verified archive with a normal fast-forward Git push. |
+| <a id="file-client-edition-tools-sync-client-py"></a>[tools/sync_client.py](../tools/sync_client.py) | Checks the previous source snapshot and stages updates while rejecting client drift and source rollback. |
+| <a id="file-client-edition-tools-verify-client-py"></a>[tools/verify_client.py](../tools/verify_client.py) | Verifies client file identities and original flow evidence without presentation assets or Git history. |
+| <a id="file-client-edition-council-json"></a>[docs/research/client-edition-council.json](../docs/research/client-edition-council.json) | Preserves the non-mutual client architecture council outcome, exact blockers, positions and model identities. |

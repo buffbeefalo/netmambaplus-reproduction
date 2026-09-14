@@ -30,3 +30,4 @@ jobs:
       - run: python tools/verify_video_course_v3.py
       - run: python tools/verify_video_course_v4.py
       - run: python tools/build_video_page.py --check
+      - run: python tools/check_client_export.py

@@ -1,5 +1,7 @@
 # NetMamba+ — measured reproduction attempt
 
+**Client delivery:** [netmambaplus-client](https://github.com/buffbeefalo/netmambaplus-client) contains the runnable code, compact setup/results and scientific evidence without the teaching media. This repository remains the development and learning edition. Checked exports from `main` keep shared files synchronized; see the [delivery and maintenance record](docs/research/client-edition.md).
+
 This repository runs the authors’ original multimodal NetMamba+ model on compatible CICIoT2022 flows. The customer package records actual GPU masked-pretraining execution, three full 120-epoch fine-tuning runs, strict saved-classifier inference, independently checked metrics and an offline demonstration.
 
 The later [packet study](docs/customer/packet-model-study.md) incorporates **both uploaded CSVs into the native NetMamba+ encoder**. It adds CIC-only, UNSW-only and joint benign/attack training, matched scratch controls, and strict unlabeled packet inference. Its data, classes and measured outcomes are separate from the six-class flow experiment below. Start with the [packet setup guide](docs/customer/packet-study-setup.md).

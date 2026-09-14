@@ -1,0 +1,90 @@
+# Set up, use and test
+
+Run commands from this repository's root. Use fresh output paths; existing run directories are rejected to preserve evidence. The [README](README.md) contains the offline checks and recorded demonstration, which need no research assets.
+
+## GPU environment
+
+The measured native environment is Linux ARM64, NVIDIA GB10, Python 3.12, Torch 2.9.1+cu130 and CUDA toolkit 13.0. Other supported NVIDIA targets may build, but require their own successful checks. CPU, native Windows/macOS, NPU and SmartNIC model execution are not established.
+
+Install the NVIDIA driver and CUDA 13.0 toolkit with `nvcc` and `ptxas` first. Adjust the toolkit path below to your installation. A driver's reported CUDA version alone does not install the toolkit.
+
+```bash
+python3.12 -m venv .venv-cuda
+source .venv-cuda/bin/activate
+python -m pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cu130
+python -m pip install -r requirements/gb10.txt setuptools==78.1.0 wheel==0.48.0
+
+export CUDA_HOME=/usr/local/cuda-13.0
+export PATH="$CUDA_HOME/bin:$PATH"
+export TRITON_PTXAS_PATH="$CUDA_HOME/bin/ptxas"
+export PYTHONDONTWRITEBYTECODE=1
+export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
+export OMP_NUM_THREADS=4
+
+python repro.py fetch
+python tools/build_cuda.py --build-root runs/cuda-build-new
+python tools/check_gpu_runtime.py --output runs/cuda-ops-new.json
+python tools/check_model_runtime.py --output runs/cuda-model-new --build-report runs/cuda-build-new/build-report.json
+python tools/fetch_assets.py --output assets
+```
+
+Repeat the activation and exports in each new model-execution shell. The legacy checkpoint-loading setting is for the recorded research assets and your own resulting checkpoints. Asset hashes are checked before use. The build and both runtime gates must succeed before training; keep failure reports when they do not. The pinned environment has documented dependency and architecture warnings; it is not a claim of warning-free package resolution.
+
+## Both CSVs: prepare, train and predict
+
+Provide the two original CSVs locally. Each labeled export needs `payload_byte_1` through `payload_byte_1500`, followed by `ttl,total_len,protocol,t_delta,label`. Source labels are mapped to benign/attack. The preparation validates all rows, groups duplicate payloads across both sources and writes a deterministic split.
+
+```bash
+python packet_data.py --cic /path/to/CICIDS2017.csv --unsw /path/to/UNSW.csv --output runs/packet-data-new --seed 17 --max-train-groups 100000 --max-eval-groups 20000
+python tools/freeze_packet_protocol.py --data runs/packet-data-new --output runs/packet-protocol-new.json --steps 1000
+
+PACKET_PROTOCOL_SHA="$(python -c 'import hashlib; from pathlib import Path; print(hashlib.sha256(Path("runs/packet-protocol-new.json").read_bytes()).hexdigest())')"
+python tools/packet_controls.py fit --data runs/packet-data-new --output runs/packet-controls-new --protocol-sha256 "$PACKET_PROTOCOL_SHA"
+python tools/train_packet_model.py --data runs/packet-data-new --protocol runs/packet-protocol-new.json --output runs/packet-study-new --upstream upstream/NetMambaPlus --initialization assets/checkpoints/fuse3_mamba.pth
+python tools/packet_controls.py evaluate --data runs/packet-data-new --output runs/packet-controls-new
+```
+
+The trainer runs CIC-only, UNSW-only and joint models with pretrained and scratch initialization. Validation selects checkpoints before test inference. Inspect `manifest.json`, training receipts, `frozen-checkpoints.json`, `results.json` and any `failure.json`; a requested update count does not prove completion. Registered-source matches must be true when claiming to repeat the uploaded-file study. A new protocol records your actual data and code.
+
+For prediction, use the joint model's selected checkpoint from `runs/packet-study-new/frozen-checkpoints.json`. Its path is relative to that study directory. Substitute the actual selected file:
+
+```bash
+python tools/predict_packets.py --checkpoint path/to/selected-packet-checkpoint.pth --csv /path/to/unlabeled-packets.csv --output runs/packet-predictions-new --upstream upstream/NetMambaPlus --batch-size 64
+```
+
+The unlabeled header needs the 1,500 payload columns alone or followed by the four metadata columns. A `label` column is rejected; use a separate unlabeled copy. Metadata is validated but not passed to the model. Output includes `predictions.jsonl` with two logits, class and uncalibrated probabilities, plus a completion receipt binding input, code and checkpoint. `--max-rows 128` caps predictions while still validating the full CSV. Keep checkpoints with their provenance.
+
+## Original flow model
+
+The asset fetcher supplies the authors' processed CICIoT2022 data and pretrained checkpoint. This input is different from the packet CSVs.
+
+```bash
+python repro.py validate --data assets/data/ciciot2022 --report runs/validation-new.json
+python repro.py pretrain --config configs/ciciot2022-pretrain-smoke.json --data assets/data/ciciot2022 --output runs/pretrain-functional-new --seed 0 --num-workers 2
+python repro.py finetune --data assets/data/ciciot2022 --checkpoint assets/checkpoints/fuse3_mamba.pth --output runs/ciciot-ft-seed0 --seed 0 --num-workers 2
+python evaluate.py --data assets/data/ciciot2022 --checkpoint runs/ciciot-ft-seed0/checkpoint-best.pth --output runs/ciciot-eval-seed0 --num-workers 2
+python replay.py --data assets/data/ciciot2022 --checkpoint runs/ciciot-ft-seed0/checkpoint-best.pth --output runs/ciciot-replay-seed0 --num-workers 2
+```
+
+The first training command is a separate 132-update functional pretraining exercise. Fine-tuning uses the released checkpoint, runs 120 epochs and selects by validation. Repeat fine-tuning/evaluation with seeds 1 and 2 and distinct output directories for the three-seed protocol. `replay.py` creates a local HTML page from fresh native test inference.
+
+For already assembled, unlabeled flow JSON containing `data`, `sizes` and `intervals`:
+
+```bash
+python predict.py --flows /path/to/unlabeled-flows.json --checkpoint runs/ciciot-ft-seed0/checkpoint-best.pth --output runs/flow-predictions-new
+```
+
+Output contains six-class logits, scores and class names; unlabeled predictions cannot establish accuracy. Optional flow temperature scaling is available through `tools/calibrate.py` and the predictor's `--calibration` option. Run either program with `--help` for its full contract. Packet and flow checkpoints are not interchangeable.
+
+## Check results
+
+```text
+python -m unittest discover -s tests -v
+python tools/verify_client.py
+python tools/review_calibration.py --check
+python tools/review_packet_study.py
+```
+
+The suite should end with `OK`, with optional dependency skips stated explicitly. All verifiers must exit successfully. Packet verification deliberately preserves two strict numerical-comparison failures alongside complete class agreement; successful verification confirms that record, not the disappearance of GPU differences. With NumPy/scikit-learn installed, `python tools/review_packet_study.py --independent` adds separate metric arithmetic.
+
+The [client CI history](https://github.com/buffbeefalo/netmambaplus-client/actions/workflows/ci.yml) records platform-specific checks for each published revision. [RESULTS.md](RESULTS.md) separates saved experiments from software verification and lists the remaining limitations.

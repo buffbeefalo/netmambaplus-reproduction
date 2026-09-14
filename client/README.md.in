@@ -1,0 +1,45 @@
+# NetMamba+ client edition
+
+Runnable network-traffic classification experiments, measured on NVIDIA GB10. This edition contains the model harness, two-CSV integration, tests and saved evidence. Start with [setup and use](SETUP.md) or [results and limitations](RESULTS.md).
+
+| Route | Input | Output | Recorded result |
+|---|---|---|---|
+| Original NetMamba+ flow model | Prepared CICIoT2022 flows: packet bytes, sizes and arrival intervals | Six class logits, scores and class names | Three 120-epoch runs: **86.65% mean test accuracy** |
+| Packet adaptation | CICIDS2017 and UNSW exports with 1,500 payload bytes per row | Benign/attack logits, scores and class | Joint pretrained model: **97.56% / 94.29% group-weighted balanced accuracy** on the two held-out source sets |
+
+These are different experiments and metrics. The paper's **97.50% flow accuracy was not reproduced**. The packet CSVs do not establish the connection identity and ordering needed to reconstruct the original model's flows. The packet route therefore uses an explicit adaptation of the native encoder.
+
+## Quick verification
+
+Install Git and Python 3.10 or 3.12. Use `python3` where that is your interpreter's name.
+
+```text
+git clone https://github.com/buffbeefalo/netmambaplus-client.git
+cd netmambaplus-client
+python -m unittest discover -s tests -v
+python tools/verify_client.py
+python tools/review_calibration.py --check
+python tools/review_packet_study.py
+```
+
+These checks need no GPU, ML packages or private data. They validate software contracts and recompute saved evidence; they do not rerun training. Optional numerical/native tests report skips when their dependencies are absent. A source ZIP is sufficient for these offline checks.
+
+## Run a demonstration
+
+```text
+python tools/render_replay.py --predictions docs/customer/evidence/seed0/replay/predictions.json --output runs/demo-new
+```
+
+Open `runs/demo-new/index.html`. It displays the 1,041 recorded seed-0 flow predictions, including 91 errors. It works offline and does not capture traffic, run new inference or block packets. [SETUP.md](SETUP.md) covers actual GPU training and unlabeled inference for both routes.
+
+## Delivery and updates
+
+The [full research and learning repository](https://github.com/buffbeefalo/netmambaplus-reproduction) is the development source. This public client edition receives checked exports from its `main` branch. Shared model code, configurations and scientific evidence retain their original bytes. [CLIENT_MANIFEST.json](CLIENT_MANIFEST.json) identifies the source revision and every delivered file.
+
+Send code changes to the source repository; client issues can be filed here. Client files are managed by the exporter: manual divergence stops an update for review. Videos, slide decks, presenter scripts, course assets and long repository walkthroughs remain in the full edition. Executable training, prediction and verification programs remain here.
+
+## Operational scope
+
+Actual native training and inference were measured on Linux ARM64 / NVIDIA GB10. Portable checks run separately on Linux, Windows and macOS. Other physical GPUs need their own build and numerical/model checks. CPU neural inference, live IDS integration, NPU/SmartNIC execution and production readiness are not established.
+
+Raw CSVs, upstream source and model weights are acquired separately; they are not bundled. Asset hashes establish identity, not redistribution or commercial rights. See [NOTICE.md](NOTICE.md) before redistributing inherited assets.

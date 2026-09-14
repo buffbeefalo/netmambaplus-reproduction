@@ -1,0 +1,121 @@
+name: Publish client edition
+on:
+  workflow_run:
+    workflows: ['CPU verification']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: netmambaplus-client-publication
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: >-
+      github.repository == 'buffbeefalo/netmambaplus-reproduction' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event.workflow_run.event == 'push' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      source_sha: ${{ steps.gate.outputs.source_sha }}
+      changed: ${{ steps.package.outputs.changed }}
+      client_head: ${{ steps.package.outputs.client_head }}
+      archive_sha: ${{ steps.package.outputs.archive_sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          path: source
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python source/tools/client_sync_gate.py --output "$GITHUB_OUTPUT"
+      - name: Select the exact verified source
+        if: steps.gate.outputs.eligible == 'true'
+        env:
+          SOURCE_SHA: ${{ steps.gate.outputs.source_sha }}
+        run: git -C source checkout --detach "$SOURCE_SHA"
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        if: steps.gate.outputs.eligible == 'true'
+        with:
+          repository: buffbeefalo/netmambaplus-client
+          ref: main
+          persist-credentials: false
+          path: client
+      - name: Check drift and stage the export without a write key
+        if: steps.gate.outputs.eligible == 'true'
+        env:
+          SOURCE_SHA: ${{ steps.gate.outputs.source_sha }}
+        run: python source/tools/sync_client.py --revision "$SOURCE_SHA" --destination client
+      - name: Verify the staged client
+        if: steps.gate.outputs.eligible == 'true'
+        working-directory: client
+        run: |
+          python -m unittest discover -s tests -v
+          python tools/verify_client.py
+          python tools/review_calibration.py --check
+          python tools/review_packet_study.py
+      - name: Package only the checked managed files
+        id: package
+        if: steps.gate.outputs.eligible == 'true'
+        run: python source/tools/publish_client.py pack --client client --archive client-delivery.tar.gz --output "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: steps.package.outputs.changed == 'true'
+        with:
+          name: client-delivery
+          path: client-delivery.tar.gz
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: prepare
+    if: needs.prepare.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ needs.prepare.outputs.source_sha }}
+          persist-credentials: false
+          path: source
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/client_sync_gate.py
+            /tools/publish_client.py
+      - name: Recheck source eligibility before obtaining the write key
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python source/tools/client_sync_gate.py --output "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        if: steps.gate.outputs.eligible == 'true' && steps.gate.outputs.source_sha == needs.prepare.outputs.source_sha
+        with:
+          name: client-delivery
+          path: delivery
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        if: steps.gate.outputs.eligible == 'true' && steps.gate.outputs.source_sha == needs.prepare.outputs.source_sha
+        with:
+          repository: buffbeefalo/netmambaplus-client
+          ref: main
+          path: client
+          ssh-key: ${{ secrets.CLIENT_REPO_DEPLOY_KEY }}
+          ssh-strict: true
+      - name: Publish the verified archive with an ordinary fast-forward push
+        if: steps.gate.outputs.eligible == 'true' && steps.gate.outputs.source_sha == needs.prepare.outputs.source_sha
+        env:
+          SOURCE_SHA: ${{ needs.prepare.outputs.source_sha }}
+          CLIENT_HEAD: ${{ needs.prepare.outputs.client_head }}
+          ARCHIVE_SHA: ${{ needs.prepare.outputs.archive_sha }}
+        run: >-
+          python source/tools/publish_client.py publish --client client
+          --archive delivery/client-delivery.tar.gz --archive-sha "$ARCHIVE_SHA"
+          --client-head "$CLIENT_HEAD" --source-sha "$SOURCE_SHA"

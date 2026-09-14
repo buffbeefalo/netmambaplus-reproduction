@@ -1,5 +1,7 @@
 # Understand and defend a NetMamba+ experiment
 
+For a concise runnable handoff, use the [client edition](https://github.com/buffbeefalo/netmambaplus-client). The client receives byte-preserving exports from this repository after source verification. Its compact setup/results replace the teaching material for that audience; the model and scientific evidence remain shared. Development belongs here, and unexpected client edits stop synchronization for review. The [delivery record](research/client-edition.md) explains maintenance and verification. This packaging addition does not change the model or create a new training result.
+
 The [README](../README.md) contains commands, acquisition links and the current evidence record. This lesson explains the original six-class flow model and harness. The later [packet study](customer/packet-model-study.md) and [eight-slide script](customer/packet-addendum/packet-addendum-script.md) teach the separate two-CSV adaptation. Its code and presentation checks are covered by the [current acceptance map](customer/acceptance.md). This content review does not claim a newly generated video.
 
 New to networking or machine learning? Start with the [slide-aligned field guide](customer/demo/guide.html), [simple setup and tests](customer/quickstart.md) and [paper/data/source comparison](customer/upstream-comparison.md). The field guide and presenter script are generated from the same slide source; the package verifier checks their alignment. This lesson remains the more detailed explanation of the native loader and harness.

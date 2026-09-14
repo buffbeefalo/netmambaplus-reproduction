@@ -1,0 +1,442 @@
+{
+  "runId": "014bd2af-67d8-4b25-a4cf-6c0b54d92ee7",
+  "state": "ESCALATED",
+  "stamp": "UNRATIFIED",
+  "mutual": false,
+  "decisionHash": null,
+  "decision": null,
+  "category": "architecture",
+  "axis": "confirmed_success",
+  "tier": "lite",
+  "caller": "codex",
+  "mode": "architect",
+  "schemaVersion": 2,
+  "cwd": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection",
+  "intakeHash": "5500124536bdeae721c74fee565eb3cacea81d288a291faaa50d38e09d40fd46",
+  "blockers": [
+    "The runnable-closure portion of client/manifest.json (retained commands, transitive local imports, dependency pins, portable test subset) cannot be frozen: configs/assets.json, tools/fetch_assets.py, requirements/gb10.txt and tests/test_portability.py are excluded from the pack, and the import scan is explicitly incomplete, so absence of further dependencies is unproven. The architecture is settled; the inventory is not. [anchor: Evidence pack: 'REQUEST EXCLUDED: file requirements/gb10.txt' and 'REQUEST EXCLUDED: file tests/test_portability.py'; 'REQUEST FULFILLED: grep import build_' note marking 19 files incompletely scanned (tools/build_cuda.py:14 shows a real cross-file dependency); omitted source-byte ranges in the excerpt headers.]",
+    "The presentation-free client verifier's named check list (tools/verify_client.py) cannot be enumerated: the source verifier's visible functions verify_teaching_material() and verify_audit() require pptx/pdf/talk-track/guide artifacts and its scientific verify() is truncated, while tools/review_packet_study.py — the likely basis for the retained numerical/checkpoint/aggregate checks — was excluded on size budget. The verification contract cannot freeze until these bytes land. [anchor: Evidence pack: 'REQUEST EXCLUDED: file tools/review_packet_study.py'; both seats' cited tools/verify_package.py functions (verify_teaching_material(), verify_audit(), truncated verify()) in the omitted-byte region of evidence-source-3d609c71 grounding excerpt.]",
+    "The exact runnable manifest and client test suite remain unsupported. Asset acquisition, dependency pins and test dependencies need inspection before claiming complete training/inference support. The incomplete import scan cannot establish closure; it already confirms that retaining tools/build_cuda.py requires tools/build_gb10.py. [anchor: REQUEST EXCLUDED: requirements/gb10.txt and tests/test_portability.py; REQUEST FULFILLED: grep import build_, including tools/build_cuda.py:14 and the explicit incomplete-scan warning.]",
+    "The scientific acceptance contract remains unresolved. Naming checkpoint-identity and prediction/aggregate checks does not specify executable validation of the retained flow and packet results. Inspect the reviewers and result/index records, then enumerate the presentation-free checks and required evidence files. The 155-file count alone does not establish that inventory. [anchor: Other-position §7 and FREEZE GATE explicitly defer the check list; REQUEST EXCLUDED: tools/review_packet_study.py; runs/client-edition/scout.txt evidence-subtree inventory.]"
+  ],
+  "modelsUsed": {
+    "claude": "claude-fable-5",
+    "codex": "gpt-6-astra"
+  },
+  "budget": {
+    "spent": 10,
+    "limit": 14
+  },
+  "verdicts": null,
+  "arbitration": null,
+  "positions": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "6d2df625d33d7dbb40cf5ad0954b0cae327b2c6eae386c54aee32e1f1b678451",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "data": {
+        "recommendation": "Create buffbeefalo/netmambaplus-client as a fresh-root public repo populated by a source-triggered, checked, fail-closed export (candidate A), publishing via an isolated job holding a deploy key scoped to the client repo only. Alternative B (destination scheduled pull with GITHub_TOKEN) is rejected: it adds a second control plane in the destination, its selection logic lags source layout changes, GITHUB_TOKEN pushes do not trigger the client's own CI (breaking the drift-verification loop), and it adds freshness lag. Alternative C (filtered-history mirror) is rejected: auditing/filtering historical trees around the ~510 MB docs/customer media subtree is brittle and risks leaking presentation text from old commits; a fresh snapshot history excludes presentation media by construction.\n\nBounded contract (~6 new source-side files, zero rewrites of existing runtime code; adopting codex's paths): client/manifest.json, client/README.md (template), tools/export_client.py, tools/verify_client.py, tests/test_client_export.py, .github/workflows/client-sync.yml.\n\n1) FAIL-CLOSED SELECTION (revised per codex). client/manifest.json enumerates explicit source-to-destination per-file mappings with no wildcards anywhere — including the frozen evidence set: each docs/customer/evidence file is individually listed with its expected sha256 (a locked inventory generated once from the current 155-file/29,266,450-byte subtree in scout.txt, then human-reviewed and frozen). Newly added or changed files — even .json/.txt/.gz under evidence — remain excluded until explicitly reviewed into the manifest. Hard-fail conditions: missing allowlisted entry; evidence-file hash mismatch against the locked inventory; any retained scientific index (artifact-index.json, packet-study pins) referencing a file not in the export; deny-set match (.mp4, .webm, .pptx, .pdf, .srt, .vtt, talk-track*, presentation*, narrate*, *video*, *course*) even for allowlisted paths; symlinks, submodules, unsafe/traversal paths, destination collisions.\n\n2) EXPORT + EXACT BYTES + PROVENANCE. Export reads immutable Git blobs at the exact verified source-main SHA (never the working tree), preserving executable modes and raw bytes (subject to .gitattributes verification below; pin -text on exported paths if needed). Deterministic PROVENANCE.json records source repo URL, source commit, manifest sha256, exporter/policy identity, and per-file path/mode/size/sha256, plus UTC timestamp. Frozen code_sha256 pins in configs/packet-study.json (e.g. packet_data.py, tools/train_packet_model.py) are re-verified before publish and never rewritten to unblock sync; a future runtime change requires new measured evidence or an explicit historical binding. For source changes touching only excluded paths, the exporter compares payload+policy against the previous publication and no-ops without generating new provenance, retaining the prior client tip (resolves the negative-test/provenance-field conflict codex identified).\n\n3) HISTORY. Client history starts at a new root commit containing only the reviewed export; each update is one ordinary snapshot commit on client main citing the source SHA. No source ancestry, branches, or tags are ever pushed.\n\n4) TRIGGER + VERIFIED SOURCE MAIN (revised per codex). Sync runs on workflow_run: successful completion of the source CPU-verification workflow, restricted to canonical repository buffbeefalo/netmambaplus-reproduction and refs/heads/main; the run's exact tested SHA is confirmed against remote source main immediately before publication; PR-origin runs, stale candidates, and source-history regression/discontinuity are rejected. A manual recovery dispatch enforces identical checks. Publications are serialized (concurrency group); the destination tip is rechecked at push time and the run stops on races.\n\n5) DRIFT PROTECTION + NON-FORCE (revised per codex). Before each update, the workflow independently regenerates the expected previous client tree from its recorded source revision and exporter/policy version, and compares the complete destination tree — paths, modes, bytes, including extra files — rejecting any unexplained destination edit or invalid provenance. Approved deletions flow through the same comparison. Publish is fast-forward git push only; client branch protection forbids force pushes. Client CI additionally re-verifies PROVENANCE.json per-file hashes on a weekly schedule.\n\n6) SECRET/PR BOUNDARY. Export and testing run credential-free. Only an isolated final publisher job receives the client deploy key; it consumes the verified payload and never executes exported application/test code. SSH host keys and action revisions are pinned; all PR jobs are read-only (source ci.yml already declares contents: read); GitHub withholds secrets from fork PRs.\n\n7) CLIENT CI + VERIFIER. Client CI runs the dependency-complete CPU test subset and tools/verify_client.py — a presentation-free verifier with named checks: locked evidence-inventory hashes, checkpoint-identity, prediction/aggregate result checks against retained records — verified against the exported checkout independently of the source tree. The exact check list freezes only after the truncated verify() tail / review tooling evidence lands (remaining blocker). The teaching verify_package.py is not exported: its visible verify_teaching_material()/verify_audit() require pptx/pdf/talk-track/guide artifacts.\n\n8) README. Concise prose (prerequisites, verified asset acquisition via tools/fetch_assets.py + configs/assets.json, train/predict/evaluate commands, evidence-backed results table, limitations verbatim from configs/packet-study.json), exported from a source-side template so both repos update from one development location; clearly distinguish six-class flow results from the binary packet study, and CPU checks from GPU execution (fresh GB10 measured; other hardware unverified).\n\n9) ACCEPTANCE + REAL UPDATE TEST. tests/test_client_export.py exercises the actual implementation against temporary bare repos: deterministic output and source-blob equality; missing-dependency rejection; untracked/presentation exclusion; unsafe-path rejection; updates and approved deletions; unchanged-input no-op; injected destination drift rejected; stale/unverified/PR-source rejection; concurrent destination change stops publication. Then a live end-to-end test: merge one allowlisted documentation change through source main; after source CI succeeds, verify the client gained exactly one non-force commit whose PROVENANCE.json cites the new SHA, changed bytes are sha256-identical, frozen evidence unchanged, client CI green; verify the negative case (denied-only change → retained prior publication, no new provenance); inspect every destination-history tree for forbidden files; exercise the retained train/predict commands from a clean client checkout with assets on appropriate hardware. Record both workflow-run and commit IDs.\n\nFREEZE GATE. The manifest, the runnable closure (fetch/requirements/tests subset), and the verifier check list freeze only after the requested evidence lands; until then those three items are open blockers, not architecture questions. Repo/key provisioning and the live update test are performed by the authorized executor session, not this council context.",
+        "resolved_objections": [
+          "codex drift objection: adopted full-tree drift rejection — before each update the workflow regenerates the expected previous client tree from its recorded source revision + exporter/policy version and compares the complete destination tree (paths, modes, extra files), rejecting unexplained edits; approved deletions go through the same comparison; destination tip rechecked at push time with stop-on-race (contract §5).",
+          "codex stale-run objection: adopted — trigger is workflow_run on successful source CPU-verification for canonical repo + main ref; export reads immutable Git blobs at the exact tested SHA; remote source main is re-confirmed immediately before publication; source-history regression/discontinuity and PR-origin runs rejected; manual recovery path enforces identical checks (contract §4). This supersedes my earlier push-trigger + concurrency-group design.",
+          "codex fail-closed objection: adopted — the evidence-subtree extension wildcard is replaced by a locked per-file inventory (each of the 155 evidence files individually listed with expected sha256, frozen after review); newly encountered files stay excluded until explicitly reviewed in; export fails when retained scientific indexes reference omitted files; symlinks, submodules, unsafe paths, and collisions rejected (contract §1). My deny-set backstop is retained as a complementary hard-fail.",
+          "codex provenance/no-op note: adopted — for excluded-only source changes the exporter compares payload+policy and no-ops without new provenance, retaining the prior publication, so the negative acceptance test no longer conflicts with changing source-SHA/timestamp fields (contract §2, §9).",
+          "codex frozen-pin note: adopted — configs/packet-study.json code_sha256 pins are never rewritten to unblock sync; runtime changes require new measured evidence or explicit historical binding (contract §2).",
+          "codex publisher-isolation and role-boundary notes: adopted — deploy key confined to an isolated final publisher that never executes exported code; repo/key provisioning and the live update test belong to the authorized executor, outside this council context (contract §6, freeze gate).",
+          "Naming: adopted codex's file paths (client/manifest.json, tools/export_client.py, tools/verify_client.py, tests/test_client_export.py, .github/workflows/client-sync.yml) — nonblocking, recorded as adopted.",
+          "codex's 'SOURCE_HEAD not proven verified remote main' publication blocker is resolved by design rather than evidence: the agreed workflow_run gating + pre-publish remote-main confirmation makes it an enforced runtime precondition (contract §4), not a design-time unknown.",
+          "codex's viability defenses of alternative B and non-force filtered mirroring are accepted as accurate characterizations; the ranking (A recommended, B viable-but-inferior, C rejected) is unchanged and now shared by both seats."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "The runnable-closure portion of client/manifest.json cannot be frozen: the files defining data/asset acquisition, dependency pins, and the portable test subset (configs/assets.json, tools/fetch_assets.py, requirements/gb10.txt, tests/test_portability.py) were excluded from the pack on size budget, and 15,776 grounding bytes plus 10,252 revision bytes are omitted. The exact retained commands, transitive local imports, and test list must be confirmed before the manifest freezes; the architecture is settled, the inventory is not.",
+            "anchor": "Evidence pack: 'REQUEST EXCLUDED' entries for requirements/gb10.txt, tools/review_packet_study.py, tests/test_portability.py; omitted source-byte ranges in all three excerpt headers"
+          },
+          {
+            "claim": "Exact-byte retention is unverified against checkout-time transforms: .gitattributes is tracked (scout.txt TRACKED root) but its contents are unavailable, so neither seat can yet assert no EOL/text normalization applies to exported code or evidence paths. The contract's raw-blob copy plus client-side sha256 re-verification mitigates, but the file must be inspected (and -text pinned if needed) before first publish.",
+            "anchor": "runs/client-edition/scout.txt TRACKED root (.gitattributes) plus prior REQUEST EXCLUDED for .gitattributes"
+          },
+          {
+            "claim": "The client verifier's named check list (tools/verify_client.py §7) cannot be enumerated yet: the visible source verifier requires pptx/pdf/talk-track/guide artifacts (verify_teaching_material, verify_audit) and its scientific verify() is truncated mid-function, so the presentation-free subset (artifact-index hashes, checkpoint-identity, prediction/aggregate checks) needs the remaining verifier bytes or tools/review_packet_study.py before the verification contract freezes.",
+            "anchor": "Evidence-source bytes [27135,38494) per codex cross-review anchor (verify_teaching_material(), verify_audit(), truncated verify()); REQUEST EXCLUDED: tools/review_packet_study.py"
+          }
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": ".gitattributes",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/fetch_assets.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "configs/assets.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "requirements/gb10.txt",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tests/test_portability.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_packet_study.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "README.md",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/results.json",
+            "pattern": null,
+            "limit": 30
+          }
+        ]
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 7151,
+        "cacheReadTokens": 879,
+        "cacheCreationTokens": 17768,
+        "totalTokens": null
+      },
+      "costUsd": 0.7138090000000001
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.154.0",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "d45764f7152fd9e70fbe2eef29ac3d6bdc389b822a0b773702e7a6f071a97408",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "sessionId": "01a09f00-c832-74d3-9e98-81f0d309b755",
+      "data": {
+        "recommendation": "Converge on source-triggered checked export with a dedicated client-only deploy key. Destination scheduled pull with GITHUB_TOKEN remains viable if it verifies source main and tests before pushing; token event suppression does not invalidate that design. It removes the persistent write key but adds scheduler maintenance and workflow-update handling. Filtered history need not require recurring force pushes, but requires substantially more historical-content auditing than a fresh-root export. Two evidence blockers below still prevent freezing the exact runnable inventory and scientific checks.\n\nBounded source changes: add or update client/manifest.json, client/README.md, client/ci.yml, client/.gitattributes, tools/export_client.py, tools/verify_client.py, tests/test_client_export.py, and .github/workflows/client-sync.yml. Keep existing runtime code and frozen scientific records unchanged. Map the client templates to README.md, .github/workflows/ci.yml and .gitattributes. Inspect existing paths before implementation: the supplied grep already references tests/test_client_export.py.\n\nThe manifest must enumerate individual reviewed paths and destination mappings, including runtime dependencies, selected tests and scientific records. No evidence-directory wildcard or extension-based automatic admission. Missing entries, unsafe paths, collisions, symlinks, submodules and forbidden presentation/media paths fail. Unlisted files stay excluded. Retaining tools/build_cuda.py requires tools/build_gb10.py, as the visible import establishes; the remaining closure requires inspection.\n\nRead immutable Git blobs at the verified source SHA, preserve bytes and executable modes, and generate deterministic PROVENANCE.json containing source identity, manifest/exporter identities and payload hashes, sizes and modes. The client attribute template must disable checkout conversions; exclude competing nested attribute files and verify clean-checkout byte equality. Preserve frozen indexes and measurement pins. Publication must fail on unexplained pin mismatches; changed runtime code needs an explicitly reviewed historical measurement binding or new evidence, never silently rewritten pins. Compare payload and effective policy before generating new provenance: an excluded-only change leaves the existing client commit and provenance unchanged.\n\nTrigger on successful completion of the identified source CPU-verification workflow. Validate canonical repository, push-to-main origin, exact tested SHA and successful verification; reject PR-origin, stale and unverified candidates. Require source ancestry continuity and recheck remote main immediately before publication. Manual recovery uses the same gate. Export, reconstruct the previous publication and test without the destination credential. Only an isolated final publisher receives the deploy key; it consumes the verified payload without executing exported application or test code. Restrict the remote and branch, pin action revisions and SSH host keys, and keep PR jobs read-only.\n\nCreate a fresh client root without source ancestry or tags. Before updates, independently regenerate the previous expected export using its validated source revision and recorded policy, then compare the complete destination tree, including extra paths and modes. Reject drift or incompatible policy reconstruction. Serialize publication, recheck the destination tip, and push one ordinary fast-forward commit; stop on races and never force-push. Repository provisioning must verify the client's actual settings and key scope.\n\nAcceptance: run the actual exporter/publication implementation against temporary bare repositories, covering deterministic output, source-byte equality, checkout transforms, exclusions, missing dependencies, unsafe paths, updates, deletions, no-ops, destination drift, stale/unverified/PR candidates and publication races. Test the exported tree independently of the source checkout. Its CI must run the dependency-complete selected CPU tests and the agreed scientific verifier; provenance hashes alone do not validate measured results. Keep setup, executable commands, results and limitations concise, distinguishing six-class flow results from the binary packet study and CPU checks from measured GPU execution.\n\nThe authorized calling session or trusted automation performs provisioning and the real update test: after initial publication, merge a useful client-README change through source main, allow successful source CI to trigger publication automatically, and record source/client commits, workflow runs, exact changed-file bytes, unchanged frozen evidence and passing client CI. Audit destination-history trees for forbidden content. These external actions are outside the read-only council and broker participant roles.",
+        "resolved_objections": [
+          "Adopted prepublication reconstruction and complete-tree comparison; fast-forward pushes and destination checksum CI alone are insufficient drift protection.",
+          "Adopted verified canonical-main workflow gating, immutable Git input, source-history continuity and final freshness checks.",
+          "Replaced automatic evidence-subtree inclusion with an explicit reviewed inventory and retained the presentation/media deny-set backstop.",
+          "Resolved checkout-transform concerns through a client-specific attribute template, raw-blob construction and clean-checkout hash verification; copying unseen source attributes is unnecessary.",
+          "Adopted isolated destination-credential use and distinguished authorized caller/automation actions from read-only council roles.",
+          "Resolved the provenance/no-op conflict: exclude volatile timestamps and retain the previous publication when payload and effective policy are unchanged.",
+          "Treat current remote-main status and repository settings as enforced provisioning/publication preconditions, not architectural blockers.",
+          "Scheduled pull remains a valid alternative, and filtered history does not inherently require force pushes. These corrections do not change the preferred architecture."
+        ],
+        "remaining_blockers": [
+          {
+            "claim": "The exact runnable manifest and selected test suite remain unsupported by the visible evidence. Asset configuration, fetching, requirements and portability-test dependencies must be inspected before claiming complete setup, training and inference support. The truncated import scan cannot establish absence of additional dependencies.",
+            "anchor": "REQUEST EXCLUDED: requirements/gb10.txt and tests/test_portability.py; REQUEST FULFILLED: grep import build_ (explicitly incomplete, including tools/build_cuda.py:14); current evidence excerpt omits source bytes [7162,17414)."
+          },
+          {
+            "claim": "The exact presentation-free scientific verification commands and retained record closure remain unresolved. Inspect the scientific reviewers and result/index records to identify the required numerical, checkpoint, aggregation and protocol checks. Distribution hashes cannot replace these checks, and teaching-dependent package verification cannot be reused unchanged.",
+            "anchor": "REQUEST EXCLUDED: tools/review_packet_study.py; supplied positions and cross-reviews cite tools/verify_package.py functions verify_teaching_material(), verify_audit(), and the truncated verify()."
+          }
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "requirements/gb10.txt",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_packet_study.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "configs/assets.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "tools/fetch_assets.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "tests/test_portability.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_experiments.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/results.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "glob",
+            "path": ".",
+            "pattern": "**/artifact-index.json",
+            "limit": 10
+          }
+        ]
+      }
+    }
+  },
+  "reviews": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "ec35d2b2c2e26ec086b41e783efa5d496305df38626e2dc0cb43ed176d006c94",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "data": {
+        "blocking_objections": [
+          {
+            "claim": "The runnable-closure portion of client/manifest.json (retained commands, transitive local imports, dependency pins, portable test subset) cannot be frozen: configs/assets.json, tools/fetch_assets.py, requirements/gb10.txt and tests/test_portability.py are excluded from the pack, and the import scan is explicitly incomplete, so absence of further dependencies is unproven. The architecture is settled; the inventory is not.",
+            "anchor": "Evidence pack: 'REQUEST EXCLUDED: file requirements/gb10.txt' and 'REQUEST EXCLUDED: file tests/test_portability.py'; 'REQUEST FULFILLED: grep import build_' note marking 19 files incompletely scanned (tools/build_cuda.py:14 shows a real cross-file dependency); omitted source-byte ranges in the excerpt headers."
+          },
+          {
+            "claim": "The presentation-free client verifier's named check list (tools/verify_client.py) cannot be enumerated: the source verifier's visible functions verify_teaching_material() and verify_audit() require pptx/pdf/talk-track/guide artifacts and its scientific verify() is truncated, while tools/review_packet_study.py — the likely basis for the retained numerical/checkpoint/aggregate checks — was excluded on size budget. The verification contract cannot freeze until these bytes land.",
+            "anchor": "Evidence pack: 'REQUEST EXCLUDED: file tools/review_packet_study.py'; both seats' cited tools/verify_package.py functions (verify_teaching_material(), verify_audit(), truncated verify()) in the omitted-byte region of evidence-source-3d609c71 grounding excerpt."
+          }
+        ],
+        "nonblocking_notes": [
+          "Adopted codex's resolution of my exact-byte/.gitattributes blocker: a client-specific attribute template disabling checkout conversions, raw-blob export construction, exclusion of competing nested attribute files, and clean-checkout byte-equality verification make inspecting the source .gitattributes unnecessary as a gate; I withdraw that blocker. Inspecting the source file remains a nice-to-have sanity check only.",
+          "Adopted codex's file set and naming: client/manifest.json, client/README.md, client/ci.yml, client/.gitattributes, tools/export_client.py, tools/verify_client.py, tests/test_client_export.py, .github/workflows/client-sync.yml (adds client/ci.yml and client/.gitattributes templates to my earlier six-file list).",
+          "Shared ranking confirmed: A recommended; B (destination scheduled pull with GITHUB_TOKEN) viable-but-inferior per codex's accurate characterization (verifies source main before push, avoids persistent write key, but adds scheduler maintenance and freshness lag); C (filtered-history mirror) rejected — codex is correct it need not force-push, but historical-content auditing of the ~510 MB docs/customer subtree remains the disqualifier.",
+          "Deny-set backstop (.mp4, .webm, .pptx, .pdf, .srt, .vtt, presentation/narration/video/course patterns) retained as a complementary hard-fail on top of the explicit allowlist; both seats agree unlisted files stay excluded (fail-closed).",
+          "Provenance no-op semantics agreed: excluded-only source changes compare payload + effective policy and retain the prior client commit and provenance unchanged; volatile timestamps excluded from the determinism comparison.",
+          "Frozen configs/packet-study.json code_sha256 pins are never silently rewritten; runtime changes require new measured evidence or an explicitly reviewed historical binding — agreed by both seats.",
+          "The existing grep hit for tests/test_client_export.py (lines 95, 104) suggests a prior or in-progress file at that path in the source repo; implementation should inspect it before writing, as codex notes — nonblocking, handled at implementation time.",
+          "Repo/key provisioning, actual client repository settings verification, and the live update test belong to the authorized executor session, not this council context — agreed; correctly excluded from blockers per role constraints."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "requirements/gb10.txt",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_packet_study.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "configs/assets.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/fetch_assets.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tests/test_portability.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_experiments.py",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/results.json",
+            "pattern": null,
+            "limit": 30
+          },
+          {
+            "kind": "glob",
+            "path": ".",
+            "pattern": "**/artifact-index.json",
+            "limit": 10
+          }
+        ],
+        "convergence_summary": "Both seats now accept the identical architecture: a fresh-root public buffbeefalo/netmambaplus-client populated by a source-triggered, fail-closed, checked export (candidate A) — explicit per-file manifest with a locked 155-file evidence inventory and deny-set backstop; export from immutable Git blobs at the workflow_run-verified canonical source-main SHA with deterministic PROVENANCE.json and no-op semantics for excluded-only changes; full previous-tree reconstruction for drift rejection; serialized fast-forward-only publication via an isolated deploy-key publisher that never executes exported code; client CI with a presentation-free verifier; and a real automated update test with a negative case. B is jointly ranked viable-but-inferior and C rejected. I withdraw my .gitattributes blocker, resolved by codex's client attribute template + raw-blob + clean-checkout verification design. Exactly two evidence blockers remain, held by both seats: (1) freezing the runnable-closure manifest requires the excluded assets/fetch/requirements/portability files, and (2) freezing the verifier check list requires tools/review_packet_study.py and the truncated verify() tail. Evidence requests are aligned with codex's set; once fulfilled, the contract can freeze and proceed to the orchestrator's canonical-draft/hash/ratification steps."
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 3487,
+        "cacheReadTokens": 877,
+        "cacheCreationTokens": 18049,
+        "totalTokens": null
+      },
+      "costUsd": 0.536227
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.154.0",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "f171c89d242d384aec27570347204a6879000608ebfc621eae29132c5657efcf",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "sessionId": "01a09f06-0011-73f3-ae9c-7c00acb54d80",
+      "data": {
+        "blocking_objections": [
+          {
+            "claim": "The exact runnable manifest and client test suite remain unsupported. Asset acquisition, dependency pins and test dependencies need inspection before claiming complete training/inference support. The incomplete import scan cannot establish closure; it already confirms that retaining tools/build_cuda.py requires tools/build_gb10.py.",
+            "anchor": "REQUEST EXCLUDED: requirements/gb10.txt and tests/test_portability.py; REQUEST FULFILLED: grep import build_, including tools/build_cuda.py:14 and the explicit incomplete-scan warning."
+          },
+          {
+            "claim": "The scientific acceptance contract remains unresolved. Naming checkpoint-identity and prediction/aggregate checks does not specify executable validation of the retained flow and packet results. Inspect the reviewers and result/index records, then enumerate the presentation-free checks and required evidence files. The 155-file count alone does not establish that inventory.",
+            "anchor": "Other-position §7 and FREEZE GATE explicitly defer the check list; REQUEST EXCLUDED: tools/review_packet_study.py; runs/client-edition/scout.txt evidence-subtree inventory."
+          }
+        ],
+        "nonblocking_notes": [
+          "Source-triggered export remains preferred. Destination scheduled pull with GITHUB_TOKEN is viable when it performs verification within the synchronization workflow; suppressed follow-on CI events do not inherently break drift protection. Use the corrected comparison already acknowledged in resolved_objections. Filtered history can also avoid force pushes, but requires broader historical-content auditing.",
+          "Unseen source .gitattributes need not block the design: use client-owned attributes disabling checkout conversions, exclude conflicting nested attributes, and verify fresh-checkout byte equality. Include the client attributes and CI definition explicitly in the implementation contract.",
+          "Omit the provenance timestamp or derive it from immutable source-commit metadata. A wall-clock timestamp would contradict deterministic regeneration. Preserve the agreed payload-and-policy no-op behavior.",
+          "Review evidence inventory entries individually. Distinguish required packaged-record references from intentionally external datasets and checkpoints before enforcing index closure.",
+          "The supplied grep already references tests/test_client_export.py. Inspect existing implementation paths and preserve unrelated work before describing them as new. Provisioning and live update testing belong to the authorized calling session or trusted automation; council and broker participant roles remain read-only."
+        ],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "requirements/gb10.txt",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "configs/assets.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "tools/fetch_assets.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "tests/test_portability.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_packet_study.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "tools/review_experiments.py",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/evidence/results.json",
+            "pattern": null,
+            "limit": null
+          },
+          {
+            "kind": "glob",
+            "path": ".",
+            "pattern": "**/artifact-index.json",
+            "limit": 10
+          }
+        ],
+        "convergence_summary": "The architecture converges: fresh client history, explicit exact-byte export, verified source-main gating, isolated client deploy key, reconstructed destination drift checks, ordinary fast-forward publication and a live automated update test. The remaining material blockers are the exact runnable inventory and executable scientific acceptance checks."
+      }
+    }
+  },
+  "fileDeliveryEligible": false,
+  "fileDeliveryReasons": [
+    "state ESCALATED is not CONSENSUS",
+    "result is not a mutual ratification",
+    "artifact mode unknown is not architect",
+    "claude did not ACCEPT the frozen decision hash",
+    "codex did not ACCEPT the frozen decision hash"
+  ]
+}
