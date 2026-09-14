@@ -1,0 +1,2970 @@
+{
+  "comparison": {
+    "absolute_tolerance": 1e-06,
+    "class_agreements": 128,
+    "failed_rows": [],
+    "maximum_absolute_logit_difference": 2.1457672119140625e-06,
+    "relative_tolerance": 0.0001,
+    "rows": 128,
+    "strict_logit_tolerance_passed": true
+  },
+  "historical_implementation_revision": "7eeb4980eea9fd5ad17bfacd29ed88687cb3e1e5",
+  "predictions": [
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.151824474334717,
+        -4.1302170753479
+      ],
+      "payload_sha256": "0000b88b75f3fffd861f4e3cbd55537dc59105c591d5f337119a16a16649a95e",
+      "probabilities": [
+        0.9981339089509583,
+        0.0018660910490417154
+      ],
+      "probability": 0.9981339089509583,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 0
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        -0.02763279899954796,
+        -1.789120078086853
+      ],
+      "payload_sha256": "0002d34b621085027d6bb4f39cce91ccea9cd46a91ac380e403d4860563cea4e",
+      "probabilities": [
+        0.853395833562918,
+        0.14660416643708193
+      ],
+      "probability": 0.853395833562918,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 1
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.2974014282226562,
+        3.7347986698150635
+      ],
+      "payload_sha256": "000334d80349fa8c7dde1b5c2e4766d0ddcf46150e9bebad49158b0d5a8b0dbd",
+      "probabilities": [
+        0.002394460272144092,
+        0.9976055397278559
+      ],
+      "probability": 0.9976055397278559,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 2
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.905722975730896,
+        2.5294063091278076
+      ],
+      "payload_sha256": "0003979053adc5e6e543a9279ce2e82753a66f13152f774de7cb1ec753382240",
+      "probabilities": [
+        0.011714673058682661,
+        0.9882853269413174
+      ],
+      "probability": 0.9882853269413174,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 3
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.1987481117248535,
+        2.0099081993103027
+      ],
+      "payload_sha256": "00065821ad31115370f343b5da76054b9ccfc45da94a6c0bf1b73751d8dfbf20",
+      "probabilities": [
+        0.014648560306915848,
+        0.985351439693084
+      ],
+      "probability": 0.985351439693084,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 4
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.2561091184616089,
+        -2.3251447677612305
+      ],
+      "payload_sha256": "0006f504016cf7d0ad711e333f04915160d371dbe164a60fffe7ee4e3078288e",
+      "probabilities": [
+        0.9296453235992362,
+        0.07035467640076369
+      ],
+      "probability": 0.9296453235992362,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 5
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.7110472917556763,
+        0.9318516850471497
+      ],
+      "payload_sha256": "0006fcc11f3d15d7fbdbfa6f0b48eadc8c0b47f35925f15aa29ef062f6fe6159",
+      "probabilities": [
+        0.06642802839956473,
+        0.9335719716004354
+      ],
+      "probability": 0.9335719716004354,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 6
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.246617555618286,
+        -3.6632275581359863
+      ],
+      "payload_sha256": "00089be7a6fad0d9f7692cfe7f1f895ec6d3286b5ed5641b014107851047fc46",
+      "probabilities": [
+        0.9972947313303657,
+        0.0027052686696342446
+      ],
+      "probability": 0.9972947313303657,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 7
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.5524415969848633,
+        -3.1578643321990967
+      ],
+      "payload_sha256": "0009105e6a0f9fe8ffb8c49068cfb79b1dce5bf4685c4941c8401b650008f8f4",
+      "probabilities": [
+        0.9910782902583685,
+        0.008921709741631447
+      ],
+      "probability": 0.9910782902583685,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 8
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        -0.2563319504261017,
+        -1.333053469657898
+      ],
+      "payload_sha256": "00094bbf573b7f3f5842256fa2dcf1a22afa263b6d0fcaea3e884da964119baa",
+      "probabilities": [
+        0.7458730600611636,
+        0.2541269399388364
+      ],
+      "probability": 0.7458730600611636,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 9
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.5474069118499756,
+        -4.896529197692871
+      ],
+      "payload_sha256": "0009d6cb72a7b01bcb969a0d8083c8051abff494fc3eb2e2222b44e39cb2707b",
+      "probabilities": [
+        0.9994153638772362,
+        0.000584636122763796
+      ],
+      "probability": 0.9994153638772362,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 10
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.6742115020751953,
+        -4.079731464385986
+      ],
+      "payload_sha256": "000a281512fe9ec25dd52b096fb875ac3d4a05dba907a6f7573426c0c282d003",
+      "probabilities": [
+        0.9988350866342188,
+        0.0011649133657811942
+      ],
+      "probability": 0.9988350866342188,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 11
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.1340019702911377,
+        -4.165473937988281
+      ],
+      "payload_sha256": "000cc25114e8cb187b8d32fce3686c674ed366721824f3e78770a9ee57a5a46d",
+      "probabilities": [
+        0.9981661019397662,
+        0.0018338980602337226
+      ],
+      "probability": 0.9981661019397662,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 12
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.9646981954574585,
+        1.3687551021575928
+      ],
+      "payload_sha256": "000cf961c1670e6044600cdf355ae3a0e3386acc7f0761c095d4ec11d0d10f74",
+      "probabilities": [
+        0.034441206030082015,
+        0.965558793969918
+      ],
+      "probability": 0.965558793969918,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 13
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        -0.4968646168708801,
+        -1.2490514516830444
+      ],
+      "payload_sha256": "0010c05f0ba17d66dec589a883d441b8afc80bec16a3c7b0ae706f525475d39d",
+      "probabilities": [
+        0.679655012707387,
+        0.3203449872926129
+      ],
+      "probability": 0.679655012707387,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 14
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.0856306552886963,
+        -4.197692394256592
+      ],
+      "payload_sha256": "0011a7d01c10bf9cd6a7f03a615b4dfed4d8222541976a0193a34243dd682967",
+      "probabilities": [
+        0.9981362943607467,
+        0.0018637056392533824
+      ],
+      "probability": 0.9981362943607467,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 15
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.42418500781059265,
+        -2.677490234375
+      ],
+      "payload_sha256": "0013c244da9e57385c7f8a8331609726e2542cdd7a1c5ddccdd312bac3a56b14",
+      "probabilities": [
+        0.9569617942896715,
+        0.04303820571032849
+      ],
+      "probability": 0.9569617942896715,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 16
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.34196138381958,
+        -3.9185357093811035
+      ],
+      "payload_sha256": "0013e12f1062696e89cfbd33ee2caf76e27ec632777bd3016f64946fc24dcead",
+      "probabilities": [
+        0.9980933463074173,
+        0.0019066536925827385
+      ],
+      "probability": 0.9980933463074173,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 17
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.574298143386841,
+        -4.445921897888184
+      ],
+      "payload_sha256": "001a08a69d647bcf6b688f241cc35124de8fd6b8c467ccd8ca159af8c3d8f982",
+      "probabilities": [
+        0.9991071690235214,
+        0.0008928309764786625
+      ],
+      "probability": 0.9991071690235214,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 18
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.973488450050354,
+        2.938239812850952
+      ],
+      "payload_sha256": "001bb2a6c767d2f388ec48f9cb720cb7815a04d6c9c8da81dd1f95daf953e2de",
+      "probabilities": [
+        0.0073059874397809425,
+        0.9926940125602189
+      ],
+      "probability": 0.9926940125602189,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 19
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.2454304695129395,
+        3.6514532566070557
+      ],
+      "payload_sha256": "001dd66c0d03bfb5ba70ea023aa5c261e0642e486975584f9306843ec1abcf5a",
+      "probabilities": [
+        0.0027404642125892827,
+        0.9972595357874107
+      ],
+      "probability": 0.9972595357874107,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 20
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.1159212589263916,
+        -3.6483607292175293
+      ],
+      "payload_sha256": "0020aec71cb7dfad3d652401f5a2de0113ada49804b8d4f19b0310057258ce6b",
+      "probabilities": [
+        0.9968721666151287,
+        0.00312783338487131
+      ],
+      "probability": 0.9968721666151287,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 21
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        -0.2653788924217224,
+        -1.2142245769500732
+      ],
+      "payload_sha256": "002141f76f7c392c72babe4979b945ea09aa24f3871d361331112cc5a53f6f6f",
+      "probabilities": [
+        0.7208829766163677,
+        0.2791170233836323
+      ],
+      "probability": 0.7208829766163677,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 22
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.5051673650741577,
+        1.5362087488174438
+      ],
+      "payload_sha256": "002279cdaa8ac917c2bcb9e77fc8a262796443931bd5b42143e7be559e25a3fc",
+      "probabilities": [
+        0.04559125490696185,
+        0.9544087450930381
+      ],
+      "probability": 0.9544087450930381,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 23
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.0126218795776367,
+        3.1607651710510254
+      ],
+      "payload_sha256": "0022aa4d78f098da41d5a2479fb6a16400d3e15f1e5679f6838c31e04053047e",
+      "probabilities": [
+        0.005633432116676046,
+        0.9943665678833241
+      ],
+      "probability": 0.9943665678833241,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 24
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.099274158477783,
+        1.7445926666259766
+      ],
+      "payload_sha256": "00238ba37489642129a22f32008794a1e884132a49dce8c0451807f507ccd0df",
+      "probabilities": [
+        0.020961843147265423,
+        0.9790381568527344
+      ],
+      "probability": 0.9790381568527344,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 25
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.693209171295166,
+        -4.519937992095947
+      ],
+      "payload_sha256": "00245bec96ffd0f400bf7a3861d0d93f72b97c513cd87194f6c4d4e0cd666e63",
+      "probabilities": [
+        0.9992637079615952,
+        0.0007362920384046187
+      ],
+      "probability": 0.9992637079615952,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 26
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.1058969497680664,
+        -4.006702423095703
+      ],
+      "payload_sha256": "00255969087effe1df17cd5ce941eef690b1db872696099ab7b9370b442d80b1",
+      "probabilities": [
+        0.9977901081694628,
+        0.002209891830537129
+      ],
+      "probability": 0.9977901081694628,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 27
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.6731315851211548,
+        -3.6173410415649414
+      ],
+      "payload_sha256": "002562687ff23c8032aae6a939e82175a456e51fab8e3d7d6a6fff26650b279f",
+      "probabilities": [
+        0.9949858900429052,
+        0.005014109957094723
+      ],
+      "probability": 0.9949858900429052,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 28
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.017681121826172,
+        2.8560497760772705
+      ],
+      "payload_sha256": "00287fa971bcf19abea9e93800572dbe09e8fb0ff192f27b33a301d6bf80ba3a",
+      "probabilities": [
+        0.007586790662136158,
+        0.9924132093378638
+      ],
+      "probability": 0.9924132093378638,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 29
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.169750452041626,
+        2.903966188430786
+      ],
+      "payload_sha256": "002a72ac17cd11b8820dd77d0428a43b4dc273c288dcb59b90f0736d02cf4781",
+      "probabilities": [
+        0.0062201811581266385,
+        0.9937798188418733
+      ],
+      "probability": 0.9937798188418733,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 30
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.895834445953369,
+        -4.644632816314697
+      ],
+      "payload_sha256": "002b1b36a81d6caa604bd9343c6d4ced1852734d997e6c9f8312f04edaa0cbd9",
+      "probabilities": [
+        0.9994691325921511,
+        0.0005308674078489608
+      ],
+      "probability": 0.9994691325921511,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 31
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.22206486761569977,
+        -2.0980968475341797
+      ],
+      "payload_sha256": "002be578f116befc703b87ee32c8cefa5d99494b1f18d129651cbfacecdb0963",
+      "probabilities": [
+        0.9105331152713688,
+        0.08946688472863107
+      ],
+      "probability": 0.9105331152713688,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 32
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.896885871887207,
+        -4.564411163330078
+      ],
+      "payload_sha256": "002ccbd653342b1ad11951031f504849f02ee5d02ad968b43edb5cae330bf62e",
+      "probabilities": [
+        0.9994254203224439,
+        0.0005745796775561317
+      ],
+      "probability": 0.9994254203224439,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 33
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.7635678052902222,
+        -3.6277360916137695
+      ],
+      "payload_sha256": "0030176a04fe79058cf985320fdbb18bcbc1eb0918afa4d4a7b45d28316ee866",
+      "probabilities": [
+        0.9954646343875081,
+        0.004535365612491844
+      ],
+      "probability": 0.9954646343875081,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 34
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.8651138544082642,
+        -3.3793551921844482
+      ],
+      "payload_sha256": "0030f7ac0696f514208e307e7422eca4d7b0c3506c37a36c2d09e4d81c500ff3",
+      "probabilities": [
+        0.9947510740097398,
+        0.005248925990260199
+      ],
+      "probability": 0.9947510740097398,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 35
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.244231700897217,
+        -3.5951948165893555
+      ],
+      "payload_sha256": "003133313b2b933047f08cab8ca087095b775969e26ed181dea750e8dec8da73",
+      "probabilities": [
+        0.9970979352176512,
+        0.0029020647823488266
+      ],
+      "probability": 0.9970979352176512,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 36
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.6747589707374573,
+        -2.676757574081421
+      ],
+      "payload_sha256": "0032ebed3f6b7c3de5121063f4eab5935df93162eef2fe81b4dae4728dd7dc2d",
+      "probabilities": [
+        0.9661544619564676,
+        0.033845538043532505
+      ],
+      "probability": 0.9661544619564676,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 37
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.4880640506744385,
+        -4.767388343811035
+      ],
+      "payload_sha256": "0032f07b04410d780bc793e2fcf020b14a4c3c9387223c88cc0bac66ffbf5be7",
+      "probabilities": [
+        0.9992941857506122,
+        0.0007058142493876545
+      ],
+      "probability": 0.9992941857506122,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 38
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.1752521991729736,
+        -4.217444896697998
+      ],
+      "payload_sha256": "00334e08b79225aa56406fee9707c840237e0ff1c68b4d14925b7f5edd07b170",
+      "probabilities": [
+        0.9983290608287223,
+        0.0016709391712776316
+      ],
+      "probability": 0.9983290608287223,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 39
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.8425581455230713,
+        1.3222683668136597
+      ],
+      "payload_sha256": "0035dbd9993b982f9be4a6b5799ac9ac399af26706e19fcf36448e4d7be009fe",
+      "probabilities": [
+        0.040511030962503365,
+        0.9594889690374967
+      ],
+      "probability": 0.9594889690374967,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 40
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.1381661891937256,
+        -3.2575430870056152
+      ],
+      "payload_sha256": "00383cf691d535580f5a7758a1d03c8b5e4b73e956e72a7c953d4d5970e3a77e",
+      "probabilities": [
+        0.9954844804264062,
+        0.004515519573593882
+      ],
+      "probability": 0.9954844804264062,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 41
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.733811140060425,
+        -4.877683639526367
+      ],
+      "payload_sha256": "00388525e00dda853e554041a644c538a888e95dbdd96550abbfdddd2f58b454",
+      "probabilities": [
+        0.9995055128479995,
+        0.0004944871520004723
+      ],
+      "probability": 0.9995055128479995,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 42
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.219564914703369,
+        -4.086133003234863
+      ],
+      "payload_sha256": "0038b582570759e975902dff60bdaa8758bc0abe3ee1837c6ba6c45748e61a20",
+      "probabilities": [
+        0.9981774563148719,
+        0.001822543685128004
+      ],
+      "probability": 0.9981774563148719,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 43
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.2855072021484375,
+        -3.915032386779785
+      ],
+      "payload_sha256": "00399517f4afc47eaf0af540b6fdc60e118e33b775ea108cde79e57c3ec9d9be",
+      "probabilities": [
+        0.9979757699450552,
+        0.002024230054944908
+      ],
+      "probability": 0.9979757699450552,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 44
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.3128793239593506,
+        3.692746639251709
+      ],
+      "payload_sha256": "0039c4872a26b8cba3d1882993c3260ab7623c5cf9019979d2a656c97d1eb757",
+      "probabilities": [
+        0.0024587854353609324,
+        0.997541214564639
+      ],
+      "probability": 0.997541214564639,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 45
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.9846129417419434,
+        2.8410804271698
+      ],
+      "payload_sha256": "0039f932e320e91fa4930b62951e8e01dd0acbf0ba6307744778d238519f4416",
+      "probabilities": [
+        0.007957166083395773,
+        0.9920428339166043
+      ],
+      "probability": 0.9920428339166043,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 46
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.0019547939300537,
+        2.9685873985290527
+      ],
+      "payload_sha256": "003a199e88479d87027cb279a0ac5b1c5911022c8062f0343d55c8ca7b804ce1",
+      "probabilities": [
+        0.0068915613384451626,
+        0.9931084386615548
+      ],
+      "probability": 0.9931084386615548,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 47
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.120267152786255,
+        3.349794626235962
+      ],
+      "payload_sha256": "003a9e3d79c09c6e719d9f2d1a67afbca7e29e0cffc60f6d3c16324fce93c698",
+      "probabilities": [
+        0.004193314072082512,
+        0.9958066859279175
+      ],
+      "probability": 0.9958066859279175,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 48
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.6245529651641846,
+        -4.851323127746582
+      ],
+      "payload_sha256": "003b3c0e6682344d49aebbb481473101fd092e30b98a1acd3a56734779cc3974",
+      "probabilities": [
+        0.9994337316761129,
+        0.0005662683238870853
+      ],
+      "probability": 0.9994337316761129,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 49
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.29789963364601135,
+        -2.5273571014404297
+      ],
+      "payload_sha256": "003b4df29f792a6da55dd3d23b327c61cd012f5e385b3fd4c1b9933e4fea5953",
+      "probabilities": [
+        0.9440254887172946,
+        0.055974511282705364
+      ],
+      "probability": 0.9440254887172946,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 50
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.8709492683410645,
+        -3.2388205528259277
+      ],
+      "payload_sha256": "003b7db670559633f74793950e5bfd7b6c33a24a6f19215400acdbac7f987a31",
+      "probabilities": [
+        0.9939987598600453,
+        0.00600124013995484
+      ],
+      "probability": 0.9939987598600453,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 51
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.746929407119751,
+        -3.8755316734313965
+      ],
+      "payload_sha256": "003cc3cd8c91d79f40f0e4574714157fc5aec4b8ed493dc9d5f1f9bee8c901b4",
+      "probabilities": [
+        0.996397294871271,
+        0.003602705128728849
+      ],
+      "probability": 0.996397294871271,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 52
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.9777709245681763,
+        3.0034563541412354
+      ],
+      "payload_sha256": "003f1927a78c6ddabac4ca522e83e7adc3e2fb8e6fcb5f9489235f9cc76feb64",
+      "probabilities": [
+        0.00681881586573561,
+        0.9931811841342644
+      ],
+      "probability": 0.9931811841342644,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 53
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.9142295122146606,
+        -3.4486563205718994
+      ],
+      "payload_sha256": "003f31e071d8f3e936321381edbee76bd093b6292a504cbda98c39354e352ab1",
+      "probabilities": [
+        0.9953345091988153,
+        0.004665490801184598
+      ],
+      "probability": 0.9953345091988153,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 54
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.097748041152954,
+        2.857179880142212
+      ],
+      "payload_sha256": "003f7464f86f2ea4880527e8bc2b6b640b5b52341fdb074a26040f312227f3c7",
+      "probabilities": [
+        0.00699925345830289,
+        0.9930007465416971
+      ],
+      "probability": 0.9930007465416971,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 55
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.6494650840759277,
+        -4.984152793884277
+      ],
+      "payload_sha256": "003fc3da8f10b7a2dc0287913bb641c5f14037de8001b9ae39182b035d4f135f",
+      "probabilities": [
+        0.9995163270814842,
+        0.00048367291851565854
+      ],
+      "probability": 0.9995163270814842,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 56
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.3032093048095703,
+        -4.026191711425781
+      ],
+      "payload_sha256": "0041eddf4eced00e9ebfe46f1ee1f13e891cd21cfb89d200e32fb923a4141405",
+      "probabilities": [
+        0.9982200722936183,
+        0.0017799277063816625
+      ],
+      "probability": 0.9982200722936183,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 57
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.5102359056472778,
+        -3.1046104431152344
+      ],
+      "payload_sha256": "004297948c0a40b41618d5e67b9ff1ba71836a47d4a0790c0f3ce482a1b42032",
+      "probabilities": [
+        0.9901934165034757,
+        0.0098065834965244
+      ],
+      "probability": 0.9901934165034757,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 58
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.7209315299987793,
+        -4.699243068695068
+      ],
+      "payload_sha256": "0043068f177435b2438bd45d4ce8e44933c16a41b2f887049e0caefe265f41eb",
+      "probabilities": [
+        0.9994013140955366,
+        0.0005986859044633505
+      ],
+      "probability": 0.9994013140955366,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 59
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.3830296993255615,
+        -3.5652315616607666
+      ],
+      "payload_sha256": "00433ee665ada942f1f9efc7ba899d9e80a4fc0ff3b53fa31387e50533b61757",
+      "probabilities": [
+        0.997396420982183,
+        0.0026035790178170117
+      ],
+      "probability": 0.997396420982183,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 60
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.0116074085235596,
+        -4.01386833190918
+      ],
+      "payload_sha256": "004368d6843a485928611235f8d71c77a181d8b2c754325cc87a8b17fc5a5f27",
+      "probabilities": [
+        0.9975894232080184,
+        0.002410576791981695
+      ],
+      "probability": 0.9975894232080184,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 61
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.7122983932495117,
+        -4.159578323364258
+      ],
+      "payload_sha256": "004475c70ae2698313bb918f94eec5be1e4170c56d762a0629e1f794bf2a6dbe",
+      "probabilities": [
+        0.9989645433167761,
+        0.001035456683223903
+      ],
+      "probability": 0.9989645433167761,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 62
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.6409168243408203,
+        -4.907607078552246
+      ],
+      "payload_sha256": "004492e9517e6ceeef29b08b9eb4af1f34c7b46a196c5fe6fce723d2a37d66dc",
+      "probabilities": [
+        0.9994733901738287,
+        0.0005266098261713021
+      ],
+      "probability": 0.9994733901738287,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 63
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.2056972980499268,
+        -3.804039239883423
+      ],
+      "payload_sha256": "00459fd9119fabc6a7ae603c988542b974fc5c3a6153d4ca4a3067b080a9ab77",
+      "probabilities": [
+        0.997551276142991,
+        0.0024487238570090907
+      ],
+      "probability": 0.997551276142991,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 64
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.440704584121704,
+        -4.352766513824463
+      ],
+      "payload_sha256": "0046fbcbc7bbe53075a5aad828b590833849b91743cd2e68eebb91c300dcd141",
+      "probabilities": [
+        0.9988801847254126,
+        0.0011198152745872886
+      ],
+      "probability": 0.9988801847254126,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 65
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.0621681213378906,
+        2.9745144844055176
+      ],
+      "payload_sha256": "00498e9bb8a1c37adf04cb1f5a3bfc9f3c2e96a705dd57f5a9bc60c0f2d00055",
+      "probabilities": [
+        0.006453343809716273,
+        0.9935466561902837
+      ],
+      "probability": 0.9935466561902837,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 66
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.378842830657959,
+        -4.213389873504639
+      ],
+      "payload_sha256": "004a354fd327b3855a6a7f0c93e1681e6d4081b695ce55883afa8a9ea30d72ea",
+      "probabilities": [
+        0.9986309014395671,
+        0.0013690985604328963
+      ],
+      "probability": 0.9986309014395671,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 67
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.508141279220581,
+        -3.9339137077331543
+      ],
+      "payload_sha256": "004a541552abd7b0977645d284a5d7a256018cad4ac3604d9466d71f78abd68f",
+      "probabilities": [
+        0.998409404570236,
+        0.0015905954297639434
+      ],
+      "probability": 0.998409404570236,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 68
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.274351119995117,
+        -4.221454620361328
+      ],
+      "payload_sha256": "004b4db50fb305319600d30c2c3579fe70a7a2490721a5364e6fefa3afdd2398",
+      "probabilities": [
+        0.9984925176839329,
+        0.0015074823160670546
+      ],
+      "probability": 0.9984925176839329,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 69
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.4564225673675537,
+        -2.1123156547546387
+      ],
+      "payload_sha256": "004c5bc25a48c12c3483bf540940fd116748c238deb6522b88773555df10cf6d",
+      "probabilities": [
+        0.9288223231168391,
+        0.07117767688316082
+      ],
+      "probability": 0.9288223231168391,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 70
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.3983333110809326,
+        3.9513301849365234
+      ],
+      "payload_sha256": "004db770b71f19d4e1949b2a714f8c4d8133b23ddd1b5443e3096f13ace83f04",
+      "probabilities": [
+        0.001744287168477615,
+        0.9982557128315223
+      ],
+      "probability": 0.9982557128315223,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 71
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.40891432762145996,
+        -2.585923194885254
+      ],
+      "payload_sha256": "004e1b12827060a523aa250fb44865eda251f98ad9fb0f06243cff0e7fb3512f",
+      "probabilities": [
+        0.9523403576734205,
+        0.04765964232657943
+      ],
+      "probability": 0.9523403576734205,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 72
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.741579532623291,
+        -4.151795387268066
+      ],
+      "payload_sha256": "004e95a7d94f9fb06169b4a79289231345c2791856ee9a7affc206355ee11f8c",
+      "probabilities": [
+        0.9989865438814024,
+        0.0010134561185976415
+      ],
+      "probability": 0.9989865438814024,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 73
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.9566775560379028,
+        1.3903090953826904
+      ],
+      "payload_sha256": "004f9ec7e5abce89fcab23f0390b14a5c7b36831f0e6b1dbce8d7b57f47c0d3d",
+      "probabilities": [
+        0.03399397883557361,
+        0.9660060211644265
+      ],
+      "probability": 0.9660060211644265,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 74
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.8714044094085693,
+        1.5676910877227783
+      ],
+      "payload_sha256": "004fbbba089b343c7155d57414e99c45c631ba3030e38e3790f1c5c49d591863",
+      "probabilities": [
+        0.03109572417267185,
+        0.9689042758273281
+      ],
+      "probability": 0.9689042758273281,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 75
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        3.165627956390381,
+        -4.490551471710205
+      ],
+      "payload_sha256": "00512f1882f613487535c81e5de8aaebbab50e9a079586f7927101d2493d15e5",
+      "probabilities": [
+        0.9995271122098476,
+        0.0004728877901524956
+      ],
+      "probability": 0.9995271122098476,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 76
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.4340076446533203,
+        2.3803093433380127
+      ],
+      "payload_sha256": "00518271b230be1501b0ff5d63ed41b8f307690107cbac2299c32f35f08b74a2",
+      "probabilities": [
+        0.008047474063262531,
+        0.9919525259367374
+      ],
+      "probability": 0.9919525259367374,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 77
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.0725324153900146,
+        2.880805015563965
+      ],
+      "payload_sha256": "00522948064dff1891f2d2486f419275479282ba39e7e0071216f57f4e52254c",
+      "probabilities": [
+        0.0070103164582284785,
+        0.9929896835417716
+      ],
+      "probability": 0.9929896835417716,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 78
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.3523993492126465,
+        3.727234363555908
+      ],
+      "payload_sha256": "00524d9e1c4252691578f04968114dee6e85fc97dcc3e7b74707be58677b2e65",
+      "probabilities": [
+        0.0022837873130593135,
+        0.9977162126869407
+      ],
+      "probability": 0.9977162126869407,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 79
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.5378429889678955,
+        -3.981724500656128
+      ],
+      "payload_sha256": "0053419830f50bfd9c756ebfee26e5dad8d872b1f240a0143a732b6c57215df0",
+      "probabilities": [
+        0.9985278637628088,
+        0.001472136237191328
+      ],
+      "probability": 0.9985278637628088,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 80
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.209883451461792,
+        1.8389604091644287
+      ],
+      "payload_sha256": "00543ad851f5e01078aea09b973d60136847e44496e81d1ff5e94370d80f95ce",
+      "probabilities": [
+        0.017143502934396048,
+        0.982856497065604
+      ],
+      "probability": 0.982856497065604,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 81
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.062526226043701,
+        -4.300225734710693
+      ],
+      "payload_sha256": "005661e20c666301e020bcd2de5ca247a32d6a7606b4d2968193893103e2dd5b",
+      "probabilities": [
+        0.998278355068104,
+        0.0017216449318959094
+      ],
+      "probability": 0.998278355068104,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 82
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.1289379596710205,
+        -3.705448865890503
+      ],
+      "payload_sha256": "00579a20711f64de52a080e462382d0022019bd22ada293dd02ff0624a393f9d",
+      "probabilities": [
+        0.9970833155548511,
+        0.0029166844451489087
+      ],
+      "probability": 0.9970833155548511,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 83
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.4163684844970703,
+        2.3248839378356934
+      ],
+      "payload_sha256": "00580e0b15913c30f6f6aecbfc23b7a8878016961a75f99275ad9453fbe569c8",
+      "probabilities": [
+        0.008652194726542878,
+        0.9913478052734571
+      ],
+      "probability": 0.9913478052734571,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 84
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.359616219997406,
+        -2.5925869941711426
+      ],
+      "payload_sha256": "0058a70eea03e95f5361043970a1f56a3efeb218acda3861a0bd88c869e23ee3",
+      "probabilities": [
+        0.9503675152526929,
+        0.04963248474730702
+      ],
+      "probability": 0.9503675152526929,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 85
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.7685389518737793,
+        -4.136232376098633
+      ],
+      "payload_sha256": "0058fb6bd6558a37fed4a0a204603b2f7cb8573d6f240ff639298f949752d21d",
+      "probabilities": [
+        0.9989980165703414,
+        0.0010019834296586322
+      ],
+      "probability": 0.9989980165703414,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 86
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.573732852935791,
+        -4.028753280639648
+      ],
+      "payload_sha256": "005a9f27799f4e4ec4bc752588d89647fccfb4c43cdab514fea9f876878dffbf",
+      "probabilities": [
+        0.9986448487454116,
+        0.0013551512545882801
+      ],
+      "probability": 0.9986448487454116,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 87
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.9516861438751221,
+        -2.164957046508789
+      ],
+      "payload_sha256": "005c6712a1cbef744360e28c1751b1d42d4174e793be24200a0d23d96dfd3ac5",
+      "probabilities": [
+        0.9575740637653702,
+        0.04242593623462986
+      ],
+      "probability": 0.9575740637653702,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 88
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.4979244470596313,
+        1.922379493713379
+      ],
+      "payload_sha256": "005e294bbc3b2b9cbfd21aaff715259d952272394510d85aea989339b0518600",
+      "probabilities": [
+        0.031666906977761596,
+        0.9683330930222384
+      ],
+      "probability": 0.9683330930222384,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 89
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.391396999359131,
+        3.6589183807373047
+      ],
+      "payload_sha256": "005f79cb41bdc50f4cdd2730fb370dec6f3e56ff11a7e5ddf19c2c7c321e0d93",
+      "probabilities": [
+        0.002351575558736843,
+        0.9976484244412632
+      ],
+      "probability": 0.9976484244412632,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 90
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.4964287281036377,
+        -4.136384963989258
+      ],
+      "payload_sha256": "00613bc52a3f7e780246a4cd996eb74174677432d3660703cf588e14ba4372ad",
+      "probabilities": [
+        0.9986852769975975,
+        0.0013147230024026274
+      ],
+      "probability": 0.9986852769975975,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 91
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.1762018203735352,
+        1.6818509101867676
+      ],
+      "payload_sha256": "0062ae63cce54df935b94849c49726b663673212d784d4500f3021c597444455",
+      "probabilities": [
+        0.05426655094635673,
+        0.9457334490536433
+      ],
+      "probability": 0.9457334490536433,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 92
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.2892284393310547,
+        -3.9370696544647217
+      ],
+      "payload_sha256": "00638134170fe7eafddcce3245b9c0d4828202b924c63b855a332cb90f99ad1a",
+      "probabilities": [
+        0.998027143721456,
+        0.0019728562785439408
+      ],
+      "probability": 0.998027143721456,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 93
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.0008788108825684,
+        -3.041252613067627
+      ],
+      "payload_sha256": "00655a4d3e2f1d3330afb5f80aeaa692db14b31a74d21db1a136b5cef35bb985",
+      "probabilities": [
+        0.9827430278267714,
+        0.017256972173228594
+      ],
+      "probability": 0.9827430278267714,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 94
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.0016063377261161804,
+        -1.9296722412109375
+      ],
+      "payload_sha256": "0065a40990178f65d7777cfb95ce6ffcd1dfc8a3b6ffc17ffffe15d123beecab",
+      "probabilities": [
+        0.8733908716978498,
+        0.1266091283021501
+      ],
+      "probability": 0.8733908716978498,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 95
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.2594237327575684,
+        -3.5557644367218018
+      ],
+      "payload_sha256": "0066023280e3adc4d3bcb57a98391dcd6c8a5a9007f9442353f40f125563f482",
+      "probabilities": [
+        0.9970269462375041,
+        0.00297305376249596
+      ],
+      "probability": 0.9970269462375041,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 96
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        3.0170044898986816,
+        -4.058930397033691
+      ],
+      "payload_sha256": "006a84b1d4c93d7294e5f85fc3ec159dc3c7febb7e9effb72ac4ffcb23d537e3",
+      "probabilities": [
+        0.9991555117471245,
+        0.0008444882528756514
+      ],
+      "probability": 0.9991555117471245,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 97
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.3116965293884277,
+        1.9407227039337158
+      ],
+      "payload_sha256": "006c11b7884513c98f49641c3643e248f505603a3b04a5836391cd0c2cb6777a",
+      "probabilities": [
+        0.0140301217425539,
+        0.9859698782574462
+      ],
+      "probability": 0.9859698782574462,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 98
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.6770082712173462,
+        1.581238865852356
+      ],
+      "payload_sha256": "006cd14db99f23e47b95ea1f27592134c87e0db1988578e86c5fd752da3316ad",
+      "probabilities": [
+        0.037031666252037757,
+        0.9629683337479622
+      ],
+      "probability": 0.9629683337479622,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 99
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.357316255569458,
+        0.3292471468448639
+      ],
+      "payload_sha256": "006de25bf5a82aa5065e2a1c17d44809e000c8ed70818d51a0484db3ca5edfb2",
+      "probabilities": [
+        0.15622832095801792,
+        0.8437716790419821
+      ],
+      "probability": 0.8437716790419821,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 100
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.046154022216797,
+        2.8596150875091553
+      ],
+      "payload_sha256": "006f4d12a85f53d42cc0e146899aeb7ea6223794b7147bca5cbb2ffdc354a158",
+      "probabilities": [
+        0.007349333992514607,
+        0.9926506660074854
+      ],
+      "probability": 0.9926506660074854,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 101
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.927857518196106,
+        -3.8019628524780273
+      ],
+      "payload_sha256": "00718b529e155e2b03be9b967faee131188a7bd8a2a443699618d2c812631aaa",
+      "probabilities": [
+        0.9967628525996325,
+        0.0032371474003673757
+      ],
+      "probability": 0.9967628525996325,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 102
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.4438239336013794,
+        -2.530965566635132
+      ],
+      "payload_sha256": "0071e1118c23cec73b98a1db6a6c224c6093edd0e5dd3c16e94866569fb8ac7e",
+      "probabilities": [
+        0.9815630509649196,
+        0.018436949035080502
+      ],
+      "probability": 0.9815630509649196,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 103
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.232733964920044,
+        3.5523576736450195
+      ],
+      "payload_sha256": "00723bde3cfaa1aece3909268dbc02798eb71eaaff3907bd8f2bd1b9d0c0fc4e",
+      "probabilities": [
+        0.0030636141805502073,
+        0.9969363858194498
+      ],
+      "probability": 0.9969363858194498,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 104
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.644028663635254,
+        1.6307337284088135
+      ],
+      "payload_sha256": "0072796a2ad3fc6089c9d030259a203a93e6316c232217387a0115b945ee014d",
+      "probabilities": [
+        0.03644720901045677,
+        0.9635527909895432
+      ],
+      "probability": 0.9635527909895432,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 105
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.7127570509910583,
+        -2.7035186290740967
+      ],
+      "payload_sha256": "0073ee8a9d8d4a072c919c8ce32b9e653ccf2ff4abd126847fa8d65d67126441",
+      "probabilities": [
+        0.9682093366693489,
+        0.031790663330651045
+      ],
+      "probability": 0.9682093366693489,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 106
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.30574706196784973,
+        -1.7432827949523926
+      ],
+      "payload_sha256": "0075369f2c2940f19936ef23987753d35118b2837b9425aa280faa6adc69b093",
+      "probabilities": [
+        0.8858495544502945,
+        0.11415044554970552
+      ],
+      "probability": 0.8858495544502945,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 107
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.2084280252456665,
+        -2.844700336456299
+      ],
+      "payload_sha256": "00777ff988789f1e4eab69c989ac4b58cdab301ed20e4fc5c3b80aa26ca9483a",
+      "probabilities": [
+        0.982928540056131,
+        0.01707145994386906
+      ],
+      "probability": 0.982928540056131,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 108
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.9048879146575928,
+        2.9110939502716064
+      ],
+      "payload_sha256": "0078380287729a58a46749d4ee30ea91aca16cb93e9be8679e96f8398af96d21",
+      "probabilities": [
+        0.008034194709173409,
+        0.9919658052908266
+      ],
+      "probability": 0.9919658052908266,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 109
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.8407269716262817,
+        1.3928585052490234
+      ],
+      "payload_sha256": "007a923e5b6bf427ca7fa031e6f56fb0c0689152100aef1edbb9cdd2119e50e3",
+      "probabilities": [
+        0.037921220454736594,
+        0.9620787795452634
+      ],
+      "probability": 0.9620787795452634,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 110
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.2671127319335938,
+        -3.844480037689209
+      ],
+      "payload_sha256": "007b87eb42f8349c6c80a6864106156470302ae714cb0351b3e86d0c8a428316",
+      "probabilities": [
+        0.9977878874885087,
+        0.0022121125114912426
+      ],
+      "probability": 0.9977878874885087,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 111
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.5796801447868347,
+        -2.517949104309082
+      ],
+      "payload_sha256": "007be29ee0db46cdf256f68e2a7fe3fad56c5a76ac59df943d377fa9bc8d1514",
+      "probabilities": [
+        0.9567948479143441,
+        0.04320515208565599
+      ],
+      "probability": 0.9567948479143441,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 112
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.387214183807373,
+        -3.906899929046631
+      ],
+      "payload_sha256": "007da4af3be03d0f563336fb91bfc5b728e363fab27167a8ab4c66ab8b344644",
+      "probabilities": [
+        0.9950040245959811,
+        0.0049959754040189265
+      ],
+      "probability": 0.9950040245959811,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 113
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.9520924091339111,
+        2.76417875289917
+      ],
+      "payload_sha256": "007dea35d606a04baae2421b59c97e39b2664490598514e4f424daf20518e480",
+      "probabilities": [
+        0.008869118695649002,
+        0.991130881304351
+      ],
+      "probability": 0.991130881304351,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 114
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.101365566253662,
+        2.834892749786377
+      ],
+      "payload_sha256": "007ed4095e16c3e24a7e2d61c23f9f3b652545d87f8c27c75b435c0f1c901a7b",
+      "probabilities": [
+        0.007130213713158557,
+        0.9928697862868415
+      ],
+      "probability": 0.9928697862868415,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 115
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.3138680458068848,
+        -2.5972228050231934
+      ],
+      "payload_sha256": "007fa6d0677f63be19cb288fc2ba3b8d300bb99e425fc05ccb168601d3dabc2b",
+      "probabilities": [
+        0.9803742296782754,
+        0.019625770321724682
+      ],
+      "probability": 0.9803742296782754,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 116
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.4513158798217773,
+        -4.0553669929504395
+      ],
+      "payload_sha256": "0080201b8946e331cabcb5e83403899906d0b4db2c83a3196e736660fc929827",
+      "probabilities": [
+        0.998508801595712,
+        0.0014911984042879425
+      ],
+      "probability": 0.998508801595712,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 117
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.6820306777954102,
+        2.635504722595215
+      ],
+      "payload_sha256": "00806c0da3c8c0cd4eaf1c90da5d35925ead225e6c3647acb92cc0d04afa180f",
+      "probabilities": [
+        0.013157280742307879,
+        0.9868427192576921
+      ],
+      "probability": 0.9868427192576921,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 118
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.6026595234870911,
+        -2.522711753845215
+      ],
+      "payload_sha256": "00807243cad43b3480dae8206dc165b4a6461fa2c10fa90f1ac8e6c748e726ac",
+      "probabilities": [
+        0.9579272380870777,
+        0.04207276191292224
+      ],
+      "probability": 0.9579272380870777,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 119
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.1223199367523193,
+        -0.24966341257095337
+      ],
+      "payload_sha256": "0081bbaab9eff70c35fdbd3e46532fe97aa7e5ae9be1c5fe4bae0eb2f5469de7",
+      "probabilities": [
+        0.2947018353957864,
+        0.7052981646042135
+      ],
+      "probability": 0.7052981646042135,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 120
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.0141165256500244,
+        2.5591914653778076
+      ],
+      "payload_sha256": "00844415e1f1ef9d42a03fd9834d9baf8ee3517842ebb8aaa0793f3bcf8b34b4",
+      "probabilities": [
+        0.010218261489475838,
+        0.9897817385105242
+      ],
+      "probability": 0.9897817385105242,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 121
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.187455654144287,
+        3.4400670528411865
+      ],
+      "payload_sha256": "0084fab98a78593a1c7c3d5f57c548543bf119a0bb2c8f55c1a3b8cb14ebb829",
+      "probabilities": [
+        0.003584580855853454,
+        0.9964154191441466
+      ],
+      "probability": 0.9964154191441466,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 122
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        0.7639559507369995,
+        -2.73939847946167
+      ],
+      "payload_sha256": "0086b92ebedc416e1e865a33f9e96821945ddcae850329954d1b6f9c5e312c68",
+      "probabilities": [
+        0.9707830623845252,
+        0.029216937615474947
+      ],
+      "probability": 0.9707830623845252,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 123
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        2.0229203701019287,
+        -3.550689458847046
+      ],
+      "payload_sha256": "008832f56f6ef3cdbedee40630ac3f6ec89b561e062a08a7262b3613c8449cd2",
+      "probabilities": [
+        0.9962176107395045,
+        0.0037823892604954504
+      ],
+      "probability": 0.9962176107395045,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 124
+    },
+    {
+      "class_index": 0,
+      "class_name": "benign",
+      "logits": [
+        1.351075291633606,
+        -2.9050769805908203
+      ],
+      "payload_sha256": "0089a08854247fc5316238073dbfdcd3286dc63e8a603419884fd45e6ff7eaa4",
+      "probabilities": [
+        0.9860214248474034,
+        0.013978575152596519
+      ],
+      "probability": 0.9860214248474034,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 125
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -2.0238122940063477,
+        2.9822990894317627
+      ],
+      "payload_sha256": "008c15720f7b06e5872c4828cf51a6a252ebd88bf045e246056219fa331dda22",
+      "probabilities": [
+        0.00665234434571786,
+        0.9933476556542821
+      ],
+      "probability": 0.9933476556542821,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 126
+    },
+    {
+      "class_index": 1,
+      "class_name": "attack",
+      "logits": [
+        -1.4168230295181274,
+        1.2382547855377197
+      ],
+      "payload_sha256": "008c4e22869acd9d92ee656f992ec343e418dbddefdb8ad9a7dc114e33f33cb5",
+      "probabilities": [
+        0.06567672998284567,
+        0.9343232700171542
+      ],
+      "probability": 0.9343232700171542,
+      "probability_kind": "uncalibrated_softmax",
+      "row_id": 127
+    }
+  ],
+  "receipt": {
+    "all_rows_predicted": false,
+    "batch_size": 128,
+    "checkpoint": {
+      "bytes": 7435722,
+      "path": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/measured-study/joint_pretrained/checkpoint-step-01000.pth",
+      "sha256": "7113adce6090af28a179b5e98f5dac8d5d7f1a9898681969924f9651815f947a"
+    },
+    "checkpoint_metadata": {
+      "architecture": {
+        "arr_length": 1500,
+        "cls_fusion": "add",
+        "drop_path_rate": 0.1,
+        "embed_dim": 256,
+        "encoder_depth": 4,
+        "head_bias": false,
+        "model": "fuse3_mamba_classifier",
+        "num_classes": 2,
+        "seq_len": 0,
+        "stride_size": 4
+      },
+      "class_mapping": {
+        "attack": 1,
+        "benign": 0
+      },
+      "format": "netmambaplus-packet-v1",
+      "input_contract": {
+        "dtype": "uint8",
+        "learned_input_independent_prefixes": 2,
+        "metadata_used": [],
+        "normalization": "float32(payload)/127.5-1",
+        "numeric_sequence_lengths": {
+          "iat": 0,
+          "size": 0
+        },
+        "retained_zero_bytes": true,
+        "shape": [
+          "B",
+          1500
+        ],
+        "unit": "stored_packet_payload"
+      },
+      "provenance": {
+        "initialization": {
+          "copied_state_names": [
+            "byte_cls_token",
+            "byte_embed.proj.bias",
+            "byte_embed.proj.weight",
+            "byte_indicator",
+            "encoder_blocks.0.mixer.A_log",
+            "encoder_blocks.0.mixer.D",
+            "encoder_blocks.0.mixer.conv1d.bias",
+            "encoder_blocks.0.mixer.conv1d.weight",
+            "encoder_blocks.0.mixer.dt_proj.bias",
+            "encoder_blocks.0.mixer.dt_proj.weight",
+            "encoder_blocks.0.mixer.in_proj.weight",
+            "encoder_blocks.0.mixer.out_proj.weight",
+            "encoder_blocks.0.mixer.x_proj.weight",
+            "encoder_blocks.0.norm.weight",
+            "encoder_blocks.1.mixer.A_log",
+            "encoder_blocks.1.mixer.D",
+            "encoder_blocks.1.mixer.conv1d.bias",
+            "encoder_blocks.1.mixer.conv1d.weight",
+            "encoder_blocks.1.mixer.dt_proj.bias",
+            "encoder_blocks.1.mixer.dt_proj.weight",
+            "encoder_blocks.1.mixer.in_proj.weight",
+            "encoder_blocks.1.mixer.out_proj.weight",
+            "encoder_blocks.1.mixer.x_proj.weight",
+            "encoder_blocks.1.norm.weight",
+            "encoder_blocks.2.mixer.A_log",
+            "encoder_blocks.2.mixer.D",
+            "encoder_blocks.2.mixer.conv1d.bias",
+            "encoder_blocks.2.mixer.conv1d.weight",
+            "encoder_blocks.2.mixer.dt_proj.bias",
+            "encoder_blocks.2.mixer.dt_proj.weight",
+            "encoder_blocks.2.mixer.in_proj.weight",
+            "encoder_blocks.2.mixer.out_proj.weight",
+            "encoder_blocks.2.mixer.x_proj.weight",
+            "encoder_blocks.2.norm.weight",
+            "encoder_blocks.3.mixer.A_log",
+            "encoder_blocks.3.mixer.D",
+            "encoder_blocks.3.mixer.conv1d.bias",
+            "encoder_blocks.3.mixer.conv1d.weight",
+            "encoder_blocks.3.mixer.dt_proj.bias",
+            "encoder_blocks.3.mixer.dt_proj.weight",
+            "encoder_blocks.3.mixer.in_proj.weight",
+            "encoder_blocks.3.mixer.out_proj.weight",
+            "encoder_blocks.3.mixer.x_proj.weight",
+            "encoder_blocks.3.norm.weight",
+            "iat_cls_token",
+            "iat_indicator",
+            "norm_f.weight",
+            "pos_embed",
+            "size_cls_token",
+            "size_indicator"
+          ],
+          "excluded_state_names": [
+            "byte_decoder_blocks.0.mixer.A_log",
+            "byte_decoder_blocks.0.mixer.D",
+            "byte_decoder_blocks.0.mixer.conv1d.bias",
+            "byte_decoder_blocks.0.mixer.conv1d.weight",
+            "byte_decoder_blocks.0.mixer.dt_proj.bias",
+            "byte_decoder_blocks.0.mixer.dt_proj.weight",
+            "byte_decoder_blocks.0.mixer.in_proj.weight",
+            "byte_decoder_blocks.0.mixer.out_proj.weight",
+            "byte_decoder_blocks.0.mixer.x_proj.weight",
+            "byte_decoder_blocks.0.norm.weight",
+            "byte_decoder_blocks.1.mixer.A_log",
+            "byte_decoder_blocks.1.mixer.D",
+            "byte_decoder_blocks.1.mixer.conv1d.bias",
+            "byte_decoder_blocks.1.mixer.conv1d.weight",
+            "byte_decoder_blocks.1.mixer.dt_proj.bias",
+            "byte_decoder_blocks.1.mixer.dt_proj.weight",
+            "byte_decoder_blocks.1.mixer.in_proj.weight",
+            "byte_decoder_blocks.1.mixer.out_proj.weight",
+            "byte_decoder_blocks.1.mixer.x_proj.weight",
+            "byte_decoder_blocks.1.norm.weight",
+            "byte_decoder_embed.bias",
+            "byte_decoder_embed.weight",
+            "byte_decoder_pos_embed",
+            "byte_decoder_pred.bias",
+            "byte_decoder_pred.weight",
+            "byte_mask_token",
+            "decoder_norm_f.weight",
+            "iat_decoder_pred.bias",
+            "iat_decoder_pred.weight",
+            "size_decoder_pred.bias",
+            "size_decoder_pred.weight"
+          ],
+          "kind": "registered_pretrain",
+          "new_state_names": [
+            "head.weight"
+          ],
+          "position_indices": [
+            20,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179,
+            180,
+            181,
+            182,
+            183,
+            184,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            193,
+            194,
+            195,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            202,
+            203,
+            204,
+            205,
+            206,
+            207,
+            208,
+            209,
+            210,
+            211,
+            212,
+            213,
+            214,
+            215,
+            216,
+            217,
+            218,
+            219,
+            220,
+            221,
+            222,
+            223,
+            224,
+            225,
+            226,
+            227,
+            228,
+            229,
+            230,
+            231,
+            232,
+            233,
+            234,
+            235,
+            236,
+            237,
+            238,
+            239,
+            240,
+            241,
+            242,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273,
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            284,
+            285,
+            286,
+            287,
+            288,
+            289,
+            290,
+            291,
+            292,
+            293,
+            294,
+            295,
+            296,
+            297,
+            298,
+            299,
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319,
+            320,
+            321,
+            322,
+            323,
+            324,
+            325,
+            326,
+            327,
+            328,
+            329,
+            330,
+            331,
+            332,
+            333,
+            334,
+            335,
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            343,
+            344,
+            345,
+            346,
+            347,
+            348,
+            349,
+            350,
+            351,
+            352,
+            353,
+            354,
+            355,
+            356,
+            357,
+            358,
+            359,
+            360,
+            361,
+            362,
+            363,
+            364,
+            365,
+            366,
+            367,
+            368,
+            369,
+            370,
+            371,
+            372,
+            373,
+            374,
+            375,
+            376,
+            377,
+            378,
+            379,
+            380,
+            381,
+            382,
+            383,
+            384,
+            385,
+            386,
+            387,
+            388,
+            389,
+            390,
+            391,
+            392,
+            393,
+            394,
+            395,
+            396,
+            397,
+            398,
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            413,
+            414,
+            415,
+            416,
+            442
+          ],
+          "position_table": {
+            "origin": "registered_pretrain",
+            "parameterization": "learned",
+            "source_architecture": {
+              "arr_length": 1600,
+              "drop_path_rate": 0.1,
+              "model": "fuse3_mamba_pretrain",
+              "seq_len": 20,
+              "size_key": "signed_sizes",
+              "stride_size": 4
+            },
+            "source_shape": [
+              1,
+              443,
+              256
+            ],
+            "target_shape": [
+              1,
+              378,
+              256
+            ],
+            "trainable": true
+          },
+          "sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9"
+        },
+        "parameter_count": 1852416,
+        "runtime": {
+          "cuda": "13.0",
+          "torch": "2.9.1+cu130"
+        },
+        "seed": 0,
+        "upstream": {
+          "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+          "model_files_sha256": {
+            "src/models/common.py": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470",
+            "src/models/models_mamba.py": "c59dcc8375ad54ed9295f92c902019022cdf53b6fe4f0fb911311284872c3841",
+            "src/models/models_net_mamba_fuse3.py": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d"
+          },
+          "tracked_files_verified": 103
+        }
+      },
+      "schema_version": 1,
+      "study_metadata": {
+        "arm": "joint_pretrained",
+        "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+        "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+        "seed": 0,
+        "selection": {
+          "selection_score": 0.9385902170791537,
+          "sources": {
+            "cic": {
+              "binary_conflicting_groups": 0,
+              "conflicting_slice": {
+                "group_weighted": null,
+                "groups": 0,
+                "row_weighted": null,
+                "rows": 0
+              },
+              "group_weighted": {
+                "accuracy": 0.9689,
+                "attack_average_precision": 0.9800559777396258,
+                "attack_precision": 0.9194012665515257,
+                "attack_recall": 0.9903875968992248,
+                "auroc": 0.9916131010612431,
+                "balanced_accuracy": 0.9745295918075461,
+                "benign_false_positive_rate": 0.041328413284132844,
+                "confusion_matrix": [
+                  [
+                    12990.0,
+                    560.0
+                  ],
+                  [
+                    62.0,
+                    6388.0
+                  ]
+                ],
+                "macro_f1": 0.9650967299238495,
+                "support": [
+                  13550.0,
+                  6450.0
+                ]
+              },
+              "groups": 20000,
+              "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+              "original_labels": {
+                "BENIGN": {
+                  "correct": 15300,
+                  "recall_of_supplied_binary_target": 0.9508420856379343,
+                  "rows": 16091
+                },
+                "Bot": {
+                  "correct": 36,
+                  "recall_of_supplied_binary_target": 0.37894736842105264,
+                  "rows": 95
+                },
+                "DDoS": {
+                  "correct": 1,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 1
+                },
+                "DoS GoldenEye": {
+                  "correct": 5979,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 5979
+                },
+                "DoS Hulk": {
+                  "correct": 10355,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 10355
+                },
+                "DoS Slowhttptest": {
+                  "correct": 3968,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 3968
+                },
+                "DoS slowloris": {
+                  "correct": 3315,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 3315
+                },
+                "FTP-Patator": {
+                  "correct": 627,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 627
+                },
+                "Heartbleed": {
+                  "correct": 495,
+                  "recall_of_supplied_binary_target": 0.9,
+                  "rows": 550
+                },
+                "Infiltration": {
+                  "correct": 4482,
+                  "recall_of_supplied_binary_target": 0.9312279243714938,
+                  "rows": 4813
+                },
+                "PortScan": {
+                  "correct": 0,
+                  "recall_of_supplied_binary_target": null,
+                  "rows": 0
+                },
+                "SSH-Patator": {
+                  "correct": 1965,
+                  "recall_of_supplied_binary_target": 0.9964503042596349,
+                  "rows": 1972
+                },
+                "Web Attack \u2013 Brute Force": {
+                  "correct": 165,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 165
+                },
+                "Web Attack \u2013 Sql Injection": {
+                  "correct": 0,
+                  "recall_of_supplied_binary_target": null,
+                  "rows": 0
+                },
+                "Web Attack \u2013 XSS": {
+                  "correct": 87,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 87
+                }
+              },
+              "row_weighted": {
+                "accuracy": 0.9741138739639302,
+                "attack_average_precision": 0.9946693215775305,
+                "attack_precision": 0.9754850306824521,
+                "attack_recall": 0.9858427036677421,
+                "auroc": 0.9917654343365184,
+                "balanced_accuracy": 0.9683423946528382,
+                "benign_false_positive_rate": 0.04915791436206575,
+                "confusion_matrix": [
+                  [
+                    15300,
+                    791
+                  ],
+                  [
+                    452,
+                    31475
+                  ]
+                ],
+                "macro_f1": 0.9708006256113887,
+                "support": [
+                  16091,
+                  31927
+                ]
+              },
+              "rows": 48018
+            },
+            "unsw": {
+              "binary_conflicting_groups": 2,
+              "conflicting_slice": {
+                "group_weighted": {
+                  "accuracy": 0.7495551601423487,
+                  "attack_precision": 0.7495551601423487,
+                  "attack_recall": 1.0,
+                  "balanced_accuracy": 0.5,
+                  "benign_false_positive_rate": 1.0,
+                  "confusion_matrix": [
+                    [
+                      0.0,
+                      0.5008896797153025
+                    ],
+                    [
+                      0.0,
+                      1.4991103202846974
+                    ]
+                  ],
+                  "macro_f1": 0.4284261378082888,
+                  "support": [
+                    0.5008896797153025,
+                    1.4991103202846974
+                  ]
+                },
+                "groups": 2,
+                "row_weighted": {
+                  "accuracy": 0.9982238010657194,
+                  "attack_precision": 0.9982238010657194,
+                  "attack_recall": 1.0,
+                  "balanced_accuracy": 0.5,
+                  "benign_false_positive_rate": 1.0,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      0,
+                      1124
+                    ]
+                  ],
+                  "macro_f1": 0.49955555555555553,
+                  "support": [
+                    2,
+                    1124
+                  ]
+                },
+                "rows": 1126
+              },
+              "group_weighted": {
+                "accuracy": 0.9427277416046919,
+                "attack_average_precision": 0.9957904913691785,
+                "attack_precision": 0.9823887793306245,
+                "attack_recall": 0.9462648724460957,
+                "auroc": 0.984821672840606,
+                "balanced_accuracy": 0.936952290019798,
+                "benign_false_positive_rate": 0.07236029240649973,
+                "confusion_matrix": [
+                  [
+                    1032.0,
+                    80.5008896797153
+                  ],
+                  [
+                    255.0,
+                    4490.499110320285
+                  ]
+                ],
+                "macro_f1": 0.9120837042344578,
+                "support": [
+                  1112.5008896797153,
+                  4745.499110320285
+                ]
+              },
+              "groups": 5858,
+              "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+              "original_labels": {
+                "analysis": {
+                  "correct": 142,
+                  "recall_of_supplied_binary_target": 1.0,
+                  "rows": 142
+                },
+                "backdoor": {
+                  "correct": 143,
+                  "recall_of_supplied_binary_target": 0.9794520547945206,
+                  "rows": 146
+                },
+                "dos": {
+                  "correct": 429,
+                  "recall_of_supplied_binary_target": 0.9285714285714286,
+                  "rows": 462
+                },
+                "exploits": {
+                  "correct": 1920,
+                  "recall_of_supplied_binary_target": 0.9407153356197943,
+                  "rows": 2041
+                },
+                "fuzzers": {
+                  "correct": 2390,
+                  "recall_of_supplied_binary_target": 0.9602249899558055,
+                  "rows": 2489
+                },
+                "generic": {
+                  "correct": 2769,
+                  "recall_of_supplied_binary_target": 0.9868139700641483,
+                  "rows": 2806
+                },
+                "normal": {
+                  "correct": 2469,
+                  "recall_of_supplied_binary_target": 0.7662942271880819,
+                  "rows": 3222
+                },
+                "reconnaissance": {
+                  "correct": 1063,
+                  "recall_of_supplied_binary_target": 0.992530345471522,
+                  "rows": 1071
+                },
+                "shellcode": {
+                  "correct": 70,
+                  "recall_of_supplied_binary_target": 0.3482587064676617,
+                  "rows": 201
+                },
+                "worms": {
+                  "correct": 7,
+                  "recall_of_supplied_binary_target": 0.5,
+                  "rows": 14
+                }
+              },
+              "row_weighted": {
+                "accuracy": 0.9053517548038749,
+                "attack_average_precision": 0.9891215589333546,
+                "attack_precision": 0.922258930415032,
+                "attack_recall": 0.9531583440034144,
+                "auroc": 0.968849357265047,
+                "balanced_accuracy": 0.8597262855957482,
+                "benign_false_positive_rate": 0.23370577281191807,
+                "confusion_matrix": [
+                  [
+                    2469,
+                    753
+                  ],
+                  [
+                    439,
+                    8933
+                  ]
+                ],
+                "macro_f1": 0.8715002900906771,
+                "support": [
+                  3222,
+                  9372
+                ]
+              },
+              "rows": 12594
+            }
+          },
+          "step": 1000
+        },
+        "source_sha256": {
+          "cic": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+          "unsw": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01"
+        },
+        "sources": [
+          "cic",
+          "unsw"
+        ],
+        "step": 1000
+      }
+    },
+    "class_mapping": {
+      "attack": 1,
+      "benign": 0
+    },
+    "code_sha256": {
+      "packet_data.py": "783a569a9b4ec459232c899fdb1d15fef2314719883cf9b599ff65d0fa1a8309",
+      "packet_model.py": "1d8abd6e13d53992cfad040cda8b01ee4142187968015415acbe9f4764870c74",
+      "tools/predict_packets.py": "0d575ce777252e64d16c13a007d1a487164d5e00c89f77919e5ed6258a03143c"
+    },
+    "counts_finalized": true,
+    "device": "cuda",
+    "finished_at": "2026-09-14T06:36:04.149417+00:00",
+    "ignored_metadata_columns": [],
+    "input": {
+      "bytes": 95109449,
+      "path": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/heldout-unlabeled.csv",
+      "sha256": "39a04826f338243dad171e677664f991d6e736a94fc95837c3e04dc6ad188ec3",
+      "sha256_scope": "entire_file"
+    },
+    "input_fully_validated": true,
+    "input_rows": 25930,
+    "kind": "netmambaplus_unlabeled_packet_inference_v1",
+    "max_rows": 128,
+    "predicted_rows": 128,
+    "predictions": {
+      "bytes": 40731,
+      "path": "predictions.jsonl",
+      "sha256": "e2554d3dc97b20e7a1fdb9083d6691e501742a8b93c46645fccbb68b1a4b4e4b"
+    },
+    "probability_kind": "uncalibrated_softmax",
+    "schema_version": 1,
+    "scope": "CSV-supplied stored payloads only. No labels, flow reconstruction, padding inference, ground-truth metrics, calibrated risk estimates, or live traffic decisions.",
+    "stage": "finished",
+    "started_at": "2026-09-14T06:35:59.036663+00:00",
+    "status": "capped",
+    "upstream": "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus",
+    "validated_rows": 25930
+  },
+  "scope": "Post-study I/O portability regression on GB10; first128 CIC test groups only. Full25930-row CSV validated. No new training or full-test performance claim.",
+  "status": "class_predictions_verified"
+}

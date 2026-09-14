@@ -263,6 +263,33 @@ class PacketPredictionTests(unittest.TestCase):
         self.assertEqual(self.receipt()["status"], "incomplete")
         self.assertFalse((self.output / "predictions.jsonl").exists())
 
+    def test_fingerprints_use_handle_metadata_when_directory_metadata_is_stale(self):
+        actual = self.checkpoint.stat()
+        stale = SimpleNamespace(st_dev=actual.st_dev, st_ino=actual.st_ino,
+                                st_size=0, st_mtime_ns=actual.st_mtime_ns - 1,
+                                st_ctime_ns=actual.st_ctime_ns)
+        original_stat = Path.stat
+
+        def directory_stat(path, *args, **kwargs):
+            return stale if path == self.checkpoint else original_stat(path, *args, **kwargs)
+
+        with patch.object(Path, "stat", directory_stat):
+            result = predict._fingerprint(self.checkpoint)
+        self.assertEqual(result["bytes"], actual.st_size)
+        self.assertEqual(result["sha256"], hashlib.sha256(self.checkpoint.read_bytes()).hexdigest())
+
+    def test_replaced_path_during_fingerprinting_is_rejected(self):
+        original = self.checkpoint.read_bytes()
+        replacement = self.base / "replacement.pth"
+        replacement.write_bytes(original)
+        with self.checkpoint.open("rb") as stream:
+            try:
+                replacement.replace(self.checkpoint)
+            except PermissionError:
+                self.skipTest("This platform prevents replacing an open file")
+            with self.assertRaisesRegex(ValueError, "changed while fingerprinting"):
+                predict._fingerprint_stream(stream, self.checkpoint)
+
     def test_wrong_logit_shape_nonfinite_values_and_lost_rows_are_rejected(self):
         for logits in [[], [[1.0]], [[1.0, 0.0, 2.0]], [[float("nan"), 0.0]],
                        [[float("inf"), 0.0]], [[True, 0.0]], [["2", 0.0]]]:

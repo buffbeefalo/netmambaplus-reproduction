@@ -112,6 +112,7 @@ def main():
     parser.add_argument("--output", type=Path, help="Watch page path; defaults to the one active video/index.html")
     parser.add_argument("--legacy", action="store_true", help="Render the preserved v2 manifest to a separate explicit output")
     args = parser.parse_args()
+    repository_root = ROOT.resolve()
     if args.legacy and args.output is None:
         parser.error("--legacy requires --output; the active watch page is reserved for v4")
     path = (args.output or WATCH_PAGE).resolve()
@@ -128,15 +129,15 @@ def main():
             parser.error("Historical HTML requires a separate --output; the active watch page is reserved for v4")
     version = publication(manifest)['release_tag'].removeprefix('course-video-v')
     archived = (not args.legacy and version in ('3', '4')
-                and media_dir == (ROOT / f'docs/customer/demo/video/v{version}').resolve())
+                and media_dir == (repository_root / f'docs/customer/demo/video/v{version}').resolve())
     if archived:
         from verify_video_course_v3 import historical_snapshot
-        binding = historical_snapshot(ROOT, version=int(version))
+        binding = historical_snapshot(repository_root, version=int(version))
     else:
-        binding = nullcontext((ROOT, None))
+        binding = nullcontext((repository_root, None))
     with binding as (binding_root, _):
         if not args.legacy:
-            source = binding_root / args.source.resolve().relative_to(ROOT)
+            source = binding_root / args.source.resolve().relative_to(repository_root)
             recorded_manifest = binding_root / f'docs/customer/demo/video/v{version}/media-manifest.json'
             if archived and digest(recorded_manifest) != manifest_hash:
                 raise ValueError('Watch page requires the exact published historical media manifest')
@@ -153,7 +154,7 @@ def main():
     else:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(expected, encoding="utf-8", newline="\n")
-        print(path.relative_to(ROOT) if path.is_relative_to(ROOT) else path)
+        print(path.relative_to(repository_root) if path.is_relative_to(repository_root) else path)
 
 
 if __name__ == "__main__":

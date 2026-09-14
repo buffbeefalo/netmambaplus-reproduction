@@ -261,6 +261,11 @@
       "sha256": "6865ce041bcda2e4e263090ea7d56dc3eb6ff46fcd59d5faa18d3850ad50afbc"
     },
     {
+      "bytes": 83030,
+      "path": "post-study-io-check.json",
+      "sha256": "ec9493cf539ca926c66428a2d3659c445566b23ba44430ffafd52d5dce426695"
+    },
+    {
       "bytes": 6818,
       "path": "protocol.json",
       "sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8"

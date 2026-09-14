@@ -203,6 +203,51 @@ class VideoTests(unittest.TestCase):
             self.assertEqual(output.read_bytes(), page.render(manifest).encode("utf-8"))
             self.assertEqual(page.WATCH_PAGE.read_bytes(), active)
 
+    def test_symlink_repository_root_keeps_source_and_reference_checks(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary).resolve() / "real-root"
+            directory.mkdir()
+            alias = directory.parent / "aliased-root"
+            try:
+                alias.symlink_to(directory, target_is_directory=True)
+            except OSError:
+                self.skipTest("The test account cannot create directory symlinks")
+            media = directory / "v3"
+            media.mkdir()
+            output = directory / "index.html"
+            course = directory / "docs/customer/course-source.json"
+            course.parent.mkdir(parents=True)
+            course.write_text(json.dumps({"facts": {}, "references": {}}), encoding="utf-8")
+            reference = directory / "README.md"
+            reference.write_text("Fixture reference\n", encoding="utf-8")
+            source_path = directory / "source.json"
+            source = self.hour_source()
+            source.update(fact_bindings_sha256=hashlib.sha256(b"{}").hexdigest(),
+                          extra_references={"notes": "README.md"})
+            source_path.write_text(json.dumps(source), encoding="utf-8")
+            manifest = self.hour_manifest()
+            manifest.update(source_path="source.json", source_sha256=build.digest(source_path))
+            manifest["references"]["notes"]["sha256"] = build.digest(reference)
+            (media / "media-manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+            for selected in (alias / "source.json", source_path):
+                arguments = ["build_video_page.py", "--source", str(selected),
+                             "--media-dir", str(alias / "v3"), "--output", str(alias / "index.html")]
+                with (self.subTest(selected=selected), patch.object(sys, "argv", arguments),
+                      patch.object(page, "ROOT", alias), redirect_stdout(io.StringIO())):
+                    page.main()
+                self.assertEqual(output.read_bytes(), page.render(manifest).encode("utf-8"))
+            expected = output.read_bytes()
+            for target, message in ((source_path, "Video source path or hash"),
+                                    (reference, "Video reference changed")):
+                original = target.read_bytes()
+                target.write_bytes(original + b"\n")
+                with (self.subTest(changed=target), patch.object(sys, "argv", arguments),
+                      patch.object(page, "ROOT", alias), redirect_stdout(io.StringIO()),
+                      self.assertRaisesRegex(ValueError, message)):
+                    page.main()
+                self.assertEqual(output.read_bytes(), expected)
+                target.write_bytes(original)
+
     def test_legacy_page_requires_a_separate_output_before_writing(self):
         errors = io.StringIO()
         with patch.object(sys, "argv", ["build_video_page.py", "--legacy"]), redirect_stderr(errors):

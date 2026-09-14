@@ -3,6 +3,7 @@
 import hashlib
 import io
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -89,6 +90,7 @@ class HistoricalV4Tests(unittest.TestCase):
 
     def commit(self):
         self.git("init", "-q")
+        self.git("config", "core.autocrlf", "false")  # Preserve the fixture's hash-bound bytes.
         self.git("add", ".")
         self.git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
                  "-c", "commit.gpgsign=false", "commit", "-qm", "Immutable fixture")
@@ -113,6 +115,23 @@ class HistoricalV4Tests(unittest.TestCase):
         self.assertEqual(result["historical_release_bytes"], "unchanged")
         self.assertIn("historical", result["inventory_scope"].lower())
         self.assertEqual(result["current_repository_coverage"], "not checked")
+
+    def test_fixture_commit_preserves_crlf_bytes_with_global_autocrlf(self):
+        name = "docs/customer/demo/video/v4/captions.vtt"
+        path = self.root / name
+        path.parent.mkdir(parents=True)
+        original = b"WEBVTT\r\n\r\n00:00:00.000 --> 00:00:01.000\r\nFixture caption\r\n"
+        path.write_bytes(original)
+        with tempfile.TemporaryDirectory() as temporary:
+            config = Path(temporary) / "gitconfig"
+            config.write_text("[core]\n\tautocrlf = true\n", encoding="utf-8", newline="\n")
+            with patch.dict(os.environ, {"GIT_CONFIG_GLOBAL": str(config), "GIT_CONFIG_NOSYSTEM": "1"}):
+                self.assertEqual(self.git("config", "--global", "--get", "core.autocrlf"), "true")
+                revision = self.commit()
+                stored = subprocess.check_output(["git", "-C", str(self.root), "cat-file", "blob",
+                                                  revision + ":" + name])
+        self.assertEqual(stored, original)
+        self.assertEqual(path.read_bytes(), original)
 
     def test_v4_byte_drift_is_rejected_in_every_protected_artifact_family(self):
         paths = [SOURCE, COVERAGE, "docs/customer/video-verification-v4.md",

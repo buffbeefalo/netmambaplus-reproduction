@@ -42,6 +42,13 @@ def _identity(value):
     return value.st_dev, value.st_ino, value.st_size, value.st_mtime_ns, value.st_ctime_ns
 
 
+def _path_identity(path):
+    # NTFS directory metadata can lag after hard-link publication. Compare the
+    # current path's open file handle with the original handle instead.
+    with path.open("rb") as stream:
+        return _identity(os.fstat(stream.fileno()))
+
+
 def _fingerprint_stream(stream, path):
     before = os.fstat(stream.fileno())
     digest = hashlib.sha256()
@@ -50,7 +57,7 @@ def _fingerprint_stream(stream, path):
         digest.update(block)
         count += len(block)
     if (count != before.st_size or _identity(before) != _identity(os.fstat(stream.fileno()))
-            or _identity(before) != _identity(path.stat())):
+            or _identity(before) != _path_identity(path)):
         raise ValueError(f"File changed while fingerprinting: {path}")
     return {"path": str(path), "bytes": count, "sha256": digest.hexdigest()}
 
@@ -217,7 +224,7 @@ def execute(checkpoint, csv_path, output, upstream, *, batch_size=64, max_rows=N
                 if receipt["validated_rows"] == 0:
                     raise ValueError("Unlabeled CSV must contain at least one packet row")
                 if (_identity(before) != _identity(os.fstat(raw.fileno()))
-                        or _identity(before) != _identity(csv_path.stat())):
+                        or _identity(before) != _path_identity(csv_path)):
                     raise ValueError("Input CSV changed during inference")
                 receipt["input_fully_validated"] = True
                 receipt["input_rows"] = receipt["validated_rows"]
@@ -230,7 +237,7 @@ def execute(checkpoint, csv_path, output, upstream, *, batch_size=64, max_rows=N
         if _fingerprint(checkpoint)["sha256"] != receipt["checkpoint"]["sha256"]:
             raise ValueError("Packet checkpoint changed during inference")
         # Include the final short batch in the mutation check, after its forward call.
-        if _identity(before) != _identity(csv_path.stat()):
+        if _identity(before) != _path_identity(csv_path):
             raise ValueError("Input CSV changed during inference")
         for relative, digest in receipt["code_sha256"].items():
             if _fingerprint(ROOT / relative)["sha256"] != digest:
