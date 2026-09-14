@@ -1,0 +1,11 @@
+{
+  "source": "Authors' release linked from https://github.com/wangtz19/NetMambaPlus/tree/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+  "license_note": "These are externally distributed research assets. Downloading or hash matching does not establish redistribution or commercial deployment rights. They are not bundled in this repository.",
+  "files": {
+    "checkpoints/fuse3_mamba.pth": {
+      "bytes": 35608346,
+      "sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9",
+      "url": "https://drive.usercontent.google.com/download?id=1OnEzFz0GFZIeJV0V7dRyGDrIfxTq2Fkt&export=download&confirm=t"
+    }
+  }
+}

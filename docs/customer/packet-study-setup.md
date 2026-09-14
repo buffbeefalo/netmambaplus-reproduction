@@ -1,111 +1,84 @@
-# Run the packet study
+# Set up, train and use the two-CSV packet model
 
-Read [what this experiment means](packet-model-study.md) first. Commands below run from the repository root and use fresh output paths. Keep raw CSVs, prepared arrays and inherited weights local.
+Run from the repository root. Use fresh output directories to preserve previous evidence. The [quickstart](quickstart.md) gives the offline tests and packet demo. Use a full source clone for the complete suite, which also verifies historical Git-bound media. Read the [complete project guide](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/client-project-guide.md) for the meaning of each step.
 
-## 1. Check Python and prepare the research runtime
+## 1. Prepare the native GPU environment
 
-Portable contract tests need Python 3.10 or newer:
+Measured native execution uses Linux ARM64 / NVIDIA GB10, Python 3.12, Torch 2.9.1+cu130 and CUDA toolkit 13.0. Other supported NVIDIA targets require their own successful checks. CPU/native Windows/macOS/NPU/SmartNIC neural execution is not established by portable CI.
 
-```bash
-python3 -m unittest discover -s tests -p 'test_packet*.py' -v
-```
-
-Optional numerical/native tests may be skipped. Passing this command does not execute a CPU neural-model backend.
-
-For training, first complete the [CUDA installation, extension build and numerical/model gates](../support-matrix.md#build-the-model-dependencies-on-linux-with-an-nvidia-gpu). The checked native environment is Linux ARM64 on NVIDIA GB10 with Python 3.12, Torch 2.9.1+cu130 and CUDA 13.0. Other physical model backends remain unverified. Then activate that environment and fetch the pinned source and original assets:
+Install the driver and CUDA 13.0 compiler toolkit, including `nvcc` and `ptxas`. Adjust the toolkit path to your installation; a driver's CUDA version alone does not install the toolkit.
 
 ```bash
+python3.12 -m venv .venv-cuda
 source .venv-cuda/bin/activate
+python -m pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cu130
+python -m pip install -r requirements/gb10.txt setuptools==78.1.0 wheel==0.48.0
+
 export CUDA_HOME=/usr/local/cuda-13.0
 export PATH="$CUDA_HOME/bin:$PATH"
 export TRITON_PTXAS_PATH="$CUDA_HOME/bin/ptxas"
 export PYTHONDONTWRITEBYTECODE=1
+export OMP_NUM_THREADS=4
+
 python repro.py fetch
 python tools/fetch_assets.py --output assets
+python tools/build_cuda.py --build-root runs/cuda-build-new
+python tools/check_gpu_runtime.py --output runs/cuda-ops-new.json
 ```
 
-Use your actual environment/toolkit paths. The asset fetcher checks sizes and hashes; it also downloads the original flow assets. The packet initialization is `assets/checkpoints/fuse3_mamba.pth`.
+`repro.py fetch` obtains and verifies the pinned authors' source; that module also supplies internal identity helpers used by the packet model/builders. The current default asset inventory contains **only the pretrained initialization**, `checkpoints/fuse3_mamba.pth`. It does not download a flow dataset or the private CSVs. Sizes/hashes are verified before publication. The acquired initialization is not yet a trained binary packet classifier.
 
-## 2. Prepare both original CSVs and freeze this run
+Repeat activation/exports in each execution shell. Keep failed build/numerical reports. The environment has recorded dependency/architecture warnings; passing these checks is not a claim of warning-free installation.
 
-Replace the two input paths with your local uploads:
+## 2. Prepare both CSVs and check the packet model
+
+Each labeled CSV needs `payload_byte_1` through `payload_byte_1500`, followed by `ttl,total_len,protocol,t_delta,label`. Supply the two original files locally:
 
 ```bash
-python packet_data.py \
-  --cic /path/to/CICIDS2017.csv --unsw /path/to/UNSW.csv \
-  --output runs/packet-data-new --seed 17 \
-  --max-train-groups 100000 --max-eval-groups 20000
-python tools/freeze_packet_protocol.py \
-  --data runs/packet-data-new --output runs/packet-protocol-new.json --steps 1000
+python packet_data.py --cic /path/to/Payload_data_CICIDS2017.csv --unsw /path/to/Payload_data_UNSW.csv --output runs/packet-data-new --seed 17 --max-train-groups 100000 --max-eval-groups 20000
+python tools/check_packet_runtime.py --data runs/packet-data-new --upstream upstream/NetMambaPlus --initialization assets/checkpoints/fuse3_mamba.pth --output runs/packet-runtime-new
 ```
 
-Inspect `manifest.json`: both `matches_registered_source` values should be true when reproducing the uploaded-file study. It records source hashes, all-row support, selected membership and local output hashes.
+Preparation validates every row and payload byte, maps registered labels to benign/attack, groups exact duplicate payloads globally and records the split/caps. Check that both `matches_registered_source` values in `manifest.json` are true before claiming to repeat the uploaded-file study.
 
-[configs/packet-study.json](../../configs/packet-study.json) records the completed study’s frozen protocol. The freezer above creates your own protocol bound to your fresh manifest and current implementation. Freeze the budget before measured training; preserve any failed run and use new paths for another attempt.
+The runtime gate verifies prepared arrays and runs all 17 native packet-model checks using two stored payloads from each source. Transfer, input shapes, gradients, an optimizer update, checkpoint reload and rejection behavior are exercised. Synthetic loss targets make this a functional check, not accuracy measurement or full training. `receipt.json` must say `passed`, with no skipped native tests; retain `tests.log` and `model-probe.json`.
 
-## 3. Freeze controls, then train and evaluate
+## 3. Freeze and run the measured packet study
 
-First fit all nine controls using training groups only. This command binds them to your protocol before control test inference:
+The repeatable study has six comparisons: CIC-only, UNSW-only and joint training, each pretrained/scratch. They are controls within the one packet workflow. Use **joint_pretrained** for the client prediction step below. All published arms completed 1,000 updates; validation selected checkpoints before final test inference.
 
 ```bash
+python tools/freeze_packet_protocol.py --data runs/packet-data-new --output runs/packet-protocol-new.json --steps 1000
+
 PACKET_PROTOCOL_SHA="$(python -c 'import hashlib; from pathlib import Path; print(hashlib.sha256(Path("runs/packet-protocol-new.json").read_bytes()).hexdigest())')"
-python tools/packet_controls.py fit \
-  --data runs/packet-data-new --output runs/packet-controls-new \
-  --protocol-sha256 "$PACKET_PROTOCOL_SHA"
+python tools/packet_controls.py fit --data runs/packet-data-new --output runs/packet-controls-new --protocol-sha256 "$PACKET_PROTOCOL_SHA"
+python tools/train_packet_model.py --data runs/packet-data-new --protocol runs/packet-protocol-new.json --output runs/packet-study-new --upstream upstream/NetMambaPlus --initialization assets/checkpoints/fuse3_mamba.pth
+python tools/packet_controls.py evaluate --data runs/packet-data-new --output runs/packet-controls-new
 ```
 
-Then run the six native models:
+Inspect achieved training receipts, `frozen-checkpoints.json`, `results.json` and any `failure.json`; a requested update count does not prove completion. The protocol binds your current data/code and budget. Sampling is with replacement, not an epoch over every CSV row. The published study uses one model seed and capped subsets.
+
+## 4. Predict an unlabeled CSV with the joint model
+
+The selected checkpoint path is recorded under `selected_checkpoints.joint_pretrained` in `runs/packet-study-new/frozen-checkpoints.json`; it is relative to that study directory. Read it automatically:
 
 ```bash
-python tools/train_packet_model.py \
-  --data runs/packet-data-new --protocol runs/packet-protocol-new.json \
-  --output runs/packet-study-new --upstream upstream/NetMambaPlus \
-  --initialization assets/checkpoints/fuse3_mamba.pth
+PACKET_CHECKPOINT="$(python -c 'import json; from pathlib import Path; p=Path("runs/packet-study-new"); d=json.loads((p/"frozen-checkpoints.json").read_text()); print(p/d["selected_checkpoints"]["joint_pretrained"]["path"])')"
+python tools/predict_packets.py --checkpoint "$PACKET_CHECKPOINT" --csv /path/to/unlabeled-packets.csv --output runs/packet-predictions-new --upstream upstream/NetMambaPlus --batch-size 64
 ```
 
-The runner trains all six arms, selects checkpoints using validation, and performs both source tests after selection freezes. Inspect training receipts, `frozen-checkpoints.json`, `results.json`, and any `failure.json`. The requested budget is not proof that it completed.
+The unlabeled header contains the 1,500 payload columns alone, or those columns followed by the four metadata columns. A `label` column is rejected: use a separate unlabeled copy. Metadata is validated but never passed to the native model. Preserve checkpoint provenance.
 
-Evaluate the already frozen controls using the same output directory; this creates its new `evaluation/` subdirectory:
+`predictions.jsonl` contains row identity, payload hash, two logits, benign/attack class and uncalibrated probabilities. `receipt.json` binds input, model and code, and reports completion. `--max-rows 128` caps predictions while still validating the whole CSV; the receipt then distinguishes full validation from capped prediction. Unlabeled input cannot produce an accuracy score.
 
-```bash
-python tools/packet_controls.py evaluate \
-  --data runs/packet-data-new --output runs/packet-controls-new
+## 5. Recheck and present
+
+```text
+python -m unittest discover -s tests -v
+python tools/review_packet_study.py
+python tools/render_packet_demo.py --output runs/packet-demo-new
 ```
 
-Check `frozen-controls.json` and `evaluation/results.json`, including convergence records. The published run completed all nine controls; its six logistic fits converged. Interpret these alongside the native results, especially the strong UNSW metadata control.
+All verifiers must exit successfully. Optional CPU-environment skips are reported; native runtime checks above require no skips. Packet verification deliberately preserves the original study's two strict logit-comparison failures alongside complete class agreement. It does not erase them. With NumPy/scikit-learn installed, `python tools/review_packet_study.py --independent` adds separate metric arithmetic.
 
-## 4. Predict an unlabeled CSV
-
-Use the joint model’s selected checkpoint path from `frozen-checkpoints.json`, relative to `runs/packet-study-new`. Substitute that actual file below:
-
-```bash
-python tools/predict_packets.py \
-  --checkpoint path/to/selected-packet-checkpoint.pth \
-  --csv /path/to/unlabeled-packets.csv --output runs/packet-predictions-new \
-  --upstream upstream/NetMambaPlus --batch-size 64
-```
-
-The header must contain exactly `payload_byte_1` through `payload_byte_1500`, optionally followed by `ttl,total_len,protocol,t_delta`. Create a separate unlabeled copy if necessary: a `label` column is rejected. No flow assembly is required.
-
-`predictions.jsonl` contains row identity, payload hash, two logits, class and uncalibrated probabilities. All 25,930 held-out classes agreed with the recorded joint-model evaluation in the separate native check. Small raw-score differences remain across CUDA executions; the report preserves the exact failed numerical comparisons. Do not require bit-identical logits across backends or reuse the original flow-model calibration. `receipt.json` binds input, checkpoint, code and training provenance. Optional `--max-rows 128` limits predictions while still validating and hashing the entire CSV; the receipt reports capped coverage. Failures retain explicitly incomplete outputs.
-
-## 5. Recheck published evidence offline
-
-Run the checks against the published indexed evidence bundle:
-
-```bash
-python3 tools/review_packet_study.py --evidence docs/customer/evidence/packet-study
-python tools/review_packet_study.py --evidence docs/customer/evidence/packet-study --independent
-```
-
-The first command checks file identities, training completion, test membership, arithmetic and retained unlabeled inference without a GPU. It reports the two strict numerical-comparison failures while confirming every predicted class. The optional second uses NumPy/scikit-learn for separate metric comparisons. Neither retrains models or proves independent captures.
-
-## Recorded checks for this addition
-
-At the [first published experiment commit](https://github.com/buffbeefalo/netmambaplus-reproduction/commit/7eeb4980eea9fd5ad17bfacd29ed88687cb3e1e5), the local suite discovered 395 tests: 359 passed and 36 optional numerical/native checks were skipped in the standard-library environment. Separately, all 17 packet-model tests passed in the checked GB10 environment, including native transfer, gradient and checkpoint checks. Independent scikit-learn arithmetic matched all 12 neural-model test sets and 18 control test sets. Original package, calibration, course/video history and watch-page checks also passed.
-
-The first cross-platform CI run found Windows file-metadata and history-fixture newline issues, plus macOS/Windows path aliases in the page builder. The fixes have dedicated regression tests and preserve the frozen experimental evidence. The revised local suite discovered 412 tests: 376 passed and 36 optional checks were skipped; the current every-file guide covered 605 files. The revised predictor also completed a separate GB10 check: the full 25,930-row input was validated, 128 rows were predicted, and all 128 classes matched. See the [retained capped check](evidence/packet-study/post-study-io-check.json) and the latest GitHub run for current platform-specific test counts and outcomes.
-
-These software checks accompany the six completed training runs and full saved-model inference; they are not replacements for those experiments. GitHub's [verification runs](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/workflows/ci.yml) report portable tests separately for Linux, Windows and macOS. They do not test native GPU training on those hosted systems.
-
-The portability correction at `9d39a6b` passed [all six hosted OS/Python jobs](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34814784033), and its [Pages deployment](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34814784089) succeeded. Downloaded report, PDF, PowerPoint, script, evidence index and guide bytes matched their local SHA-256 identities.
+Open `runs/packet-demo-new/index.html` to show recorded joint-model results, source-specific metrics and label disagreements. This is saved evidence, separate from the fresh predictions produced in step 4. See [packet results](packet-model-study.md) and [CI by revision](https://github.com/buffbeefalo/netmambaplus-client/actions/workflows/ci.yml) for actual result scopes.

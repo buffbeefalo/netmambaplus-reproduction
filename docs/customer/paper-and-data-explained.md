@@ -1,5 +1,7 @@
 # The paper and the two packet CSVs, explained
 
+**Current client scope:** There is one supported workflow: [both CSVs into the packet adaptation](client-project-guide.md). This guide also explains the paper’s original flow representation and earlier measured flow study as historical comparison, not an alternative setup route.
+
 **Current scope:** This guide covers the paper, both supplied CSVs, the original flow experiment and the later packet adaptation. Read the [packet study](packet-model-study.md) for all packet measurements and the [setup guide](packet-study-setup.md) to run it. The preserved v4 video covers flows and calibration; the [packet PDF/PPT/script](README.md#current-packet-study-both-uploaded-csvs) explains the later addition.
 
 This guide explains what the three supplied files contain, how NetMamba+ turns traffic into model inputs, and which experiment this repository actually ran. You do not need a machine-learning background. **The PDF describes the authors’ research. The two CSVs supply the later packet training. The original six-class experiment uses a separate CICIoT2022 flow release.**

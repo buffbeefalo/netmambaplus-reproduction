@@ -1,48 +1,49 @@
-# Recorded results and limits
+# Recorded packet results and limits
 
-The client edition carries the same saved scientific evidence as the source project. Exporting or passing CPU CI does not constitute a new GPU experiment.
+The client delivers one CSV-based packet workflow, using the joint pretrained model for prediction. These are retained experiments; copying the package or passing CPU CI is not a new GPU training run.
 
-## Original flow experiment
+## Inputs and completed work
 
-The native model combines five 320-byte packet representations, 20 sizes and 20 arrival intervals into 443 tokens. Four 256-wide Mamba blocks feed a six-class head. Compatible CICIoT2022 data contains 8,323 training, 1,040 validation and 1,041 test flows.
+CICIDS2017 contains **1,410,255 rows**; UNSW contains **79,881**. Each row has 1,500 payload bytes, four metadata fields and a label. Every payload cell was validated. The neural model consumes bytes only: metadata/source identity are excluded from forward, and labels supply supervised targets only.
 
-| Seed | Completed training | Test accuracy |
-|---|---|---|
-| 0 | 120 epochs / 7,920 updates | 91.26% |
-| 1 | 120 epochs / 7,920 updates | 84.05% |
-| 2 | 120 epochs / 7,920 updates | 84.63% |
+The adaptation uses the native four-block encoder, 378 tokens and a two-class head, with no observed size/interval sequences. Global payload hashes keep identical inputs in one partition across both sources. Contradictory labels remain as proportions. Training uses capped group subsets and replacement sampling.
 
-Mean accuracy is **86.65%**, with a **4.00 percentage-point sample standard deviation**. The paper reports 97.50% under different conditions. Our batch size 128 / maximum learning rate 0.001 follow the inspected source preset; the paper states 64 / 0.002. A separate 132-update masked-pretraining run tested functionality; it did not recreate the paper's full pretraining corpus. The main experiments used the released pretrained checkpoint.
+All six native comparisons completed 1,000 updates with one model seed; all nine simple controls completed, including six converged logistic fits. Use the validation-selected joint pretrained model as the delivered classifier.
 
-Validation-fitted temperature scaling preserved every predicted class. Mean NLL changed from 0.4416 to 0.4172 and 15-bin calibration error from 7.03% to 3.82%. At the illustrative 0.90 acceptance threshold, seed 0 accepted 620 flows with 9 mistakes before scaling and 893 with 37 afterward. Better calibration does not guarantee safer alert acceptance.
+## Complete comparison table
 
-## Both CSVs in the packet model
+Both columns below are **group-weighted balanced accuracy**: each distinct payload contributes total weight one, and benign/attack recall receive equal weight.
 
-CICIDS2017 contains **1,410,255 rows**; UNSW contains **79,881**. Each has 1,500 payload columns, four metadata columns and a label. Every payload cell was validated. The native packet model consumes bytes only: metadata and labels are not model inputs. Its adaptation uses 378 tokens and a two-class head; its size/interval sequences are empty.
-
-Payload hashes define one global train/validation/test split across both sources. Duplicate packets stay in one partition; conflicting labels remain disclosed as soft targets. Training used capped group subsets and replacement sampling. All six native arms completed 1,000 updates with one model seed; all nine simple controls completed.
-
-| Training source / initialization | CIC held-out balanced accuracy | UNSW held-out balanced accuracy |
+| Training source / initialization | CIC held-out test | UNSW held-out test |
 |---|---:|---:|
 | CIC / pretrained | 98.67% | 53.73% |
 | CIC / scratch | 50.00% | 50.00% |
 | UNSW / pretrained | 71.52% | 93.22% |
 | UNSW / scratch | 50.00% | 50.00% |
-| Joint / pretrained | 97.56% | 94.29% |
+| **Joint / pretrained** | **97.56%** | **94.29%** |
 | Joint / scratch | 55.57% | 50.00% |
 
-These are group-weighted metrics. An UNSW metadata-only control reached **99.34%**, above the neural models on that test. All 25,930 held-out unlabeled classes matched joint-model evaluation. Two strict raw-score comparisons failed at the retained tolerance; class agreement does not establish identical logits.
+An UNSW-only metadata control reached **99.34%**, above every neural model on that test. The joint model's row-weighted balanced accuracy was 96.31% / 89.24%; counting repeated original rows changes the measure. Weak cross-source transfer and constant-class scratch results remain visible.
 
-## Evidence and remaining work
+The two test sets contain 20,000 CIC and 5,930 UNSW groups. All 25,930 saved-model unlabeled classes matched primary evaluation; two strict raw-score comparisons failed. A later client-checkout check validated a 20,000-row CIC input and predicted its first 128 rows: all classes matched, but 76 strict score comparisons failed, with maximum absolute difference 0.006159305572509766. These are separate checks. [Later delivery receipt](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/research/client-edition-validation.json).
+
+## Evidence
 
 | Record | What it supports |
 |---|---|
-| [Flow results](docs/customer/evidence/results.json) | Three-seed training, evaluation, checkpoints and metric summaries |
-| [Calibration results](docs/customer/evidence/calibration/results.json) | Paired confidence metrics and fixed-threshold tradeoffs |
-| [Packet results](docs/customer/evidence/packet-study/results.json) | Six arms, two source tests, support and group/row metrics |
-| [Packet inference comparison](docs/customer/evidence/packet-study/unlabeled/agreement.json) | Complete class agreement and retained numerical failures |
-| [GB10 portability receipt](docs/portability-evidence.json) | Native build, numerical gates, optimizer/reload and inference checks |
+| [Preparation manifest](docs/customer/evidence/packet-study/manifest.json) | Raw identities, full validation, grouping, selected support and file hashes |
+| [Frozen protocol](docs/customer/evidence/packet-study/protocol.json) | Declared data/code, training budget and comparisons |
+| [Native results](docs/customer/evidence/packet-study/results.json) | Six arms, selected checkpoints and both source tests |
+| [Controls](docs/customer/evidence/packet-study/controls/evaluation/results.json) | All simple comparison models and their results |
+| [Inference comparison](docs/customer/evidence/packet-study/unlabeled/agreement.json) | Full class agreement and retained numerical failures |
+| [Native mechanics](docs/customer/evidence/packet-study/native-mechanics.json) | Actual packet transfer, gradients and checkpoint checks |
 
-The original flow data includes five exact train/validation overlaps and six train/test overlaps. Prior pretrained-data exposure is unknown. CSV payload grouping does not establish independent captures; the selected CIC test subset contains no PortScan rows and only four DDoS rows. Neither experiment validates customer traffic, unknown attacks or production alert thresholds.
+The reviewer recomputes outcomes and checks achieved training, hashes and test membership. The demo displays this joint-model evidence without new inference.
 
-Graph export failed in the tested custom-convolution path. Live capture, reliable flow assembly, sustained end-to-end throughput and NPU/SmartNIC compilation remain future work. A hardware deployment would need those components plus operator support, numerical parity and accuracy/latency tests on the target device.
+## Relation to the paper and remaining work
+
+The original paper consumes flows with bytes, sizes and time sequences. These CSV exports lack verified connection identity/order, so this project explicitly adapts its encoder to packets. The paper's 97.50% flow accuracy is not reproduced by these packet scores. Earlier separate flow experiments remain historical research in the full reproduction repo, not another client workflow.
+
+One model seed, capped subsets, unknown pretrained exposure and unverified capture independence constrain the results. Selected CIC test support includes no PortScan and four DDoS rows. Packet scores are uncalibrated; customer-network performance, unknown-attack detection and operational alert thresholds are unestablished.
+
+Native execution is measured on GB10. Live capture, a verified byte extractor, streaming/alert integration, complete-system throughput and NPU/SmartNIC execution remain future work. The earlier flow model's strict graph-export probe failed in a custom CUDA convolution; the packet adaptation retains custom kernels, and no successful packet export or accelerator port is claimed.

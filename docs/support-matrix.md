@@ -1,12 +1,14 @@
 # Run the project on another machine
 
+**Current workflow:** Use the [packet setup](customer/packet-study-setup.md) for both CSVs, checkpoint-only acquisition and the packet-specific native gate. The original flow build/model receipts below are historical compatibility evidence, not a second client route.
+
 You can present the project, recheck its evidence, or run new neural-model experiments. Those are three different setups. Start with the smallest route that does the job.
 
 | Machine / activity | Current status | Evidence and limits |
 |---|---|---|
 | Browser or document viewer | The video, recorded demo, transcript, PDF and PowerPoint are available without CUDA or Python. | Actual Chromium playback, seeking, captions, downloads and phone-width layouts were checked. This does not execute the neural model. |
 | Linux x86-64, Windows x86-64 and macOS ARM64; Python 3.10 / 3.12 | The Python tools and saved-evidence checks passed on all six hosted combinations. | [Workflow run 34815032176](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34815032176), commit `c90153e4e5048cb29af9ea8ff7dbd38820b96dc1`: 412 discovered tests per job, with optional numerical/native skips, plus package/packet/video checks. See the [cleanup audit](research/accuracy-cleanup.md) for the newer revision. These jobs do not train or run the neural model. |
-| Linux ARM64 + NVIDIA GB10 | Both the original flow model and the packet adaptation have measured training and inference evidence. | Three 120-epoch flow runs; six 1,000-update packet runs; strict inference and numerical checks. Follow the [flow runbook](customer/runbook.md) or [packet setup](customer/packet-study-setup.md). The generalized builder has a separate execution receipt below. |
+| Linux ARM64 + NVIDIA GB10 | Both the original flow model and the packet adaptation have measured training and inference evidence. | Three 120-epoch flow runs; six 1,000-update packet runs; strict inference and numerical checks. Follow the [packet setup](customer/packet-study-setup.md); earlier flow records remain historical. The generalized builder has a separate execution receipt below. |
 | Other Linux x86-64 / ARM64 + NVIDIA CUDA GPUs | A generalized source-build route is provided; additional physical GPU configurations remain unverified. | The new builder detects the selected GPU and checks compiler support. Each machine must pass the numerical and complete-model gates below before it is called tested. |
 | CPU-only model execution, native Windows/macOS model execution, AMD/Intel GPUs, Apple MPS, NPU or SmartNIC | Not implemented or validated by this work. | The pinned model uses CUDA extensions and fused Triton normalization. Passing the portable Python checks does not establish these execution backends. |
 
@@ -39,6 +41,8 @@ The packet evidence checker preserves two strict raw-score tolerance failures wh
 The first cross-platform workflow exposed Windows UTF-8/newline problems and temporary-directory aliases on macOS and Windows. The fixes use explicit UTF-8, preserve committed document/configuration bytes, keep checksum paths in repository notation and resolve temporary paths. Six additional regressions test those failure modes. The original failed workflow remains [available](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34746175880); its failure was not hidden by skipping platforms.
 
 ## Build the model dependencies on Linux with an NVIDIA GPU
+
+For the complete current sequence use [packet setup](customer/packet-study-setup.md). The recipe and full-flow checks preserved below describe the earlier compatibility audit. To acquire its old data, explicitly pass `--inventory configs/assets.json`; the default fetcher now acquires packet initialization only.
 
 This is a bounded Python 3.12 / Torch 2.9.1+cu130 / CUDA toolkit 13.0 profile. It is not an installer for arbitrary CUDA versions. The NVIDIA driver must support this CUDA runtime, and the toolkit must provide `nvcc` and `ptxas`. The selected GPU must be usable by Torch and appear in `nvcc --list-gpu-code`. The builder prechecks the Python/Torch/CUDA profile, Torch GPU execution and nvcc target support before downloading or installing native extensions. It does not separately probe ptxas; confirm that executable is present before the numerical and model checks.
 

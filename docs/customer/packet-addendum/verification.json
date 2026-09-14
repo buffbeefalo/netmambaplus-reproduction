@@ -3,30 +3,30 @@
   "slides": 8,
   "pdf_pages_rendered": 8,
   "checks": [
-    "All PDF titles and result cells match shared JSON source",
-    "All PowerPoint slide titles and result cells match source",
-    "All eight PowerPoint speaker notes match presenter script",
-    "UNSW99.34% stronger metadata-control result included",
-    "25930 class agreement and numerical-score limitation included",
-    "Codex reviewed eight-page PDF contact sheet and final slide7 after disclosure update"
+    "Shared source contains one supported packet workflow and historical paper comparison",
+    "All PDF/PPT titles and measured results match the evidence-derived source",
+    "All eight PowerPoint notes match the presenter script",
+    "Codex inspected all eight PDF and LibreOffice-rendered PowerPoint pages; final training/limits updates inspected separately",
+    "Original two logit failures and separate later 128-row/76-failure scope disclosed in notes/script",
+    "Native packet gate and recorded packet demo distinguished from fresh inference"
   ],
   "files": {
     "NetMambaPlus-packet-addendum.pdf": {
-      "sha256": "deabc5b829aed220bceb7bd6880a1159c002a3597b0e6c1de083b6a02ee8a9d9",
-      "bytes": 30776
+      "sha256": "6d90acb4430d0c53ec0e6ad2b5722e3d0b6f6c0af547411455e47b2a3db94d3d",
+      "bytes": 30787
     },
     "NetMambaPlus-packet-addendum.pptx": {
-      "sha256": "d9fe250027ece225a54339629cc6f2d66b9c57beae3c2086ffdc53b41c3d161d",
-      "bytes": 54093
+      "sha256": "1063cb5274d4e9c3cccd2644bb818c7899eb5d673e9e555a3acaca4cea38dc3d",
+      "bytes": 54499
     },
     "packet-addendum-source.json": {
-      "sha256": "29ed24771b407cfe8934d081e0feca31c0a062804169baf0d73edc289117d790",
-      "bytes": 8948
+      "sha256": "c58e4211e40d788f37cfe41f0f8d113d7e4523a76df236aba30a3b292d3ad85f",
+      "bytes": 9856
     },
     "packet-addendum-script.md": {
-      "sha256": "0f54be2fb9fed81f8ca48927277437c066c73bdea5ee846df68555058a0e2593",
-      "bytes": 4819
+      "sha256": "ba9a245edb8737daed8ed0d543f9b267fd3b4a3d169ad6cb85881c77e9adbaa6",
+      "bytes": 5751
     }
   },
-  "scope": "PDF raster and PPTX XML/content inspection; no claim of PowerPoint application rendering or a new narrated video."
+  "scope": "PDF raster, PPTX XML/notes and LibreOffice-rendered PDF review; no claim of Microsoft PowerPoint or new video acceptance."
 }

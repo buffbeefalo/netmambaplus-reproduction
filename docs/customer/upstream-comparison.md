@@ -1,5 +1,7 @@
 # The paper, the datasets and what we changed
 
+**Current client scope:** The supported delivery is the [joint two-CSV packet workflow](client-project-guide.md). Flow/calibration experiments discussed below are historical comparisons. The active client now uses a packet demo, packet-native runtime gate and checkpoint-only asset acquisition.
+
 **Two experiment scopes:** The original flow reproduction preserves the authors' multimodal input and six-class preset. The later [packet adaptation](packet-model-study.md) uses both supplied CSVs through a new input adapter and two-class head. The v4 video covers flows and calibration; the [packet presentation](README.md#current-packet-study-both-uploaded-csvs) covers the later addition.
 
 The paper proposes a way to classify network traffic using a sequence model. The authors’ repository implements that research. **This repository adds a checked execution route, measured results and an explanation around the original model.** It is a reproduction attempt on a different runtime, with disclosed differences from the paper.

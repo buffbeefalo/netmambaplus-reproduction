@@ -63,8 +63,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           python tools/verify_client.py
-          python tools/review_calibration.py --check
-          python tools/review_packet_study.py
+          python tools/render_packet_demo.py --output runs/demo-publication
       - name: Package only the checked managed files
         id: package
         if: steps.gate.outputs.eligible == 'true'

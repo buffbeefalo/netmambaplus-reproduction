@@ -84,7 +84,7 @@ def verify_deck(path, slides):
                 expected.append(item["caveat"])
             else:
                 expected.extend(item["lines"])
-            expected.append(f"Packet adaptation · GB10 evidence · original flow results unchanged {index} / {len(slides)}")
+            expected.append(f"Packet adaptation · joint model · measured GB10 evidence {index} / {len(slides)}")
             require(xml_text(slide) == normalize(" ".join(expected)), f"PowerPoint slide {index} content differs from source")
             notes_links = [value for value in relationships(archive, slide_path).values()
                            if value[0] == RELATIONSHIP + "/notesSlide"]

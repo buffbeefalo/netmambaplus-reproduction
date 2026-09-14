@@ -24,8 +24,8 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: python -m unittest discover -s tests -v
-      - run: python repro.py --help
+      - run: python packet_data.py --help
+      - run: python tools/predict_packets.py --help
+      - run: python tools/check_packet_runtime.py --help
       - run: python tools/verify_client.py
-      - run: python tools/review_calibration.py --check
-      - run: python tools/review_packet_study.py
-      - run: python tools/render_replay.py --predictions docs/customer/evidence/seed0/replay/predictions.json --output runs/demo-ci
+      - run: python tools/render_packet_demo.py --output runs/demo-ci

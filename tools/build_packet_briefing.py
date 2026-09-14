@@ -25,14 +25,14 @@ def content(evidence):
     metadata_control = next(item for item in controls['results'] if item['name'] == 'unsw_metadata_linear')
     metadata_score = metadata_control['tests']['unsw']['metrics']['group_weighted']['balanced_accuracy']
     return [
-        {'title': 'Both CSVs now train NetMamba+', 'subtitle': 'Packet study · addition to the preserved flow reproduction',
+        {'title': 'Two CSVs, one packet workflow', 'subtitle': 'Joint pretrained model · current client delivery',
          'lines': [f'{rows:,} rows validated across CICIDS2017 and UNSW CSV exports.',
              'Six native GPU training runs: 1,000 supervised updates each.',
              'A joint model learns from both sources; saved checkpoints support unlabeled inference.'],
-         'notes': 'Previously these CSVs were only profiled. The original reproduction trained on a separate CICIoT2022 flow release. This addition gives both uploaded CSVs a real role: their stored bytes and supplied binary labels train the original NetMamba+ encoder through a new packet adapter. It does not retroactively change the original experiment or paper result.'},
+         'notes': 'Previously these CSVs were only profiled. The original reproduction trained on a separate CICIoT2022 flow release. The current supported client workflow uses the joint pretrained packet model. Both uploaded CSVs have a real role: their stored bytes and supplied binary labels train the original NetMamba+ encoder through a new packet adapter. It does not retroactively change the original experiment or paper result.'},
         {'title': 'A packet is one message fragment', 'subtitle': 'The paper model originally consumed a sequence from a connection',
-         'lines': ['Original route: five packet byte segments, twenty sizes and twenty intervals.',
-             'CSV route: one row with 1,500 byte slots, four metadata values and a label.',
+         'lines': ['Paper representation: five byte segments, twenty sizes and twenty intervals.',
+             'Our input: one row with 1,500 byte slots, four metadata values and a label.',
              'Connection identity and reliable sequence order are missing from these exports.',
              'We retain packet inputs; adjacent rows are never invented into flows.'],
          'notes': 'Think of a flow as a conversation and a packet as one fragment of a message. The paper combines byte content with size and timing sequences. The CSV exports preserve bytes but do not provide the verified joins needed to rebuild those conversations. CICIDS2017 and CICIoT2022 are different datasets. The uploaded PDF explains the architecture; it does not establish that these particular CSV exports were its original training files.'},
@@ -45,10 +45,11 @@ def content(evidence):
         {'title': 'What training actually tests', 'subtitle': 'CIC-only, UNSW-only and joint training; pretrained and scratch for each',
          'lines': ['Batch 64, seed 0, AdamW; same 1,000-update budget and paired batch streams.',
              'Joint batches contain 32 examples from each dataset.',
+             'Paper pretraining reconstructs hidden inputs; packet training learns labels.',
              'Pretrained: 50 trunk states transferred, 31 decoder states excluded.',
              'Scratch: fresh weights, matching positional coordinates and starting head.',
              'Validation chooses checkpoints; every selection freezes before test inference.'],
-         'notes': 'Every model receives 64,000 sampled group presentations, with replacement. A joint model receives 32,000 presentations from each source. This is a fixed-budget experiment, not an epoch over all 1.49 million rows. NetMamba+ learns its position embeddings; pretrained positional weights are part of the transfer treatment. Scratch uses a freshly initialized native 443-position table with the same remap. The comparison has one seed and does not establish a statistically robust improvement.'},
+         'notes': 'The paper pretrains by hiding input content and learning to reconstruct it. We use its released encoder initialization; its complete earlier training history is unknown. Supervised packet training then learns the supplied benign/attack targets. Every model receives 64,000 sampled group presentations, with replacement. A joint model receives 32,000 presentations from each source. This is a fixed-budget experiment, not an epoch over all 1.49 million rows. NetMamba+ learns its position embeddings; pretrained positional weights are part of the transfer treatment. Scratch uses a freshly initialized native 443-position table with the same remap. The comparison has one seed and does not establish a statistically robust improvement.'},
         {'title': 'Measured held-out packet results', 'subtitle': 'Balanced accuracy · each distinct payload has total weight one',
          'table': table, 'lines': [],
          'caveat': f'UNSW-only metadata control: {metadata_score:.2%}. Native NetMamba+ is not universally best here.',
@@ -60,26 +61,26 @@ def content(evidence):
              'Contradictory groups contribute their observed label proportions to the loss.',
              'CIC test cap: 20,000 groups; UNSW test: 5,930 groups.'],
          'notes': 'Equal payload bytes do not prove these are the same physical packet or capture. Exact hashing prevents exact-input leakage, but not near duplicates or related captures. Selected CIC test support includes zero PortScan rows and only four DDoS rows, so this study cannot establish coverage for those attacks. Row-weighted results describe represented CSV rows; group-weighted results describe distinct stored inputs. Majority, byte-histogram and metadata-only linear models are diagnostic controls, not replacements for the native-model deliverable.'},
-        {'title': 'Use it and check it', 'subtitle': 'Commands and exact arguments are in packet-study-setup.md',
-         'lines': ['Prepare both local CSVs with packet_data.py.',
+        {'title': 'Use it and check it', 'subtitle': 'One setup sequence in packet-study-setup.md and the client guide',
+         'lines': ['Prepare both local CSVs; pass the packet-specific native runtime gate.',
              'Freeze a fresh local protocol, then run train_packet_model.py.',
-             'Pass an unlabeled payload CSV and packet checkpoint to predict_packets.py.',
+             'Use the selected joint pretrained checkpoint in predict_packets.py.',
              'Read predictions.jsonl and its fingerprinted completion receipt.',
-             'Run review_packet_study.py to recompute the published evidence offline.',
+             'Check evidence with review_packet_study.py; view it with render_packet_demo.py.',
              'All 25,930 predicted classes agree; small GPU score differences remain.'],
-         'notes': 'The strict predictor accepts the 1,500 payload columns alone, or those plus the four metadata columns; it rejects a label column. It validates the full file, even when an explicit row cap limits prediction. No-label inference is an actual model call, not replay. All 25,930 predicted classes agreed with the saved joint-model evaluation. Matched FP32 replay still had raw-score differences up to 0.000004411; two CIC rows failed the recorded rtol=1e-4, atol=1e-6 comparison. Those failures remain visible, so no bit-exact numerical claim is made. The public saved records allow CPU arithmetic checks without private raw CSVs. Native GPU execution was measured on GB10; other physical GPUs, NPUs and SmartNICs are not validated by these results.'},
-        {'title': 'What you can defend', 'subtitle': 'Present the measured addition with its limits',
-         'lines': ['Both supplied CSVs genuinely train the native NetMamba+ packet adaptation.',
-             'The PDF-guided original flow reproduction remains a separate experiment.',
-             'Missing: live capture pipeline, verified flow joins and customer-network validation.',
+         'notes': 'The strict predictor accepts the 1,500 payload columns alone, or those plus the four metadata columns; it rejects a label column. It validates the full file, even when an explicit row cap limits prediction. No-label inference is an actual model call, not replay. All 25,930 predicted classes agreed with the saved joint-model evaluation. Matched FP32 replay still had raw-score differences up to 0.000004411; two CIC rows failed the recorded rtol=1e-4, atol=1e-6 comparison. Those failures remain visible, so no bit-exact numerical claim is made. The packet browser demo displays recorded joint-model predictions from both test sources; it does not run new inference or capture traffic. The public saved records allow CPU arithmetic checks without private raw CSVs. A later capped client-checkout check validated 20,000 CIC input rows and predicted 128: all classes matched, while 76 strict score comparisons failed. That is separate from the original full comparison, not an erasure of its two failures. Native GPU execution was measured on GB10; other physical GPUs, NPUs and SmartNICs are not validated by these results.'},
+        {'title': 'What you can defend', 'subtitle': 'Present the current packet delivery with its limits',
+         'lines': ['Both supplied CSVs train the native NetMamba+ packet adaptation.',
+             'The paper’s flow benchmark is a different task and metric.',
+             'Missing: verified live extraction, customer validation and operational alerts.',
              'Missing: calibrated packet confidence, NPU export and SmartNIC deployment.',
-             'Existing v4 video covers flows and calibration; send this addendum with it.'],
-         'notes': 'A simple IDS prototype could feed already-formatted unlabeled packet rows into the saved joint checkpoint and log predictions for analyst review. It currently does not capture, block or inspect live traffic. An eventual SmartNIC pipeline would need packet extraction, batching and a supported numerical implementation of the Mamba scan, followed by end-to-end accuracy, throughput and latency tests. The council was consulted but ended ESCALATED and UNRATIFIED; primary-source and runtime checks resolved implementation issues directly. Do not call that consensus or claim the paper’s 97.50 percent result was reproduced.'},
+             'Use client-project-guide.md and packet-study-setup.md for this handoff.'],
+         'notes': 'A simple IDS prototype could feed already-formatted unlabeled packet rows into the saved joint checkpoint and log predictions for analyst review. It currently does not capture, block or inspect live traffic. An eventual SmartNIC pipeline would need packet extraction, batching and a supported numerical implementation of the Mamba scan, followed by end-to-end accuracy, throughput and latency tests. Earlier packet councils ended ESCALATED and UNRATIFIED; direct source/runtime checks resolved implementation issues. The later single-workflow council aborted on a provider server-overload error. Historical flow/calibration media is background, not the current CSV tutorial. Do not call that consensus or claim the paper’s 97.50 percent result was reproduced.'},
     ]
 
 
 def script_text(slides):
-    script = '# NetMamba+ packet addendum — presenter script\n\nThis follows the eight-slide PDF and PowerPoint. It is a later addition to the preserved v4 course.\n\n'
+    script = '# NetMamba+ packet addendum — presenter script\n\nThis follows the current eight-slide packet PDF and PowerPoint. The supported client workflow uses both CSVs and the selected joint pretrained model; earlier flow/calibration media is historical background.\n\n'
     for index,item in enumerate(slides,1):
         script += f"## Slide {index}: {item['title']}\n\n{item['notes']}\n\n"
     return script.rstrip()+'\n'
@@ -140,7 +141,7 @@ def build(evidence, output):
                 pdf.setFont('PacketSans',19);pdf.setFillColor('#FFFFFF')
                 for j, part in enumerate(wrapped):pdf.drawString(47,540-y*72-21-j*25,part)
                 y += .5 + .34*(len(wrapped)-1)
-        footer=f'Packet adaptation · GB10 evidence · original flow results unchanged                                      {index} / {len(slides)}'
+        footer=f'Packet adaptation · joint model · measured GB10 evidence                                      {index} / {len(slides)}'
         ppt_text(slide,footer,.6,7.02,12,.3,10,gray)
         pdf.setFont('PacketSans',10);pdf.setFillColor('#'+gray);pdf.drawString(43,24,footer)
         slide.notes_slide.notes_text_frame.text=item['notes']

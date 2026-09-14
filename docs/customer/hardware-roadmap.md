@@ -2,23 +2,20 @@
 
 The original experiment uses an **NVIDIA GB10 GPU** to classify processed CICIoT2022 flows. The later [packet adaptation](packet-model-study.md) also runs the native encoder on both supplied CSVs. A SmartNIC and an AI NPU are prospective deployment components. This repository makes no measured claim that either model runs on them.
 
-## A simple IDS architecture
+## A simple packet IDS architecture
 
 ```mermaid
 flowchart LR
-    A[Mirrored traffic or reviewed PCAP] --> B[Capture and bounded flow cache]
-    B --> C[Compatible byte / size / interval extraction]
-    C --> D[Fixed tensors and queue]
-    D --> E[Saved NetMamba+ classifier]
-    E --> F[Class scores and alert policy]
-    F --> G[Dashboard / event log]
+    A[Mirrored traffic or reviewed PCAP] --> B[Verified packet-byte extraction]
+    B --> C[Bounded input queue]
+    C --> D[Saved joint packet classifier on GPU]
+    D --> E[Benign / attack scores]
+    E --> F[Validated alert policy and event log]
 ```
 
-The measured work starts with already processed flows at the input to the tensor loader and exercises the saved classifier. The customer replay visualizes recorded predictions. The capture, online flow cache, original-compatible extraction, operational alert policy and monitoring service in the diagram are **future integration work**.
+The current supported model workflow consumes formatted packet CSVs. The native joint classifier has run on GB10; the public demo displays its recorded test predictions. Capture, verified extraction/padding semantics, continuous queues and an operational alert service in this diagram are **future work**. Packet confidence is uncalibrated. Use [packet setup](packet-study-setup.md) for the implemented commands.
 
-One flow emits six logits. A softmax score and argmax label are useful for a display, but a score of 0.99 does not mean a 99% probability of malicious customer traffic. This checkpoint recognizes two attack labels and four IoT device/power labels from one benchmark. The [flow-calibration extension](confidence-calibration.md) adds measured temperature scaling and an illustrative accept/defer threshold. It does not establish customer-validated unknown-attack rejection or an operational blocking policy.
-
-A simpler packet prototype can use `tools/predict_packets.py` on an already formatted unlabeled CSV and log its two-class predictions. That command executed on GB10, but capture, extraction, streaming queues and operational alert handling remain absent. A live packet adapter would need to reproduce the CSV byte-extraction and padding semantics; the exports do not establish those semantics sufficiently for a verified capture-to-model pipeline. Packet scores are uncalibrated.
+The earlier flow/calibration work below supplies historical research context and an export-probe result. It is not a second supported client workflow. No SmartNIC or NPU execution is claimed for either historical measurements or the current packet adaptation.
 
 ## Make capture semantics explicit before writing a live adapter
 

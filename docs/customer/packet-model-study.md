@@ -1,5 +1,7 @@
 # How both uploaded CSVs enter NetMamba+
 
+**Current delivery:** This is the sole supported [client workflow](client-project-guide.md). Use the validation-selected joint pretrained model for prediction; the six native arms and nine controls are comparison evidence within this packet study. The current [recorded demo](https://buffbeefalo.github.io/netmambaplus-reproduction/) shows its joint-model packet groups.
+
 Rows from both uploads now supply real inputs and supervised training targets to the original NetMamba+ encoder. **All six models completed 1,000 updates.** The joint pretrained model reached 97.56% group-balanced accuracy on CIC and 94.29% on UNSW. A separate UNSW metadata control reached 99.34%, so the native model is not uniformly best. [Recorded native results](evidence/packet-study/results.json), [control results](evidence/packet-study/controls/evaluation/results.json).
 
 Previously these CSVs were profiled while a separate classifier learned six CICIoT2022 flow classes. This addition uses the unchanged native encoder code with packet inputs and a binary head. The original flow results retain their meaning.
@@ -99,4 +101,4 @@ After the experiment, cross-platform CI exposed file-handling differences on Win
 
 The [model council](../research/packet-model-council.json), run `b542fcac-8fbb-4190-8110-0e6f1566a44a`, and the earlier [connection council](../research/packet-connection-council.json) ended **ESCALATED / UNRATIFIED**. The model review lacked primary positional evidence. Subsequent direct review and mechanical checks establish learned positions and the mapping. These authorized audits leave the council outcomes unchanged; no consensus is claimed.
 
-The new packet presentation comprises an [eight-slide PDF](packet-addendum/NetMambaPlus-packet-addendum.pdf), [editable PowerPoint](packet-addendum/NetMambaPlus-packet-addendum.pptx) and [speaker script](packet-addendum/packet-addendum-script.md). Send it with this report and the [setup guide](packet-study-setup.md). The existing v4 video and original PDF/PowerPoint preserve the earlier flow study and calibration; this packet presentation is their separate addendum.
+The new packet presentation comprises an [eight-slide PDF](packet-addendum/NetMambaPlus-packet-addendum.pdf), [editable PowerPoint](packet-addendum/NetMambaPlus-packet-addendum.pptx) and [speaker script](packet-addendum/packet-addendum-script.md). Send it with this report and the [setup guide](packet-study-setup.md). The existing v4 video and original PDF/PowerPoint preserve earlier flow/calibration history; the packet presentation and current client guide are the handoff for the supported CSV workflow.

@@ -8,6 +8,23 @@ from tools import fetch_assets
 
 
 class AssetChecks(unittest.TestCase):
+    def test_asset_inventory_cannot_escape_or_replace_the_acquisition_record(self):
+        for name in ('../weights.pth', '/weights.pth', 'C:\\weights.pth',
+                     'checkpoints/../weights.pth', 'checkpoints//weights.pth', 'acquisition.json'):
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                fetch_assets.select_assets({name: {}}, None)
+
+    def test_named_acquisition_selects_only_the_requested_checkpoint(self):
+        self.assertTrue(callable(getattr(fetch_assets, 'select_assets', None)),
+                        'Checkpoint-only asset selection is missing')
+        files = {'data/ciciot2022/data-train.json': {'bytes': 3},
+                 'checkpoints/fuse3_mamba.pth': {'bytes': 4}}
+        self.assertEqual(fetch_assets.select_assets(files, ['checkpoints/fuse3_mamba.pth']),
+                         {'checkpoints/fuse3_mamba.pth': {'bytes': 4}})
+        for names in (['unknown'], ['checkpoints/fuse3_mamba.pth'] * 2):
+            with self.subTest(names=names), self.assertRaises(ValueError):
+                fetch_assets.select_assets(files, names)
+
     def test_matching_existing_asset_is_reused_without_network(self):
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "asset"

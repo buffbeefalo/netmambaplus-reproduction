@@ -1,0 +1,22 @@
+test_forward_rejects_wrong_dtype_shape_and_device (packet_runtime_suite.NativePacketTests.test_forward_rejects_wrong_dtype_shape_and_device) ... ok
+test_pretrain_checks_every_loaded_and_excluded_tensor_shape (packet_runtime_suite.NativePacketTests.test_pretrain_checks_every_loaded_and_excluded_tensor_shape) ... ok
+test_pretrain_maps_all_trunk_states_and_keeps_fresh_binary_head (packet_runtime_suite.NativePacketTests.test_pretrain_maps_all_trunk_states_and_keeps_fresh_binary_head) ... ok
+test_real_payload_gradients_and_safe_checkpoint_roundtrip (packet_runtime_suite.NativePacketTests.test_real_payload_gradients_and_safe_checkpoint_roundtrip) ... ok
+test_saved_checkpoint_rejects_flow_contract_state_and_provenance_drift (packet_runtime_suite.NativePacketTests.test_saved_checkpoint_rejects_flow_contract_state_and_provenance_drift) ... ok
+test_scratch_positions_equal_fresh_native_full_table_after_same_mapping (packet_runtime_suite.NativePacketTests.test_scratch_positions_equal_fresh_native_full_table_after_same_mapping) ... ok
+test_changed_packet_semantics_or_class_order_is_rejected (packet_runtime_suite.PacketContractTests.test_changed_packet_semantics_or_class_order_is_rejected) ... ok
+test_changed_source_and_false_initialization_claims_are_rejected (packet_runtime_suite.PacketContractTests.test_changed_source_and_false_initialization_claims_are_rejected) ... ok
+test_existing_checkpoint_is_preserved_before_runtime_access (packet_runtime_suite.PacketContractTests.test_existing_checkpoint_is_preserved_before_runtime_access) ... ok
+test_flow_checkpoint_metadata_is_rejected (packet_runtime_suite.PacketContractTests.test_flow_checkpoint_metadata_is_rejected) ... ok
+test_import_works_without_loading_ml_packages (packet_runtime_suite.PacketContractTests.test_import_works_without_loading_ml_packages) ... ok
+test_missing_or_malformed_data_identities_are_rejected (packet_runtime_suite.PacketContractTests.test_missing_or_malformed_data_identities_are_rejected) ... ok
+test_missing_source_fails_before_torch_import (packet_runtime_suite.PacketContractTests.test_missing_source_fails_before_torch_import) ... ok
+test_non_json_or_nonfinite_metadata_is_rejected (packet_runtime_suite.PacketContractTests.test_non_json_or_nonfinite_metadata_is_rejected) ... ok
+test_old_compact_scratch_positions_and_fixed_position_claims_are_rejected (packet_runtime_suite.PacketContractTests.test_old_compact_scratch_positions_and_fixed_position_claims_are_rejected) ... ok
+test_unknown_initialization_fails_before_source_or_torch_import (packet_runtime_suite.PacketContractTests.test_unknown_initialization_fails_before_source_or_torch_import) ... ok
+test_valid_metadata_preserves_exact_study_binding (packet_runtime_suite.PacketContractTests.test_valid_metadata_preserves_exact_study_binding) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 6.425s
+
+OK

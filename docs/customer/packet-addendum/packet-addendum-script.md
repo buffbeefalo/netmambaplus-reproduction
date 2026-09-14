@@ -1,10 +1,10 @@
 # NetMamba+ packet addendum — presenter script
 
-This follows the eight-slide PDF and PowerPoint. It is a later addition to the preserved v4 course.
+This follows the current eight-slide packet PDF and PowerPoint. The supported client workflow uses both CSVs and the selected joint pretrained model; earlier flow/calibration media is historical background.
 
-## Slide 1: Both CSVs now train NetMamba+
+## Slide 1: Two CSVs, one packet workflow
 
-Previously these CSVs were only profiled. The original reproduction trained on a separate CICIoT2022 flow release. This addition gives both uploaded CSVs a real role: their stored bytes and supplied binary labels train the original NetMamba+ encoder through a new packet adapter. It does not retroactively change the original experiment or paper result.
+Previously these CSVs were only profiled. The original reproduction trained on a separate CICIoT2022 flow release. The current supported client workflow uses the joint pretrained packet model. Both uploaded CSVs have a real role: their stored bytes and supplied binary labels train the original NetMamba+ encoder through a new packet adapter. It does not retroactively change the original experiment or paper result.
 
 ## Slide 2: A packet is one message fragment
 
@@ -16,7 +16,7 @@ All 1,500 stored slots are retained, including zeros, because the export does no
 
 ## Slide 4: What training actually tests
 
-Every model receives 64,000 sampled group presentations, with replacement. A joint model receives 32,000 presentations from each source. This is a fixed-budget experiment, not an epoch over all 1.49 million rows. NetMamba+ learns its position embeddings; pretrained positional weights are part of the transfer treatment. Scratch uses a freshly initialized native 443-position table with the same remap. The comparison has one seed and does not establish a statistically robust improvement.
+The paper pretrains by hiding input content and learning to reconstruct it. We use its released encoder initialization; its complete earlier training history is unknown. Supervised packet training then learns the supplied benign/attack targets. Every model receives 64,000 sampled group presentations, with replacement. A joint model receives 32,000 presentations from each source. This is a fixed-budget experiment, not an epoch over all 1.49 million rows. NetMamba+ learns its position embeddings; pretrained positional weights are part of the transfer treatment. Scratch uses a freshly initialized native 443-position table with the same remap. The comparison has one seed and does not establish a statistically robust improvement.
 
 ## Slide 5: Measured held-out packet results
 
@@ -28,8 +28,8 @@ Equal payload bytes do not prove these are the same physical packet or capture. 
 
 ## Slide 7: Use it and check it
 
-The strict predictor accepts the 1,500 payload columns alone, or those plus the four metadata columns; it rejects a label column. It validates the full file, even when an explicit row cap limits prediction. No-label inference is an actual model call, not replay. All 25,930 predicted classes agreed with the saved joint-model evaluation. Matched FP32 replay still had raw-score differences up to 0.000004411; two CIC rows failed the recorded rtol=1e-4, atol=1e-6 comparison. Those failures remain visible, so no bit-exact numerical claim is made. The public saved records allow CPU arithmetic checks without private raw CSVs. Native GPU execution was measured on GB10; other physical GPUs, NPUs and SmartNICs are not validated by these results.
+The strict predictor accepts the 1,500 payload columns alone, or those plus the four metadata columns; it rejects a label column. It validates the full file, even when an explicit row cap limits prediction. No-label inference is an actual model call, not replay. All 25,930 predicted classes agreed with the saved joint-model evaluation. Matched FP32 replay still had raw-score differences up to 0.000004411; two CIC rows failed the recorded rtol=1e-4, atol=1e-6 comparison. Those failures remain visible, so no bit-exact numerical claim is made. The packet browser demo displays recorded joint-model predictions from both test sources; it does not run new inference or capture traffic. The public saved records allow CPU arithmetic checks without private raw CSVs. A later capped client-checkout check validated 20,000 CIC input rows and predicted 128: all classes matched, while 76 strict score comparisons failed. That is separate from the original full comparison, not an erasure of its two failures. Native GPU execution was measured on GB10; other physical GPUs, NPUs and SmartNICs are not validated by these results.
 
 ## Slide 8: What you can defend
 
-A simple IDS prototype could feed already-formatted unlabeled packet rows into the saved joint checkpoint and log predictions for analyst review. It currently does not capture, block or inspect live traffic. An eventual SmartNIC pipeline would need packet extraction, batching and a supported numerical implementation of the Mamba scan, followed by end-to-end accuracy, throughput and latency tests. The council was consulted but ended ESCALATED and UNRATIFIED; primary-source and runtime checks resolved implementation issues directly. Do not call that consensus or claim the paper’s 97.50 percent result was reproduced.
+A simple IDS prototype could feed already-formatted unlabeled packet rows into the saved joint checkpoint and log predictions for analyst review. It currently does not capture, block or inspect live traffic. An eventual SmartNIC pipeline would need packet extraction, batching and a supported numerical implementation of the Mamba scan, followed by end-to-end accuracy, throughput and latency tests. Earlier packet councils ended ESCALATED and UNRATIFIED; direct source/runtime checks resolved implementation issues. The later single-workflow council aborted on a provider server-overload error. Historical flow/calibration media is background, not the current CSV tutorial. Do not call that consensus or claim the paper’s 97.50 percent result was reproduced.

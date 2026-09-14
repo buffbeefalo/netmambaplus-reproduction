@@ -1,4 +1,4 @@
-name: Publish measured replay
+name: Publish measured packet demo
 on:
   push:
     branches: [main]
@@ -31,10 +31,13 @@ jobs:
           mkdir -p runs/pages-site
           cp -a docs/customer/demo/. runs/pages-site/
           rm -rf runs/pages-site/course
+          python3 tools/render_packet_demo.py --output runs/pages-packet
+          cp runs/pages-packet/index.html runs/pages-site/index.html
+          cp runs/pages-packet/receipt.json runs/pages-site/packet-receipt.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
           path: runs/pages-site
-      - name: Deploy measured replay
+      - name: Deploy measured packet demo
         id: deployment
         uses: actions/deploy-pages@v4

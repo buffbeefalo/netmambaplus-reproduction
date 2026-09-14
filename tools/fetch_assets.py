@@ -8,7 +8,7 @@ import os
 import sys
 import tempfile
 import urllib.request
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -52,20 +52,43 @@ def acquire(target, specification):
         temporary.unlink(missing_ok=True)
 
 
+def select_assets(files, names):
+    if not isinstance(files, dict) or not files:
+        raise ValueError('Expected a nonempty registered asset inventory')
+    for name in files:
+        if (not isinstance(name, str) or not name or '\\' in name or ':' in name
+                or PurePosixPath(name).is_absolute() or PurePosixPath(name).as_posix() != name
+                or any(part in ('.', '..') for part in name.split('/')) or name == 'acquisition.json'):
+            raise ValueError('Unsafe or reserved asset path')
+    if names is None:
+        return files
+    if not names or len(set(names)) != len(names) or any(name not in files for name in names):
+        raise ValueError('Select distinct asset paths from the registered inventory')
+    return {name: files[name] for name in names}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "assets")
+    parser.add_argument("--inventory", type=Path, default=ROOT / "configs/packet-assets.json",
+                        help="Registered asset inventory; defaults to packet pretrained weights only")
+    parser.add_argument("--asset", action="append", metavar="REGISTERED_PATH",
+                        help="Acquire only this registered asset; repeat for additional files")
     args = parser.parse_args()
-    inventory = json.loads((ROOT / "configs/assets.json").read_text(encoding="utf-8"))
+    inventory = json.loads(args.inventory.read_text(encoding="utf-8"))
     results = []
-    for name, specification in inventory["files"].items():
+    try:
+        selected = select_assets(inventory["files"], args.asset)
+    except ValueError as error:
+        parser.error(str(error))
+    for name, specification in selected.items():
         target = args.output / name
         status = acquire(target, specification)
         print(f"{status}: {name}")
         results.append({"path": name, "status": status, "sha256": specification["sha256"],
                         "bytes": specification["bytes"]})
     repro.atomic_json(args.output / "acquisition.json", {
-        "created_at": repro.timestamp(), "source_inventory_sha256": repro.sha256_file(ROOT / "configs/assets.json"),
+        "created_at": repro.timestamp(), "source_inventory_sha256": repro.sha256_file(args.inventory),
         "files": results, "license_note": inventory["license_note"]})
 
 

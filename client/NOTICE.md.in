@@ -4,6 +4,6 @@ This client edition is generated from [buffbeefalo/netmambaplus-reproduction](ht
 
 The research reference is [NetMamba+, paper v1](https://arxiv.org/abs/2601.21792v1). Native source is fetched from [wangtz19/NetMambaPlus at commit eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2](https://github.com/wangtz19/NetMambaPlus/tree/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2), with full tracked-file verification and additional core hashes.
 
-Raw CSV uploads, the paper PDF, upstream source and weights are not mirrored here. The two CSVs must be provided locally to reproduce the uploaded-file packet study. The original flow assets and pretrained checkpoint are fetched from the authors' recorded distribution using [configs/assets.json](configs/assets.json).
+Raw CSV uploads, the paper PDF, upstream source and weights are not mirrored here. The two CSVs must be provided locally to reproduce the uploaded-file packet study. The pretrained initialization is fetched from the authors' recorded distribution using [configs/packet-assets.json](configs/packet-assets.json). The joint packet classifier is produced by the documented training workflow.
 
 The inspected upstream repository root has no license file. Redistribution and commercial terms for inherited data/weights remain unresolved. Public access to this repository, successful downloads and matching hashes do not establish those rights. No new license over third-party materials is asserted by this delivery.

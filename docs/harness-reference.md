@@ -1,5 +1,7 @@
 # Harness reference
 
+**Historical flow-harness reference.** The supported client workflow is the [two-CSV packet adaptation](customer/client-project-guide.md); this reference preserves the earlier flow research contract. Shared identity helpers are still used internally.
+
 This reference preserves the detailed validation and manifest contract. For the tested GPU setup, current results and presentation files, start with [the customer package](customer/README.md) and [runbook](customer/runbook.md).
 
 ## Native data contract

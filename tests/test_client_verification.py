@@ -68,48 +68,52 @@ class ClientVerificationTests(unittest.TestCase):
         self.assertNotEqual(self.check().returncode, 0)
 
 
-class ClientFlowEvidenceTests(unittest.TestCase):
+class ClientPacketEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        origin = ROOT / "docs/customer/evidence"
-        self.evidence = self.root / "docs/customer/evidence"
-        self.evidence.mkdir(parents=True)
-        self.index = json.loads((origin / "artifact-index.json").read_bytes())
-        for item in self.index["files"]:
-            path = self.evidence / item["path"]
-            path.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(origin / item["path"], path)
-        shutil.copyfile(origin / "artifact-index.json", self.evidence / "artifact-index.json")
-        spec = importlib.util.spec_from_file_location("client_flow_verifier", ROOT / "tools/verify_client.py")
+        self.evidence = self.root / "docs/customer/evidence/packet-study"
+        shutil.copytree(ROOT / "docs/customer/evidence/packet-study", self.evidence)
+        spec = importlib.util.spec_from_file_location("client_packet_verifier", ROOT / "tools/verify_client.py")
         self.module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(self.module)
 
-    def corrupt_and_reindex(self, key, value):
-        path = self.evidence / "results.json"
-        data = json.loads(path.read_bytes())
-        if key == "accuracy":
-            data["seeds"][0]["metrics"][key] = value
-        else:
-            data["seeds"][0][key] = value
-        path.write_text(json.dumps(data), encoding="utf-8")
-        for item in self.index["files"]:
-            if item["path"] == "results.json":
+    def reindex(self, relative):
+        path = self.evidence / relative
+        index_path = self.evidence / "index.json"
+        index = json.loads(index_path.read_bytes())
+        for item in index['files']:
+            if item['path'] == relative:
                 item.update(bytes=path.stat().st_size, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
-        (self.evidence / "artifact-index.json").write_text(json.dumps(self.index), encoding="utf-8")
+        index_path.write_text(json.dumps(index), encoding="utf-8")
 
     def test_reindexed_false_accuracy_is_rejected_by_prediction_arithmetic(self):
-        self.module.verify_flow(self.root)
-        self.corrupt_and_reindex("accuracy", 1.0)
-        with self.assertRaisesRegex(ValueError, "metric disagreement"):
-            self.module.verify_flow(self.root)
+        self.assertTrue(callable(getattr(self.module, 'verify_packet', None)))
+        self.module.verify_packet(self.root)
+        path = self.evidence / "results.json"
+        data = json.loads(path.read_bytes())
+        data['results'][0]['tests']['cic']['metrics']['group_weighted']['accuracy'] = 1.0
+        path.write_text(json.dumps(data), encoding="utf-8")
+        self.reindex('results.json')
+        with self.assertRaisesRegex(ValueError, "Numeric result differs"):
+            self.module.verify_packet(self.root)
 
     def test_reindexed_incomplete_training_is_rejected(self):
-        self.module.verify_flow(self.root)
-        self.corrupt_and_reindex("completed_epochs", 1)
-        with self.assertRaisesRegex(ValueError, "Incomplete flow training"):
-            self.module.verify_flow(self.root)
+        self.assertTrue(callable(getattr(self.module, 'verify_packet', None)))
+        path = self.evidence / "results.json"
+        results = json.loads(path.read_bytes())
+        reference = results['results'][0]['training_receipt']
+        receipt_path = self.evidence / reference['path']
+        receipt = json.loads(receipt_path.read_bytes())
+        receipt['steps'] = 1
+        receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+        reference.update(bytes=receipt_path.stat().st_size, sha256=hashlib.sha256(receipt_path.read_bytes()).hexdigest())
+        path.write_text(json.dumps(results), encoding="utf-8")
+        self.reindex(reference['path'])
+        self.reindex('results.json')
+        with self.assertRaisesRegex(ValueError, "Incomplete achieved optimizer budget"):
+            self.module.verify_packet(self.root)
 
 
 if __name__ == "__main__":

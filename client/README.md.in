@@ -1,47 +1,31 @@
-# NetMamba+ client edition
+# NetMamba+ client edition — packet classifier
 
-Runnable network-traffic classification experiments, measured on NVIDIA GB10. This edition contains the model harness, two-CSV integration, tests and saved evidence. Start with [setup and use](SETUP.md) or [results and limitations](RESULTS.md).
+**One workflow:** train the native NetMamba+ packet adaptation from the supplied **CICIDS2017 and UNSW CSVs**, then predict benign/attack with the validation-selected **joint pretrained** model. This repo contains the executable code, tests and packet evidence.
 
-| Route | Input | Output | Recorded result |
-|---|---|---|---|
-| Original NetMamba+ flow model | Prepared CICIoT2022 flows: packet bytes, sizes and arrival intervals | Six class logits, scores and class names | Three 120-epoch runs: **86.65% mean test accuracy** |
-| Packet adaptation | CICIDS2017 and UNSW exports with 1,500 payload bytes per row | Benign/attack logits, scores and class | Joint pretrained model: **97.56% / 94.29% group-weighted balanced accuracy** on the two held-out source sets |
+Start with [setup and use](SETUP.md), [results and limits](RESULTS.md), or the full [client project explanation](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/client-project-guide.md).
 
-These are different experiments and metrics. The paper's **97.50% flow accuracy was not reproduced**. The packet CSVs do not establish the connection identity and ordering needed to reconstruct the original model's flows. The packet route therefore uses an explicit adaptation of the native encoder.
+The joint model scored **97.56% / 94.29% group-weighted balanced accuracy** on the selected CIC / UNSW test groups. It consumes 1,500 packet bytes and returns two logits, a class and uncalibrated probabilities. This is a packet adaptation: the CSVs cannot establish the original paper's flows, and their packet metrics do not reproduce the paper's 97.50% flow result.
 
-## Quick verification
+## Check and demonstrate without a GPU
 
-Install Git and Python 3.10 or 3.12. Use `python3` where that is your interpreter's name.
+Use Python 3.10 or 3.12 (`python3` if that is your interpreter's name):
 
 ```text
 git clone https://github.com/buffbeefalo/netmambaplus-client.git
 cd netmambaplus-client
 python -m unittest discover -s tests -v
 python tools/verify_client.py
-python tools/review_calibration.py --check
-python tools/review_packet_study.py
+python tools/render_packet_demo.py --output runs/packet-demo-new
 ```
 
-These checks need no GPU, ML packages or private data. They validate software contracts and recompute saved evidence; they do not rerun training. Optional numerical/native tests report skips when their dependencies are absent. A source ZIP is sufficient for these offline checks.
+Open `runs/packet-demo-new/index.html`. It displays all 25,930 retained joint-model test groups across both sources, including label disagreements. It works offline, including from a client source ZIP. It does not capture traffic, execute new inference or block packets. The verifier recomputes saved packet evidence; optional native tests state their skips.
 
-The initial client CI ran **267 tests per job**, with dependency/platform skips; **all six hosted OS/Python jobs passed**. Fresh GB10 checks from the client checkout also passed the 17-case packet-model suite with native tests enabled, seven operator comparisons and a complete flow-model update/reload check. Fresh flow inference matched all 1,041 classes; a capped packet check matched all 128 classes, with 76 strict raw-score comparisons outside tolerance. [Validation receipts](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/research/client-edition-validation.json) record the exact scope; [client CI](https://github.com/buffbeefalo/netmambaplus-client/actions/workflows/ci.yml) shows newer revisions.
+For actual GPU training and prediction, follow [SETUP.md](SETUP.md). The measured native environment is Linux ARM64 / NVIDIA GB10. Linux, Windows and macOS CI checks the portable software/evidence separately. Other physical GPUs need their own numerical and packet-model checks; native CPU/NPU/SmartNIC execution is not established. [CI results by revision](https://github.com/buffbeefalo/netmambaplus-client/actions/workflows/ci.yml).
 
-## Run a demonstration
+## Evidence and updates
 
-```text
-python tools/render_replay.py --predictions docs/customer/evidence/seed0/replay/predictions.json --output runs/demo-new
-```
+All six recorded native comparison models completed 1,000 updates, and all nine controls completed. The UNSW-only metadata control scored 99.34% there, above the neural models. One seed, capped subsets, limited subtype support and unknown prior pretrained exposure constrain the result. Class agreement does not mean bit-identical scores: the original full inference comparison retained two strict logit failures; a later 128-row client check retained 76. [Recorded scopes](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/research/client-edition-validation.json).
 
-Open `runs/demo-new/index.html`. It displays the 1,041 recorded seed-0 flow predictions, including 91 errors. It works offline and does not capture traffic, run new inference or block packets. [SETUP.md](SETUP.md) covers actual GPU training and unlabeled inference for both routes.
+Development belongs in [netmambaplus-reproduction](https://github.com/buffbeefalo/netmambaplus-reproduction). Verified source exports update this client automatically; manual client divergence stops updates for review. [CLIENT_MANIFEST.json](CLIENT_MANIFEST.json) records the exact source revision and file identities. The full repo explains every component and preserves historical research/teaching materials.
 
-## Delivery and updates
-
-The [full research and learning repository](https://github.com/buffbeefalo/netmambaplus-reproduction) is the development source. This public client edition receives checked exports from its `main` branch. Shared model code, configurations and scientific evidence retain their original bytes. [CLIENT_MANIFEST.json](CLIENT_MANIFEST.json) identifies the source revision and every delivered file.
-
-Send code changes to the source repository; client issues can be filed here. Client files are managed by the exporter: manual divergence stops an update for review. Videos, slide decks, presenter scripts, course assets and long repository walkthroughs remain in the full edition. Executable training, prediction and verification programs remain here.
-
-## Operational scope
-
-Actual native training and inference were measured on Linux ARM64 / NVIDIA GB10. Portable checks run separately on Linux, Windows and macOS. Other physical GPUs need their own build and numerical/model checks. CPU neural inference, live IDS integration, NPU/SmartNIC execution and production readiness are not established.
-
-Raw CSVs, upstream source and model weights are acquired separately; they are not bundled. Asset hashes establish identity, not redistribution or commercial rights. See [NOTICE.md](NOTICE.md) before redistributing inherited assets.
+Raw CSVs, upstream source and weights are separate acquisitions. A source clone is not a pretrained application bundle. See [NOTICE.md](NOTICE.md) for attribution and inherited-asset boundaries.
