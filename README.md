@@ -2,11 +2,13 @@
 
 This repository runs the authors’ original multimodal NetMamba+ model on compatible CICIoT2022 flows. The customer package records actual GPU masked-pretraining execution, three full 120-epoch fine-tuning runs, strict saved-classifier inference, independently checked metrics and an offline demonstration.
 
+The later [packet study](docs/customer/packet-model-study.md) incorporates **both uploaded CSVs into the native NetMamba+ encoder**. It adds CIC-only, UNSW-only and joint benign/attack training, matched scratch controls, and strict unlabeled packet inference. Its data, classes and measured outcomes are separate from the six-class flow experiment below. Start with the [packet setup guide](docs/customer/packet-study-setup.md).
+
 The measured environment is an **NVIDIA GB10 compatibility port**. The source-based batch/rate settings differ from the paper, and the released checkpoint’s complete pretraining history remains unknown. **Do not describe these results as an exact reproduction of every paper result or as a production IDS.**
 
 Test accuracy was **91.26%, 84.05% and 84.63%** across the three declared seeds: **86.65% mean**, with a 4.00 percentage-point sample standard deviation. The paper reports 97.50% under different conditions. The [results](docs/customer/results.md) preserve every seed, metric definition, error and limitation.
 
-The current addition is optional **confidence calibration** for each frozen classifier, followed by an optional accept/defer decision. On the same already-published test flows, mean negative log-likelihood improved from **0.4416 to 0.4172**, Brier score from **0.2035 to 0.2012**, and 15-bin calibration error from **7.03% to 3.82%**. Every predicted category stayed unchanged. These are retrospective confidence measurements, not an accuracy gain or independent customer-network validation.
+The flow route also supports optional **confidence calibration** for each frozen classifier, followed by an optional accept/defer decision. On the same already-published test flows, mean negative log-likelihood improved from **0.4416 to 0.4172**, Brier score from **0.2035 to 0.2012**, and 15-bin calibration error from **7.03% to 3.82%**. Every predicted category stayed unchanged. These are retrospective confidence measurements, not an accuracy gain or independent customer-network validation.
 
 The fixed **0.90** acceptance threshold also exposes a tradeoff: seed 0 accepted **620 of 1,041** flows with **9 errors** before scaling, and **893 of 1,041** with **37 errors** afterward. Error among accepted predictions rose from **1.45% to 4.14%**. The [calibration explanation and all-seed results](docs/customer/confidence-calibration.md) show the method, commands, denominators and limits. The threshold is an illustrative review policy, not a safety guarantee.
 
@@ -14,8 +16,10 @@ The fixed **0.90** acceptance threshold also exposes a tradeoff: seed 0 accepted
 
 | Deliverable | Link |
 |---|---|
-| Current one-hour course, including calibration | [Watch v4](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Download MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v4/NetMambaPlus-one-hour-course.mp4) · [Exact checks and review limits](docs/customer/video-verification-v4.md) |
-| Matching v4 course documents | [PDF handbook and every-file appendix](docs/customer/demo/video/v4/NetMambaPlus-course-handbook.pdf) · [PowerPoint with speaker notes](docs/customer/demo/video/v4/NetMambaPlus-course-slides.pptx) · [PDF slides](docs/customer/demo/video/v4/NetMambaPlus-course-slides.pdf) · [Full transcript](docs/customer/demo/video/v4/transcript.md) |
+| Both CSVs connected to NetMamba+ | [Packet study and actual results](docs/customer/packet-model-study.md) · [Setup and unlabeled use](docs/customer/packet-study-setup.md) |
+| Packet presentation addendum | [PDF](docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pdf) · [PowerPoint](docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pptx) · [Matching script](docs/customer/packet-addendum/packet-addendum-script.md) |
+| Preserved v4 one-hour course: flows and calibration | [Watch v4](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Download MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v4/NetMambaPlus-one-hour-course.mp4) · [Exact checks and review limits](docs/customer/video-verification-v4.md) |
+| Matching historical v4 course documents | [PDF handbook and every-file appendix](docs/customer/demo/video/v4/NetMambaPlus-course-handbook.pdf) · [PowerPoint with speaker notes](docs/customer/demo/video/v4/NetMambaPlus-course-slides.pptx) · [PDF slides](docs/customer/demo/video/v4/NetMambaPlus-course-slides.pdf) · [Full transcript](docs/customer/demo/video/v4/transcript.md) |
 | Use the new confidence feature | [Calibration method, measured results and commands](docs/customer/confidence-calibration.md) · [Recomputable evidence](docs/customer/evidence/calibration/results.json) |
 | Original customer package and checklist | [Frozen customer index](docs/customer/README.md) |
 | Read the original 16-slide presentation simply | [Historical slide-by-slide field guide](https://buffbeefalo.github.io/netmambaplus-reproduction/guide.html) |
@@ -35,11 +39,11 @@ The fixed **0.90** acceptance threshold also exposes a tradeoff: seed 0 accepted
 
 The demo shows recorded predictions from the original GPU inference run. It does not apply the new calibration feature, capture or block packets. Display pace is unrelated to model latency. Its known errors remain visible. The current v4 course and documents explain both this replay and the actual calibrated command-line outputs. The original customer index, ZIP, 16-slide deck and briefing retain their historical bytes and do not include the later calibration addition.
 
-## Why the uploaded CSVs are not the model’s training inputs
+## How the CSVs connect, and why they are separate from the original flows
 
 The starting files were [paper v1](https://arxiv.org/abs/2601.21792v1), `Payload_data_CICIDS2017.csv` and `Payload_data_UNSW.csv`. Full metadata scans found **1,410,255** and **79,881** packet rows respectively. Both CSVs have 1,500 payload-byte columns plus TTL, length, protocol, time delta and label. They lack the connection identity and established ordering needed to reconstruct this model’s flows. Five adjacent rows cannot be assumed to belong to one connection.
 
-A packet classifier built directly from those exports would be an adaptation. This experiment instead uses the authors’ processed **CICIoT2022** flow release: 8,323 training, 1,040 validation and 1,041 test flows across six classes. CICIoT2022 and CICIDS2017 are different datasets. The original CSVs are profiled, not converted into fictitious flow inputs.
+The new packet classifier uses both exports as an explicit adaptation. The original flow experiment uses the authors’ processed **CICIoT2022** flow release: 8,323 training, 1,040 validation and 1,041 test flows across six classes. CICIoT2022 and CICIDS2017 are different datasets. The original CSV profiling record remains unchanged. The new packet study validates every payload cell and trains directly on packet bytes; it never invents flow inputs.
 
 ## What goes through the model
 
@@ -66,6 +70,8 @@ Python 3.10 or newer is sufficient for the standard-library tests:
 python3 -m unittest discover -s tests -v
 python3 tools/verify_package.py
 python3 tools/review_calibration.py --check
+python3 tools/review_packet_study.py
+python3 tools/verify_repository_guide.py
 python3 tools/build_course.py --check
 python3 tools/verify_course.py
 python3 tools/verify_course_video.py
@@ -78,7 +84,7 @@ CPU CI runs on Linux x86-64, Windows x86-64 and macOS ARM64 with Python 3.10 and
 
 The earlier interactive HTML course was retired at the user’s request. Its archived source and tests remain as evidence bindings used by the video; the public `/course/` page is excluded from deployment.
 
-The **v4 lesson plan is 60:00**, with 12 chapters and 96 teaching scenes, including 3:20 of announced practice. Codex wrote and directed the lesson; Microsoft Andrew synthetic speech renders that text. Moving packet/token diagrams, code emphasis, measured-result reveals and an actual recording of replay controls support the explanation. The matching handbook and [file guide](docs/repository-walkthrough.md) provide the individual-file detail. Captions, chapter controls and a reflowing transcript accompany one MP4 lesson and its equivalent browser encoding. The [v4 receipt](docs/customer/video-verification-v4.md) records actual media checks and distinguishes them from pending human full-watch/all-caption acceptance. The [v4 coverage record](docs/customer/video-course-v4-coverage.json) maps every current nonignored file, paper section, CSV and required scientific quantity to its explanation. Historical v3 verification reads the immutable release snapshot rather than applying today's guide to yesterday's media; [v3 downloads and receipts](docs/repository-walkthrough.md#v3-course) retain their original contents.
+The **v4 lesson plan is 60:00**, with 12 chapters and 96 teaching scenes, including 3:20 of announced practice. Codex wrote and directed the lesson; Microsoft Andrew synthetic speech renders that text. Moving packet/token diagrams, code emphasis, measured-result reveals and an actual recording of replay controls support the explanation. The matching handbook and [file guide](docs/repository-walkthrough.md) provide the individual-file detail. Captions, chapter controls and a reflowing transcript accompany one MP4 lesson and its equivalent browser encoding. The [v4 receipt](docs/customer/video-verification-v4.md) records actual media checks and distinguishes them from pending human full-watch/all-caption acceptance. The [v4 coverage record](docs/customer/video-course-v4-coverage.json) maps every nonignored file in its frozen 494-file edition, paper section, CSV and required scientific quantity to its explanation. Historical v3 and v4 verification read immutable release snapshots; the separate repository-guide check covers current additions. The v4 video does not cover this later packet study. Send the packet PDF/PPT addendum with it; [v3 downloads and receipts](docs/repository-walkthrough.md#v3-course) retain their original contents.
 
 Acquire the pinned original source and assets:
 

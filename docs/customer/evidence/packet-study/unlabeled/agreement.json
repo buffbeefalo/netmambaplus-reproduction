@@ -1,0 +1,54 @@
+{
+  "absolute_tolerance": 1e-06,
+  "relative_tolerance": 0.0001,
+  "rows": 25930,
+  "scope": "Actual unlabeled prediction classes all agree. Small floating-point logit differences remain, including failures at the recorded strict tolerance; not a bit-exact replay claim. Default mixed-source CLI also preserved all25930 classes but39rows failed its strict comparison; override-only left8. No frozen code, weights, tolerance or primary results were changed.",
+  "settings": {
+    "NVIDIA_TF32_OVERRIDE": "0",
+    "batch_grouping": "Each source separately, identical to measured evaluation",
+    "batch_size": 128,
+    "torch.backends.cuda.matmul.allow_tf32": false,
+    "torch.backends.cudnn.allow_tf32": false
+  },
+  "sources": {
+    "cic": {
+      "class_agreements": 20000,
+      "compressed_predictions": {
+        "bytes": 1800155,
+        "path": "cic-predictions.jsonl.gz",
+        "sha256": "3701939226c5356bfeea2c2d5d1a6db76a8a1d065ca3c4120fddc34839be453a"
+      },
+      "failed_rows": [
+        4793,
+        8431
+      ],
+      "maximum_absolute_logit_difference": 4.410743713378906e-06,
+      "receipt": {
+        "bytes": 24026,
+        "path": "cic-receipt.json",
+        "sha256": "85a7a752de3bec82931eeb4fefe552d679f52d5bebcfe18b66d9d55a58500c44"
+      },
+      "rows": 20000,
+      "strict_logit_tolerance_failures": 2
+    },
+    "unsw": {
+      "class_agreements": 5930,
+      "compressed_predictions": {
+        "bytes": 534848,
+        "path": "unsw-predictions.jsonl.gz",
+        "sha256": "0db3c4fb7dbe37ac0b75946869ff9591166037bfd6dfdd98278e6b937df6b980"
+      },
+      "failed_rows": [],
+      "maximum_absolute_logit_difference": 2.4437904357910156e-06,
+      "receipt": {
+        "bytes": 24024,
+        "path": "unsw-receipt.json",
+        "sha256": "289aad9c904af36120f28befb1510186eec7b63ff0161e813d9dac6f4577af50"
+      },
+      "rows": 5930,
+      "strict_logit_tolerance_failures": 0
+    }
+  },
+  "status": "class_predictions_verified",
+  "strict_logit_tolerance_passed": false
+}

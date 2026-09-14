@@ -1,4 +1,9 @@
-"""Check video identities and captions; optionally decode and measure the actual MP4."""
+"""Check the published historical v4 video identities, references and captions.
+
+Defaults bind the immutable published Git snapshot. --historical-v3 selects its
+separate edition; --current checks supplied source/media against current bytes.
+Actual MP4 decode and browser observations are optional additional checks.
+"""
 
 import argparse
 import hashlib
@@ -206,15 +211,20 @@ def verify_files(directory=None, source_path=None, *, reference_revision=None, r
                       "scope": "Source, file identity and caption checks; encoded-media decode is a separate option."}
 
 
-def verify_historical_files(root=ROOT):
-    """Check the preserved v3 release with today's verifier and pinned references."""
-    from verify_video_course_v3 import historical_snapshot, version_paths, V3_REVISION
-    paths = version_paths(3)
-    with historical_snapshot(root) as (snapshot, _):
+def verify_historical_files(root=ROOT, *, version=3):
+    """Use today's verifier on one unchanged published edition and its Git data.
+
+    The helper retains its original v3 default; the public CLI selects v4.
+    """
+    from verify_video_course_v3 import historical_snapshot, version_paths, V3_REVISION, V4_REVISION
+    paths = version_paths(version)
+    with historical_snapshot(root, version=version) as (snapshot, _):
         manifest, result = verify_files(snapshot / Path(paths["media_manifest"]).parent,
             snapshot / paths["source"], reference_root=snapshot, repository_root=snapshot)
-    result.update(reference_revision=V3_REVISION, reference_root=None,
-                  historical_release_bytes="unchanged")
+    result.update(reference_revision=V3_REVISION if version == 3 else V4_REVISION, reference_root=None,
+                  historical_release_bytes="unchanged", current_repository_coverage="not checked",
+                  scope=f"Published historical v{version} source, reference, file identity and caption checks; "
+                        "not current repository coverage. Encoded-media decode is a separate option.")
     return manifest, result
 
 
@@ -348,28 +358,33 @@ def main():
     parser.add_argument("--media-dir", type=Path)
     parser.add_argument("--source", type=Path)
     parser.add_argument("--watch-page", type=Path, help="Local HTML whose bytes must match the browser URL")
-    parser.add_argument("--legacy", action="store_true", help="Verify the preserved v2 files and source")
-    parser.add_argument("--historical-v3", action="store_true", help="Verify unchanged v3 release bytes and pinned Git references")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--current", action="store_true", help="Check selected source/media against current reference bytes")
+    mode.add_argument("--legacy", action="store_true", help="Verify the preserved v2 files and source")
+    mode.add_argument("--historical-v3", action="store_true", help="Verify unchanged v3 release bytes and pinned Git references")
     parser.add_argument("--reference-revision", help="With --legacy, hash reference blobs at this immutable Git commit")
     parser.add_argument("--reference-root", type=Path, help="With --legacy, hash reference files in a historical snapshot")
     args = parser.parse_args()
     if (args.reference_revision or args.reference_root) and not args.legacy:
-        parser.error("Historical reference options require --legacy; current v4 checks repository bytes")
+        parser.error("Reference overrides require --legacy; published v3/v4 use their immutable Git snapshots")
     if args.reference_revision and args.reference_root:
         parser.error("Choose --reference-revision or --reference-root")
     if args.legacy and args.source and args.source.resolve() != LEGACY_SOURCE.resolve():
         parser.error("--legacy selects the preserved v2 source; use current mode for another source")
     if args.legacy and args.browser_output and args.watch_page is None:
         parser.error("A legacy browser check requires --watch-page for separately generated legacy HTML")
-    if args.historical_v3:
-        if args.legacy or args.source or args.media_dir or args.reference_root or args.reference_revision:
-            parser.error("--historical-v3 selects the immutable v3 source, media and references")
-        if args.browser_output and not args.watch_page:
+    historical_version = None if args.current or args.legacy else (3 if args.historical_v3 else 4)
+    if historical_version is not None:
+        if args.source or args.media_dir:
+            parser.error(f"Historical v{historical_version} selects the immutable source and media; "
+                         "use --current to verify explicit paths")
+        if historical_version == 3 and args.browser_output and not args.watch_page:
             parser.error("A historical browser check requires a separate --watch-page")
         from build_course_video import V3_DESTINATION
         from narrate_course_video import V3_SOURCE
-        manifest, result = verify_historical_files()
-        media_dir, source_path = V3_DESTINATION, V3_SOURCE
+        manifest, result = verify_historical_files(version=historical_version)
+        media_dir, source_path = ((V3_DESTINATION, V3_SOURCE) if historical_version == 3
+                                  else (DESTINATION, SOURCE))
     else:
         media_dir = args.media_dir or (LEGACY_DESTINATION if args.legacy else DESTINATION)
         source_path = args.source or (LEGACY_SOURCE if args.legacy else SOURCE)
@@ -382,8 +397,8 @@ def main():
             parser.error("--browser-output requires --url")
         result["browser"] = browser_check(args.browser_output, args.url, manifest,
                                           media_dir=media_dir, watch_page=args.watch_page, source_path=source_path)
-    if args.historical_v3 and (args.decode_output or args.browser_output):
-        verify_historical_files()  # Detect release drift during the optional external checks.
+    if historical_version is not None and (args.decode_output or args.browser_output):
+        verify_historical_files(version=historical_version)  # Detect release drift during external checks.
     print(json.dumps(result, indent=2))
 
 

@@ -2,6 +2,7 @@
 
 import hashlib
 import io
+import json
 import sys
 import tempfile
 import unittest
@@ -16,6 +17,7 @@ import build_video_page
 import verify_course
 import verify_course_video
 import verify_package
+from verify_video_course_v3 import historical_snapshot
 
 
 @contextmanager
@@ -47,7 +49,7 @@ class PublishedTextTests(unittest.TestCase):
 
     def test_video_verifies_with_a_non_utf8_default_encoding(self):
         with windows_text_defaults(), patch.object(sys, "argv", ["build_video_page.py", "--check"]), redirect_stdout(io.StringIO()):
-            _, result = verify_course_video.verify_files()
+            _, result = verify_course_video.verify_historical_files(version=4)
             build_video_page.main()
         self.assertEqual(result["status"], "passed")
 
@@ -65,15 +67,19 @@ class PublishedTextTests(unittest.TestCase):
                 self.assertNotIn(b"\r\n", raw)
 
     def test_generated_watch_page_keeps_utf8_lf_bytes(self):
-        manifest = (build_video_page.DESTINATION / "media-manifest.json").read_bytes()
-        expected = build_video_page.render().encode("utf-8")
-        with tempfile.TemporaryDirectory() as directory:
+        with historical_snapshot(ROOT, version=4) as (snapshot, _), tempfile.TemporaryDirectory() as directory:
+            source = snapshot / build_video_page.SOURCE.relative_to(ROOT)
+            manifest = (snapshot / build_video_page.DESTINATION.relative_to(ROOT) / "media-manifest.json").read_bytes()
             path = Path(directory)
             media = path / "v4"
             media.mkdir()
             (media / "media-manifest.json").write_bytes(manifest)
+            expected = build_video_page.render(json.loads(manifest), media_dir=media,
+                                              output=path / "index.html").encode("utf-8")
             with (patch.object(sys, "argv", ["build_video_page.py", "--media-dir", str(media),
+                                             "--source", str(source),
                                              "--output", str(path / "index.html")]),
+                  patch.object(build_video_page, "ROOT", snapshot),
                   windows_text_defaults(), redirect_stdout(io.StringIO())):
                 build_video_page.main()
             self.assertEqual((path / "index.html").read_bytes(), expected)

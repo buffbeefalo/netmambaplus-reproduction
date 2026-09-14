@@ -1,5 +1,7 @@
 # The paper and the two packet CSVs, explained
 
+**Later packet addition:** Both uploaded CSVs now have a separate native NetMamba+ training and inference path. Read the [packet study](packet-model-study.md) and [setup guide](packet-study-setup.md) for its measurements and exact adapter changes. References below to CSV profiling or exclusion from training describe the original CICIoT2022 flow experiment, which is preserved. The v4 video predates the packet addition.
+
 This guide explains what the three supplied files contain, how NetMamba+ turns traffic into model inputs, and which experiment this repository actually ran. You do not need a machine-learning background. **The PDF describes the authors’ research; the two CSVs are packet exports; the measured classifier used a separate release of CICIoT2022 flows.**
 
 The paper is Tongze Wang and colleagues’ [*NetMamba+: A Framework of Pre-trained Models for Efficient and Accurate Network Traffic Classification*, arXiv 2601.21792v1](https://arxiv.org/abs/2601.21792v1), dated 29 January 2026. Its 16 PDF pages are linked below. The code reference throughout this guide is [the authors’ repository at commit `eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2`](https://github.com/wangtz19/NetMambaPlus/tree/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2). A commit identifies a particular source version, so later upstream edits do not silently change this reference.

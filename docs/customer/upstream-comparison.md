@@ -1,5 +1,7 @@
 # The paper, the datasets and what we changed
 
+**Later packet addition:** Both uploaded CSVs now have a separate native NetMamba+ training and inference path. Read the [packet study](packet-model-study.md) and [setup guide](packet-study-setup.md) for its measurements and exact adapter changes. References below to CSV profiling or exclusion from training describe the original CICIoT2022 flow experiment, which is preserved. The v4 video predates the packet addition.
+
 The paper proposes a way to classify network traffic using a sequence model. The authors’ repository implements that research. **This repository adds a checked execution route, measured results and an explanation around the original model.** It is a reproduction attempt on a different runtime, with disclosed differences from the paper.
 
 ## What problem is the paper studying?

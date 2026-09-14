@@ -1,0 +1,32 @@
+{
+  "status": "document_content_verified",
+  "slides": 8,
+  "pdf_pages_rendered": 8,
+  "checks": [
+    "All PDF titles and result cells match shared JSON source",
+    "All PowerPoint slide titles and result cells match source",
+    "All eight PowerPoint speaker notes match presenter script",
+    "UNSW99.34% stronger metadata-control result included",
+    "25930 class agreement and numerical-score limitation included",
+    "Codex reviewed eight-page PDF contact sheet and final slide7 after disclosure update"
+  ],
+  "files": {
+    "NetMambaPlus-packet-addendum.pdf": {
+      "sha256": "deabc5b829aed220bceb7bd6880a1159c002a3597b0e6c1de083b6a02ee8a9d9",
+      "bytes": 30776
+    },
+    "NetMambaPlus-packet-addendum.pptx": {
+      "sha256": "d9fe250027ece225a54339629cc6f2d66b9c57beae3c2086ffdc53b41c3d161d",
+      "bytes": 54093
+    },
+    "packet-addendum-source.json": {
+      "sha256": "29ed24771b407cfe8934d081e0feca31c0a062804169baf0d73edc289117d790",
+      "bytes": 8948
+    },
+    "packet-addendum-script.md": {
+      "sha256": "0f54be2fb9fed81f8ca48927277437c066c73bdea5ee846df68555058a0e2593",
+      "bytes": 4819
+    }
+  },
+  "scope": "PDF raster and PPTX XML/content inspection; no claim of PowerPoint application rendering or a new narrated video."
+}

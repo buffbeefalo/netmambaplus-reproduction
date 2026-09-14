@@ -1,4 +1,9 @@
-"""Check the course's timing, source bindings, output and honest review status."""
+"""Verify the preserved interactive course against its published Git references.
+
+The default checks historical source, HTML and receipt bytes. Explicit source or
+root arguments (and CLI --current) retain strict verification of supplied data.
+This does not establish current repository coverage or revive the retired route.
+"""
 
 import argparse
 import datetime
@@ -6,6 +11,7 @@ import hashlib
 import json
 import re
 import time
+from contextlib import contextmanager
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlparse
@@ -117,8 +123,53 @@ def verify_record(record, source, rendered, root=ROOT):
     return pending
 
 
-def verify(source=None, root=ROOT, check_render=True, check_record=True):
-    source = source if source is not None else build.read(build.SOURCE)
+@contextmanager
+def historical_course_snapshot(root=ROOT):
+    """Read archived references as data while protecting the retired course files."""
+    from verify_video_course_v3 import discover_inventory, historical_snapshot
+    root = Path(root).resolve()
+    required = {build.SOURCE.relative_to(ROOT).as_posix(),
+                build.OUTPUT.relative_to(ROOT).as_posix(), RECORD.relative_to(ROOT).as_posix()}
+
+    def belongs(path):
+        return path in required or path.startswith("docs/customer/demo/course/")
+
+    with historical_snapshot(root, version=4) as (snapshot, inventory):
+        protected = {path for path in inventory if belongs(path)}
+        if not required <= protected:
+            raise ValueError("Historical interactive course source, HTML or receipt is missing")
+
+        def check_unchanged():
+            current = {path for path in discover_inventory(root) if belongs(path)}
+            if current != protected:
+                raise ValueError("Historical interactive course inventory drift")
+            for name in protected:
+                path = root / name
+                if (path.is_symlink() or not path.resolve().is_relative_to(root)
+                        or not path.is_file() or digest(path) != digest(snapshot / name)):
+                    raise ValueError("Historical interactive course byte drift: " + name)
+
+        check_unchanged()
+        yield snapshot
+        check_unchanged()
+
+
+def verify_historical(root=ROOT, *, check_render=True, check_record=True):
+    from verify_video_course_v3 import V4_REVISION
+    with historical_course_snapshot(root) as snapshot:
+        result = verify(root=snapshot, check_render=check_render, check_record=check_record)
+    result.update(reference_revision=V4_REVISION, historical_release_bytes="unchanged",
+                  current_repository_coverage="not checked",
+                  scope="Preserved interactive course at the immutable v4 Git snapshot; "
+                        "not current repository coverage, deployment or a human rehearsal.")
+    return result
+
+
+def verify(source=None, root=None, check_render=True, check_record=True):
+    if source is None and root is None:
+        return verify_historical(check_render=check_render, check_record=check_record)
+    root = Path(root or ROOT).resolve()
+    source = source if source is not None else build.read(root / build.SOURCE.relative_to(ROOT))
     if source.get("schema_version") != 1:
         raise ValueError("Unsupported course schema")
     if source.get("total_seconds") != 1800 or source.get("reading_words_per_minute") != 120:
@@ -392,13 +443,18 @@ def browser_check(output, url=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--current", action="store_true", help="Check the course against today's reference bytes")
     parser.add_argument("--browser-output", type=Path, help="Optional Playwright rehearsal into a fresh runs/ directory")
     parser.add_argument("--url", help="Additionally require the public course URL to match reviewed bytes")
     args = parser.parse_args()
     try:
         if args.url and not args.browser_output:
             raise ValueError("--url requires --browser-output")
-        report = browser_check(args.browser_output, args.url) if args.browser_output else verify()
+        report = verify(root=ROOT) if args.current else verify()
+        if args.browser_output:
+            observed = browser_check(args.browser_output, args.url)
+            report = verify(root=ROOT) if args.current else verify()
+            report["browser_observation"] = observed
         print(json.dumps(report, indent=2))
     except (ValueError, KeyError, IndexError, OSError, TypeError) as error:
         raise SystemExit(f"Course verification failed: {error}") from error

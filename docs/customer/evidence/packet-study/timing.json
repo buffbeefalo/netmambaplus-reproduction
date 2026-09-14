@@ -1,0 +1,66 @@
+{
+  "scope": "Timing only. Real bytes, synthetic alternating targets; no scores inspected and these weights are discarded. No measured training initializes from this probe.",
+  "train_batch": 64,
+  "train_seconds_per_step": 0.07320285169989801,
+  "inference_batch": 128,
+  "inference_seconds_per_batch": 0.04964208310120739,
+  "options": [
+    {
+      "updates_per_arm": 100,
+      "estimated_gpu_seconds": 144.37401749032887,
+      "with_2x_margin_and_180s_overhead": 468.74803498065774
+    },
+    {
+      "updates_per_arm": 200,
+      "estimated_gpu_seconds": 228.4096342862371,
+      "with_2x_margin_and_180s_overhead": 636.8192685724741
+    },
+    {
+      "updates_per_arm": 300,
+      "estimated_gpu_seconds": 312.4452510821453,
+      "with_2x_margin_and_180s_overhead": 804.8905021642906
+    },
+    {
+      "updates_per_arm": 400,
+      "estimated_gpu_seconds": 396.4808678780535,
+      "with_2x_margin_and_180s_overhead": 972.961735756107
+    },
+    {
+      "updates_per_arm": 500,
+      "estimated_gpu_seconds": 480.5164846739617,
+      "with_2x_margin_and_180s_overhead": 1141.0329693479234
+    },
+    {
+      "updates_per_arm": 600,
+      "estimated_gpu_seconds": 564.55210146987,
+      "with_2x_margin_and_180s_overhead": 1309.10420293974
+    },
+    {
+      "updates_per_arm": 700,
+      "estimated_gpu_seconds": 648.5877182657782,
+      "with_2x_margin_and_180s_overhead": 1477.1754365315564
+    },
+    {
+      "updates_per_arm": 800,
+      "estimated_gpu_seconds": 732.6233350616864,
+      "with_2x_margin_and_180s_overhead": 1645.2466701233727
+    },
+    {
+      "updates_per_arm": 900,
+      "estimated_gpu_seconds": 816.6589518575945,
+      "with_2x_margin_and_180s_overhead": 1813.317903715189
+    },
+    {
+      "updates_per_arm": 1000,
+      "estimated_gpu_seconds": 900.6945686535028,
+      "with_2x_margin_and_180s_overhead": 1981.3891373070055
+    }
+  ],
+  "chosen_updates_per_arm": 1000,
+  "code_sha256": {
+    "packet_model.py": "1d8abd6e13d53992cfad040cda8b01ee4142187968015415acbe9f4764870c74",
+    "runs/packet-connection/timing_packet.py": "f911d485e6892f4351648051d316bbfe2667cfa291ea6cdc11291ada7c485f19"
+  },
+  "gpu": "NVIDIA GB10",
+  "cuda": "13.0"
+}

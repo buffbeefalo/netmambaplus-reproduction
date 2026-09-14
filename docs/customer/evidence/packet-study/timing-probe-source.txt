@@ -1,0 +1,33 @@
+import json, sys, time
+from pathlib import Path
+import numpy as np
+import torch
+ROOT=Path.cwd();sys.path.insert(0,str(ROOT));import packet_model
+upstream=Path('/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus')
+torch.set_num_threads(2);torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
+model,_=packet_model.build_model(upstream, initialization='/home/nvidia/.cache/netmambaplus-reproduction/checkpoints/fuse3_mamba.pth', seed=0)
+a=np.load('runs/packet-connection/prepared/cic/payload.npy',mmap_mode='r')
+x=torch.from_numpy(np.array(a[:64],copy=True)).cuda();truth=torch.arange(64,device='cuda')%2
+opt=torch.optim.AdamW(model.parameters(),lr=.0001)
+def step():
+ model.train();opt.zero_grad(set_to_none=True);logits=packet_model.forward_payload(model,x)['logits'];torch.nn.functional.cross_entropy(logits,truth).backward();opt.step()
+for i in range(3):step()
+torch.cuda.synchronize();start=time.monotonic()
+for i in range(20):step()
+torch.cuda.synchronize();train=(time.monotonic()-start)/20
+model.eval();b=x.repeat(2,1)
+with torch.inference_mode():
+ for i in range(3):packet_model.forward_payload(model,b)
+ torch.cuda.synchronize();start=time.monotonic()
+ for i in range(20):packet_model.forward_payload(model,b)
+ torch.cuda.synchronize();infer=(time.monotonic()-start)/20
+m=json.load(open('runs/packet-connection/prepared/manifest.json'))
+val=sum(m['sources'][s]['splits']['validation']['selected_groups'] for s in ('cic','unsw'))
+test=sum(m['sources'][s]['splits']['test']['selected_groups'] for s in ('cic','unsw'))
+choices=[]
+for steps in range(100,1001,100):
+ predicted=6*steps*train + (4*(steps//100)*val + 6*test)/128*infer
+ choices.append({'updates_per_arm':steps,'estimated_gpu_seconds':predicted,'with_2x_margin_and_180s_overhead':2*predicted+180})
+chosen=max(c['updates_per_arm'] for c in choices if c['with_2x_margin_and_180s_overhead']<3600)
+report={'scope':'Timing only. Real bytes, synthetic alternating targets; no scores inspected and these weights are discarded. No measured training initializes from this probe.','train_batch':64,'train_seconds_per_step':train,'inference_batch':128,'inference_seconds_per_batch':infer,'options':choices,'chosen_updates_per_arm':chosen,'code_sha256':{p:__import__('hashlib').sha256((ROOT/p).read_bytes()).hexdigest() for p in ('packet_model.py','runs/packet-connection/timing_packet.py')},'gpu':torch.cuda.get_device_name(),'cuda':torch.version.cuda}
+Path('runs/packet-connection/timing.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report),flush=True)

@@ -1,0 +1,2280 @@
+{
+  "completed_at": "2026-09-14T05:59:00.624856+00:00",
+  "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+  "elapsed_seconds": 950.0361691099824,
+  "frozen_checkpoints": {
+    "bytes": 1838,
+    "path": "frozen-checkpoints.json",
+    "sha256": "fbb2d85f2a550ce9d7161441fc18d88da9a839042b5bd5a15136b974a2d8337d"
+  },
+  "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+  "results": [
+    {
+      "arm": {
+        "initialization": "pretrained",
+        "name": "cic_pretrained",
+        "sources": [
+          "cic"
+        ]
+      },
+      "selected_checkpoint": {
+        "bytes": 7434570,
+        "path": "cic_pretrained/checkpoint-step-01000.pth",
+        "selection_score": 0.9808167087601805,
+        "sha256": "0c30d8967224bda197e8bf01f6eec003689b975f017b334d318b38f2d44027fc",
+        "step": 1000
+      },
+      "tests": {
+        "cic": {
+          "exposure": "source used for training",
+          "metrics": {
+            "binary_conflicting_groups": 2,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.7472527472527473,
+                "attack_precision": null,
+                "attack_recall": 0.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 0.0,
+                "confusion_matrix": [
+                  [
+                    1.4945054945054945,
+                    0.0
+                  ],
+                  [
+                    0.5054945054945055,
+                    0.0
+                  ]
+                ],
+                "macro_f1": 0.4276729559748428,
+                "support": [
+                  1.4945054945054945,
+                  0.5054945054945055
+                ]
+              },
+              "groups": 2,
+              "row_weighted": {
+                "accuracy": 0.9787234042553191,
+                "attack_precision": null,
+                "attack_recall": 0.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 0.0,
+                "confusion_matrix": [
+                  [
+                    184,
+                    0
+                  ],
+                  [
+                    4,
+                    0
+                  ]
+                ],
+                "macro_f1": 0.4946236559139785,
+                "support": [
+                  184,
+                  4
+                ]
+              },
+              "rows": 188
+            },
+            "group_weighted": {
+              "accuracy": 0.9855747252747252,
+              "attack_average_precision": 0.9939015083088093,
+              "attack_precision": 0.9660914320314865,
+              "attack_recall": 0.9899937269020442,
+              "auroc": 0.9968404630369774,
+              "balanced_accuracy": 0.9867333119400375,
+              "benign_false_positive_rate": 0.016527103021969112,
+              "confusion_matrix": [
+                [
+                  13329.494505494506,
+                  224.0
+                ],
+                [
+                  64.50549450549451,
+                  6382.0
+                ]
+              ],
+              "macro_f1": 0.9835951672324768,
+              "support": [
+                13553.494505494506,
+                6446.505494505494
+              ]
+            },
+            "groups": 20000,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "BENIGN": {
+                "correct": 15816,
+                "recall_of_supplied_binary_target": 0.9812631840178683,
+                "rows": 16118
+              },
+              "Bot": {
+                "correct": 38,
+                "recall_of_supplied_binary_target": 0.4578313253012048,
+                "rows": 83
+              },
+              "DDoS": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 4
+              },
+              "DoS GoldenEye": {
+                "correct": 5243,
+                "recall_of_supplied_binary_target": 0.9998093058733791,
+                "rows": 5244
+              },
+              "DoS Hulk": {
+                "correct": 9983,
+                "recall_of_supplied_binary_target": 0.999799699549324,
+                "rows": 9985
+              },
+              "DoS Slowhttptest": {
+                "correct": 3215,
+                "recall_of_supplied_binary_target": 0.9993783027665527,
+                "rows": 3217
+              },
+              "DoS slowloris": {
+                "correct": 3808,
+                "recall_of_supplied_binary_target": 0.9997374639012864,
+                "rows": 3809
+              },
+              "FTP-Patator": {
+                "correct": 666,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 666
+              },
+              "Heartbleed": {
+                "correct": 517,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 517
+              },
+              "Infiltration": {
+                "correct": 5215,
+                "recall_of_supplied_binary_target": 0.9817394578313253,
+                "rows": 5312
+              },
+              "PortScan": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": null,
+                "rows": 0
+              },
+              "SSH-Patator": {
+                "correct": 1860,
+                "recall_of_supplied_binary_target": 0.9872611464968153,
+                "rows": 1884
+              },
+              "Web Attack \u2013 Brute Force": {
+                "correct": 121,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 121
+              },
+              "Web Attack \u2013 Sql Injection": {
+                "correct": 1,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1
+              },
+              "Web Attack \u2013 XSS": {
+                "correct": 87,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 87
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.9898401632375446,
+              "attack_average_precision": 0.9985767537870933,
+              "attack_precision": 0.9902756311179804,
+              "attack_recall": 0.9943097316521177,
+              "auroc": 0.9974248376837057,
+              "balanced_accuracy": 0.987786457834993,
+              "benign_false_positive_rate": 0.01873681598213178,
+              "confusion_matrix": [
+                [
+                  15816,
+                  302
+                ],
+                [
+                  176,
+                  30754
+                ]
+              ],
+              "macro_f1": 0.9887011265229488,
+              "support": [
+                16118,
+                30930
+              ]
+            },
+            "rows": 47048
+          },
+          "predictions": {
+            "bytes": 1216517,
+            "path": "cic_pretrained/test-cic.jsonl.gz",
+            "sha256": "540647b48f3231534d4b8780e3c161b7fc3ae321f98defb7dc1980eb01a95fc5"
+          }
+        },
+        "unsw": {
+          "exposure": "no supervised fitting on this source",
+          "metrics": {
+            "binary_conflicting_groups": 1,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0.0,
+                    0.5044510385756676
+                  ],
+                  [
+                    0.0,
+                    0.49554896142433236
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  0.5044510385756676,
+                  0.49554896142433236
+                ]
+              },
+              "groups": 1,
+              "row_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0,
+                    170
+                  ],
+                  [
+                    0,
+                    167
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  170,
+                  167
+                ]
+              },
+              "rows": 337
+            },
+            "group_weighted": {
+              "accuracy": 0.5056484905499873,
+              "attack_average_precision": 0.8617616704379903,
+              "attack_precision": 0.8395639419378292,
+              "attack_recall": 0.4872373086025588,
+              "auroc": 0.5520474361286616,
+              "balanced_accuracy": 0.5372500725653475,
+              "benign_false_positive_rate": 0.41273716347186395,
+              "confusion_matrix": [
+                [
+                  641.0,
+                  450.50445103857567
+                ],
+                [
+                  2481.0,
+                  2357.4955489614244
+                ]
+              ],
+              "macro_f1": 0.4604404867638332,
+              "support": [
+                1091.5044510385756,
+                4838.495548961424
+              ]
+            },
+            "groups": 5930,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "analysis": {
+                "correct": 207,
+                "recall_of_supplied_binary_target": 0.971830985915493,
+                "rows": 213
+              },
+              "backdoor": {
+                "correct": 194,
+                "recall_of_supplied_binary_target": 0.919431279620853,
+                "rows": 211
+              },
+              "dos": {
+                "correct": 380,
+                "recall_of_supplied_binary_target": 0.7509881422924901,
+                "rows": 506
+              },
+              "exploits": {
+                "correct": 1184,
+                "recall_of_supplied_binary_target": 0.5632730732635585,
+                "rows": 2102
+              },
+              "fuzzers": {
+                "correct": 863,
+                "recall_of_supplied_binary_target": 0.4695321001088139,
+                "rows": 1838
+              },
+              "generic": {
+                "correct": 312,
+                "recall_of_supplied_binary_target": 0.11316648531011969,
+                "rows": 2757
+              },
+              "normal": {
+                "correct": 1573,
+                "recall_of_supplied_binary_target": 0.5017543859649123,
+                "rows": 3135
+              },
+              "reconnaissance": {
+                "correct": 938,
+                "recall_of_supplied_binary_target": 0.8003412969283277,
+                "rows": 1172
+              },
+              "shellcode": {
+                "correct": 137,
+                "recall_of_supplied_binary_target": 0.8838709677419355,
+                "rows": 155
+              },
+              "worms": {
+                "correct": 11,
+                "recall_of_supplied_binary_target": 0.4782608695652174,
+                "rows": 23
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.4787813738441215,
+              "attack_average_precision": 0.7594204042080169,
+              "attack_precision": 0.7301313061506566,
+              "attack_recall": 0.47075860532471875,
+              "auroc": 0.48778528292842654,
+              "balanced_accuracy": 0.48625649564481555,
+              "benign_false_positive_rate": 0.4982456140350877,
+              "confusion_matrix": [
+                [
+                  1573,
+                  1562
+                ],
+                [
+                  4751,
+                  4226
+                ]
+              ],
+              "macro_f1": 0.4525140547221335,
+              "support": [
+                3135,
+                8977
+              ]
+            },
+            "rows": 12112
+          },
+          "predictions": {
+            "bytes": 365948,
+            "path": "cic_pretrained/test-unsw.jsonl.gz",
+            "sha256": "02a93ac5986baccaea01c3b4aedf53dd399d64473b303c3924cf60b4ce33afc9"
+          }
+        }
+      },
+      "training_receipt": {
+        "bytes": 71486,
+        "path": "cic_pretrained/training-receipt.json",
+        "sha256": "4de07bc43e99613b07007d8d675b4b3c0d21280759bb71ae8b439c2678a2993f"
+      }
+    },
+    {
+      "arm": {
+        "initialization": "scratch",
+        "name": "cic_scratch",
+        "sources": [
+          "cic"
+        ]
+      },
+      "selected_checkpoint": {
+        "bytes": 7432394,
+        "path": "cic_scratch/checkpoint-step-00100.pth",
+        "selection_score": 0.4038748137108793,
+        "sha256": "724ea207b74a7158ce99186fe51bfe7452d5d71b0520f2c0c5c466da5a71a698",
+        "step": 100
+      },
+      "tests": {
+        "cic": {
+          "exposure": "source used for training",
+          "metrics": {
+            "binary_conflicting_groups": 2,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.7472527472527473,
+                "attack_precision": null,
+                "attack_recall": 0.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 0.0,
+                "confusion_matrix": [
+                  [
+                    1.4945054945054945,
+                    0.0
+                  ],
+                  [
+                    0.5054945054945055,
+                    0.0
+                  ]
+                ],
+                "macro_f1": 0.4276729559748428,
+                "support": [
+                  1.4945054945054945,
+                  0.5054945054945055
+                ]
+              },
+              "groups": 2,
+              "row_weighted": {
+                "accuracy": 0.9787234042553191,
+                "attack_precision": null,
+                "attack_recall": 0.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 0.0,
+                "confusion_matrix": [
+                  [
+                    184,
+                    0
+                  ],
+                  [
+                    4,
+                    0
+                  ]
+                ],
+                "macro_f1": 0.4946236559139785,
+                "support": [
+                  184,
+                  4
+                ]
+              },
+              "rows": 188
+            },
+            "group_weighted": {
+              "accuracy": 0.6776747252747253,
+              "attack_average_precision": 0.40394193829933894,
+              "attack_precision": null,
+              "attack_recall": 0.0,
+              "auroc": 0.6396513168714928,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 0.0,
+              "confusion_matrix": [
+                [
+                  13553.494505494506,
+                  0.0
+                ],
+                [
+                  6446.505494505494,
+                  0.0
+                ]
+              ],
+              "macro_f1": 0.4039368985330298,
+              "support": [
+                13553.494505494506,
+                6446.505494505494
+              ]
+            },
+            "groups": 20000,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "BENIGN": {
+                "correct": 16118,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 16118
+              },
+              "Bot": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 83
+              },
+              "DDoS": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 4
+              },
+              "DoS GoldenEye": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 5244
+              },
+              "DoS Hulk": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 9985
+              },
+              "DoS Slowhttptest": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 3217
+              },
+              "DoS slowloris": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 3809
+              },
+              "FTP-Patator": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 666
+              },
+              "Heartbleed": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 517
+              },
+              "Infiltration": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 5312
+              },
+              "PortScan": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": null,
+                "rows": 0
+              },
+              "SSH-Patator": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 1884
+              },
+              "Web Attack \u2013 Brute Force": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 121
+              },
+              "Web Attack \u2013 Sql Injection": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 1
+              },
+              "Web Attack \u2013 XSS": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 87
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.342586294847815,
+              "attack_average_precision": 0.7243105965908928,
+              "attack_precision": null,
+              "attack_recall": 0.0,
+              "auroc": 0.6263654451186804,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 0.0,
+              "confusion_matrix": [
+                [
+                  16118,
+                  0
+                ],
+                [
+                  30930,
+                  0
+                ]
+              ],
+              "macro_f1": 0.2551689199886015,
+              "support": [
+                16118,
+                30930
+              ]
+            },
+            "rows": 47048
+          },
+          "predictions": {
+            "bytes": 891332,
+            "path": "cic_scratch/test-cic.jsonl.gz",
+            "sha256": "ee0a36e224424bdf4203faf7db46290681515b3ba9e82cae86eea8c5fb8675f2"
+          }
+        },
+        "unsw": {
+          "exposure": "no supervised fitting on this source",
+          "metrics": {
+            "binary_conflicting_groups": 1,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.5044510385756676,
+                "attack_precision": null,
+                "attack_recall": 0.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 0.0,
+                "confusion_matrix": [
+                  [
+                    0.5044510385756676,
+                    0.0
+                  ],
+                  [
+                    0.49554896142433236,
+                    0.0
+                  ]
+                ],
+                "macro_f1": 0.33530571992110453,
+                "support": [
+                  0.5044510385756676,
+                  0.49554896142433236
+                ]
+              },
+              "groups": 1,
+              "row_weighted": {
+                "accuracy": 0.5044510385756676,
+                "attack_precision": null,
+                "attack_recall": 0.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 0.0,
+                "confusion_matrix": [
+                  [
+                    170,
+                    0
+                  ],
+                  [
+                    167,
+                    0
+                  ]
+                ],
+                "macro_f1": 0.33530571992110453,
+                "support": [
+                  170,
+                  167
+                ]
+              },
+              "rows": 337
+            },
+            "group_weighted": {
+              "accuracy": 0.18406483154107514,
+              "attack_average_precision": 0.8292863481728727,
+              "attack_precision": null,
+              "attack_recall": 0.0,
+              "auroc": 0.5354574062549043,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 0.0,
+              "confusion_matrix": [
+                [
+                  1091.5044510385756,
+                  0.0
+                ],
+                [
+                  4838.495548961424,
+                  0.0
+                ]
+              ],
+              "macro_f1": 0.15545164980663473,
+              "support": [
+                1091.5044510385756,
+                4838.495548961424
+              ]
+            },
+            "groups": 5930,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "analysis": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 213
+              },
+              "backdoor": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 211
+              },
+              "dos": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 506
+              },
+              "exploits": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 2102
+              },
+              "fuzzers": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 1838
+              },
+              "generic": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 2757
+              },
+              "normal": {
+                "correct": 3135,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3135
+              },
+              "reconnaissance": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 1172
+              },
+              "shellcode": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 155
+              },
+              "worms": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 23
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.258834214002642,
+              "attack_average_precision": 0.7480088725317672,
+              "attack_precision": null,
+              "attack_recall": 0.0,
+              "auroc": 0.5148751398887712,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 0.0,
+              "confusion_matrix": [
+                [
+                  3135,
+                  0
+                ],
+                [
+                  8977,
+                  0
+                ]
+              ],
+              "macro_f1": 0.20561421919066045,
+              "support": [
+                3135,
+                8977
+              ]
+            },
+            "rows": 12112
+          },
+          "predictions": {
+            "bytes": 254401,
+            "path": "cic_scratch/test-unsw.jsonl.gz",
+            "sha256": "0bb261054e892aecb18e24d7259142af4720d83d3be89cec5cb5bea42d4b3ea4"
+          }
+        }
+      },
+      "training_receipt": {
+        "bytes": 67488,
+        "path": "cic_scratch/training-receipt.json",
+        "sha256": "e288ac936fb508a328e6e9339cd89c3ef1803fa6ffe94c4d6772d2ca588c979a"
+      }
+    },
+    {
+      "arm": {
+        "initialization": "pretrained",
+        "name": "unsw_pretrained",
+        "sources": [
+          "unsw"
+        ]
+      },
+      "selected_checkpoint": {
+        "bytes": 7434570,
+        "path": "unsw_pretrained/checkpoint-step-01000.pth",
+        "selection_score": 0.9452987400600454,
+        "sha256": "3043dcd94f44b797926e3265c9124beb87e3fc0036f72dec31bca0a8ac8eaba1",
+        "step": 1000
+      },
+      "tests": {
+        "cic": {
+          "exposure": "no supervised fitting on this source",
+          "metrics": {
+            "binary_conflicting_groups": 2,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.25274725274725274,
+                "attack_precision": 0.25274725274725274,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0.0,
+                    1.4945054945054945
+                  ],
+                  [
+                    0.0,
+                    0.5054945054945055
+                  ]
+                ],
+                "macro_f1": 0.20175438596491227,
+                "support": [
+                  1.4945054945054945,
+                  0.5054945054945055
+                ]
+              },
+              "groups": 2,
+              "row_weighted": {
+                "accuracy": 0.02127659574468085,
+                "attack_precision": 0.02127659574468085,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0,
+                    184
+                  ],
+                  [
+                    0,
+                    4
+                  ]
+                ],
+                "macro_f1": 0.020833333333333332,
+                "support": [
+                  184,
+                  4
+                ]
+              },
+              "rows": 188
+            },
+            "group_weighted": {
+              "accuracy": 0.6157752747252747,
+              "attack_average_precision": 0.7835021053074077,
+              "attack_precision": 0.4559966940005328,
+              "attack_recall": 0.9950360703132458,
+              "auroc": 0.8796743367042186,
+              "balanced_accuracy": 0.7152109702741223,
+              "benign_false_positive_rate": 0.5646141297650012,
+              "confusion_matrix": [
+                [
+                  5901.0,
+                  7652.494505494506
+                ],
+                [
+                  32.0,
+                  6414.505494505494
+                ]
+              ],
+              "macro_f1": 0.6155218191218323,
+              "support": [
+                13553.494505494506,
+                6446.505494505494
+              ]
+            },
+            "groups": 20000,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "BENIGN": {
+                "correct": 7230,
+                "recall_of_supplied_binary_target": 0.448566819704678,
+                "rows": 16118
+              },
+              "Bot": {
+                "correct": 83,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 83
+              },
+              "DDoS": {
+                "correct": 4,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 4
+              },
+              "DoS GoldenEye": {
+                "correct": 5244,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 5244
+              },
+              "DoS Hulk": {
+                "correct": 9985,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 9985
+              },
+              "DoS Slowhttptest": {
+                "correct": 3217,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3217
+              },
+              "DoS slowloris": {
+                "correct": 3809,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3809
+              },
+              "FTP-Patator": {
+                "correct": 666,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 666
+              },
+              "Heartbleed": {
+                "correct": 517,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 517
+              },
+              "Infiltration": {
+                "correct": 5312,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 5312
+              },
+              "PortScan": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": null,
+                "rows": 0
+              },
+              "SSH-Patator": {
+                "correct": 1842,
+                "recall_of_supplied_binary_target": 0.9777070063694268,
+                "rows": 1884
+              },
+              "Web Attack \u2013 Brute Force": {
+                "correct": 121,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 121
+              },
+              "Web Attack \u2013 Sql Injection": {
+                "correct": 1,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1
+              },
+              "Web Attack \u2013 XSS": {
+                "correct": 87,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 87
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.8101938445842544,
+              "attack_average_precision": 0.9561545044898019,
+              "attack_precision": 0.7765486725663717,
+              "attack_recall": 0.9986420950533462,
+              "auroc": 0.9270016559092342,
+              "balanced_accuracy": 0.7236044573790121,
+              "benign_false_positive_rate": 0.551433180295322,
+              "confusion_matrix": [
+                [
+                  7230,
+                  8888
+                ],
+                [
+                  42,
+                  30888
+                ]
+              ],
+              "macro_f1": 0.7459576423540035,
+              "support": [
+                16118,
+                30930
+              ]
+            },
+            "rows": 47048
+          },
+          "predictions": {
+            "bytes": 1228624,
+            "path": "unsw_pretrained/test-cic.jsonl.gz",
+            "sha256": "e57b9fa5ddcb45a5a62de7fe306ede0e81f6f86202617b79592f2078cddeed17"
+          }
+        },
+        "unsw": {
+          "exposure": "source used for training",
+          "metrics": {
+            "binary_conflicting_groups": 1,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0.0,
+                    0.5044510385756676
+                  ],
+                  [
+                    0.0,
+                    0.49554896142433236
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  0.5044510385756676,
+                  0.49554896142433236
+                ]
+              },
+              "groups": 1,
+              "row_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0,
+                    170
+                  ],
+                  [
+                    0,
+                    167
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  170,
+                  167
+                ]
+              },
+              "rows": 337
+            },
+            "group_weighted": {
+              "accuracy": 0.9660194854909653,
+              "attack_average_precision": 0.9947200209659556,
+              "attack_precision": 0.9729693082336647,
+              "attack_recall": 0.9857393689212319,
+              "auroc": 0.9815102294193867,
+              "balanced_accuracy": 0.9321716035171547,
+              "benign_false_positive_rate": 0.12139616188692275,
+              "confusion_matrix": [
+                [
+                  959.0,
+                  132.50445103857567
+                ],
+                [
+                  69.0,
+                  4769.495548961424
+                ]
+              ],
+              "macro_f1": 0.9421206091268727,
+              "support": [
+                1091.5044510385756,
+                4838.495548961424
+              ]
+            },
+            "groups": 5930,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "analysis": {
+                "correct": 213,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 213
+              },
+              "backdoor": {
+                "correct": 210,
+                "recall_of_supplied_binary_target": 0.995260663507109,
+                "rows": 211
+              },
+              "dos": {
+                "correct": 499,
+                "recall_of_supplied_binary_target": 0.9861660079051383,
+                "rows": 506
+              },
+              "exploits": {
+                "correct": 2034,
+                "recall_of_supplied_binary_target": 0.9676498572787822,
+                "rows": 2102
+              },
+              "fuzzers": {
+                "correct": 1822,
+                "recall_of_supplied_binary_target": 0.9912948857453754,
+                "rows": 1838
+              },
+              "generic": {
+                "correct": 2735,
+                "recall_of_supplied_binary_target": 0.9920203119332608,
+                "rows": 2757
+              },
+              "normal": {
+                "correct": 2179,
+                "recall_of_supplied_binary_target": 0.6950558213716108,
+                "rows": 3135
+              },
+              "reconnaissance": {
+                "correct": 1168,
+                "recall_of_supplied_binary_target": 0.9965870307167235,
+                "rows": 1172
+              },
+              "shellcode": {
+                "correct": 145,
+                "recall_of_supplied_binary_target": 0.9354838709677419,
+                "rows": 155
+              },
+              "worms": {
+                "correct": 23,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 23
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.9105019815059445,
+              "attack_average_precision": 0.9733394655118848,
+              "attack_precision": 0.9024987251402345,
+              "attack_recall": 0.9857413389773867,
+              "auroc": 0.9355570206974088,
+              "balanced_accuracy": 0.8403985801744988,
+              "benign_false_positive_rate": 0.30494417862838913,
+              "confusion_matrix": [
+                [
+                  2179,
+                  956
+                ],
+                [
+                  128,
+                  8849
+                ]
+              ],
+              "macro_f1": 0.8715468464630116,
+              "support": [
+                3135,
+                8977
+              ]
+            },
+            "rows": 12112
+          },
+          "predictions": {
+            "bytes": 362403,
+            "path": "unsw_pretrained/test-unsw.jsonl.gz",
+            "sha256": "aba2b105d11e2e084a70f79f32df68ea20f57b1ecf0a23ceda4645302698b13f"
+          }
+        }
+      },
+      "training_receipt": {
+        "bytes": 75553,
+        "path": "unsw_pretrained/training-receipt.json",
+        "sha256": "6eedcaa16f8fc226d9ceb25e0011ca1041f56089c111658cd4b9ba431aa334c0"
+      }
+    },
+    {
+      "arm": {
+        "initialization": "scratch",
+        "name": "unsw_scratch",
+        "sources": [
+          "unsw"
+        ]
+      },
+      "selected_checkpoint": {
+        "bytes": 7432458,
+        "path": "unsw_scratch/checkpoint-step-00100.pth",
+        "selection_score": 0.4475408599508002,
+        "sha256": "5ff01b2a9b950a1f48293b4de51d7a7563cd396096a4fb7838c115cc6ed912fb",
+        "step": 100
+      },
+      "tests": {
+        "cic": {
+          "exposure": "no supervised fitting on this source",
+          "metrics": {
+            "binary_conflicting_groups": 2,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.25274725274725274,
+                "attack_precision": 0.25274725274725274,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0.0,
+                    1.4945054945054945
+                  ],
+                  [
+                    0.0,
+                    0.5054945054945055
+                  ]
+                ],
+                "macro_f1": 0.20175438596491227,
+                "support": [
+                  1.4945054945054945,
+                  0.5054945054945055
+                ]
+              },
+              "groups": 2,
+              "row_weighted": {
+                "accuracy": 0.02127659574468085,
+                "attack_precision": 0.02127659574468085,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0,
+                    184
+                  ],
+                  [
+                    0,
+                    4
+                  ]
+                ],
+                "macro_f1": 0.020833333333333332,
+                "support": [
+                  184,
+                  4
+                ]
+              },
+              "rows": 188
+            },
+            "group_weighted": {
+              "accuracy": 0.3223252747252747,
+              "attack_average_precision": 0.3898722799167975,
+              "attack_precision": 0.3223252747252747,
+              "attack_recall": 1.0,
+              "auroc": 0.5963932299031257,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  13553.494505494506
+                ],
+                [
+                  0.0,
+                  6446.505494505494
+                ]
+              ],
+              "macro_f1": 0.24375641976006301,
+              "support": [
+                13553.494505494506,
+                6446.505494505494
+              ]
+            },
+            "groups": 20000,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "BENIGN": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 16118
+              },
+              "Bot": {
+                "correct": 83,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 83
+              },
+              "DDoS": {
+                "correct": 4,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 4
+              },
+              "DoS GoldenEye": {
+                "correct": 5244,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 5244
+              },
+              "DoS Hulk": {
+                "correct": 9985,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 9985
+              },
+              "DoS Slowhttptest": {
+                "correct": 3217,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3217
+              },
+              "DoS slowloris": {
+                "correct": 3809,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3809
+              },
+              "FTP-Patator": {
+                "correct": 666,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 666
+              },
+              "Heartbleed": {
+                "correct": 517,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 517
+              },
+              "Infiltration": {
+                "correct": 5312,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 5312
+              },
+              "PortScan": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": null,
+                "rows": 0
+              },
+              "SSH-Patator": {
+                "correct": 1884,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1884
+              },
+              "Web Attack \u2013 Brute Force": {
+                "correct": 121,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 121
+              },
+              "Web Attack \u2013 Sql Injection": {
+                "correct": 1,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1
+              },
+              "Web Attack \u2013 XSS": {
+                "correct": 87,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 87
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.657413705152185,
+              "attack_average_precision": 0.7121821647852457,
+              "attack_precision": 0.657413705152185,
+              "attack_recall": 1.0,
+              "auroc": 0.5800300489595666,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  16118
+                ],
+                [
+                  0,
+                  30930
+                ]
+              ],
+              "macro_f1": 0.3966503372746159,
+              "support": [
+                16118,
+                30930
+              ]
+            },
+            "rows": 47048
+          },
+          "predictions": {
+            "bytes": 885105,
+            "path": "unsw_scratch/test-cic.jsonl.gz",
+            "sha256": "2dc0f0ed7de1a8b6e4eac6884895d7968432669c028ed188f9bb999db3866496"
+          }
+        },
+        "unsw": {
+          "exposure": "source used for training",
+          "metrics": {
+            "binary_conflicting_groups": 1,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0.0,
+                    0.5044510385756676
+                  ],
+                  [
+                    0.0,
+                    0.49554896142433236
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  0.5044510385756676,
+                  0.49554896142433236
+                ]
+              },
+              "groups": 1,
+              "row_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0,
+                    170
+                  ],
+                  [
+                    0,
+                    167
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  170,
+                  167
+                ]
+              },
+              "rows": 337
+            },
+            "group_weighted": {
+              "accuracy": 0.8159351684589248,
+              "attack_average_precision": 0.8257921050913128,
+              "attack_precision": 0.8159351684589248,
+              "attack_recall": 1.0,
+              "auroc": 0.4935153870156255,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  1091.5044510385756
+                ],
+                [
+                  0.0,
+                  4838.495548961424
+                ]
+              ],
+              "macro_f1": 0.44931954765288235,
+              "support": [
+                1091.5044510385756,
+                4838.495548961424
+              ]
+            },
+            "groups": 5930,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "analysis": {
+                "correct": 213,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 213
+              },
+              "backdoor": {
+                "correct": 211,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 211
+              },
+              "dos": {
+                "correct": 506,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 506
+              },
+              "exploits": {
+                "correct": 2102,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 2102
+              },
+              "fuzzers": {
+                "correct": 1838,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1838
+              },
+              "generic": {
+                "correct": 2757,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 2757
+              },
+              "normal": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 3135
+              },
+              "reconnaissance": {
+                "correct": 1172,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1172
+              },
+              "shellcode": {
+                "correct": 155,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 155
+              },
+              "worms": {
+                "correct": 23,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 23
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.7411657859973579,
+              "attack_average_precision": 0.7473901954257315,
+              "attack_precision": 0.7411657859973579,
+              "attack_recall": 1.0,
+              "auroc": 0.49447619017162237,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  3135
+                ],
+                [
+                  0,
+                  8977
+                ]
+              ],
+              "macro_f1": 0.42567215135852815,
+              "support": [
+                3135,
+                8977
+              ]
+            },
+            "rows": 12112
+          },
+          "predictions": {
+            "bytes": 252781,
+            "path": "unsw_scratch/test-unsw.jsonl.gz",
+            "sha256": "fe9fe4afc0716948d77cc80d80827c3c9902f591ebde251f227990bdd9b3b440"
+          }
+        }
+      },
+      "training_receipt": {
+        "bytes": 72380,
+        "path": "unsw_scratch/training-receipt.json",
+        "sha256": "492ced175b630fa4c384956ca97062bb69c1889e50560644d73027911bf5c7dd"
+      }
+    },
+    {
+      "arm": {
+        "initialization": "pretrained",
+        "name": "joint_pretrained",
+        "sources": [
+          "cic",
+          "unsw"
+        ]
+      },
+      "selected_checkpoint": {
+        "bytes": 7435722,
+        "path": "joint_pretrained/checkpoint-step-01000.pth",
+        "selection_score": 0.9385902170791537,
+        "sha256": "7113adce6090af28a179b5e98f5dac8d5d7f1a9898681969924f9651815f947a",
+        "step": 1000
+      },
+      "tests": {
+        "cic": {
+          "exposure": "source used for training",
+          "metrics": {
+            "binary_conflicting_groups": 2,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.7472527472527473,
+                "attack_precision": null,
+                "attack_recall": 0.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 0.0,
+                "confusion_matrix": [
+                  [
+                    1.4945054945054945,
+                    0.0
+                  ],
+                  [
+                    0.5054945054945055,
+                    0.0
+                  ]
+                ],
+                "macro_f1": 0.4276729559748428,
+                "support": [
+                  1.4945054945054945,
+                  0.5054945054945055
+                ]
+              },
+              "groups": 2,
+              "row_weighted": {
+                "accuracy": 0.9787234042553191,
+                "attack_precision": null,
+                "attack_recall": 0.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 0.0,
+                "confusion_matrix": [
+                  [
+                    184,
+                    0
+                  ],
+                  [
+                    4,
+                    0
+                  ]
+                ],
+                "macro_f1": 0.4946236559139785,
+                "support": [
+                  184,
+                  4
+                ]
+              },
+              "rows": 188
+            },
+            "group_weighted": {
+              "accuracy": 0.9696747252747253,
+              "attack_average_precision": 0.9846127375495652,
+              "attack_precision": 0.9199022145527754,
+              "attack_recall": 0.9923205689427103,
+              "auroc": 0.9933801860269319,
+              "balanced_accuracy": 0.9756120782587729,
+              "benign_false_positive_rate": 0.041096412425164264,
+              "confusion_matrix": [
+                [
+                  12996.494505494506,
+                  557.0
+                ],
+                [
+                  49.505494505494504,
+                  6397.0
+                ]
+              ],
+              "macro_f1": 0.9659693557726489,
+              "support": [
+                13553.494505494506,
+                6446.505494505494
+              ]
+            },
+            "groups": 20000,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "BENIGN": {
+                "correct": 15436,
+                "recall_of_supplied_binary_target": 0.9576870579476362,
+                "rows": 16118
+              },
+              "Bot": {
+                "correct": 44,
+                "recall_of_supplied_binary_target": 0.5301204819277109,
+                "rows": 83
+              },
+              "DDoS": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 4
+              },
+              "DoS GoldenEye": {
+                "correct": 5244,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 5244
+              },
+              "DoS Hulk": {
+                "correct": 9985,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 9985
+              },
+              "DoS Slowhttptest": {
+                "correct": 3217,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3217
+              },
+              "DoS slowloris": {
+                "correct": 3809,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3809
+              },
+              "FTP-Patator": {
+                "correct": 666,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 666
+              },
+              "Heartbleed": {
+                "correct": 473,
+                "recall_of_supplied_binary_target": 0.9148936170212766,
+                "rows": 517
+              },
+              "Infiltration": {
+                "correct": 4434,
+                "recall_of_supplied_binary_target": 0.8347138554216867,
+                "rows": 5312
+              },
+              "PortScan": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": null,
+                "rows": 0
+              },
+              "SSH-Patator": {
+                "correct": 1875,
+                "recall_of_supplied_binary_target": 0.9952229299363057,
+                "rows": 1884
+              },
+              "Web Attack \u2013 Brute Force": {
+                "correct": 121,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 121
+              },
+              "Web Attack \u2013 Sql Injection": {
+                "correct": 1,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1
+              },
+              "Web Attack \u2013 XSS": {
+                "correct": 87,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 87
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.9648019044380207,
+              "attack_average_precision": 0.9937462276400457,
+              "attack_precision": 0.9777400613617077,
+              "attack_recall": 0.9685095376656967,
+              "auroc": 0.9909393429567512,
+              "balanced_accuracy": 0.9630982978066664,
+              "benign_false_positive_rate": 0.042312942052363814,
+              "confusion_matrix": [
+                [
+                  15436,
+                  682
+                ],
+                [
+                  974,
+                  29956
+                ]
+              ],
+              "macro_f1": 0.961096462679714,
+              "support": [
+                16118,
+                30930
+              ]
+            },
+            "rows": 47048
+          },
+          "predictions": {
+            "bytes": 1226237,
+            "path": "joint_pretrained/test-cic.jsonl.gz",
+            "sha256": "b1b472dd2297e7c6a7e7dc942783378e52a779c3874b4d4e5d5c7b72d31b3cdc"
+          }
+        },
+        "unsw": {
+          "exposure": "source used for training",
+          "metrics": {
+            "binary_conflicting_groups": 1,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0.0,
+                    0.5044510385756676
+                  ],
+                  [
+                    0.0,
+                    0.49554896142433236
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  0.5044510385756676,
+                  0.49554896142433236
+                ]
+              },
+              "groups": 1,
+              "row_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0,
+                    170
+                  ],
+                  [
+                    0,
+                    167
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  170,
+                  167
+                ]
+              },
+              "rows": 337
+            },
+            "group_weighted": {
+              "accuracy": 0.9452774956090091,
+              "attack_average_precision": 0.9962593164677503,
+              "attack_precision": 0.9856887344440336,
+              "attack_recall": 0.9466776403141718,
+              "auroc": 0.985997514577102,
+              "balanced_accuracy": 0.9428742393780996,
+              "benign_false_positive_rate": 0.06092916155797269,
+              "confusion_matrix": [
+                [
+                  1025.0,
+                  66.50445103857567
+                ],
+                [
+                  258.0,
+                  4580.495548961424
+                ]
+              ],
+              "macro_f1": 0.9145637183218497,
+              "support": [
+                1091.5044510385756,
+                4838.495548961424
+              ]
+            },
+            "groups": 5930,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "analysis": {
+                "correct": 213,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 213
+              },
+              "backdoor": {
+                "correct": 209,
+                "recall_of_supplied_binary_target": 0.990521327014218,
+                "rows": 211
+              },
+              "dos": {
+                "correct": 485,
+                "recall_of_supplied_binary_target": 0.958498023715415,
+                "rows": 506
+              },
+              "exploits": {
+                "correct": 1935,
+                "recall_of_supplied_binary_target": 0.9205518553758325,
+                "rows": 2102
+              },
+              "fuzzers": {
+                "correct": 1752,
+                "recall_of_supplied_binary_target": 0.9532100108813928,
+                "rows": 1838
+              },
+              "generic": {
+                "correct": 2719,
+                "recall_of_supplied_binary_target": 0.9862169024301777,
+                "rows": 2757
+              },
+              "normal": {
+                "correct": 2603,
+                "recall_of_supplied_binary_target": 0.8303030303030303,
+                "rows": 3135
+              },
+              "reconnaissance": {
+                "correct": 1166,
+                "recall_of_supplied_binary_target": 0.9948805460750854,
+                "rows": 1172
+              },
+              "shellcode": {
+                "correct": 72,
+                "recall_of_supplied_binary_target": 0.4645161290322581,
+                "rows": 155
+              },
+              "worms": {
+                "correct": 18,
+                "recall_of_supplied_binary_target": 0.782608695652174,
+                "rows": 23
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.9223910171730515,
+              "attack_average_precision": 0.9914314388596073,
+              "attack_precision": 0.941544885177453,
+              "attack_recall": 0.95455051799042,
+              "auroc": 0.9761056920405665,
+              "balanced_accuracy": 0.8924267741467251,
+              "benign_false_positive_rate": 0.1696969696969697,
+              "confusion_matrix": [
+                [
+                  2603,
+                  532
+                ],
+                [
+                  408,
+                  8569
+                ]
+              ],
+              "macro_f1": 0.8975290464032869,
+              "support": [
+                3135,
+                8977
+              ]
+            },
+            "rows": 12112
+          },
+          "predictions": {
+            "bytes": 362044,
+            "path": "joint_pretrained/test-unsw.jsonl.gz",
+            "sha256": "2558bd97d9d149af5c341008666a888a2997341b4379a06099893c16acda74cf"
+          }
+        }
+      },
+      "training_receipt": {
+        "bytes": 119720,
+        "path": "joint_pretrained/training-receipt.json",
+        "sha256": "541636a9a7596b4aac042311bd8388d7b93c3213208d0d2ae361027a9b85a186"
+      }
+    },
+    {
+      "arm": {
+        "initialization": "scratch",
+        "name": "joint_scratch",
+        "sources": [
+          "cic",
+          "unsw"
+        ]
+      },
+      "selected_checkpoint": {
+        "bytes": 7434378,
+        "path": "joint_scratch/checkpoint-step-01000.pth",
+        "selection_score": 0.4027709663860384,
+        "sha256": "09f637cbe21db5829619e44bdee0972ae610ae023d9ad99149949c6ab6f0613a",
+        "step": 1000
+      },
+      "tests": {
+        "cic": {
+          "exposure": "source used for training",
+          "metrics": {
+            "binary_conflicting_groups": 2,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.25274725274725274,
+                "attack_precision": 0.005494505494505495,
+                "attack_recall": 0.010869565217391306,
+                "balanced_accuracy": 0.17271419437340152,
+                "benign_false_positive_rate": 0.6654411764705882,
+                "confusion_matrix": [
+                  [
+                    0.5,
+                    0.9945054945054945
+                  ],
+                  [
+                    0.5,
+                    0.005494505494505495
+                  ]
+                ],
+                "macro_f1": 0.20409016367085758,
+                "support": [
+                  1.4945054945054945,
+                  0.5054945054945055
+                ]
+              },
+              "groups": 2,
+              "row_weighted": {
+                "accuracy": 0.02127659574468085,
+                "attack_precision": 0.005494505494505495,
+                "attack_recall": 0.25,
+                "balanced_accuracy": 0.1331521739130435,
+                "benign_false_positive_rate": 0.9836956521739131,
+                "confusion_matrix": [
+                  [
+                    3,
+                    181
+                  ],
+                  [
+                    3,
+                    1
+                  ]
+                ],
+                "macro_f1": 0.021165817770232034,
+                "support": [
+                  184,
+                  4
+                ]
+              },
+              "rows": 188
+            },
+            "group_weighted": {
+              "accuracy": 0.39882527472527474,
+              "attack_average_precision": 0.4080165618721734,
+              "attack_precision": 0.34872269812322976,
+              "attack_recall": 0.9971302281498452,
+              "auroc": 0.6488836376206315,
+              "balanced_accuracy": 0.5556906029800993,
+              "benign_false_positive_rate": 0.8857490221896466,
+              "confusion_matrix": [
+                [
+                  1548.5,
+                  12004.994505494506
+                ],
+                [
+                  18.5,
+                  6428.005494505494
+                ]
+              ],
+              "macro_f1": 0.36077615641560146,
+              "support": [
+                13553.494505494506,
+                6446.505494505494
+              ]
+            },
+            "groups": 20000,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "BENIGN": {
+                "correct": 1601,
+                "recall_of_supplied_binary_target": 0.0993299416801092,
+                "rows": 16118
+              },
+              "Bot": {
+                "correct": 60,
+                "recall_of_supplied_binary_target": 0.7228915662650602,
+                "rows": 83
+              },
+              "DDoS": {
+                "correct": 1,
+                "recall_of_supplied_binary_target": 0.25,
+                "rows": 4
+              },
+              "DoS GoldenEye": {
+                "correct": 5244,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 5244
+              },
+              "DoS Hulk": {
+                "correct": 9985,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 9985
+              },
+              "DoS Slowhttptest": {
+                "correct": 3217,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3217
+              },
+              "DoS slowloris": {
+                "correct": 3809,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3809
+              },
+              "FTP-Patator": {
+                "correct": 666,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 666
+              },
+              "Heartbleed": {
+                "correct": 517,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 517
+              },
+              "Infiltration": {
+                "correct": 5312,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 5312
+              },
+              "PortScan": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": null,
+                "rows": 0
+              },
+              "SSH-Patator": {
+                "correct": 1884,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1884
+              },
+              "Web Attack \u2013 Brute Force": {
+                "correct": 121,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 121
+              },
+              "Web Attack \u2013 Sql Injection": {
+                "correct": 1,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1
+              },
+              "Web Attack \u2013 XSS": {
+                "correct": 87,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 87
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.6908901547355892,
+              "attack_average_precision": 0.7271308345731325,
+              "attack_precision": 0.6803901279144008,
+              "attack_recall": 0.999159392175881,
+              "auroc": 0.6347461567689021,
+              "balanced_accuracy": 0.5492446669279951,
+              "benign_false_positive_rate": 0.9006700583198908,
+              "confusion_matrix": [
+                [
+                  1601,
+                  14517
+                ],
+                [
+                  26,
+                  30904
+                ]
+              ],
+              "macro_f1": 0.4949848145197962,
+              "support": [
+                16118,
+                30930
+              ]
+            },
+            "rows": 47048
+          },
+          "predictions": {
+            "bytes": 900556,
+            "path": "joint_scratch/test-cic.jsonl.gz",
+            "sha256": "6ef3df095e4fc5b730325338fd2c9f3168df064c9e616878505aa7955e2fa05b"
+          }
+        },
+        "unsw": {
+          "exposure": "source used for training",
+          "metrics": {
+            "binary_conflicting_groups": 1,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0.0,
+                    0.5044510385756676
+                  ],
+                  [
+                    0.0,
+                    0.49554896142433236
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  0.5044510385756676,
+                  0.49554896142433236
+                ]
+              },
+              "groups": 1,
+              "row_weighted": {
+                "accuracy": 0.49554896142433236,
+                "attack_precision": 0.49554896142433236,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0,
+                    170
+                  ],
+                  [
+                    0,
+                    167
+                  ]
+                ],
+                "macro_f1": 0.33134920634920634,
+                "support": [
+                  170,
+                  167
+                ]
+              },
+              "rows": 337
+            },
+            "group_weighted": {
+              "accuracy": 0.8159351684589248,
+              "attack_average_precision": 0.8268613329614745,
+              "attack_precision": 0.8159351684589248,
+              "attack_recall": 1.0,
+              "auroc": 0.5284338284847155,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  1091.5044510385756
+                ],
+                [
+                  0.0,
+                  4838.495548961424
+                ]
+              ],
+              "macro_f1": 0.44931954765288235,
+              "support": [
+                1091.5044510385756,
+                4838.495548961424
+              ]
+            },
+            "groups": 5930,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "analysis": {
+                "correct": 213,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 213
+              },
+              "backdoor": {
+                "correct": 211,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 211
+              },
+              "dos": {
+                "correct": 506,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 506
+              },
+              "exploits": {
+                "correct": 2102,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 2102
+              },
+              "fuzzers": {
+                "correct": 1838,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1838
+              },
+              "generic": {
+                "correct": 2757,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 2757
+              },
+              "normal": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": 0.0,
+                "rows": 3135
+              },
+              "reconnaissance": {
+                "correct": 1172,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1172
+              },
+              "shellcode": {
+                "correct": 155,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 155
+              },
+              "worms": {
+                "correct": 23,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 23
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.7411657859973579,
+              "attack_average_precision": 0.745095660751303,
+              "attack_precision": 0.7411657859973579,
+              "attack_recall": 1.0,
+              "auroc": 0.5080614307803089,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  3135
+                ],
+                [
+                  0,
+                  8977
+                ]
+              ],
+              "macro_f1": 0.42567215135852815,
+              "support": [
+                3135,
+                8977
+              ]
+            },
+            "rows": 12112
+          },
+          "predictions": {
+            "bytes": 257492,
+            "path": "joint_scratch/test-unsw.jsonl.gz",
+            "sha256": "250b1020578ab58ac21a51741639b530dddd6f720878ed7492cc7c57eb8a64cd"
+          }
+        }
+      },
+      "training_receipt": {
+        "bytes": 115629,
+        "path": "joint_scratch/training-receipt.json",
+        "sha256": "8ab79c854c76b45e5f019cf0404c5c0eb849bbf378f08b435cba7a6976c768d5"
+      }
+    }
+  ],
+  "runtime": {
+    "TRITON_PTXAS_PATH": "/usr/local/cuda/bin/ptxas",
+    "capability": [
+      12,
+      1
+    ],
+    "command": [
+      "tools/train_packet_model.py",
+      "--data",
+      "runs/packet-connection/prepared",
+      "--protocol",
+      "configs/packet-study.json",
+      "--output",
+      "runs/packet-connection/measured-study",
+      "--upstream",
+      "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus",
+      "--initialization",
+      "/home/nvidia/.cache/netmambaplus-reproduction/checkpoints/fuse3_mamba.pth"
+    ],
+    "cuda": "13.0",
+    "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+    "device": "NVIDIA GB10",
+    "numpy": "1.26.2",
+    "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
+    "precision": "float32; autocast disabled; TF32 disabled",
+    "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+    "python": "3.12.3",
+    "started_at": "2026-09-14T05:43:10.588704+00:00",
+    "torch": "2.9.1+cu130"
+  },
+  "schema_version": 1,
+  "scope": "Real CSV-supplied binary targets trained the original NetMamba+ encoder in an explicit packet-only adaptation. All results are conditional on declared group/sampling splits. This is not the original flow benchmark, independent captures, calibrated confidence or a production IDS.",
+  "status": "completed"
+}

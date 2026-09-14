@@ -1,0 +1,7 @@
+{
+  "observed_at": "2026-09-14T05:53:31.945683+00:00",
+  "controls_frozen_sha256": "d2e059b32b14c679f454ecbba149ed3e7346bfab5bf162e3ffb8e6f0a0bd50d9",
+  "control_test_output_exists": false,
+  "native_frozen_checkpoints_exists": false,
+  "scope": "Recorded control freeze before its evaluation; native fits still running."
+}

@@ -1,6 +1,7 @@
 """Render the video watch page, chapter controls and accessible transcript."""
 
 import argparse
+from contextlib import nullcontext
 import html
 import os
 from pathlib import Path
@@ -67,6 +68,15 @@ def render(manifest=None, *, media_dir=None, output=None):
                             ("NetMambaPlus-course-slides.pdf", "PDF slides")]:
             if name in manifest["artifacts"]:
                 companion_links += f'<a href="{prefix}{name}" download>{label}</a>'
+    packet_notice = ""
+    if version == 'v4':
+        packet_notice = ('<aside class="status" aria-label="Later packet study">'
+            '<strong>Later addition: both uploaded CSVs now train a packet model.</strong> '
+            'This preserved v4 video explains the original flow experiment and confidence calibration. '
+            'Read the <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/packet-model-study.md">packet study and measured results</a> '
+            'and send the <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pdf">PDF</a> '
+            'and <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/customer/packet-addendum/NetMambaPlus-packet-addendum.pptx">PowerPoint addendum</a> '
+            'with this video. Its new CSV training is not covered by this recording.</aside>')
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{html.escape(description)}">
@@ -76,7 +86,7 @@ def render(manifest=None, *, media_dir=None, output=None):
 </style></head><body><a class="skip" href="#player">Skip to video</a>
 <header><nav><a href="../">Recorded IDS demo</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction">Repository</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/repository-walkthrough.md">Every file explained</a></nav>
 <p class="eyebrow">The reproduction lab · video course</p><h1>{html.escape(heading)}</h1>
-<p class="lede">{html.escape(lede)}</p></header>
+<p class="lede">{html.escape(lede)}</p>{packet_notice}</header>
 <main><video id="player" controls playsinline preload="metadata" aria-label="{html.escape(aria_label)}" poster="{prefix}poster.png"><source src="{webm_url}" type="video/webm"><source src="{media_url}" type="video/mp4"><track kind="captions" src="{prefix}captions.vtt" srclang="en" label="English">Your browser cannot play this video. <a href="{media_url}">Download the MP4</a>.</video>
 <div class="downloads"><a href="{media_url}" download>Download MP4 · {size:.1f} MiB</a><a href="{prefix}transcript.md" download>Download transcript</a><a href="{prefix}captions.vtt" download>Download captions</a>{companion_links}<a href="#transcript">Read along</a></div>
 <p class="small">{html.escape(runtime)}</p>{credit}
@@ -116,10 +126,24 @@ def main():
     if not args.legacy:
         if publication(manifest)["release_tag"] != "course-video-v4" and path == WATCH_PAGE.resolve():
             parser.error("Historical HTML requires a separate --output; the active watch page is reserved for v4")
-        check_source_binding(manifest, args.source, root=ROOT)
-    expected = render(manifest, media_dir=media_dir, output=path)
-    if not args.legacy:
-        check_source_binding(manifest, args.source, root=ROOT)
+    version = publication(manifest)['release_tag'].removeprefix('course-video-v')
+    archived = (not args.legacy and version in ('3', '4')
+                and media_dir == (ROOT / f'docs/customer/demo/video/v{version}').resolve())
+    if archived:
+        from verify_video_course_v3 import historical_snapshot
+        binding = historical_snapshot(ROOT, version=int(version))
+    else:
+        binding = nullcontext((ROOT, None))
+    with binding as (binding_root, _):
+        if not args.legacy:
+            source = binding_root / args.source.resolve().relative_to(ROOT)
+            recorded_manifest = binding_root / f'docs/customer/demo/video/v{version}/media-manifest.json'
+            if archived and digest(recorded_manifest) != manifest_hash:
+                raise ValueError('Watch page requires the exact published historical media manifest')
+            check_source_binding(manifest, source, root=binding_root)
+        expected = render(manifest, media_dir=media_dir, output=path)
+        if not args.legacy:
+            check_source_binding(manifest, source, root=binding_root)
     if digest(manifest_path) != manifest_hash:
         raise ValueError("Media manifest changed while rendering the watch page")
     if args.check:

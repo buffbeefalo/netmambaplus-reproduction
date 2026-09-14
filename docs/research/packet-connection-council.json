@@ -1,0 +1,229 @@
+{
+  "runId": "b2bf26ac-ac67-4811-b157-5b3d3b266a91",
+  "state": "ESCALATED",
+  "stamp": "UNRATIFIED",
+  "mutual": false,
+  "decisionHash": null,
+  "decision": null,
+  "category": "delivery",
+  "axis": "confirmed_success",
+  "tier": "lite",
+  "caller": "codex",
+  "mode": "architect",
+  "schemaVersion": 2,
+  "cwd": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection",
+  "intakeHash": "b910d7ef4e4df4a3e0d302312d20765ca1f70f73b483bb670371053b67a9bb16",
+  "blockers": [
+    "The inventory/media contract remains contingent on unavailable implementation evidence and retains an unsupported no-reference gate. Historical packet references would not establish that an old video narrates these new fits. Remove that gate and specify an independently executable, revision-bound current inventory; preserve historical artifact and manifest hashes and verify the companion’s claims against measured results. Do not make acceptance depend on unspecified legacy-verifier or package changes. [anchor: tools/verify_video_course_v4.py delegates to verify_video_course_v3.main, whose implementation is not visible; evidence-pack REQUEST EXCLUDED entries for docs/customer/video-course-v4-source.json and docs/customer/video-course-v4-coverage.json; other-position PUBLICATION AND MEDIA.]"
+  ],
+  "modelsUsed": {
+    "claude": "claude-fable-5",
+    "codex": "gpt-6-astra"
+  },
+  "budget": {
+    "spent": 10,
+    "limit": 14
+  },
+  "verdicts": null,
+  "arbitration": null,
+  "positions": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "59666a1979f0f4045f451a253c0013213c1c2778c2b9b77c22ad6a7ee6fbb7ed",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "data": {
+        "recommendation": "Converged decision (adopting the codex framing with merged additions): build a bounded, validation-first \"common-label binary packet study\" of the exported byte vectors in the two CSVs, with bidirectional cross-dataset transfer, and no data-level connection to the original NetMamba+ flow experiment (both files lack addresses, ports, flow identifiers and packet order per runs/packet-connection/intake-observations.json missing_flow_context; only a conceptual/methodological comparison is documented).\n\nTASK SEMANTICS. The shared task is binary dataset annotation, not verified packet-level maliciousness: CICIDS2017 \"BENIGN\" and UNSW \"normal\" map to 0; each explicitly enumerated attack label maps to 1, recorded in a committed packet_label_map.json covering exactly the observed native labels; any unmapped label halts supervised execution. Multiclass name matching is rejected as a primary task.\n\nSTAGE 1 — STREAMING AUDIT (gate before any fit). Verify upload SHA-256s against intake-observations.json; verify headers/row counts. For every payload_byte field check finiteness, exact integrality, and range [0,255] BEFORE any type conversion — no rounding, clipping, imputation, or silent reinterpretation; quarantine malformed rows with aggregate exclusion counts by source and native label. Validate ttl, positive integral total_len, protocol; audit t_delta separately (negative and nonfinite values recorded as data-quality facts). Report zero fraction, trailing-zero runs, all-zero vectors, and byte-position distributions versus labels/metadata as OBSERVATIONS of exported byte vectors: without exporter provenance, trailing zeros are not called padding and total_len is not called payload length.\n\nGROUPING AND SPLITS. Grouping key = SHA-256 of the canonical 1500-byte vector ONLY (excludes total_len, labels, source, metadata), so identical modeled bytes can never cross splits. Identify groups appearing in both uploads before splitting and remove them from both supervised populations, publishing sizes and label composition. Contradictory-label rows are kept as separate observations within their group with frequencies reported (no silent deletion). Splits: seeds 0/1/2, whole-group 70/15/15 via stratified salted-SHA-256 ordering with fixed rounding, manifests frozen before fitting; zero group overlap enforced across every source-train/validation and target-test pairing, and transfer evaluation uses held-out target test groups only. Support floor: ≥20 distinct groups per binary class per evaluated split, otherwise an explicit insufficient-support outcome. After splitting, cap each source's training set at 100,000 distinct labeled feature rows by deterministic hash ordering; keep full validation/test. Report group-equal-weight and row-weighted results.\n\nMODELS. Four fixed linear SGD-logistic baselines per source and seed, alpha=1e-4, ten deterministic epochs, no hyperparameter search: (1) normalized nonzero-byte histogram (zero exclusion documented as an information-losing transform, not padding removal); (2) metadata: ttl, log1p(total_len), source-training-fitted protocol encoding; (3) combined; (4) zero-structure diagnostic (zero fraction, trailing-zero fraction, last-nonzero position). t_delta excluded from all primary models. Source-training-only scaling; threshold selected on source validation balanced accuracy with deterministic tie-breaking; fixed-0.5 secondary. Any zero-tail-truncation run is labeled a heuristic ablation. A small CNN is deferred/optional; if added later, architecture, budget, seeds and subsampling are frozen before fitting and it is never acceptance-gated.\n\nEVALUATION AND CONTROLS. Each source fit evaluated on its own held-out test and on the other dataset's held-out test (CICIDS→UNSW and UNSW→CICIDS); full eligible populations plus TCP/UDP slices. One training-label-permutation control per source: the randomization and separation procedure is verified and control uncertainty reported; there is NO pass/fail numeric band — unexpected control performance is investigated and reported, never tuned until it passes. Two balanced benign-only dataset-origin diagnostics (content; metadata/support features), isolated from the transfer pipeline. Metrics: confusion matrices, balanced accuracy, macro-F1, attack recall, benign FPR, ROC-AUC, average precision with prevalence, native-label attack recall/support (native categories not treated as interchangeable); per-seed ranges without independence claims; fixed-seed group-bootstrap interval for the primary combined model, explicitly conditional on byte groups, not verified independent flows. In-domain results are references, not upper bounds. Near-chance transfer, strong origin discrimination, or support/metadata-explained performance are valid negative findings, written into the doc before results; high transfer does not establish operational IDS performance.\n\nEXECUTION EVIDENCE. Freeze configuration, input and code hashes before fitting; reject output overwrites and input drift. Real fits produce receipts (runtime, hardware, GB10/CPU usage) and retained local per-record predictions under ignored directories; the verify command recomputes published metrics from retained predictions, reconciles all row exclusions and split counts, and establishes zero group overlap. Synthetic smoke fixtures are marked synthetic and CANNOT satisfy full-run acceptance; missing real-run evidence remains an explicit incomplete result, never passed through placeholders.\n\nPUBLICATION AND MEDIA. Publish only aggregate audits, split/support summaries, metrics, configuration and code/input hashes, and execution receipts to docs/customer/evidence/; raw arrays, row identifiers, duplicate memberships, models and predictions stay local under existing /runs/ and /datasets/ exclusions (.gitignore). Preserve original flow results and versioned video/PDF/PPT hashes unchanged. Recompute the current inventory using the existing verifier's actual scope, bind it to a source revision, and distinguish historical video coverage from newly explained packet work; do not reuse 494 as a current count. As a supplementary (not sole) check, assert the packet-study doc carries the video disclaimer and that v4 source/coverage manifests reference no packet-study artifacts. Exact package/inventory integration edits remain contingent on the requested verifier/package sources.\n\nMINIMAL FILE CONTRACT: tools/packet_connection.py (audit/split/fit/report/verify subcommands); tests/test_packet_connection.py; requirements-packet.txt; committed packet_label_map.json; docs/customer/packet-connection.md; docs/customer/evidence/packet-connection.json; docs/customer/evidence/packet-connection-inventory.json; dated link in docs/customer/upstream-comparison.md.\n\nOFFLINE ACCEPTANCE: (1) python -m unittest discover -s tests -p 'test_packet_connection.py' — fixtures must cover fractional/nonfinite/out-of-range bytes, legitimate terminal zeros, contradictory labels, metadata-varying duplicates, cross-source duplicates, deterministic whole-group assignment, insufficient support, frozen source-only fitting, metric recomputation, and publication exclusions; (2) python tools/packet_connection.py smoke --out runs/packet-connection/acceptance-fixture (actual synthetic fits through both transfer directions, marked synthetic); (3) full run: python tools/packet_connection.py run --cic datasets/CICIDS2017.csv --unsw datasets/UNSW.csv --out runs/packet-connection/final with hash-verified uploads; (4) python tools/packet_connection.py verify --run-dir runs/packet-connection/final --summary docs/customer/evidence/packet-connection.json --inventory docs/customer/evidence/packet-connection-inventory.json, requiring real fit/prediction receipts, metric replay, exclusion reconciliation, zero group overlap, historical artifact hash verification, and companion/package link checks.",
+        "resolved_objections": [
+          "Grouping key corrected: SHA-256 of the 1500-byte vector only (total_len removed from the digest); separation enforced across every source-train/validation and target-test pairing, cross-source shared groups removed from both supervised populations before splitting, and transfer evaluated only on held-out target test groups.",
+          "Numeric validity gate strengthened: finiteness, exact integrality, and [0,255] range checked before any conversion; no rounding/clipping/imputation may pass the gate; fractional-value and nonfinite fixtures added to the test contract; try_cast-based validation dropped.",
+          "Padding claims withdrawn: adopted 'exported byte vectors' terminology; zero-tail statistics reported as observations only; the zero-truncation run is relabeled a heuristic ablation, never 'padding removal', absent exporter provenance.",
+          "Label-shuffle AUROC 0.5±0.02 acceptance band removed: the permutation control's randomization and separation procedure is verified, its uncertainty reported, unexpected performance investigated rather than tuned away; insufficient class/group support yields explicit insufficient-support outcomes.",
+          "Presence-of-cells acceptance replaced with execution evidence: frozen config plus input/code hashes before fitting, fit receipts, retained local per-record predictions, metric recomputation from predictions during verify, and synthetic smoke fixtures explicitly barred from satisfying full-run acceptance; missing real-run evidence stays an explicit incomplete result.",
+          "Inventory verification upgraded: current inventory recomputed via the existing verifier's actual scope and bound to a source revision, historical coverage distinguished from new packet work, historical artifact hashes preserved, 494 not reused as a current count; the disclaimer/no-reference test is retained only as a supplementary check, and no claim is made that v4 covers only flows without inspecting the verifier/source files."
+        ],
+        "remaining_blockers": [],
+        "evidence_requests": [
+          {
+            "kind": "file",
+            "path": "tools/verify_video_course_v4.py",
+            "pattern": null,
+            "limit": 10
+          },
+          {
+            "kind": "file",
+            "path": "tools/build_customer_package.py",
+            "pattern": null,
+            "limit": 6
+          },
+          {
+            "kind": "file",
+            "path": "tools/publish_evidence.py",
+            "pattern": null,
+            "limit": 6
+          },
+          {
+            "kind": "file",
+            "path": "docs/customer/video-course-v4-source.json",
+            "pattern": null,
+            "limit": 5
+          }
+        ]
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 6296,
+        "cacheReadTokens": 0,
+        "cacheCreationTokens": 18410,
+        "totalTokens": null
+      },
+      "costUsd": 0.68302
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.154.0",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "1073d94414bb1a2f093abf239dc503a829bb4feab3220e5b17691be6535b8929",
+      "schemaHash": "835ce8fbe95733a553a58a517ada20b712e5dc41e2f6b2dec19ecfeed94845f3",
+      "sessionId": "01a09e4c-64fe-7322-bd69-d0cc32f3e3f9",
+      "data": {
+        "recommendation": "Converge on a separate common-label binary packet study: complete validation followed by bounded, bidirectional transfer between the exported records. Descriptive harmonization is its mandatory first stage and the fallback when validity or support prevents learning. Pooled training would answer a different question and obscure transfer; matching attack names does not justify multiclass equivalence. Flow reconstruction remains unsupported by the reported missing identifiers and ordering information [runs/packet-connection/intake-observations.json: missing_flow_context].\n\nThe target represents binary dataset annotation, not independently verified packet maliciousness. Commit an explicit mapping of the expected native labels: CICIDS BENIGN and UNSW normal become benign; individually enumerated attack labels become attack. Verify exact agreement between that mapping and the full audit; unknown labels halt supervised execution. Do not use a runtime catch-all for unfamiliar labels.\n\nAudit both complete uploads before fitting. Verify full input hashes against intake-observations.json, headers, row counts, and every exported byte's finiteness, exact integrality and range [0,255] before integer conversion. Validate TTL as an integer in [0,255], total_len as a positive integer, and protocol as a nonempty categorical value. Preserve TTL=0 as an observed value. Audit t_delta separately; its anomalies do not by themselves invalidate rows because it is excluded from every model. A frozen eligibility rule quarantines malformed modeled fields and reports exclusions by source and native label. Every admitted row must pass validation; unknown encoding cannot be silently repaired. Report zero fractions, all-zero vectors, trailing-zero runs and position distributions. Seek exporter provenance, but do not infer padding, payload length or header offsets from zeros or total_len. The supplied evidence establishes that numerical validity and provenance remain unmeasured [evidence-pack: Question].\n\nGroup by SHA-256 of the canonical 1500-byte vector alone. Determine cross-source overlap using all byte-valid records before model-specific filtering, then exclude shared groups from both supervised populations and report their sizes and label composition. Within each source, collapse identical byte-vector/TTL/length/protocol/binary-label observations, retaining multiplicities and native-label counts. Keep contradictory binary labels within their shared group and report them. Each group receives equal total evaluation weight across its distinct retained observations; original-row-weighted metrics are secondary. Exact grouping controls byte reuse, not unidentified sessions or capture campaigns.\n\nUse split seeds 0, 1 and 2. Within each source and benign-only, attack-only or mixed-label group stratum, sort by SHA-256 of a versioned UTF-8 encoding of seed, source, stratum and group digest, with digest tie-breaking. Assign floor(0.70N) groups to training, floor(0.15N) to validation and the remainder to test. Freeze manifests before fitting. Cap each training population at 100,000 distinct labeled observations using a separately salted deterministic hash ordering; use the same selected observations for every feature baseline. Require at least 20 distinct groups containing each binary class in training after capping, validation and each evaluated test cohort. Failed support gates produce explicit insufficient-support outcomes. Keep complete validation and test populations. Training weights begin with equal total weight per retained group, then balance total binary-class weight and normalize mean sample weight to one.\n\nFit four fixed SGD logistic regressions per source and seed: a normalized 255-bin histogram of nonzero byte values; metadata comprising TTL, log1p(total_len) and protocol encoding; their combination, designated the primary model; and a zero-structure diagnostic comprising zero fraction, trailing-zero fraction and last-nonzero position. An all-zero vector has an all-zero histogram. Excluding zeros is an information-losing transform, not recovered padding removal. Fit scaling and protocol vocabulary on source training only, with an explicit unknown-protocol treatment. Use logistic loss, L2 alpha=0.0001, ten deterministic epochs and no hyperparameter search. Choose thresholds by source-validation group-weighted balanced accuracy, breaking ties by proximity to 0.5 and then smaller threshold; also report fixed-0.5 results. No target data may fit or select a transfer model, preprocessing or threshold. The combined model must be interpreted alongside content-only and artifact controls; its accuracy alone cannot establish transferable packet content.\n\nEvaluate every source fit on its own held-out test groups and the other source's held-out test groups. Report full eligible populations and supported TCP/UDP slices. Add seed-0 combined-feature fits trained on TCP/UDP-only cohorts in both directions, reusing an existing fit only when its complete training and preprocessing inputs are identical. Add one training-label-permutation combined-feature fit per source, with recomputed training weights and a fixed 0.5 threshold, plus two separate benign-only dataset-origin classifiers using content and metadata/zero-structure features. Origin classifiers use the frozen training/test partitions and balanced source weights; their results cannot select transfer models. Include a source-training majority baseline without optimization. This is at most 30 linear fits; defer a CNN. Record execution time, software versions and actual hardware use.\n\nReport support and exclusions, confusion matrices, balanced accuracy, macro-F1, attack recall, benign false-positive rate, ROC-AUC, average precision and the corresponding weighted prevalence. Include native-label attack recall with original-row and distinct-group support without equating native categories. Preserve all seed results and their range; overlapping splits are not independent replications. For the primary combined model, report 500 fixed-seed group-bootstrap replicates for balanced accuracy, conditional on fixed predictions and byte groups rather than verified independent flows. Undefined metrics remain null with reasons. Validate the permutation procedure and report its outcome; do not require AUROC within 0.5±0.02 or rerun until it passes. Unexpected control performance warrants investigation. Near-chance transfer and strong source discrimination are publishable findings; in-domain scores are references, not upper bounds.\n\nKeep raw inputs, local paths, byte arrays, row identifiers, group memberships, models and per-record predictions under ignored local storage. Freeze input, code, mapping and configuration hashes before fitting. Retain fit receipts and predictions sufficient to recompute every published metric. Refuse silent overwrite or input drift. Publish only allowlisted aggregate evidence, configuration, hashes and execution receipts. Synthetic fits must be explicitly marked and cannot satisfy complete-upload acceptance.\n\nUse this eight-file contract: tools/packet_connection.py implements audit, splitting, run, report, inventory, smoke and verify; tests/test_packet_connection.py supplies adversarial and end-to-end fixtures; requirements-packet.txt records tested exact dependency pins; docs/customer/evidence/packet-label-map.json contains the explicit mapping; docs/customer/packet-study.md explains the methods, measured findings and limitations; docs/customer/evidence/packet-connection.json contains measured aggregates; docs/customer/evidence/packet-connection-inventory.json contains the revision-bound inventory; and docs/customer/upstream-comparison.md gains a dated companion link. No change to historical media or their builders is required.\n\nResolve the inventory uncertainty through an independent, explicitly scoped current inventory. Enumerate tracked repository files plus the enumerated new contract files, record content hashes, source revision, dirty-state provenance and exclusions, and exclude the generated inventory itself from its content-hash set. Record generated evidence separately to avoid circular hashing. Freeze and subsequently verify the original flow evidence and versioned video/PDF/PPT artifacts and manifests. Treat 494 only as a historical reported count; do not silently compare counts from different scopes. Describe historical coverage only where the actual manifests establish it, otherwise record unknown. The companion owns the new study's explanation and results. Do not assert that v4 covers only flows or require its existing manifests to contain no packet references: the complete manifests were excluded from this pack [evidence-pack: REQUEST EXCLUDED, video-course-v4-source.json and video-course-v4-coverage.json]. Require that this implementation leaves their bytes unchanged and makes no claim that old media narrate the new fits. Review affected lesson sources and references, read the pending content-review and video-refresh queues, and record outstanding work without clearing coverage baselines merely to remove warnings.\n\nImplement these offline acceptance commands: python -m unittest discover -s tests -p 'test_packet_connection.py'; python tools/packet_connection.py smoke --out runs/packet-connection/acceptance-fixture; python tools/packet_connection.py run --cic datasets/CICIDS2017.csv --unsw datasets/UNSW.csv --intake runs/packet-connection/intake-observations.json --out runs/packet-connection/final; python tools/packet_connection.py report --run-dir runs/packet-connection/final --summary docs/customer/evidence/packet-connection.json; python tools/packet_connection.py inventory --run-dir runs/packet-connection/final --out docs/customer/evidence/packet-connection-inventory.json; and python tools/packet_connection.py verify --run-dir runs/packet-connection/final --summary docs/customer/evidence/packet-connection.json --inventory docs/customer/evidence/packet-connection-inventory.json. Generate the inventory after finalizing the companion prose. Tests cover fractional/nonfinite bytes, legitimate terminal zeros, contradictory labels, metadata-varying duplicates, cross-source reuse, deterministic group assignment, support failures, source-only preprocessing, permutation handling, metric replay and publication exclusions. Smoke must actually fit and evaluate both synthetic transfer directions. Complete-upload verification requires real fit receipts or explicit scientifically justified blocked outcomes, reconciled audit/split counts, zero prohibited group overlap, metric recomputation, protected historical hashes, inventory consistency and working companion links. A blocked or incomplete experiment must remain visibly incomplete.",
+        "resolved_objections": [
+          "Duplicate leakage: use byte-vector-only grouping, remove cross-source shared groups before splitting, and evaluate transfer on held-out target groups. Metadata differences cannot split identical bytes across partitions.",
+          "Numeric validity: require lossless finiteness, integrality and range checks before conversion, including fractional-value fixtures. Quarantine follows a declared eligibility rule; rounding and silent repair are prohibited.",
+          "Padding claims: adopt exported-byte-vector terminology. Zero-tail measurements remain observations, and zero exclusion is explicitly a heuristic representation.",
+          "Permutation acceptance: remove the arbitrary chance-band gate. Verify randomization and separation, report uncertainty and investigate unexpected outcomes without tuning them away.",
+          "Execution evidence: require frozen hashes, actual fit receipts, local predictions and metric replay. Synthetic evidence cannot establish complete-upload execution.",
+          "Inventory and media: replace the unsupported flow-only and no-packet-reference assertions with immutable historical hashes, evidence-based coverage descriptions and a separately scoped current inventory. This avoids depending on unavailable manifest contents.",
+          "Nonblocking design differences: adopt the common-label binary packet study name and packet-study.md, retain the agreed linear-only protocol, and add the other seat's committed enumerated label map."
+        ],
+        "remaining_blockers": [],
+        "evidence_requests": []
+      }
+    }
+  },
+  "reviews": {
+    "claude": {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "role": "seat",
+      "promptHash": "3c10b5d785e627452d9eb7c3d4fff8fb4248a3885e726ac85903d47ba88a3d05",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "data": {
+        "blocking_objections": [],
+        "nonblocking_notes": [
+          "Adopt the codex file naming: docs/customer/packet-study.md (replacing my packet-connection.md) and docs/customer/evidence/packet-label-map.json (replacing repo-root packet_label_map.json); recorded as naming-only convergence.",
+          "Adopt the codex subcommand structure (audit, splitting, run, report, inventory, smoke, verify as explicit subcommands) and the --intake flag on the run command binding the full run to intake-observations.json hashes; this strengthens, not changes, the agreed protocol.",
+          "I withdraw my supplementary check asserting v4 source/coverage manifests reference no packet-study artifacts: those manifests were excluded from the pack (REQUEST EXCLUDED: video-course-v4-source.json, video-course-v4-coverage.json), so codex's replacement — require their bytes unchanged and make no coverage-content claims either way — is the correctly grounded formulation.",
+          "Adopt codex's evaluation weighting refinement: equal total weight per retained group with binary-class weight balancing and mean-sample-weight normalization for training, group-weighted metrics primary and original-row-weighted secondary; consistent with my group-equal-weight/row-weighted dual reporting.",
+          "Adopt codex's additions of the source-training majority baseline, seed-0 TCP/UDP-only cohort fits in both directions, the explicit ~30-linear-fit budget cap, and 500 fixed-seed group-bootstrap replicates for the primary combined model; these are bounded refinements of the agreed control/metric set.",
+          "Adopt codex's within-source collapse of identical byte-vector/TTL/length/protocol/binary-label observations with retained multiplicities and native-label counts; it is compatible with my contradictory-label retention rule (contradictory binary labels stay as separate reported observations in the shared group).",
+          "Adopt codex's inventory formulation: independently scoped current inventory with content hashes, source revision, dirty-state provenance, self-exclusion of the generated inventory from its own hash set, and 494 treated strictly as a historical reported count — matching intake-observations.json's v4_reported_inventory as a historical fact only.",
+          "Codex's requirement to review pending content-review/video-refresh queues and record outstanding work without clearing coverage baselines is a reasonable optional enhancement; I accept it as in-scope documentation work, not an acceptance gate on the packet study itself.",
+          "All previously exchanged blockers (grouping-key digest, lossless numeric validity, padding terminology, permutation-band removal, execution receipts vs presence-of-cells, inventory scoping) are resolved identically in both positions; no substantive disagreement remains."
+        ],
+        "evidence_requests": [],
+        "convergence_summary": "Converged. I accept the codex recommendation as the substance of the frozen artifact: a validation-first common-label binary packet study over the two exported CSVs (binary dataset-annotation semantics with a committed enumerated label map at docs/customer/evidence/packet-label-map.json; halt on unmapped labels), lossless pre-conversion payload validity gates, byte-vector-only SHA-256 grouping with cross-source shared groups removed from both supervised populations before splitting, deterministic stratified whole-group 70/15/15 splits at seeds 0/1/2 with frozen manifests and 100k training caps, four fixed linear SGD-logistic baselines per source/seed (histogram, metadata, combined-primary, zero-structure; t_delta excluded; ~30 fits total; CNN deferred), bidirectional held-out transfer evaluation with TCP/UDP slices, permutation and benign-only origin controls without pass bands, honest metrics including group-bootstrap intervals conditional on byte groups, execution receipts with frozen hashes and metric replay from retained local predictions, synthetic smoke barred from full-run acceptance, aggregate-only publication, historical flow/media artifacts byte-preserved with a separately scoped revision-bound inventory (494 historical only, no claims about excluded v4 manifest contents), the eight-file contract naming packet-study.md, and the six offline acceptance commands. All my prior objections are resolved in the codex text; remaining deltas are naming/refinement and are adopted as nonblocking. Ready for the orchestrator to freeze the canonical draft and hash."
+      },
+      "usage": {
+        "inputTokens": 2,
+        "outputTokens": 2584,
+        "cacheReadTokens": 877,
+        "cacheCreationTokens": 17990,
+        "totalTokens": null
+      },
+      "costUsd": 0.489897
+    },
+    "codex": {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.154.0",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "role": "seat",
+      "promptHash": "fa1ab11a776e7eb0c23ed52816f97c470fbd3a153b5288d767e1ddf292488df9",
+      "schemaHash": "57e57e61f919312b09b63af376295aaea59a041c82efbf1b97d71013e82acd5f",
+      "sessionId": "01a09e51-9fa3-7260-ac21-63aa5cfd7441",
+      "data": {
+        "blocking_objections": [
+          {
+            "claim": "The inventory/media contract remains contingent on unavailable implementation evidence and retains an unsupported no-reference gate. Historical packet references would not establish that an old video narrates these new fits. Remove that gate and specify an independently executable, revision-bound current inventory; preserve historical artifact and manifest hashes and verify the companion’s claims against measured results. Do not make acceptance depend on unspecified legacy-verifier or package changes.",
+            "anchor": "tools/verify_video_course_v4.py delegates to verify_video_course_v3.main, whose implementation is not visible; evidence-pack REQUEST EXCLUDED entries for docs/customer/video-course-v4-source.json and docs/customer/video-course-v4-coverage.json; other-position PUBLICATION AND MEDIA."
+          }
+        ],
+        "nonblocking_notes": [
+          "The substantive experiment converges. Compared with descriptive harmonization alone, conditional bidirectional binary-annotation learning provides measurable transfer evidence. Descriptive results remain the fallback when validity or support gates fail; the missing flow identifiers and ordering prevent a defensible flow reconstruction.",
+          "Adopt docs/customer/packet-connection.md and the packet_label_map.json naming. These differences are nonblocking.",
+          "Carry forward the precise duplicate-collapse key and multiplicities, common capped training observations across baselines, post-cap support checks, deterministic split rounding, and group-weight definitions from the codex position into the final contract.",
+          "Keep the present experiment linear-only and bounded. CNN work remains deferred; actual complete-upload fit receipts and prediction-based metric replay remain required whenever scientific gates permit fitting."
+        ],
+        "evidence_requests": [],
+        "convergence_summary": "Codex accepts the scientific design. One material blocker remains in the inventory/media acceptance contract; the independent-inventory approach resolves it without additional evidence."
+      }
+    }
+  },
+  "fileDeliveryEligible": false,
+  "fileDeliveryReasons": [
+    "state ESCALATED is not CONSENSUS",
+    "result is not a mutual ratification",
+    "artifact mode unknown is not architect",
+    "claude did not ACCEPT the frozen decision hash",
+    "codex did not ACCEPT the frozen decision hash"
+  ]
+}

@@ -1,0 +1,3735 @@
+{
+  "arm": {
+    "initialization": "pretrained",
+    "name": "joint_pretrained",
+    "sources": [
+      "cic",
+      "unsw"
+    ]
+  },
+  "changed_parameter_tensors": [
+    "byte_cls_token",
+    "size_cls_token",
+    "iat_cls_token",
+    "byte_indicator",
+    "size_indicator",
+    "iat_indicator",
+    "pos_embed",
+    "byte_embed.proj.weight",
+    "byte_embed.proj.bias",
+    "encoder_blocks.0.mixer.A_log",
+    "encoder_blocks.0.mixer.D",
+    "encoder_blocks.0.mixer.in_proj.weight",
+    "encoder_blocks.0.mixer.conv1d.weight",
+    "encoder_blocks.0.mixer.conv1d.bias",
+    "encoder_blocks.0.mixer.x_proj.weight",
+    "encoder_blocks.0.mixer.dt_proj.weight",
+    "encoder_blocks.0.mixer.dt_proj.bias",
+    "encoder_blocks.0.mixer.out_proj.weight",
+    "encoder_blocks.0.norm.weight",
+    "encoder_blocks.1.mixer.A_log",
+    "encoder_blocks.1.mixer.D",
+    "encoder_blocks.1.mixer.in_proj.weight",
+    "encoder_blocks.1.mixer.conv1d.weight",
+    "encoder_blocks.1.mixer.conv1d.bias",
+    "encoder_blocks.1.mixer.x_proj.weight",
+    "encoder_blocks.1.mixer.dt_proj.weight",
+    "encoder_blocks.1.mixer.dt_proj.bias",
+    "encoder_blocks.1.mixer.out_proj.weight",
+    "encoder_blocks.1.norm.weight",
+    "encoder_blocks.2.mixer.A_log",
+    "encoder_blocks.2.mixer.D",
+    "encoder_blocks.2.mixer.in_proj.weight",
+    "encoder_blocks.2.mixer.conv1d.weight",
+    "encoder_blocks.2.mixer.conv1d.bias",
+    "encoder_blocks.2.mixer.x_proj.weight",
+    "encoder_blocks.2.mixer.dt_proj.weight",
+    "encoder_blocks.2.mixer.dt_proj.bias",
+    "encoder_blocks.2.mixer.out_proj.weight",
+    "encoder_blocks.2.norm.weight",
+    "encoder_blocks.3.mixer.A_log",
+    "encoder_blocks.3.mixer.D",
+    "encoder_blocks.3.mixer.in_proj.weight",
+    "encoder_blocks.3.mixer.conv1d.weight",
+    "encoder_blocks.3.mixer.conv1d.bias",
+    "encoder_blocks.3.mixer.x_proj.weight",
+    "encoder_blocks.3.mixer.dt_proj.weight",
+    "encoder_blocks.3.mixer.dt_proj.bias",
+    "encoder_blocks.3.mixer.out_proj.weight",
+    "encoder_blocks.3.norm.weight",
+    "norm_f.weight",
+    "head.weight"
+  ],
+  "distinct_training_groups_observed": {
+    "cic": 27460,
+    "unsw": 18809
+  },
+  "elapsed_seconds": 179.9243352820631,
+  "final_parameter_sha256": {
+    "byte_cls_token": "5809da1b13ca0887a48855ebba8102fc136f2587bbf4c539050eb2373d522f3a",
+    "byte_embed.proj.bias": "86f9fe5c35b6ccb928165e8fdf809025bf1f7036b3c820c769bf3f841c373400",
+    "byte_embed.proj.weight": "810ffc786bac13d7dd48389d8c53953432e1537f778894b0be241e5147ed0e63",
+    "byte_indicator": "36fbacc8b129ac161361423b58d4a8a0fa3d7c5b60c1956f49af3c0657b14410",
+    "encoder_blocks.0.mixer.A_log": "e358fa4e0ac5f65dcd21474781b2f9ac77a952f5bf24991a987d5ca6559a937a",
+    "encoder_blocks.0.mixer.D": "8acb6eb8a155bc70d0c382112171596e259482c376dde3d749cc931f860cd18b",
+    "encoder_blocks.0.mixer.conv1d.bias": "7e45b75a6321c90e6768741f169741037a1ed91b6c0f07faf979dd9da811f5a1",
+    "encoder_blocks.0.mixer.conv1d.weight": "95feb68b1d22569a062685cc2913646fdf6fc1fdfd72a85f17ccab1b7829622a",
+    "encoder_blocks.0.mixer.dt_proj.bias": "88532ea322ec110721e5867774f04776e4d743a6f340da86d3b77eb2e7f7a504",
+    "encoder_blocks.0.mixer.dt_proj.weight": "52d0262b520f6bb485d44ada430427396f7a9b75204ab471883dba3b1091e89a",
+    "encoder_blocks.0.mixer.in_proj.weight": "aad4197f4893fbef65602ad5d90d839713aaa53620c3b4b223d5321a81946529",
+    "encoder_blocks.0.mixer.out_proj.weight": "7dda6434d5fcaddc951b6d8a228996ceae73dc44a7d0226f0fae1efc7eea81d4",
+    "encoder_blocks.0.mixer.x_proj.weight": "5da1e41a914554be5a0bc6e9178b673fc03a25305b9991ddd57ea6201aa693df",
+    "encoder_blocks.0.norm.weight": "add123f06b21b1c2a56e43a835e6447b0683c3b1f688674464e0c24ab9123dc1",
+    "encoder_blocks.1.mixer.A_log": "c1ff0c85d95a7858a80e179b89d9c2382d1147c47f379d2ce273ceb40c67aec7",
+    "encoder_blocks.1.mixer.D": "880975627f8c4131f5df4129294a62c2df73955b43da314cd3214c726f95efbd",
+    "encoder_blocks.1.mixer.conv1d.bias": "4af59e839c55273e1e55a82d43a01f75c8952ad2eaa786028bd4354653f85e65",
+    "encoder_blocks.1.mixer.conv1d.weight": "256ffee4c3fc1ed3aecc886a76854c97fea571ba14f5a0129c872bbc58c22eb8",
+    "encoder_blocks.1.mixer.dt_proj.bias": "82af77d3e9885d0e11d401019312ea988e606a842a1e857c8eaf6a966429bdd5",
+    "encoder_blocks.1.mixer.dt_proj.weight": "a69910a459ec76158ae47f61e9d517daea7b473b32ec6c1b616dedf1da658ef0",
+    "encoder_blocks.1.mixer.in_proj.weight": "8e1030531bfa4192e9820c39fdb3348b6bf59328526c90d64b3177539d6c2105",
+    "encoder_blocks.1.mixer.out_proj.weight": "37e0074e19fd587ceca5eea5a0cc413ae4d9271b17495e98a6d875bb3a11856d",
+    "encoder_blocks.1.mixer.x_proj.weight": "99b13aa6413fbc83d0d4c15cbd2ad97b3e771358dfd0b3661f28020dfd064d54",
+    "encoder_blocks.1.norm.weight": "5e3cbf830719c118776456eec8eb3af5da74ee42e440ed8d422c532b145257ce",
+    "encoder_blocks.2.mixer.A_log": "19fbf6253e26647c1def1d6b6e97d5d36b3b164bb116b758f82de9a6265602c5",
+    "encoder_blocks.2.mixer.D": "7382c4179c34ceb60b7aa6c5e488f24ca70fdf3bf1f531579795cbf1fac69f54",
+    "encoder_blocks.2.mixer.conv1d.bias": "98c697d4d4acd1e686d56a592f3d8265b7dffaaba12851cb67fd8ef6486de837",
+    "encoder_blocks.2.mixer.conv1d.weight": "24304b5faefa371c1bbd15a1c6a195ede8eef0183d9de8566826c643f8417206",
+    "encoder_blocks.2.mixer.dt_proj.bias": "e4ce02cbebd039c80e4562cdc4e139797b389ce4faa9895c787a47ccf18fd60d",
+    "encoder_blocks.2.mixer.dt_proj.weight": "35f55e607b6198f8ea0bf334f31c39471c6acb7222bfe4275f3dc10c87ab0767",
+    "encoder_blocks.2.mixer.in_proj.weight": "3c7bf2af9078426433b0b633219046cdc4fb7a547897b7c725627b99b2c84df2",
+    "encoder_blocks.2.mixer.out_proj.weight": "a4c20a6e25e25ccbe69637642f9a5b2a87aeb4710bbd45a2564d40cb24368f40",
+    "encoder_blocks.2.mixer.x_proj.weight": "959319e9c3d0a8bb0ade4611f3f69be08bc2f0243d0311398b73ed5b8d234581",
+    "encoder_blocks.2.norm.weight": "10daba4e32619b273155f06c203484f0edda9ff345f8a86e1a91a9ab1b55ac2f",
+    "encoder_blocks.3.mixer.A_log": "27cbd00682af1cb0958c8ddd38f29b974b4d0cf4241842574e78cac7324cfb1f",
+    "encoder_blocks.3.mixer.D": "b8a555e3b5fda555c7c2158aa511633d7c87995fb32cc7e6b816b1378e5910c2",
+    "encoder_blocks.3.mixer.conv1d.bias": "f1a9848d72fd9db96a2705591517c393e8ec752fb2432475843a32c34b370502",
+    "encoder_blocks.3.mixer.conv1d.weight": "42a68bfe7dc8ce08f5ef91c15a96bfd972751c0aadd7d4962e72188792bee146",
+    "encoder_blocks.3.mixer.dt_proj.bias": "6ab8c16a55f25347e23f1e16500141d3d117d095c4d5d4bbff99aaeab29030f2",
+    "encoder_blocks.3.mixer.dt_proj.weight": "1ca7ad53153dd944f675866040d0ad59a5789aeaa5dea502603bc37ffa3d42d8",
+    "encoder_blocks.3.mixer.in_proj.weight": "5fbda3d0449b5082b270bffb84ca3b2fef17aff9d2bc433804dea69d32f76595",
+    "encoder_blocks.3.mixer.out_proj.weight": "a259802b462fa91488be232d0efb4268736f4c4e0132a3c62587831054567796",
+    "encoder_blocks.3.mixer.x_proj.weight": "c3a161c87e4319c062af094c5f8a184a270de0a82d67691544d149b163ca374a",
+    "encoder_blocks.3.norm.weight": "18947d39fd24c84a578bd1f8d5838ea2350a32a6d440be87da6fd4e3b8d9a085",
+    "head.weight": "22a7643bf9316b00344519f705c7f643049eb7c905a749024f1371413b4ce696",
+    "iat_cls_token": "fb63345efc689a4bb97137b5a0d38bae7ef3f08a3ded9845ce0915d8f772605b",
+    "iat_indicator": "4b327ec77a2d5c4f27033617e0796c4500e79930eaffa142de2b152683e11ffd",
+    "norm_f.weight": "b2d6e8af055fea0398e2c0fc3c13e8122abdfbe3f66800358360620f4f52e5ce",
+    "pos_embed": "b474bbd35e4c4ea3cd88e3f728b8b1b92747e3fdf9db8b9b35cba38f57f5034e",
+    "size_cls_token": "c6e8b0b2de73db23b6173b06461728f8d2ce1543b33ca5181b650c67eaf3b91b",
+    "size_indicator": "2901a50930f93bc23e0f1bb813da7ba61c2370c9a062ea76542f48690451d465"
+  },
+  "first_step_gradient_norms": {
+    "byte_cls_token": 0.03599924594163895,
+    "byte_embed.proj.bias": 0.022859342396259308,
+    "byte_embed.proj.weight": 0.04367319494485855,
+    "byte_indicator": 0.041490595787763596,
+    "encoder_blocks.0.mixer.A_log": 0.0002901909174397588,
+    "encoder_blocks.0.mixer.D": 0.004256365355104208,
+    "encoder_blocks.0.mixer.conv1d.bias": 0.01975306123495102,
+    "encoder_blocks.0.mixer.conv1d.weight": 0.028794076293706894,
+    "encoder_blocks.0.mixer.dt_proj.bias": 0.0012003384763374925,
+    "encoder_blocks.0.mixer.dt_proj.weight": 0.00244841817766428,
+    "encoder_blocks.0.mixer.in_proj.weight": 0.09921498596668243,
+    "encoder_blocks.0.mixer.out_proj.weight": 0.20524728298187256,
+    "encoder_blocks.0.mixer.x_proj.weight": 0.009806003421545029,
+    "encoder_blocks.0.norm.weight": 0.00783827155828476,
+    "encoder_blocks.1.mixer.A_log": 0.01379462145268917,
+    "encoder_blocks.1.mixer.D": 0.00876547209918499,
+    "encoder_blocks.1.mixer.conv1d.bias": 0.019254401326179504,
+    "encoder_blocks.1.mixer.conv1d.weight": 0.040286727249622345,
+    "encoder_blocks.1.mixer.dt_proj.bias": 0.0024918531998991966,
+    "encoder_blocks.1.mixer.dt_proj.weight": 0.02616729773581028,
+    "encoder_blocks.1.mixer.in_proj.weight": 0.1608353555202484,
+    "encoder_blocks.1.mixer.out_proj.weight": 0.2010057121515274,
+    "encoder_blocks.1.mixer.x_proj.weight": 0.1966317594051361,
+    "encoder_blocks.1.norm.weight": 0.010972019284963608,
+    "encoder_blocks.2.mixer.A_log": 0.003481342690065503,
+    "encoder_blocks.2.mixer.D": 0.003515940625220537,
+    "encoder_blocks.2.mixer.conv1d.bias": 0.014504642225801945,
+    "encoder_blocks.2.mixer.conv1d.weight": 0.028720499947667122,
+    "encoder_blocks.2.mixer.dt_proj.bias": 0.0009724483825266361,
+    "encoder_blocks.2.mixer.dt_proj.weight": 0.003977127838879824,
+    "encoder_blocks.2.mixer.in_proj.weight": 0.09761282801628113,
+    "encoder_blocks.2.mixer.out_proj.weight": 0.07957161962985992,
+    "encoder_blocks.2.mixer.x_proj.weight": 0.022177550941705704,
+    "encoder_blocks.2.norm.weight": 0.007394612766802311,
+    "encoder_blocks.3.mixer.A_log": 0.0034740003757178783,
+    "encoder_blocks.3.mixer.D": 0.0023895446211099625,
+    "encoder_blocks.3.mixer.conv1d.bias": 0.03588394075632095,
+    "encoder_blocks.3.mixer.conv1d.weight": 0.03776322305202484,
+    "encoder_blocks.3.mixer.dt_proj.bias": 0.004068275913596153,
+    "encoder_blocks.3.mixer.dt_proj.weight": 0.00667146872729063,
+    "encoder_blocks.3.mixer.in_proj.weight": 0.1654108464717865,
+    "encoder_blocks.3.mixer.out_proj.weight": 0.10480251163244247,
+    "encoder_blocks.3.mixer.x_proj.weight": 0.08060085028409958,
+    "encoder_blocks.3.norm.weight": 0.011654242873191833,
+    "head.weight": 0.86825031042099,
+    "iat_cls_token": 0.043131351470947266,
+    "iat_indicator": 0.043131351470947266,
+    "norm_f.weight": 0.006382517050951719,
+    "pos_embed": 0.07502879202365875,
+    "size_cls_token": 0.04832760989665985,
+    "size_indicator": 0.04832760989665985
+  },
+  "group_presentations": {
+    "cic": 32000,
+    "unsw": 32000
+  },
+  "initial_parameter_sha256": {
+    "byte_cls_token": "d1dd0be016f64ec18172a0f331aa4d28ec3dec69dbb004a443ce30a8c4bb55c8",
+    "byte_embed.proj.bias": "3076a280e5b2d9646ec58f5eae977cb3a76798cf801f53953dfbc05ac887a58d",
+    "byte_embed.proj.weight": "7734ab3462ba005994365d85acdb0e54327b869f58a9718bbc4a9457d462b45b",
+    "byte_indicator": "a9e3b08914a220c3d9a3ebfc04e34f3d8b0a0df8565e10289210c001b7c6cade",
+    "encoder_blocks.0.mixer.A_log": "96ed0572a892bc54f6199acb403b02a4d663f5b4a53832cb35817c97bba8a5e0",
+    "encoder_blocks.0.mixer.D": "398d4405099b1574ccd4fa1fe6965ec95d281795dd554fe3e483298d7b6578e0",
+    "encoder_blocks.0.mixer.conv1d.bias": "19695909018dcf423646ad4490f3bcd43eea17724121eadfa23ed7b41211728e",
+    "encoder_blocks.0.mixer.conv1d.weight": "4d19eb79cd7f8bc177538873c9f0e0b41741806c95ef040864cf0ef64a2448d5",
+    "encoder_blocks.0.mixer.dt_proj.bias": "c75b962ed27a49d73ad0a4b66bb852c08c3a27bf7b60a4c2f0846a403e2c9f2c",
+    "encoder_blocks.0.mixer.dt_proj.weight": "afdc2ddb5fe127e1e3f1cb79f8794d5b9464d28f1b4b0630001320afe51c3a14",
+    "encoder_blocks.0.mixer.in_proj.weight": "708cb7dc23499b2a59fd391c11a0d10c78a825942b1b571aeffc3de885bc16f5",
+    "encoder_blocks.0.mixer.out_proj.weight": "62b1f2d04ad4e199b2f045f5c06749509f7eba01528deb9c17f077bd4211dc4d",
+    "encoder_blocks.0.mixer.x_proj.weight": "ba08b1725f8baf40e586e6d9cd0b8007606b53b208ca5ea2a30fba52ab9f2130",
+    "encoder_blocks.0.norm.weight": "6b4981c569079f6f9f14f1172b694b37db403a0a33821f23f6badd00e9c92f5a",
+    "encoder_blocks.1.mixer.A_log": "31d34c27451740d23ab4c46b1b120e205b9e43ffe1fd1bf156616ca2fe21d8a3",
+    "encoder_blocks.1.mixer.D": "eea5a235eff3a327cdca44f336ac982518522b2827c22db7c51b761e2db89f70",
+    "encoder_blocks.1.mixer.conv1d.bias": "067d861e3aed23346397f40a7ee37442e5699cf1ba0cca4cf0fac3701e568eb7",
+    "encoder_blocks.1.mixer.conv1d.weight": "be03cac89533791072db55a09aa6d6828ecdeb014354d1d7dffa59853e63c553",
+    "encoder_blocks.1.mixer.dt_proj.bias": "5a53b3639a6bca1e71a5b50c1af1c924abf649347feed311cbc7bd2253930312",
+    "encoder_blocks.1.mixer.dt_proj.weight": "23e9dbba4e735dc0aa578bb96ec0404e55bedc882d0149a9f2b84837a755e47b",
+    "encoder_blocks.1.mixer.in_proj.weight": "9b270cc6183f334dce0ee7088441a533090f1e2893975650d5c88ba3650dbf1a",
+    "encoder_blocks.1.mixer.out_proj.weight": "fe1bc4903bfeebdf3d71cc588db6b11c2b14a946fb3c634a51482c9e1f5bcabf",
+    "encoder_blocks.1.mixer.x_proj.weight": "2cf6be8b3ed818284ae63715ae30d89df0425a9354de8b13311d8dfd58b5202e",
+    "encoder_blocks.1.norm.weight": "9b3d1bb5d8c5dd63c61ce87ca0a9c6246a6cfe588c9167ca33b86b17833e7f99",
+    "encoder_blocks.2.mixer.A_log": "78f30c5ae24990166d0f7f14cbaa1312f2a41df0e8af1b537245f995824dcc34",
+    "encoder_blocks.2.mixer.D": "6ae3c6a6ee1f004b394a04898137bad5e4bc10dbc0ada8d3529517e4c2555af3",
+    "encoder_blocks.2.mixer.conv1d.bias": "61165886efc74baddc43a2f8f2e7f86d3624987129a1641f6edfdf46e200b829",
+    "encoder_blocks.2.mixer.conv1d.weight": "e0b4fe5a51a3cafc3f0edb04bcdd0a0719a8ec8b471743c8e26994be3e5c1b91",
+    "encoder_blocks.2.mixer.dt_proj.bias": "ece5226c9c4caba6b1a5d8da9de189614ad97594c175faf7d1cb9491fc655d60",
+    "encoder_blocks.2.mixer.dt_proj.weight": "0cb1c1205cb325a64984c5cd527cdd3debb07f19b1d4df699da782567eaaba8e",
+    "encoder_blocks.2.mixer.in_proj.weight": "0f0a0c73b1d931ed14d8e3f1c6df5e1f14bd0f45472359b8689001d06477e911",
+    "encoder_blocks.2.mixer.out_proj.weight": "bacedbf16d494c38e70426ad2ecd7be6a0d9f0f56a0e66fdfcc1d14b377de59f",
+    "encoder_blocks.2.mixer.x_proj.weight": "7a1bcf3d2113d020aeaba078b1fae36735d54b4a6157db65ee8fe6d4b0fb082b",
+    "encoder_blocks.2.norm.weight": "88a8a68286736a3becff8bdc8a6c29626aaa7f21c6302dc49275707ed6c78e46",
+    "encoder_blocks.3.mixer.A_log": "09e1e941e10f69b9b288e1309a562a627009efd82b51a978ac70717653a2f411",
+    "encoder_blocks.3.mixer.D": "ef2cda6499dcc831a41041c3388e257d08dc74fb259f6e4ab574331423e36516",
+    "encoder_blocks.3.mixer.conv1d.bias": "5218455a0b68ef4dfd04054fb77e2a25beb50b87e3b5afca0de987f7c266669b",
+    "encoder_blocks.3.mixer.conv1d.weight": "5dd9195936d33800ef8302952e25d537f160d277d099901b450e4ae60369f3d9",
+    "encoder_blocks.3.mixer.dt_proj.bias": "f4ab173dbb96afbf7935b9277ab4c818126cc5f9d1f7e6d4091731a2149389f7",
+    "encoder_blocks.3.mixer.dt_proj.weight": "72a493b6a857884745a6b2f4ac262231448a50120500086779041da9d3780a34",
+    "encoder_blocks.3.mixer.in_proj.weight": "3efb18f84623827cf12c9f71a10751c68ebfa6f2e37d992301c7836a17b77b2c",
+    "encoder_blocks.3.mixer.out_proj.weight": "f8d915987f27d2bac4fcdb018b87337e7fa45b198707d8b18c77d56be793715f",
+    "encoder_blocks.3.mixer.x_proj.weight": "4affc3d1ccfff7789c2a6e3ca78271d2a66aada4b3e1a854b666d7928f8c3717",
+    "encoder_blocks.3.norm.weight": "baf501d1566be9a8a7c71414b8e7b134a42891c5f1e95b6b0f3f2d119be336be",
+    "head.weight": "d8074e00b8f723ce3d6ac2f8045f5dd5656781ca2e165a6aca0549e10df09c1f",
+    "iat_cls_token": "902080357d3858382e039792fec3db6ab646f8ff700d22279e887dc65e1a0b39",
+    "iat_indicator": "429689d866137a1842abcb4e700242fc1e1c609a6f0901304d75168eabec11be",
+    "norm_f.weight": "93c48cf89532ba9f06171bfdbd9f3b73f0299d3b4fadc5750f34fc6f5dec6891",
+    "pos_embed": "b9279f01f771bd611506cca7052ac0a51d72cc790d311bfd90840b1c170513f3",
+    "size_cls_token": "7004ede4d943afe65da28f69a2d26045ad4abe4a31a9c7d392148b6f9ad831f6",
+    "size_indicator": "adfbddd1186614e4b1adce536dae5a8497540f9621d655677af7975addcc85d8"
+  },
+  "optimizer_parameter_states": 51,
+  "optimizer_step_range": [
+    1000,
+    1000
+  ],
+  "provenance": {
+    "initialization": {
+      "copied_state_names": [
+        "byte_cls_token",
+        "byte_embed.proj.bias",
+        "byte_embed.proj.weight",
+        "byte_indicator",
+        "encoder_blocks.0.mixer.A_log",
+        "encoder_blocks.0.mixer.D",
+        "encoder_blocks.0.mixer.conv1d.bias",
+        "encoder_blocks.0.mixer.conv1d.weight",
+        "encoder_blocks.0.mixer.dt_proj.bias",
+        "encoder_blocks.0.mixer.dt_proj.weight",
+        "encoder_blocks.0.mixer.in_proj.weight",
+        "encoder_blocks.0.mixer.out_proj.weight",
+        "encoder_blocks.0.mixer.x_proj.weight",
+        "encoder_blocks.0.norm.weight",
+        "encoder_blocks.1.mixer.A_log",
+        "encoder_blocks.1.mixer.D",
+        "encoder_blocks.1.mixer.conv1d.bias",
+        "encoder_blocks.1.mixer.conv1d.weight",
+        "encoder_blocks.1.mixer.dt_proj.bias",
+        "encoder_blocks.1.mixer.dt_proj.weight",
+        "encoder_blocks.1.mixer.in_proj.weight",
+        "encoder_blocks.1.mixer.out_proj.weight",
+        "encoder_blocks.1.mixer.x_proj.weight",
+        "encoder_blocks.1.norm.weight",
+        "encoder_blocks.2.mixer.A_log",
+        "encoder_blocks.2.mixer.D",
+        "encoder_blocks.2.mixer.conv1d.bias",
+        "encoder_blocks.2.mixer.conv1d.weight",
+        "encoder_blocks.2.mixer.dt_proj.bias",
+        "encoder_blocks.2.mixer.dt_proj.weight",
+        "encoder_blocks.2.mixer.in_proj.weight",
+        "encoder_blocks.2.mixer.out_proj.weight",
+        "encoder_blocks.2.mixer.x_proj.weight",
+        "encoder_blocks.2.norm.weight",
+        "encoder_blocks.3.mixer.A_log",
+        "encoder_blocks.3.mixer.D",
+        "encoder_blocks.3.mixer.conv1d.bias",
+        "encoder_blocks.3.mixer.conv1d.weight",
+        "encoder_blocks.3.mixer.dt_proj.bias",
+        "encoder_blocks.3.mixer.dt_proj.weight",
+        "encoder_blocks.3.mixer.in_proj.weight",
+        "encoder_blocks.3.mixer.out_proj.weight",
+        "encoder_blocks.3.mixer.x_proj.weight",
+        "encoder_blocks.3.norm.weight",
+        "iat_cls_token",
+        "iat_indicator",
+        "norm_f.weight",
+        "pos_embed",
+        "size_cls_token",
+        "size_indicator"
+      ],
+      "excluded_state_names": [
+        "byte_decoder_blocks.0.mixer.A_log",
+        "byte_decoder_blocks.0.mixer.D",
+        "byte_decoder_blocks.0.mixer.conv1d.bias",
+        "byte_decoder_blocks.0.mixer.conv1d.weight",
+        "byte_decoder_blocks.0.mixer.dt_proj.bias",
+        "byte_decoder_blocks.0.mixer.dt_proj.weight",
+        "byte_decoder_blocks.0.mixer.in_proj.weight",
+        "byte_decoder_blocks.0.mixer.out_proj.weight",
+        "byte_decoder_blocks.0.mixer.x_proj.weight",
+        "byte_decoder_blocks.0.norm.weight",
+        "byte_decoder_blocks.1.mixer.A_log",
+        "byte_decoder_blocks.1.mixer.D",
+        "byte_decoder_blocks.1.mixer.conv1d.bias",
+        "byte_decoder_blocks.1.mixer.conv1d.weight",
+        "byte_decoder_blocks.1.mixer.dt_proj.bias",
+        "byte_decoder_blocks.1.mixer.dt_proj.weight",
+        "byte_decoder_blocks.1.mixer.in_proj.weight",
+        "byte_decoder_blocks.1.mixer.out_proj.weight",
+        "byte_decoder_blocks.1.mixer.x_proj.weight",
+        "byte_decoder_blocks.1.norm.weight",
+        "byte_decoder_embed.bias",
+        "byte_decoder_embed.weight",
+        "byte_decoder_pos_embed",
+        "byte_decoder_pred.bias",
+        "byte_decoder_pred.weight",
+        "byte_mask_token",
+        "decoder_norm_f.weight",
+        "iat_decoder_pred.bias",
+        "iat_decoder_pred.weight",
+        "size_decoder_pred.bias",
+        "size_decoder_pred.weight"
+      ],
+      "kind": "registered_pretrain",
+      "new_state_names": [
+        "head.weight"
+      ],
+      "position_indices": [
+        20,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        398,
+        399,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        442
+      ],
+      "position_table": {
+        "origin": "registered_pretrain",
+        "parameterization": "learned",
+        "source_architecture": {
+          "arr_length": 1600,
+          "drop_path_rate": 0.1,
+          "model": "fuse3_mamba_pretrain",
+          "seq_len": 20,
+          "size_key": "signed_sizes",
+          "stride_size": 4
+        },
+        "source_shape": [
+          1,
+          443,
+          256
+        ],
+        "target_shape": [
+          1,
+          378,
+          256
+        ],
+        "trainable": true
+      },
+      "sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9"
+    },
+    "parameter_count": 1852416,
+    "runtime": {
+      "cuda": "13.0",
+      "torch": "2.9.1+cu130"
+    },
+    "seed": 0,
+    "upstream": {
+      "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+      "model_files_sha256": {
+        "src/models/common.py": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470",
+        "src/models/models_mamba.py": "c59dcc8375ad54ed9295f92c902019022cdf53b6fe4f0fb911311284872c3841",
+        "src/models/models_net_mamba_fuse3.py": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d"
+      },
+      "tracked_files_verified": 103
+    }
+  },
+  "selected_checkpoint": {
+    "bytes": 7435722,
+    "path": "joint_pretrained/checkpoint-step-01000.pth",
+    "selection_score": 0.9385902170791537,
+    "sha256": "7113adce6090af28a179b5e98f5dac8d5d7f1a9898681969924f9651815f947a",
+    "step": 1000
+  },
+  "status": "trained",
+  "steps": 1000,
+  "training_batch_stream_sha256": "43dd1f186693e916d44f80204ef2196e9f3b664d0769d09bd0f307d4272d6786",
+  "training_log": {
+    "bytes": 127112,
+    "path": "joint_pretrained/training.jsonl",
+    "sha256": "1aebc82568c0b868071d830d3ef2f961ce8f72eb76fe36c389b95a295a068f7d"
+  },
+  "validation_history": [
+    {
+      "selection_score": 0.5733116524525448,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.55515,
+            "attack_average_precision": 0.8563429769465216,
+            "attack_precision": 0.4197862715531371,
+            "attack_recall": 0.9927131782945736,
+            "auroc": 0.9279031722875368,
+            "balanced_accuracy": 0.66978832346463,
+            "benign_false_positive_rate": 0.6531365313653137,
+            "confusion_matrix": [
+              [
+                4700.0,
+                8850.0
+              ],
+              [
+                47.0,
+                6403.0
+              ]
+            ],
+            "macro_f1": 0.5519010484697031,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 4889,
+              "recall_of_supplied_binary_target": 0.30383444161332424,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 36,
+              "recall_of_supplied_binary_target": 0.37894736842105264,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 550,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4813,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1972,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.7654837769169894,
+            "attack_average_precision": 0.9730457352090393,
+            "attack_precision": 0.7399117715347109,
+            "attack_recall": 0.9981520343283115,
+            "auroc": 0.9631293466556298,
+            "balanced_accuracy": 0.6509932379708179,
+            "benign_false_positive_rate": 0.6961655583866758,
+            "confusion_matrix": [
+              [
+                4889,
+                11202
+              ],
+              [
+                59,
+                31868
+              ]
+            ],
+            "macro_f1": 0.6573016283453753,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.9991103202846975,
+              "attack_recall": 0.6664688427299704,
+              "balanced_accuracy": 0.8323463218978449,
+              "benign_false_positive_rate": 0.0017761989342806393,
+              "confusion_matrix": [
+                [
+                  0.5,
+                  0.0008896797153024911
+                ],
+                [
+                  0.5,
+                  0.9991103202846975
+                ]
+              ],
+              "macro_f1": 0.7329221447785224,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9991103202846975,
+              "attack_recall": 0.9991103202846975,
+              "balanced_accuracy": 0.7495551601423487,
+              "benign_false_positive_rate": 0.5,
+              "confusion_matrix": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1123
+                ]
+              ],
+              "macro_f1": 0.7495551601423487,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.7778250444384235,
+            "attack_average_precision": 0.927545144863231,
+            "attack_precision": 0.8409899228357,
+            "attack_recall": 0.8949530937818773,
+            "auroc": 0.7275411316734405,
+            "balanced_accuracy": 0.586577559245681,
+            "benign_false_positive_rate": 0.7217979752905151,
+            "confusion_matrix": [
+              [
+                309.5,
+                803.0008896797153
+              ],
+              [
+                498.5,
+                4246.999110320285
+              ]
+            ],
+            "macro_f1": 0.5947222564353863,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 145,
+              "recall_of_supplied_binary_target": 0.9931506849315068,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 425,
+              "recall_of_supplied_binary_target": 0.9199134199134199,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1924,
+              "recall_of_supplied_binary_target": 0.9426751592356688,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2115,
+              "recall_of_supplied_binary_target": 0.8497388509441542,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2785,
+              "recall_of_supplied_binary_target": 0.9925160370634355,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 689,
+              "recall_of_supplied_binary_target": 0.2138423339540658,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 993,
+              "recall_of_supplied_binary_target": 0.927170868347339,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 201,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 14,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.7490074638716849,
+            "attack_average_precision": 0.8973962432619653,
+            "attack_precision": 0.7753835239868759,
+            "attack_recall": 0.9329918907383696,
+            "auroc": 0.7210812653510742,
+            "balanced_accuracy": 0.5734171123462177,
+            "benign_false_positive_rate": 0.7861576660459342,
+            "confusion_matrix": [
+              [
+                689,
+                2533
+              ],
+              [
+                628,
+                8744
+              ]
+            ],
+            "macro_f1": 0.5752543128167757,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 100
+    },
+    {
+      "selection_score": 0.8138923925743979,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.8967,
+            "attack_average_precision": 0.9372083269804055,
+            "attack_precision": 0.7734530938123753,
+            "attack_recall": 0.9612403100775194,
+            "auroc": 0.9741860236276781,
+            "balanced_accuracy": 0.9136090849280586,
+            "benign_false_positive_rate": 0.13402214022140221,
+            "confusion_matrix": [
+              [
+                11734.0,
+                1816.0
+              ],
+              [
+                250.0,
+                6200.0
+              ]
+            ],
+            "macro_f1": 0.8881353165458122,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 13848,
+              "recall_of_supplied_binary_target": 0.8606053073146479,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 36,
+              "recall_of_supplied_binary_target": 0.37894736842105264,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 429,
+              "recall_of_supplied_binary_target": 0.78,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4813,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1746,
+              "recall_of_supplied_binary_target": 0.8853955375253549,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.944833187554667,
+            "attack_average_precision": 0.9875634339659181,
+            "attack_precision": 0.9335682975950717,
+            "attack_recall": 0.9872834904626179,
+            "auroc": 0.9855947034040586,
+            "balanced_accuracy": 0.9239443988886329,
+            "benign_false_positive_rate": 0.13939469268535207,
+            "confusion_matrix": [
+              [
+                13848,
+                2243
+              ],
+              [
+                406,
+                31521
+              ]
+            ],
+            "macro_f1": 0.9361893731969549,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.9991103202846975,
+              "attack_recall": 0.6664688427299704,
+              "balanced_accuracy": 0.8323463218978449,
+              "benign_false_positive_rate": 0.0017761989342806393,
+              "confusion_matrix": [
+                [
+                  0.5,
+                  0.0008896797153024911
+                ],
+                [
+                  0.5,
+                  0.9991103202846975
+                ]
+              ],
+              "macro_f1": 0.7329221447785224,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9991103202846975,
+              "attack_recall": 0.9991103202846975,
+              "balanced_accuracy": 0.7495551601423487,
+              "benign_false_positive_rate": 0.5,
+              "confusion_matrix": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1123
+                ]
+              ],
+              "macro_f1": 0.7495551601423487,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.8046260003960882,
+            "attack_average_precision": 0.9605907299344006,
+            "attack_precision": 0.9457784378114099,
+            "attack_recall": 0.8049730958778885,
+            "auroc": 0.862181531149882,
+            "balanced_accuracy": 0.8040592605042507,
+            "benign_false_positive_rate": 0.19685457486938712,
+            "confusion_matrix": [
+              [
+                893.5,
+                219.0008896797153
+              ],
+              [
+                925.5,
+                3819.9991103202847
+              ]
+            ],
+            "macro_f1": 0.7396494686029835,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 138,
+              "recall_of_supplied_binary_target": 0.9452054794520548,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 411,
+              "recall_of_supplied_binary_target": 0.8896103896103896,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1858,
+              "recall_of_supplied_binary_target": 0.9103380695737384,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 1923,
+              "recall_of_supplied_binary_target": 0.7725994375251105,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 1344,
+              "recall_of_supplied_binary_target": 0.4789736279401283,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2140,
+              "recall_of_supplied_binary_target": 0.6641837368094351,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1007,
+              "recall_of_supplied_binary_target": 0.9402427637721755,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 152,
+              "recall_of_supplied_binary_target": 0.7562189054726368,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 14,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.7248689852310624,
+            "attack_average_precision": 0.9204785091626901,
+            "attack_precision": 0.8659397844133316,
+            "attack_recall": 0.7457319675629535,
+            "auroc": 0.8009496041009142,
+            "balanced_accuracy": 0.7049578521861943,
+            "benign_false_positive_rate": 0.33581626319056485,
+            "confusion_matrix": [
+              [
+                2140,
+                1082
+              ],
+              [
+                2383,
+                6989
+              ]
+            ],
+            "macro_f1": 0.6769837841650941,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 200
+    },
+    {
+      "selection_score": 0.8650385441878918,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.92505,
+            "attack_average_precision": 0.935436888453479,
+            "attack_precision": 0.8404621097510658,
+            "attack_recall": 0.9474418604651162,
+            "auroc": 0.970036477015933,
+            "balanced_accuracy": 0.9309165021882777,
+            "benign_false_positive_rate": 0.08560885608856089,
+            "confusion_matrix": [
+              [
+                12390.0,
+                1160.0
+              ],
+              [
+                339.0,
+                6111.0
+              ]
+            ],
+            "macro_f1": 0.9168548293001774,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 14572,
+              "recall_of_supplied_binary_target": 0.9055994033932012,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 36,
+              "recall_of_supplied_binary_target": 0.37894736842105264,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": 0.0,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4813,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1678,
+              "recall_of_supplied_binary_target": 0.8509127789046653,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.9495605814486234,
+            "attack_average_precision": 0.9867134705764894,
+            "attack_precision": 0.9533232953323295,
+            "attack_recall": 0.9717167287875466,
+            "auroc": 0.9812396628964632,
+            "balanced_accuracy": 0.9386580660903738,
+            "benign_false_positive_rate": 0.09440059660679884,
+            "confusion_matrix": [
+              [
+                14572,
+                1519
+              ],
+              [
+                903,
+                31024
+              ]
+            ],
+            "macro_f1": 0.9428520068906863,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.7495551601423487,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  0.5008896797153025
+                ],
+                [
+                  0.0,
+                  1.4991103202846974
+                ]
+              ],
+              "macro_f1": 0.4284261378082888,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9982238010657194,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1124
+                ]
+              ],
+              "macro_f1": 0.49955555555555553,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.8751278781700725,
+            "attack_average_precision": 0.9733720159996171,
+            "attack_precision": 0.9474914404281571,
+            "attack_recall": 0.8954799087578958,
+            "auroc": 0.9035084148640884,
+            "balanced_accuracy": 0.8418969425376203,
+            "benign_false_positive_rate": 0.2116860236826553,
+            "confusion_matrix": [
+              [
+                877.0,
+                235.5008896797153
+              ],
+              [
+                496.0,
+                4249.499110320285
+              ]
+            ],
+            "macro_f1": 0.8132222590756063,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 141,
+              "recall_of_supplied_binary_target": 0.9657534246575342,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 425,
+              "recall_of_supplied_binary_target": 0.9199134199134199,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1870,
+              "recall_of_supplied_binary_target": 0.916217540421362,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2162,
+              "recall_of_supplied_binary_target": 0.8686219365206911,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2335,
+              "recall_of_supplied_binary_target": 0.8321454027084818,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2041,
+              "recall_of_supplied_binary_target": 0.6334574798261949,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1054,
+              "recall_of_supplied_binary_target": 0.9841269841269841,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 140,
+              "recall_of_supplied_binary_target": 0.6965174129353234,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 7,
+              "recall_of_supplied_binary_target": 0.5,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.8191996188661267,
+            "attack_average_precision": 0.9394952946691889,
+            "attack_precision": 0.8751189595008988,
+            "attack_recall": 0.8830559112249253,
+            "auroc": 0.8424888391349167,
+            "balanced_accuracy": 0.7582566955255601,
+            "benign_false_positive_rate": 0.36654252017380506,
+            "confusion_matrix": [
+              [
+                2041,
+                1181
+              ],
+              [
+                1096,
+                8276
+              ]
+            ],
+            "macro_f1": 0.7604971756844451,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 300
+    },
+    {
+      "selection_score": 0.8976497172731329,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.95555,
+            "attack_average_precision": 0.9466759330170297,
+            "attack_precision": 0.9129659884152681,
+            "attack_recall": 0.9530232558139535,
+            "auroc": 0.9733901541806116,
+            "balanced_accuracy": 0.9548880116708144,
+            "benign_false_positive_rate": 0.043247232472324725,
+            "confusion_matrix": [
+              [
+                12964.0,
+                586.0
+              ],
+              [
+                303.0,
+                6147.0
+              ]
+            ],
+            "macro_f1": 0.949707026599617,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 15277,
+              "recall_of_supplied_binary_target": 0.9494127151824001,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 36,
+              "recall_of_supplied_binary_target": 0.37894736842105264,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": 0.0,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4482,
+              "recall_of_supplied_binary_target": 0.9312279243714938,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1729,
+              "recall_of_supplied_binary_target": 0.8767748478701826,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.9584114290474406,
+            "attack_average_precision": 0.9897483744042439,
+            "attack_precision": 0.9742062234615628,
+            "attack_recall": 0.9629467222100416,
+            "auroc": 0.983488670067651,
+            "balanced_accuracy": 0.9561797186962209,
+            "benign_false_positive_rate": 0.0505872848175999,
+            "confusion_matrix": [
+              [
+                15277,
+                814
+              ],
+              [
+                1183,
+                30744
+              ]
+            ],
+            "macro_f1": 0.9535969343840893,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.9991103202846975,
+              "attack_recall": 0.6664688427299704,
+              "balanced_accuracy": 0.8323463218978449,
+              "benign_false_positive_rate": 0.0017761989342806393,
+              "confusion_matrix": [
+                [
+                  0.5,
+                  0.0008896797153024911
+                ],
+                [
+                  0.5,
+                  0.9991103202846975
+                ]
+              ],
+              "macro_f1": 0.7329221447785224,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9991103202846975,
+              "attack_recall": 0.9991103202846975,
+              "balanced_accuracy": 0.7495551601423487,
+              "benign_false_positive_rate": 0.5,
+              "confusion_matrix": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1123
+                ]
+              ],
+              "macro_f1": 0.7495551601423487,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.8964662189006973,
+            "attack_average_precision": 0.9851573293890642,
+            "attack_precision": 0.9624579017475496,
+            "attack_recall": 0.9075966532063253,
+            "auroc": 0.9483560086103517,
+            "balanced_accuracy": 0.8782923691526108,
+            "benign_false_positive_rate": 0.1510119149011037,
+            "confusion_matrix": [
+              [
+                944.5,
+                168.0008896797153
+              ],
+              [
+                438.5,
+                4306.999110320285
+              ]
+            ],
+            "macro_f1": 0.8455924079466488,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 136,
+              "recall_of_supplied_binary_target": 0.9315068493150684,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 385,
+              "recall_of_supplied_binary_target": 0.8333333333333334,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1831,
+              "recall_of_supplied_binary_target": 0.897109260166585,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2189,
+              "recall_of_supplied_binary_target": 0.879469666532744,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2749,
+              "recall_of_supplied_binary_target": 0.9796863863150392,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2243,
+              "recall_of_supplied_binary_target": 0.6961514587212911,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1050,
+              "recall_of_supplied_binary_target": 0.9803921568627451,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 163,
+              "recall_of_supplied_binary_target": 0.8109452736318408,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 7,
+              "recall_of_supplied_binary_target": 0.5,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.8650944894394156,
+            "attack_average_precision": 0.9732800908422581,
+            "attack_precision": 0.898349081092306,
+            "attack_recall": 0.9231754161331626,
+            "auroc": 0.9294297659629315,
+            "balanced_accuracy": 0.8096634374272269,
+            "benign_false_positive_rate": 0.30384854127870886,
+            "confusion_matrix": [
+              [
+                2243,
+                979
+              ],
+              [
+                720,
+                8652
+              ]
+            ],
+            "macro_f1": 0.8179481085210092,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 400
+    },
+    {
+      "selection_score": 0.9058464419580479,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.95905,
+            "attack_average_precision": 0.9330326808328495,
+            "attack_precision": 0.910362920857018,
+            "attack_recall": 0.9683720930232558,
+            "auroc": 0.9815595068508824,
+            "balanced_accuracy": 0.9614923195743585,
+            "benign_false_positive_rate": 0.04538745387453875,
+            "confusion_matrix": [
+              [
+                12935.0,
+                615.0
+              ],
+              [
+                204.0,
+                6246.0
+              ]
+            ],
+            "macro_f1": 0.9538925703475875,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 15200,
+              "recall_of_supplied_binary_target": 0.944627431483438,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 36,
+              "recall_of_supplied_binary_target": 0.37894736842105264,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5976,
+              "recall_of_supplied_binary_target": 0.9994982438534872,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10350,
+              "recall_of_supplied_binary_target": 0.9995171414775471,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3965,
+              "recall_of_supplied_binary_target": 0.9992439516129032,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 539,
+              "recall_of_supplied_binary_target": 0.98,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4460,
+              "recall_of_supplied_binary_target": 0.9266569707043424,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1794,
+              "recall_of_supplied_binary_target": 0.90973630831643,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.9686992377858303,
+            "attack_average_precision": 0.9680919448375315,
+            "attack_precision": 0.9723343476370863,
+            "attack_recall": 0.9808312713377392,
+            "auroc": 0.9743181183532269,
+            "balanced_accuracy": 0.9627293514105886,
+            "benign_false_positive_rate": 0.055372568516562054,
+            "confusion_matrix": [
+              [
+                15200,
+                891
+              ],
+              [
+                612,
+                31315
+              ]
+            ],
+            "macro_f1": 0.9647263851752721,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.7495551601423487,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  0.5008896797153025
+                ],
+                [
+                  0.0,
+                  1.4991103202846974
+                ]
+              ],
+              "macro_f1": 0.4284261378082888,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9982238010657194,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1124
+                ]
+              ],
+              "macro_f1": 0.49955555555555553,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.9063672089997071,
+            "attack_average_precision": 0.9785011854200337,
+            "attack_precision": 0.9626320789947718,
+            "attack_recall": 0.9201348496355697,
+            "auroc": 0.9368155658757142,
+            "balanced_accuracy": 0.8838873106029935,
+            "benign_false_positive_rate": 0.1523602284295826,
+            "confusion_matrix": [
+              [
+                943.0,
+                169.5008896797153
+              ],
+              [
+                379.0,
+                4366.499110320285
+              ]
+            ],
+            "macro_f1": 0.8578003135685084,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 139,
+              "recall_of_supplied_binary_target": 0.952054794520548,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 418,
+              "recall_of_supplied_binary_target": 0.9047619047619048,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1816,
+              "recall_of_supplied_binary_target": 0.8897599216070554,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2263,
+              "recall_of_supplied_binary_target": 0.9092004821213339,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2775,
+              "recall_of_supplied_binary_target": 0.9889522451888809,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2241,
+              "recall_of_supplied_binary_target": 0.6955307262569832,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1056,
+              "recall_of_supplied_binary_target": 0.9859943977591037,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 163,
+              "recall_of_supplied_binary_target": 0.8109452736318408,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 14,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.8755756709544228,
+            "attack_average_precision": 0.9170087085806251,
+            "attack_precision": 0.899559741988328,
+            "attack_recall": 0.9374733247972684,
+            "auroc": 0.840705922232793,
+            "balanced_accuracy": 0.8165020255271258,
+            "benign_false_positive_rate": 0.30446927374301674,
+            "confusion_matrix": [
+              [
+                2241,
+                981
+              ],
+              [
+                586,
+                8786
+              ]
+            ],
+            "macro_f1": 0.8295371055394478,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 500
+    },
+    {
+      "selection_score": 0.9087552606610507,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.94035,
+            "attack_average_precision": 0.9677703172108387,
+            "attack_precision": 0.8483764082173625,
+            "attack_recall": 0.9924031007751938,
+            "auroc": 0.9863671958580051,
+            "balanced_accuracy": 0.9539875282473755,
+            "benign_false_positive_rate": 0.0844280442804428,
+            "confusion_matrix": [
+              [
+                12406.0,
+                1144.0
+              ],
+              [
+                49.0,
+                6401.0
+              ]
+            ],
+            "macro_f1": 0.9344397383112422,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 14672,
+              "recall_of_supplied_binary_target": 0.9118140575476975,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 36,
+              "recall_of_supplied_binary_target": 0.37894736842105264,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 550,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4806,
+              "recall_of_supplied_binary_target": 0.9985456056513609,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1971,
+              "recall_of_supplied_binary_target": 0.9994929006085193,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.969053271689783,
+            "attack_average_precision": 0.9921196317298417,
+            "attack_precision": 0.9573604976111061,
+            "attack_recall": 0.9979014627118113,
+            "auroc": 0.9894619771635568,
+            "balanced_accuracy": 0.9548577601297544,
+            "benign_false_positive_rate": 0.08818594245230253,
+            "confusion_matrix": [
+              [
+                14672,
+                1419
+              ],
+              [
+                67,
+                31860
+              ]
+            ],
+            "macro_f1": 0.964505440374406,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.7495551601423487,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  0.5008896797153025
+                ],
+                [
+                  0.0,
+                  1.4991103202846974
+                ]
+              ],
+              "macro_f1": 0.4284261378082888,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9982238010657194,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1124
+                ]
+              ],
+              "macro_f1": 0.49955555555555553,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.924632828665122,
+            "attack_average_precision": 0.9914702782996951,
+            "attack_precision": 0.967317939266077,
+            "attack_recall": 0.9386787367914268,
+            "auroc": 0.971751610217167,
+            "balanced_accuracy": 0.9016985731946219,
+            "benign_false_positive_rate": 0.13528159040218288,
+            "confusion_matrix": [
+              [
+                962.0,
+                150.5008896797153
+              ],
+              [
+                291.0,
+                4454.499110320285
+              ]
+            ],
+            "macro_f1": 0.8830707830108592,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 141,
+              "recall_of_supplied_binary_target": 0.9657534246575342,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 430,
+              "recall_of_supplied_binary_target": 0.9307359307359307,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1869,
+              "recall_of_supplied_binary_target": 0.9157275845173934,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2369,
+              "recall_of_supplied_binary_target": 0.9517878666130977,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2764,
+              "recall_of_supplied_binary_target": 0.985032074126871,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2165,
+              "recall_of_supplied_binary_target": 0.6719428926132837,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1061,
+              "recall_of_supplied_binary_target": 0.9906629318394025,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 174,
+              "recall_of_supplied_binary_target": 0.8656716417910447,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 14,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.8836747657614737,
+            "attack_average_precision": 0.9720298899945488,
+            "attack_precision": 0.8945215048398364,
+            "attack_recall": 0.9564660691421255,
+            "auroc": 0.9315756378271132,
+            "balanced_accuracy": 0.8142044808777046,
+            "benign_false_positive_rate": 0.32805710738671634,
+            "confusion_matrix": [
+              [
+                2165,
+                1057
+              ],
+              [
+                408,
+                8964
+              ]
+            ],
+            "macro_f1": 0.8358265684490641,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 600
+    },
+    {
+      "selection_score": 0.9104467537792024,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.96265,
+            "attack_average_precision": 0.9686076271171848,
+            "attack_precision": 0.9252796420581656,
+            "attack_recall": 0.9618604651162791,
+            "auroc": 0.9867756743613948,
+            "balanced_accuracy": 0.9624431476872908,
+            "benign_false_positive_rate": 0.03697416974169742,
+            "confusion_matrix": [
+              [
+                13049.0,
+                501.0
+              ],
+              [
+                246.0,
+                6204.0
+              ]
+            ],
+            "macro_f1": 0.9576945482671861,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 15358,
+              "recall_of_supplied_binary_target": 0.9544465850475421,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 36,
+              "recall_of_supplied_binary_target": 0.37894736842105264,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 77,
+              "recall_of_supplied_binary_target": 0.14,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4464,
+              "recall_of_supplied_binary_target": 0.9274880531892791,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1795,
+              "recall_of_supplied_binary_target": 0.9102434077079108,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.9627014869423967,
+            "attack_average_precision": 0.9925251427430773,
+            "attack_precision": 0.976805265489526,
+            "attack_recall": 0.9668619037178564,
+            "auroc": 0.9891647163202111,
+            "balanced_accuracy": 0.9606542443826993,
+            "benign_false_positive_rate": 0.0455534149524579,
+            "confusion_matrix": [
+              [
+                15358,
+                733
+              ],
+              [
+                1058,
+                30869
+              ]
+            ],
+            "macro_f1": 0.9583561625469394,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.7495551601423487,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  0.5008896797153025
+                ],
+                [
+                  0.0,
+                  1.4991103202846974
+                ]
+              ],
+              "macro_f1": 0.4284261378082888,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9982238010657194,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1124
+                ]
+              ],
+              "macro_f1": 0.49955555555555553,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.9073914493547772,
+            "attack_average_precision": 0.9920377230067455,
+            "attack_precision": 0.973097503448961,
+            "attack_recall": 0.9108629060576411,
+            "auroc": 0.973179318147357,
+            "balanced_accuracy": 0.9017232309553447,
+            "benign_false_positive_rate": 0.10741644414695177,
+            "confusion_matrix": [
+              [
+                993.0,
+                119.5008896797153
+              ],
+              [
+                423.0,
+                4322.499110320285
+              ]
+            ],
+            "macro_f1": 0.8631989592912186,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 139,
+              "recall_of_supplied_binary_target": 0.952054794520548,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 415,
+              "recall_of_supplied_binary_target": 0.8982683982683982,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1801,
+              "recall_of_supplied_binary_target": 0.8824105830475257,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2234,
+              "recall_of_supplied_binary_target": 0.8975492165528325,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2766,
+              "recall_of_supplied_binary_target": 0.9857448325017819,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2262,
+              "recall_of_supplied_binary_target": 0.702048417132216,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1059,
+              "recall_of_supplied_binary_target": 0.988795518207283,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 132,
+              "recall_of_supplied_binary_target": 0.6567164179104478,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 7,
+              "recall_of_supplied_binary_target": 0.5,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.8700174686358584,
+            "attack_average_precision": 0.9763622617728074,
+            "attack_precision": 0.9005696530295184,
+            "attack_recall": 0.9277635510029876,
+            "auroc": 0.9394831216670071,
+            "balanced_accuracy": 0.8149059840676018,
+            "benign_false_positive_rate": 0.297951582867784,
+            "confusion_matrix": [
+              [
+                2262,
+                960
+              ],
+              [
+                677,
+                8695
+              ]
+            ],
+            "macro_f1": 0.8241303734421874,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 700
+    },
+    {
+      "selection_score": 0.9241862011404827,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.9688,
+            "attack_average_precision": 0.9785372637329339,
+            "attack_precision": 0.9247594050743657,
+            "attack_recall": 0.9832558139534884,
+            "auroc": 0.990482925712978,
+            "balanced_accuracy": 0.9725873165708401,
+            "benign_false_positive_rate": 0.03808118081180812,
+            "confusion_matrix": [
+              [
+                13034.0,
+                516.0
+              ],
+              [
+                108.0,
+                6342.0
+              ]
+            ],
+            "macro_f1": 0.9648665598159656,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 15370,
+              "recall_of_supplied_binary_target": 0.9551923435460816,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 38,
+              "recall_of_supplied_binary_target": 0.4,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 440,
+              "recall_of_supplied_binary_target": 0.8,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4813,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1906,
+              "recall_of_supplied_binary_target": 0.9665314401622718,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.9801324503311258,
+            "attack_average_precision": 0.9956644673254906,
+            "attack_precision": 0.9777572111676693,
+            "attack_recall": 0.9927021016694334,
+            "auroc": 0.9928812515769609,
+            "balanced_accuracy": 0.9739472226077575,
+            "benign_false_positive_rate": 0.04480765645391834,
+            "confusion_matrix": [
+              [
+                15370,
+                721
+              ],
+              [
+                233,
+                31694
+              ]
+            ],
+            "macro_f1": 0.9775363237149642,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.7495551601423487,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  0.5008896797153025
+                ],
+                [
+                  0.0,
+                  1.4991103202846974
+                ]
+              ],
+              "macro_f1": 0.4284261378082888,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9982238010657194,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1124
+                ]
+              ],
+              "macro_f1": 0.49955555555555553,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.921047987422377,
+            "attack_average_precision": 0.9940629402309425,
+            "attack_precision": 0.9825369784408032,
+            "attack_recall": 0.9188704936931248,
+            "auroc": 0.9788412694654166,
+            "balanced_accuracy": 0.9246034141717914,
+            "benign_false_positive_rate": 0.06966366534954188,
+            "confusion_matrix": [
+              [
+                1035.0,
+                77.5008896797153
+              ],
+              [
+                385.0,
+                4360.499110320285
+              ]
+            ],
+            "macro_f1": 0.8835058424649999,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 139,
+              "recall_of_supplied_binary_target": 0.952054794520548,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 413,
+              "recall_of_supplied_binary_target": 0.8939393939393939,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1834,
+              "recall_of_supplied_binary_target": 0.8985791278784909,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2321,
+              "recall_of_supplied_binary_target": 0.9325030132583367,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2755,
+              "recall_of_supplied_binary_target": 0.9818246614397719,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2471,
+              "recall_of_supplied_binary_target": 0.7669149596523899,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1060,
+              "recall_of_supplied_binary_target": 0.9897292250233427,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 69,
+              "recall_of_supplied_binary_target": 0.34328358208955223,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 7,
+              "recall_of_supplied_binary_target": 0.5,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.8901858027632206,
+            "attack_average_precision": 0.9799553184874177,
+            "attack_precision": 0.9208724054367295,
+            "attack_recall": 0.9325650874946649,
+            "auroc": 0.9462374949431366,
+            "balanced_accuracy": 0.8497400235735274,
+            "benign_false_positive_rate": 0.23308504034761018,
+            "confusion_matrix": [
+              [
+                2471,
+                751
+              ],
+              [
+                632,
+                8740
+              ]
+            ],
+            "macro_f1": 0.8540128687421409,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 800
+    },
+    {
+      "selection_score": 0.9269997992868618,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.97065,
+            "attack_average_precision": 0.9662913671702175,
+            "attack_precision": 0.9329493427854083,
+            "attack_recall": 0.9793798449612403,
+            "auroc": 0.989935707543122,
+            "balanced_accuracy": 0.9729371549529449,
+            "benign_false_positive_rate": 0.033505535055350553,
+            "confusion_matrix": [
+              [
+                13096.0,
+                454.0
+              ],
+              [
+                133.0,
+                6317.0
+              ]
+            ],
+            "macro_f1": 0.9668403882906926,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 15434,
+              "recall_of_supplied_binary_target": 0.9591697222049593,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 37,
+              "recall_of_supplied_binary_target": 0.3894736842105263,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 0.3,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4806,
+              "recall_of_supplied_binary_target": 0.9985456056513609,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1914,
+              "recall_of_supplied_binary_target": 0.9705882352941176,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.9757382648173601,
+            "attack_average_precision": 0.9932169751432681,
+            "attack_precision": 0.9795173961840629,
+            "attack_recall": 0.984088702352241,
+            "auroc": 0.9924308249205245,
+            "balanced_accuracy": 0.9716292122786001,
+            "benign_false_positive_rate": 0.040830277795040705,
+            "confusion_matrix": [
+              [
+                15434,
+                657
+              ],
+              [
+                508,
+                31419
+              ]
+            ],
+            "macro_f1": 0.972714491749747,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.7495551601423487,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  0.5008896797153025
+                ],
+                [
+                  0.0,
+                  1.4991103202846974
+                ]
+              ],
+              "macro_f1": 0.4284261378082888,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9982238010657194,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1124
+                ]
+              ],
+              "macro_f1": 0.49955555555555553,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.924803535390967,
+            "attack_average_precision": 0.995585490412699,
+            "attack_precision": 0.9787586989146541,
+            "attack_recall": 0.9272995333094236,
+            "auroc": 0.9838161806237931,
+            "balanced_accuracy": 0.9207280528090673,
+            "benign_false_positive_rate": 0.08584342769128898,
+            "confusion_matrix": [
+              [
+                1017.0,
+                95.5008896797153
+              ],
+              [
+                345.0,
+                4400.499110320285
+              ]
+            ],
+            "macro_f1": 0.887159210283031,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 140,
+              "recall_of_supplied_binary_target": 0.958904109589041,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 411,
+              "recall_of_supplied_binary_target": 0.8896103896103896,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1890,
+              "recall_of_supplied_binary_target": 0.9260166585007349,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2327,
+              "recall_of_supplied_binary_target": 0.9349136199276818,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2746,
+              "recall_of_supplied_binary_target": 0.9786172487526729,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2427,
+              "recall_of_supplied_binary_target": 0.7532588454376163,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1059,
+              "recall_of_supplied_binary_target": 0.988795518207283,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 78,
+              "recall_of_supplied_binary_target": 0.3880597014925373,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 7,
+              "recall_of_supplied_binary_target": 0.5,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.8914562490074639,
+            "attack_average_precision": 0.9892470671530126,
+            "attack_precision": 0.9171443460135488,
+            "attack_recall": 0.9389671361502347,
+            "auroc": 0.9683374119403705,
+            "balanced_accuracy": 0.8461129907939255,
+            "benign_false_positive_rate": 0.2467411545623836,
+            "confusion_matrix": [
+              [
+                2427,
+                795
+              ],
+              [
+                572,
+                8800
+              ]
+            ],
+            "macro_f1": 0.8540939306195372,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 900
+    },
+    {
+      "selection_score": 0.9385902170791537,
+      "sources": {
+        "cic": {
+          "binary_conflicting_groups": 0,
+          "conflicting_slice": {
+            "group_weighted": null,
+            "groups": 0,
+            "row_weighted": null,
+            "rows": 0
+          },
+          "group_weighted": {
+            "accuracy": 0.9689,
+            "attack_average_precision": 0.9800559777396258,
+            "attack_precision": 0.9194012665515257,
+            "attack_recall": 0.9903875968992248,
+            "auroc": 0.9916131010612431,
+            "balanced_accuracy": 0.9745295918075461,
+            "benign_false_positive_rate": 0.041328413284132844,
+            "confusion_matrix": [
+              [
+                12990.0,
+                560.0
+              ],
+              [
+                62.0,
+                6388.0
+              ]
+            ],
+            "macro_f1": 0.9650967299238495,
+            "support": [
+              13550.0,
+              6450.0
+            ]
+          },
+          "groups": 20000,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "BENIGN": {
+              "correct": 15300,
+              "recall_of_supplied_binary_target": 0.9508420856379343,
+              "rows": 16091
+            },
+            "Bot": {
+              "correct": 36,
+              "recall_of_supplied_binary_target": 0.37894736842105264,
+              "rows": 95
+            },
+            "DDoS": {
+              "correct": 1,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 1
+            },
+            "DoS GoldenEye": {
+              "correct": 5979,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 5979
+            },
+            "DoS Hulk": {
+              "correct": 10355,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 10355
+            },
+            "DoS Slowhttptest": {
+              "correct": 3968,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3968
+            },
+            "DoS slowloris": {
+              "correct": 3315,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 3315
+            },
+            "FTP-Patator": {
+              "correct": 627,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 627
+            },
+            "Heartbleed": {
+              "correct": 495,
+              "recall_of_supplied_binary_target": 0.9,
+              "rows": 550
+            },
+            "Infiltration": {
+              "correct": 4482,
+              "recall_of_supplied_binary_target": 0.9312279243714938,
+              "rows": 4813
+            },
+            "PortScan": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "SSH-Patator": {
+              "correct": 1965,
+              "recall_of_supplied_binary_target": 0.9964503042596349,
+              "rows": 1972
+            },
+            "Web Attack \u2013 Brute Force": {
+              "correct": 165,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 165
+            },
+            "Web Attack \u2013 Sql Injection": {
+              "correct": 0,
+              "recall_of_supplied_binary_target": null,
+              "rows": 0
+            },
+            "Web Attack \u2013 XSS": {
+              "correct": 87,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 87
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.9741138739639302,
+            "attack_average_precision": 0.9946693215775305,
+            "attack_precision": 0.9754850306824521,
+            "attack_recall": 0.9858427036677421,
+            "auroc": 0.9917654343365184,
+            "balanced_accuracy": 0.9683423946528382,
+            "benign_false_positive_rate": 0.04915791436206575,
+            "confusion_matrix": [
+              [
+                15300,
+                791
+              ],
+              [
+                452,
+                31475
+              ]
+            ],
+            "macro_f1": 0.9708006256113887,
+            "support": [
+              16091,
+              31927
+            ]
+          },
+          "rows": 48018
+        },
+        "unsw": {
+          "binary_conflicting_groups": 2,
+          "conflicting_slice": {
+            "group_weighted": {
+              "accuracy": 0.7495551601423487,
+              "attack_precision": 0.7495551601423487,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0.0,
+                  0.5008896797153025
+                ],
+                [
+                  0.0,
+                  1.4991103202846974
+                ]
+              ],
+              "macro_f1": 0.4284261378082888,
+              "support": [
+                0.5008896797153025,
+                1.4991103202846974
+              ]
+            },
+            "groups": 2,
+            "row_weighted": {
+              "accuracy": 0.9982238010657194,
+              "attack_precision": 0.9982238010657194,
+              "attack_recall": 1.0,
+              "balanced_accuracy": 0.5,
+              "benign_false_positive_rate": 1.0,
+              "confusion_matrix": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1124
+                ]
+              ],
+              "macro_f1": 0.49955555555555553,
+              "support": [
+                2,
+                1124
+              ]
+            },
+            "rows": 1126
+          },
+          "group_weighted": {
+            "accuracy": 0.9427277416046919,
+            "attack_average_precision": 0.9957904913691785,
+            "attack_precision": 0.9823887793306245,
+            "attack_recall": 0.9462648724460957,
+            "auroc": 0.984821672840606,
+            "balanced_accuracy": 0.936952290019798,
+            "benign_false_positive_rate": 0.07236029240649973,
+            "confusion_matrix": [
+              [
+                1032.0,
+                80.5008896797153
+              ],
+              [
+                255.0,
+                4490.499110320285
+              ]
+            ],
+            "macro_f1": 0.9120837042344578,
+            "support": [
+              1112.5008896797153,
+              4745.499110320285
+            ]
+          },
+          "groups": 5858,
+          "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+          "original_labels": {
+            "analysis": {
+              "correct": 142,
+              "recall_of_supplied_binary_target": 1.0,
+              "rows": 142
+            },
+            "backdoor": {
+              "correct": 143,
+              "recall_of_supplied_binary_target": 0.9794520547945206,
+              "rows": 146
+            },
+            "dos": {
+              "correct": 429,
+              "recall_of_supplied_binary_target": 0.9285714285714286,
+              "rows": 462
+            },
+            "exploits": {
+              "correct": 1920,
+              "recall_of_supplied_binary_target": 0.9407153356197943,
+              "rows": 2041
+            },
+            "fuzzers": {
+              "correct": 2390,
+              "recall_of_supplied_binary_target": 0.9602249899558055,
+              "rows": 2489
+            },
+            "generic": {
+              "correct": 2769,
+              "recall_of_supplied_binary_target": 0.9868139700641483,
+              "rows": 2806
+            },
+            "normal": {
+              "correct": 2469,
+              "recall_of_supplied_binary_target": 0.7662942271880819,
+              "rows": 3222
+            },
+            "reconnaissance": {
+              "correct": 1063,
+              "recall_of_supplied_binary_target": 0.992530345471522,
+              "rows": 1071
+            },
+            "shellcode": {
+              "correct": 70,
+              "recall_of_supplied_binary_target": 0.3482587064676617,
+              "rows": 201
+            },
+            "worms": {
+              "correct": 7,
+              "recall_of_supplied_binary_target": 0.5,
+              "rows": 14
+            }
+          },
+          "row_weighted": {
+            "accuracy": 0.9053517548038749,
+            "attack_average_precision": 0.9891215589333546,
+            "attack_precision": 0.922258930415032,
+            "attack_recall": 0.9531583440034144,
+            "auroc": 0.968849357265047,
+            "balanced_accuracy": 0.8597262855957482,
+            "benign_false_positive_rate": 0.23370577281191807,
+            "confusion_matrix": [
+              [
+                2469,
+                753
+              ],
+              [
+                439,
+                8933
+              ]
+            ],
+            "macro_f1": 0.8715002900906771,
+            "support": [
+              3222,
+              9372
+            ]
+          },
+          "rows": 12594
+        }
+      },
+      "step": 1000
+    }
+  ]
+}

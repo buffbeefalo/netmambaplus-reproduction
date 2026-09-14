@@ -1,0 +1,30 @@
+{
+  "TRITON_PTXAS_PATH": "/usr/local/cuda/bin/ptxas",
+  "capability": [
+    12,
+    1
+  ],
+  "command": [
+    "tools/train_packet_model.py",
+    "--data",
+    "runs/packet-connection/prepared",
+    "--protocol",
+    "configs/packet-study.json",
+    "--output",
+    "runs/packet-connection/measured-study",
+    "--upstream",
+    "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus",
+    "--initialization",
+    "/home/nvidia/.cache/netmambaplus-reproduction/checkpoints/fuse3_mamba.pth"
+  ],
+  "cuda": "13.0",
+  "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+  "device": "NVIDIA GB10",
+  "numpy": "1.26.2",
+  "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
+  "precision": "float32; autocast disabled; TF32 disabled",
+  "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+  "python": "3.12.3",
+  "started_at": "2026-09-14T05:43:10.588704+00:00",
+  "torch": "2.9.1+cu130"
+}

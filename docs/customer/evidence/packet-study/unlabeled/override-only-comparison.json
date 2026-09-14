@@ -1,0 +1,23 @@
+{
+  "absolute_tolerance": 1e-06,
+  "class_agreements": 25930,
+  "environment": {
+    "NVIDIA_TF32_OVERRIDE": "0"
+  },
+  "failed_rows": [
+    1931,
+    4793,
+    6971,
+    11209,
+    14131,
+    17114,
+    20477,
+    24467
+  ],
+  "logit_tolerance_failures": 8,
+  "maximum_absolute_logit_difference": 6.67572021484375e-06,
+  "relative_tolerance": 0.0001,
+  "rows": 25930,
+  "scope": "Combined CSV changed source-boundary batch composition; no weights or study implementation changed.",
+  "status": "numerical_tolerance_failed"
+}

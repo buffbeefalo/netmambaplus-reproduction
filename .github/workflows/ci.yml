@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Historical v3 verification reads the pinned release blobs.
+          fetch-depth: 0  # Historical v3/v4 verification reads both pinned release trees.
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
@@ -22,6 +22,8 @@ jobs:
       - run: python repro.py --help
       - run: python tools/verify_package.py
       - run: python tools/review_calibration.py --check
+      - run: python tools/review_packet_study.py
+      - run: python tools/verify_repository_guide.py
       - run: python tools/verify_course_video.py
       - run: python tools/verify_video_course_v3.py
       - run: python tools/verify_video_course_v4.py

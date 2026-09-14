@@ -1,0 +1,49 @@
+{
+  "frozen_at": "2026-09-14T05:57:54.572806+00:00",
+  "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+  "scope": "Every validation-selected checkpoint frozen before this study performs any test inference.",
+  "selected_checkpoints": {
+    "cic_pretrained": {
+      "bytes": 7434570,
+      "path": "cic_pretrained/checkpoint-step-01000.pth",
+      "selection_score": 0.9808167087601805,
+      "sha256": "0c30d8967224bda197e8bf01f6eec003689b975f017b334d318b38f2d44027fc",
+      "step": 1000
+    },
+    "cic_scratch": {
+      "bytes": 7432394,
+      "path": "cic_scratch/checkpoint-step-00100.pth",
+      "selection_score": 0.4038748137108793,
+      "sha256": "724ea207b74a7158ce99186fe51bfe7452d5d71b0520f2c0c5c466da5a71a698",
+      "step": 100
+    },
+    "joint_pretrained": {
+      "bytes": 7435722,
+      "path": "joint_pretrained/checkpoint-step-01000.pth",
+      "selection_score": 0.9385902170791537,
+      "sha256": "7113adce6090af28a179b5e98f5dac8d5d7f1a9898681969924f9651815f947a",
+      "step": 1000
+    },
+    "joint_scratch": {
+      "bytes": 7434378,
+      "path": "joint_scratch/checkpoint-step-01000.pth",
+      "selection_score": 0.4027709663860384,
+      "sha256": "09f637cbe21db5829619e44bdee0972ae610ae023d9ad99149949c6ab6f0613a",
+      "step": 1000
+    },
+    "unsw_pretrained": {
+      "bytes": 7434570,
+      "path": "unsw_pretrained/checkpoint-step-01000.pth",
+      "selection_score": 0.9452987400600454,
+      "sha256": "3043dcd94f44b797926e3265c9124beb87e3fc0036f72dec31bca0a8ac8eaba1",
+      "step": 1000
+    },
+    "unsw_scratch": {
+      "bytes": 7432458,
+      "path": "unsw_scratch/checkpoint-step-00100.pth",
+      "selection_score": 0.4475408599508002,
+      "sha256": "5ff01b2a9b950a1f48293b4de51d7a7563cd396096a4fb7838c115cc6ed912fb",
+      "step": 100
+    }
+  }
+}

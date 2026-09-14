@@ -1,0 +1,57 @@
+{
+  "cic": {
+    "rows": 1410255,
+    "protocol_token_counts": {
+      "tcp": 1226425,
+      "udp": 183830
+    },
+    "invalid_numeric_counts": {}
+  },
+  "unsw": {
+    "rows": 79881,
+    "protocol_token_counts": {
+      "arp": 9,
+      "ax.25": 46,
+      "crtp": 46,
+      "crudp": 46,
+      "dgp": 46,
+      "egp": 46,
+      "emcon": 46,
+      "etherip": 46,
+      "fc": 5,
+      "fire": 46,
+      "ggp": 46,
+      "gmtp": 46,
+      "gre": 95,
+      "hmp": 46,
+      "ib": 46,
+      "icmp": 3,
+      "ipip": 46,
+      "iplt": 46,
+      "ipv6": 46,
+      "leaf-2": 46,
+      "micp": 46,
+      "mobile": 81,
+      "nvp": 46,
+      "ospf": 521,
+      "others": 5657,
+      "pim": 50,
+      "pipe": 46,
+      "rdp": 46,
+      "rsvp": 46,
+      "sccopmce": 46,
+      "sctp": 345,
+      "secure-vmtp": 46,
+      "sep": 81,
+      "snp": 46,
+      "sps": 46,
+      "sun-nd": 81,
+      "swipe": 81,
+      "tcp": 42428,
+      "udp": 29188,
+      "unas": 60,
+      "vmtp": 46
+    },
+    "invalid_numeric_counts": {}
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "binding": {
+    "code_sha256": {
+      "packet_data.py": "783a569a9b4ec459232c899fdb1d15fef2314719883cf9b599ff65d0fa1a8309",
+      "packet_study.py": "7067d33d6ab1670fcec3e6fb50800ff81f1d446cb786bd54dd12db7f326d6034",
+      "tools/packet_controls.py": "400dbe61132ffb3376e91905a56cf83481aad3ac60e5bfb14cafb7c3b958a365",
+      "tools/train_packet_model.py": "441870d0b07d37e679a7d3c8a72adc9c3e96fa3d4404e8d68d42ea4219a9b0c9"
+    },
+    "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+    "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+    "source_sha256": {
+      "cic": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+      "unsw": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01"
+    }
+  },
+  "classes": [
+    0,
+    1
+  ],
+  "coef": [],
+  "convergence": {
+    "converged": true,
+    "n_iter": [],
+    "warnings": []
+  },
+  "feature_names": [],
+  "intercept": -1.0,
+  "kind": "majority",
+  "name": "cic_majority",
+  "runtime": {
+    "cpu_threads": 4,
+    "numpy": "1.26.2",
+    "scikit_learn": "1.6.1"
+  },
+  "scaler": null,
+  "schema_version": 1,
+  "score_convention": "logits=[0, signed_training_majority_margin]; ties use 0",
+  "settings": {},
+  "source_total_weight": {
+    "cic": 100000.0
+  },
+  "training_class_mass": [
+    68104.6496561158,
+    31895.350343884198
+  ],
+  "training_groups": {
+    "cic": 100000
+  },
+  "training_sources": [
+    "cic"
+  ]
+}

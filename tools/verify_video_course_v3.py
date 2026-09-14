@@ -1,4 +1,9 @@
-"""Verify versioned coverage and public readiness using only the standard library.
+"""Verify a published historical course edition using only the standard library.
+
+The v3 and v4 CLIs default to their complete, immutable published Git trees.
+They check unchanged release bytes and the edition's original reference bytes,
+not coverage of today's repository. Use verify_repository_guide.py for current
+file entries; --current retains direct current-tree course coverage validation.
 
 This checks evidence bindings, not the truth of a claimed human review or the
 perceptual quality of a video. Media decoding/browser work is performed by the
@@ -26,6 +31,7 @@ SOURCE = "docs/customer/video-course-v3-source.json"
 MANIFEST = "docs/customer/demo/video/v3/media-manifest.json"
 COVERAGE = "docs/customer/video-course-v3-coverage.json"
 V3_REVISION = "71290440e917105ffa094402d94e24d7e29a3549"
+V4_REVISION = "4eba1da479238a10ff29097b2e0a27d98a79f063"
 CSV = "docs/customer/evidence/uploaded-csv-profile.json"
 NATIVE = "docs/customer/evidence/native-data-validation.json"
 RESULTS = "docs/customer/evidence/results.json"
@@ -97,20 +103,30 @@ def required_claims(version=3):
     return {**CLAIMS, **(CALIBRATION_CLAIMS if version == 4 else {})}
 
 
+def historical_course_path(path, version=3):
+    paths = version_paths(version)
+    return (path in {paths["source"], paths["coverage"], f"docs/customer/video-verification-v{version}.md",
+                     f"docs/research/video-audit-v{version}.json"}
+            or path.startswith((f"docs/customer/demo/video/v{version}/", f"docs/research/video-v{version}/")))
+
+
 def historical_v3_path(path):
-    return (path in {SOURCE, COVERAGE, "docs/customer/video-verification-v3.md"}
-            or path.startswith(("docs/customer/demo/video/v3/", "docs/research/video-v3/")))
+    return historical_course_path(path, version=3)
 
 
 @contextmanager
-def historical_snapshot(root=ROOT, *, revision=V3_REVISION):
+def historical_snapshot(root=ROOT, *, revision=None, version=3):
     """Read exact Git blobs as data; never import or execute historical code.
 
-    Current v3 release files must still match the pinned blobs, before and after
+    Current release files must still match the pinned blobs, before and after
     verification. Shared references such as the current guide may have evolved.
-    The revision argument exists for small local Git fixtures; CLIs pin V3_REVISION.
+    The revision argument exists for small local Git fixtures; CLIs pin the
+    selected edition's immutable revision and do not accept a revision override.
     """
     root = Path(root).resolve()
+    version_paths(version)
+    if revision is None:
+        revision = V3_REVISION if version == 3 else V4_REVISION
     require(isinstance(revision, str) and re.fullmatch(r"[0-9a-f]{40}", revision),
             "Historical verification requires a full immutable commit hash")
     command = ["git", "--no-replace-objects", "-C", str(root)]
@@ -129,18 +145,18 @@ def historical_snapshot(root=ROOT, *, revision=V3_REVISION):
         records.append((relative_path(name.decode("utf-8")), oid))
     inventory = sorted(path for path, _ in records)
     require(inventory and len(set(inventory)) == len(inventory), "Invalid historical Git inventory")
-    protected = {path for path in inventory if historical_v3_path(path)}
+    protected = {path for path in inventory if historical_course_path(path, version)}
     hashes = {}
 
     def check_unchanged():
-        current = {path for path in discover_inventory(root) if historical_v3_path(path)}
-        require(current == protected, "Historical v3 inventory drift")
+        current = {path for path in discover_inventory(root) if historical_course_path(path, version)}
+        require(current == protected, f"Historical v{version} inventory drift")
         for path in protected:
             actual = local(root, path)
-            require(not actual.is_symlink() and digest(actual) == hashes[path],
-                    "Historical v3 byte drift: " + path)
+            require(not (root / path).is_symlink() and digest(actual) == hashes[path],
+                    f"Historical v{version} byte drift: " + path)
 
-    with tempfile.TemporaryDirectory(prefix="course-v3-snapshot-") as temporary:
+    with tempfile.TemporaryDirectory(prefix=f"course-v{version}-snapshot-") as temporary:
         snapshot = Path(temporary)
         with subprocess.Popen(command + ["cat-file", "--batch"], stdin=subprocess.PIPE,
                               stdout=subprocess.PIPE, stderr=subprocess.PIPE) as process:
@@ -711,6 +727,8 @@ def main(version=3):
     parser.add_argument("--source", default=paths["source"], help="Repository-relative source path")
     parser.add_argument("--manifest", default=paths["media_manifest"], help="Repository-relative media manifest path")
     parser.add_argument("--coverage", default=paths["coverage"], help="Repository-relative coverage path")
+    parser.add_argument("--current", action="store_true",
+                        help="Check course coverage against every current tracked/nonignored file instead of the published edition")
     parser.add_argument("--content", action="store_true", help="Check content; an absent media record never grants readiness")
     parser.add_argument("--production-cache", action="store_true", help="Also hash final PCM files using optional final_audio.path records")
     parser.add_argument("--schema", action="store_true", help="Print schema requirements, not a passing coverage template")
@@ -720,13 +738,18 @@ def main(version=3):
                        content_only=args.content, production_cache=args.production_cache, version=version)
         if args.schema:
             result = schema_requirements(version)
-        elif version == 3:
-            with historical_snapshot(args.root) as (snapshot, inventory):
+        elif not args.current:
+            require((args.source, args.coverage, args.manifest) ==
+                    (paths["source"], paths["coverage"], paths["media_manifest"]),
+                    f"Historical verification requires canonical v{version} paths; use --current for custom inputs")
+            revision = V3_REVISION if version == 3 else V4_REVISION
+            with historical_snapshot(args.root, version=version) as (snapshot, inventory):
                 result = verify_coverage(snapshot, inventory=inventory, ignored_paths=set(), **options)
-            result.update(reference_revision=V3_REVISION, inventory_scope="Complete pinned historical Git tree",
-                          historical_release_bytes="unchanged")
+            result.update(reference_revision=revision, inventory_scope="Complete pinned historical Git tree",
+                          historical_release_bytes="unchanged", current_repository_coverage="not checked")
         else:
             result = verify_coverage(args.root, **options)
+            result.update(inventory_scope="Current tracked and nonignored repository files")
     except (ValueError, KeyError, TypeError, IndexError, OSError, subprocess.SubprocessError) as exc:
         print(json.dumps({"status": "failed", "error": str(exc)}, ensure_ascii=False))
         return 1

@@ -1,0 +1,201 @@
+{
+  "code_sha256": {
+    "packet_data.py": "783a569a9b4ec459232c899fdb1d15fef2314719883cf9b599ff65d0fa1a8309",
+    "packet_study.py": "7067d33d6ab1670fcec3e6fb50800ff81f1d446cb786bd54dd12db7f326d6034",
+    "tools/packet_controls.py": "400dbe61132ffb3376e91905a56cf83481aad3ac60e5bfb14cafb7c3b958a365",
+    "tools/train_packet_model.py": "441870d0b07d37e679a7d3c8a72adc9c3e96fa3d4404e8d68d42ea4219a9b0c9"
+  },
+  "convergence": {
+    "cic_byte_histogram_linear": {
+      "converged": true,
+      "n_iter": [
+        99
+      ],
+      "warnings": []
+    },
+    "cic_majority": {
+      "converged": true,
+      "n_iter": [],
+      "warnings": []
+    },
+    "cic_metadata_linear": {
+      "converged": true,
+      "n_iter": [
+        14
+      ],
+      "warnings": []
+    },
+    "joint_byte_histogram_linear": {
+      "converged": true,
+      "n_iter": [
+        171
+      ],
+      "warnings": []
+    },
+    "joint_majority": {
+      "converged": true,
+      "n_iter": [],
+      "warnings": []
+    },
+    "joint_metadata_linear": {
+      "converged": true,
+      "n_iter": [
+        15
+      ],
+      "warnings": []
+    },
+    "unsw_byte_histogram_linear": {
+      "converged": true,
+      "n_iter": [
+        187
+      ],
+      "warnings": []
+    },
+    "unsw_majority": {
+      "converged": true,
+      "n_iter": [],
+      "warnings": []
+    },
+    "unsw_metadata_linear": {
+      "converged": true,
+      "n_iter": [
+        18
+      ],
+      "warnings": []
+    }
+  },
+  "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+  "feature_contract": {
+    "byte_histogram_linear": "256 byte-count fractions across all 1500 stored bytes, retaining zeros",
+    "excluded_inputs": [
+      "label",
+      "binary_label",
+      "source identity",
+      "payload identity",
+      "row identity"
+    ],
+    "fitting": "Selected split 0 groups only; no validation/test fitting or model selection",
+    "majority": "Constant class chosen by weighted training group-target mass; ties choose benign",
+    "metadata_aggregation": "Arithmetic means and protocol fractions over original rows in each payload group; row-specific variation is sacrificed to retain the same group unit.",
+    "metadata_linear": [
+      "mean_ttl",
+      "mean_total_len",
+      "mean_t_delta",
+      "fraction_protocol_1",
+      "fraction_protocol_6",
+      "fraction_protocol_17",
+      "fraction_protocol_other"
+    ],
+    "protocol_interpretation": {
+      "named_bins": {
+        "arp": "other",
+        "ax.25": "other",
+        "crtp": "other",
+        "crudp": "other",
+        "dgp": "other",
+        "egp": "other",
+        "emcon": "other",
+        "etherip": "other",
+        "fc": "other",
+        "fire": "other",
+        "ggp": "other",
+        "gmtp": "other",
+        "gre": "other",
+        "hmp": "other",
+        "ib": "other",
+        "icmp": 1,
+        "ipip": "other",
+        "iplt": "other",
+        "ipv6": "other",
+        "leaf-2": "other",
+        "micp": "other",
+        "mobile": "other",
+        "nvp": "other",
+        "ospf": "other",
+        "others": "other",
+        "pim": "other",
+        "pipe": "other",
+        "rdp": "other",
+        "rsvp": "other",
+        "sccopmce": "other",
+        "sctp": "other",
+        "secure-vmtp": "other",
+        "sep": "other",
+        "snp": "other",
+        "sps": "other",
+        "sun-nd": "other",
+        "swipe": "other",
+        "tcp": 6,
+        "udp": 17,
+        "unas": "other",
+        "vmtp": "other"
+      },
+      "numeric_tokens": "Finite exact integers in [0,255]; names outside the observed allowlist are rejected",
+      "parser_correction": "The initial integral-only parser stopped before fitting because the exports use named protocols. A full metadata vocabulary audit established these 41 names; fixed 1/6/17/other features and fitting settings did not change."
+    },
+    "t_delta_units": "unverified",
+    "unit": "selected unique stored-payload group within source and split",
+    "weighting": "Group-uniform soft targets counts/sum(counts); each joint source has weight n_total/(2*n_source) per group, including the training scaler."
+  },
+  "fit_only": true,
+  "kind": "netmambaplus_packet_controls_v1",
+  "models": {
+    "cic_byte_histogram_linear": {
+      "bytes": 36704,
+      "path": "models/cic_byte_histogram_linear.json",
+      "sha256": "20e64d010a75ed347e120d72608580e56b7e884dacf5e2efa3cfe2fbc5d38641"
+    },
+    "cic_majority": {
+      "bytes": 1490,
+      "path": "models/cic_majority.json",
+      "sha256": "4be8136bcbe419dd0a0b505e6f3061182d27b51b7b61c07f52e174fb459e6b70"
+    },
+    "cic_metadata_linear": {
+      "bytes": 2497,
+      "path": "models/cic_metadata_linear.json",
+      "sha256": "c96792aaa35df023c1ef5e3a272f91f30108f25d83cbbfeded34909bd65e7a78"
+    },
+    "joint_byte_histogram_linear": {
+      "bytes": 36867,
+      "path": "models/joint_byte_histogram_linear.json",
+      "sha256": "73db4dbeb08f2720a1993cdcdbd1e46c95a2e74909bcd1024d781587a50ebc62"
+    },
+    "joint_majority": {
+      "bytes": 1552,
+      "path": "models/joint_majority.json",
+      "sha256": "499db5bbe8e19f0b2d20643d17a743ae48a27cb163c6991489f71d41ac775ffa"
+    },
+    "joint_metadata_linear": {
+      "bytes": 2731,
+      "path": "models/joint_metadata_linear.json",
+      "sha256": "bb06480c3ac963473aab76595677d8d98380e59f76f7bf374f0f52f109c23376"
+    },
+    "unsw_byte_histogram_linear": {
+      "bytes": 36763,
+      "path": "models/unsw_byte_histogram_linear.json",
+      "sha256": "67c56d5ee0b97c0a13c0a411ed5ef57a4f5db5fabb10dd5b2d84550d15320ad8"
+    },
+    "unsw_majority": {
+      "bytes": 1493,
+      "path": "models/unsw_majority.json",
+      "sha256": "1c1ed7d733ee9628ae271a5267c81eb04795a331e9199e482da0afeba1b82a19"
+    },
+    "unsw_metadata_linear": {
+      "bytes": 2665,
+      "path": "models/unsw_metadata_linear.json",
+      "sha256": "0183049ab8d05823879dbbbedbec9bfbeb1445ee7922c23b12593c7e9f099f34"
+    }
+  },
+  "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+  "schema_version": 1,
+  "scope": "All nine training-only controls are fixed before any control validation/test inference.",
+  "source_sha256": {
+    "cic": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+    "unsw": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01"
+  },
+  "status": "frozen",
+  "training_groups": {
+    "cic": 100000,
+    "unsw": 27380
+  }
+}
