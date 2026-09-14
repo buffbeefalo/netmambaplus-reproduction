@@ -1,4 +1,4 @@
-"""Verify v3 coverage and public readiness using only the Python standard library.
+"""Verify versioned coverage and public readiness using only the standard library.
 
 This checks evidence bindings, not the truth of a claimed human review or the
 perceptual quality of a video. Media decoding/browser work is performed by the
@@ -14,6 +14,8 @@ import json
 import math
 import re
 import subprocess
+import tempfile
+from contextlib import contextmanager
 from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from pathlib import Path, PurePosixPath
 from urllib.parse import unquote, urlsplit
@@ -23,9 +25,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = "docs/customer/video-course-v3-source.json"
 MANIFEST = "docs/customer/demo/video/v3/media-manifest.json"
 COVERAGE = "docs/customer/video-course-v3-coverage.json"
+V3_REVISION = "71290440e917105ffa094402d94e24d7e29a3549"
 CSV = "docs/customer/evidence/uploaded-csv-profile.json"
 NATIVE = "docs/customer/evidence/native-data-validation.json"
 RESULTS = "docs/customer/evidence/results.json"
+CALIBRATION = "docs/customer/evidence/calibration/results.json"
 PORTABILITY = "docs/portability-evidence.json"
 CLUSTERS = ("orientation", "paper", "cic-csv", "unsw-csv", "features", "learning",
             "code", "results", "demo", "setup", "repository", "hardware")
@@ -50,6 +54,18 @@ CLAIMS = {
     "accuracy_sample_sd": (RESULTS, "/aggregate/accuracy/sample_standard_deviation", "ratio", "percentage_points"),
     "paper_accuracy": (RESULTS, "/paper_ciciot2022_table_iv/accuracy", "ratio", "percent"),
 }
+CALIBRATION_CLAIMS = {
+    "calibration_raw_nll": (CALIBRATION, "/aggregate/raw/nll/mean", "nll", "nll"),
+    "calibration_scaled_nll": (CALIBRATION, "/aggregate/calibrated/nll/mean", "nll", "nll"),
+    "calibration_raw_brier": (CALIBRATION, "/aggregate/raw/brier/mean", "brier", "brier"),
+    "calibration_scaled_brier": (CALIBRATION, "/aggregate/calibrated/brier/mean", "brier", "brier"),
+    "calibration_raw_ece": (CALIBRATION, "/aggregate/raw/ece/mean", "ratio", "percent"),
+    "calibration_scaled_ece": (CALIBRATION, "/aggregate/calibrated/ece/mean", "ratio", "percent"),
+    "calibration_seed0_raw_accepted": (CALIBRATION, "/seeds/0/raw/accepted", "flows", "flows"),
+    "calibration_seed0_scaled_accepted": (CALIBRATION, "/seeds/0/calibrated/accepted", "flows", "flows"),
+    "calibration_seed0_raw_errors": (CALIBRATION, "/seeds/0/raw/accepted_errors", "flows", "flows"),
+    "calibration_seed0_scaled_errors": (CALIBRATION, "/seeds/0/calibrated/accepted_errors", "flows", "flows"),
+}
 
 
 def require(condition, message):
@@ -67,6 +83,96 @@ def digest(path):
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             hasher.update(chunk)
     return hasher.hexdigest()
+
+
+def version_paths(version):
+    require(type(version) is int and version in {3, 4}, "Unsupported course version")
+    return {"source": f"docs/customer/video-course-v{version}-source.json",
+            "coverage": f"docs/customer/video-course-v{version}-coverage.json",
+            "media_manifest": f"docs/customer/demo/video/v{version}/media-manifest.json"}
+
+
+def required_claims(version=3):
+    require(type(version) is int and version in {3, 4}, "Unsupported course version")
+    return {**CLAIMS, **(CALIBRATION_CLAIMS if version == 4 else {})}
+
+
+def historical_v3_path(path):
+    return (path in {SOURCE, COVERAGE, "docs/customer/video-verification-v3.md"}
+            or path.startswith(("docs/customer/demo/video/v3/", "docs/research/video-v3/")))
+
+
+@contextmanager
+def historical_snapshot(root=ROOT, *, revision=V3_REVISION):
+    """Read exact Git blobs as data; never import or execute historical code.
+
+    Current v3 release files must still match the pinned blobs, before and after
+    verification. Shared references such as the current guide may have evolved.
+    The revision argument exists for small local Git fixtures; CLIs pin V3_REVISION.
+    """
+    root = Path(root).resolve()
+    require(isinstance(revision, str) and re.fullmatch(r"[0-9a-f]{40}", revision),
+            "Historical verification requires a full immutable commit hash")
+    command = ["git", "--no-replace-objects", "-C", str(root)]
+    resolved = subprocess.check_output(command + ["rev-parse", "--verify", revision + "^{commit}"],
+                                       stderr=subprocess.PIPE).decode().strip()
+    require(resolved == revision, "Historical revision must identify the exact commit")
+    tree = subprocess.check_output(command + ["ls-tree", "-rz", "--full-tree", revision])
+    records = []
+    for entry in tree.split(b"\0"):
+        if not entry:
+            continue
+        metadata, name = entry.split(b"\t", 1)
+        mode, kind, oid = metadata.decode().split()
+        require(mode in {"100644", "100755"} and kind == "blob",
+                "Historical snapshot contains a symlink, submodule or non-file entry")
+        records.append((relative_path(name.decode("utf-8")), oid))
+    inventory = sorted(path for path, _ in records)
+    require(inventory and len(set(inventory)) == len(inventory), "Invalid historical Git inventory")
+    protected = {path for path in inventory if historical_v3_path(path)}
+    hashes = {}
+
+    def check_unchanged():
+        current = {path for path in discover_inventory(root) if historical_v3_path(path)}
+        require(current == protected, "Historical v3 inventory drift")
+        for path in protected:
+            actual = local(root, path)
+            require(not actual.is_symlink() and digest(actual) == hashes[path],
+                    "Historical v3 byte drift: " + path)
+
+    with tempfile.TemporaryDirectory(prefix="course-v3-snapshot-") as temporary:
+        snapshot = Path(temporary)
+        with subprocess.Popen(command + ["cat-file", "--batch"], stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE) as process:
+            try:
+                for path, oid in records:
+                    process.stdin.write((oid + "\n").encode())
+                    process.stdin.flush()
+                    header = process.stdout.readline().decode().split()
+                    require(len(header) == 3 and header[:2] == [oid, "blob"],
+                            "Missing or incorrect historical Git blob: " + path)
+                    remaining = int(header[2])
+                    target = snapshot / path
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    hasher = hashlib.sha256()
+                    with target.open("wb") as stream:
+                        while remaining:
+                            chunk = process.stdout.read(min(remaining, 1024 * 1024))
+                            require(bool(chunk), "Truncated historical Git blob: " + path)
+                            remaining -= len(chunk)
+                            hasher.update(chunk)
+                            stream.write(chunk)
+                    require(process.stdout.read(1) == b"\n", "Invalid Git blob framing")
+                    hashes[path] = hasher.hexdigest()
+                process.stdin.close()
+                error = process.stderr.read().decode(errors="replace")
+                require(process.wait() == 0, "Historical Git blob read failed: " + error)
+            except BaseException:
+                process.kill()
+                raise
+        check_unchanged()
+        yield snapshot, inventory
+        check_unchanged()
 
 
 def read(path):
@@ -154,7 +260,7 @@ def pointer(value, selector):
 
 def convert_quantity(value, source_unit, unit, decimals):
     require(type(decimals) is int and 0 <= decimals <= 6, "Invalid claim rounding precision")
-    require(source_unit in {"ratio", "percent", "percentage_points", "rows", "flows", "tokens", "parameters", "seconds"},
+    require(source_unit in {"ratio", "percent", "percentage_points", "rows", "flows", "tokens", "parameters", "seconds", "nll", "brier"},
             f"Unknown source unit: {source_unit}")
     require(source_unit == unit or (source_unit == "ratio" and unit in {"percent", "percentage_points"}),
             f"Incompatible units: {source_unit} to {unit}")
@@ -282,20 +388,24 @@ def strings(value):
     return []
 
 
-def check_claims(root, coverage, source, scenes):
+def check_claims(root, coverage, source, scenes, *, version=3):
     records = indexed(coverage.get("claims"), "id", "claim")
     bindings = indexed(source.get("claims"), "id", "source claim")
-    require(set(records) == set(bindings) and set(CLAIMS).issubset(records), "Missing or unbound required claim")
+    required = required_claims(version)
+    require(set(records) == set(bindings) and set(required).issubset(records), "Missing or unbound required claim")
     for name, claim in records.items():
         evidence_path = artifact(root, claim.get("evidence"), f"claim {name} evidence")
-        if name in CLAIMS:
-            file, selector, source_unit, unit = CLAIMS[name]
+        if name in required:
+            file, selector, source_unit, unit = required[name]
             require((claim["evidence"]["path"], claim.get("pointer")) == (file, selector), f"claim {name} evidence pointer is misattributed")
             require((claim.get("source_unit"), claim.get("unit")) == (source_unit, unit), f"Wrong claim {name} units")
         evidence = read(evidence_path)
         if name in {"seed0_accuracy", "seed1_accuracy", "seed2_accuracy"}:
             index = int(name[4])
             require(evidence["seeds"][index].get("seed") == index, f"Claim {name} subject has the wrong seed identity")
+        if version == 4 and name in CALIBRATION_CLAIMS and name.startswith("calibration_seed0_"):
+            seed = evidence["seeds"][0].get("seed")
+            require(type(seed) is int and seed == 0, f"Claim {name} subject has the wrong seed identity")
         if name in {"cic_csv_rows", "unsw_csv_rows"}:
             index, filename = (0, "CICIDS2017.csv") if name == "cic_csv_rows" else (1, "UNSW.csv")
             require(evidence["files"][index].get("file") == filename, f"Claim {name} subject has the wrong CSV identity")
@@ -315,7 +425,8 @@ def check_claims(root, coverage, source, scenes):
         require(any(Decimal(n.replace(",", "")) == Decimal(expected) for n in numbers), f"Displayed claim number differs: {name}")
         aliases = {"percent": ("%", "percent"), "percentage_points": ("percentage points", " pp", "points"),
                    "rows": ("rows", "packets"), "flows": ("flows",), "tokens": ("tokens",),
-                   "parameters": ("parameters",), "ratio": ("ratio",), "seconds": ("seconds", " sec")}
+                   "parameters": ("parameters",), "ratio": ("ratio",), "seconds": ("seconds", " sec"),
+                   "nll": ("nll",), "brier": ("brier",)}
         require(any(unit in visible.lower() for unit in aliases[claim["unit"]]), f"Missing displayed claim unit: {name}")
     return bindings
 
@@ -376,13 +487,13 @@ def check_captions(root, manifest, media_directory, source_scenes, bindings):
 
 
 def check_media(root, coverage, manifest_path, source, source_hash, scenes, chapters, bindings,
-                production_cache, content_only=False):
+                production_cache, content_only=False, *, version=3, coverage_path=COVERAGE):
     manifest = read(manifest_path)
     manifest_hash = digest(manifest_path)
     require(manifest.get("source_sha256") == source_hash, "Media manifest source hash is stale")
-    require(manifest.get("release_tag") == "course-video-v3", "Media is not the v3 version")
+    require(manifest.get("release_tag") == f"course-video-v{version}", f"Media is not the v{version} version")
     duration = finite(manifest.get("scheduled_seconds"), "media duration")
-    require(duration == source.get("target_seconds") and 3480 <= duration <= 3900, "Media duration does not satisfy the v3 source-driven range")
+    require(duration == source.get("target_seconds") and 3480 <= duration <= 3900, "Media duration does not satisfy the source-driven range")
     directory = manifest_path.parent.relative_to(root)
     public = manifest.get("artifacts")
     require(isinstance(public, dict), "Missing public media artifacts")
@@ -391,7 +502,7 @@ def check_media(root, coverage, manifest_path, source, source_hash, scenes, chap
     for name, identity in public.items():
         relative_path(name)
         path = local(root, (directory / name).as_posix())
-        require(path != manifest_path and path != root / COVERAGE, "Self-referential media/coverage artifact hash")
+        require(path != manifest_path and path != (root / coverage_path).resolve(), "Self-referential media/coverage artifact hash")
         require(digest(path) == identity.get("sha256") and path.stat().st_size == identity.get("bytes"), f"Stale public media artifact: {name}")
     timed = indexed(manifest.get("scenes"), "id", "media scene")
     require(list(timed) == list(scenes), "Media scene order or membership differs from source")
@@ -494,22 +605,27 @@ def check_media(root, coverage, manifest_path, source, source_hash, scenes, chap
     return result
 
 
-def verify_coverage(root=ROOT, *, coverage_path=COVERAGE, source_path=SOURCE, manifest_path=MANIFEST,
-                    inventory=None, ignored_paths=None, content_only=False, production_cache=False):
+def verify_coverage(root=ROOT, *, coverage_path=None, source_path=None, manifest_path=None,
+                    inventory=None, ignored_paths=None, content_only=False, production_cache=False, version=3):
     """Validate real files; explicit inventory injection keeps fixtures independent of Git.
 
     Raises ValueError on the first invalid boundary. The coverage record itself is
     never hashed into itself or into its media manifest. No output files are written.
     """
     root = Path(root).resolve()
+    paths = version_paths(version)
+    coverage_path = coverage_path or paths["coverage"]
+    source_path = source_path or paths["source"]
+    manifest_path = manifest_path or paths["media_manifest"]
     coverage = read(local(root, coverage_path))
-    require(isinstance(coverage, dict) and coverage.get("schema_version") == 3, "Coverage schema/version must be 3")
+    require(isinstance(coverage, dict) and coverage.get("schema_version") == version,
+            f"Coverage schema/version must be {version}")
     require(coverage.get("known_material_defects") == [], "Known or undeclared material defects block readiness")
     source_file = artifact(root, coverage.get("source"), "source")
     require(source_file == local(root, source_path), "Coverage refers to a different source")
     source_hash = digest(source_file)
     source = resolve_source(root, read(source_file))
-    require(source.get("release_tag") == "course-video-v3", "Expected v3 source version")
+    require(source.get("release_tag") == f"course-video-v{version}", f"Expected v{version} source version")
     chapters = indexed(source.get("chapters"), "id", "source chapter")
     require(set(chapters) == set(CLUSTERS), "Missing one of the 12 teaching clusters in source")
     scenes = indexed([s for c in chapters.values() for s in c["scenes"]], "id", "source scene")
@@ -551,7 +667,7 @@ def verify_coverage(root=ROOT, *, coverage_path=COVERAGE, source_path=SOURCE, ma
         substantive(record.get("explanation"), "CSV explanation")
         text = " ".join(scenes[s].get("narration", "") for s in record["scene_ids"])
         require(normalized(record["explanation"]) in normalized(text), "CSV explanation is absent from its narration")
-    bindings = check_claims(root, coverage, source, scenes)
+    bindings = check_claims(root, coverage, source, scenes, version=version)
     reviews = coverage.get("reviews", {})
     require(isinstance(reviews, dict), "Malformed review container")
     content = reviews.get("content")
@@ -561,7 +677,7 @@ def verify_coverage(root=ROOT, *, coverage_path=COVERAGE, source_path=SOURCE, ma
     for key in ("human_full_watch", "all_caption_acceptance"):
         record = reviews.get(key, {})
         require(record.get("status") == "pending" and isinstance(record.get("reason"), str) and record["reason"].strip(),
-                f"The {key} human review must remain explicitly pending under the v3 standard")
+                f"The {key} human review must remain explicitly pending under the v{version} standard")
     result = {"status": "passed", "level": "content" if content_only else "readiness",
               "source_sha256": source_hash, "inventory_files": len(expected), "scenes": len(scenes),
               "claims": len(bindings), "media_checked": False, "human_full_watch": "pending",
@@ -571,7 +687,7 @@ def verify_coverage(root=ROOT, *, coverage_path=COVERAGE, source_path=SOURCE, ma
         path = artifact(root, coverage["media_manifest"], "media manifest")
         require(path == local(root, manifest_path), "Coverage refers to a different media manifest")
         result.update(check_media(root, coverage, path, source, source_hash, scenes, chapters, bindings,
-                                 production_cache, content_only))
+                                 production_cache, content_only, version=version, coverage_path=coverage_path))
         require(digest(path) == result["manifest_sha256"], "Media manifest changed during verification")
     else:
         require(content_only, "Full readiness requires final media manifest and completed media reviews")
@@ -579,29 +695,38 @@ def verify_coverage(root=ROOT, *, coverage_path=COVERAGE, source_path=SOURCE, ma
     return result
 
 
-def schema_requirements():
+def schema_requirements(version=3):
     """Machine-readable contract inventory; no completed review/sample evidence."""
-    return {"schema_version": 3, "source": SOURCE, "media_manifest": MANIFEST,
-            "coverage": COVERAGE, "clusters": list(CLUSTERS), "paper_sections": list(PAPER_SECTIONS),
-            "claims": {k: {"file": v[0], "pointer": v[1], "source_unit": v[2], "unit": v[3]} for k, v in CLAIMS.items()},
+    return {"schema_version": version, **version_paths(version),
+            "clusters": list(CLUSTERS), "paper_sections": list(PAPER_SECTIONS),
+            "claims": {k: {"file": v[0], "pointer": v[1], "source_unit": v[2], "unit": v[3]} for k, v in required_claims(version).items()},
             "checks": list(REQUIRED_CHECKS), "human_review_status": "pending",
             "minimum_spoken_seconds": {c: 240 if c in {"paper", "features"} else 180 for c in CLUSTERS}}
 
 
-def main():
+def main(version=3):
+    paths = version_paths(version)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
-    parser.add_argument("--source", default=SOURCE, help="Repository-relative source path")
-    parser.add_argument("--manifest", default=MANIFEST, help="Repository-relative media manifest path")
-    parser.add_argument("--coverage", default=COVERAGE, help="Repository-relative coverage path")
+    parser.add_argument("--source", default=paths["source"], help="Repository-relative source path")
+    parser.add_argument("--manifest", default=paths["media_manifest"], help="Repository-relative media manifest path")
+    parser.add_argument("--coverage", default=paths["coverage"], help="Repository-relative coverage path")
     parser.add_argument("--content", action="store_true", help="Check content; an absent media record never grants readiness")
     parser.add_argument("--production-cache", action="store_true", help="Also hash final PCM files using optional final_audio.path records")
     parser.add_argument("--schema", action="store_true", help="Print schema requirements, not a passing coverage template")
     args = parser.parse_args()
     try:
-        result = schema_requirements() if args.schema else verify_coverage(
-            args.root, coverage_path=args.coverage, source_path=args.source, manifest_path=args.manifest,
-            content_only=args.content, production_cache=args.production_cache)
+        options = dict(coverage_path=args.coverage, source_path=args.source, manifest_path=args.manifest,
+                       content_only=args.content, production_cache=args.production_cache, version=version)
+        if args.schema:
+            result = schema_requirements(version)
+        elif version == 3:
+            with historical_snapshot(args.root) as (snapshot, inventory):
+                result = verify_coverage(snapshot, inventory=inventory, ignored_paths=set(), **options)
+            result.update(reference_revision=V3_REVISION, inventory_scope="Complete pinned historical Git tree",
+                          historical_release_bytes="unchanged")
+        else:
+            result = verify_coverage(args.root, **options)
     except (ValueError, KeyError, TypeError, IndexError, OSError, subprocess.SubprocessError) as exc:
         print(json.dumps({"status": "failed", "error": str(exc)}, ensure_ascii=False))
         return 1

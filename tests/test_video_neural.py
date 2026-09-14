@@ -163,7 +163,7 @@ class RunContractTests(unittest.IsolatedAsyncioTestCase):
                 {'id':'first','narration':'Hello.'}, {'id':'second','narration':'World.'}]}]}
         self.args = types.SimpleNamespace(output=self.folder/'tts', ffmpeg=self.converter,
                                           only_scene=None, timeout=1)
-        for target, replacement in [('SOURCE',self.source_file), ('load_source',lambda:self.source)]:
+        for target, replacement in [('SOURCE',self.source_file), ('load_source',lambda *args:self.source)]:
             context = patch.object(neural,target,replacement)
             context.start();self.addCleanup(context.stop)
 
@@ -213,6 +213,29 @@ class RunContractTests(unittest.IsolatedAsyncioTestCase):
         self.source['chapters'][0]['scenes']=[]
         with self.assertRaisesRegex(ValueError,'spoken|empty'):
             await neural.run(self.args)
+
+    async def test_explicit_source_is_loaded_and_bound_without_changing_cache_identity(self):
+        selected = self.folder / 'selected.json'
+        selected.write_text('{"explicit":true}')
+        self.args.source = selected
+        self.args.only_scene = 'first'
+        with patch.object(neural, 'load_source', return_value=self.source) as loader:
+            with patch.object(neural, 'cached_record', return_value={'id':'first','seconds':1}):
+                await neural.run(self.args)
+        loader.assert_called_once_with(selected)
+        record = json.loads((self.args.output / 'narration-first.json').read_text())
+        self.assertEqual(record['source_sha256'], neural.digest(selected))
+
+    async def test_selected_source_drift_does_not_use_default_source_guard(self):
+        self.args.source = self.folder / 'selected.json'
+        self.args.source.write_text('{}')
+        def changed_cache(output, scene_id, identity, text):
+            self.args.source.write_text('{"changed":true}')
+            return {'id':scene_id,'seconds':1}
+        with patch.object(neural, 'cached_record', changed_cache):
+            with self.assertRaisesRegex(ValueError, 'source changed'):
+                await neural.run(self.args)
+        self.assertFalse((self.args.output / 'narration.json').exists())
 
 
 if __name__ == '__main__':

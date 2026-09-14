@@ -7,7 +7,9 @@ from pathlib import Path
 from urllib.parse import quote
 
 from build_course import ROOT, read
-from build_course_video import DESTINATION, LEGACY_DESTINATION, display_time, production_credit, publication
+from build_course_video import (DESTINATION, LEGACY_DESTINATION, check_source_binding,
+                                display_time, production_credit, publication)
+from narrate_course_video import SOURCE, digest
 
 WATCH_PAGE = LEGACY_DESTINATION / "index.html"
 
@@ -20,12 +22,13 @@ def render(manifest=None, *, media_dir=None, output=None):
     duration, practice = manifest["scheduled_seconds"], manifest["practice_seconds"]
     # Preserve the published v2 page when rendering its original metadata-free manifest.
     legacy = ("media_name" not in manifest and "title" not in manifest and duration == 1800 and practice == 180)
-    media_dir = Path(media_dir or (LEGACY_DESTINATION if legacy else DESTINATION)).resolve()
+    version = metadata['release_tag'].removeprefix('course-video-')
+    media_dir = Path(media_dir or (LEGACY_DESTINATION if legacy else LEGACY_DESTINATION / version)).resolve()
     output = Path(output or WATCH_PAGE).resolve()
     prefix = Path(os.path.relpath(media_dir, output.parent)).as_posix()
     prefix = "" if prefix == "." else quote(prefix, safe="/") + "/"
     media_url, webm_url = prefix + media_name, prefix + webm_name
-    review_path = "docs/customer/video-verification.md" if legacy else "docs/customer/video-verification-v3.md"
+    review_path = "docs/customer/video-verification.md" if legacy else f"docs/customer/video-verification-{version}.md"
     if legacy:
         description = "A narrated 30-minute course on the actual NetMamba+ experiments, input data, training, inference and remaining work."
         title = "NetMamba+ · Watch the 30-minute course"
@@ -95,19 +98,30 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--media-dir", type=Path, help="Directory containing the selected version's media manifest")
+    parser.add_argument("--source", type=Path, default=SOURCE, help="Source whose identity and references must match the selected media")
     parser.add_argument("--output", type=Path, help="Watch page path; defaults to the one active video/index.html")
     parser.add_argument("--legacy", action="store_true", help="Render the preserved v2 manifest to a separate explicit output")
     args = parser.parse_args()
     if args.legacy and args.output is None:
-        parser.error("--legacy requires --output; the active watch page is reserved for v3")
+        parser.error("--legacy requires --output; the active watch page is reserved for v4")
     path = (args.output or WATCH_PAGE).resolve()
     if args.legacy and not args.check and path == WATCH_PAGE.resolve():
         parser.error("Legacy HTML cannot replace the active watch page")
     media_dir = (args.media_dir or (LEGACY_DESTINATION if args.legacy else DESTINATION)).resolve()
-    manifest = read(media_dir / "media-manifest.json")
+    manifest_path = media_dir / "media-manifest.json"
+    manifest_hash = digest(manifest_path)
+    manifest = read(manifest_path)
     if publication(manifest)["release_tag"] == "course-video-v2" and not args.legacy:
         parser.error("Use --legacy and --output to render historical HTML")
+    if not args.legacy:
+        if publication(manifest)["release_tag"] != "course-video-v4" and path == WATCH_PAGE.resolve():
+            parser.error("Historical HTML requires a separate --output; the active watch page is reserved for v4")
+        check_source_binding(manifest, args.source, root=ROOT)
     expected = render(manifest, media_dir=media_dir, output=path)
+    if not args.legacy:
+        check_source_binding(manifest, args.source, root=ROOT)
+    if digest(manifest_path) != manifest_hash:
+        raise ValueError("Media manifest changed while rendering the watch page")
     if args.check:
         if not path.is_file() or path.read_text(encoding="utf-8") != expected:
             raise SystemExit("Video watch page is stale")

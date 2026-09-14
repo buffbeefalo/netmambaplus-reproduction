@@ -1,0 +1,698 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "completed_at": "2026-09-14T01:24:31.577975+00:00",
+  "source_sha256": "ee2586f49b182e432b9072d65ef0cfe2f3fe08a24aa30335cb9b928f473f2c8c",
+  "manifest_sha256": "c94677924ed6d287840403fee7e983ded7bf6ebd410b35e4e34febbae723280d",
+  "artifacts": [
+    {
+      "path": "docs/customer/demo/video/v4/NetMambaPlus-one-hour-course.mp4",
+      "sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce"
+    },
+    {
+      "path": "docs/customer/demo/video/v4/captions.vtt",
+      "sha256": "09abf418ada19a2a621e022a675734f0fc7cd790e3adff4de678aa505784147d"
+    }
+  ],
+  "known_material_defects": [],
+  "method": "Packaged completed full audiovisual MP4/WebM decodes, actual duration, frame count, audio levels and silence measurements. The native MP4 receipt is associated with the frozen source/manifest by its exact encoded-file hash.",
+  "measured_seconds": 3600.0,
+  "mp4": {
+    "identity": {
+      "path": "runs/video-course/v4-final-decode/media-check.json",
+      "sha256": "286e9f7fc352472d5bb643fc1dfde2ca1ebf6a8d7a76bfd2f659081389dff8cf"
+    },
+    "record": {
+      "seconds": 3600.0,
+      "streams": {
+        "video": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1920,
+          "height": 1080,
+          "coded_width": 1920,
+          "coded_height": 1080,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "time_base": "1/15360",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 55296000,
+          "duration": "3600.000000",
+          "bit_rate": "82568",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "108000",
+          "extradata_size": 47,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.3.100 libx264"
+          }
+        },
+        "audio": {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_long_name": "AAC (Advanced Audio Coding)",
+          "profile": "LC",
+          "codec_type": "audio",
+          "codec_tag_string": "mp4a",
+          "codec_tag": "0x6134706d",
+          "sample_fmt": "fltp",
+          "sample_rate": "48000",
+          "channels": 1,
+          "channel_layout": "mono",
+          "bits_per_sample": 0,
+          "initial_padding": 0,
+          "id": "0x2",
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 172800000,
+          "duration": "3600.000000",
+          "bit_rate": "93363",
+          "nb_frames": "168751",
+          "extradata_size": 5,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      },
+      "chapter_starts": [
+        0.0,
+        281.0,
+        595.0,
+        893.0,
+        1195.0,
+        1486.0,
+        1783.0,
+        2066.0,
+        2361.0,
+        2640.0,
+        2925.0,
+        3230.0
+      ],
+      "silence": {
+        "intervals": [
+          [
+            270.639917,
+            281.129813
+          ],
+          [
+            584.656979,
+            595.122167
+          ],
+          [
+            882.645917,
+            893.123479
+          ],
+          [
+            1184.687875,
+            1195.127438
+          ],
+          [
+            1475.655438,
+            1486.13925
+          ],
+          [
+            1772.668083,
+            1783.138354
+          ],
+          [
+            2055.656083,
+            2066.123896
+          ],
+          [
+            2350.646563,
+            2361.128333
+          ],
+          [
+            2629.649521,
+            2640.128583
+          ],
+          [
+            2914.632979,
+            2925.125687
+          ],
+          [
+            3219.646563,
+            3230.12325
+          ],
+          [
+            3471.117125,
+            3561.604562
+          ]
+        ],
+        "total_seconds": 205.71176900000086,
+        "tolerance_seconds": 1.0,
+        "parameters": {
+          "threshold_db": -45,
+          "minimum_seconds": 3
+        }
+      },
+      "audio": {
+        "integrated_lufs": -16.4,
+        "true_peak_dbfs": -0.6,
+        "rms_dbfs": -16.697484
+      },
+      "status": "passed",
+      "completed_at": "2026-09-14T00:50:34.607343+00:00",
+      "mp4_sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce",
+      "command": [
+        "/home/nvidia/learn/_video/bin/ffmpeg",
+        "-hide_banner",
+        "-nostats",
+        "-xerror",
+        "-i",
+        "docs/customer/demo/video/v4/NetMambaPlus-one-hour-course.mp4",
+        "-map",
+        "0:v:0",
+        "-map",
+        "0:a:0",
+        "-af",
+        "silencedetect=noise=-45dB:d=3,ebur128=peak=true:framelog=verbose,astats=reset=0",
+        "-f",
+        "null",
+        "-"
+      ],
+      "decode_exit_code": 0,
+      "decode_log_sha256": "6988a1d9f266b6901b159ebb8447c9833fd03c65ea7a7a42d694ad56a832c11f",
+      "human_full_playback_review": "pending; automated decode is not a listening review"
+    }
+  },
+  "webm": {
+    "identity": {
+      "path": "runs/video-course/v4-final-webm/receipt.json",
+      "sha256": "883b3a82ae29cc46d528391670dd95384df522634ed6db2de83949946f65e789"
+    },
+    "record": {
+      "completed_at": "2026-09-14T01:05:05.022285+00:00",
+      "source_sha256": "ee2586f49b182e432b9072d65ef0cfe2f3fe08a24aa30335cb9b928f473f2c8c",
+      "manifest_sha256": "c94677924ed6d287840403fee7e983ded7bf6ebd410b35e4e34febbae723280d",
+      "mp4_sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce",
+      "vtt_sha256": "09abf418ada19a2a621e022a675734f0fc7cd790e3adff4de678aa505784147d",
+      "artifacts": [
+        {
+          "path": "docs/customer/demo/video/v4/NetMambaPlus-one-hour-course.mp4",
+          "sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce"
+        },
+        {
+          "path": "docs/customer/demo/video/v4/captions.vtt",
+          "sha256": "09abf418ada19a2a621e022a675734f0fc7cd790e3adff4de678aa505784147d"
+        }
+      ],
+      "status": "passed",
+      "webm_sha256": "a40cb8735d6a18ce8d4dc983e21ce8b83b67eea43c47c740c13cfbe84d4bdbd2",
+      "bytes": 97599420,
+      "seconds": 3600.008,
+      "decoded_video_frames": 108000,
+      "decode_exit_code": 0,
+      "audio": {
+        "integrated_lufs": -16.4,
+        "true_peak_dbfs": -0.4
+      },
+      "silence": {
+        "intervals": [
+          [
+            270.646917,
+            281.136812
+          ],
+          [
+            584.663979,
+            595.130271
+          ],
+          [
+            882.653396,
+            893.130479
+          ],
+          [
+            1184.695563,
+            1195.134437
+          ],
+          [
+            1475.662417,
+            1486.146042
+          ],
+          [
+            1772.676354,
+            1783.145354
+          ],
+          [
+            2055.663083,
+            2066.130875
+          ],
+          [
+            2350.653563,
+            2361.135333
+          ],
+          [
+            2629.657312,
+            2640.135583
+          ],
+          [
+            2914.639958,
+            2925.131708
+          ],
+          [
+            3219.653583,
+            3230.130208
+          ],
+          [
+            3471.124125,
+            3561.611562
+          ]
+        ],
+        "total_seconds": 205.70841400000086,
+        "tolerance_seconds": 1.0
+      },
+      "codec": "VP9/Opus",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "chapters": 12,
+      "frame_comparisons": [
+        {
+          "name": "orientation-02-middle",
+          "names": [
+            "orientation-02-middle"
+          ],
+          "frame_index": 1706,
+          "seconds": 56.86666666666667,
+          "webm_png": "runs/video-course/v4-final-webm/actual-01.png",
+          "webm_png_sha256": "7878c36364dba632d557fbf5232b454c4aad3fa6f60c1b04e6b13f2c1d09e96f",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-004.png",
+          "reference_png_sha256": "7c79840a03ff5eaee175b92b6de520965b216d8e04ccc2ece4ac47afc69eb44b",
+          "full_frame_mae": 0.6795886381172839,
+          "teaching_area_mae": 0.6711076388888889,
+          "caption_area_mae": 0.710931461352657,
+          "within_limit": true
+        },
+        {
+          "name": "orientation-03-middle",
+          "names": [
+            "orientation-03-middle"
+          ],
+          "frame_index": 2888,
+          "seconds": 96.26666666666667,
+          "webm_png": "runs/video-course/v4-final-webm/actual-02.png",
+          "webm_png_sha256": "d4c88ab3336d0d104c5294475830c5294babec8f851339abe51f7455e3773605",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-006.png",
+          "reference_png_sha256": "8ccd78fb0672d7a2ff6b4e1830ac97dcdb075698cff545058e145ddc9667d9b4",
+          "full_frame_mae": 0.6839189493312757,
+          "teaching_area_mae": 0.6320410539215686,
+          "caption_area_mae": 0.8756416062801934,
+          "within_limit": true
+        },
+        {
+          "name": "orientation-04-motion-1.3",
+          "names": [
+            "orientation-04-motion-1.3"
+          ],
+          "frame_index": 3500,
+          "seconds": 116.66666666666667,
+          "webm_png": "runs/video-course/v4-final-webm/actual-03.png",
+          "webm_png_sha256": "21e12df36949107d9444167af9eed121d4fcbe770d5155fb2e7504f02e877aec",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-008.png",
+          "reference_png_sha256": "b149cfdba2c76e7fb706f73a71cea2f91999ab6032c2593fe759dcd22ddd43fb",
+          "full_frame_mae": 1.0197159529320987,
+          "teaching_area_mae": 1.0720718954248365,
+          "caption_area_mae": 0.8262266002415459,
+          "within_limit": true
+        },
+        {
+          "name": "paper-06-middle",
+          "names": [
+            "paper-06-middle"
+          ],
+          "frame_index": 15410,
+          "seconds": 513.6666666666666,
+          "webm_png": "runs/video-course/v4-final-webm/actual-04.png",
+          "webm_png_sha256": "5acabd8462e19add54b62ce19896c601780a8fad41392e1d7e212364a057fe38",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-034.png",
+          "reference_png_sha256": "939187b6ca35a4ec23e703314e15b3513684f01d4bbc537172df6300c339ca68",
+          "full_frame_mae": 0.6084294624485597,
+          "teaching_area_mae": 0.6296995506535948,
+          "caption_area_mae": 0.5298226147342995,
+          "within_limit": true
+        },
+        {
+          "name": "cic-csv-02-middle",
+          "names": [
+            "cic-csv-02-middle"
+          ],
+          "frame_index": 19688,
+          "seconds": 656.2666666666667,
+          "webm_png": "runs/video-course/v4-final-webm/actual-05.png",
+          "webm_png_sha256": "50d4a04d76981de8abafc31becf87aba05c83e850087ebb5f8ddafa872ebc10c",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-043.png",
+          "reference_png_sha256": "4c96318c4d780033c010b75ddc6837aa8ef70b1e377bb4bc5571a3901c11a702",
+          "full_frame_mae": 0.8256042631172841,
+          "teaching_area_mae": 0.8143651960784314,
+          "caption_area_mae": 0.8671399456521739,
+          "within_limit": true
+        },
+        {
+          "name": "unsw-csv-05-middle",
+          "names": [
+            "unsw-csv-05-middle"
+          ],
+          "frame_index": 32356,
+          "seconds": 1078.5333333333333,
+          "webm_png": "runs/video-course/v4-final-webm/actual-06.png",
+          "webm_png_sha256": "7bb9ce7c879b1296117e7e5bae825ef4ce15f6f7fbaa03fd8353a817268dbcd0",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-066.png",
+          "reference_png_sha256": "b377c4a74ee7732c6e3f888e01ee2ff4c9e6a540d9a523acc776bb6b89342ace",
+          "full_frame_mae": 0.7247145061728396,
+          "teaching_area_mae": 0.6918874591503269,
+          "caption_area_mae": 0.8460318538647343,
+          "within_limit": true
+        },
+        {
+          "name": "features-02-middle",
+          "names": [
+            "features-02-middle"
+          ],
+          "frame_index": 37582,
+          "seconds": 1252.7333333333333,
+          "webm_png": "runs/video-course/v4-final-webm/actual-07.png",
+          "webm_png_sha256": "3c7fb93e77f9f87b55acfa045d814f937469a2c75a7a2b2408745a2ddc5c2eb5",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-080.png",
+          "reference_png_sha256": "0d6f737c45b7b6ac287c933ca127bd17b2e80d7e05cc1c36316d3225ec945b98",
+          "full_frame_mae": 0.8653903034979423,
+          "teaching_area_mae": 0.8836717728758169,
+          "caption_area_mae": 0.7978283514492753,
+          "within_limit": true
+        },
+        {
+          "name": "features-05-middle",
+          "names": [
+            "features-05-middle"
+          ],
+          "frame_index": 41042,
+          "seconds": 1368.0666666666666,
+          "webm_png": "runs/video-course/v4-final-webm/actual-08.png",
+          "webm_png_sha256": "5812551704c33fa7e2174f5184284f3266afff43e9d97a23d6fd7c7f0e64a59f",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-091.png",
+          "reference_png_sha256": "8f499ba8635774d3036b42caaeb399778adc1ac18c0e5bd8e4513696048e6cd2",
+          "full_frame_mae": 0.7114496527777777,
+          "teaching_area_mae": 0.6592091503267974,
+          "caption_area_mae": 0.9045123792270532,
+          "within_limit": true
+        },
+        {
+          "name": "features-06-middle",
+          "names": [
+            "features-06-middle"
+          ],
+          "frame_index": 42348,
+          "seconds": 1411.6,
+          "webm_png": "runs/video-course/v4-final-webm/actual-09.png",
+          "webm_png_sha256": "146373aa36d2362530a535ae8c40a25bf6e077e81f986f73284874a79a4c823c",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-093.png",
+          "reference_png_sha256": "36b47569e575e8dcbb17a992464711a707d44e4071bdcd3f817bb4d8bb983e89",
+          "full_frame_mae": 0.6251207240226337,
+          "teaching_area_mae": 0.5635116421568628,
+          "caption_area_mae": 0.852806461352657,
+          "within_limit": true
+        },
+        {
+          "name": "learning-04-middle",
+          "names": [
+            "learning-04-middle"
+          ],
+          "frame_index": 48746,
+          "seconds": 1624.8666666666666,
+          "webm_png": "runs/video-course/v4-final-webm/actual-10.png",
+          "webm_png_sha256": "6ba3c2b36e7bfd5bf38216e91657743ac73d120e36568eed635117f476d402d7",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-108.png",
+          "reference_png_sha256": "7bb875bee772883ab993cbb5844c210af71b5eed9f521466a3727d02e4011381",
+          "full_frame_mae": 0.7689662101337449,
+          "teaching_area_mae": 0.7497720588235294,
+          "caption_area_mae": 0.8399011171497585,
+          "within_limit": true
+        },
+        {
+          "name": "code-03-middle",
+          "names": [
+            "code-03-middle"
+          ],
+          "frame_index": 56484,
+          "seconds": 1882.8,
+          "webm_png": "runs/video-course/v4-final-webm/actual-11.png",
+          "webm_png_sha256": "2f749ae7b36c67a65212fd1def565b0f795edf0a8eade8f86853161f17151947",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-125.png",
+          "reference_png_sha256": "254f1b9ec14608b195398e01cd3f747b558c8576932abdd2630dd6ca52cb8b57",
+          "full_frame_mae": 0.6502771347736626,
+          "teaching_area_mae": 0.6480682189542484,
+          "caption_area_mae": 0.6584405193236715,
+          "within_limit": true
+        },
+        {
+          "name": "results-01-motion-19",
+          "names": [
+            "results-01-motion-19"
+          ],
+          "frame_index": 62550,
+          "seconds": 2085.0,
+          "webm_png": "runs/video-course/v4-final-webm/actual-12.png",
+          "webm_png_sha256": "b2ab8413eb0003e4a5aad5ae0f36549f0b593943e61fc8d2c2a9c4fc87b163cf",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-141.png",
+          "reference_png_sha256": "bdc72e2f7c6737e60a47f54c03fe8a71ef5b80371e6963a858f4013f1d10c303",
+          "full_frame_mae": 0.7236265432098765,
+          "teaching_area_mae": 0.8571852532679739,
+          "caption_area_mae": 0.23004000603864735,
+          "within_limit": true
+        },
+        {
+          "name": "results-07-middle",
+          "names": [
+            "results-07-middle"
+          ],
+          "frame_index": 69875,
+          "seconds": 2329.1666666666665,
+          "webm_png": "runs/video-course/v4-final-webm/actual-13.png",
+          "webm_png_sha256": "3df64b5b72239a2c806ed3ef4cb83ae1f475bdb0784d01337b37888e4c0a6363",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-159.png",
+          "reference_png_sha256": "c08892135c3f83dd46646e3df6f403463db53eb37f68fb0f24bf06b795b615c6",
+          "full_frame_mae": 0.7443939686213992,
+          "teaching_area_mae": 0.7010406454248366,
+          "caption_area_mae": 0.9046127717391305,
+          "within_limit": true
+        },
+        {
+          "name": "demo-01-clip-first",
+          "names": [
+            "demo-01-clip-first"
+          ],
+          "frame_index": 71070,
+          "seconds": 2369.0,
+          "webm_png": "runs/video-course/v4-final-webm/actual-14.png",
+          "webm_png_sha256": "0393471bd5c43530582b1c5f66e2303eed56c48209ace70cd07069d0c0aa5d3a",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-166.png",
+          "reference_png_sha256": "b17da4620be7bbde92e3cb503dba1ecc17a32fabcf17dcdaf66a9ba2e86f69de",
+          "full_frame_mae": 1.2413467721193416,
+          "teaching_area_mae": 1.4307518382352942,
+          "caption_area_mae": 0.5413715277777778,
+          "within_limit": true
+        },
+        {
+          "name": "demo-01-clip-middle",
+          "names": [
+            "demo-01-clip-middle"
+          ],
+          "frame_index": 71181,
+          "seconds": 2372.7,
+          "webm_png": "runs/video-course/v4-final-webm/actual-15.png",
+          "webm_png_sha256": "80f0638ff468d87fdc47db39447d65d25aba136592600c61076a34dbf8d070b0",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-167.png",
+          "reference_png_sha256": "9420e08732719f8ace73094e1825feedf4901371832a8ee8d7f281bdc239bbd6",
+          "full_frame_mae": 0.9360914994855968,
+          "teaching_area_mae": 1.0090522875816994,
+          "caption_area_mae": 0.6664538043478261,
+          "within_limit": true
+        },
+        {
+          "name": "demo-04-middle",
+          "names": [
+            "demo-04-middle"
+          ],
+          "frame_index": 74660,
+          "seconds": 2488.6666666666665,
+          "webm_png": "runs/video-course/v4-final-webm/actual-16.png",
+          "webm_png_sha256": "777c4edc0090f0390f6b7253f5eff794a685927f9aa64f3ec00dd42e37e91dc3",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-176.png",
+          "reference_png_sha256": "f836f4c6d9777a8a4a84f1a1a9179d12452b227932d29bf5bd1fc453ca52738d",
+          "full_frame_mae": 0.47088814943415636,
+          "teaching_area_mae": 0.44172079248366014,
+          "caption_area_mae": 0.5786805555555555,
+          "within_limit": true
+        },
+        {
+          "name": "setup-02-middle",
+          "names": [
+            "setup-02-middle"
+          ],
+          "frame_index": 80906,
+          "seconds": 2696.866666666667,
+          "webm_png": "runs/video-course/v4-final-webm/actual-17.png",
+          "webm_png_sha256": "bf568bc3cbcd207d77ed8b2892c7d3f05ee6048a5eeaacc4c8069b3849fcbe19",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-200.png",
+          "reference_png_sha256": "f015042b1b582d0d4cabe537b0ca1d842abb8b8163a2cb45399b88a08f7b0640",
+          "full_frame_mae": 0.7907330246913581,
+          "teaching_area_mae": 0.8396352124183006,
+          "caption_area_mae": 0.6100075483091788,
+          "within_limit": true
+        },
+        {
+          "name": "repository-01-middle",
+          "names": [
+            "repository-01-middle"
+          ],
+          "frame_index": 88362,
+          "seconds": 2945.4,
+          "webm_png": "runs/video-course/v4-final-webm/actual-18.png",
+          "webm_png_sha256": "13d99b814fcfe8e98c84d28e6ae9292a90f5a04ba3d61a350a5115a72486bea4",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-217.png",
+          "reference_png_sha256": "06fb5c394acee1bbcfb1005dc6f70308cec91d618c94795f6e3d2f9b38645a3e",
+          "full_frame_mae": 0.6947083976337449,
+          "teaching_area_mae": 0.696344158496732,
+          "caption_area_mae": 0.6886631944444445,
+          "within_limit": true
+        },
+        {
+          "name": "hardware-03-middle",
+          "names": [
+            "hardware-03-middle"
+          ],
+          "frame_index": 99796,
+          "seconds": 3326.5333333333333,
+          "webm_png": "runs/video-course/v4-final-webm/actual-19.png",
+          "webm_png_sha256": "92404142c5cbb278e6360fa15288f1f0c0abed798c39a3f2121607501e6fb411",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-238.png",
+          "reference_png_sha256": "b00cf6b3ab94ed757bc87f28044ee4619761441659344b1d1d03606749b2e112",
+          "full_frame_mae": 0.6634518068415638,
+          "teaching_area_mae": 0.7484411764705882,
+          "caption_area_mae": 0.3493606582125604,
+          "within_limit": true
+        },
+        {
+          "name": "last-frame",
+          "names": [
+            "last-frame"
+          ],
+          "frame_index": 107999,
+          "seconds": 3599.9666666666667,
+          "webm_png": "runs/video-course/v4-final-webm/actual-20.png",
+          "webm_png_sha256": "053da5fa4af9dcf36ed504242f388f6c306ba6032224be19740056185e44fa9a",
+          "reference_mp4_png": "runs/video-course/v4-final-frames/actual-249.png",
+          "reference_png_sha256": "b58134c32cce3d968256e74f4f6ab8f57336420735e800ea513e12a00b72ee57",
+          "full_frame_mae": 0.5741558963477366,
+          "teaching_area_mae": 0.6396930147058824,
+          "caption_area_mae": 0.33195350241545896,
+          "within_limit": true
+        }
+      ],
+      "mean_absolute_rgb_limit": 3,
+      "command": [
+        "/home/nvidia/learn/_video/bin/ffmpeg",
+        "-hide_banner",
+        "-nostats",
+        "-xerror",
+        "-threads",
+        "8",
+        "-i",
+        "/home/nvidia/netmambaplus-reproduction/runs/worktrees/functional-improvement/docs/customer/demo/video/v4/NetMambaPlus-one-hour-course.webm",
+        "-filter_complex",
+        "[0:v]split[vfull][vs];[vs]settb=1/30,select='eq(n,1706)+eq(n,2888)+eq(n,3500)+eq(n,15410)+eq(n,19688)+eq(n,32356)+eq(n,37582)+eq(n,41042)+eq(n,42348)+eq(n,48746)+eq(n,56484)+eq(n,62550)+eq(n,69875)+eq(n,71070)+eq(n,71181)+eq(n,74660)+eq(n,80906)+eq(n,88362)+eq(n,99796)+eq(n,107999)',showinfo[vshots]",
+        "-progress",
+        "/home/nvidia/netmambaplus-reproduction/runs/worktrees/functional-improvement/runs/video-course/v4-final-webm/decode-progress.txt",
+        "-map",
+        "[vfull]",
+        "-map",
+        "0:a:0",
+        "-af",
+        "silencedetect=noise=-45dB:d=3,ebur128=peak=true:framelog=verbose",
+        "-f",
+        "null",
+        "-",
+        "-map",
+        "[vshots]",
+        "-fps_mode",
+        "vfr",
+        "-frames:v",
+        "20",
+        "-threads",
+        "2",
+        "/home/nvidia/netmambaplus-reproduction/runs/worktrees/functional-improvement/runs/video-course/v4-final-webm/actual-%02d.png"
+      ],
+      "decode_log_sha256": "adb0f867918b994d6010785197fa39ff0620a05b9f31ea51f0dd0808f3086648",
+      "manifest_snapshot": {
+        "path": "runs/video-course/v4-final-webm/manifest-input.json",
+        "sha256": "c94677924ed6d287840403fee7e983ded7bf6ebd410b35e4e34febbae723280d"
+      },
+      "scope": "Full audiovisual decode, levels/silences and 20 exact frame comparisons covering 20 requested subjects. Human viewing/listening remains separate."
+    }
+  }
+}

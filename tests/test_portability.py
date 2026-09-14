@@ -69,7 +69,7 @@ class PublishedTextTests(unittest.TestCase):
         expected = build_video_page.render().encode("utf-8")
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory)
-            media = path / "v3"
+            media = path / "v4"
             media.mkdir()
             (media / "media-manifest.json").write_bytes(manifest)
             with (patch.object(sys, "argv", ["build_video_page.py", "--media-dir", str(media),

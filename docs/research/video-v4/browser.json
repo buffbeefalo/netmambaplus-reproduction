@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "completed_at": "2026-09-14T01:24:31.577975+00:00",
+  "source_sha256": "ee2586f49b182e432b9072d65ef0cfe2f3fe08a24aa30335cb9b928f473f2c8c",
+  "manifest_sha256": "c94677924ed6d287840403fee7e983ded7bf6ebd410b35e4e34febbae723280d",
+  "artifacts": [
+    {
+      "path": "docs/customer/demo/video/v4/NetMambaPlus-one-hour-course.mp4",
+      "sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce"
+    },
+    {
+      "path": "docs/customer/demo/video/v4/captions.vtt",
+      "sha256": "09abf418ada19a2a621e022a675734f0fc7cd790e3adff4de678aa505784147d"
+    }
+  ],
+  "known_material_defects": [],
+  "method": "Packaged actual browser playback, caption loading, keyboard chapter navigation, near-end seeking, responsive widths and served/downloaded byte checks. Native browser MP4 and HTML hashes are checked against the current final package.",
+  "browser": {
+    "identity": {
+      "path": "runs/video-course/v4-final-browser/browser-check.json",
+      "sha256": "5604988bc6d10f0044eb0de5c98f8273f1ba7f5bf331c509baed597fc4afe5bd"
+    },
+    "record": {
+      "status": "passed",
+      "url": "http://127.0.0.1:8787/video/",
+      "completed_at": "2026-09-14T01:00:39.401982+00:00",
+      "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
+      "html_sha256": "7f044ab3d7a1c3d5161ff29e5b16ca4590ea26db92548c5462f146eec1ad1cba",
+      "mp4_sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce",
+      "decoded_frames_and_audio_bytes": {
+        "audio": 15261,
+        "video": 35,
+        "played_src": "http://127.0.0.1:8787/video/v4/NetMambaPlus-one-hour-course.webm"
+      },
+      "caption_count": 1083,
+      "keyboard_playback": true,
+      "keyboard_chapter_offsets": [
+        0.0,
+        281.0,
+        595.0,
+        893.0,
+        1195.0,
+        1486.0,
+        1783.0,
+        2066.0,
+        2361.0,
+        2640.0,
+        2925.0,
+        3230.0
+      ],
+      "scheduled_seconds": 3600,
+      "near_end_seek_seconds": 3590,
+      "seek_and_play_near_end": true,
+      "download_bytes_equal": true,
+      "served_bytes_equal": true,
+      "viewport_widths_without_overflow": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "page_errors": [],
+      "screenshots": {
+        "video-390.png": "23768935f9353b119e14e9e11f5160156f1c4adc8f5470c7a31fd3644fd206cf",
+        "video-320.png": "741d2687b5b0c808da4cd3eb4ae49569c261f820b3a0f1fc1df383dce410483b",
+        "video-1440.png": "500a61d3ec4182af7ddc014c33b6aa55957b5294b60a23308ea65108fada4cce",
+        "video-768.png": "3e2df72de6aab6b670d8c2c36531b39d3deabaa40bafe72fe9b0e9577a04a65d"
+      }
+    }
+  }
+}

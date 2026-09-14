@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-09-13T23:45:52.550396+00:00",
+  "study": "Retrospective checkpoint-bound temperature scaling and opt-in abstention",
+  "base_commit": "71290440e917105ffa094402d94e24d7e29a3549",
+  "plan_sha256": "bfb7c93253f52455a7ca9b81d89ba6228b2f48486f02b41151a16f8b1da4c062",
+  "protocol_frozen_before_scaled_test_evaluation": true,
+  "seeds": [
+    {
+      "seed": 0,
+      "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c"
+    },
+    {
+      "seed": 1,
+      "checkpoint_sha256": "80aa8647061228248fc4cc2746aa42eb4bceed6b583b3d5533eae8c4d3ec24eb"
+    },
+    {
+      "seed": 2,
+      "checkpoint_sha256": "f36386bb9dd34f9d3954b1c38bf27ac9986ed7bf433b60af491f3d547513494b"
+    }
+  ],
+  "fit": {
+    "split": "data-valid.json",
+    "rows": 1040,
+    "sha256": "c614f00e5b9b1d0059916eb90bd3296cbb8d4868154223e9717c3acb50184723",
+    "objective": "mean negative log-likelihood in natural logarithms",
+    "temperature_bounds": [
+      0.05,
+      20.0
+    ],
+    "one_positive_scalar_per_checkpoint": true,
+    "weight_updates": false,
+    "test_data_read_by_fitter": false
+  },
+  "policy": {
+    "threshold": 0.9,
+    "selection": "Fixed in advance for illustration; not tuned on validation or test outcomes",
+    "accept_rule": "calibrated probability of unchanged predicted class >= 0.90",
+    "empty_accepted_set_error": null,
+    "operational_error_guarantee": false
+  },
+  "evaluation": {
+    "split": "data-test.json",
+    "rows": 1041,
+    "sha256": "8c1dfc79b6d7c5c4c9b589353ba2b1ab7bfc505d4b133135b604c2f835836b99",
+    "paired_same_logits": true,
+    "primary": "nll",
+    "secondary": [
+      "multiclass Brier: mean sum of squared class probability errors",
+      "ECE: 15 equal-width confidence bins",
+      "accuracy and class disagreements",
+      "accepted/deferred counts, coverage, accepted errors and denominator"
+    ],
+    "all_three_seeds_including_unfavorable_results": true,
+    "aggregate": "Arithmetic mean across three seeds; any spread is sample SD, not a confidence interval"
+  },
+  "limitations": [
+    "Validation was used for checkpoint selection in all three original fine-tunes.",
+    "Five exact raw inputs overlap training and validation; none overlap validation and test.",
+    "Recorded identifiers and exact raw-input equality do not prove capture independence.",
+    "Released pretraining checkpoint exposure remains unknown.",
+    "The test data has been examined previously; this is retrospective, not a fresh independent holdout.",
+    "A positive scalar temperature preserves the maximum-logit class; no accuracy improvement is claimed.",
+    "Calibration is data-dependent; 0.90 is not a guaranteed probability of correctness or a safe blocking threshold."
+  ]
+}

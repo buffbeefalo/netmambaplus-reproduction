@@ -24,6 +24,8 @@ cd netmambaplus-reproduction
 python -m unittest discover -s tests -v
 python tools/verify_package.py
 python tools/verify_course_video.py
+python tools/verify_video_course_v4.py
+python tools/review_calibration.py --check
 python tools/build_video_page.py --check
 ```
 
@@ -100,3 +102,14 @@ On 2026-09-13, the generalized builder and both execution gates passed in a sepa
 The first build attempt remains disclosed in the receipt: causal convolution compiled and installed, but the builder stopped at its compiler-flag audit because it found no Ninja recipe. That attempt did not reach Mamba compilation. The corrected audit reads the actual compiler log, and a fresh build completed both extensions before the checks above.
 
 The six-fixture update is a functionality check; it does not run the 120-epoch protocol or establish dataset accuracy. The seed-0 comparison reexecutes a frozen result without retraining or tuning. These results establish execution on this recorded GB10 configuration; additional physical GPU configurations remain unverified.
+
+
+## Confidence update and fresh GB10 rechecks
+
+The current [confidence-calibration addition](customer/confidence-calibration.md) was fitted and executed on the same GB10 environment on 2026-09-13/14 UTC. All three saved classifiers processed all 1,040 validation flows before any calibrated test inference began, then each processed all 1,041 test flows. The published [three-seed report](customer/evidence/calibration/results.json) can be recomputed using the CPU-only command above, including its artifact identities, complete-row accounting and validation/test chronology.
+
+Mean test NLL decreased from 0.4416 to 0.4172, Brier score from 0.2035 to 0.2012, and 15-bin ECE from 7.03% to 3.82%. All 3,123 class decisions matched their original records. These are retrospective confidence results on the released split; validation also selected the original checkpoints. At the fixed illustrative 0.90 threshold, more predictions and more mistakes were accepted. This does not validate a customer alert policy.
+
+The [fresh GB10 baseline receipt](customer/evidence/calibration/gb10-baseline-audit.json) records another pass of all seven operator comparisons and the complete-model update/reload check. Fresh seed-0 runs preserved all 1,041 class decisions but showed small FP16 logit differences, up to 0.00390625 in the recorded comparisons. The earlier exact-match execution receipt above remains an observation of that particular run; it is not a universal bitwise-reproducibility guarantee. The [default-path check](customer/evidence/calibration/default-path-check.json) confirms that ordinary prediction still preserves its original output fields and class decisions.
+
+Calibration fitting and new flow inference use the checked CUDA model environment. Recomputing the saved confidence report uses only Python's standard library. Neither route adds CPU neural-model execution, an independently tested second physical GPU, or NPU/SmartNIC deployment. The final workflow records the current portable test count; historical workflow counts above refer to their own commits.

@@ -19,11 +19,12 @@ from video_motion import draw_diagram, animation_events
 FPS = 10
 RATE = 24000
 LEGACY_DESTINATION = ROOT / "docs/customer/demo/video"
-DESTINATION = LEGACY_DESTINATION / "v3"
+V3_DESTINATION = LEGACY_DESTINATION / "v3"
+DESTINATION = LEGACY_DESTINATION / "v4"
 MEDIA_NAME = "NetMambaPlus-30-minute-course.mp4"
 WEBM_NAME = "NetMambaPlus-30-minute-course.webm"
 DEFAULT_TITLE = "NetMamba+ — the 30-minute video course"
-DEFAULT_WORK = ROOT / "runs/video-course/v3-neural"
+DEFAULT_WORK = ROOT / "runs/video-course/v4-neural"
 
 
 def publication(record):
@@ -143,6 +144,29 @@ def reference_paths(source, course, root=ROOT):
         local_reference(value, root)
         references[key] = value
     return references
+
+
+def check_source_binding(manifest, source_path=SOURCE, *, root=ROOT):
+    """Reject a selected lesson or reference that drifted since media rendering."""
+    source_path, root = Path(source_path).resolve(), Path(root).resolve()
+    source_hash = digest(source_path)
+    if (manifest.get("source_path") != source_path.relative_to(root).as_posix()
+            or manifest.get("source_sha256") != source_hash):
+        raise ValueError("Video source path or hash differs from the selected lesson")
+    source = load_source(source_path, root=root)
+    if manifest.get("release_tag") != source.get("release_tag"):
+        raise ValueError("Video source version differs from the selected lesson")
+    references = reference_paths(source, read(root / "docs/customer/course-source.json"), root)
+    used = {key for chapter in source["chapters"] for scene in chapter["scenes"] for key in scene["references"]}
+    if set(manifest.get("references", {})) != used:
+        raise ValueError("Video reference keys differ from the source")
+    for key, record in manifest["references"].items():
+        if (references.get(key) != record["path"]
+                or digest(local_reference(record["path"], root)) != record["sha256"]):
+            raise ValueError("Video reference changed: " + key)
+    if digest(source_path) != source_hash:
+        raise ValueError("Video source changed during verification")
+    return source
 
 
 def validate(source, root=ROOT):

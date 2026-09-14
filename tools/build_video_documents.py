@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from build_course import ROOT, read
-from build_course_video import DESTINATION, timecode
+from build_course_video import DEFAULT_WORK, DESTINATION, check_source_binding, timecode
 from narrate_course_video import SOURCE, digest
 
 SLIDES = 'NetMambaPlus-course-slides.pptx'
@@ -42,7 +42,14 @@ def paragraph_text(text, base=ROOT / 'docs'):
     return rendered
 
 
-def build(work, output):
+def build(work, output, source_path=None):
+    source_path = Path(source_path or SOURCE).resolve()
+    manifest_path = output / 'media-manifest.json'
+    manifest_hash = digest(manifest_path)
+    manifest = read(manifest_path)
+    check_source_binding(manifest, source_path, root=ROOT)
+    source_hash = digest(source_path)
+    guide_hash = digest(ROOT / 'docs/repository-walkthrough.md')
     from pptx import Presentation
     from pptx.util import Inches
     from reportlab.lib import colors
@@ -53,11 +60,6 @@ def build(work, output):
     from reportlab.pdfgen import canvas
     from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, PageBreak, Table, TableStyle, Preformatted
 
-    manifest = read(output / 'media-manifest.json')
-    source_hash = digest(SOURCE)
-    guide_hash = digest(ROOT / 'docs/repository-walkthrough.md')
-    if manifest['source_sha256'] != source_hash:
-        raise ValueError('Render the current lesson video before building its documents')
     frames = []
     for scene in manifest['scenes']:
         path = work / 'frames' / (scene['id'] + '.png')
@@ -131,6 +133,7 @@ def build(work, output):
                 for row in [scene['columns']] + scene['rows']:
                     story.append(Paragraph(' — '.join(html.escape(str(c)) for c in row), small_style))
             refs = ', '.join(f'<link href="{REPO + manifest["references"][key]["path"]}" color="#126e68">{html.escape(key)}</link>' for key in scene['references'])
+            story[-1].keepWithNext = True
             story.append(Paragraph('Evidence: ' + refs, small_style))
     guide = ROOT / 'docs/repository-walkthrough.md'
     story += [PageBreak(), Paragraph('Appendix: every file and every download', heading_style),
@@ -177,8 +180,10 @@ def build(work, output):
     doc = SimpleDocTemplate(str(output / HANDBOOK), pagesize=A4, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40,
                             title='NetMamba+ course handbook and complete file guide', author='Codex')
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
-    if digest(SOURCE) != source_hash or digest(guide) != guide_hash:
+    if (digest(source_path) != source_hash or digest(guide) != guide_hash
+            or digest(manifest_path) != manifest_hash):
         raise ValueError('Lesson or walkthrough changed while documents were generated; rebuild before publishing')
+    check_source_binding(manifest, source_path, root=ROOT)
     record = {'schema_version':1, 'source_sha256':source_hash, 'walkthrough_sha256':guide_hash,
               'slide_count':len(frames), 'spoken_scenes':sum(bool(s['narration']) for s in manifest['scenes']),
               'slide_images':{p.name:digest(p) for p in frames},
@@ -191,10 +196,11 @@ def build(work, output):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--work-dir', type=Path, default=ROOT/'runs/video-course/v3-neural')
+    parser.add_argument('--source', type=Path, default=SOURCE)
+    parser.add_argument('--work-dir', type=Path, default=DEFAULT_WORK)
     parser.add_argument('--output', type=Path, default=DESTINATION)
     args = parser.parse_args()
-    build(args.work_dir.resolve(), args.output.resolve())
+    build(args.work_dir.resolve(), args.output.resolve(), args.source.resolve())
 
 
 if __name__ == '__main__':

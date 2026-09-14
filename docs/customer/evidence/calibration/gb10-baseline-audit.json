@@ -1,0 +1,966 @@
+{
+  "schema_version": 1,
+  "kind": "pre_improvement_gb10_baseline_audit",
+  "status": "completed_with_historical_logit_difference",
+  "reviewed_at": "2026-09-13T23:50:54.859941+00:00",
+  "baseline_revision": "71290440e917105ffa094402d94e24d7e29a3549",
+  "scope": "Fresh baseline execution before confidence-calibration integration. This report preserves passed functionality checks and the failed historical bitwise-logit expectation separately. It contains no input rows or model weights.",
+  "review_method": "Read the actual run receipts and logs; independently recompute prediction agreement and logit differences; hash the native files, original checkpoints, installed extensions and source identities. This audit did not launch new training or inference.",
+  "source_records": [
+    {
+      "path": "runs/improvement-baseline/native-data-validation-fresh.json",
+      "bytes": 2835,
+      "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-data-validation-fresh.log",
+      "bytes": 2835,
+      "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/tests.log",
+      "bytes": 24626,
+      "sha256": "701ac0b6076e71036f4f95aefd71153d53db9802f498a191796893ab5948f03d",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/video-readiness.json",
+      "bytes": 1017,
+      "sha256": "e4a9d79a2beb272a383e282710954eea7d594008091046c47bf48e11c235900d",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/gb10-cuda-operators.json",
+      "bytes": 2753,
+      "sha256": "a2b5fc87076a9f3e5a9c81f5a156c20751695bc466eeadeb84c2687bbe1952e1",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/gb10-cuda-operators.log",
+      "bytes": 5792,
+      "sha256": "83b7f2edafbad9876ae8487e9884b8f1ba97c5fc8f92a89afa2a217befada4ec",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/gb10-complete-model/manifest.json",
+      "bytes": 31597,
+      "sha256": "b17d849340496c0a8a20a04c3061c57c78b1fac05eb3307adba40d99b9e18514",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/gb10-complete-model.log",
+      "bytes": 2977,
+      "sha256": "1f855801f260aa8a2614b205cf3e8ef130270d7d1b7ab63397b43f55db3c59ab",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/current-inference-comparison.json",
+      "bytes": 2648,
+      "sha256": "fa751aa543815e61709bde96aa8c7915d2b1d8141a7db1144202f3a26619298c",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction/manifest.json",
+      "bytes": 19241,
+      "sha256": "4816029695e569d60a3bfd7488c09498f863414c4f2ff02c7b0abcabcc17ad41",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction/metrics.json",
+      "bytes": 477902,
+      "sha256": "1b56fd9005cef1cbc97f3c33345b0842e7879d893f396d1f27819231d29eabd5",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction.log",
+      "bytes": 2924,
+      "sha256": "de5d2e0006dd0e223b1fdd10154b13591f384e109eff6097c5818bb68078a6cd",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction-repeat/manifest.json",
+      "bytes": 19290,
+      "sha256": "cb22ddb85ace88157f7c959d489a14a4f663d84eb8833559c930261b95dd99cb",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction-repeat/metrics.json",
+      "bytes": 477902,
+      "sha256": "1b56fd9005cef1cbc97f3c33345b0842e7879d893f396d1f27819231d29eabd5",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction-repeat.log",
+      "bytes": 2931,
+      "sha256": "6c5ce339232862e8fe5721a2b09f8b68b1f438abc7a9acb9f273f9657a1e9bcf",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction-workers0/manifest.json",
+      "bytes": 19304,
+      "sha256": "31cfa3416108106fa68cd05d92dd4266cbdd0a2b4448d554e79737df55e4cdd8",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction-workers0/metrics.json",
+      "bytes": 478099,
+      "sha256": "6af556d97d4732b6f10ab65913c7530d1e718c28135c66c83f41766621e985b7",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction-workers0.log",
+      "bytes": 2933,
+      "sha256": "b1c585bd92f32bf4f787dd47363e1754cd5f5c22f6a35307f1a2aca58fbee53e",
+      "public": false
+    }
+  ],
+  "source_record_access": "The compact results below are self-contained. Raw production logs/manifests and full prediction outputs remain local; their relative paths and hashes identify the retained originals. Public original evidence remains linked separately.",
+  "code_snapshot": [
+    {
+      "path": "predict.py",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "4536cf5b1b897e9d923ddba8633f2674fd91d00e96414300d720264523e3d415",
+      "bytes": 5907
+    },
+    {
+      "path": "repro.py",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "f49823f3d23cbc1a12e8f165bea67694dce14e11db64cb270c362a3348c05c7e",
+      "bytes": 27808
+    },
+    {
+      "path": "evaluate.py",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "a8db041b9f3929c7c0acfd63aac65600384e75cc2fdd4018743bdf70ee0bdca0",
+      "bytes": 4508
+    },
+    {
+      "path": "tools/check_gpu_runtime.py",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "09b594c93ceff32b422460e58fffeb61d5d9f716b60f4ede7a46e600c5e98f7e",
+      "bytes": 5628
+    },
+    {
+      "path": "tools/check_model_runtime.py",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "9811dd4fe7b2ab994400f1db5559c3aa1d1bcdef7656ab0910dd78ae9cd39f2f",
+      "bytes": 24439
+    },
+    {
+      "path": "tools/build_cuda.py",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "0c93167aaca15d41ed4d6db6f3c9cc3be876fcc673a95c7ce687880ee732aa22",
+      "bytes": 11200
+    },
+    {
+      "path": "tools/build_gb10.py",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "69c4183b99d324b5f2cc2e52c40e6bf6ca9aa347cbea774903c7f490504621b2",
+      "bytes": 6255
+    },
+    {
+      "path": "tools/verify_video_course_v3.py",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "802833d97d0274281a3d235060207c02367ed60d0390a488dee05167111efbab",
+      "bytes": 36645
+    },
+    {
+      "path": "configs/ciciot2022.json",
+      "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+      "sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92",
+      "bytes": 5664
+    }
+  ],
+  "runtime": {
+    "python": "3.12.3 (main, Jan 22 2026, 20:57:42) [GCC 13.3.0]",
+    "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
+    "machine": "aarch64",
+    "packages": {
+      "torch": "2.9.1+cu130",
+      "torchvision": "0.24.1",
+      "numpy": "1.26.2",
+      "timm": "0.4.12",
+      "mamba-ssm": "1.1.1",
+      "causal-conv1d": "1.1.2.post1",
+      "flash-attn": null,
+      "scikit-learn": "1.6.1",
+      "scipy": "1.15.2",
+      "pillow": "11.0.0",
+      "triton": "3.5.1",
+      "einops": "0.8.1"
+    },
+    "environment": {
+      "OMP_NUM_THREADS": "4",
+      "TRITON_PTXAS_PATH": "/usr/local/cuda-13.0/bin/ptxas"
+    },
+    "torch_cuda": "13.0",
+    "cuda_device_index": 0,
+    "cuda_device": "NVIDIA GB10",
+    "compute_capability": [
+      12,
+      1
+    ],
+    "torch_compiled_architectures": [
+      "sm_80",
+      "sm_90",
+      "sm_100",
+      "sm_110",
+      "sm_120",
+      "compute_120"
+    ],
+    "python_executable_sha256": "a38433048639125c8ff6b3d71a13ff5df66089e24f8bd2c4ecedc2fac3e0500d",
+    "cudnn_benchmark": false,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true
+  },
+  "runtime_record_sha256": "25d37292e87f90d24040dc17d5514ddbd94eb3ee866c463e1c827b37983e57e0",
+  "runtime_identity_scope": "The runtime hash identifies the original manifest runtime object, including its local executable path. That private machine path is omitted from this public projection. Existing validated native binaries were reused; this baseline did not rebuild them.",
+  "compiled_extensions": {
+    "causal_conv1d_cuda": {
+      "bytes": 17432832,
+      "sha256": "77b43870f414823ca0da7f414d0f5d6e50c67f02cb2f17ad1b26e4023f190138"
+    },
+    "selective_scan_cuda": {
+      "bytes": 53432088,
+      "sha256": "08bd0d3abd1b168a0ba9bfd88fbda7f0b1a5886cf1388112600e4d095e0cdc61"
+    }
+  },
+  "completed_build_binding": {
+    "sha256": "c722ceb4338cafac49f7fc68813fc2bd1e096927e6b830df8bdf075056eed15e",
+    "builder_sha256": "0c93167aaca15d41ed4d6db6f3c9cc3be876fcc673a95c7ce687880ee732aa22",
+    "requested_extension_target": "sm_121",
+    "extension_hashes_match": true
+  },
+  "upstream": {
+    "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+    "core_sha256": {
+      "src/pre-train.py": "fd966021d600b23baed22dcd73fa2ccbd3e4e902f5e42cf6d9aedad7c307d4fd",
+      "src/fine-tune.py": "f84ea53fad473122bf8211bb1d083ba95a9019b0c3e48ebbff2f5e86dae4152d",
+      "src/util/arg_pre_train.py": "ac6a607367a64013f38cfadf83b471a03e5988f7dbedbc2eef0c1a5d744eb08f",
+      "src/util/arg_fine_tune.py": "3c64f41ac4fa49377b6c8836237d84096ec9975e72a4b166ec303f4e012b857e",
+      "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+      "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+      "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+    },
+    "tracked_files_verified": 103
+  },
+  "loaded_upstream_source_sha256": {
+    "src/util/crop.py": "82e4df14f6264a00642d0259db344d6fd66a44ba891f90fde3a6ccd02cae035d",
+    "src/util/lars.py": "1bb75085eecf93b8d7ed7972c507495586e71a8f483bcdcd4f37c354f88a0fc0",
+    "src/util/lr_decay.py": "380538a1f46b2d0fc96fa32b1a9c4a26eaf75ab3ffe55931528025a0c3b978c2",
+    "src/util/lr_sched.py": "e421485fecefcb757557c84715000bcc3a966eb2a9300c26f1fdeb5ce0c29374",
+    "src/util/misc.py": "54e1fc4396d1cede4c0b52cb231b71e72ed1e20cf41996d5b011f2beacf3dd34",
+    "src/util/pos_embed.py": "b5202158a46a1f910f2a281e6464a2d7c17c615e92945ebc7e052078ab637069",
+    "src/util/__init__.py": "0f4721e57a46abf5a149d41f0cae9bfe158fe6a6d3fac9d41545c171952c8ffe",
+    "src/models/common.py": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470",
+    "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+    "src/models/models_trans.py": "a366bd3040dc4d3a129affae29a21bb7bb68788289034fee0ee45ced87d5b051",
+    "src/models/models_net_trans.py": "ff1d03d9450c28aa3f96a6f16855a503395bedc2f28ca6f33581005733017f31",
+    "src/models/models_mamba.py": "c59dcc8375ad54ed9295f92c902019022cdf53b6fe4f0fb911311284872c3841",
+    "src/models/models_net_mamba.py": "b0de9ef792f9321538cc2b04df84d19005ded72d8fc54efeb8fe6187928014f4",
+    "src/models/models_net_trans_fuse3.py": "02b769dcb95f713fbe4d8ac58eba4139ebf513b29af6a567350f4b296b9119da",
+    "src/models/models_net_mamba_fuse3.py": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d",
+    "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+    "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+  },
+  "cpu_regressions": {
+    "status": "passed",
+    "tests": 169,
+    "seconds": 2.164,
+    "command_template": "python3 -m unittest discover -s tests -v",
+    "command_scope": "Reproduction command matching the recorded suite; the retained unittest log does not embed its original shell argv.",
+    "scope": "Baseline suite only. Subsequent added tests and final current-course checks have separate records."
+  },
+  "frozen_v3_readiness": {
+    "status": "passed",
+    "level": "readiness",
+    "source_sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+    "inventory_files": 341,
+    "scenes": 96,
+    "claims": 13,
+    "media_checked": true,
+    "human_full_watch": "pending",
+    "all_caption_acceptance": "pending",
+    "limit": "Structural and hash checks verify recorded evidence; they do not independently establish teaching quality or human listening.",
+    "timeline_seconds": 3600,
+    "spoken_seconds_by_chapter": {
+      "orientation": 273.0,
+      "paper": 306.0,
+      "cic-csv": 291.0,
+      "unsw-csv": 296.0,
+      "features": 284.0,
+      "learning": 290.0,
+      "code": 276.0,
+      "results": 277.0,
+      "demo": 258.0,
+      "setup": 278.0,
+      "repository": 294.0,
+      "hardware": 277.0
+    },
+    "practice_seconds": 200.0,
+    "manifest_sha256": "b69f46e4303ca04de9f29e2e0374cff3ce8d6156d0c6c6a91b23458a7663b709",
+    "measured_seconds": 3600.0,
+    "media_scope": "Public artifacts, captions, audio/frame bindings and required technical review receipts",
+    "scope": "Historical baseline course and its then-current 341-file inventory; not acceptance of the expanded improvement branch or future v4 publication."
+  },
+  "native_data_validation": {
+    "status": "passed",
+    "stage": "finetune",
+    "files": {
+      "metadata.json": {
+        "sha256": "1e5914d8cb3443a9c491ad127acf82203646b77ed4139f98cbc332ff080b8135",
+        "bytes": 200
+      },
+      "data-train.json": {
+        "sha256": "ba54a0ec94f21386b58f2df01270144f69ad53421cbd6301ec445cd5d902b107",
+        "bytes": 22683436
+      },
+      "data-valid.json": {
+        "sha256": "c614f00e5b9b1d0059916eb90bd3296cbb8d4868154223e9717c3acb50184723",
+        "bytes": 2542363
+      },
+      "data-test.json": {
+        "sha256": "8c1dfc79b6d7c5c4c9b589353ba2b1ab7bfc505d4b133135b604c2f835836b99",
+        "bytes": 2694146
+      }
+    },
+    "class_mapping": {
+      "6-Attacks-1-Flood": 0,
+      "6-Attacks-2-RTSP Brute Force": 1,
+      "1-Power-Audio": 2,
+      "1-Power-Other": 3,
+      "1-Power-Cameras": 4,
+      "1-Power-Home Automation": 5
+    },
+    "splits": {
+      "train": {
+        "rows": 8323,
+        "class_counts": {
+          "0": 1600,
+          "1": 1600,
+          "2": 1600,
+          "3": 323,
+          "4": 1600,
+          "5": 1600
+        },
+        "identifier_rows": 8323,
+        "unique_identifiers": 8323,
+        "unique_raw_inputs": 8289,
+        "duplicate_excess": 34,
+        "conflicting_raw_input_groups": 0
+      },
+      "valid": {
+        "rows": 1040,
+        "class_counts": {
+          "0": 200,
+          "1": 200,
+          "2": 200,
+          "3": 40,
+          "4": 200,
+          "5": 200
+        },
+        "identifier_rows": 1040,
+        "unique_identifiers": 1040,
+        "unique_raw_inputs": 1040,
+        "duplicate_excess": 0,
+        "conflicting_raw_input_groups": 0
+      },
+      "test": {
+        "rows": 1041,
+        "class_counts": {
+          "0": 200,
+          "1": 200,
+          "2": 200,
+          "3": 41,
+          "4": 200,
+          "5": 200
+        },
+        "identifier_rows": 1041,
+        "unique_identifiers": 1041,
+        "unique_raw_inputs": 1041,
+        "duplicate_excess": 0,
+        "conflicting_raw_input_groups": 0
+      }
+    },
+    "raw_input_overlaps": {
+      "train_valid": {
+        "shared_raw_inputs": 5,
+        "left_rows": 7,
+        "right_rows": 5,
+        "conflicting_shared_input_groups": 0
+      },
+      "train_test": {
+        "shared_raw_inputs": 6,
+        "left_rows": 8,
+        "right_rows": 6,
+        "conflicting_shared_input_groups": 0
+      },
+      "valid_test": {
+        "shared_raw_inputs": 0,
+        "left_rows": 0,
+        "right_rows": 0,
+        "conflicting_shared_input_groups": 0
+      }
+    },
+    "identity_limit": "Recorded identifiers and exact raw-input equality do not prove capture independence.",
+    "actual_files_rehashed": true,
+    "equals_published_validation_record": true,
+    "published_record": {
+      "path": "docs/customer/evidence/native-data-validation.json",
+      "bytes": 2835,
+      "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+      "public": true
+    },
+    "calibration_eligibility_limit": "The 1,040-row validation split selected the original checkpoints and includes five distinct exact stored inputs shared with training (seven training rows and five validation rows). Zero exact validation/test raw-input groups overlap. These observations do not establish capture independence or full inherited-pretraining history. A calibration study on this split is retrospective reuse, not an independent calibration holdout."
+  },
+  "original_checkpoint_identity_checks": [
+    {
+      "seed": 0,
+      "sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+      "matches_actual_local_checkpoint": true,
+      "published_training_manifest": {
+        "path": "docs/customer/evidence/seed0/training/manifest.json",
+        "bytes": 20756,
+        "sha256": "599c0c893849363ec5c271d24732692e28b49612d9fbe250f4a0bf235e4b775f",
+        "public": true
+      }
+    },
+    {
+      "seed": 1,
+      "sha256": "80aa8647061228248fc4cc2746aa42eb4bceed6b583b3d5533eae8c4d3ec24eb",
+      "matches_actual_local_checkpoint": true,
+      "published_training_manifest": {
+        "path": "docs/customer/evidence/seed1/training/manifest.json",
+        "bytes": 20756,
+        "sha256": "f8d64eb2de17dad5f2d7a573b7cfd40559bc437012cd71b18a5240f6e733abf9",
+        "public": true
+      }
+    },
+    {
+      "seed": 2,
+      "sha256": "f36386bb9dd34f9d3954b1c38bf27ac9986ed7bf433b60af491f3d547513494b",
+      "matches_actual_local_checkpoint": true,
+      "published_training_manifest": {
+        "path": "docs/customer/evidence/seed2/training/manifest.json",
+        "bytes": 20756,
+        "sha256": "79439a3c0133cc4d1af4f6876d72f9c20166339c3b9599928f3c73072c83bb13",
+        "public": true
+      }
+    }
+  ],
+  "cuda_operators": {
+    "status": "passed",
+    "seed": 17,
+    "scope": "Synthetic forward/backward parity for this installed runtime; not a benchmark accuracy result or cross-GPU equivalence proof.",
+    "checker_sha256": "09b594c93ceff32b422460e58fffeb61d5d9f716b60f4ede7a46e600c5e98f7e",
+    "checks": [
+      {
+        "name": "causal_conv_fp32_length_83",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 5.960464477539063e-08,
+        "max_abs_input_gradient_error": 1.9073486328125e-06
+      },
+      {
+        "name": "selective_scan_fp32_length_83",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 1.862645149230957e-08,
+        "max_abs_input_gradient_error": 1.1920928955078125e-07
+      },
+      {
+        "name": "causal_conv_fp32_length_443",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 5.960464477539063e-08,
+        "max_abs_input_gradient_error": 7.62939453125e-06
+      },
+      {
+        "name": "selective_scan_fp32_length_443",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 2.2351741790771484e-08,
+        "max_abs_input_gradient_error": 2.384185791015625e-07
+      },
+      {
+        "name": "fused_rms_norm_fp32",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 9.5367431640625e-07,
+        "max_abs_input_gradient_error": 1.52587890625e-05
+      },
+      {
+        "name": "mamba_block_float32",
+        "passed": true,
+        "rtol": 0.001,
+        "atol": 0.0002,
+        "max_abs_output_error": 0.0,
+        "max_abs_input_gradient_error": 1.4901161193847656e-08,
+        "max_abs_parameter_gradient_error": 8.940696716308594e-08
+      },
+      {
+        "name": "mamba_block_float16",
+        "passed": true,
+        "rtol": 0.01,
+        "atol": 0.002,
+        "max_abs_output_error": 0.0,
+        "max_abs_input_gradient_error": 6.103515625e-05,
+        "max_abs_parameter_gradient_error": 0.0009765625
+      }
+    ]
+  },
+  "complete_classifier": {
+    "status": "passed",
+    "started_at": "2026-09-13T23:29:03.615085+00:00",
+    "completed_at": "2026-09-13T23:29:11.874459+00:00",
+    "synthetic_only": true,
+    "seed": 0,
+    "model": {
+      "parameter_count": 1870080,
+      "encoder_blocks": 4,
+      "embedding_width": 256,
+      "tokens": 443,
+      "classes": 6,
+      "trainable_parameter_count": 1870080,
+      "factory": "util.loader_model.get_model_classifier",
+      "class": "NetMamba",
+      "module": "models.models_net_mamba_fuse3",
+      "active_mamba_modules": [
+        {
+          "module": "encoder_blocks.0.mixer",
+          "bimamba_type": "none",
+          "use_fast_path": true,
+          "d_model": 256,
+          "d_state": 16,
+          "d_conv": 4,
+          "expand": 2
+        },
+        {
+          "module": "encoder_blocks.1.mixer",
+          "bimamba_type": "none",
+          "use_fast_path": true,
+          "d_model": 256,
+          "d_state": 16,
+          "d_conv": 4,
+          "expand": 2
+        },
+        {
+          "module": "encoder_blocks.2.mixer",
+          "bimamba_type": "none",
+          "use_fast_path": true,
+          "d_model": 256,
+          "d_state": 16,
+          "d_conv": 4,
+          "expand": 2
+        },
+        {
+          "module": "encoder_blocks.3.mixer",
+          "bimamba_type": "none",
+          "use_fast_path": true,
+          "d_model": 256,
+          "d_state": 16,
+          "d_conv": 4,
+          "expand": 2
+        }
+      ]
+    },
+    "checks": {
+      "upstream_pin_and_clean_sources": true,
+      "installed_mamba_matches_verified_upstream": true,
+      "native_loader_and_complete_model_dimensions": true,
+      "finite_fp32_loss": true,
+      "finite_parameter_gradients": true,
+      "nonzero_gradient_each_encoder_and_head": true,
+      "real_optimizer_update": true,
+      "strict_checkpoint_reload_and_identical_state": true,
+      "finite_autocast_inference": true,
+      "normalized_six_class_scores": true,
+      "identical_inference_after_strict_reload": true,
+      "upstream_unchanged_after_execution": true
+    },
+    "loader": "util.loader_data.get_data_loader",
+    "fixture_count": 6,
+    "tensor_shapes": {
+      "x_byte": [
+        6,
+        1,
+        1,
+        1600
+      ],
+      "x_size": [
+        6,
+        20
+      ],
+      "x_interval": [
+        6,
+        20
+      ],
+      "targets": [
+        6
+      ]
+    },
+    "training": {
+      "dtype": "torch.float32",
+      "autocast": false,
+      "loss": 2.112807035446167,
+      "label_smoothing": 0.1,
+      "block_inputs": {
+        "encoder_blocks.0": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        "encoder_blocks.1": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        "encoder_blocks.2": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        "encoder_blocks.3": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float32"
+        }
+      },
+      "parameter_tensors_with_gradients": 51,
+      "changed_parameter_tensors": 51,
+      "elements_in_changed_parameter_tensors": 1870080
+    },
+    "optimizer": {
+      "class": "torch.optim.AdamW",
+      "group_factory": "util.lr_decay.param_groups_lrd",
+      "learning_rate": 4.6875e-05,
+      "step_count": 1,
+      "parameter_group_learning_rates": [
+        4.6875e-05,
+        4.6875e-05,
+        1.11236572265625e-05,
+        1.483154296875e-05,
+        1.483154296875e-05,
+        1.9775390625e-05,
+        1.9775390625e-05,
+        2.63671875e-05,
+        2.63671875e-05,
+        3.5156250000000004e-05,
+        3.5156250000000004e-05
+      ],
+      "weight_decay": 0.05,
+      "layer_decay": 0.75,
+      "scope": "One standalone step: native AdamW groups and layer scales; base rate scaled to six synthetic rows. No warmup or epoch schedule is simulated."
+    },
+    "checkpoint": {
+      "file": "checkpoint-synthetic.pth",
+      "sha256": "51494a9098b0dbfbb0cda4e2b662ee29d5f403d0074de10d161e13bc895f0842",
+      "bytes": 7496202,
+      "state_tensors": 51,
+      "strict": true,
+      "weights_only_load": true,
+      "synthetic_only": true,
+      "scope": "One synthetic optimizer step from random initialization; model weights only, not a published checkpoint or resumable training state."
+    },
+    "inference": {
+      "autocast": "cuda:float16",
+      "logits_dtype": "torch.float16",
+      "logits_shape": [
+        6,
+        6
+      ],
+      "class_order": [
+        "synthetic-class-0",
+        "synthetic-class-1",
+        "synthetic-class-2",
+        "synthetic-class-3",
+        "synthetic-class-4",
+        "synthetic-class-5"
+      ],
+      "score_scope": "Softmax outputs for synthetic fixtures; no calibration or accuracy claim.",
+      "block_inputs_before_reload": {
+        "encoder_blocks.0": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        "encoder_blocks.1": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float16"
+        },
+        "encoder_blocks.2": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float16"
+        },
+        "encoder_blocks.3": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float16"
+        }
+      },
+      "block_inputs_after_reload": {
+        "encoder_blocks.0": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        "encoder_blocks.1": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float16"
+        },
+        "encoder_blocks.2": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float16"
+        },
+        "encoder_blocks.3": {
+          "shape": [
+            6,
+            443,
+            256
+          ],
+          "dtype": "torch.float16"
+        }
+      },
+      "reload_max_abs_logit_difference": 0.0
+    },
+    "installed_mamba_python_files_matching_upstream": 14,
+    "scope": "Original full 443-token, four-block, 1,870,080-parameter model on six synthetic schema fixtures. One FP32 AdamW step, finite gradients, changed parameter tensors, strict reload and FP16-autocast inference. This is not the 120-epoch experiment and establishes no dataset accuracy."
+  },
+  "frozen_seed0_inference": {
+    "status": "completed_class_predictions_match",
+    "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+    "reference": {
+      "path": "docs/customer/evidence/seed0/replay/predictions.json",
+      "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a"
+    },
+    "observations": [
+      {
+        "local_directory": "runs/improvement-baseline/native-prediction",
+        "num_workers": 2,
+        "manifest_status": "succeeded",
+        "matching_predictions": 1041,
+        "logit_values": 6246,
+        "different_logit_values": 468,
+        "max_absolute_logit_difference": 0.001953125,
+        "metrics_sha256": "1b56fd9005cef1cbc97f3c33345b0842e7879d893f396d1f27819231d29eabd5",
+        "manifest_sha256": "4816029695e569d60a3bfd7488c09498f863414c4f2ff02c7b0abcabcc17ad41",
+        "class_disagreements": 0,
+        "created_at": "2026-09-13T23:14:28.007284+00:00",
+        "completed_at": "2026-09-13T23:14:39.205278+00:00",
+        "argv_with_local_paths_aliased": [
+          "${PYTHON}",
+          "predict.py",
+          "--flows",
+          "${NATIVE_DATA}/data-test.json",
+          "--checkpoint",
+          "${SEED0_CHECKPOINT}",
+          "--provenance",
+          "${SEED0_PROVENANCE}",
+          "--upstream",
+          "${UPSTREAM}",
+          "--output",
+          "runs/improvement-baseline/native-prediction",
+          "--num-workers",
+          "2"
+        ],
+        "original_argv_canonical_sha256": "4ae792f9223801a7840d2e225a9d76ac587cecc9f60b5b334c649172c44dd21b",
+        "independently_recomputed": true
+      },
+      {
+        "local_directory": "runs/improvement-baseline/native-prediction-repeat",
+        "num_workers": 2,
+        "manifest_status": "succeeded",
+        "matching_predictions": 1041,
+        "logit_values": 6246,
+        "different_logit_values": 468,
+        "max_absolute_logit_difference": 0.001953125,
+        "metrics_sha256": "1b56fd9005cef1cbc97f3c33345b0842e7879d893f396d1f27819231d29eabd5",
+        "manifest_sha256": "cb22ddb85ace88157f7c959d489a14a4f663d84eb8833559c930261b95dd99cb",
+        "class_disagreements": 0,
+        "created_at": "2026-09-13T23:18:47.454163+00:00",
+        "completed_at": "2026-09-13T23:18:53.388825+00:00",
+        "argv_with_local_paths_aliased": [
+          "${PYTHON}",
+          "predict.py",
+          "--flows",
+          "${NATIVE_DATA}/data-test.json",
+          "--checkpoint",
+          "${SEED0_CHECKPOINT}",
+          "--provenance",
+          "${SEED0_PROVENANCE}",
+          "--upstream",
+          "${UPSTREAM}",
+          "--output",
+          "runs/improvement-baseline/native-prediction-repeat",
+          "--num-workers",
+          "2"
+        ],
+        "original_argv_canonical_sha256": "00f3aef6b0a7c86e1e506d66e07b12b07c4920dda88a0d14172f3d672242255f",
+        "independently_recomputed": true
+      },
+      {
+        "local_directory": "runs/improvement-baseline/native-prediction-workers0",
+        "num_workers": 0,
+        "manifest_status": "succeeded",
+        "matching_predictions": 1041,
+        "logit_values": 6246,
+        "different_logit_values": 1235,
+        "max_absolute_logit_difference": 0.00390625,
+        "metrics_sha256": "6af556d97d4732b6f10ab65913c7530d1e718c28135c66c83f41766621e985b7",
+        "manifest_sha256": "31cfa3416108106fa68cd05d92dd4266cbdd0a2b4448d554e79737df55e4cdd8",
+        "class_disagreements": 0,
+        "created_at": "2026-09-13T23:20:04.226830+00:00",
+        "completed_at": "2026-09-13T23:20:09.926808+00:00",
+        "argv_with_local_paths_aliased": [
+          "${PYTHON}",
+          "predict.py",
+          "--flows",
+          "${NATIVE_DATA}/data-test.json",
+          "--checkpoint",
+          "${SEED0_CHECKPOINT}",
+          "--provenance",
+          "${SEED0_PROVENANCE}",
+          "--upstream",
+          "${UPSTREAM}",
+          "--output",
+          "runs/improvement-baseline/native-prediction-workers0",
+          "--num-workers",
+          "0"
+        ],
+        "original_argv_canonical_sha256": "d4ea9a28115bfbe606c1caec49075786a450b1c276b7ff30e30cffe022cc7e14",
+        "independently_recomputed": true
+      }
+    ],
+    "two_worker_repeat": {
+      "different_logit_values": 0,
+      "max_absolute_logit_difference": 0.0
+    },
+    "initial_assertion": {
+      "expectation": "Bitwise equality with the earlier published logits",
+      "result": "failed",
+      "actual_class_predictions": "all 1041 identical",
+      "retained_without_replacing_historical_evidence": true
+    },
+    "interpretation": "The current unmodified predictor completes strict CUDA inference with the same classifier and classes. Small raw FP16 output differences occur across the recorded invocations. These observations do not establish a unique numerical root cause or a universal bitwise reproducibility guarantee. No model tuning, retraining or accuracy improvement occurred.",
+    "comparison_scope": "Three executions of the same seed-0 checkpoint, not one execution of each of the three training seeds. All rows and all six logits per row were compared in original order. The two-worker repeat matches itself exactly, while historical logits differ. Worker-count association does not identify a unique numerical cause.",
+    "predictor_behavior": "The recorded unmodified predictor discarded targets before model forward and returned raw logits/scores/classes without accuracy. This baseline ran without a calibration artifact or abstention threshold."
+  },
+  "commands": {
+    "path_aliases": {
+      "PYTHON": "Python executable in the already checked GB10 audit environment",
+      "UPSTREAM": "Verified authors checkout at the upstream commit recorded here",
+      "NATIVE_DATA": "Directory containing the hash-verified native data files",
+      "BUILD_REPORT": "Completed generalized CUDA build report with the hash recorded here",
+      "SEED0_CHECKPOINT": "Unchanged seed-0 selected checkpoint with the hash recorded here",
+      "SEED0_PROVENANCE": "Its original hash-bound training manifest"
+    },
+    "fresh_output_requirement": "Use new output names for another run; retained baseline directories must not be overwritten.",
+    "templates": [
+      {
+        "stage": "native_validation",
+        "argv": [
+          "${PYTHON}",
+          "repro.py",
+          "validate",
+          "--data",
+          "${NATIVE_DATA}",
+          "--report",
+          "runs/improvement-baseline/native-data-validation-fresh.json"
+        ],
+        "scope": "Reproduction template from the report and validator interface; original shell argv is not embedded in this receipt."
+      },
+      {
+        "stage": "cuda_operators",
+        "argv": [
+          "${PYTHON}",
+          "tools/check_gpu_runtime.py",
+          "--output",
+          "runs/improvement-baseline/gb10-cuda-operators.json"
+        ],
+        "scope": "Reproduction template; original shell argv is not embedded in this receipt."
+      },
+      {
+        "stage": "complete_classifier",
+        "argv": [
+          "${PYTHON}",
+          "tools/check_model_runtime.py",
+          "--upstream",
+          "${UPSTREAM}",
+          "--config",
+          "configs/ciciot2022.json",
+          "--output",
+          "runs/improvement-baseline/gb10-complete-model",
+          "--build-report",
+          "${BUILD_REPORT}",
+          "--device",
+          "0",
+          "--seed",
+          "0"
+        ],
+        "scope": "Normalized request values from the executed manifest, including defaults; not a claim to preserve the exact original shell spelling."
+      },
+      {
+        "stage": "v3_readiness",
+        "argv": [
+          "python3",
+          "tools/verify_video_course_v3.py"
+        ],
+        "scope": "Baseline reproduction template at the recorded revision; later current-versus-historical verification has a separate contract."
+      }
+    ],
+    "native_prediction": "Each observation above includes the actual recorded argv with local absolute paths replaced by the named aliases."
+  },
+  "limits": [
+    "The initial expectation of bitwise agreement with historical raw logits failed and remains recorded.",
+    "Zero class disagreements do not imply bitwise numerical equivalence or universal reproducibility.",
+    "No numerical root cause was isolated by these observations.",
+    "No calibration, accuracy, latency, paper-reproduction, NPU or SmartNIC improvement was measured in this baseline.",
+    "The synthetic training step does not retrain or change any original selected classifier.",
+    "Inherited source/runtime warnings remain in the retained logs; this is not a warning-free installation claim.",
+    "Human full-watch and all-caption acceptance remain pending."
+  ]
+}

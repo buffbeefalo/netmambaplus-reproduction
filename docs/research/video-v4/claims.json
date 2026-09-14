@@ -1,0 +1,2196 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "completed_at": "2026-09-14T01:24:31.577975+00:00",
+  "source_sha256": "ee2586f49b182e432b9072d65ef0cfe2f3fe08a24aa30335cb9b928f473f2c8c",
+  "manifest_sha256": "c94677924ed6d287840403fee7e983ded7bf6ebd410b35e4e34febbae723280d",
+  "artifacts": [
+    {
+      "path": "docs/customer/demo/video/v4/NetMambaPlus-one-hour-course.mp4",
+      "sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce"
+    },
+    {
+      "path": "docs/customer/demo/video/v4/captions.vtt",
+      "sha256": "09abf418ada19a2a621e022a675734f0fc7cd790e3adff4de678aa505784147d"
+    }
+  ],
+  "known_material_defects": [],
+  "method": "Validated all 23 current schema-4 quantities, source/display units, rounding and displayed/spoken scene attribution; preserved the separate completed content review of their meanings.",
+  "quantity_and_caption_check": {
+    "identity": {
+      "path": "runs/video-course/v4-final-claims-captions/receipt.json",
+      "sha256": "a95c79775882b190eb11a8680ef7478352a45b0562f0661d6378dcd29fb96e10"
+    },
+    "record": {
+      "completed_at": "2026-09-14T01:00:08.778556+00:00",
+      "source_sha256": "ee2586f49b182e432b9072d65ef0cfe2f3fe08a24aa30335cb9b928f473f2c8c",
+      "manifest_sha256": "c94677924ed6d287840403fee7e983ded7bf6ebd410b35e4e34febbae723280d",
+      "mp4_sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce",
+      "vtt_sha256": "09abf418ada19a2a621e022a675734f0fc7cd790e3adff4de678aa505784147d",
+      "artifacts": [
+        {
+          "path": "docs/customer/demo/video/v4/NetMambaPlus-one-hour-course.mp4",
+          "sha256": "8948f4056b903942acc6feaf23df500c62f10eecdd77c69ecb6e7f552ec203ce"
+        },
+        {
+          "path": "docs/customer/demo/video/v4/captions.vtt",
+          "sha256": "09abf418ada19a2a621e022a675734f0fc7cd790e3adff4de678aa505784147d"
+        }
+      ],
+      "status": "passed",
+      "method": "Recomputed 23 schema-required evidence quantities with units/rounding and exact scene attribution; parsed every final VTT/SRT cue against source and measured windows.",
+      "quantities": [
+        {
+          "id": "cic_csv_rows",
+          "evidence": {
+            "path": "docs/customer/evidence/uploaded-csv-profile.json",
+            "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+          },
+          "pointer": "/files/0/rows",
+          "source_unit": "rows",
+          "unit": "rows",
+          "decimals": 0,
+          "expected": "1410255",
+          "scene_id": "cic-csv-01",
+          "display_phrase": "1,410,255 rows",
+          "spoken_phrase": "one million four hundred ten thousand two hundred fifty five packet records",
+          "status": "passed",
+          "actual_stored_quantity": 1410255
+        },
+        {
+          "id": "unsw_csv_rows",
+          "evidence": {
+            "path": "docs/customer/evidence/uploaded-csv-profile.json",
+            "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097"
+          },
+          "pointer": "/files/1/rows",
+          "source_unit": "rows",
+          "unit": "rows",
+          "decimals": 0,
+          "expected": "79881",
+          "scene_id": "unsw-csv-01",
+          "display_phrase": "79,881 rows",
+          "spoken_phrase": "seventy nine thousand eight hundred eighty one rows",
+          "status": "passed",
+          "actual_stored_quantity": 79881
+        },
+        {
+          "id": "native_train_flows",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+          },
+          "pointer": "/splits/train/rows",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "8323",
+          "scene_id": "unsw-csv-05",
+          "display_phrase": "Train: 8,323 flows",
+          "spoken_phrase": "The training split has eight thousand three hundred twenty three flows",
+          "status": "passed",
+          "actual_stored_quantity": 8323
+        },
+        {
+          "id": "native_validation_flows",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+          },
+          "pointer": "/splits/valid/rows",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "1040",
+          "scene_id": "unsw-csv-05",
+          "display_phrase": "Validation: 1,040 flows",
+          "spoken_phrase": "validation has one thousand forty",
+          "status": "passed",
+          "actual_stored_quantity": 1040
+        },
+        {
+          "id": "native_test_flows",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9"
+          },
+          "pointer": "/splits/test/rows",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "1041",
+          "scene_id": "unsw-csv-05",
+          "display_phrase": "Test: 1,041 flows",
+          "spoken_phrase": "the test split has one thousand forty one",
+          "status": "passed",
+          "actual_stored_quantity": 1041
+        },
+        {
+          "id": "classifier_tokens",
+          "evidence": {
+            "path": "docs/portability-evidence.json",
+            "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7"
+          },
+          "pointer": "/complete_classifier/tokens",
+          "source_unit": "tokens",
+          "unit": "tokens",
+          "decimals": 0,
+          "expected": "443",
+          "scene_id": "features-05",
+          "display_phrase": "443 total tokens",
+          "spoken_phrase": "Three learned summary tokens bring the total to four hundred forty three.",
+          "status": "passed",
+          "actual_stored_quantity": 443
+        },
+        {
+          "id": "classifier_parameters",
+          "evidence": {
+            "path": "docs/portability-evidence.json",
+            "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7"
+          },
+          "pointer": "/complete_classifier/parameter_count",
+          "source_unit": "parameters",
+          "unit": "parameters",
+          "decimals": 0,
+          "expected": "1870080",
+          "scene_id": "features-06",
+          "display_phrase": "Complete classifier: 1,870,080 parameters.",
+          "spoken_phrase": "The complete classifier has one million eight hundred seventy thousand eighty parameters.",
+          "status": "passed",
+          "actual_stored_quantity": 1870080
+        },
+        {
+          "id": "seed0_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/seeds/0/metrics/accuracy",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "91.26",
+          "scene_id": "results-01",
+          "display_phrase": "Seed 0: 91.26%",
+          "spoken_phrase": "ninety one point two six",
+          "status": "passed",
+          "actual_stored_quantity": 0.9125840537944284
+        },
+        {
+          "id": "seed1_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/seeds/1/metrics/accuracy",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "84.05",
+          "scene_id": "results-01",
+          "display_phrase": "Seed 1: 84.05%",
+          "spoken_phrase": "eighty four point zero five",
+          "status": "passed",
+          "actual_stored_quantity": 0.840537944284342
+        },
+        {
+          "id": "seed2_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/seeds/2/metrics/accuracy",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "84.63",
+          "scene_id": "results-01",
+          "display_phrase": "Seed 2: 84.63%",
+          "spoken_phrase": "eighty four point six three percent accuracy",
+          "status": "passed",
+          "actual_stored_quantity": 0.8463016330451489
+        },
+        {
+          "id": "mean_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/aggregate/accuracy/mean",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "86.65",
+          "scene_id": "results-02",
+          "display_phrase": "Mean: 86.65%",
+          "spoken_phrase": "The average accuracy is eighty six point six five percent.",
+          "status": "passed",
+          "actual_stored_quantity": 0.8664745437079732
+        },
+        {
+          "id": "accuracy_sample_sd",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/aggregate/accuracy/sample_standard_deviation",
+          "source_unit": "ratio",
+          "unit": "percentage_points",
+          "decimals": 2,
+          "expected": "4.00",
+          "scene_id": "results-02",
+          "display_phrase": "Sample standard deviation: 4.00 percentage points",
+          "spoken_phrase": "The sample standard deviation is four percentage points.",
+          "status": "passed",
+          "actual_stored_quantity": 0.04003586164106568
+        },
+        {
+          "id": "paper_accuracy",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a"
+          },
+          "pointer": "/paper_ciciot2022_table_iv/accuracy",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "97.50",
+          "scene_id": "paper-06",
+          "display_phrase": "Paper Table IV: 97.50% for CICIoT2022",
+          "spoken_phrase": "The paper's comparison includes a ninety seven point five percent accuracy figure",
+          "status": "passed",
+          "actual_stored_quantity": 0.975
+        },
+        {
+          "id": "calibration_raw_nll",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/aggregate/raw/nll/mean",
+          "source_unit": "nll",
+          "unit": "nll",
+          "decimals": 4,
+          "expected": "0.4416",
+          "scene_id": "results-07",
+          "display_phrase": "0.4416",
+          "spoken_phrase": "zero point four four one six",
+          "status": "passed",
+          "actual_stored_quantity": 0.44157103298788847
+        },
+        {
+          "id": "calibration_scaled_nll",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/aggregate/calibrated/nll/mean",
+          "source_unit": "nll",
+          "unit": "nll",
+          "decimals": 4,
+          "expected": "0.4172",
+          "scene_id": "results-07",
+          "display_phrase": "0.4172",
+          "spoken_phrase": "zero point four one seven two",
+          "status": "passed",
+          "actual_stored_quantity": 0.41721436702978215
+        },
+        {
+          "id": "calibration_raw_brier",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/aggregate/raw/brier/mean",
+          "source_unit": "brier",
+          "unit": "brier",
+          "decimals": 4,
+          "expected": "0.2035",
+          "scene_id": "results-07",
+          "display_phrase": "0.2035",
+          "spoken_phrase": "zero point two zero three five",
+          "status": "passed",
+          "actual_stored_quantity": 0.2034979828578353
+        },
+        {
+          "id": "calibration_scaled_brier",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/aggregate/calibrated/brier/mean",
+          "source_unit": "brier",
+          "unit": "brier",
+          "decimals": 4,
+          "expected": "0.2012",
+          "scene_id": "results-07",
+          "display_phrase": "0.2012",
+          "spoken_phrase": "zero point two zero one two",
+          "status": "passed",
+          "actual_stored_quantity": 0.20123485012684103
+        },
+        {
+          "id": "calibration_raw_ece",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/aggregate/raw/ece/mean",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "7.03",
+          "scene_id": "results-07",
+          "display_phrase": "7.03%",
+          "spoken_phrase": "seven point zero three percent",
+          "status": "passed",
+          "actual_stored_quantity": 0.0702813200165859
+        },
+        {
+          "id": "calibration_scaled_ece",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/aggregate/calibrated/ece/mean",
+          "source_unit": "ratio",
+          "unit": "percent",
+          "decimals": 2,
+          "expected": "3.82",
+          "scene_id": "results-07",
+          "display_phrase": "3.82%",
+          "spoken_phrase": "three point eight two percent",
+          "status": "passed",
+          "actual_stored_quantity": 0.03823171210905614
+        },
+        {
+          "id": "calibration_seed0_raw_accepted",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/seeds/0/raw/accepted",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "620",
+          "scene_id": "demo-06",
+          "display_phrase": "620 accepted flows",
+          "spoken_phrase": "six hundred twenty flows",
+          "status": "passed",
+          "actual_stored_quantity": 620
+        },
+        {
+          "id": "calibration_seed0_scaled_accepted",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/seeds/0/calibrated/accepted",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "893",
+          "scene_id": "demo-06",
+          "display_phrase": "893 accepted flows",
+          "spoken_phrase": "eight hundred ninety three flows",
+          "status": "passed",
+          "actual_stored_quantity": 893
+        },
+        {
+          "id": "calibration_seed0_raw_errors",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/seeds/0/raw/accepted_errors",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "9",
+          "scene_id": "demo-06",
+          "display_phrase": "9 wrong flows",
+          "spoken_phrase": "nine wrong",
+          "status": "passed",
+          "actual_stored_quantity": 9
+        },
+        {
+          "id": "calibration_seed0_scaled_errors",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+          },
+          "pointer": "/seeds/0/calibrated/accepted_errors",
+          "source_unit": "flows",
+          "unit": "flows",
+          "decimals": 0,
+          "expected": "37",
+          "scene_id": "demo-06",
+          "display_phrase": "37 wrong flows",
+          "spoken_phrase": "thirty seven wrong",
+          "status": "passed",
+          "actual_stored_quantity": 37
+        }
+      ],
+      "caption_count": 1083,
+      "spoken_scenes_with_complete_caption_text": 84,
+      "practice_scenes": 12,
+      "srt_sha256": "a908c8cb27f45257680ebdc711632dc24e7e2153ac8f9981505ec420bb8394ff",
+      "maximum_timestamp_serialization_error_seconds": 0.002,
+      "manifest_snapshot": {
+        "path": "runs/video-course/v4-final-claims-captions/manifest-input.json",
+        "sha256": "c94677924ed6d287840403fee7e983ded7bf6ebd410b35e4e34febbae723280d"
+      },
+      "scope": "Deterministic text, evidence and serialized timing checks. Semantic content, encoded speech, visual placement and human listening require separate reviews.",
+      "known_material_defects": []
+    }
+  },
+  "content_review": {
+    "identity": {
+      "path": "runs/video-course/v4-content-review.json",
+      "sha256": "17a8ab4fb00736d7d045dafa355f375061ef42fb758c9b085228d2e7e64a64c7"
+    },
+    "record": {
+      "schema_version": 1,
+      "kind": "independent_v4_source_content_review",
+      "status": "passed",
+      "reviewed_at": "2026-09-14T00:47:19.792771+00:00",
+      "reviewer": "Codex /root/cross_platform_fixes",
+      "source": {
+        "path": "docs/customer/video-course-v4-source.json",
+        "sha256": "ee2586f49b182e432b9072d65ef0cfe2f3fe08a24aa30335cb9b928f473f2c8c",
+        "bytes": 110981
+      },
+      "source_sha256": "ee2586f49b182e432b9072d65ef0cfe2f3fe08a24aa30335cb9b928f473f2c8c",
+      "source_final": true,
+      "scope": {
+        "all_current_narrations_read": true,
+        "narrations": 84,
+        "practice_prompts_read": 12,
+        "total_scenes": 96,
+        "chapters": 12,
+        "numeric_claims_checked": 23,
+        "v3_changed_scene_comparison": true,
+        "review_basis": "Complete source-text reading plus independent evidence/metric checks; not a rendered-media, voice, inventory, hardware rerun or human-watch acceptance.",
+        "status_meaning": "Passed source-content review only; no encoded-media, audio, current file-guide inventory, final companion or human-watch acceptance."
+      },
+      "scene_ids": [
+        "orientation-01",
+        "orientation-02",
+        "orientation-03",
+        "orientation-04",
+        "orientation-05",
+        "orientation-06",
+        "orientation-07",
+        "orientation-08",
+        "paper-01",
+        "paper-02",
+        "paper-03",
+        "paper-04",
+        "paper-05",
+        "paper-06",
+        "paper-07",
+        "paper-08",
+        "cic-csv-01",
+        "cic-csv-02",
+        "cic-csv-03",
+        "cic-csv-04",
+        "cic-csv-05",
+        "cic-csv-06",
+        "cic-csv-07",
+        "cic-csv-08",
+        "unsw-csv-01",
+        "unsw-csv-02",
+        "unsw-csv-03",
+        "unsw-csv-04",
+        "unsw-csv-05",
+        "unsw-csv-06",
+        "unsw-csv-07",
+        "unsw-csv-08",
+        "features-01",
+        "features-02",
+        "features-03",
+        "features-04",
+        "features-05",
+        "features-06",
+        "features-07",
+        "features-08",
+        "learning-01",
+        "learning-02",
+        "learning-03",
+        "learning-04",
+        "learning-05",
+        "learning-06",
+        "learning-07",
+        "learning-08",
+        "code-01",
+        "code-02",
+        "code-03",
+        "code-04",
+        "code-05",
+        "code-06",
+        "code-07",
+        "code-08",
+        "results-01",
+        "results-02",
+        "results-03",
+        "results-04",
+        "results-05",
+        "results-06",
+        "results-07",
+        "results-08",
+        "demo-01",
+        "demo-02",
+        "demo-03",
+        "demo-04",
+        "demo-05",
+        "demo-06",
+        "demo-07",
+        "demo-08",
+        "setup-01",
+        "setup-02",
+        "setup-03",
+        "setup-04",
+        "setup-05",
+        "setup-06",
+        "setup-07",
+        "setup-08",
+        "repository-01",
+        "repository-02",
+        "repository-03",
+        "repository-04",
+        "repository-05",
+        "repository-06",
+        "repository-07",
+        "repository-08",
+        "hardware-01",
+        "hardware-02",
+        "hardware-03",
+        "hardware-04",
+        "hardware-05",
+        "hardware-07",
+        "hardware-08",
+        "hardware-06"
+      ],
+      "scene_text_fingerprints": {
+        "orientation-01": "6a1ee33b1b0d26c8439f9b3de187181179e0664067416be4c22394fb25b5beb4",
+        "orientation-02": "fc9eb3e3c12d5ca4c1164c8c246db5374793ac7a05477de4a0ff92b5630366cd",
+        "orientation-03": "396d41ab104d36597dea13a59b4b656a965cb5194178402fce252d0dc69de8e5",
+        "orientation-04": "8289e64b0f529ade52fecb56a477a23ea2873b28fd35f22ce9ae9474eb547488",
+        "orientation-05": "18b0ccd42f25233bc059f8aec587ac5689e6717b0dff495e37c184e84cd2f290",
+        "orientation-06": "c7a98a35e58ad1f082d8818539a5d20404d200cbf651df5268ee05576ee33caa",
+        "orientation-07": "c5f66a1a2efd862ab68a482f55096a64d863d07bb00282133cbd931042e13fea",
+        "orientation-08": "1f459e1090754fb14efec7141a6ddbab8a3e586b4f2f45ba237cf1de77d4fb04",
+        "paper-01": "a5c6d0daf0c3828757a171aac8c7c14f0b07e3d611034d105f52c4ab4ea3790a",
+        "paper-02": "e33b824ddda1a823fd336eefe69da4ed51b4d3ac263761c4dcb7bf60e95457a7",
+        "paper-03": "6e8a5aeae034bec1a16fb919d2b4e5d20a7d56e146a448195dede4a92f7f5820",
+        "paper-04": "547ca778b4f25c9e268f3fd02a2caf22d3dce0852907070aacbb2b04929d5b62",
+        "paper-05": "b124d5414a73566a1851df86a738bdcdce1570c7f9963bba797d04c51e4c1e18",
+        "paper-06": "8d11fe32f4eba24e30dfba971735b40ee7869871c19bce61c9d56aedeae1e852",
+        "paper-07": "cb75ad066a10455d7cc68b9b4e639e6bcc852b2311288bda5aa7cf292191b164",
+        "paper-08": "d66db411b16bb0069ec423023fe5228fee759822dd73a6c245f9f070e428a5ae",
+        "cic-csv-01": "fd795dc217b0d76d986862c4af0f2f013fc093acbc1ef7b39049de7f1d4e8bfd",
+        "cic-csv-02": "e531da65a206cc1630558caf640a970863f506993934873daaf3589b50f67c7a",
+        "cic-csv-03": "2adcda5fff7d1f6b5db43492c3f30c1256b9e5e1e8b3965b9030b8ad7a5bc0dc",
+        "cic-csv-04": "a850b5195d2a85890e31819d9e1f60bc8d73a03fb040f7f8315b475b7ffb0c92",
+        "cic-csv-05": "64ed6b6e08630ab25003c7103be1366b4dbca086d6d2132ae2829055a218d2b4",
+        "cic-csv-06": "0bf2b3b897d4c213378e6eccc843995b295a7920c69a503d87f02bb0bd92e409",
+        "cic-csv-07": "4ee9ef3cd5fb120946d2818f1033ba1886d564a732dc0da7078ab12b456034d8",
+        "cic-csv-08": "2e068b8a2c87d02fb8911af0920e99fd16ac2986914a680e197af1928eb839bf",
+        "unsw-csv-01": "d9cf77f83710a91eca030bb066aca703967d726bd708690f74eb5ba40878a824",
+        "unsw-csv-02": "b0e1060bad1980bf0c157a7539396c10ec76929da07ca4220d1b1e15b381a8bc",
+        "unsw-csv-03": "1cc12c309741a690844e8c9177ad8cc6b524b9f20a7f3354a2be821091c1a95a",
+        "unsw-csv-04": "d57ef93709fd30e67afd273d4ef87c756a6b95bfa4c33b2132d5651885f6d793",
+        "unsw-csv-05": "f5b69874e0b0bcd6ccf4197b0d98b578fac28db27c4214c11fa6e5a1667caeee",
+        "unsw-csv-06": "a806a4c6a3e3868de75411b4b4d815a93f50a6fe0bf683b060e045a9fa8e1cc5",
+        "unsw-csv-07": "989b7b6a24f09eed30574c0e60674b71ee2bdd6986444d92679b6f7384c3dc50",
+        "unsw-csv-08": "34421292802de4f0381df14833e9fbb0f5b8fc500e24de7dca7aaf8c9d5859d1",
+        "features-01": "b372fe350b682831abf1828bc38da5fba861a1895f548e4dbc433e901c084458",
+        "features-02": "3555a52025454574d5445c9b4fe9a22755307d034a8246211cda60de5f67c48d",
+        "features-03": "d160e3bf2a75bc42d6d5ff8e881a67b6ed81bf3506b0633c856023c12d63d487",
+        "features-04": "29532f61821ff546f47ed7d4cb65ea9cb77ad2d4536c6bcea94172289710eff5",
+        "features-05": "ae310bb32cb600c33b3d510e1e0c15ea956aa046587e7e92207adfe645a13d84",
+        "features-06": "90e2aa704db4062cef9ae0099189fdb3eb47c8fdfe86f24daa26d4b9d35a3849",
+        "features-07": "400463b8945d806988ef51d0b9adf0f189e43ccd7b2e433969b4b1a60e729a28",
+        "features-08": "b700046d4f34eb85a9391726be279dd5ffaf1ed09b1f2b5c2f409a3816a0cfda",
+        "learning-01": "03cd4d97ccb08c14cc9849897b1ac51364faae468c9a27b947384f4cc0468c19",
+        "learning-02": "1ec82e3e6c53fbf66ff5df80cab9ec9420f5cacc21f0671076a057ba7f1608f9",
+        "learning-03": "50c317176d9ce72af5ba3622d7d3bf961747beb147c89774ac81b2fa3828f4f5",
+        "learning-04": "2997e6441ec4e9b7b58b88cb884b3eb1b29463227fbe14918895a5eb72fc7598",
+        "learning-05": "ed833f243f6a919726682c047532cd470f684aeab1d4cf587b6f34e31be39ade",
+        "learning-06": "017c25cb60d8bd7de8a448a50aa9ffaeb8cf475364aeeea03c56ef6ffa1e1a0e",
+        "learning-07": "5760c5a66cd73aef815b20211230f68c6d9e25b3453c96be9c6fbc45d96bea06",
+        "learning-08": "3737307540bd2da8f67407b2216f5af7fce625925916edc62208d35fbed8330b",
+        "code-01": "6a76623642444b2f8fbfd15f498b105e908b93bf5bc84c22e7ee88dea32cb6a5",
+        "code-02": "5c77b6977a8af77058852045a0119b973fff308ca827c3e5fe0839008bf19bbc",
+        "code-03": "24ac4121bc33647e644863c4fd2781a09575feed24732e7111b663ae0521042a",
+        "code-04": "d9cfdee2b9cad060aa4544d956fa72284a9c8eb0724bba8d58517a9af34fc75c",
+        "code-05": "708905261ddf53d73d596cf20ac9c696a16a28f8e4de21deaf629c47c8fc73f4",
+        "code-06": "1f912160257e349fc8bcca1d51a953eacd0ecc3fe55910472517004fe2cedd53",
+        "code-07": "24bbab88ef9d466cc8d8eb93412b22ce8c3d59cec1b771d36b58b8f77f8a5f09",
+        "code-08": "8e50a0c868e5de6d5bc25b0bf6659ced9df2b93ff51beb8c48cb483ed016ba12",
+        "results-01": "39f9b9ecaa6d4914f4bb94d6d5fccc01ca2b0a9ca51ee7f431f37d9e77d100f4",
+        "results-02": "64a9def6fbfaacc8196a69d65e6333c2fc0fdb51dc1a73c97dad04359360d8d2",
+        "results-03": "4ccfe80aa2518bc1c6d9391008a9363930c866fe3561ac18d57270c902feb307",
+        "results-04": "ab8079190838bdb1fbb311fe40cfb20ec914a1a8714931e00d5b4ab3557d737f",
+        "results-05": "53f7d77d9b2505d282743a8b052c8c3c14f2f2c18156084a62ed5a1617cbd59b",
+        "results-06": "7888373c50abeafb9297a61adb0d39248ab295ae2507efce73ff46efb2c1b10a",
+        "results-07": "28cf53c78d4ad7b6319ce4263bd0e51bfc1570d30c0fe63a01773af576d79eb3",
+        "results-08": "a505bf21a9644bd393e19dd9698d20fb894f15ab26896e27c7ba877dfaae3688",
+        "demo-01": "8823f99e1e6181478f641ac8220eb653e1bc52d3e5963e339297349739e22b2c",
+        "demo-02": "8cfbf11940f57a2296f35f286b8d9435452c413d0bdd1afb01bac8d55538127d",
+        "demo-03": "a7a04f5cf72479bb98a8af2ec5a036393fa4baeeb0780a4c5c023923b016b689",
+        "demo-04": "d51caea44ded153e4cd606c078fc67dd61202e5af24e4626c78fbbbc71e00f09",
+        "demo-05": "22697c96b13468ba42652172fe068a8cf51a51216c728a31f9dc9a0ac8241c60",
+        "demo-06": "1a7be838578dcc1fb509ed16434b68e1e7b4dcf3aaeabc2e36ab3f5cc8dbb70e",
+        "demo-07": "84a0c19ad4000b0e15b49f3b82a2956f1aa98ac5144578a6e7f48671f5ae4e8e",
+        "demo-08": "e58dfe9c6ef35d7ccd48d4695f45e9c7651bec1239a10255684d5814d63ed70f",
+        "setup-01": "2e6ac6d58e0d6fa55154589041c209f5cc4b42e06ad1d632718e62167bd61eef",
+        "setup-02": "28a511ddfac0a24fc2fd79ef7bcffee7f1a82b0eab4a222f7c400a68c161b4f9",
+        "setup-03": "87443ffb0a74ea3edbadf968e4ce3160b723ccb87738469727cc87aa186888e6",
+        "setup-04": "df73b988c5c6250ba91bb515da792aaab0e516dd14a33ce5e59d22bb8622c7df",
+        "setup-05": "d35365091b6cbf0742e1c7ee608d04339e7a6f2a38085b02c173c2babe3a8b6c",
+        "setup-06": "7b95a4304b4b7dc0215342fc3bf9487ef1dddc2bcf03b6f1b001130c910449b9",
+        "setup-07": "8cf802eafac7888e0caaeba2ddb0429f1e04a97315d06c6ac8d1821132fed04c",
+        "setup-08": "8f8096a4d97ed317f301aa49eeca8acae5e729d2d9ec07139fc5a39f3eedaad6",
+        "repository-01": "396e25815587798b424a8c3902449f4e05c5612096a4c97dc79b92e3b2f6cdc4",
+        "repository-02": "8550fbdbdb96c98199ebd037536b66c3a981686c622e94a9c9941dc87999caa6",
+        "repository-03": "5c5dc917ce8a7cddfc73cf8ee58cd505b05abee42d5617bac304cad716bd7c6d",
+        "repository-04": "a9780f0ee843d2d7f2ff1b85d0bde538c176ad903000b84b16dc9bdd3268dd6e",
+        "repository-05": "62573a5f94d363564c0928d0659d0deac40401dc7b13b1285c557d11b18b9033",
+        "repository-06": "339b63f3036113df05730e587c4755e0c925b074de22cef8962a73230cdf9a22",
+        "repository-07": "70c1a264b3c80addd46d75ef58996b3b978f0c598c86fedef1863dfb7e7257e0",
+        "repository-08": "8fa34980af9d739175b78e31feb3a9c2c180cb16d47bcc2a99428fa40c6c5551",
+        "hardware-01": "2d6ce947a0670a8f3f1d00b3463f0908d7dbbf507a7d568d764297403e5ceca2",
+        "hardware-02": "0eaaf832a2db0ed1f56a2579c5deefd59977aafd96bd64146ca3d25f94a8965d",
+        "hardware-03": "dbfbb0369e6e3e8dbbbd917b4a03aa2f1782c1f157751b8b032e19f552e0019e",
+        "hardware-04": "a24a8fb0195662984cd5b2627597cb16bc7af1a858ad5f66a568b4e30bc92743",
+        "hardware-05": "e364ba92a54739c8db6cdd9ba8081d3a81d2ce94de78eb6ec1be9698f8d1ae1e",
+        "hardware-07": "16df126ad758b23d45bbf29dd23f9a3675fe4bcf9f16d5eb6c70963f80cf9933",
+        "hardware-08": "c57965285c802dd3b0a7ab80aed36a8e2bc5ec9af8135be3226740127e576544",
+        "hardware-06": "c631cdd0185020354d9ca7f4e8a22e312e9f1f451afd3b5fd7dfa0fdfd55c606"
+      },
+      "changed_scenes_vs_v3": [
+        {
+          "scene_id": "paper-01",
+          "changed_fields": [
+            "narration"
+          ]
+        },
+        {
+          "scene_id": "features-05",
+          "changed_fields": [
+            "narration"
+          ]
+        },
+        {
+          "scene_id": "code-04",
+          "changed_fields": [
+            "bullets",
+            "narration",
+            "references",
+            "title"
+          ]
+        },
+        {
+          "scene_id": "results-05",
+          "changed_fields": [
+            "bullets",
+            "narration",
+            "references",
+            "title"
+          ]
+        },
+        {
+          "scene_id": "results-07",
+          "changed_fields": [
+            "bullets",
+            "columns",
+            "kind",
+            "narration",
+            "note",
+            "references",
+            "rows",
+            "title",
+            "widths"
+          ]
+        },
+        {
+          "scene_id": "demo-04",
+          "changed_fields": [
+            "narration"
+          ]
+        },
+        {
+          "scene_id": "demo-05",
+          "changed_fields": [
+            "bullets",
+            "code",
+            "narration",
+            "note",
+            "references",
+            "title"
+          ]
+        },
+        {
+          "scene_id": "demo-06",
+          "changed_fields": [
+            "bullets",
+            "kind",
+            "narration",
+            "note",
+            "references",
+            "title"
+          ]
+        },
+        {
+          "scene_id": "setup-02",
+          "changed_fields": [
+            "code"
+          ]
+        },
+        {
+          "scene_id": "repository-03",
+          "changed_fields": [
+            "bullets",
+            "narration",
+            "references",
+            "title"
+          ]
+        },
+        {
+          "scene_id": "hardware-05",
+          "changed_fields": [
+            "bullets",
+            "narration",
+            "references"
+          ]
+        }
+      ],
+      "chapter_reviews": [
+        {
+          "chapter_id": "orientation",
+          "scene_ids": [
+            "orientation-01",
+            "orientation-02",
+            "orientation-03",
+            "orientation-04",
+            "orientation-05",
+            "orientation-06",
+            "orientation-07",
+            "orientation-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Explains packets, bytes, headers, payloads and flow grouping before the architecture; distinguishes implemented, executed and validated.",
+            "States 86.65% three-seed accuracy versus unreproduced 97.5%; classifier/replay are not a complete live IDS."
+          ]
+        },
+        {
+          "chapter_id": "paper",
+          "scene_ids": [
+            "paper-01",
+            "paper-02",
+            "paper-03",
+            "paper-04",
+            "paper-05",
+            "paper-06",
+            "paper-07",
+            "paper-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Retains research-paper scope, three traffic modalities, separate NetTrans alternative, four-block Mamba path, framework/representation/learning/online-system/evaluation reading order.",
+            "Primary cached page 4 confirms the representation/pretraining/fine-tuning framework; cached page 11 Table IV confirms NetMamba+ CICIoT2022 accuracy 0.9750.",
+            "The paper 401-token table quantity and 261.87 Mb/s prototype are distinguished from this 443-token classifier and GB10 model-only timing. No reproduction of full pretraining, few-shot, OOD or imbalance experiments is claimed."
+          ]
+        },
+        {
+          "chapter_id": "cic-csv",
+          "scene_ids": [
+            "cic-csv-01",
+            "cic-csv-02",
+            "cic-csv-03",
+            "cic-csv-04",
+            "cic-csv-05",
+            "cic-csv-06",
+            "cic-csv-07",
+            "cic-csv-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Full aggregate profile supports 1,410,255 rows, 1,505 columns, 1,500 payload positions, five named metadata fields and 15 labels.",
+            "Spoken/visible common and rare label counts match the profile, including BENIGN 362,108 and SQL-injection 12. Minimum t_delta is -0.000018; units/extraction history and exhaustive payload numeric validation remain unknown.",
+            "Missing addresses, ports, flow identity and ordering prevent treating adjacent packet rows as compatible native flows."
+          ]
+        },
+        {
+          "chapter_id": "unsw-csv",
+          "scene_ids": [
+            "unsw-csv-01",
+            "unsw-csv-02",
+            "unsw-csv-03",
+            "unsw-csv-04",
+            "unsw-csv-05",
+            "unsw-csv-06",
+            "unsw-csv-07",
+            "unsw-csv-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Full aggregate profile supports 79,881 rows, 1,505 columns, 10 labels and the displayed/spoken class counts.",
+            "Distinguishes packet labels from the native six-class dataset; 8,323/1,040/1,041 split counts match native validation.",
+            "Five distinct stored inputs shared between train/validation and six shared between train/test are disclosed; no independent-capture or new-holdout claim. Zero exact validation/test overlap is in the linked calibration guide/protocol/artifacts, not spoken in this chapter."
+          ]
+        },
+        {
+          "chapter_id": "features",
+          "scene_ids": [
+            "features-01",
+            "features-02",
+            "features-03",
+            "features-04",
+            "features-05",
+            "features-06",
+            "features-07",
+            "features-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Describes the native JSON contract, 5 x 320 byte positions, normalization, 20 size values and 20 transformed intervals, token assembly and six logits.",
+            "Pinned model and runtime records support 400+20+20+3=443 tokens, width 256, four blocks and 1,870,080 total parameters.",
+            "The inherited claim that every embedding is learned was corrected to a numerical representation; size/interval value encodings are fixed sine/cosine, with learned position/modality components."
+          ]
+        },
+        {
+          "chapter_id": "learning",
+          "scene_ids": [
+            "learning-01",
+            "learning-02",
+            "learning-03",
+            "learning-04",
+            "learning-05",
+            "learning-06",
+            "learning-07",
+            "learning-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Separates reconstruction pretraining, labeled fine-tuning and frozen inference; introduces batches, epochs, gradients, optimizer updates and checkpoints.",
+            "Recorded short pretraining completes 132 updates across two epochs; epoch mean losses round to 9.51953 and 6.12702. It does not initialize the three principal fine-tunes or reproduce paper-scale pretraining.",
+            "Three seeds retain 120 epochs, 7,920 updates, batch 128 and derived maximum learning rate 0.001; validation selects checkpoints and the same fixed test split supplies final evaluation."
+          ]
+        },
+        {
+          "chapter_id": "code",
+          "scene_ids": [
+            "code-01",
+            "code-02",
+            "code-03",
+            "code-04",
+            "code-05",
+            "code-06",
+            "code-07",
+            "code-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Explains repro/evaluate/predict/replay responsibilities, original source ownership and verified 103-file source inventory, configs/assets and run manifests.",
+            "New calibration is a positive scalar applied after model logits; native targets are discarded before forward. Fitting uses validation labels, and artifacts bind checkpoint/config/classes/runtime.",
+            "Raw predictions and scores remain available; no CSV-to-flow adapter, live capture or unlabeled accuracy is promised."
+          ]
+        },
+        {
+          "chapter_id": "results",
+          "scene_ids": [
+            "results-01",
+            "results-02",
+            "results-03",
+            "results-04",
+            "results-05",
+            "results-06",
+            "results-07",
+            "results-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "All original correct counts/accuracies, mean 86.65% and sample SD 4.00 percentage points match saved results; spread is not a confidence interval.",
+            "The baseline audit supports seven CUDA comparisons, complete-model one-step/strict-reload functionality on six synthetic fixtures and three fresh seed-0 runs retaining 1,041 classes with max FP16 difference 0.00390625.",
+            "Independently recomputed all paired test metrics for all three checkpoints; NLL/Brier/ECE improve for each, accuracy does not. Spoken means round correctly, with ECE converted from fractions to percentages."
+          ]
+        },
+        {
+          "chapter_id": "demo",
+          "scene_ids": [
+            "demo-01",
+            "demo-02",
+            "demo-03",
+            "demo-04",
+            "demo-05",
+            "demo-06",
+            "demo-07",
+            "demo-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Replay remains a saved seed-0 demonstration with no browser model execution. JSON row 635 appears as browser row 0636 and remains Other misclassified as RTSP Brute Force.",
+            "The optional prediction command uses a previously fitted calibration artifact and an illustrative threshold 0.90; missing/incompatible artifacts fail rather than silently falling back.",
+            "The 620 accepted/9 wrong to 893 accepted/37 wrong seed-0 comparison is exact. Accepted-set error uses accepted rows as denominator and is undefined for an empty accepted set. Calibration is not claimed to repair row 635.",
+            "The stale unqualified statement denying any calibration validation was corrected to lack of customer-traffic reliability and unknown-attack validation."
+          ]
+        },
+        {
+          "chapter_id": "setup",
+          "scene_ids": [
+            "setup-01",
+            "setup-02",
+            "setup-03",
+            "setup-04",
+            "setup-05",
+            "setup-06",
+            "setup-07",
+            "setup-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Retains three alternative routes: presentation, portable Git/Python checks, and checked Linux CUDA model execution with acquired assets.",
+            "Six hosted OS/Python combinations match the current workflow; successful portable checks do not establish Windows/macOS/CPU/NPU neural execution.",
+            "Actual CLI help accepts the demonstrated calibration and prediction options. Final displayed commands invoke the current v4 coverage verifier; historical v3 verification remains a separate supported command."
+          ]
+        },
+        {
+          "chapter_id": "repository",
+          "scene_ids": [
+            "repository-01",
+            "repository-02",
+            "repository-03",
+            "repository-04",
+            "repository-05",
+            "repository-06",
+            "repository-07",
+            "repository-08"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Retains root entry points, configuration, dependencies, ignored local assets, acquisition/build/profile/benchmark/export/calibration tools, tests/workflows and evidence relationships.",
+            "Explains synthetic Andrew voice rendering of Codex-authored text, retired course builders and separate historical versus current downloads.",
+            "Source promises a complete file guide; this review assesses that teaching intent only. Exact current tracked/untracked inventory and completed companion outputs require the separate final coverage/document checks."
+          ]
+        },
+        {
+          "chapter_id": "hardware",
+          "scene_ids": [
+            "hardware-01",
+            "hardware-02",
+            "hardware-03",
+            "hardware-04",
+            "hardware-05",
+            "hardware-07",
+            "hardware-08",
+            "hardware-06"
+          ],
+          "narrations_read": 7,
+          "practice_prompts_read": 1,
+          "status": "supported_with_stated_limits",
+          "findings": [
+            "Model-only batch-one latency rounds from 0.881265 ms, with 20 warmups and 100 measurements; capture, assembly, preprocessing, transfers and response are excluded.",
+            "SmartNIC/NPU division is future architecture; the strict graph-export probe failed at a custom causal-convolution CUDA operator. No deployed accelerator or CPU-model backend is claimed.",
+            "Final gaps preserve unreproduced paper accuracy/full pretraining, reused checkpoint-selection validation, already-seen test data, unknown independent customer reliability, live extraction, unknown attacks and operational policies.",
+            "The final 90-second practice and concise handoff retain the seven-question explanation without declaring the research/deployment gaps closed."
+          ]
+        }
+      ],
+      "seven_question_map": [
+        {
+          "key": "tried",
+          "question": "What did you try, and what works now?",
+          "scene_ids": [
+            "orientation-01",
+            "orientation-02",
+            "orientation-05",
+            "learning-03",
+            "learning-06",
+            "code-04",
+            "results-05",
+            "results-07"
+          ],
+          "status": "substantively_covered",
+          "observed_answer": "Original-model execution, short pretraining, three full fine-tunes, strict inference/replay and measured optional calibration; limits stated."
+        },
+        {
+          "key": "learning",
+          "question": "How do NetMamba+ training and inference work?",
+          "scene_ids": [
+            "features-01",
+            "features-03",
+            "features-04",
+            "features-05",
+            "features-06",
+            "learning-01",
+            "learning-02",
+            "learning-04",
+            "learning-05",
+            "code-04"
+          ],
+          "status": "substantively_covered",
+          "observed_answer": "Input tensors, tokens, reconstruction, supervised updates, checkpoint selection and frozen prediction are explained in beginner terms; calibration changes scores after logits."
+        },
+        {
+          "key": "inputs",
+          "question": "What data goes in and what comes out?",
+          "scene_ids": [
+            "cic-csv-02",
+            "cic-csv-07",
+            "unsw-csv-04",
+            "unsw-csv-05",
+            "features-01",
+            "features-06",
+            "code-04"
+          ],
+          "status": "substantively_covered",
+          "observed_answer": "Both supplied CSV schemas/labels are explained separately from native flows, with explicit transformations, six-class mapping, logits/raw/calibrated scores and no flow-reconstruction shortcut."
+        },
+        {
+          "key": "results",
+          "question": "What results were reproduced versus the paper?",
+          "scene_ids": [
+            "paper-06",
+            "paper-07",
+            "results-01",
+            "results-02",
+            "results-04",
+            "results-05",
+            "results-06",
+            "results-07",
+            "demo-06"
+          ],
+          "status": "substantively_covered",
+          "observed_answer": "All three measured seeds, mean/spread, confidence improvements and worsening accepted-error counts are retained beside the unreproduced paper number and nonindependence limits."
+        },
+        {
+          "key": "demo",
+          "question": "What could a simple working IDS demo look like?",
+          "scene_ids": [
+            "orientation-05",
+            "code-05",
+            "demo-01",
+            "demo-03",
+            "demo-04",
+            "demo-05",
+            "demo-06",
+            "demo-07"
+          ],
+          "status": "substantively_covered",
+          "observed_answer": "A concrete recorded browser replay and a separate native inference command; one real mistake and the missing capture/flow/policy stages are demonstrated."
+        },
+        {
+          "key": "hardware",
+          "question": "How could this map to an AI NPU or SmartNIC?",
+          "scene_ids": [
+            "hardware-01",
+            "hardware-02",
+            "hardware-03",
+            "hardware-04"
+          ],
+          "status": "substantively_covered",
+          "observed_answer": "Measured GPU-only timing, proposed NIC/host/accelerator responsibilities, actual blocked graph export and parity/precision/pipeline validation steps."
+        },
+        {
+          "key": "gaps",
+          "question": "What is still missing or not working?",
+          "scene_ids": [
+            "unsw-csv-06",
+            "results-06",
+            "demo-06",
+            "setup-06",
+            "hardware-03",
+            "hardware-05",
+            "hardware-06"
+          ],
+          "status": "substantively_covered",
+          "observed_answer": "Data independence, paper accuracy and full pretraining, customer calibration, unknown attacks, live extraction/policies and unvalidated hardware backends remain explicit."
+        }
+      ],
+      "claim_reviews": [
+        {
+          "claim_id": "cic_csv_rows",
+          "scene_id": "cic-csv-01",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/uploaded-csv-profile.json",
+            "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097",
+            "bytes": 17318
+          },
+          "pointer": "/files/0/rows",
+          "raw_value": 1410255,
+          "source_unit": "rows",
+          "display_unit": "rows",
+          "rounded_quantity": 1410255,
+          "display_phrase": "1,410,255 rows",
+          "spoken_phrase": "one million four hundred ten thousand two hundred fifty five packet records",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "unsw_csv_rows",
+          "scene_id": "unsw-csv-01",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/uploaded-csv-profile.json",
+            "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097",
+            "bytes": 17318
+          },
+          "pointer": "/files/1/rows",
+          "raw_value": 79881,
+          "source_unit": "rows",
+          "display_unit": "rows",
+          "rounded_quantity": 79881,
+          "display_phrase": "79,881 rows",
+          "spoken_phrase": "seventy nine thousand eight hundred eighty one rows",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "native_train_flows",
+          "scene_id": "unsw-csv-05",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+            "bytes": 2835
+          },
+          "pointer": "/splits/train/rows",
+          "raw_value": 8323,
+          "source_unit": "flows",
+          "display_unit": "flows",
+          "rounded_quantity": 8323,
+          "display_phrase": "Train: 8,323 flows",
+          "spoken_phrase": "The training split has eight thousand three hundred twenty three flows",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "native_validation_flows",
+          "scene_id": "unsw-csv-05",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+            "bytes": 2835
+          },
+          "pointer": "/splits/valid/rows",
+          "raw_value": 1040,
+          "source_unit": "flows",
+          "display_unit": "flows",
+          "rounded_quantity": 1040,
+          "display_phrase": "Validation: 1,040 flows",
+          "spoken_phrase": "validation has one thousand forty",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "native_test_flows",
+          "scene_id": "unsw-csv-05",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/native-data-validation.json",
+            "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+            "bytes": 2835
+          },
+          "pointer": "/splits/test/rows",
+          "raw_value": 1041,
+          "source_unit": "flows",
+          "display_unit": "flows",
+          "rounded_quantity": 1041,
+          "display_phrase": "Test: 1,041 flows",
+          "spoken_phrase": "the test split has one thousand forty one",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "classifier_tokens",
+          "scene_id": "features-05",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/portability-evidence.json",
+            "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7",
+            "bytes": 12988
+          },
+          "pointer": "/complete_classifier/tokens",
+          "raw_value": 443,
+          "source_unit": "tokens",
+          "display_unit": "tokens",
+          "rounded_quantity": 443,
+          "display_phrase": "443 total tokens",
+          "spoken_phrase": "Three learned summary tokens bring the total to four hundred forty three.",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "classifier_parameters",
+          "scene_id": "features-06",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/portability-evidence.json",
+            "sha256": "938744ca5304123367d0ccfb4580e4933eaa41a7e27dedf042c95992f8d5b7e7",
+            "bytes": 12988
+          },
+          "pointer": "/complete_classifier/parameter_count",
+          "raw_value": 1870080,
+          "source_unit": "parameters",
+          "display_unit": "parameters",
+          "rounded_quantity": 1870080,
+          "display_phrase": "Complete classifier: 1,870,080 parameters.",
+          "spoken_phrase": "The complete classifier has one million eight hundred seventy thousand eighty parameters.",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "seed0_accuracy",
+          "scene_id": "results-01",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+            "bytes": 207925
+          },
+          "pointer": "/seeds/0/metrics/accuracy",
+          "raw_value": 0.9125840537944284,
+          "source_unit": "ratio",
+          "display_unit": "percent",
+          "rounded_quantity": 91.26,
+          "display_phrase": "Seed 0: 91.26%",
+          "spoken_phrase": "ninety one point two six",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "seed1_accuracy",
+          "scene_id": "results-01",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+            "bytes": 207925
+          },
+          "pointer": "/seeds/1/metrics/accuracy",
+          "raw_value": 0.840537944284342,
+          "source_unit": "ratio",
+          "display_unit": "percent",
+          "rounded_quantity": 84.05,
+          "display_phrase": "Seed 1: 84.05%",
+          "spoken_phrase": "eighty four point zero five",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "seed2_accuracy",
+          "scene_id": "results-01",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+            "bytes": 207925
+          },
+          "pointer": "/seeds/2/metrics/accuracy",
+          "raw_value": 0.8463016330451489,
+          "source_unit": "ratio",
+          "display_unit": "percent",
+          "rounded_quantity": 84.63,
+          "display_phrase": "Seed 2: 84.63%",
+          "spoken_phrase": "eighty four point six three percent accuracy",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "mean_accuracy",
+          "scene_id": "results-02",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+            "bytes": 207925
+          },
+          "pointer": "/aggregate/accuracy/mean",
+          "raw_value": 0.8664745437079732,
+          "source_unit": "ratio",
+          "display_unit": "percent",
+          "rounded_quantity": 86.65,
+          "display_phrase": "Mean: 86.65%",
+          "spoken_phrase": "The average accuracy is eighty six point six five percent.",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "accuracy_sample_sd",
+          "scene_id": "results-02",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+            "bytes": 207925
+          },
+          "pointer": "/aggregate/accuracy/sample_standard_deviation",
+          "raw_value": 0.04003586164106568,
+          "source_unit": "ratio",
+          "display_unit": "percentage_points",
+          "rounded_quantity": 4.0,
+          "display_phrase": "Sample standard deviation: 4.00 percentage points",
+          "spoken_phrase": "The sample standard deviation is four percentage points.",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "paper_accuracy",
+          "scene_id": "paper-06",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/results.json",
+            "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+            "bytes": 207925
+          },
+          "pointer": "/paper_ciciot2022_table_iv/accuracy",
+          "raw_value": 0.975,
+          "source_unit": "ratio",
+          "display_unit": "percent",
+          "rounded_quantity": 97.5,
+          "display_phrase": "Paper Table IV: 97.50% for CICIoT2022",
+          "spoken_phrase": "The paper's comparison includes a ninety seven point five percent accuracy figure",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_raw_nll",
+          "scene_id": "results-07",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/aggregate/raw/nll/mean",
+          "raw_value": 0.44157103298788847,
+          "source_unit": "nll",
+          "display_unit": "nll",
+          "rounded_quantity": 0.4416,
+          "display_phrase": "0.4416",
+          "spoken_phrase": "zero point four four one six",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_scaled_nll",
+          "scene_id": "results-07",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/aggregate/calibrated/nll/mean",
+          "raw_value": 0.41721436702978215,
+          "source_unit": "nll",
+          "display_unit": "nll",
+          "rounded_quantity": 0.4172,
+          "display_phrase": "0.4172",
+          "spoken_phrase": "zero point four one seven two",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_raw_brier",
+          "scene_id": "results-07",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/aggregate/raw/brier/mean",
+          "raw_value": 0.2034979828578353,
+          "source_unit": "brier",
+          "display_unit": "brier",
+          "rounded_quantity": 0.2035,
+          "display_phrase": "0.2035",
+          "spoken_phrase": "zero point two zero three five",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_scaled_brier",
+          "scene_id": "results-07",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/aggregate/calibrated/brier/mean",
+          "raw_value": 0.20123485012684103,
+          "source_unit": "brier",
+          "display_unit": "brier",
+          "rounded_quantity": 0.2012,
+          "display_phrase": "0.2012",
+          "spoken_phrase": "zero point two zero one two",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_raw_ece",
+          "scene_id": "results-07",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/aggregate/raw/ece/mean",
+          "raw_value": 0.0702813200165859,
+          "source_unit": "ratio",
+          "display_unit": "percent",
+          "rounded_quantity": 7.03,
+          "display_phrase": "7.03%",
+          "spoken_phrase": "seven point zero three percent",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_scaled_ece",
+          "scene_id": "results-07",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/aggregate/calibrated/ece/mean",
+          "raw_value": 0.03823171210905614,
+          "source_unit": "ratio",
+          "display_unit": "percent",
+          "rounded_quantity": 3.82,
+          "display_phrase": "3.82%",
+          "spoken_phrase": "three point eight two percent",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_seed0_raw_accepted",
+          "scene_id": "demo-06",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/seeds/0/raw/accepted",
+          "raw_value": 620,
+          "source_unit": "flows",
+          "display_unit": "flows",
+          "rounded_quantity": 620,
+          "display_phrase": "620 accepted flows",
+          "spoken_phrase": "six hundred twenty flows",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_seed0_scaled_accepted",
+          "scene_id": "demo-06",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/seeds/0/calibrated/accepted",
+          "raw_value": 893,
+          "source_unit": "flows",
+          "display_unit": "flows",
+          "rounded_quantity": 893,
+          "display_phrase": "893 accepted flows",
+          "spoken_phrase": "eight hundred ninety three flows",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_seed0_raw_errors",
+          "scene_id": "demo-06",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/seeds/0/raw/accepted_errors",
+          "raw_value": 9,
+          "source_unit": "flows",
+          "display_unit": "flows",
+          "rounded_quantity": 9,
+          "display_phrase": "9 wrong flows",
+          "spoken_phrase": "nine wrong",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        },
+        {
+          "claim_id": "calibration_seed0_scaled_errors",
+          "scene_id": "demo-06",
+          "status": "supported",
+          "evidence": {
+            "path": "docs/customer/evidence/calibration/results.json",
+            "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+            "bytes": 11857
+          },
+          "pointer": "/seeds/0/calibrated/accepted_errors",
+          "raw_value": 37,
+          "source_unit": "flows",
+          "display_unit": "flows",
+          "rounded_quantity": 37,
+          "display_phrase": "37 wrong flows",
+          "spoken_phrase": "thirty seven wrong",
+          "spoken_text_presence_checked": true,
+          "source_display_text_presence_checked": true
+        }
+      ],
+      "calibration_evidence_check": {
+        "method": "Fresh standard-library Python recalculation from every saved logit row: stable softmax(logits/T), mean natural-log NLL, mean sum-over-classes Brier, 15 equal-width confidence-bin ECE using native maximum-logit predictions, accuracy, threshold counts/coverage and accepted error. No calibration.py helper was imported by this independent calculation. Hashes checked against results.json before comparing.",
+        "rows_per_seed": 1041,
+        "paired_rows_total": 3123,
+        "all_published_metrics_matched_within_absolute_tolerance": 1e-12,
+        "maximum_recomputed_score_difference": 2.220446049250313e-16,
+        "bound_input_records_checked": 15,
+        "seed_results": [
+          {
+            "seed": 0,
+            "temperature": 0.7861955945587451,
+            "raw": {
+              "rows": 1041,
+              "classes": 6,
+              "temperature": 1.0,
+              "accuracy": 0.9125840537944284,
+              "correct": 950,
+              "nll": 0.3431890191799455,
+              "brier": 0.14353337821535414,
+              "ece": 0.06007249012032914,
+              "ece_bins": 15,
+              "threshold": 0.9,
+              "accepted": 620,
+              "deferred": 421,
+              "accepted_errors": 9,
+              "accepted_error_rate": 0.014516129032258065,
+              "coverage": 0.595581171950048
+            },
+            "calibrated": {
+              "rows": 1041,
+              "classes": 6,
+              "temperature": 0.7861955945587451,
+              "accuracy": 0.9125840537944284,
+              "correct": 950,
+              "nll": 0.3217998953718517,
+              "brier": 0.14166230563818014,
+              "ece": 0.02593360622357237,
+              "ece_bins": 15,
+              "threshold": 0.9,
+              "accepted": 893,
+              "deferred": 148,
+              "accepted_errors": 37,
+              "accepted_error_rate": 0.04143337066069429,
+              "coverage": 0.8578290105667628
+            },
+            "all_three_confidence_metrics_improved": true,
+            "accuracy_unchanged": true,
+            "class_disagreements_with_historical": 0,
+            "fit_batch_audit": {
+              "expected_rows": 1040,
+              "observed_rows": 1040,
+              "batch_size": 128,
+              "batch_sizes": [
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                16
+              ],
+              "full_batches": 8,
+              "partial_batch_rows": 16,
+              "drop_last": false,
+              "data_ratio": 1.0,
+              "sampler": "SequentialSampler",
+              "row_order": "source_json_order",
+              "labels_match_source_order": true,
+              "targets_removed_before_forward": true,
+              "metric_tie_break": "first maximum-logit index"
+            },
+            "fit_completed_at": "2026-09-14T00:01:02.684299+00:00",
+            "scaled_test_started_at": "2026-09-14T00:02:38.237319+00:00"
+          },
+          {
+            "seed": 1,
+            "temperature": 0.7769984043895529,
+            "raw": {
+              "rows": 1041,
+              "classes": 6,
+              "temperature": 1.0,
+              "accuracy": 0.840537944284342,
+              "correct": 875,
+              "nll": 0.49050024375862233,
+              "brier": 0.23133416383797314,
+              "ece": 0.0665753175107697,
+              "ece_bins": 15,
+              "threshold": 0.9,
+              "accepted": 542,
+              "deferred": 499,
+              "accepted_errors": 7,
+              "accepted_error_rate": 0.012915129151291513,
+              "coverage": 0.5206532180595581
+            },
+            "calibrated": {
+              "rows": 1041,
+              "classes": 6,
+              "temperature": 0.7769984043895529,
+              "accuracy": 0.840537944284342,
+              "correct": 875,
+              "nll": 0.46894488654240934,
+              "brier": 0.22981497511952012,
+              "ece": 0.040053685882380445,
+              "ece_bins": 15,
+              "threshold": 0.9,
+              "accepted": 652,
+              "deferred": 389,
+              "accepted_errors": 24,
+              "accepted_error_rate": 0.03680981595092025,
+              "coverage": 0.6263208453410183
+            },
+            "all_three_confidence_metrics_improved": true,
+            "accuracy_unchanged": true,
+            "class_disagreements_with_historical": 0,
+            "fit_batch_audit": {
+              "expected_rows": 1040,
+              "observed_rows": 1040,
+              "batch_size": 128,
+              "batch_sizes": [
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                16
+              ],
+              "full_batches": 8,
+              "partial_batch_rows": 16,
+              "drop_last": false,
+              "data_ratio": 1.0,
+              "sampler": "SequentialSampler",
+              "row_order": "source_json_order",
+              "labels_match_source_order": true,
+              "targets_removed_before_forward": true,
+              "metric_tie_break": "first maximum-logit index"
+            },
+            "fit_completed_at": "2026-09-14T00:01:09.823619+00:00",
+            "scaled_test_started_at": "2026-09-14T00:02:45.130730+00:00"
+          },
+          {
+            "seed": 2,
+            "temperature": 0.7173717817334739,
+            "raw": {
+              "rows": 1041,
+              "classes": 6,
+              "temperature": 1.0,
+              "accuracy": 0.8463016330451489,
+              "correct": 881,
+              "nll": 0.4910238360250976,
+              "brier": 0.2356264065201786,
+              "ece": 0.08419615241865883,
+              "ece_bins": 15,
+              "threshold": 0.9,
+              "accepted": 428,
+              "deferred": 613,
+              "accepted_errors": 4,
+              "accepted_error_rate": 0.009345794392523364,
+              "coverage": 0.4111431316042267
+            },
+            "calibrated": {
+              "rows": 1041,
+              "classes": 6,
+              "temperature": 0.7173717817334739,
+              "accuracy": 0.8463016330451489,
+              "correct": 881,
+              "nll": 0.46089831917508534,
+              "brier": 0.23222726962282286,
+              "ece": 0.048707844221215615,
+              "ece_bins": 15,
+              "threshold": 0.9,
+              "accepted": 588,
+              "deferred": 453,
+              "accepted_errors": 17,
+              "accepted_error_rate": 0.02891156462585034,
+              "coverage": 0.5648414985590778
+            },
+            "all_three_confidence_metrics_improved": true,
+            "accuracy_unchanged": true,
+            "class_disagreements_with_historical": 0,
+            "fit_batch_audit": {
+              "expected_rows": 1040,
+              "observed_rows": 1040,
+              "batch_size": 128,
+              "batch_sizes": [
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                128,
+                16
+              ],
+              "full_batches": 8,
+              "partial_batch_rows": 16,
+              "drop_last": false,
+              "data_ratio": 1.0,
+              "sampler": "SequentialSampler",
+              "row_order": "source_json_order",
+              "labels_match_source_order": true,
+              "targets_removed_before_forward": true,
+              "metric_tie_break": "first maximum-logit index"
+            },
+            "fit_completed_at": "2026-09-14T00:01:17.200755+00:00",
+            "scaled_test_started_at": "2026-09-14T00:02:52.063221+00:00"
+          }
+        ],
+        "all_fits_before_first_scaled_test": true,
+        "latest_fit_completed_at": "2026-09-14T00:01:17.200755+00:00",
+        "earliest_scaled_test_started_at": "2026-09-14T00:02:38.237319+00:00",
+        "mean_quantities": {
+          "raw": {
+            "nll": 0.44157103298788847,
+            "brier": 0.2034979828578353,
+            "ece": 0.0702813200165859,
+            "accuracy": 0.8664745437079732
+          },
+          "calibrated": {
+            "nll": 0.41721436702978215,
+            "brier": 0.20123485012684103,
+            "ece": 0.03823171210905614,
+            "accuracy": 0.8664745437079732
+          }
+        },
+        "known_error": {
+          "seed": 0,
+          "json_row": 635,
+          "browser_row": "0636",
+          "label": 3,
+          "true_class": "1-Power-Other",
+          "prediction": 1,
+          "predicted_class": "6-Attacks-2-RTSP Brute Force",
+          "historical_raw_top_score": 0.8442760770989408,
+          "fresh_raw_top_score": 0.8442681727062213,
+          "calibrated_top_score": 0.9229526254639124,
+          "decision": "accept",
+          "fixed": false
+        }
+      },
+      "provenance_limits_checked": {
+        "validation_rows": 1040,
+        "checkpoint_selection_reuse": true,
+        "train_validation_shared_raw_inputs": 5,
+        "train_validation_training_rows": 7,
+        "train_validation_validation_rows": 5,
+        "validation_test_shared_raw_inputs": 0,
+        "zero_validation_test_overlap_disclosure": "Linked calibration guide, protocol, native-data record and all three artifacts; not claimed spoken in the lesson.",
+        "capture_independence": "unknown",
+        "pretraining_exposure": "unknown",
+        "test_previously_seen": true,
+        "study": "retrospective",
+        "threshold": 0.9,
+        "policy_is_safety_guarantee": false,
+        "paper_97_5_reproduced": false,
+        "npu_or_smartnic_model_executed": false,
+        "cpu_model_backend_claimed": false
+      },
+      "material_findings": [],
+      "resolved_findings": [
+        {
+          "id": "V4-CONTENT-01",
+          "scene_id": "demo-04",
+          "original_source_sha256": "5b7cf9fdb8bc728d5fb07f2b38fd205a921c7ce6fa506a0c91c97666cb152316",
+          "finding": "Inherited unqualified denial of a validated calibration procedure contradicted the new measured retrospective procedure.",
+          "resolution": "Reread corrected narration: unknown-attack detector remains unvalidated and new calibration results do not establish customer-traffic reliability.",
+          "status": "resolved_by_root"
+        },
+        {
+          "id": "V4-CONTENT-02",
+          "scene_id": "features-05",
+          "finding": "Inherited definition described every embedding as learned, despite fixed size/interval sine/cosine value encodings.",
+          "resolution": "Reread corrected definition: an embedding is a numerical representation.",
+          "status": "resolved_by_root"
+        },
+        {
+          "id": "V4-CONTENT-04",
+          "path": "docs/customer/paper-and-data-explained.md",
+          "finding": "Related reference used an unqualified denial of calibrated confidence.",
+          "resolution": "Reread corrected paragraph: no confidence estimate validated on independent customer traffic.",
+          "status": "resolved_by_root"
+        },
+        {
+          "id": "V4-CONTENT-03",
+          "scene_id": "setup-02",
+          "status": "resolved_by_root",
+          "finding": "Displayed commands invoke only the historical v3 coverage verifier; add or substitute the current v4 verifier so the taught current-lesson verification route is complete.",
+          "evidence": "tools/verify_video_course_v3.py main() reads the pinned historical Git snapshot; tools/verify_video_course_v4.py selects current version 4.",
+          "resolution": "Final setup-02 displays python tools/verify_video_course_v4.py; final text and CLI schema entry point were checked."
+        }
+      ],
+      "actions": [
+        {
+          "action": "Read all 84 narrations and all 12 practice prompts, including scene bullets/code/table text and references; compare all changed scenes with v3.",
+          "result": "complete for bound current source"
+        },
+        {
+          "action": "Independently recompute all 3,123 paired rows and compare 15 seed/input/ground-truth hashes; inspect all three fit/prediction manifests.",
+          "result": "passed within stated numeric tolerance; every fit covers 1,040 ordered rows including the final 16-row batch"
+        },
+        {
+          "action": "View cached primary-paper page 4 and page 11 images from the original repository.",
+          "result": "Framework and NetMamba+ Table IV 0.9750 checked; no fresh full-paper review claimed"
+        },
+        {
+          "command": "python3 tools/calibrate.py --help",
+          "exit_code": 0
+        },
+        {
+          "command": "python3 predict.py --help",
+          "exit_code": 0
+        },
+        {
+          "command": "python3 tools/verify_video_course_v4.py --schema",
+          "exit_code": 0,
+          "limit": "Schema/CLI discovery only; not final coverage readiness"
+        },
+        {
+          "command": "git check-ignore runs/video-course/v4-content-review.json",
+          "exit_code": 0
+        },
+        {
+          "action": "Reread final features-05/results-07/demo-04/setup-02, compare all 96 final scene fingerprints, recheck all 23 spoken/display bindings and every previously bound evidence hash.",
+          "result": "Passed; only setup-02 code changed since the prior reviewed source, plus chapter time allocation."
+        },
+        {
+          "action": "Reread the explicit Python/package runtime-binding clarification and independently compare archived course-source.json with HEAD after substituting only references.walkthrough.sha256.",
+          "result": "The runtime advice correctly requires refitting and validation for a changed identity. Archived lesson content is identical; only the current walkthrough reference changed. Final v4 source remains unchanged.",
+          "changes": [
+            {
+              "path": "docs/customer/confidence-calibration.md",
+              "previous_sha256": "682f70ed79bb589967113f4e9d90c6cb42b580b883d750e1f692ac20b051167e",
+              "sha256": "17824ffbda5d636767df803b3331886206df598f6d45fd3b1792fdbcf9eb6a42"
+            },
+            {
+              "path": "docs/customer/course-source.json",
+              "previous_sha256": "676f228f76ffe6072a27ee34bb3b3040a86a57202d2662494324a3eacc7c5d7b",
+              "sha256": "badaf7c38b4322bdc816f816a8ae5c1c555817ac025bdf8b632aa0350f6d6ad6"
+            }
+          ],
+          "walkthrough_sha256": "e57283999325062ef7aa8e20e9dee7fc2e3263bb668bfb8ff9b465b63159b23e"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/customer/video-course-v3-source.json",
+          "sha256": "12f5572869db415fdbe34fc539500f2e0f980043de77eab69ec14bfa52d3338e",
+          "bytes": 107677
+        },
+        {
+          "path": "docs/customer/confidence-calibration.md",
+          "sha256": "17824ffbda5d636767df803b3331886206df598f6d45fd3b1792fdbcf9eb6a42",
+          "bytes": 14299
+        },
+        {
+          "path": "docs/customer/paper-and-data-explained.md",
+          "sha256": "9650afab9f04da697dfa6ca45b83b9de7c7e95c55e6074c7f576ef39f3605bf2",
+          "bytes": 37123
+        },
+        {
+          "path": "docs/customer/course-source.json",
+          "sha256": "badaf7c38b4322bdc816f816a8ae5c1c555817ac025bdf8b632aa0350f6d6ad6",
+          "bytes": 52709
+        },
+        {
+          "path": "docs/customer/answers.md",
+          "sha256": "e293eb26550a2c1577c689ccac845ad0321be7bbf2fd41c6aeeedbad3c5565ab",
+          "bytes": 2916
+        },
+        {
+          "path": "docs/customer/evidence/calibration/protocol.json",
+          "sha256": "6dc47d351086abe6e62af359d2cc6873d0f22bd1f710873f356dfb6825671e22",
+          "bytes": 2777
+        },
+        {
+          "path": "docs/customer/evidence/calibration/results.json",
+          "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80",
+          "bytes": 11857
+        },
+        {
+          "path": "docs/customer/evidence/calibration/gb10-baseline-audit.json",
+          "sha256": "ff8bef12b648557d4fbce657faee796923fc7a3c568fe740efab142dc4ad43d9",
+          "bytes": 35590
+        },
+        {
+          "path": "docs/customer/evidence/calibration/default-path-check.json",
+          "sha256": "7b39b7aa4d80b16813ddd1af3dec4d7d4cb87a33009e80507ab9b7ea39c046f4",
+          "bytes": 3357
+        },
+        {
+          "path": "docs/customer/evidence/native-data-validation.json",
+          "sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+          "bytes": 2835
+        },
+        {
+          "path": "docs/customer/evidence/uploaded-csv-profile.json",
+          "sha256": "f6d11f8c8c2d604ed6a6f2539c9c7fb93d1279997dd89cb84873de03c0547097",
+          "bytes": 17318
+        },
+        {
+          "path": "docs/customer/evidence/results.json",
+          "sha256": "ead00597c0534a10d779e83805366c1cf323d231b1f7e94e9d001272e7641f1a",
+          "bytes": 207925
+        },
+        {
+          "path": "docs/customer/evidence/benchmark/metrics.json",
+          "sha256": "1f06ba04717400b0f20a7e79f7c90e8e0d357f8bf7f2c8507ccdfc969eec0e9b",
+          "bytes": 10377
+        },
+        {
+          "path": "docs/customer/evidence/export-probe/metrics.json",
+          "sha256": "cef8a3811b33a4d350466368c3069b1d4dd2ed43ba0ebd9b5885378ff0d9ca04",
+          "bytes": 4197
+        },
+        {
+          "path": "docs/customer/evidence/pretrain-functional/train_stats.json",
+          "sha256": "ca6e7472d08a4c69f14b3523599789799bb0c2b6f205460e622b56ccdd98aace",
+          "bytes": 74
+        },
+        {
+          "path": "docs/customer/evidence/pretrain-functional/native.log",
+          "sha256": "d54559e2a24c22499790c1c03a9717e2aa06154bb1f49c1796953df24ae5b6d2",
+          "bytes": 9906
+        },
+        {
+          "path": "docs/customer/evidence/seed0/training/manifest.json",
+          "sha256": "599c0c893849363ec5c271d24732692e28b49612d9fbe250f4a0bf235e4b775f",
+          "bytes": 20756
+        },
+        {
+          "path": "configs/ciciot2022.json",
+          "sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92",
+          "bytes": 5664
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "sha256": "e16adba0d3cd5c91b090c09ff87c370b8654c50a0f3cd2572cfeb3f5244c0248",
+          "bytes": 941
+        },
+        {
+          "path": "predict.py",
+          "sha256": "fa30eef6a7a3851bf836e5443ec977774e107bd708f2614b3dc959e6d0643ccb",
+          "bytes": 10112
+        },
+        {
+          "path": "tools/calibrate.py",
+          "sha256": "806205739be3e43d5566c14ac0623a9e38eddf80f2fd0107519028663b90f570",
+          "bytes": 19948
+        },
+        {
+          "path": "tools/verify_video_course_v3.py",
+          "sha256": "bd9ab07f939557d317a4b401e0802b2c889d86447b492f7f9e5d6326554f4f7e",
+          "bytes": 43807
+        },
+        {
+          "path": "tools/verify_video_course_v4.py",
+          "sha256": "9abe079618578bd3467948b31402a92670e667dc54272a22b941465e0e23c192",
+          "bytes": 191
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed0/calibration.json",
+          "sha256": "a25d3087fead189ab77e0ce3503057c8e67369180131800ff6fb05d56d012188",
+          "bytes": 5522
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed0/fit-manifest.json",
+          "sha256": "8baabdcd5436ce908abae93a97a4f70aa33b18001e9d99d0408fcaff91916763",
+          "bytes": 186294
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed0/predictions.json",
+          "sha256": "224144f9da33fb19d601a162bda429389d2afc60f553a6d7f5e64a6af8d849c7",
+          "bytes": 731220
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed0/prediction-manifest.json",
+          "sha256": "7e30dfb242dfa4baa9bd6ee08a733ab6cad152decac8ebe494160f4dabae527a",
+          "bytes": 20172
+        },
+        {
+          "path": "docs/customer/evidence/seed0/replay/predictions.json",
+          "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+          "bytes": 454738
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed1/calibration.json",
+          "sha256": "b9e70aadef23dbc639fd2c6b2eafb26b5c59a87a827a1e19761bab838351653a",
+          "bytes": 5523
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed1/fit-manifest.json",
+          "sha256": "ac8e69fe2da164118e1fc4cd15ee187b4599230aea6f48ca7526892cdd21e385",
+          "bytes": 185639
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed1/predictions.json",
+          "sha256": "410612a87d539dec03087d4dbd3d93859026dd992ca5cd55d59468150705946e",
+          "bytes": 728962
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed1/prediction-manifest.json",
+          "sha256": "00c876e79f1110f820355968b5d44344b17710b1e96681eb8296ac52ff83e81f",
+          "bytes": 20172
+        },
+        {
+          "path": "docs/customer/evidence/seed1/replay/predictions.json",
+          "sha256": "5c53488b9bc7056c315a32a5c42036e637bd22e6c691d41e2e146110b034c095",
+          "bytes": 453618
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed2/calibration.json",
+          "sha256": "cb46c26757c95eb9a6f2bc8b58c02a4caf83d7be1c275ab7973554bb146627ee",
+          "bytes": 5521
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed2/fit-manifest.json",
+          "sha256": "47b0f634be67dac60645f6809b450c253b05231ac8ffc8f44ff08e613cabe1e5",
+          "bytes": 186329
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed2/predictions.json",
+          "sha256": "77c967954dd05b3b9ab1f439b131e7919faf1a91db1f83f3da96b7491f09e563",
+          "bytes": 730447
+        },
+        {
+          "path": "docs/customer/evidence/calibration/seed2/prediction-manifest.json",
+          "sha256": "3530b5059f431387ae095b41aab68865a3cb52124bd80b70819da770cc0a8f5d",
+          "bytes": 20172
+        },
+        {
+          "path": "docs/customer/evidence/seed2/replay/predictions.json",
+          "sha256": "4811d8ed7f39541ca15999c27a9ed4ebeb7fe16e4dea8e262274caab7999088f",
+          "bytes": 454160
+        },
+        {
+          "path": "docs/customer/evidence/pretrain-functional/log.txt",
+          "sha256": "39e7ea851b92504057ed4a319d2081f02d2081f76927c7ccd62c32a8a63ff61a",
+          "bytes": 446
+        }
+      ],
+      "primary_local_spot_checks": [
+        {
+          "repository_root": "/home/nvidia/netmambaplus-reproduction",
+          "path": "runs/video-course/v3-paper-page4.png",
+          "sha256": "ebab2746408df232bf851a0fca90b05931026e0d541b51068733eead9527bc6b"
+        },
+        {
+          "repository_root": "/home/nvidia/netmambaplus-reproduction",
+          "path": "runs/video-course/v3-paper-page11.png",
+          "sha256": "c8aa8ce712a24c46804f54cf4449d0958f30e3010f66b42c765403b38bea6bc4"
+        },
+        {
+          "repository_root": "/home/nvidia/netmambaplus-reproduction",
+          "path": "upstream/NetMambaPlus/src/models/common.py",
+          "sha256": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470"
+        },
+        {
+          "repository_root": "/home/nvidia/netmambaplus-reproduction",
+          "path": "upstream/NetMambaPlus/src/models/models_net_mamba_fuse3.py",
+          "sha256": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d"
+        }
+      ],
+      "limits": [
+        "Final source chapter budgets sum to 3,600 seconds with 200 seconds of declared practice; this content review does not verify actual audio or encoded duration.",
+        "The numeric evidence is checked retrospectively; no new GPU/model execution, retraining, raw CSV scan or train/validation/test overlap recomputation was performed in this review.",
+        "Exact overlap counts come from bound native-data evidence and do not establish capture or inherited-pretraining independence.",
+        "The current complete file-guide inventory, source/reference freeze, final coverage, companion artifact contents and publication state are outside this receipt.",
+        "No v4 slide/frame, animation, encoded media, voice quality, ASR, subtitle timing, browser playback or full human watch was accepted here.",
+        "Raw historical replay predictions remain unchanged; calibration is an optional separate inference path, not a repaired historical demonstration."
+      ],
+      "history": [
+        {
+          "status": "awaiting_final_source_and_setup_command",
+          "receipt_sha256": "6ac86fba4887f9802968a4bd43b7efadfb4b7686508316fb593d74cdb456ccd1",
+          "source_sha256": "7666e108d89c6b423d7931c4231d6f3058dba9aecc1a283a7ea83e77e7acdbd3",
+          "resolution": "Root supplied final source identity and corrected the current-version setup command. Final changes were reread and prior evidence hashes rechecked."
+        }
+      ],
+      "known_material_defects": [],
+      "final_delta_review": {
+        "previous_reviewed_source_sha256": "7666e108d89c6b423d7931c4231d6f3058dba9aecc1a283a7ea83e77e7acdbd3",
+        "changed_scene_fields_since_previous_review": [
+          {
+            "scene_id": "setup-02",
+            "field": "code",
+            "change": "Current coverage verifier v3 -> v4"
+          }
+        ],
+        "explicitly_reread_final_scenes": [
+          "features-05",
+          "results-07",
+          "demo-04",
+          "setup-02"
+        ],
+        "unchanged_scene_fingerprints": 95,
+        "chapter_seconds": {
+          "orientation": 281,
+          "paper": 314,
+          "cic-csv": 298,
+          "unsw-csv": 302,
+          "features": 291,
+          "learning": 297,
+          "code": 283,
+          "results": 295,
+          "demo": 279,
+          "setup": 285,
+          "repository": 305,
+          "hardware": 370
+        },
+        "declared_target_seconds": 3600,
+        "chapter_seconds_sum": 3600,
+        "practice_seconds_sum": 200,
+        "timing_scope": "Source arithmetic only; raw/timed speech, atempo rounding and encoded-media timing require their separate checks."
+      }
+    }
+  }
+}

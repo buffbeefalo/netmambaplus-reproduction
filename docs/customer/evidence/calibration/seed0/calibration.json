@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "method": "temperature_scaling",
+  "temperature": 0.7861955945587451,
+  "binding": {
+    "configuration_sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92",
+    "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+    "class_mapping": {
+      "6-Attacks-1-Flood": 0,
+      "6-Attacks-2-RTSP Brute Force": 1,
+      "1-Power-Audio": 2,
+      "1-Power-Other": 3,
+      "1-Power-Cameras": 4,
+      "1-Power-Home Automation": 5
+    },
+    "upstream": {
+      "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+      "core_sha256": {
+        "src/pre-train.py": "fd966021d600b23baed22dcd73fa2ccbd3e4e902f5e42cf6d9aedad7c307d4fd",
+        "src/fine-tune.py": "f84ea53fad473122bf8211bb1d083ba95a9019b0c3e48ebbff2f5e86dae4152d",
+        "src/util/arg_pre_train.py": "ac6a607367a64013f38cfadf83b471a03e5988f7dbedbc2eef0c1a5d744eb08f",
+        "src/util/arg_fine_tune.py": "3c64f41ac4fa49377b6c8836237d84096ec9975e72a4b166ec303f4e012b857e",
+        "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+        "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+        "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+      }
+    },
+    "inference_args": {
+      "model": "fuse3_mamba_classifier",
+      "dataset_type": "byte_size_interval",
+      "num_packet": 5,
+      "num_packet_byte": 320,
+      "seq_len": 20,
+      "stride_size": 4,
+      "size_key": "sizes",
+      "nb_classes": 6,
+      "device": "cuda"
+    },
+    "runtime_packages": {
+      "torch": "2.9.1+cu130",
+      "torchvision": "0.24.1",
+      "numpy": "1.26.2",
+      "timm": "0.4.12",
+      "mamba-ssm": "1.1.1",
+      "causal-conv1d": "1.1.2.post1",
+      "flash-attn": null,
+      "scikit-learn": "1.6.1",
+      "scipy": "1.15.2",
+      "pillow": "11.0.0",
+      "triton": "3.5.1",
+      "einops": "0.8.1"
+    },
+    "python_version": "3.12.3",
+    "inference_runtime": {
+      "device_type": "cuda",
+      "autocast_enabled": true,
+      "autocast_dtype": "float16",
+      "model_mode": "eval",
+      "gradient_mode": "inference_mode"
+    }
+  },
+  "fit": {
+    "split": "valid",
+    "objective": "nll",
+    "temperature_bounds": [
+      0.05,
+      20.0
+    ],
+    "temperature": 0.7861955945587451,
+    "rows": 1040,
+    "optimizer": "bisection of convex NLL derivative in inverse temperature",
+    "iterations_bound": 80,
+    "policy_threshold": 0.9,
+    "data_sha256": "c614f00e5b9b1d0059916eb90bd3296cbb8d4868154223e9717c3acb50184723",
+    "metadata_sha256": "1e5914d8cb3443a9c491ad127acf82203646b77ed4139f98cbc332ff080b8135",
+    "data_evidence_sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+    "logits_sha256": "4e28edc8352a15817b73b133e98e72d75972f0522c2c83591ef294616a557c4e",
+    "labels_sha256": "f27ecc65c1bfd9f4bdf6cff74d21e55f985a818f3599576c54d773fb371caa3b",
+    "observation_hash_encoding": "UTF-8 compact ASCII JSON, separators comma/colon, allow_nan=False",
+    "raw_metrics": {
+      "rows": 1040,
+      "classes": 6,
+      "temperature": 1.0,
+      "accuracy": 0.9048076923076923,
+      "correct": 941,
+      "nll": 0.3359518995634529,
+      "brier": 0.14524638065937834,
+      "ece": 0.06381395267759639,
+      "ece_bins": 15,
+      "threshold": null,
+      "accepted": null,
+      "deferred": null,
+      "accepted_errors": null,
+      "accepted_error_rate": null,
+      "coverage": null
+    },
+    "calibrated_metrics": {
+      "rows": 1040,
+      "classes": 6,
+      "temperature": 0.7861955945587451,
+      "accuracy": 0.9048076923076923,
+      "correct": 941,
+      "nll": 0.3112597454909295,
+      "brier": 0.14425854420829043,
+      "ece": 0.02468319460785194,
+      "ece_bins": 15,
+      "threshold": 0.9,
+      "accepted": 896,
+      "deferred": 144,
+      "accepted_errors": 37,
+      "accepted_error_rate": 0.041294642857142856,
+      "coverage": 0.8615384615384616
+    }
+  },
+  "validation": {
+    "rows": 1040,
+    "independent_holdout": false,
+    "checkpoint_selection_reuse": true,
+    "known_train_validation_overlap_rows": 5,
+    "known_validation_test_overlap_rows": 0,
+    "limitations": [
+      "Retrospective validation fitting is not independent confirmation.",
+      "The recorded overlap counts come from the bound data-evidence document; this fitting run did not read train or test data.",
+      "Recorded identifiers and exact input equality do not establish capture independence; released pretraining exposure remains unknown.",
+      "The fixed 0.90 threshold illustrates an accept/defer policy; it is not an operational safety level or correctness guarantee.",
+      "A positive scalar temperature preserves maximum-logit classes; no accuracy improvement is established.",
+      "The same validation file was used during checkpoint selection; it is reused for fitting."
+    ],
+    "loader": {
+      "expected_rows": 1040,
+      "observed_rows": 1040,
+      "batch_size": 128,
+      "batch_sizes": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        16
+      ],
+      "full_batches": 8,
+      "partial_batch_rows": 16,
+      "drop_last": false,
+      "data_ratio": 1.0,
+      "sampler": "SequentialSampler",
+      "row_order": "source_json_order",
+      "labels_match_source_order": true,
+      "targets_removed_before_forward": true,
+      "metric_tie_break": "first maximum-logit index"
+    }
+  }
+}

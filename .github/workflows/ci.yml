@@ -13,12 +13,16 @@ jobs:
         python: ['3.10', '3.12']
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Historical v3 verification reads the pinned release blobs.
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
       - run: python -m unittest discover -s tests -v
       - run: python repro.py --help
       - run: python tools/verify_package.py
+      - run: python tools/review_calibration.py --check
       - run: python tools/verify_course_video.py
       - run: python tools/verify_video_course_v3.py
+      - run: python tools/verify_video_course_v4.py
       - run: python tools/build_video_page.py --check

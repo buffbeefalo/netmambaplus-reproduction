@@ -1,0 +1,2061 @@
+{
+  "events": [
+    {
+      "scene": "orientation-01",
+      "start": 0.0,
+      "end": 36.53333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "orientation-01",
+      "start": 2.1919999999999997,
+      "end": 9.192,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-01",
+      "start": 11.934222222222221,
+      "end": 18.93422222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-01",
+      "start": 21.676444444444442,
+      "end": 28.676444444444442,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-02",
+      "start": 36.53333333333333,
+      "end": 77.2,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "orientation-02",
+      "start": 38.97333333333333,
+      "end": 45.97333333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-02",
+      "start": 49.81777777777778,
+      "end": 56.81777777777778,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-02",
+      "start": 60.66222222222222,
+      "end": 67.66222222222223,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-03",
+      "start": 77.2,
+      "end": 115.36666666666666,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "orientation-03",
+      "start": 79.49000000000001,
+      "end": 86.49000000000001,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-03",
+      "start": 89.66777777777777,
+      "end": 96.66777777777777,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-03",
+      "start": 99.84555555555555,
+      "end": 106.84555555555555,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-04",
+      "start": 115.36666666666666,
+      "end": 154.1,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "orientation-04",
+      "start": 116.36666666666666,
+      "end": 120.16666666666666,
+      "meaning": "Illustrative packet moving within its declared flow lane"
+    },
+    {
+      "scene": "orientation-04",
+      "start": 118.36666666666666,
+      "end": 122.16666666666666,
+      "meaning": "Illustrative packet moving within its declared flow lane"
+    },
+    {
+      "scene": "orientation-04",
+      "start": 120.36666666666666,
+      "end": 124.16666666666666,
+      "meaning": "Illustrative packet moving within its declared flow lane"
+    },
+    {
+      "scene": "orientation-04",
+      "start": 117.06666666666666,
+      "end": 120.86666666666666,
+      "meaning": "Illustrative packet moving within its declared flow lane"
+    },
+    {
+      "scene": "orientation-04",
+      "start": 119.06666666666666,
+      "end": 122.86666666666666,
+      "meaning": "Illustrative packet moving within its declared flow lane"
+    },
+    {
+      "scene": "orientation-04",
+      "start": 121.06666666666666,
+      "end": 124.86666666666666,
+      "meaning": "Illustrative packet moving within its declared flow lane"
+    },
+    {
+      "scene": "orientation-05",
+      "start": 154.1,
+      "end": 194.5,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "orientation-05",
+      "start": 156.524,
+      "end": 163.524,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-05",
+      "start": 167.29733333333334,
+      "end": 174.29733333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-05",
+      "start": 178.07066666666665,
+      "end": 185.07066666666665,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-06",
+      "start": 194.5,
+      "end": 234.9,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "orientation-06",
+      "start": 196.924,
+      "end": 203.924,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-06",
+      "start": 207.69733333333335,
+      "end": 214.69733333333335,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-06",
+      "start": 218.47066666666666,
+      "end": 225.47066666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-07",
+      "start": 234.9,
+      "end": 271.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "orientation-07",
+      "start": 237.066,
+      "end": 244.066,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-07",
+      "start": 246.69266666666667,
+      "end": 253.69266666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "orientation-07",
+      "start": 256.31933333333336,
+      "end": 263.31933333333336,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-01",
+      "start": 281.0,
+      "end": 323.8666666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "paper-01",
+      "start": 283.572,
+      "end": 290.572,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-01",
+      "start": 295.00311111111114,
+      "end": 302.00311111111114,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-01",
+      "start": 306.4342222222222,
+      "end": 313.4342222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-02",
+      "start": 323.8666666666667,
+      "end": 370.23333333333335,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "paper-02",
+      "start": 326.64866666666666,
+      "end": 333.64866666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-02",
+      "start": 339.01311111111113,
+      "end": 346.01311111111113,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-02",
+      "start": 351.37755555555555,
+      "end": 358.37755555555555,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-03",
+      "start": 370.23333333333335,
+      "end": 409.73333333333335,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "paper-03",
+      "start": 372.60333333333335,
+      "end": 379.60333333333335,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-03",
+      "start": 383.13666666666666,
+      "end": 390.13666666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-03",
+      "start": 393.67,
+      "end": 400.67,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-04",
+      "start": 409.73333333333335,
+      "end": 450.56666666666666,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "paper-04",
+      "start": 412.18333333333334,
+      "end": 419.18333333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-04",
+      "start": 423.07222222222225,
+      "end": 430.07222222222225,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-04",
+      "start": 433.9611111111111,
+      "end": 440.9611111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-05",
+      "start": 450.56666666666666,
+      "end": 492.3333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "paper-05",
+      "start": 453.07266666666663,
+      "end": 460.07266666666663,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-05",
+      "start": 464.2104444444444,
+      "end": 471.2104444444444,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-05",
+      "start": 475.3482222222222,
+      "end": 482.3482222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-06",
+      "start": 492.3333333333333,
+      "end": 534.9666666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "paper-06",
+      "start": 494.8913333333333,
+      "end": 501.8913333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-06",
+      "start": 511.94466666666665,
+      "end": 518.9446666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-07",
+      "start": 534.9666666666667,
+      "end": 585.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "paper-07",
+      "start": 537.9686666666666,
+      "end": 544.9686666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-07",
+      "start": 551.3108888888889,
+      "end": 558.3108888888889,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "paper-07",
+      "start": 564.6531111111111,
+      "end": 571.6531111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-01",
+      "start": 595.0,
+      "end": 635.6333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "cic-csv-01",
+      "start": 597.438,
+      "end": 604.438,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-01",
+      "start": 608.2735555555555,
+      "end": 615.2735555555555,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-01",
+      "start": 619.1091111111111,
+      "end": 626.1091111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-02",
+      "start": 635.6333333333333,
+      "end": 676.8666666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "cic-csv-02",
+      "start": 638.1073333333334,
+      "end": 645.1073333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-03",
+      "start": 676.8666666666667,
+      "end": 720.9333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "cic-csv-03",
+      "start": 679.5106666666667,
+      "end": 686.5106666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-04",
+      "start": 720.9333333333333,
+      "end": 760.6666666666666,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "cic-csv-04",
+      "start": 723.3173333333333,
+      "end": 730.3173333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-05",
+      "start": 760.6666666666666,
+      "end": 803.2,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "cic-csv-05",
+      "start": 763.2186666666666,
+      "end": 770.2186666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-05",
+      "start": 774.5608888888888,
+      "end": 781.5608888888888,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-05",
+      "start": 785.9031111111111,
+      "end": 792.9031111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-06",
+      "start": 803.2,
+      "end": 843.3666666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "cic-csv-06",
+      "start": 805.61,
+      "end": 812.61,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-06",
+      "start": 816.3211111111111,
+      "end": 823.3211111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-06",
+      "start": 827.0322222222222,
+      "end": 834.0322222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-07",
+      "start": 843.3666666666667,
+      "end": 883.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "cic-csv-07",
+      "start": 845.7446666666667,
+      "end": 852.7446666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-07",
+      "start": 856.3135555555556,
+      "end": 863.3135555555556,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "cic-csv-07",
+      "start": 866.8824444444444,
+      "end": 873.8824444444444,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-01",
+      "start": 893.0,
+      "end": 932.2,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "unsw-csv-01",
+      "start": 895.352,
+      "end": 902.352,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-01",
+      "start": 905.8053333333334,
+      "end": 912.8053333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-01",
+      "start": 916.2586666666667,
+      "end": 923.2586666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-02",
+      "start": 932.2,
+      "end": 973.1,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "unsw-csv-02",
+      "start": 934.654,
+      "end": 941.654,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-03",
+      "start": 973.1,
+      "end": 1013.9,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "unsw-csv-03",
+      "start": 975.548,
+      "end": 982.548,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-04",
+      "start": 1013.9,
+      "end": 1057.5333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "unsw-csv-04",
+      "start": 1016.518,
+      "end": 1023.518,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-05",
+      "start": 1057.5333333333333,
+      "end": 1099.5666666666666,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "unsw-csv-05",
+      "start": 1060.0553333333332,
+      "end": 1067.0553333333332,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-05",
+      "start": 1071.264222222222,
+      "end": 1078.264222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-05",
+      "start": 1082.4731111111112,
+      "end": 1089.4731111111112,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-06",
+      "start": 1099.5666666666666,
+      "end": 1144.1666666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "unsw-csv-06",
+      "start": 1102.2426666666665,
+      "end": 1109.2426666666665,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-06",
+      "start": 1114.136,
+      "end": 1121.136,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-06",
+      "start": 1126.0293333333334,
+      "end": 1133.0293333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-07",
+      "start": 1144.1666666666667,
+      "end": 1185.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "unsw-csv-07",
+      "start": 1146.6166666666668,
+      "end": 1153.6166666666668,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-07",
+      "start": 1157.5055555555557,
+      "end": 1164.5055555555557,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "unsw-csv-07",
+      "start": 1168.3944444444444,
+      "end": 1175.3944444444444,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-01",
+      "start": 1195.0,
+      "end": 1232.4,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "features-01",
+      "start": 1197.244,
+      "end": 1202.586857142857,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-01",
+      "start": 1202.2306666666666,
+      "end": 1207.5735238095237,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-01",
+      "start": 1207.2173333333333,
+      "end": 1212.5601904761904,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-01",
+      "start": 1212.204,
+      "end": 1217.546857142857,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-01",
+      "start": 1217.1906666666666,
+      "end": 1222.5335238095238,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-01",
+      "start": 1222.1773333333333,
+      "end": 1227.5201904761905,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-02",
+      "start": 1232.4,
+      "end": 1273.0666666666666,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "features-02",
+      "start": 1234.8400000000001,
+      "end": 1241.617777777778,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-02",
+      "start": 1241.3466666666668,
+      "end": 1248.1244444444446,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-02",
+      "start": 1247.8533333333335,
+      "end": 1254.6311111111113,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-02",
+      "start": 1254.36,
+      "end": 1261.1377777777777,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-02",
+      "start": 1260.8666666666666,
+      "end": 1267.6444444444444,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-03",
+      "start": 1273.0666666666666,
+      "end": 1310.7,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "features-03",
+      "start": 1275.3246666666666,
+      "end": 1282.3246666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-03",
+      "start": 1282.8513333333333,
+      "end": 1289.8513333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-03",
+      "start": 1290.378,
+      "end": 1297.378,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-03",
+      "start": 1297.9046666666666,
+      "end": 1304.9046666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-04",
+      "start": 1310.7,
+      "end": 1350.2,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "features-04",
+      "start": 1313.07,
+      "end": 1320.07,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1350.2,
+      "end": 1385.9,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "features-05",
+      "start": 1351.2,
+      "end": 1353.4,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1352.4,
+      "end": 1354.6000000000001,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1353.6000000000001,
+      "end": 1355.8000000000002,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1354.8,
+      "end": 1357.0,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1351.55,
+      "end": 1353.75,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1352.75,
+      "end": 1354.95,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1353.95,
+      "end": 1356.15,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1355.1499999999999,
+      "end": 1357.35,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1351.9,
+      "end": 1354.1000000000001,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1353.1000000000001,
+      "end": 1355.3000000000002,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1354.3000000000002,
+      "end": 1356.5000000000002,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-05",
+      "start": 1355.5,
+      "end": 1357.7,
+      "meaning": "Illustrative feature tokens entering the sequence"
+    },
+    {
+      "scene": "features-06",
+      "start": 1385.9,
+      "end": 1437.3333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "features-06",
+      "start": 1388.986,
+      "end": 1395.986,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-06",
+      "start": 1402.7015555555556,
+      "end": 1409.7015555555556,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-06",
+      "start": 1416.4171111111111,
+      "end": 1423.4171111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-07",
+      "start": 1437.3333333333333,
+      "end": 1476.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "features-07",
+      "start": 1439.6533333333332,
+      "end": 1446.6533333333332,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-07",
+      "start": 1449.9644444444443,
+      "end": 1456.9644444444443,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "features-07",
+      "start": 1460.2755555555555,
+      "end": 1467.2755555555555,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-01",
+      "start": 1486.0,
+      "end": 1525.6,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "learning-01",
+      "start": 1488.376,
+      "end": 1495.376,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-01",
+      "start": 1498.936,
+      "end": 1505.936,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-01",
+      "start": 1509.4959999999999,
+      "end": 1516.4959999999999,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-02",
+      "start": 1525.6,
+      "end": 1565.7666666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "learning-02",
+      "start": 1528.01,
+      "end": 1535.01,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-02",
+      "start": 1538.721111111111,
+      "end": 1545.721111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-02",
+      "start": 1549.4322222222222,
+      "end": 1556.4322222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-03",
+      "start": 1565.7666666666667,
+      "end": 1604.0333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "learning-03",
+      "start": 1568.0626666666667,
+      "end": 1575.0626666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-03",
+      "start": 1578.267111111111,
+      "end": 1585.267111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-03",
+      "start": 1588.4715555555556,
+      "end": 1595.4715555555556,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-04",
+      "start": 1604.0333333333333,
+      "end": 1645.6666666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "learning-04",
+      "start": 1608.4729781183728,
+      "end": 1615.4729781183728,
+      "meaning": "Narration-aligned emphasis"
+    },
+    {
+      "scene": "learning-04",
+      "start": 1611.2069966583124,
+      "end": 1618.2069966583124,
+      "meaning": "Narration-aligned emphasis"
+    },
+    {
+      "scene": "learning-04",
+      "start": 1617.5278468607416,
+      "end": 1624.5278468607416,
+      "meaning": "Narration-aligned emphasis"
+    },
+    {
+      "scene": "learning-04",
+      "start": 1623.5477041963884,
+      "end": 1630.5477041963884,
+      "meaning": "Narration-aligned emphasis"
+    },
+    {
+      "scene": "learning-05",
+      "start": 1645.6666666666667,
+      "end": 1688.3333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "learning-05",
+      "start": 1648.2266666666667,
+      "end": 1655.2266666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-05",
+      "start": 1659.6044444444444,
+      "end": 1666.6044444444444,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-05",
+      "start": 1670.9822222222222,
+      "end": 1677.9822222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-06",
+      "start": 1688.3333333333333,
+      "end": 1731.5333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "learning-06",
+      "start": 1690.9253333333334,
+      "end": 1697.9253333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-06",
+      "start": 1702.4453333333333,
+      "end": 1709.4453333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-06",
+      "start": 1713.9653333333333,
+      "end": 1720.9653333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-07",
+      "start": 1731.5333333333333,
+      "end": 1773.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "learning-07",
+      "start": 1734.0213333333334,
+      "end": 1741.0213333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-07",
+      "start": 1745.0791111111112,
+      "end": 1752.0791111111112,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "learning-07",
+      "start": 1756.136888888889,
+      "end": 1763.136888888889,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-01",
+      "start": 1783.0,
+      "end": 1825.5666666666666,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "code-01",
+      "start": 1785.554,
+      "end": 1792.554,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-01",
+      "start": 1796.9051111111112,
+      "end": 1803.9051111111112,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-01",
+      "start": 1808.2562222222223,
+      "end": 1815.2562222222223,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-02",
+      "start": 1825.5666666666666,
+      "end": 1864.8333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "code-02",
+      "start": 1827.9226666666666,
+      "end": 1834.9226666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-02",
+      "start": 1835.7759999999998,
+      "end": 1842.7759999999998,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-02",
+      "start": 1843.6293333333333,
+      "end": 1850.6293333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-02",
+      "start": 1851.4826666666665,
+      "end": 1858.4826666666665,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-03",
+      "start": 1864.8333333333333,
+      "end": 1900.8,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "code-03",
+      "start": 1866.9913333333332,
+      "end": 1873.9913333333332,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-03",
+      "start": 1876.5824444444445,
+      "end": 1883.5824444444445,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-03",
+      "start": 1886.1735555555556,
+      "end": 1893.1735555555556,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-04",
+      "start": 1900.8,
+      "end": 1940.3,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "code-04",
+      "start": 1903.1699999999998,
+      "end": 1910.1699999999998,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-04",
+      "start": 1913.7033333333334,
+      "end": 1920.7033333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-04",
+      "start": 1924.2366666666667,
+      "end": 1931.2366666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-05",
+      "start": 1940.3,
+      "end": 1978.7,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "code-05",
+      "start": 1942.604,
+      "end": 1949.604,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-05",
+      "start": 1952.844,
+      "end": 1959.844,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-05",
+      "start": 1963.084,
+      "end": 1970.084,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-06",
+      "start": 1978.7,
+      "end": 2022.5,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "code-06",
+      "start": 1981.328,
+      "end": 1988.328,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-06",
+      "start": 1993.008,
+      "end": 2000.008,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-06",
+      "start": 2004.688,
+      "end": 2011.688,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-07",
+      "start": 2022.5,
+      "end": 2056.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "code-07",
+      "start": 2024.51,
+      "end": 2031.51,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-07",
+      "start": 2033.4433333333334,
+      "end": 2040.4433333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "code-07",
+      "start": 2042.3766666666666,
+      "end": 2049.3766666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-01",
+      "start": 2066.0,
+      "end": 2105.6666666666665,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "results-01",
+      "start": 2075.4909511784513,
+      "end": 2082.4909511784513,
+      "meaning": "Narration-aligned emphasis"
+    },
+    {
+      "scene": "results-01",
+      "start": 2082.4401304713806,
+      "end": 2089.4401304713806,
+      "meaning": "Narration-aligned emphasis"
+    },
+    {
+      "scene": "results-01",
+      "start": 2085.382575757576,
+      "end": 2092.382575757576,
+      "meaning": "Narration-aligned emphasis"
+    },
+    {
+      "scene": "results-01",
+      "start": 2096.7015993265995,
+      "end": 2103.7015993265995,
+      "meaning": "Narration-aligned emphasis"
+    },
+    {
+      "scene": "results-01",
+      "start": 2066.0,
+      "end": 2077.2909511784515,
+      "meaning": "Reveal of an already measured accuracy bar; not a running training metric"
+    },
+    {
+      "scene": "results-01",
+      "start": 2066.0,
+      "end": 2084.240130471381,
+      "meaning": "Reveal of an already measured accuracy bar; not a running training metric"
+    },
+    {
+      "scene": "results-01",
+      "start": 2066.0,
+      "end": 2087.182575757576,
+      "meaning": "Reveal of an already measured accuracy bar; not a running training metric"
+    },
+    {
+      "scene": "results-01",
+      "start": 2066.0,
+      "end": 2098.5015993265997,
+      "meaning": "Reveal of an already measured accuracy bar; not a running training metric"
+    },
+    {
+      "scene": "results-02",
+      "start": 2105.6666666666665,
+      "end": 2143.5666666666666,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "results-02",
+      "start": 2107.9406666666664,
+      "end": 2114.9406666666664,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-02",
+      "start": 2118.0473333333334,
+      "end": 2125.0473333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-02",
+      "start": 2128.154,
+      "end": 2135.154,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-03",
+      "start": 2143.5666666666666,
+      "end": 2182.866666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "results-03",
+      "start": 2145.924666666667,
+      "end": 2152.924666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-03",
+      "start": 2156.404666666667,
+      "end": 2163.404666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-03",
+      "start": 2166.884666666667,
+      "end": 2173.884666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-04",
+      "start": 2182.866666666667,
+      "end": 2222.0333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "results-05",
+      "start": 2222.0333333333333,
+      "end": 2266.6666666666665,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "results-05",
+      "start": 2224.711333333333,
+      "end": 2231.711333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-05",
+      "start": 2236.6135555555556,
+      "end": 2243.6135555555556,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-05",
+      "start": 2248.5157777777777,
+      "end": 2255.5157777777777,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-06",
+      "start": 2266.6666666666665,
+      "end": 2307.3333333333335,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "results-06",
+      "start": 2269.1066666666666,
+      "end": 2276.1066666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-06",
+      "start": 2279.951111111111,
+      "end": 2286.951111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-06",
+      "start": 2290.7955555555554,
+      "end": 2297.7955555555554,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "results-07",
+      "start": 2307.3333333333335,
+      "end": 2351.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "results-07",
+      "start": 2309.9533333333334,
+      "end": 2316.9533333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-01",
+      "start": 2361.0,
+      "end": 2396.6,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "demo-02",
+      "start": 2396.6,
+      "end": 2436.366666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "demo-02",
+      "start": 2398.986,
+      "end": 2405.986,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-02",
+      "start": 2409.5904444444445,
+      "end": 2416.5904444444445,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-02",
+      "start": 2420.1948888888887,
+      "end": 2427.1948888888887,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-03",
+      "start": 2436.366666666667,
+      "end": 2470.766666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "demo-04",
+      "start": 2470.766666666667,
+      "end": 2506.5333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "demo-05",
+      "start": 2506.5333333333333,
+      "end": 2547.4333333333334,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "demo-05",
+      "start": 2508.9873333333335,
+      "end": 2515.804,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-05",
+      "start": 2515.5313333333334,
+      "end": 2522.348,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-05",
+      "start": 2522.075333333333,
+      "end": 2528.892,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-05",
+      "start": 2528.6193333333335,
+      "end": 2535.436,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-05",
+      "start": 2535.1633333333334,
+      "end": 2541.98,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-06",
+      "start": 2547.4333333333334,
+      "end": 2594.133333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "demo-06",
+      "start": 2550.2353333333335,
+      "end": 2557.2353333333335,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-06",
+      "start": 2562.6886666666664,
+      "end": 2569.6886666666664,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-06",
+      "start": 2575.142,
+      "end": 2582.142,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-07",
+      "start": 2594.133333333333,
+      "end": 2630.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "demo-07",
+      "start": 2596.2853333333333,
+      "end": 2603.2853333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-07",
+      "start": 2605.8497777777775,
+      "end": 2612.8497777777775,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "demo-07",
+      "start": 2615.414222222222,
+      "end": 2622.414222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-01",
+      "start": 2640.0,
+      "end": 2678.0666666666666,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "setup-01",
+      "start": 2642.284,
+      "end": 2649.284,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-01",
+      "start": 2652.435111111111,
+      "end": 2659.435111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-01",
+      "start": 2662.586222222222,
+      "end": 2669.586222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-02",
+      "start": 2678.0666666666666,
+      "end": 2715.7,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "setup-02",
+      "start": 2680.3246666666664,
+      "end": 2685.028833333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-02",
+      "start": 2684.625619047619,
+      "end": 2689.329785714285,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-02",
+      "start": 2688.926571428571,
+      "end": 2693.6307380952376,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-02",
+      "start": 2693.2275238095235,
+      "end": 2697.93169047619,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-02",
+      "start": 2697.528476190476,
+      "end": 2702.2326428571423,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-02",
+      "start": 2701.8294285714283,
+      "end": 2706.5335952380947,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-02",
+      "start": 2706.1303809523806,
+      "end": 2710.834547619047,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-03",
+      "start": 2715.7,
+      "end": 2755.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "setup-03",
+      "start": 2718.058,
+      "end": 2725.058,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-03",
+      "start": 2728.538,
+      "end": 2735.538,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-03",
+      "start": 2739.018,
+      "end": 2746.018,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-04",
+      "start": 2755.0,
+      "end": 2797.3,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "setup-04",
+      "start": 2757.538,
+      "end": 2764.538,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-04",
+      "start": 2768.818,
+      "end": 2775.818,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-04",
+      "start": 2780.098,
+      "end": 2787.098,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-05",
+      "start": 2797.3,
+      "end": 2838.733333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "setup-05",
+      "start": 2799.786,
+      "end": 2806.6915555555556,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-05",
+      "start": 2806.4153333333334,
+      "end": 2813.320888888889,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-05",
+      "start": 2813.0446666666667,
+      "end": 2819.9502222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-05",
+      "start": 2819.674,
+      "end": 2826.5795555555555,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-05",
+      "start": 2826.3033333333333,
+      "end": 2833.208888888889,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-06",
+      "start": 2838.733333333333,
+      "end": 2880.1,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "setup-06",
+      "start": 2841.215333333333,
+      "end": 2848.215333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-06",
+      "start": 2852.2464444444445,
+      "end": 2859.2464444444445,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-06",
+      "start": 2863.2775555555554,
+      "end": 2870.2775555555554,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-07",
+      "start": 2880.1,
+      "end": 2915.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "setup-07",
+      "start": 2882.194,
+      "end": 2889.194,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-07",
+      "start": 2891.500666666667,
+      "end": 2898.500666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "setup-07",
+      "start": 2900.807333333333,
+      "end": 2907.807333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-01",
+      "start": 2925.0,
+      "end": 2965.8,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "repository-01",
+      "start": 2927.448,
+      "end": 2934.448,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-01",
+      "start": 2938.328,
+      "end": 2945.328,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-01",
+      "start": 2949.208,
+      "end": 2956.208,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-02",
+      "start": 2965.8,
+      "end": 3007.1666666666665,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "repository-02",
+      "start": 2968.282,
+      "end": 2975.282,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-02",
+      "start": 2979.313111111111,
+      "end": 2986.313111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-02",
+      "start": 2990.344222222222,
+      "end": 2997.344222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-03",
+      "start": 3007.1666666666665,
+      "end": 3054.0333333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "repository-03",
+      "start": 3009.9786666666664,
+      "end": 3016.9786666666664,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-03",
+      "start": 3022.4764444444445,
+      "end": 3029.4764444444445,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-03",
+      "start": 3034.974222222222,
+      "end": 3041.974222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-04",
+      "start": 3054.0333333333333,
+      "end": 3095.366666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "repository-04",
+      "start": 3056.5133333333333,
+      "end": 3063.5133333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-04",
+      "start": 3067.5355555555557,
+      "end": 3074.5355555555557,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-04",
+      "start": 3078.557777777778,
+      "end": 3085.557777777778,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-05",
+      "start": 3095.366666666667,
+      "end": 3142.3333333333335,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "repository-05",
+      "start": 3098.184666666667,
+      "end": 3105.184666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-05",
+      "start": 3110.7091111111113,
+      "end": 3117.7091111111113,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-05",
+      "start": 3123.2335555555555,
+      "end": 3130.2335555555555,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-06",
+      "start": 3142.3333333333335,
+      "end": 3186.266666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "repository-06",
+      "start": 3144.9693333333335,
+      "end": 3151.9693333333335,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-06",
+      "start": 3156.684888888889,
+      "end": 3163.684888888889,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-06",
+      "start": 3168.4004444444445,
+      "end": 3175.4004444444445,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-07",
+      "start": 3186.266666666667,
+      "end": 3220.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "repository-07",
+      "start": 3188.2906666666668,
+      "end": 3195.2906666666668,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-07",
+      "start": 3197.2862222222225,
+      "end": 3204.2862222222225,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "repository-07",
+      "start": 3206.2817777777777,
+      "end": 3213.2817777777777,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-01",
+      "start": 3230.0,
+      "end": 3268.366666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "hardware-01",
+      "start": 3232.302,
+      "end": 3239.302,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-01",
+      "start": 3242.5331111111113,
+      "end": 3249.5331111111113,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-01",
+      "start": 3252.764222222222,
+      "end": 3259.764222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-02",
+      "start": 3268.366666666667,
+      "end": 3304.8333333333335,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "hardware-02",
+      "start": 3270.554666666667,
+      "end": 3277.554666666667,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-02",
+      "start": 3280.2791111111114,
+      "end": 3287.2791111111114,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-02",
+      "start": 3290.0035555555555,
+      "end": 3297.0035555555555,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-03",
+      "start": 3304.8333333333335,
+      "end": 3348.233333333333,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "hardware-03",
+      "start": 3307.4373333333333,
+      "end": 3314.4373333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-03",
+      "start": 3319.0106666666666,
+      "end": 3326.0106666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-03",
+      "start": 3330.584,
+      "end": 3337.584,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-04",
+      "start": 3348.233333333333,
+      "end": 3388.4333333333334,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "hardware-04",
+      "start": 3350.645333333333,
+      "end": 3357.645333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-04",
+      "start": 3361.365333333333,
+      "end": 3368.365333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-04",
+      "start": 3372.0853333333334,
+      "end": 3379.0853333333334,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-05",
+      "start": 3388.4333333333334,
+      "end": 3432.8,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "hardware-05",
+      "start": 3391.095333333333,
+      "end": 3398.095333333333,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-05",
+      "start": 3402.9264444444448,
+      "end": 3409.9264444444448,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-05",
+      "start": 3414.757555555556,
+      "end": 3421.757555555556,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-07",
+      "start": 3432.8,
+      "end": 3471.4666666666667,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "hardware-07",
+      "start": 3435.1200000000003,
+      "end": 3442.1200000000003,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-07",
+      "start": 3445.431111111111,
+      "end": 3452.431111111111,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-07",
+      "start": 3455.742222222222,
+      "end": 3462.742222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-06",
+      "start": 3561.4666666666667,
+      "end": 3600.0,
+      "meaning": "Teaching-scene progress, not live inference"
+    },
+    {
+      "scene": "hardware-06",
+      "start": 3563.7786666666666,
+      "end": 3570.7786666666666,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-06",
+      "start": 3574.054222222222,
+      "end": 3581.054222222222,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    },
+    {
+      "scene": "hardware-06",
+      "start": 3584.329777777778,
+      "end": 3591.329777777778,
+      "meaning": "Progressive emphasis of the teaching sequence"
+    }
+  ],
+  "enabled": true,
+  "scope": "Illustrative instructional motion and emphasis; no live inference is depicted.",
+  "source_sha256": "ee2586f49b182e432b9072d65ef0cfe2f3fe08a24aa30335cb9b928f473f2c8c",
+  "recorded_clips": [
+    {
+      "scene": "demo-01",
+      "path": "docs/customer/video-figures/recorded-controls.webm",
+      "sha256": "5f70b95ca71bf0228c2ed7b5092158cbcee7eb8e6490095686c3115213ebd118",
+      "start_seconds": 8,
+      "trim_start_seconds": 1,
+      "duration_seconds": 7.4,
+      "x": 160,
+      "y": 292,
+      "width": 1600,
+      "height": 538
+    }
+  ]
+}

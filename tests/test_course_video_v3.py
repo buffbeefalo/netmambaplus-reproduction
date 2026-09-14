@@ -43,7 +43,7 @@ def canonical(value):
 
 
 class CourseFixture:
-    def __init__(self, root, chapter_seconds=300):
+    def __init__(self, root, chapter_seconds=300, version=3):
         self.root = root
         self.write(CSV, {"files": [
             {"file": "CICIDS2017.csv", "rows": 1410255, "sha256": "a" * 64},
@@ -73,7 +73,7 @@ class CourseFixture:
             ("accuracy_sample_sd", RESULTS, "/aggregate/accuracy/sample_standard_deviation", "ratio", "percentage_points", 2, "4.00", "Sample SD", "results"),
             ("paper_accuracy", RESULTS, "/paper_ciciot2022_table_iv/accuracy", "ratio", "percent", 2, "97.50", "Paper", "paper"),
         ]
-        self.source = {"schema_version": 1, "release_tag": "course-video-v3",
+        self.source = {"schema_version": 1, "release_tag": f"course-video-v{version}",
                        "target_seconds": 12 * chapter_seconds, "max_practice_seconds": 240,
                        "chapters": [], "claims": []}
         self.claims = []
@@ -97,7 +97,7 @@ class CourseFixture:
                 "expected": expected})
         self.write(SOURCE, self.source)
         self.source_hash = digest(root / SOURCE)
-        self.media = {"source_sha256": self.source_hash, "release_tag": "course-video-v3",
+        self.media = {"source_sha256": self.source_hash, "release_tag": f"course-video-v{version}",
                       "scheduled_seconds": 12 * chapter_seconds, "scenes": [], "chapters": [],
                       "artifacts": {}, "caption_cues": []}
         narration_records, frames = [], []
@@ -151,7 +151,7 @@ class CourseFixture:
             checks[kind] = self.ref(path)
         paper = "docs/customer/paper-guide.md"
         self.write(paper, "# Paper guide\n\n## All sections\n\n" + EXAMPLE + "\n")
-        self.coverage = {"schema_version": 3, "source": self.ref(SOURCE),
+        self.coverage = {"schema_version": version, "source": self.ref(SOURCE),
             "media_manifest": self.ref(MEDIA), "inventory": [], "exclusions": [],
             "clusters": [{"id": c, "scene_ids": [c + "-spoken", c + "-pause"],
                 "purpose": PURPOSE, "relationship": RELATIONSHIP, "example": EXAMPLE,

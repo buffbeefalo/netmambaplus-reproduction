@@ -153,7 +153,8 @@ def check_schedule(source, manifest, reference_root=ROOT):
     return pauses
 
 
-def verify_files(directory=None, source_path=None, *, reference_revision=None, reference_root=None):
+def verify_files(directory=None, source_path=None, *, reference_revision=None, reference_root=None,
+                 repository_root=ROOT):
     directory = Path(directory or DESTINATION)
     source_path = Path(source_path or SOURCE).resolve()
     if reference_revision is not None and reference_root is not None:
@@ -161,9 +162,9 @@ def verify_files(directory=None, source_path=None, *, reference_revision=None, r
     reference_root = Path(reference_root or ROOT).resolve()
     revision = resolve_reference_revision(reference_revision) if reference_revision is not None else None
     manifest = read(directory / "media-manifest.json")
-    source = load_source(source_path)
+    source = load_source(source_path, root=reference_root)
     validate(source, reference_root)
-    expected_path = source_path.relative_to(ROOT).as_posix()
+    expected_path = source_path.relative_to(Path(repository_root).resolve()).as_posix()
     recorded_path = manifest.get("source_path", LEGACY_SOURCE.relative_to(ROOT).as_posix())
     if recorded_path != expected_path:
         raise ValueError("Video source path differs from the selected version")
@@ -203,6 +204,18 @@ def verify_files(directory=None, source_path=None, *, reference_revision=None, r
                       "artifacts": manifest["artifacts"],
                       "scenes": len(manifest["scenes"]), "captions": count, "practice_seconds": pauses,
                       "scope": "Source, file identity and caption checks; encoded-media decode is a separate option."}
+
+
+def verify_historical_files(root=ROOT):
+    """Check the preserved v3 release with today's verifier and pinned references."""
+    from verify_video_course_v3 import historical_snapshot, version_paths, V3_REVISION
+    paths = version_paths(3)
+    with historical_snapshot(root) as (snapshot, _):
+        manifest, result = verify_files(snapshot / Path(paths["media_manifest"]).parent,
+            snapshot / paths["source"], reference_root=snapshot, repository_root=snapshot)
+    result.update(reference_revision=V3_REVISION, reference_root=None,
+                  historical_release_bytes="unchanged")
+    return manifest, result
 
 
 def measure_media(media, manifest, ffmpeg, ffprobe, output):
@@ -336,21 +349,32 @@ def main():
     parser.add_argument("--source", type=Path)
     parser.add_argument("--watch-page", type=Path, help="Local HTML whose bytes must match the browser URL")
     parser.add_argument("--legacy", action="store_true", help="Verify the preserved v2 files and source")
+    parser.add_argument("--historical-v3", action="store_true", help="Verify unchanged v3 release bytes and pinned Git references")
     parser.add_argument("--reference-revision", help="With --legacy, hash reference blobs at this immutable Git commit")
     parser.add_argument("--reference-root", type=Path, help="With --legacy, hash reference files in a historical snapshot")
     args = parser.parse_args()
     if (args.reference_revision or args.reference_root) and not args.legacy:
-        parser.error("Historical reference options require --legacy; v3 checks current repository bytes")
+        parser.error("Historical reference options require --legacy; current v4 checks repository bytes")
     if args.reference_revision and args.reference_root:
         parser.error("Choose --reference-revision or --reference-root")
     if args.legacy and args.source and args.source.resolve() != LEGACY_SOURCE.resolve():
         parser.error("--legacy selects the preserved v2 source; use current mode for another source")
     if args.legacy and args.browser_output and args.watch_page is None:
         parser.error("A legacy browser check requires --watch-page for separately generated legacy HTML")
-    media_dir = args.media_dir or (LEGACY_DESTINATION if args.legacy else DESTINATION)
-    source_path = args.source or (LEGACY_SOURCE if args.legacy else SOURCE)
-    manifest, result = verify_files(media_dir, source_path, reference_revision=args.reference_revision,
-                                    reference_root=args.reference_root)
+    if args.historical_v3:
+        if args.legacy or args.source or args.media_dir or args.reference_root or args.reference_revision:
+            parser.error("--historical-v3 selects the immutable v3 source, media and references")
+        if args.browser_output and not args.watch_page:
+            parser.error("A historical browser check requires a separate --watch-page")
+        from build_course_video import V3_DESTINATION
+        from narrate_course_video import V3_SOURCE
+        manifest, result = verify_historical_files()
+        media_dir, source_path = V3_DESTINATION, V3_SOURCE
+    else:
+        media_dir = args.media_dir or (LEGACY_DESTINATION if args.legacy else DESTINATION)
+        source_path = args.source or (LEGACY_SOURCE if args.legacy else SOURCE)
+        manifest, result = verify_files(media_dir, source_path, reference_revision=args.reference_revision,
+                                        reference_root=args.reference_root)
     if args.decode_output:
         result["encoded_media"] = measure_media(media_dir / publication(manifest)["media_name"], manifest, args.ffmpeg, args.ffprobe, args.decode_output)
     if args.browser_output:
@@ -358,6 +382,8 @@ def main():
             parser.error("--browser-output requires --url")
         result["browser"] = browser_check(args.browser_output, args.url, manifest,
                                           media_dir=media_dir, watch_page=args.watch_page, source_path=source_path)
+    if args.historical_v3 and (args.decode_output or args.browser_output):
+        verify_historical_files()  # Detect release drift during the optional external checks.
     print(json.dumps(result, indent=2))
 
 

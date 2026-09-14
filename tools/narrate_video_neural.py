@@ -171,9 +171,10 @@ async def render_scene(scene, voice, output, ffmpeg, identity, timeout):
 
 
 async def run(args):
-    source_hash = digest(SOURCE)
-    source = load_source()
-    if digest(SOURCE) != source_hash:
+    source_path = Path(getattr(args, "source", None) or SOURCE)
+    source_hash = digest(source_path)
+    source = load_source(source_path)
+    if digest(source_path) != source_hash:
         raise ValueError("Source changed while loading")
     voice = source["voice"]
     if (voice.get("engine") != "edge-tts" or voice.get("client_version") != CLIENT_VERSION
@@ -195,7 +196,7 @@ async def run(args):
     for scene in scenes:
         identity = fingerprint(scene["narration"], voice, converter)
         try:
-            if digest(SOURCE) != source_hash:
+            if digest(source_path) != source_hash:
                 raise ValueError("Video source changed during synthesis; matching caches remain reusable")
             record = cached_record(args.output, scene["id"], identity, scene["narration"])
             cached = record is not None
@@ -206,7 +207,7 @@ async def run(args):
         except Exception as error:
             log_failure(args.output, source_hash, error, scene["id"], identity)
             raise
-    if digest(SOURCE) != source_hash:
+    if digest(source_path) != source_hash:
         error = ValueError("Video source changed during synthesis; matching scene caches remain reusable")
         log_failure(args.output, source_hash, error)
         raise error
@@ -221,6 +222,7 @@ async def run(args):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=SOURCE)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--ffmpeg", type=Path, required=True)
     parser.add_argument("--only-scene", help="Write one scene and a partial manifest, never narration.json")

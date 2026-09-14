@@ -239,7 +239,7 @@ The main runs completed, but they **did not reproduce the paper’s 97.50% resul
 
 A confusion matrix makes mistakes visible: rows are true categories and columns are predicted categories. For seed 0, 25 of the 200 Power–Cameras examples were predicted as Power–Home Automation. The displayed replay retains these errors. [Per-class results and confusion matrix](results.md#per-class-seed-0-results).
 
-Inference converts logits into normalized class scores and reports the selected class. Those scores are not established probabilities of operational safety. The current six-category model does not establish an unknown-attack detector, a calibrated confidence estimate or a production false-alert rate. Watching the replay faster does not run the neural model faster: the browser is presenting stored predictions.
+Inference converts logits into normalized class scores and reports the selected class. Those scores are not established probabilities of operational safety. The current six-category model does not establish an unknown-attack detector, a confidence estimate validated on independent customer traffic or a production false-alert rate. Watching the replay faster does not run the neural model faster: the browser is presenting stored predictions.
 
 ## 9. Where the repository fits
 

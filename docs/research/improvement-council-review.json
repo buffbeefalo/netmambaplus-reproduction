@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "kind": "public_summary_of_unratified_council_and_separate_followup",
+  "reviewed_at": "2026-09-13T23:50:54.859941+00:00",
+  "run_id": "180658c4-140e-430c-95f2-4bc272599fc4",
+  "mode": "architect",
+  "caller": "codex",
+  "state": "ESCALATED",
+  "stamp": "UNRATIFIED",
+  "mutual": false,
+  "decision_hash": null,
+  "decision": null,
+  "file_delivery_eligible": false,
+  "outcome_effect": "No mutually ratified artifact or file-delivery authority resulted. Subsequent source inspection, implementation and verification are separately and directly authorized ordinary work; they do not change this historical outcome.",
+  "started_at": "2026-09-13T23:10:05.636Z",
+  "ended_at": "2026-09-13T23:29:23.794Z",
+  "question_summary": "Choose and measure a bounded functional improvement beyond the existing reproduction, and teach it in one updated hour-long course while preserving the original checkpoints, evidence and v3 release.",
+  "intake_canonical_sha256": "21a8d38e9e66369bdd1142d84b1dde122c13c2a8b15ef4d24dab43b9ade75aff",
+  "intake_hash_method": "SHA-256 of UTF-8 canonical JSON with sorted keys and compact separators; separate byte hashes below identify the pretty-printed source files.",
+  "source_artifacts": [
+    {
+      "record": "result.json",
+      "bytes": 33715,
+      "sha256": "f5e5180fec9bda43807772287d4753b47b7c33039aeb15b3de6174e06ded37ba"
+    },
+    {
+      "record": "journal.jsonl",
+      "bytes": 56534,
+      "sha256": "4e45061429aa821d1bc46164bb6e20e22b6b53e659c3fa3021cdcb53e8b5bed4"
+    },
+    {
+      "record": "intake.json",
+      "bytes": 2623,
+      "sha256": "aefb9e9b706c888fe6f306c6233488b95d52c19567b42fadcf7214a5a3b17ef8"
+    },
+    {
+      "record": "state.json",
+      "bytes": 3239,
+      "sha256": "5941f3f4f1645056a2d5736c8c8e53206e0ea16b706b8e936e3b1d23222a7398"
+    },
+    {
+      "record": "evidence.md",
+      "bytes": 18637,
+      "sha256": "0c7378404d18fd25a4fe0ec805be90401b3493ea54387f9f0ca70c8f88f648a5"
+    },
+    {
+      "record": "evidence-pack-4b4e0d11-73dc-432a-87f4-9968c81d5f14-grounding.md",
+      "bytes": 24576,
+      "sha256": "14dbf719770dc0299c0fad8b1c05a2256b017df54d68e0985a9af8fa80b7f78b"
+    },
+    {
+      "record": "evidence-pack-4b4e0d11-73dc-432a-87f4-9968c81d5f14-round-0.md",
+      "bytes": 24576,
+      "sha256": "c0b249c3119fe0fc755374ccabc94bbc05aadf2d66fe77fde2e1d93736329d0d"
+    },
+    {
+      "record": "evidence-pack-4b4e0d11-73dc-432a-87f4-9968c81d5f14-round-1.md",
+      "bytes": 24576,
+      "sha256": "4a8fcf2c921c4860d758f2965d58919979677bef58fabfd3e0e6f6bc22486d4a"
+    }
+  ],
+  "source_access": "This is a public, self-contained summary of retained local council records. Raw prompts/journals are identified by hash and are not copied into this file. Artifact hashes are not a ratified decision hash.",
+  "seats": [
+    {
+      "provider": "claude",
+      "model": "claude-fable-5",
+      "effort": "high",
+      "role": "deliberating_seat",
+      "calls": 5,
+      "model_verification": {
+        "model": "claude-fable-5",
+        "reportedModels": [
+          "claude-fable-5"
+        ],
+        "method": "response-modelUsage"
+      },
+      "position_prompt_sha256": "c9d449addcdffe4197d209ced14004a84fee70b80635df4b9daac73397a058ee",
+      "review_prompt_sha256": "1532888624950f8d0a600f25a2ef3942234ef2000d10797407c196aa0b7cdadb",
+      "usage_records": [
+        {
+          "phase": "grounding",
+          "usage": {
+            "inputTokens": 2,
+            "outputTokens": 1925,
+            "cacheReadTokens": 0,
+            "cacheCreationTokens": 8333,
+            "totalTokens": null
+          },
+          "cost_usd": 0.26293
+        },
+        {
+          "phase": "round-0-position",
+          "usage": {
+            "inputTokens": 2,
+            "outputTokens": 7241,
+            "cacheReadTokens": 0,
+            "cacheCreationTokens": 11357,
+            "totalTokens": null
+          },
+          "cost_usd": 0.58921
+        },
+        {
+          "phase": "round-0-review",
+          "usage": {
+            "inputTokens": 2,
+            "outputTokens": 3630,
+            "cacheReadTokens": 0,
+            "cacheCreationTokens": 16682,
+            "totalTokens": null
+          },
+          "cost_usd": 0.51516
+        },
+        {
+          "phase": "round-1-revision",
+          "usage": {
+            "inputTokens": 2,
+            "outputTokens": 6484,
+            "cacheReadTokens": 0,
+            "cacheCreationTokens": 18893,
+            "totalTokens": null
+          },
+          "cost_usd": 0.70208
+        },
+        {
+          "phase": "round-1-review",
+          "usage": {
+            "inputTokens": 2,
+            "outputTokens": 4500,
+            "cacheReadTokens": 877,
+            "cacheCreationTokens": 15337,
+            "totalTokens": null
+          },
+          "cost_usd": 0.532637
+        }
+      ]
+    },
+    {
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "max",
+      "role": "deliberating_seat",
+      "calls": 5,
+      "model_verification": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "effortVerification": "explicit invocation flag; doctor does not report effective effort",
+        "method": "explicit exec flags plus machine-readable doctor config.load",
+        "doctor": {
+          "version": "0.154.0",
+          "configStatus": "ok",
+          "effectiveModel": "gpt-6-astra",
+          "approvalPolicy": "Never"
+        },
+        "invocationContract": {
+          "ignoreUserConfig": true,
+          "modelFlag": "gpt-6-astra",
+          "effortOverride": "max",
+          "hooks": false,
+          "plugins": false,
+          "sandbox": "read-only"
+        }
+      },
+      "position_prompt_sha256": "7c5a7f60cc3b4af09738f7d8de8ebf5f19d85cadfe933b003b5a60a8fdb63e1a",
+      "review_prompt_sha256": "df8b4be89f1c90af8e1d9f9a7a623f0c7b490bd2fe3ed9afdd3b618408ad5e04",
+      "usage_records": [
+        {
+          "phase": "grounding",
+          "usage": null,
+          "cost_usd": null
+        },
+        {
+          "phase": "round-0-position",
+          "usage": null,
+          "cost_usd": null
+        },
+        {
+          "phase": "round-0-review",
+          "usage": null,
+          "cost_usd": null
+        },
+        {
+          "phase": "round-1-revision",
+          "usage": null,
+          "cost_usd": null
+        },
+        {
+          "phase": "round-1-review",
+          "usage": null,
+          "cost_usd": null
+        }
+      ]
+    }
+  ],
+  "bounded_run": {
+    "provider_calls": 10,
+    "calls_by_provider": {
+      "claude": 5,
+      "codex": 5
+    },
+    "recorded_call_limit": 14,
+    "revision_rounds": 1,
+    "frozen_evidence_view_limit_bytes": 24576,
+    "stop_interpretation": "Material evidence gaps remained after the bounded revision sequence. This was not exhaustion of the recorded 14-call allowance and not a provider quota denial.",
+    "no_new_provider_calls_in_this_audit": true
+  },
+  "conditional_common_direction": {
+    "status": "largely_aligned_but_unratified",
+    "proposal": "Checkpoint-bound positive temperature scaling with opt-in abstention on native-flow prediction, measured retrospectively across all three frozen classifiers and taught through a bounded replacement segment in course-video-v4.",
+    "material_alternative": "Resumable native-flow batch inference if eligible calibration data could not be established. Ensembling and runtime optimization require separate experiments.",
+    "shared_safeguards": [
+      "Fit on eligible validation labels only, never test labels or temporary prediction placeholders.",
+      "Bind temperature artifacts to checkpoint, class mapping, preprocessing/configuration, upstream/runtime and calibration-source identity.",
+      "Retain raw outputs and truthful changed-source hashes; reject incompatible artifacts and malformed values.",
+      "Predeclare NLL, multiclass Brier, 15-bin ECE and threshold policy; report denominators and null accepted error for an empty accepted set.",
+      "Evaluate all three frozen checkpoints on identical test rows; publish unfavorable outcomes and disclose retrospective reuse.",
+      "Do not claim accuracy or latency superiority or closure of the paper gap from temperature scaling.",
+      "Preserve v3 release bytes and strict historical verification while advancing the complete current inventory to v4."
+    ]
+  },
+  "blocking_evidence_gaps": [
+    {
+      "id": "calibration_data_eligibility",
+      "raised_by": [
+        "claude",
+        "codex"
+      ],
+      "summary": "Visible filename references did not establish actual validation membership/hash, overlap results or prior use for checkpoint selection. Both final reviews required authoritative data and run provenance before freezing the fitting contract."
+    },
+    {
+      "id": "historical_and_current_video_verifier",
+      "raised_by": [
+        "claude",
+        "codex"
+      ],
+      "summary": "The complete current-inventory and fixed-v3 binding mechanisms were not visible to the final reviews. The full verifier request remained excluded by total-size-budget; version handling could not safely be treated as a free file addition."
+    }
+  ],
+  "late_evidence_collection": {
+    "last_provider_result_at": "2026-09-13T23:29:23.787Z",
+    "final_evidence_collection_at": "2026-09-13T23:29:23.790Z",
+    "native_validation_full_file_eventually_fetched": true,
+    "native_validation_content_sha256": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
+    "native_validation_full_file_bytes": 2835,
+    "full_verifier_still_excluded": "total-size-budget",
+    "later_seat_review_or_ratification": false,
+    "meaning": "Some requested validation evidence arrived in the final post-review collection. It was not followed by another seat review or an exact-hash ratification; the recorded escalation remains the outcome."
+  },
+  "separate_direct_followup": [
+    {
+      "id": "validation_and_checkpoint_history",
+      "status": "facts_directly_verified",
+      "method": "Read the full fresh/native validation reports and all three successful training manifests; rehash native files; inspect the exact pinned fine-tuning loop.",
+      "facts": {
+        "validation_rows": 1040,
+        "validation_sha256": "c614f00e5b9b1d0059916eb90bd3296cbb8d4868154223e9717c3acb50184723",
+        "train_validation_shared_raw_inputs": 5,
+        "train_validation_overlapping_training_rows": 7,
+        "train_validation_overlapping_validation_rows": 5,
+        "validation_test_shared_raw_inputs": 0,
+        "train_test_shared_raw_inputs": 6,
+        "checkpoint_selection_reuses_validation": true
+      },
+      "selection_source": {
+        "upstream_commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+        "file": "src/fine-tune.py",
+        "sha256": "f84ea53fad473122bf8211bb1d083ba95a9019b0c3e48ebbff2f5e86dae4152d",
+        "lines": "173-187",
+        "url": "https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/fine-tune.py#L173-L187",
+        "behavior": "Training updates use data_loader_train; evaluation uses data_loader_val, and its accuracy selects checkpoint-best.pth."
+      },
+      "limits": "Validation is reusable only with the explicit retrospective/checkpoint-selection limitation. Exact raw-input checks do not prove capture independence or full inherited-pretraining history. This inspection supplies evidence; it is not a council acceptance."
+    },
+    {
+      "id": "verifier_mechanisms",
+      "status": "baseline_mechanisms_inspected_current_historical_integration_separate",
+      "source": {
+        "path": "tools/verify_video_course_v3.py",
+        "revision": "71290440e917105ffa094402d94e24d7e29a3549",
+        "sha256": "802833d97d0274281a3d235060207c02367ed60d0390a488dee05167111efbab",
+        "bytes": 36645
+      },
+      "anchors": [
+        "check_inventory at line242 requires exact inventory set equality at line244",
+        "check_media at line383 binds media to course-video-v3",
+        "verify_coverage at line497 binds source release_tag at line512 and discovers the current Git inventory"
+      ],
+      "implementation_requirement": "Advance current-course handling explicitly and verify preserved v3 bytes against the immutable baseline snapshot. Do not remove new files from current inventory or refresh historical reviews to evade stale bindings.",
+      "acceptance_status": "Current-versus-historical implementation and regression acceptance are separate in-progress work at this summary timestamp; no future result is claimed here."
+    },
+    {
+      "id": "baseline_execution",
+      "status": "actual_receipts_reviewed",
+      "public_report": "docs/customer/evidence/calibration/gb10-baseline-audit.json",
+      "summary": "169 CPU tests, seven CUDA comparisons and the complete classifier training-step/reload checks passed. Historical bitwise logits differed despite all 1,041 seed-0 class predictions agreeing; the failed expectation remains visible."
+    }
+  ],
+  "direct_implementation_plan": {
+    "path": "docs/superpowers/plans/2026-09-13-confidence-and-course.md",
+    "bytes": 8676,
+    "sha256": "bfb7c93253f52455a7ca9b81d89ba6228b2f48486f02b41151a16f8b1da4c062",
+    "public": true
+  },
+  "not_claimed": [
+    "CONSENSUS or mutual ratification",
+    "A non-null decision hash",
+    "Successful broker delivery",
+    "Completed calibration measurements or improvement",
+    "Current v4 publication acceptance",
+    "A completed human full-watch or all-caption acceptance"
+  ]
+}

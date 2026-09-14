@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "kind": "retrospective_paired_temperature_scaling_study",
+  "protocol": {
+    "path": "docs/customer/evidence/calibration/protocol.json",
+    "sha256": "6dc47d351086abe6e62af359d2cc6873d0f22bd1f710873f356dfb6825671e22"
+  },
+  "seeds": [
+    {
+      "seed": 0,
+      "temperature": 0.7861955945587451,
+      "inputs": {
+        "calibration": {
+          "path": "docs/customer/evidence/calibration/seed0/calibration.json",
+          "sha256": "a25d3087fead189ab77e0ce3503057c8e67369180131800ff6fb05d56d012188"
+        },
+        "fit_manifest": {
+          "path": "docs/customer/evidence/calibration/seed0/fit-manifest.json",
+          "sha256": "8baabdcd5436ce908abae93a97a4f70aa33b18001e9d99d0408fcaff91916763"
+        },
+        "predictions": {
+          "path": "docs/customer/evidence/calibration/seed0/predictions.json",
+          "sha256": "224144f9da33fb19d601a162bda429389d2afc60f553a6d7f5e64a6af8d849c7"
+        },
+        "prediction_manifest": {
+          "path": "docs/customer/evidence/calibration/seed0/prediction-manifest.json",
+          "sha256": "7e30dfb242dfa4baa9bd6ee08a733ab6cad152decac8ebe494160f4dabae527a"
+        }
+      },
+      "recorded_ground_truth": {
+        "path": "docs/customer/evidence/seed0/replay/predictions.json",
+        "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a"
+      },
+      "raw": {
+        "rows": 1041,
+        "classes": 6,
+        "temperature": 1.0,
+        "accuracy": 0.9125840537944284,
+        "correct": 950,
+        "nll": 0.3431890191799455,
+        "brier": 0.14353337821535414,
+        "ece": 0.06007249012032914,
+        "ece_bins": 15,
+        "threshold": 0.9,
+        "accepted": 620,
+        "deferred": 421,
+        "accepted_errors": 9,
+        "accepted_error_rate": 0.014516129032258065,
+        "coverage": 0.595581171950048
+      },
+      "calibrated": {
+        "rows": 1041,
+        "classes": 6,
+        "temperature": 0.7861955945587451,
+        "accuracy": 0.9125840537944284,
+        "correct": 950,
+        "nll": 0.3217998953718517,
+        "brier": 0.14166230563818014,
+        "ece": 0.02593360622357237,
+        "ece_bins": 15,
+        "threshold": 0.9,
+        "accepted": 893,
+        "deferred": 148,
+        "accepted_errors": 37,
+        "accepted_error_rate": 0.04143337066069429,
+        "coverage": 0.8578290105667628
+      },
+      "delta_calibrated_minus_raw": {
+        "nll": -0.02138912380809377,
+        "brier": -0.0018710725771740044,
+        "ece": -0.034138883896756775,
+        "accuracy": 0.0,
+        "coverage": 0.26224783861671475
+      },
+      "class_disagreements_with_historical": 0,
+      "historical_logit_comparison": {
+        "values": 6246,
+        "different_values": 1235,
+        "maximum_absolute_difference": 0.00390625
+      },
+      "score_check_absolute_tolerance": 1e-12
+    },
+    {
+      "seed": 1,
+      "temperature": 0.7769984043895529,
+      "inputs": {
+        "calibration": {
+          "path": "docs/customer/evidence/calibration/seed1/calibration.json",
+          "sha256": "b9e70aadef23dbc639fd2c6b2eafb26b5c59a87a827a1e19761bab838351653a"
+        },
+        "fit_manifest": {
+          "path": "docs/customer/evidence/calibration/seed1/fit-manifest.json",
+          "sha256": "ac8e69fe2da164118e1fc4cd15ee187b4599230aea6f48ca7526892cdd21e385"
+        },
+        "predictions": {
+          "path": "docs/customer/evidence/calibration/seed1/predictions.json",
+          "sha256": "410612a87d539dec03087d4dbd3d93859026dd992ca5cd55d59468150705946e"
+        },
+        "prediction_manifest": {
+          "path": "docs/customer/evidence/calibration/seed1/prediction-manifest.json",
+          "sha256": "00c876e79f1110f820355968b5d44344b17710b1e96681eb8296ac52ff83e81f"
+        }
+      },
+      "recorded_ground_truth": {
+        "path": "docs/customer/evidence/seed1/replay/predictions.json",
+        "sha256": "5c53488b9bc7056c315a32a5c42036e637bd22e6c691d41e2e146110b034c095"
+      },
+      "raw": {
+        "rows": 1041,
+        "classes": 6,
+        "temperature": 1.0,
+        "accuracy": 0.840537944284342,
+        "correct": 875,
+        "nll": 0.49050024375862233,
+        "brier": 0.23133416383797314,
+        "ece": 0.0665753175107697,
+        "ece_bins": 15,
+        "threshold": 0.9,
+        "accepted": 542,
+        "deferred": 499,
+        "accepted_errors": 7,
+        "accepted_error_rate": 0.012915129151291513,
+        "coverage": 0.5206532180595581
+      },
+      "calibrated": {
+        "rows": 1041,
+        "classes": 6,
+        "temperature": 0.7769984043895529,
+        "accuracy": 0.840537944284342,
+        "correct": 875,
+        "nll": 0.46894488654240934,
+        "brier": 0.22981497511952012,
+        "ece": 0.040053685882380445,
+        "ece_bins": 15,
+        "threshold": 0.9,
+        "accepted": 652,
+        "deferred": 389,
+        "accepted_errors": 24,
+        "accepted_error_rate": 0.03680981595092025,
+        "coverage": 0.6263208453410183
+      },
+      "delta_calibrated_minus_raw": {
+        "nll": -0.02155535721621299,
+        "brier": -0.001519188718453024,
+        "ece": -0.026521631628389254,
+        "accuracy": 0.0,
+        "coverage": 0.10566762728146017
+      },
+      "class_disagreements_with_historical": 0,
+      "historical_logit_comparison": {
+        "values": 6246,
+        "different_values": 681,
+        "maximum_absolute_difference": 0.001953125
+      },
+      "score_check_absolute_tolerance": 1e-12
+    },
+    {
+      "seed": 2,
+      "temperature": 0.7173717817334739,
+      "inputs": {
+        "calibration": {
+          "path": "docs/customer/evidence/calibration/seed2/calibration.json",
+          "sha256": "cb46c26757c95eb9a6f2bc8b58c02a4caf83d7be1c275ab7973554bb146627ee"
+        },
+        "fit_manifest": {
+          "path": "docs/customer/evidence/calibration/seed2/fit-manifest.json",
+          "sha256": "47b0f634be67dac60645f6809b450c253b05231ac8ffc8f44ff08e613cabe1e5"
+        },
+        "predictions": {
+          "path": "docs/customer/evidence/calibration/seed2/predictions.json",
+          "sha256": "77c967954dd05b3b9ab1f439b131e7919faf1a91db1f83f3da96b7491f09e563"
+        },
+        "prediction_manifest": {
+          "path": "docs/customer/evidence/calibration/seed2/prediction-manifest.json",
+          "sha256": "3530b5059f431387ae095b41aab68865a3cb52124bd80b70819da770cc0a8f5d"
+        }
+      },
+      "recorded_ground_truth": {
+        "path": "docs/customer/evidence/seed2/replay/predictions.json",
+        "sha256": "4811d8ed7f39541ca15999c27a9ed4ebeb7fe16e4dea8e262274caab7999088f"
+      },
+      "raw": {
+        "rows": 1041,
+        "classes": 6,
+        "temperature": 1.0,
+        "accuracy": 0.8463016330451489,
+        "correct": 881,
+        "nll": 0.4910238360250976,
+        "brier": 0.2356264065201786,
+        "ece": 0.08419615241865883,
+        "ece_bins": 15,
+        "threshold": 0.9,
+        "accepted": 428,
+        "deferred": 613,
+        "accepted_errors": 4,
+        "accepted_error_rate": 0.009345794392523364,
+        "coverage": 0.4111431316042267
+      },
+      "calibrated": {
+        "rows": 1041,
+        "classes": 6,
+        "temperature": 0.7173717817334739,
+        "accuracy": 0.8463016330451489,
+        "correct": 881,
+        "nll": 0.46089831917508534,
+        "brier": 0.23222726962282286,
+        "ece": 0.048707844221215615,
+        "ece_bins": 15,
+        "threshold": 0.9,
+        "accepted": 588,
+        "deferred": 453,
+        "accepted_errors": 17,
+        "accepted_error_rate": 0.02891156462585034,
+        "coverage": 0.5648414985590778
+      },
+      "delta_calibrated_minus_raw": {
+        "nll": -0.030125516850012246,
+        "brier": -0.0033991368973557423,
+        "ece": -0.03548830819744321,
+        "accuracy": 0.0,
+        "coverage": 0.15369836695485112
+      },
+      "class_disagreements_with_historical": 0,
+      "historical_logit_comparison": {
+        "values": 6246,
+        "different_values": 880,
+        "maximum_absolute_difference": 0.001953125
+      },
+      "score_check_absolute_tolerance": 1e-12
+    }
+  ],
+  "aggregate": {
+    "raw": {
+      "nll": {
+        "mean": 0.44157103298788847,
+        "sample_standard_deviation": 0.08520172543965933
+      },
+      "brier": {
+        "mean": 0.2034979828578353,
+        "sample_standard_deviation": 0.05197519787607875
+      },
+      "ece": {
+        "mean": 0.0702813200165859,
+        "sample_standard_deviation": 0.012481530819607031
+      },
+      "accuracy": {
+        "mean": 0.8664745437079732,
+        "sample_standard_deviation": 0.04003586164106568
+      },
+      "coverage": {
+        "mean": 0.5091258405379443,
+        "sample_standard_deviation": 0.09275779215810419
+      }
+    },
+    "calibrated": {
+      "nll": {
+        "mean": 0.41721436702978215,
+        "sample_standard_deviation": 0.08272924430285052
+      },
+      "brier": {
+        "mean": 0.20123485012684103,
+        "sample_standard_deviation": 0.05160543415022083
+      },
+      "ece": {
+        "mean": 0.03823171210905614,
+        "sample_standard_deviation": 0.011495919729031495
+      },
+      "accuracy": {
+        "mean": 0.8664745437079732,
+        "sample_standard_deviation": 0.04003586164106568
+      },
+      "coverage": {
+        "mean": 0.6829971181556196,
+        "sample_standard_deviation": 0.15449780086858733
+      }
+    },
+    "delta_calibrated_minus_raw": {
+      "nll": {
+        "mean": -0.024356665958106333,
+        "sample_standard_deviation": 0.004996662770917851
+      },
+      "brier": {
+        "mean": -0.002263132730994257,
+        "sample_standard_deviation": 0.0009994171611494782
+      },
+      "ece": {
+        "mean": -0.03204960790752975,
+        "sample_standard_deviation": 0.00483467969909856
+      },
+      "accuracy": {
+        "mean": 0.0,
+        "sample_standard_deviation": 0.0
+      },
+      "coverage": {
+        "mean": 0.17387127761767535,
+        "sample_standard_deviation": 0.08021564927684599
+      }
+    }
+  },
+  "metric_units": {
+    "nll": "mean negative log-likelihood, natural logs; lower is better",
+    "brier": "mean sum of squared probability errors over classes; lower is better",
+    "ece": "15 equal-width confidence bins, fraction; lower is better",
+    "accuracy": "correct / all rows",
+    "coverage": "accepted / all rows",
+    "accepted_error_rate": "wrong accepted / accepted; null if denominator is zero"
+  },
+  "method": "Paired raw/scaled scores from identical fresh native logits; labels read only by this retrospective reviewer from hash-bound published test records.",
+  "time_order": "Protocol precedes fitting; all three calibration fits finish before any of the three calibrated test invocations.",
+  "numerical_recheck_tolerance": {
+    "relative": 1e-10,
+    "absolute": 1e-12,
+    "scope": "Recomputed floating-point quantities only; file hashes, integers and structure must match exactly."
+  },
+  "limits": [
+    "Validation was used for checkpoint selection in all three original fine-tunes.",
+    "Five exact raw inputs overlap training and validation; none overlap validation and test.",
+    "Recorded identifiers and exact raw-input equality do not prove capture independence.",
+    "Released pretraining checkpoint exposure remains unknown.",
+    "The test data has been examined previously; this is retrospective, not a fresh independent holdout.",
+    "A positive scalar temperature preserves the maximum-logit class; no accuracy improvement is claimed.",
+    "Calibration is data-dependent; 0.90 is not a guaranteed probability of correctness or a safe blocking threshold."
+  ],
+  "reviewer": {
+    "path": "tools/review_calibration.py",
+    "sha256": "dd6909cd64029e99443edf25ad5b0e788e4fc2ac80af31e91e2c2f589e7da6de"
+  },
+  "calibration_math": {
+    "path": "calibration.py",
+    "sha256": "a8bb547e832fc8091833c21446a39df4caa74a4d2c68d6abc86c3e761c19af6d"
+  }
+}

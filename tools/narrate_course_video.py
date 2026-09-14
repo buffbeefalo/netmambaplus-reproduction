@@ -10,7 +10,8 @@ from pathlib import Path
 from build_course import ROOT, TOKEN, fact_values, read
 
 LEGACY_SOURCE = ROOT / "docs/customer/video-course-source.json"
-SOURCE = ROOT / "docs/customer/video-course-v3-source.json"
+V3_SOURCE = ROOT / "docs/customer/video-course-v3-source.json"
+SOURCE = ROOT / "docs/customer/video-course-v4-source.json"
 
 
 def digest(path):
@@ -21,12 +22,12 @@ def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode()
 
 
-def load_source(source_path=SOURCE):
+def load_source(source_path=SOURCE, *, root=ROOT):
     source = read(source_path)
-    course = read(ROOT / "docs/customer/course-source.json")
+    course = read(root / "docs/customer/course-source.json")
     if hashlib.sha256(canonical(course["facts"])).hexdigest() != source["fact_bindings_sha256"]:
         raise ValueError("Video fact bindings have changed; review the video source first")
-    values = fact_values(course)
+    values = fact_values(course, root)
 
     def resolve(value):
         if isinstance(value, str):

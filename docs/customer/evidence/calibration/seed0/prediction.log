@@ -1,0 +1,24 @@
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:158: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:227: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:295: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:368: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:440: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:520: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/triton/layernorm.py:507: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/triton/layernorm.py:566: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/torch/cuda/__init__.py:283: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  warnings.warn(
+Dataset: <util.loader_data.ByteSizeIntervalDataset object at 0xe4b71fdc4b30>, type: byte_size_interval, size_key: sizes, ratio: 1.0
+Completed evaluate. Manifest: /home/nvidia/netmambaplus-reproduction/runs/worktrees/functional-improvement/runs/confidence-study/seed0/predict/manifest.json

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "status": "passed_class_and_schema_regression_with_small_logit_differences",
+  "runtime": {
+    "python": "3.12.3 (main, Jan 22 2026, 20:57:42) [GCC 13.3.0]",
+    "executable": "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/bin/python",
+    "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
+    "machine": "aarch64",
+    "packages": {
+      "torch": "2.9.1+cu130",
+      "torchvision": "0.24.1",
+      "numpy": "1.26.2",
+      "timm": "0.4.12",
+      "mamba-ssm": "1.1.1",
+      "causal-conv1d": "1.1.2.post1",
+      "flash-attn": null,
+      "scikit-learn": "1.6.1",
+      "scipy": "1.15.2",
+      "pillow": "11.0.0",
+      "triton": "3.5.1",
+      "einops": "0.8.1"
+    },
+    "environment": {
+      "OMP_NUM_THREADS": "4",
+      "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1",
+      "TRITON_PTXAS_PATH": "/usr/local/cuda-13.0/bin/ptxas"
+    }
+  },
+  "argv": [
+    "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/bin/python",
+    "/home/nvidia/netmambaplus-reproduction/runs/worktrees/functional-improvement/predict.py",
+    "--flows",
+    "/home/nvidia/.cache/netmambaplus-reproduction/data/ciciot2022/data-test.json",
+    "--checkpoint",
+    "/home/nvidia/netmambaplus-reproduction/runs/ciciot-ft-seed0/checkpoint-best.pth",
+    "--provenance",
+    "/home/nvidia/netmambaplus-reproduction/runs/ciciot-ft-seed0/manifest.json",
+    "--upstream",
+    "/home/nvidia/netmambaplus-reproduction/upstream/NetMambaPlus",
+    "--output",
+    "runs/confidence-study/default-seed0",
+    "--num-workers",
+    "2"
+  ],
+  "updated_predictor_sha256": "fa30eef6a7a3851bf836e5443ec977774e107bd708f2614b3dc959e6d0643ccb",
+  "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+  "flow_sha256": "8c1dfc79b6d7c5c4c9b589353ba2b1ab7bfc505d4b133135b604c2f835836b99",
+  "input_rows": 1041,
+  "output_rows": 1041,
+  "native_batch_size": 128,
+  "final_partial_batch_rows": 17,
+  "row_order_verified": true,
+  "class_disagreements": 0,
+  "default_row_fields": [
+    "class_name",
+    "logits",
+    "prediction",
+    "row",
+    "scores"
+  ],
+  "calibrated_fields_absent": true,
+  "changed_logit_values": 1385,
+  "logit_values": 6246,
+  "maximum_absolute_logit_difference": 0.00390625,
+  "bitwise_logits_equal": false,
+  "source_records": [
+    {
+      "path": "runs/confidence-study/default-seed0/manifest.json",
+      "sha256": "ac64b4309e00e4e128fa3730c66c5ecf6b36cb9f1ee2a2488651a323f218415b",
+      "public": false
+    },
+    {
+      "path": "runs/confidence-study/default-seed0/metrics.json",
+      "sha256": "bb4a27a80a38a89ece5918ef1c5c04d96c96ddb7c010de16a7d17ab7c33b94d3",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction/manifest.json",
+      "sha256": "4816029695e569d60a3bfd7488c09498f863414c4f2ff02c7b0abcabcc17ad41",
+      "public": false
+    },
+    {
+      "path": "runs/improvement-baseline/native-prediction/metrics.json",
+      "sha256": "1b56fd9005cef1cbc97f3c33345b0842e7879d893f396d1f27819231d29eabd5",
+      "public": false
+    }
+  ],
+  "interpretation": "Fresh default inference on the actual GB10 preserves row order, count, original output fields and all class decisions. Small FP16 logit changes relative to another execution remain recorded; bitwise equality is not claimed or used as a universal contract."
+}

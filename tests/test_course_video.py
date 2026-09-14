@@ -181,12 +181,26 @@ class VideoTests(unittest.TestCase):
             media = directory / "v3"
             media.mkdir()
             output = directory / "index.html"
-            (media / "media-manifest.json").write_text(json.dumps(self.hour_manifest()), encoding="utf-8")
+            course = directory / "docs/customer/course-source.json"
+            course.parent.mkdir(parents=True)
+            course.write_text(json.dumps({"facts": {}, "references": {}}), encoding="utf-8")
+            reference = directory / "README.md"
+            reference.write_text("Fixture reference\n", encoding="utf-8")
+            source_path = directory / "source.json"
+            source = self.hour_source()
+            source.update(fact_bindings_sha256=hashlib.sha256(b"{}").hexdigest(),
+                          extra_references={"notes": "README.md"})
+            source_path.write_text(json.dumps(source), encoding="utf-8")
+            manifest = self.hour_manifest()
+            manifest.update(source_path="source.json", source_sha256=build.digest(source_path))
+            manifest["references"]["notes"]["sha256"] = build.digest(reference)
+            (media / "media-manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
             active = page.WATCH_PAGE.read_bytes()
-            arguments = ["build_video_page.py", "--media-dir", str(media), "--output", str(output)]
-            with patch.object(sys, "argv", arguments), redirect_stdout(io.StringIO()):
+            arguments = ["build_video_page.py", "--source", str(source_path),
+                         "--media-dir", str(media), "--output", str(output)]
+            with patch.object(sys, "argv", arguments), patch.object(page, "ROOT", directory), redirect_stdout(io.StringIO()):
                 page.main()
-            self.assertEqual(output.read_bytes(), page.render(self.hour_manifest()).encode("utf-8"))
+            self.assertEqual(output.read_bytes(), page.render(manifest).encode("utf-8"))
             self.assertEqual(page.WATCH_PAGE.read_bytes(), active)
 
     def test_legacy_page_requires_a_separate_output_before_writing(self):
@@ -316,11 +330,14 @@ class VideoTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             caption_cues([scene])
 
-    def test_committed_video_and_captions_match_reviewed_source(self):
-        _, result = verify_files()
+    def test_historical_video_and_captions_match_the_pinned_reviewed_source(self):
+        from verify_video_course_v3 import V3_REVISION
+        manifest, result = verifier.verify_historical_files()
         self.assertEqual(result["status"], "passed")
         self.assertGreater(result["scenes"], 0)
-        self.assertEqual(page.WATCH_PAGE.read_bytes(), page.render().encode("utf-8"))
+        original_page = subprocess.check_output(["git", "--no-replace-objects", "-C", str(build.ROOT),
+            "cat-file", "blob", V3_REVISION + ":docs/customer/demo/video/index.html"])
+        self.assertEqual(original_page, page.render(manifest, media_dir=build.V3_DESTINATION).encode("utf-8"))
 
     def test_truncated_container_and_stream_are_rejected(self):
         for field in ["container", "stream"]:

@@ -1,0 +1,703 @@
+{
+  "schema_version": 1,
+  "kind": "calibration_source_and_study_report_review",
+  "reviewed_at": "2026-09-14T00:15:25.802309+00:00",
+  "status": "passed_after_reporter_corrections",
+  "open_findings": [],
+  "authority": {
+    "mode": "Directly authorized inspection and deterministic verification; not council ratification.",
+    "council_consensus": false,
+    "council_decision_hash": null,
+    "council_record": "docs/research/improvement-council-review.json"
+  },
+  "scope": {
+    "production_code_edits_by_reviewer": false,
+    "authorized_test_changes_by_reviewer": "tests/test_calibration_review.py: CompleteCalibrationReviewTests and its temporary file-backed three-seed fixture.",
+    "record_written_by_reviewer": "docs/research/calibration-code-review.json",
+    "provider_or_council_calls_by_reviewer": false,
+    "new_gpu_or_training_execution_by_reviewer": false,
+    "base_commit": "71290440e917105ffa094402d94e24d7e29a3549"
+  },
+  "sources": [
+    {
+      "path": "calibration.py",
+      "bytes": 15200,
+      "sha256": "a8bb547e832fc8091833c21446a39df4caa74a4d2c68d6abc86c3e761c19af6d"
+    },
+    {
+      "path": "tools/calibrate.py",
+      "bytes": 19948,
+      "sha256": "806205739be3e43d5566c14ac0623a9e38eddf80f2fd0107519028663b90f570"
+    },
+    {
+      "path": "predict.py",
+      "bytes": 10112,
+      "sha256": "fa30eef6a7a3851bf836e5443ec977774e107bd708f2614b3dc959e6d0643ccb"
+    },
+    {
+      "path": "tests/test_calibration.py",
+      "bytes": 19316,
+      "sha256": "dd632dc0a026d099965f40e7858faa8f696bf2dbe702e1f1baade72c71c1d02e"
+    },
+    {
+      "path": "tests/test_predict.py",
+      "bytes": 6011,
+      "sha256": "97e711fdbbfb553a81b878aceef71009d0dca4f2492b60fa551ce51d4883f094"
+    },
+    {
+      "path": "tools/review_calibration.py",
+      "bytes": 13857,
+      "sha256": "dd6909cd64029e99443edf25ad5b0e788e4fc2ac80af31e91e2c2f589e7da6de"
+    },
+    {
+      "path": "tests/test_calibration_review.py",
+      "bytes": 12362,
+      "sha256": "05481912eb447f93a196061352b24805677b757209c51da304e1f583da4077df"
+    },
+    {
+      "path": "repro.py",
+      "bytes": 27808,
+      "sha256": "f49823f3d23cbc1a12e8f165bea67694dce14e11db64cb270c362a3348c05c7e"
+    },
+    {
+      "path": "evaluate.py",
+      "bytes": 4508,
+      "sha256": "a8db041b9f3929c7c0acfd63aac65600384e75cc2fdd4018743bdf70ee0bdca0"
+    },
+    {
+      "path": "configs/ciciot2022.json",
+      "bytes": 5664,
+      "sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-13-confidence-and-course.md",
+      "bytes": 8676,
+      "sha256": "bfb7c93253f52455a7ca9b81d89ba6228b2f48486f02b41151a16f8b1da4c062"
+    }
+  ],
+  "calibration_and_prediction_review": {
+    "status": "no_actionable_defect_found_in_hashed_version",
+    "focused_tests": 27,
+    "checked_behaviors": [
+      {
+        "claim": "Validation fitting reads metadata.json and data-valid.json plus the explicitly supplied data-evidence document; it does not invoke the train/test stage validator.",
+        "anchors": [
+          {
+            "path": "tools/calibrate.py",
+            "line": 31
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 180
+          }
+        ]
+      },
+      {
+        "claim": "Validation byte hashes, class order, row count and label counts must match the recorded evidence. Reused overlap claims and checkpoint-selection reuse are disclosed with their limits.",
+        "anchors": [
+          {
+            "path": "tools/calibrate.py",
+            "line": 55
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 208
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 221
+          }
+        ]
+      },
+      {
+        "claim": "The original loader must preserve all validation rows at ratio 1.0, sequential order and the final partial batch; each batch label sequence must match the source.",
+        "anchors": [
+          {
+            "path": "tools/calibrate.py",
+            "line": 107
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 129
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 142
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 153
+          }
+        ]
+      },
+      {
+        "claim": "Targets are removed before the native forward helper. Unlabeled prediction replaces labels only for loader compatibility and does not compute accuracy.",
+        "anchors": [
+          {
+            "path": "tools/calibrate.py",
+            "line": 146
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 159
+          },
+          {
+            "path": "predict.py",
+            "line": 16
+          },
+          {
+            "path": "predict.py",
+            "line": 24
+          }
+        ]
+      },
+      {
+        "claim": "One positive temperature minimizes validation NLL over [0.05,20.0]. Analytic, bound, stable-NLL, Brier/ECE, exact-tie and empty-accepted-set cases pass.",
+        "anchors": [
+          {
+            "path": "calibration.py",
+            "line": 95
+          },
+          {
+            "path": "calibration.py",
+            "line": 130
+          }
+        ]
+      },
+      {
+        "claim": "Calibration artifacts bind checkpoint, class mapping, configuration, pinned upstream, runtime packages/Python and inference precision. Malformed, nonfinite or incompatible records are rejected.",
+        "anchors": [
+          {
+            "path": "calibration.py",
+            "line": 196
+          },
+          {
+            "path": "calibration.py",
+            "line": 243
+          },
+          {
+            "path": "calibration.py",
+            "line": 265
+          },
+          {
+            "path": "predict.py",
+            "line": 69
+          }
+        ]
+      },
+      {
+        "claim": "Prediction preserves native maximizing classes, raw logits and raw scores; scaled scores and optional accept/defer fields are appended. Threshold-only requests fail before input reads.",
+        "anchors": [
+          {
+            "path": "predict.py",
+            "line": 30
+          },
+          {
+            "path": "predict.py",
+            "line": 58
+          },
+          {
+            "path": "predict.py",
+            "line": 122
+          }
+        ]
+      },
+      {
+        "claim": "The fitting tool checks input, checkpoint and harness hashes during execution, strictly loads state, verifies upstream before success and writes failure manifests.",
+        "anchors": [
+          {
+            "path": "tools/calibrate.py",
+            "line": 94
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 123
+          },
+          {
+            "path": "tools/calibrate.py",
+            "line": 252
+          }
+        ]
+      }
+    ]
+  },
+  "pinned_native_source_check": {
+    "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+    "verified_files": [
+      {
+        "path": "src/util/loader_data.py",
+        "sha256": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+        "line_anchors": [
+          74,
+          165,
+          194,
+          255
+        ],
+        "url": "https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/util/loader_data.py"
+      },
+      {
+        "path": "src/engine_mm.py",
+        "sha256": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88",
+        "line_anchors": [
+          24,
+          46
+        ],
+        "url": "https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/engine_mm.py"
+      },
+      {
+        "path": "src/util/loader_model.py",
+        "sha256": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+        "line_anchors": [
+          27
+        ],
+        "url": "https://github.com/wangtz19/NetMambaPlus/blob/eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2/src/util/loader_model.py"
+      }
+    ]
+  },
+  "reporter_review": {
+    "status": "passed_after_corrections",
+    "checked_behaviors": [
+      "Raw and scaled comparisons use identical fresh logits and explicit native prediction indices, including exact ties.",
+      "The reporter rechecks the temperature only from saved validation logits and labels; historical test labels are used subsequently for evaluation, never fitting.",
+      "It checks validation observation hashes, calibration files, prediction files, checkpoint/class identities, all three seeds, fixed 0.90 policy and receipt chronology.",
+      "Aggregate arithmetic is the mean and sample standard deviation of the three seed metrics. Units distinguish NLL, mean sum-of-class Brier, 15-bin ECE, accuracy and policy coverage.",
+      "Empty accepted-set error remains null. Recomputed floating-point results use relative tolerance 1e-10 and absolute tolerance 1e-12; file hashes, integers and structure must match exactly."
+    ],
+    "resolved_findings": [
+      {
+        "id": "R1",
+        "severity": "medium",
+        "status": "resolved_verified",
+        "summary": "The initial reporter accepted logits whose class width differed from the declared mapping.",
+        "initial_reproduction": "Matching three-class current/historical mappings with two logits per row were accepted and reported as two classes.",
+        "resolution": "Both paired logit widths must match a valid contiguous class mapping.",
+        "anchors": [
+          {
+            "path": "tools/review_calibration.py",
+            "line": 50
+          },
+          {
+            "path": "tools/review_calibration.py",
+            "line": 60
+          }
+        ],
+        "regression_case": "PairedCalibrationReviewTests.test_paired_review_preserves_class_and_reports_both_metrics / extra_class"
+      },
+      {
+        "id": "R2",
+        "severity": "medium",
+        "status": "resolved_verified",
+        "summary": "The initial reporter accepted a nonfinite historical logit in its numerical comparison.",
+        "initial_reproduction": {
+          "mutation": "A non-leading historical logit was NaN.",
+          "returned_successfully": true,
+          "different_values": 1,
+          "maximum_absolute_difference": 0.0
+        },
+        "resolution": "Historical logits are validated as finite; historical prediction indices must be integer maxima and saved current class names must match the mapping.",
+        "anchors": [
+          {
+            "path": "tools/review_calibration.py",
+            "line": 62
+          },
+          {
+            "path": "tools/review_calibration.py",
+            "line": 64
+          },
+          {
+            "path": "tools/review_calibration.py",
+            "line": 75
+          }
+        ],
+        "regression_cases": [
+          "PairedCalibrationReviewTests.test_paired_review_preserves_class_and_reports_both_metrics / nonfinite_history",
+          "PairedCalibrationReviewTests.test_paired_review_preserves_class_and_reports_both_metrics / wrong_class_name",
+          "PairedCalibrationReviewTests.test_paired_review_preserves_class_and_reports_both_metrics / invalid_history_prediction"
+        ]
+      },
+      {
+        "id": "R3",
+        "severity": "medium",
+        "status": "resolved_verified",
+        "summary": "The initial reporter accepted internally reversed or timezone-naive invocation timestamps.",
+        "initial_reproduction": "A fit created at 00:05, updated at 00:02, and tested at 00:03 was accepted. All-naive receipts and a prediction ending before its start also passed.",
+        "resolution": "Every timestamp must include its UTC offset; each invocation must have start <= end before cross-run ordering is asserted.",
+        "anchors": [
+          {
+            "path": "tools/review_calibration.py",
+            "line": 43
+          },
+          {
+            "path": "tools/review_calibration.py",
+            "line": 155
+          },
+          {
+            "path": "tools/review_calibration.py",
+            "line": 171
+          }
+        ],
+        "regression_cases": [
+          "CompleteCalibrationReviewTests.test_rejects_fit_started_after_test_with_backwards_end",
+          "CompleteCalibrationReviewTests.test_rejects_inference_finished_before_it_started",
+          "CompleteCalibrationReviewTests.test_rejects_timezone_naive_receipts_even_when_all_use_same_clock",
+          "CompleteCalibrationReviewTests.test_timezone_offsets_are_compared_as_instants"
+        ]
+      },
+      {
+        "id": "R4",
+        "severity": "medium",
+        "status": "resolved_verified",
+        "summary": "The initial reporter accepted prediction-document identities contradicting the bound manifest.",
+        "initial_reproduction": "A conflicting predictions.json checkpoint digest passed when its file hash was recorded consistently. Renaming both paired class mappings also passed while the manifest retained its original class names.",
+        "resolution": "Prediction checkpoint and class metadata must match the manifest and fixed seed specification before metric recomputation.",
+        "anchors": [
+          {
+            "path": "tools/review_calibration.py",
+            "line": 128
+          },
+          {
+            "path": "tools/review_calibration.py",
+            "line": 130
+          }
+        ],
+        "regression_cases": [
+          "CompleteCalibrationReviewTests.test_rejects_prediction_checkpoint_conflicting_with_its_manifest",
+          "CompleteCalibrationReviewTests.test_rejects_paired_class_names_conflicting_with_bound_manifest"
+        ]
+      }
+    ],
+    "test_fixture_scope": "Temporary synthetic JSON receipts; real reads, hashes, scalar fits and metrics. Only __file__ is redirected to a byte-identical tool copy under the fixture root; no model or numerical implementation is mocked.",
+    "hand_checked_positive_control": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "mean_raw_accuracy": "2/3",
+      "sample_sd_raw_accuracy": "sqrt(1/12)",
+      "mean_raw_nll": "log1p(exp(-2)) + 2/3"
+    }
+  },
+  "test_receipts": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_calibration.py",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "tests": 19,
+      "reported_seconds": 0.056,
+      "combined_output_sha256": "c34db2af92c06086d5b4b42e5599f57bad286dad7d98e9e299296a40e16e4987",
+      "test_names": [
+        "test_binding_ignores_execution_locations_and_worker_settings (test_calibration.CalibrationArtifactTests.test_binding_ignores_execution_locations_and_worker_settings)",
+        "test_checkpoint_class_config_upstream_and_precision_changes_are_rejected (test_calibration.CalibrationArtifactTests.test_checkpoint_class_config_upstream_and_precision_changes_are_rejected)",
+        "test_malformed_artifact_and_inconsistent_fit_records_are_rejected (test_calibration.CalibrationArtifactTests.test_malformed_artifact_and_inconsistent_fit_records_are_rejected)",
+        "test_validated_artifact_is_detached_and_unknown_provenance_stays_unknown (test_calibration.CalibrationArtifactTests.test_validated_artifact_is_detached_and_unknown_provenance_stays_unknown)",
+        "test_changed_validation_input_is_rejected_before_execution (test_calibration.CalibrationFitterTests.test_changed_validation_input_is_rejected_before_execution)",
+        "test_data_evidence_row_counts_class_order_and_label_counts_cannot_drift (test_calibration.CalibrationFitterTests.test_data_evidence_row_counts_class_order_and_label_counts_cannot_drift)",
+        "test_help_is_available_without_loading_the_native_runtime (test_calibration.CalibrationFitterTests.test_help_is_available_without_loading_the_native_runtime)",
+        "test_native_collection_discards_targets_and_preserves_partial_batch (test_calibration.CalibrationFitterTests.test_native_collection_discards_targets_and_preserves_partial_batch)",
+        "test_sampler_subset_drop_last_label_order_and_short_output_are_rejected (test_calibration.CalibrationFitterTests.test_sampler_subset_drop_last_label_order_and_short_output_are_rejected)",
+        "test_validation_preflight_reads_no_train_or_test_and_binds_evidence (test_calibration.CalibrationFitterTests.test_validation_preflight_reads_no_train_or_test_and_binds_evidence)",
+        "test_binary_margin_optimum_has_analytic_temperature (test_calibration.CalibrationMathTests.test_binary_margin_optimum_has_analytic_temperature)",
+        "test_ece_is_weighted_by_bin_rows_and_brier_sums_classes (test_calibration.CalibrationMathTests.test_ece_is_weighted_by_bin_rows_and_brier_sums_classes)",
+        "test_empty_accepted_error_is_null_and_threshold_is_inclusive (test_calibration.CalibrationMathTests.test_empty_accepted_error_is_null_and_threshold_is_inclusive)",
+        "test_explicit_native_maximizer_preserves_exact_tie_accuracy (test_calibration.CalibrationMathTests.test_explicit_native_maximizer_preserves_exact_tie_accuracy)",
+        "test_malformed_rows_labels_temperatures_and_thresholds_fail (test_calibration.CalibrationMathTests.test_malformed_rows_labels_temperatures_and_thresholds_fail)",
+        "test_nll_does_not_take_log_of_underflowed_probability (test_calibration.CalibrationMathTests.test_nll_does_not_take_log_of_underflowed_probability)",
+        "test_optimizer_handles_both_bounds_and_uninformative_logits (test_calibration.CalibrationMathTests.test_optimizer_handles_both_bounds_and_uninformative_logits)",
+        "test_temperature_preserves_argmax_and_input_objects (test_calibration.CalibrationMathTests.test_temperature_preserves_argmax_and_input_objects)",
+        "test_unit_temperature_matches_existing_softmax_exactly (test_calibration.CalibrationMathTests.test_unit_temperature_matches_existing_softmax_exactly)"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_predict.py",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "tests": 8,
+      "reported_seconds": 0.002,
+      "combined_output_sha256": "0b74d018f7c18fb7cfdea8a1c8637e2cee2cd6ea3b96243f84a70ba50e2d66a5",
+      "test_names": [
+        "test_class_mapping_must_have_a_zero_index (test_predict.UnlabeledInputChecks.test_class_mapping_must_have_a_zero_index)",
+        "test_formatted_predictions_retain_raw_outputs_when_temperature_changes (test_predict.UnlabeledInputChecks.test_formatted_predictions_retain_raw_outputs_when_temperature_changes)",
+        "test_ground_truth_never_reaches_forward (test_predict.UnlabeledInputChecks.test_ground_truth_never_reaches_forward)",
+        "test_incompatible_calibrator_is_rejected_before_loading_cuda_runtime (test_predict.UnlabeledInputChecks.test_incompatible_calibrator_is_rejected_before_loading_cuda_runtime)",
+        "test_native_adapter_preserves_features_and_does_not_mutate_inputs (test_predict.UnlabeledInputChecks.test_native_adapter_preserves_features_and_does_not_mutate_inputs)",
+        "test_prediction_formatting_rejects_lost_rows_and_invalid_model_outputs (test_predict.UnlabeledInputChecks.test_prediction_formatting_rejects_lost_rows_and_invalid_model_outputs)",
+        "test_single_object_or_empty_list_is_not_silently_reinterpreted (test_predict.UnlabeledInputChecks.test_single_object_or_empty_list_is_not_silently_reinterpreted)",
+        "test_threshold_without_calibration_is_rejected_before_reading_inputs (test_predict.UnlabeledInputChecks.test_threshold_without_calibration_is_rejected_before_reading_inputs)"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_calibration_review.py",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "tests": 11,
+      "reported_seconds": 0.03,
+      "combined_output_sha256": "e4257a26e26f1cf5ea7986d1e6332a71fc03e03ca882a830e37cb89689c2ea0d",
+      "test_names": [
+        "test_complete_three_seed_fixture_has_hand_checked_aggregate (test_calibration_review.CompleteCalibrationReviewTests.test_complete_three_seed_fixture_has_hand_checked_aggregate)",
+        "test_rejects_changed_validation_observations (test_calibration_review.CompleteCalibrationReviewTests.test_rejects_changed_validation_observations)",
+        "test_rejects_fit_started_after_test_with_backwards_end (test_calibration_review.CompleteCalibrationReviewTests.test_rejects_fit_started_after_test_with_backwards_end)",
+        "test_rejects_fit_that_finishes_after_first_test_starts (test_calibration_review.CompleteCalibrationReviewTests.test_rejects_fit_that_finishes_after_first_test_starts)",
+        "test_rejects_inference_finished_before_it_started (test_calibration_review.CompleteCalibrationReviewTests.test_rejects_inference_finished_before_it_started)",
+        "test_rejects_paired_class_names_conflicting_with_bound_manifest (test_calibration_review.CompleteCalibrationReviewTests.test_rejects_paired_class_names_conflicting_with_bound_manifest)",
+        "test_rejects_prediction_checkpoint_conflicting_with_its_manifest (test_calibration_review.CompleteCalibrationReviewTests.test_rejects_prediction_checkpoint_conflicting_with_its_manifest)",
+        "test_rejects_prediction_file_with_stale_recorded_hash (test_calibration_review.CompleteCalibrationReviewTests.test_rejects_prediction_file_with_stale_recorded_hash)",
+        "test_rejects_timezone_naive_receipts_even_when_all_use_same_clock (test_calibration_review.CompleteCalibrationReviewTests.test_rejects_timezone_naive_receipts_even_when_all_use_same_clock)",
+        "test_timezone_offsets_are_compared_as_instants (test_calibration_review.CompleteCalibrationReviewTests.test_timezone_offsets_are_compared_as_instants)",
+        "test_paired_review_preserves_class_and_reports_both_metrics (test_calibration_review.PairedCalibrationReviewTests.test_paired_review_preserves_class_and_reports_both_metrics)"
+      ]
+    }
+  ],
+  "test_totals": {
+    "calibration_and_prediction": 27,
+    "reporter": 11,
+    "total": 38,
+    "failed": 0
+  },
+  "test_runtime": {
+    "python": "3.12.3",
+    "platform": "Linux",
+    "machine": "aarch64",
+    "bytecode_writes_disabled": true
+  },
+  "development_verification_history": {
+    "initial_reporter_sha256": "7236b7d25be6d49542e113be1d0c10f0ac18e874357af7e0b12a83fe254386d7",
+    "after_paired_row_corrections_sha256": "80819623f3064028a163bbdc24c57d43b6198e1afd5b4d523a7eecd0e4457cf4",
+    "red_reporter_suite": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_calibration_review.py",
+        "-v"
+      ],
+      "tests": 11,
+      "failures": 5,
+      "failure": "ValueError not raised for the five chronology/identity regressions."
+    },
+    "final_reporter_sha256": "dd6909cd64029e99443edf25ad5b0e788e4fc2ac80af31e91e2c2f589e7da6de",
+    "stale_summary_check": "One --check during active source/summary regeneration rejected the stale summary. After regeneration, the complete check passed; no metrics discrepancy remained."
+  },
+  "actual_published_study_recheck": {
+    "status": "passed",
+    "command_receipt": {
+      "command": [
+        "python3",
+        "-B",
+        "tools/review_calibration.py",
+        "--check"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "stdout": "Calibration evidence check passed: all three checkpoints, paired metrics, hashes and fixed policy.",
+      "stderr": "",
+      "combined_output_sha256": "273b94ac7b2b6509a4c5a451fd01c2557c065307d4a53967aae0e3d4f141397c"
+    },
+    "artifacts": [
+      {
+        "path": "docs/customer/evidence/calibration/protocol.json",
+        "bytes": 2777,
+        "sha256": "6dc47d351086abe6e62af359d2cc6873d0f22bd1f710873f356dfb6825671e22"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/results.json",
+        "bytes": 11857,
+        "sha256": "5c0e77954882ee1d15dc9002640d976969230a31e74f35996eb2e35fddcf3f80"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed0/calibration.json",
+        "bytes": 5522,
+        "sha256": "a25d3087fead189ab77e0ce3503057c8e67369180131800ff6fb05d56d012188"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed0/fit-manifest.json",
+        "bytes": 186294,
+        "sha256": "8baabdcd5436ce908abae93a97a4f70aa33b18001e9d99d0408fcaff91916763"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed0/predictions.json",
+        "bytes": 731220,
+        "sha256": "224144f9da33fb19d601a162bda429389d2afc60f553a6d7f5e64a6af8d849c7"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed0/prediction-manifest.json",
+        "bytes": 20172,
+        "sha256": "7e30dfb242dfa4baa9bd6ee08a733ab6cad152decac8ebe494160f4dabae527a"
+      },
+      {
+        "path": "docs/customer/evidence/seed0/replay/predictions.json",
+        "bytes": 454738,
+        "sha256": "307fd521ce152b0614c091c882c11a11d80ba7de3ae923624ec31e6d1f59c68a",
+        "unchanged_from_git_revision": "71290440e917105ffa094402d94e24d7e29a3549"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed1/calibration.json",
+        "bytes": 5523,
+        "sha256": "b9e70aadef23dbc639fd2c6b2eafb26b5c59a87a827a1e19761bab838351653a"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed1/fit-manifest.json",
+        "bytes": 185639,
+        "sha256": "ac8e69fe2da164118e1fc4cd15ee187b4599230aea6f48ca7526892cdd21e385"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed1/predictions.json",
+        "bytes": 728962,
+        "sha256": "410612a87d539dec03087d4dbd3d93859026dd992ca5cd55d59468150705946e"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed1/prediction-manifest.json",
+        "bytes": 20172,
+        "sha256": "00c876e79f1110f820355968b5d44344b17710b1e96681eb8296ac52ff83e81f"
+      },
+      {
+        "path": "docs/customer/evidence/seed1/replay/predictions.json",
+        "bytes": 453618,
+        "sha256": "5c53488b9bc7056c315a32a5c42036e637bd22e6c691d41e2e146110b034c095",
+        "unchanged_from_git_revision": "71290440e917105ffa094402d94e24d7e29a3549"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed2/calibration.json",
+        "bytes": 5521,
+        "sha256": "cb46c26757c95eb9a6f2bc8b58c02a4caf83d7be1c275ab7973554bb146627ee"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed2/fit-manifest.json",
+        "bytes": 186329,
+        "sha256": "47b0f634be67dac60645f6809b450c253b05231ac8ffc8f44ff08e613cabe1e5"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed2/predictions.json",
+        "bytes": 730447,
+        "sha256": "77c967954dd05b3b9ab1f439b131e7919faf1a91db1f83f3da96b7491f09e563"
+      },
+      {
+        "path": "docs/customer/evidence/calibration/seed2/prediction-manifest.json",
+        "bytes": 20172,
+        "sha256": "3530b5059f431387ae095b41aab68865a3cb52124bd80b70819da770cc0a8f5d"
+      },
+      {
+        "path": "docs/customer/evidence/seed2/replay/predictions.json",
+        "bytes": 454160,
+        "sha256": "4811d8ed7f39541ca15999c27a9ed4ebeb7fe16e4dea8e262274caab7999088f",
+        "unchanged_from_git_revision": "71290440e917105ffa094402d94e24d7e29a3549"
+      }
+    ],
+    "independent_receipt_inspection": {
+      "all_recorded_timestamps_have_offsets": true,
+      "each_start_precedes_its_end": true,
+      "all_fits_finish_before_first_test_start": true,
+      "per_seed": [
+        {
+          "seed": 0,
+          "fit_created_at": "2026-09-14T00:00:56.379892+00:00",
+          "fit_updated_at": "2026-09-14T00:01:02.684299+00:00",
+          "prediction_created_at": "2026-09-14T00:02:38.237319+00:00",
+          "prediction_updated_at": "2026-09-14T00:02:44.064457+00:00",
+          "checkpoint_and_class_identities_match": true,
+          "prediction_rows": 1041
+        },
+        {
+          "seed": 1,
+          "fit_created_at": "2026-09-14T00:01:03.670024+00:00",
+          "fit_updated_at": "2026-09-14T00:01:09.823619+00:00",
+          "prediction_created_at": "2026-09-14T00:02:45.130730+00:00",
+          "prediction_updated_at": "2026-09-14T00:02:50.954308+00:00",
+          "checkpoint_and_class_identities_match": true,
+          "prediction_rows": 1041
+        },
+        {
+          "seed": 2,
+          "fit_created_at": "2026-09-14T00:01:10.877905+00:00",
+          "fit_updated_at": "2026-09-14T00:01:17.200755+00:00",
+          "prediction_created_at": "2026-09-14T00:02:52.063221+00:00",
+          "prediction_updated_at": "2026-09-14T00:02:57.913550+00:00",
+          "checkpoint_and_class_identities_match": true,
+          "prediction_rows": 1041
+        }
+      ]
+    },
+    "result_summary": {
+      "fit_rows_per_seed": 1040,
+      "test_rows_per_seed": 1041,
+      "temperatures": [
+        0.7861955945587451,
+        0.7769984043895529,
+        0.7173717817334739
+      ],
+      "mean_nll_raw": 0.44157103298788847,
+      "mean_nll_calibrated": 0.41721436702978215,
+      "mean_accuracy_raw": 0.8664745437079732,
+      "mean_accuracy_calibrated": 0.8664745437079732,
+      "class_disagreements_with_historical_per_seed": [
+        0,
+        0,
+        0
+      ],
+      "historical_logit_comparison_per_seed": [
+        {
+          "values": 6246,
+          "different_values": 1235,
+          "maximum_absolute_difference": 0.00390625
+        },
+        {
+          "values": 6246,
+          "different_values": 681,
+          "maximum_absolute_difference": 0.001953125
+        },
+        {
+          "values": 6246,
+          "different_values": 880,
+          "maximum_absolute_difference": 0.001953125
+        }
+      ]
+    }
+  },
+  "limits": [
+    "This is a bounded review of identified source and evidence bytes, not a proof of correctness or independent certification.",
+    "The reviewer performed CPU tests and recomputed published observations; the GPU fitting and prediction runs were performed separately and are assessed through their saved receipts.",
+    "The 27 implementation tests contain synthetic loader-control fixtures and do not replace actual CUDA operator or full-model execution evidence.",
+    "The retrospective validation set was already used for checkpoint selection and has five exact train/validation raw-input overlaps. Zero exact validation/test overlaps do not establish capture independence; pretraining exposure remains unknown.",
+    "A favorable retrospective NLL change does not establish independent-network generalization, greater top-class accuracy, operational safety, latency improvement or a new hardware backend.",
+    "Historical raw logits are not universally bitwise equal across actual runs. The class comparisons remain explicit; no unique numerical cause is established by this review.",
+    "The resolved malformed-fixture findings were checker gaps, not observed corruption of actual GPU outputs or historical labels."
+  ]
+}

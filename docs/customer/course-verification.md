@@ -1,6 +1,6 @@
 # Archived interactive course: sources and historical verification
 
-The public interactive `/course/` page was retired at the user’s request on 2026-09-13. Its HTML source is excluded from GitHub Pages deployment. Use the [single narrated video](video-verification.md). These archived sources retain the original reviewed fact bindings and historical checks; they are not an additional required lesson.
+The public interactive `/course/` page was retired at the user’s request on 2026-09-13. Its HTML source is excluded from GitHub Pages deployment. Use the [current single narrated video](video-verification-v4.md). These archived sources retain the original reviewed fact bindings and historical checks; they are not an additional required lesson.
 
 The course is a complete browser lesson for someone preparing to explain this project to a customer. It contains nine sections, eight objective questions with explanations, a real saved prediction error and a separate two-minute customer teach-back. Thirty minutes is a planned reading-and-practice allocation, not a measured guarantee for every learner. **A human-paced full-route rehearsal remains pending. Automated verification is separate from human learning or mastery.**
 
@@ -79,10 +79,10 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
   "checks": {
     "content_review": {
       "status": "passed",
-      "detail": "Reviewed the retired course and its exercises after the expanded every-file companion update. Only the walkthrough reference identity changed; scientific teaching and answer keys remain unchanged.",
+      "detail": "Reviewed the retired lesson and unchanged scientific teaching after the current v4 file-guide update. Only the companion reference hash changed in its source; calibration is taught in the separate current video, not retroactively claimed in the archived lesson.",
       "receipt": {
         "reviewer": "Codex ordinary implementation session; not a human learner",
-        "completed_at": "2026-09-13T10:35:16.904272+00:00",
+        "completed_at": "2026-09-14T00:43:10.678920+00:00",
         "baseline_commit": "1c424884cd0d691203fb94ba4da3c706eb6291e7",
         "reviewed_topics": [
           "each uploaded CSV and native flow distinction",
@@ -103,7 +103,7 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
           "docs/customer/evidence/native-data-validation.json": "122bc8ba9a3ba2d53400b615b7b73a2d597e21063c478a96d852b3d7a7dd96f9",
           "docs/customer/hardware-roadmap.md": "99cacacf535210e6517661595f0994e3899fd59787c58872a64c35f5bdc2be18",
           "docs/customer/runbook.md": "854f19228fd384888cb268db20bf005785813df5c5fd6421110d81fcb95f49a0",
-          "docs/repository-walkthrough.md": "88f7705bbdcd261a7802bdb35d987cdeeea4abbfaada73cc67b218b8494ebcb3"
+          "docs/repository-walkthrough.md": "e57283999325062ef7aa8e20e9dee7fc2e3263bb668bfb8ff9b465b63159b23e"
         },
         "global_queues": {
           "pending-content-reviews.json": {
@@ -125,7 +125,8 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
             "modified_by_this_task": false
           }
         },
-        "course_registration": "repository-based customer course; no fleet-course registration or video refresh"
+        "course_registration": "repository-based customer course; no fleet-course registration or video refresh",
+        "scope_note": "This is an AI review of the companion-reference update. Historical browser and automated receipts retain their own dates and scope; human rehearsal remains pending."
       }
     },
     "automated_checks": {
@@ -152,8 +153,8 @@ The reviewed pre-course repository baseline was `1c424884cd0d691203fb94ba4da3c70
       "detail": "Public interactive course withdrawn at the user’s request. Pages excludes course/; the active video has a separate publication receipt."
     }
   },
-  "source_sha256": "676f228f76ffe6072a27ee34bb3b3040a86a57202d2662494324a3eacc7c5d7b",
-  "html_sha256": "6bdb5e531aff12a33158dc1a4b3b241d9cd9c97f30d9f2342aa3aecc03a6f9da",
+  "source_sha256": "badaf7c38b4322bdc816f816a8ae5c1c555817ac025bdf8b632aa0350f6d6ad6",
+  "html_sha256": "2d40445be9f632d66dea4c2af4571a53faf91307def82c8671cfce4ed25e993f",
   "prior_course_receipt": {
     "commit": "49078618f77da068b45fb5b0b8dc51698a617ff6",
     "path": "docs/customer/course-verification.md",
