@@ -74,10 +74,18 @@ Root owns `tools/train_packet_model.py`, `tools/predict_packets.py`, `tools/revi
 - [x] Add a plain-language packet-study guide and commands explaining exactly how each original file now contributes, model changes, measured results and limitations.
 - [x] Update current README/paper-data explanation and every-file guide. Preserve the original flow/video scientific records and verify historical snapshots by immutable Git identity where references have evolved.
 - [x] Run focused tests, all existing tests, package/course/calibration/history checks and the new offline study verifier.
-- [ ] Independent code/claim review, fix concrete findings, commit/push, confirm actual CI and published links; do not claim unexecuted platforms or GPU backends.
+- [x] Independent code/claim review, fix concrete findings, commit/push, confirm actual CI and published links; do not claim unexecuted platforms or GPU backends.
 
 ## Execution rulings
 
 - Direct authorized work proceeds while council deliberation completes; no consensus or experiment success is inferred from a candidate.
 - Global grouping is source- and label-independent. Exact-payload isolation is measurable; physical flow/capture independence is unknown.
 - The existing four/eight-row synthetic-target probes establish mechanics only and their weights never initialize the measured study.
+
+## Publication and final verification
+
+The measured experiment was published at `7eeb4980eea9fd5ad17bfacd29ed88687cb3e1e5`. Its first hosted run exposed real portability defects; those failures remain in [run 34813689942](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34813689942). The file-identity/path corrections and their regression tests were published at `9d39a6b6a17a06452b0208bf3683abb531674e0d`.
+
+All six Linux/Windows/macOS × Python 3.10/3.12 jobs passed in [run 34814784033](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34814784033); [Pages run 34814784089](https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34814784089) deployed successfully. Public report/setup/PDF/PPT/script, evidence index, capped regression and full guide downloads were checked against local SHA-256 identities. The active video page links the packet addendum; the retired `/course/` route still returns 404.
+
+Local verification discovered 412 tests, with 376 passes and 36 optional skips. The separate 17-test native packet suite passed on GB10, and independent scikit-learn arithmetic matched all six neural models and nine controls. The new 128-row GB10 I/O regression also passed; it does not replace the frozen full-test numerical limitations. These hosted checks validate portable software and public arithmetic, not native inference on every OS, NPU, SmartNIC or physical GPU.
