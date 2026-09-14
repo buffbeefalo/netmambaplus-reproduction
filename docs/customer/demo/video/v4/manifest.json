@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
   "status": "scoped_readiness_passed_human_acceptance_pending",
-  "generated_at": "2026-09-14T01:40:52.776369+00:00",
+  "generated_at": "2026-09-14T02:15:41.192762+00:00",
   "release_tag": "course-video-v4",
   "title": "NetMamba+ — understand the complete repository",
   "measured_seconds": 3600.0,
@@ -18,12 +18,12 @@
   "coverage": {
     "path": "docs/customer/video-course-v4-coverage.json",
     "bytes": 168037,
-    "sha256": "b9314da64ee584531f6a2bb204d82683f3a3e53728a2c8518d810c57af6894df"
+    "sha256": "3dfc27d2a2b7d6551c2e89ccdbe7b39ee2e25fb2bfe15ea6d9a7c3ad36f3d9ac"
   },
   "audit": {
     "path": "docs/research/video-audit-v4.json",
-    "bytes": 5696281,
-    "sha256": "da5ea0bce3056ceb8e01be6b207e2d2fb7126b45e9883c6c8f4a6ab72fb30326"
+    "bytes": 6717360,
+    "sha256": "b6cd989c2d561ca23a5401a946c355a7c9b0c5944c4c55491b6f12b7b2f89c0c"
   },
   "file_guide": {
     "path": "docs/repository-walkthrough.md",
