@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "completed_at": "2026-09-14T21:38:46.485799+00:00",
+  "source_sha256": "c330713ea4838877baf0fc2943112c593fd7322e737a91b721511e0a8f5c7528",
+  "manifest_sha256": "18bec8dfc18b7c574b99ffb87ac0811c3874ee124d8801476d55190b2191beb3",
+  "method": "Actual Chromium playback with decoded audio/video, all 12 keyboard chapter seeks, near-end play, same-origin captions, four viewport widths and byte-identical MP4 download.",
+  "known_material_defects": [],
+  "artifacts": [
+    {
+      "path": "docs/customer/demo/video/v5/NetMambaPlus-CSV-workflow-course.mp4",
+      "sha256": "0a808cc63596b4f33139103030553e6befa784a884052841089981c2878e729b",
+      "bytes": 85893563
+    },
+    {
+      "path": "docs/customer/demo/video/v5/captions.vtt",
+      "sha256": "7c60250df27636643e4213ee45d8530d13ab432ae21550227451460e93beef21",
+      "bytes": 89469
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/research/video-v5-browser.json",
+      "sha256": "55fa2064d66eddeb759cdc45411f20d03013c67fa8dc80fa41cbb6c24a215ca8",
+      "bytes": 1384
+    }
+  ],
+  "scope": "Acceptance within the documented automated and sampled review limits; not human full-watch certification."
+}

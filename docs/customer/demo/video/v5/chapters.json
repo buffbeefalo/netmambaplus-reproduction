@@ -1,0 +1,74 @@
+[
+  {
+    "id": "orientation",
+    "title": "The client problem and the two repositories",
+    "start": 0.0,
+    "end": 316.0
+  },
+  {
+    "id": "paper",
+    "title": "The paper's idea and our packet adaptation",
+    "start": 316.0,
+    "end": 644.0
+  },
+  {
+    "id": "cic-csv",
+    "title": "Read the CICIDS2017 packet CSV",
+    "start": 644.0,
+    "end": 946.0
+  },
+  {
+    "id": "unsw-csv",
+    "title": "Add UNSW and protect the experiment's split",
+    "start": 946.0,
+    "end": 1259.0
+  },
+  {
+    "id": "features",
+    "title": "Follow one packet through the model",
+    "start": 1259.0,
+    "end": 1566.0
+  },
+  {
+    "id": "learning",
+    "title": "Understand how the packet model learns",
+    "start": 1566.0,
+    "end": 1868.0
+  },
+  {
+    "id": "code",
+    "title": "Read the code behind training and prediction",
+    "start": 1868.0,
+    "end": 2141.0
+  },
+  {
+    "id": "results",
+    "title": "Explain the measured results and their limits",
+    "start": 2141.0,
+    "end": 2444.0
+  },
+  {
+    "id": "demo",
+    "title": "Show the packet demo and explain a mistake",
+    "start": 2444.0,
+    "end": 2722.0
+  },
+  {
+    "id": "setup",
+    "title": "Set up, run and test the same packet workflow",
+    "start": 2722.0,
+    "end": 2997.0
+  },
+  {
+    "id": "repository",
+    "title": "Understand both repositories and their updates",
+    "start": 2997.0,
+    "end": 3297.0
+  },
+  {
+    "id": "hardware",
+    "title": "Hardware roadmap, remaining work and your handoff",
+    "start": 3297.0,
+    "end": 3600.0
+  }
+]

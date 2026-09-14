@@ -184,7 +184,11 @@ def verify_files(directory=None, source_path=None, *, reference_revision=None, r
         if (Path(name).name != name or "\\" in name or not path.resolve().is_relative_to(directory.resolve())
                 or not path.is_file() or digest(path) != identity["sha256"] or path.stat().st_size != identity["bytes"]):
             raise ValueError(f"Video checksum mismatch: {name}")
-    course = json.loads(reference_bytes("docs/customer/course-source.json", reference_root, revision))
+    if source.get('workflow') == 'two-csv-packet-v1':
+        from narrate_course_video import course_context
+        course = course_context(source, reference_root)
+    else:
+        course = json.loads(reference_bytes("docs/customer/course-source.json", reference_root, revision))
     references = reference_paths(source, course, reference_root)
     used = {key for chapter in source["chapters"] for scene in chapter["scenes"] for key in scene["references"]}
     if set(manifest["references"]) != used:

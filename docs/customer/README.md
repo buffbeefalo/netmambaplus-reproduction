@@ -4,6 +4,7 @@ Start with **[Understand and explain the client project](client-project-guide.md
 
 | Need | Material |
 |---|---|
+| Learn the complete packet workflow | [Current video](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [Handbook PDF](demo/video/v5/NetMambaPlus-course-handbook.pdf) · [PowerPoint](demo/video/v5/NetMambaPlus-course-slides.pptx) · [Slide PDF](demo/video/v5/NetMambaPlus-course-slides.pdf) · [Transcript](demo/video/v5/transcript.md) |
 | Explain the complete delivery | [Client project guide](client-project-guide.md) |
 | Set up, train, predict and test | [Packet setup](packet-study-setup.md) · [Quickstart](quickstart.md) |
 | Understand the supplied files | [Paper and both CSVs](paper-and-data-explained.md) · [Changes from upstream](upstream-comparison.md) |
@@ -31,7 +32,7 @@ Earlier flow/calibration experiments and media remain research history in this f
 <a id="preserved-v4-course-original-flows-and-calibration"></a>
 ### Preserved v4 course: original flows and calibration
 
-[Historical one-hour video](https://buffbeefalo.github.io/netmambaplus-reproduction/video/) · [MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v4/NetMambaPlus-one-hour-course.mp4) · [Handbook](demo/video/v4/NetMambaPlus-course-handbook.pdf) · [PowerPoint](demo/video/v4/NetMambaPlus-course-slides.pptx) · [Slide PDF](demo/video/v4/NetMambaPlus-course-slides.pdf) · [Transcript](demo/video/v4/transcript.md).
+[Historical v4 release](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/course-video-v4) · [MP4](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v4/NetMambaPlus-one-hour-course.mp4) · [Handbook](demo/video/v4/NetMambaPlus-course-handbook.pdf) · [PowerPoint](demo/video/v4/NetMambaPlus-course-slides.pptx) · [Slide PDF](demo/video/v4/NetMambaPlus-course-slides.pdf) · [Transcript](demo/video/v4/transcript.md).
 
 These predate the packet study and client packaging. [Media checks](video-verification-v4.md) distinguish executed inspections from pending human full-watch/all-caption acceptance. [Historical flow results](results.md), [calibration study](confidence-calibration.md), [offline flow replay](demo/index.html) and [old flow runbook](runbook.md) retain their original scope. The public root now demonstrates packets.
 

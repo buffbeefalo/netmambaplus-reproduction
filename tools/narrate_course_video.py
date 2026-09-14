@@ -22,9 +22,23 @@ def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode()
 
 
+def course_context(source, root=ROOT):
+    workflow = source.get('workflow')
+    if workflow is None:
+        return read(root / 'docs/customer/course-source.json')
+    if workflow != 'two-csv-packet-v1':
+        raise ValueError('Unsupported video workflow')
+    course = source.get('course')
+    if (not isinstance(course, dict) or set(course) != {'facts', 'references', 'demo'}
+            or any(not isinstance(course[key], dict) for key in course)
+            or not course['facts']):
+        raise ValueError('Packet video needs its own facts, references and demo context')
+    return course
+
+
 def load_source(source_path=SOURCE, *, root=ROOT):
     source = read(source_path)
-    course = read(root / "docs/customer/course-source.json")
+    course = course_context(source, root)
     if hashlib.sha256(canonical(course["facts"])).hexdigest() != source["fact_bindings_sha256"]:
         raise ValueError("Video fact bindings have changed; review the video source first")
     values = fact_values(course, root)

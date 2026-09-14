@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "run_id": "5358875e-1fe6-48f4-a58b-6cb051d81915",
+  "outcome": "ESCALATED",
+  "updated_at": "2026-09-14T19:48:23.262Z",
+  "seats": [
+    {
+      "provider": "Claude",
+      "model": "claude-fable-5",
+      "effort": "high"
+    },
+    {
+      "provider": "Codex",
+      "model": "gpt-6-astra",
+      "effort": "max"
+    }
+  ],
+  "mutual_ratification": false,
+  "decision_sha256": null,
+  "source_result_sha256": "769c5f3335f9a94cf59e58583da4a68c31338bde2c2e360271831f2edb0bf9c6",
+  "blockers": [
+    "The archive-safe build/publication contract cannot be frozen: source/version selection, output destinations, and the active /video/ version switch are not visible. The supplied page-template excerpt proves the stale flow-era defect (unconditional 'Actual three-run mean: 86.65%' and '97.50% was not reproduced' status block rendered for every version) but does not show how versions are selected or written, so shared-default changes cannot yet be specified to provably leave archived v3/v4 output byte-identical. [anchor: evidence pack: tools/build_video_page.py excerpt in source bytes [38245,49230) ('<p class=\"status\">Actual three-run mean: <strong>86.65%</strong>...'), plus 'REQUEST EXCLUDED: file tools/build_course_video.py' and 'REQUEST EXCLUDED: glob tools/*video*']",
+    "The packet verifier's primary evidence bindings remain unconfirmed: the six-arm packet-study inventory and the client-export receipt schemas are needed to bind each scientific claim (metric, population, unit, both strict-comparison scopes: 25,930/2 and 20,000-validated/128-predicted/76) to authoritative artifacts. The README summary alone cannot establish those schemas or counting units. [anchor: evidence pack: 'REQUEST EXCLUDED: glob docs/customer/evidence/packet-study/*', 'REQUEST EXCLUDED: file docs/research/packet-checks/client-export.json', and the pack rule 'Omitted evidence is unavailable, not proof of absence']",
+    "The publication contract must include packet-specific corrections to build_video_page.py, whose visible template unconditionally presents 86.65% as the current result. Correcting the document generator alone is insufficient. Builder and page entry-point evidence is still needed to establish source selection, output destinations and an archive-safe active-version switch. [anchor: tools/build_video_page.py supplied excerpt: unconditional 'Actual three-run mean: 86.65%' status paragraph; Question: preserve archived v3/v4 records and replace the active /video/ recording.]",
+    "The packet verifier’s primary evidence bindings remain unconfirmed. README supports the headline disclosures, but exact fields, counting units and execution outcomes require the excluded packet inventory and publication receipt. README additionally identifies client-edition-validation.json as the numerical-comparison receipt. Inspect these records before freezing machine-checkable assertions; no study rerun is needed. [anchor: REQUEST EXCLUDED: glob docs/customer/evidence/packet-study/*; REQUEST EXCLUDED: file docs/research/packet-checks/client-export.json; README.md, 'Keep these limits with the result', linking docs/research/client-edition-validation.json.]"
+  ],
+  "direct_resolution": {
+    "authority": "User requested the video rebuild and publication; standing direct implementation authorization dated 2026-09-08. No consensus or broker delivery claimed.",
+    "archive_version_selection": "Reviewed complete local builders; added source-specific packet context and v5 page defaults while preserving v3/v4 archive verification.",
+    "scientific_bindings": "Reviewed complete primary protocol, data manifest, six native arms, nine controls and both inference receipts; v5 source binds 60 JSON values and its code/document references.",
+    "media_acceptance": "Full rendering and audits recorded separately in the v5 media verification record."
+  }
+}

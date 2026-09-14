@@ -26,6 +26,8 @@ jobs:
           python-version: '3.12'
       - run: python3 -m unittest discover -s tests -v
       - run: python3 tools/verify_package.py
+      - run: python3 tools/verify_video_course_v5.py
+      - run: python3 tools/build_video_page.py --check
       - name: Stage the public site without the retired interactive course
         run: |
           mkdir -p runs/pages-site

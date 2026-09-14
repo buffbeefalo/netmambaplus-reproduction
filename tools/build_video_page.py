@@ -8,22 +8,30 @@ from pathlib import Path
 from urllib.parse import quote
 
 from build_course import ROOT, read
-from build_course_video import (DESTINATION, LEGACY_DESTINATION, check_source_binding,
+from build_course_video import (LEGACY_DESTINATION, check_source_binding,
                                 display_time, production_credit, publication)
-from narrate_course_video import SOURCE, digest
+from narrate_course_video import digest
 
 WATCH_PAGE = LEGACY_DESTINATION / "index.html"
+DESTINATION = LEGACY_DESTINATION / "v5"
+SOURCE = ROOT / "docs/customer/video-course-v5-source.json"
 
 
 def render(manifest=None, *, media_dir=None, output=None):
     if manifest is None:
         manifest = read((media_dir or DESTINATION) / "media-manifest.json")
     metadata = publication(manifest)
+    if metadata['release_tag'] == 'course-video-v5' and 'summary' not in metadata:
+        raise ValueError('Packet publication needs a summary')
     media_name, webm_name = metadata["media_name"], metadata["webm_name"]
     duration, practice = manifest["scheduled_seconds"], manifest["practice_seconds"]
     # Preserve the published v2 page when rendering its original metadata-free manifest.
     legacy = ("media_name" not in manifest and "title" not in manifest and duration == 1800 and practice == 180)
     version = metadata['release_tag'].removeprefix('course-video-')
+    repository_links = ('<a href="https://github.com/buffbeefalo/netmambaplus-reproduction">Reproduction repo</a> · '
+                        '<a href="https://github.com/buffbeefalo/netmambaplus-client">Client repo</a>'
+                        if version == 'v5' else
+                        '<a href="https://github.com/buffbeefalo/netmambaplus-reproduction">Repository</a>')
     media_dir = Path(media_dir or (LEGACY_DESTINATION if legacy else LEGACY_DESTINATION / version)).resolve()
     output = Path(output or WATCH_PAGE).resolve()
     prefix = Path(os.path.relpath(media_dir, output.parent)).as_posix()
@@ -39,12 +47,14 @@ def render(manifest=None, *, media_dir=None, output=None):
         runtime = "One continuous 30:00 video · 1080p · local synthetic voice · captions included in the picture. Optional English text captions are also available in the player. Three minutes are labeled practice pauses, including a 90-second teach-back; pause longer whenever you need."
     else:
         title = heading = metadata["title"]
-        description = f"{title}. A narrated course on the actual NetMamba+ experiments, input data, training, inference and remaining work."
+        description = metadata.get('summary', f"{title}. A narrated course on the actual NetMamba+ experiments, input data, training, inference and remaining work.")
         lede = "Follow the evidence from input data through training, saved predictions and the remaining work. Chapter controls and the complete transcript let you learn at your own pace."
         aria_label = metadata["title"] + " — narrated course"
         runtime = (f"One continuous {display_time(duration)} video · {len(manifest['chapters'])} chapters · 1080p · synthetic voice · captions included in the picture. "
                    f"Optional English text captions are also available in the player. Labeled practice pauses total {display_time(practice)}; pause longer whenever you need.")
     page_title = title
+    summary = (html.escape(metadata['summary']) if 'summary' in metadata else
+               'Actual three-run mean: <strong>86.65%</strong>. The paper’s <strong>97.50%</strong> was not reproduced. The demo replays saved predictions; live IDS and NPU/SmartNIC deployment remain future work.')
     credit = '\n<p class="small">' + html.escape(production_credit(metadata)) + '</p>' if metadata["production"] else ""
     chapters, sections = [], []
     for index, chapter in enumerate(manifest["chapters"], 1):
@@ -84,14 +94,14 @@ def render(manifest=None, *, media_dir=None, output=None):
 <style>
 *{{box-sizing:border-box}}html{{scroll-behavior:smooth}}body{{margin:0;background:#f8f6ef;color:#172c3a;font:18px/1.65 system-ui,sans-serif}}a{{color:#09635c;text-underline-offset:.18em}}a:focus-visible,button:focus-visible,video:focus-visible{{outline:3px solid #b14c36;outline-offset:5px}}.skip{{position:absolute;top:-100px}}.skip:focus{{top:12px;background:white;z-index:3}}header,main,footer{{max-width:1240px;margin:auto;padding:28px}}header{{border-top:8px solid #126e68}}.eyebrow{{text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:#126e68;font-weight:750}}h1{{font:700 clamp(2.2rem,5vw,4.5rem)/1.1 Georgia,serif;margin:.3em 0}}h2{{font:700 2rem/1.2 Georgia,serif}}h3{{margin-top:2.5em}}h4{{font-size:1.1rem;margin-bottom:.5em}}.lede{{max-width:850px;font-size:1.15rem}}video{{display:block;width:100%;aspect-ratio:16/9;background:#172c3a;border-radius:12px}}.downloads{{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0}}.downloads a{{padding:10px 17px;border:1px solid #126e68;border-radius:7px;text-decoration:none;font-weight:650;min-height:46px}}.downloads a:first-child{{background:#126e68;color:white}}.small,.evidence{{font-size:.9rem;color:#465a63}}.chapters{{display:grid;grid-template-columns:1fr 1fr;gap:8px;list-style:none;padding:0}}.chapter{{display:flex;gap:16px;align-items:baseline;padding:13px 16px;background:white;border:1px solid #d9e9ed;border-radius:7px;text-decoration:none;min-height:48px}}.chapter span{{font:600 1rem ui-monospace,monospace;white-space:nowrap}}.chapter:hover{{background:#e2eeeb}}.transcript{{max-width:850px}}.transcript section{{border-top:1px solid #b8cbd0;margin-top:28px}}.status{{padding:12px 18px;background:#e2eeeb;border-left:4px solid #126e68}}footer{{border-top:1px solid #b8cbd0;margin-top:30px}}@media(max-width:650px){{header,main,footer{{padding:20px}}.chapters{{grid-template-columns:1fr}}.downloads a{{flex:1;text-align:center;min-width:150px}}}}@media(prefers-reduced-motion:reduce){{html{{scroll-behavior:auto}}}}@media print{{video,.chapters,.downloads,header nav{{display:none}}body{{font-size:12pt}}header,main{{padding:0}}a{{color:inherit}}}}
 </style></head><body><a class="skip" href="#player">Skip to video</a>
-<header><nav><a href="../">Recorded IDS demo</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction">Repository</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/repository-walkthrough.md">Every file explained</a></nav>
+<header><nav><a href="../">Recorded IDS demo</a> · {repository_links} · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/repository-walkthrough.md">Every file explained</a></nav>
 <p class="eyebrow">The reproduction lab · video course</p><h1>{html.escape(heading)}</h1>
 <p class="lede">{html.escape(lede)}</p>{packet_notice}</header>
 <main><video id="player" controls playsinline preload="metadata" aria-label="{html.escape(aria_label)}" poster="{prefix}poster.png"><source src="{webm_url}" type="video/webm"><source src="{media_url}" type="video/mp4"><track kind="captions" src="{prefix}captions.vtt" srclang="en" label="English">Your browser cannot play this video. <a href="{media_url}">Download the MP4</a>.</video>
 <div class="downloads"><a href="{media_url}" download>Download MP4 · {size:.1f} MiB</a><a href="{prefix}transcript.md" download>Download transcript</a><a href="{prefix}captions.vtt" download>Download captions</a>{companion_links}<a href="#transcript">Read along</a></div>
 <p class="small">{html.escape(runtime)}</p>{credit}
 <p class="small">Review copy: automated media and playback checks are recorded. A complete human watch-through and detailed caption-timing review remain pending. <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/{review_path}">Read the exact review status.</a></p>
-<p class="status">Actual three-run mean: <strong>86.65%</strong>. The paper’s <strong>97.50%</strong> was not reproduced. The demo replays saved predictions; live IDS and NPU/SmartNIC deployment remain future work.</p>
+<p class="status">{summary}</p>
 <h2>Jump to a chapter</h2><ol class="chapters">{"".join(chapters)}</ol><p id="play-status" class="small" role="status" aria-live="polite">Choose a chapter, then press Play.</p>
 <div class="transcript" id="transcript"><h2>Read the complete narration</h2><p>This transcript reflows for smaller screens. Evidence links lead to the saved records. The course explains earlier experiments; playing it does not rerun training.</p>{"".join(sections)}</div></main>
 <footer><a href="https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/{metadata['release_tag']}">Versioned video release</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/{review_path}">Media checks and remaining review</a> · <a href="https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/repository-walkthrough.md">Every file and download explained</a></footer>
@@ -114,7 +124,7 @@ def main():
     args = parser.parse_args()
     repository_root = ROOT.resolve()
     if args.legacy and args.output is None:
-        parser.error("--legacy requires --output; the active watch page is reserved for v4")
+        parser.error("--legacy requires --output; the active watch page is reserved for v5")
     path = (args.output or WATCH_PAGE).resolve()
     if args.legacy and not args.check and path == WATCH_PAGE.resolve():
         parser.error("Legacy HTML cannot replace the active watch page")
@@ -125,8 +135,8 @@ def main():
     if publication(manifest)["release_tag"] == "course-video-v2" and not args.legacy:
         parser.error("Use --legacy and --output to render historical HTML")
     if not args.legacy:
-        if publication(manifest)["release_tag"] != "course-video-v4" and path == WATCH_PAGE.resolve():
-            parser.error("Historical HTML requires a separate --output; the active watch page is reserved for v4")
+        if publication(manifest)["release_tag"] != "course-video-v5" and path == WATCH_PAGE.resolve():
+            parser.error("Historical HTML requires a separate --output; the active watch page is reserved for v5")
     version = publication(manifest)['release_tag'].removeprefix('course-video-v')
     archived = (not args.legacy and version in ('3', '4')
                 and media_dir == (repository_root / f'docs/customer/demo/video/v{version}').resolve())

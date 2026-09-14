@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "completed_at": "2026-09-14T21:38:46.485799+00:00",
+  "source_sha256": "c330713ea4838877baf0fc2943112c593fd7322e737a91b721511e0a8f5c7528",
+  "manifest_sha256": "18bec8dfc18b7c574b99ffb87ac0811c3874ee124d8801476d55190b2191beb3",
+  "method": "Actual 96-slide PPTX notes/images, PDF image identities, all 84 narration passages, all 796 guide entries, tables, clickable repo links, LibreOffice opening and representative visual samples.",
+  "known_material_defects": [],
+  "artifacts": [
+    {
+      "path": "docs/customer/demo/video/v5/NetMambaPlus-CSV-workflow-course.mp4",
+      "sha256": "0a808cc63596b4f33139103030553e6befa784a884052841089981c2878e729b",
+      "bytes": 85893563
+    },
+    {
+      "path": "docs/customer/demo/video/v5/captions.vtt",
+      "sha256": "7c60250df27636643e4213ee45d8530d13ab432ae21550227451460e93beef21",
+      "bytes": 89469
+    },
+    {
+      "path": "docs/customer/demo/video/v5/NetMambaPlus-course-slides.pptx",
+      "sha256": "71be01affec4deeca10b98a83227a8319eac7074e7bcf43f61f61a996799b808",
+      "bytes": 5454617
+    },
+    {
+      "path": "docs/customer/demo/video/v5/NetMambaPlus-course-slides.pdf",
+      "sha256": "1a769e19fb26883bb72f2c624a2b09108e48f1231403b857090ac8cd64a623e6",
+      "bytes": 6033864
+    },
+    {
+      "path": "docs/customer/demo/video/v5/NetMambaPlus-course-handbook.pdf",
+      "sha256": "e5bbe278e1909751d24598dbf03b6c007ba0a87262b2784d15470598a30f9fad",
+      "bytes": 838194
+    },
+    {
+      "path": "docs/customer/demo/video/v5/companion-manifest.json",
+      "sha256": "3c9c0d4fa939c3750c87d11707e975d540b0c2065b7b3caf6eec16aedd90cb33",
+      "bytes": 28471
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/research/video-v5-review.json",
+      "sha256": "8e12a4326f6941bfcc7f254a604eba01de6f6f69c983bbe3adc3de322a236f5a",
+      "bytes": 947178
+    }
+  ],
+  "scope": "Acceptance within the documented automated and sampled review limits; not human full-watch certification."
+}

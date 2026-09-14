@@ -67,9 +67,9 @@ PACKET_CHECKPOINT="$(python -c 'import json; from pathlib import Path; p=Path("r
 python tools/predict_packets.py --checkpoint "$PACKET_CHECKPOINT" --csv /path/to/unlabeled-packets.csv --output runs/packet-predictions-new --upstream upstream/NetMambaPlus --batch-size 64
 ```
 
-The unlabeled header contains the 1,500 payload columns alone, or those columns followed by the four metadata columns. A `label` column is rejected: use a separate unlabeled copy. Metadata is validated but never passed to the native model. Preserve checkpoint provenance.
+The unlabeled header contains the 1,500 payload columns alone, or those columns followed by the four metadata columns. A `label` column is rejected: use a separate unlabeled copy. Header order, row width and payload bytes are validated; optional metadata values are ignored and never passed to the native model. Preserve checkpoint provenance.
 
-`predictions.jsonl` contains row identity, payload hash, two logits, benign/attack class and uncalibrated probabilities. `receipt.json` binds input, model and code, and reports completion. `--max-rows 128` caps predictions while still validating the whole CSV; the receipt then distinguishes full validation from capped prediction. Unlabeled input cannot produce an accuracy score.
+`predictions.jsonl` contains row identity, payload hash, two logits, benign/attack class and uncalibrated probabilities. `receipt.json` binds input, model and code, and reports completion. `--max-rows 128` caps predictions while the program still checks every row. Validation and inference are interleaved; a successful `complete` or `capped` receipt requires full input validation and distinguishes validated rows from predicted rows. Unlabeled input cannot produce an accuracy score.
 
 ## 5. Recheck and present
 

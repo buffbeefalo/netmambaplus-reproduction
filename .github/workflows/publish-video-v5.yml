@@ -1,0 +1,48 @@
+name: Publish reviewed CSV video v5
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-course-video-v5
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/verify_video_course_v5.py
+      - run: python tools/build_video_page.py --check
+      - run: python tools/verify_repository_guide.py
+      - name: Publish the verified files once
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create course-video-v5 \
+            --target "$GITHUB_SHA" --latest=false \
+            --title 'NetMamba+ — both CSVs, both repositories, one video' \
+            --notes-file docs/customer/video-release-v5.md \
+            docs/customer/demo/video/v5/NetMambaPlus-CSV-workflow-course.mp4 \
+            docs/customer/demo/video/v5/NetMambaPlus-CSV-workflow-course.webm \
+            docs/customer/demo/video/v5/NetMambaPlus-course-slides.pptx \
+            docs/customer/demo/video/v5/NetMambaPlus-course-slides.pdf \
+            docs/customer/demo/video/v5/NetMambaPlus-course-handbook.pdf \
+            docs/customer/demo/video/v5/captions.srt \
+            docs/customer/demo/video/v5/captions.vtt \
+            docs/customer/demo/video/v5/transcript.md \
+            docs/customer/demo/video/v5/chapters.json \
+            docs/customer/demo/video/v5/media-manifest.json \
+            docs/customer/demo/video/v5/companion-manifest.json \
+            docs/customer/demo/video/v5/motion-manifest.json \
+            docs/customer/demo/video/v5/narration-manifest.json \
+            docs/customer/video-course-v5-source.json

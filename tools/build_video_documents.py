@@ -9,7 +9,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from build_course import ROOT, read
-from build_course_video import DEFAULT_WORK, DESTINATION, check_source_binding, timecode
+from build_course_video import (DEFAULT_WORK, DESTINATION, check_source_binding,
+                                display_time, publication, timecode)
 from narrate_course_video import SOURCE, digest
 
 SLIDES = 'NetMambaPlus-course-slides.pptx'
@@ -48,6 +49,10 @@ def build(work, output, source_path=None):
     manifest_hash = digest(manifest_path)
     manifest = read(manifest_path)
     check_source_binding(manifest, source_path, root=ROOT)
+    metadata = publication(manifest)
+    summary = metadata.get('summary')
+    if metadata['release_tag'] == 'course-video-v5' and summary is None:
+        raise ValueError('Packet publication needs a summary')
     source_hash = digest(source_path)
     guide_hash = digest(ROOT / 'docs/repository-walkthrough.md')
     from pptx import Presentation
@@ -74,7 +79,7 @@ def build(work, output, source_path=None):
     output.mkdir(parents=True, exist_ok=True)
     deck = Presentation()
     deck.slide_width, deck.slide_height = Inches(13.333333), Inches(7.5)
-    deck.core_properties.title = 'NetMamba+ — complete repository course'
+    deck.core_properties.title = metadata['title'] if summary else 'NetMamba+ — complete repository course'
     deck.core_properties.author = 'Codex'
     deck.core_properties.last_modified_by = 'Codex'
     built_at = datetime.now(timezone.utc)
@@ -109,13 +114,28 @@ def build(work, output, source_path=None):
     heading_style = ParagraphStyle('CourseHeading', parent=body_style, fontName='CourseBold', fontSize=19, leading=25, spaceBefore=12, keepWithNext=True)
     subheading_style = ParagraphStyle('CourseSubheading', parent=body_style, fontName='CourseBold', fontSize=12, leading=17, spaceBefore=10, keepWithNext=True)
     code_style = ParagraphStyle('CourseCode', parent=body_style, fontName='CourseMono', fontSize=7, leading=10)
-    story = [Paragraph('NetMamba+<br/>The complete repository course', heading_style),
+    heading = html.escape(metadata['title']) if summary else 'NetMamba+<br/>The complete repository course'
+    duration = display_time(manifest['scheduled_seconds']) if summary else None
+    introduction = (f'This handbook follows the single {duration} video and its slide deck. '
+                    'The video uses synthetic narration. Automated checks and their limits are recorded separately; '
+                    'no complete human watch-through is claimed.' if summary else
+                    'This handbook follows the single hour-long video and its slide deck. The video uses synthetic narration. Automated checks and their limits are recorded separately; no complete human watch-through is claimed.')
+    measured_scope = (html.escape(summary) if summary else
+                      'Measured three-seed mean: <b>86.65%</b>. Paper result: <b>97.50%, not reproduced</b>. The demo replays saved predictions. Live IDS and NPU/SmartNIC deployment remain future work.')
+    story = [Paragraph(heading, heading_style),
              Paragraph('Codex-authored handbook, narration script and every-file appendix', body_style),
-             Paragraph('This handbook follows the single hour-long video and its slide deck. The video uses synthetic narration. Automated checks and their limits are recorded separately; no complete human watch-through is claimed.', body_style),
-             Paragraph('Measured three-seed mean: <b>86.65%</b>. Paper result: <b>97.50%, not reproduced</b>. The demo replays saved predictions. Live IDS and NPU/SmartNIC deployment remain future work.', body_style),
+             Paragraph(introduction, body_style),
+             Paragraph(measured_scope, body_style)]
+    if metadata['release_tag'] == 'course-video-v5':
+        story.append(Paragraph(
+            'Project repositories: '
+            '<link href="https://github.com/buffbeefalo/netmambaplus-reproduction" color="#126e68">Reproduction repository</link>'
+            ' · <link href="https://github.com/buffbeefalo/netmambaplus-client" color="#126e68">Client repository</link>.',
+            body_style))
+    story.extend([
              Paragraph('Slide images in the PowerPoint match the video; their narration is available as editable speaker notes. This handbook provides searchable text and a complete repository-file appendix. The original customer presentation remains a separate historical package.', body_style),
              Paragraph('Source SHA-256: ' + manifest['source_sha256'], small_style),
-             Paragraph('Course chapters', subheading_style)]
+             Paragraph('Course chapters', subheading_style)])
     for c in manifest['chapters']:
         story.append(Paragraph(timecode(c['start'])[:8] + ' — ' + html.escape(c['title']), body_style))
     for number, chapter in enumerate(manifest['chapters'], 1):
@@ -131,7 +151,17 @@ def build(work, output, source_path=None):
                 story.append(Preformatted(scene['code'], code_style, maxLineLength=90))
             if 'rows' in scene:
                 for row in [scene['columns']] + scene['rows']:
-                    story.append(Paragraph(' — '.join(html.escape(str(c)) for c in row), small_style))
+                    row_paragraph = Paragraph(' — '.join(html.escape(str(c)) for c in row), small_style)
+                    if metadata['release_tag'] == 'course-video-v5':
+                        row_paragraph.keepWithNext = True
+                    story.append(row_paragraph)
+            if scene.get('table_note'):
+                story.append(Paragraph(html.escape(scene['table_note']), small_style))
+            if scene.get('diagram'):
+                for card in scene['diagram'].get('cards', []):
+                    story.append(Paragraph(html.escape(card['title'] + ': ' + card['detail']), small_style))
+                if scene['diagram'].get('note'):
+                    story.append(Paragraph(html.escape(scene['diagram']['note']), small_style))
             refs = ', '.join(f'<link href="{REPO + manifest["references"][key]["path"]}" color="#126e68">{html.escape(key)}</link>' for key in scene['references'])
             story[-1].keepWithNext = True
             story.append(Paragraph('Evidence: ' + refs, small_style))
@@ -175,10 +205,14 @@ def build(work, output, source_path=None):
     def footer(canv, doc):
         canv.setDateFormatter(lambda *parts: pdf_date)
         canv.setFont('Course', 8)
-        canv.drawString(40, 22, 'NetMamba+ · Codex course · measured reproduction attempt')
+        footer_text = ('NetMamba+ · Codex course · native packet study' if summary else
+                       'NetMamba+ · Codex course · measured reproduction attempt')
+        canv.drawString(40, 22, footer_text)
         canv.drawRightString(A4[0] - 40, 22, str(doc.page))
+    handbook_title = (metadata['title'] + ' — handbook and complete file guide' if summary else
+                      'NetMamba+ course handbook and complete file guide')
     doc = SimpleDocTemplate(str(output / HANDBOOK), pagesize=A4, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40,
-                            title='NetMamba+ course handbook and complete file guide', author='Codex')
+                            title=handbook_title, author='Codex')
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
     if (digest(source_path) != source_hash or digest(guide) != guide_hash
             or digest(manifest_path) != manifest_hash):
@@ -191,6 +225,12 @@ def build(work, output, source_path=None):
               'artifacts':{name:{'bytes':(output/name).stat().st_size,'sha256':digest(output/name)} for name in [SLIDES, SLIDE_PDF, HANDBOOK]},
               'scope':'Generated slides share the rendered frames; speaker notes and searchable handbook share narration. Handbook appends the reviewed complete file guide. Separate artifact checks are required.'}
     (output / 'companion-manifest.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8', newline='\n')
+    if metadata['release_tag'] == 'course-video-v5':
+        for name in [SLIDES, SLIDE_PDF, HANDBOOK, 'companion-manifest.json']:
+            artifact = output / name
+            manifest['artifacts'][name] = {'bytes': artifact.stat().st_size, 'sha256': digest(artifact)}
+        manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n',
+                                 encoding='utf-8', newline='\n')
     print(json.dumps({'slides':len(frames), 'artifacts':record['artifacts']}, indent=2))
 
 

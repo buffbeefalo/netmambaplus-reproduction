@@ -6,6 +6,8 @@
 
 The concise executable delivery is [netmambaplus-client](https://github.com/buffbeefalo/netmambaplus-client). This reproduction repository is its development and learning source. Verified exports keep shared code and packet evidence updated; see [maintenance and delivery](docs/research/client-edition.md).
 
+**[Watch the current CSV-workflow video](https://buffbeefalo.github.io/netmambaplus-reproduction/video/)** — one continuous 60-minute lesson covering both CSVs, the paper, both repositories, training, inference, actual results, setup and remaining work. [PDF handbook](docs/customer/demo/video/v5/NetMambaPlus-course-handbook.pdf) · [PowerPoint](docs/customer/demo/video/v5/NetMambaPlus-course-slides.pptx) · [Transcript](docs/customer/demo/video/v5/transcript.md).
+
 ## What was built and measured
 
 Both CSVs supply real byte inputs and supervised targets to the original NetMamba+ encoder. All **1,490,136 rows** and **2,235,204,000 payload-byte cells** were validated. Identical payloads stay in one global training/validation/test partition, including duplicates shared between sources.

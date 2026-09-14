@@ -6,6 +6,9 @@ We built and exercised a NetMamba+ **packet adaptation** on NVIDIA GB10. It lear
 
 The project includes runnable code, measured results, verification and an offline evidence viewer. It is not a live intrusion-detection service, and its packet scores do not reproduce the paper's original flow accuracy.
 
+<a id="current-course"></a>
+The current [Codex-authored v5 lesson source](video-course-v5-source.json) covers both supplied CSVs, the complete packet workflow and both repositories in twelve chapters for one video of about an hour. Its publication destination is the [video page](https://buffbeefalo.github.io/netmambaplus-reproduction/video/). Matching companion outputs are the [PowerPoint with speaker notes](demo/video/v5/NetMambaPlus-course-slides.pptx), [PDF slides](demo/video/v5/NetMambaPlus-course-slides.pdf), [PDF handbook and file guide](demo/video/v5/NetMambaPlus-course-handbook.pdf) and [transcript](demo/video/v5/transcript.md). Consult the [v5 verification record](video-verification-v5.md) for completed checks and remaining review. Preserved v4 flow/calibration teaching material is archive-only.
+
 **Jump to:** [The starting files](#starting-files) · [Inputs and outputs](#model) · [Training](#training) · [Results](#results) · [Actual tests](#tests) · [Setup and use](#setup) · [Demo](#demo) · [Every component](#components) · [Changes from the authors](#upstream) · [Updates](#updates) · [Hardware](#hardware) · [Remaining work](#remaining-work) · [Handoff](#handoff).
 
 ## Which repository should I send?
@@ -135,7 +138,7 @@ For fresh model execution, follow the ordered [client SETUP.md](https://github.c
 
 The measured neural runtime is Linux ARM64 / GB10, Python 3.12, Torch 2.9.1+cu130 and CUDA toolkit 13.0. A GPU driver alone does not install the compiler toolkit. Other physical GPUs need their own build/numerical/packet gates. CPU/native Windows/macOS/NPU/SmartNIC model execution is not established. [Platform details](../support-matrix.md).
 
-The unlabeled CSV must contain `payload_byte_1` through `payload_byte_1500`, optionally followed by the four metadata columns. It must not contain `label`; create a separate unlabeled copy. No flow assembly is involved. `--max-rows 128` limits prediction but still validates the whole input; the receipt explicitly reports capped coverage. Preserve the checkpoint's provenance. The released pretraining file is initialization for training, not a substitute for the trained joint classifier.
+The unlabeled CSV must contain `payload_byte_1` through `payload_byte_1500`, optionally followed by the four metadata columns. It must not contain `label`; create a separate unlabeled copy. The predictor checks header order, row width and payload bytes; it ignores optional metadata values and never supplies them to the model. No flow assembly is involved. Validation and inference are interleaved. `--max-rows 128` limits prediction while every row must still pass validation before a successful `complete` or `capped` receipt; the receipt reports validated and predicted counts separately. Preserve the checkpoint's provenance. The released pretraining file is initialization for training, not a substitute for the trained joint classifier.
 
 <a id="demo"></a>
 ## 7. What should I demonstrate?
@@ -214,7 +217,7 @@ The adaptation still uses custom CUDA convolution/scan and fused normalization. 
 | Live IDS and deployment | Capture/extraction semantics, streaming, alert/blocking service and complete-system measurements are unfinished |
 | Other neural backends | Native CPU/Windows/macOS, other physical GPUs, NPU and SmartNIC execution are unimplemented or unvalidated |
 | Inherited assets | External datasets/weights have unresolved redistribution/commercial terms in the project record; see client [NOTICE.md](https://github.com/buffbeefalo/netmambaplus-client/blob/main/NOTICE.md) |
-| Historical teaching media | The preserved v4 course predates packet training/client packaging; it is not this workflow's tutorial, and human full-watch/all-caption acceptance remains pending |
+| Teaching-media acceptance | V5 covers the current CSV workflow and both repositories; its verification record tracks checks and limits. Human full-watch/all-caption acceptance remains pending. V4 is archive-only flow/calibration material |
 
 Council discussions are research records, not execution evidence. The original client architecture review was ESCALATED / UNRATIFIED. The single-route review's Claude call failed with provider HTTP 529 and the run was ABORTED; it did not produce consensus. Direct implementation and tests do not change those outcomes.
 
@@ -230,7 +233,7 @@ Before sending:
 1. Share the [client repo](https://github.com/buffbeefalo/netmambaplus-client) and this page. Record its commit, source manifest and checked CI revision.
 2. Explain the inputs, training/inference distinction, actual packet scores and test limitations. Show both sources and label disagreements in the demo.
 3. Provide [SETUP.md](https://github.com/buffbeefalo/netmambaplus-client/blob/main/SETUP.md) and the [every-file walkthrough](../repository-walkthrough.md). Establish which external CSVs, weights and hardware the recipient has before expecting fresh execution.
-4. For slides, use the [packet PDF, PowerPoint and matching script](README.md). Earlier flow/calibration video and documents are historical background, not the current CSV setup guide.
+4. Share the [v5 course and its matching PowerPoint, PDFs and transcript](#current-course) for the full lesson. The shorter [packet PDF, PowerPoint and matching script](README.md) provides a concise summary. V4 flow/calibration teaching media is archive-only.
 5. Keep the remaining-work table with the result. Select an independent customer dataset and a concrete next integration/hardware test before making deployment claims.
 
 The [acceptance map](acceptance.md) connects these explanations to the seven original customer questions and their retained evidence.

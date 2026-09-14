@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "scope": "Actual Chromium interaction with saved joint-model packet predictions; no model inference, live traffic or fabricated result.",
+  "recorded_at": "2026-09-14T20:01:44.567237+00:00",
+  "source_page": {
+    "path": "runs/video-course/v5-packet/demo-capture-page/index.html",
+    "bytes": 4840929,
+    "sha256": "00f4b0bf9f15bd1c39a2404fd12a0bf1ca3901ce46705d08d8f9cdd1a10a1028",
+    "title": "NetMamba+ \u00b7 Packet evidence",
+    "unaltered_during_capture": true
+  },
+  "generation_receipt": {
+    "path": "runs/video-course/v5-packet/demo-capture-page/receipt.json",
+    "bytes": 7886,
+    "sha256": "380c1319e6de4cbdf2a9b1cff30163c69f798654fadc3094ae2228a627b39ddc"
+  },
+  "renderer": {
+    "path": "tools/render_packet_demo.py",
+    "bytes": 16364,
+    "sha256": "d6aaba0e67a2ce502a0bf22337cf69a7d11a6420c3efda090f45dca0bc627732"
+  },
+  "legacy_demo_untouched": {
+    "path": "docs/customer/demo/index.html",
+    "sha256": "55e2980e1ae421aa9d8e55ed79d1e450db4dd26f4d9923730523ddb71fac21af"
+  },
+  "evidence": {
+    "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+    "total_groups": 25930,
+    "index_sha256": "453030cead8e0240dd26878f90f6b145d009dc7852f65fe9e868bd2d4723acaa",
+    "predictions": {
+      "cic": {
+        "bytes": 1226237,
+        "path": "joint_pretrained/test-cic.jsonl.gz",
+        "sha256": "b1b472dd2297e7c6a7e7dc942783378e52a779c3874b4d4e5d5c7b72d31b3cdc"
+      },
+      "unsw": {
+        "bytes": 362044,
+        "path": "joint_pretrained/test-unsw.jsonl.gz",
+        "sha256": "2558bd97d9d149af5c341008666a888a2997341b4379a06099893c16acda74cf"
+      }
+    }
+  },
+  "browser": {
+    "name": "Chromium",
+    "version": "140.0.7339.16",
+    "headless": true,
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "device_scale_factor": 1,
+    "scroll_top": 470.9375,
+    "page_errors": [],
+    "network_requests": 0
+  },
+  "actions": [
+    {
+      "seconds_after_ready": 0.0,
+      "action": "Loaded the verified saved-prediction viewer and scrolled to controls",
+      "selector": null,
+      "value": null,
+      "source": "cic",
+      "balanced_accuracy": "97.56%",
+      "status": "20,000 matching groups from 20,000 in CICIDS2017. 1,656 original rows disagree with the model across this complete source test."
+    },
+    {
+      "seconds_after_ready": 2.599,
+      "action": "Selected source",
+      "selector": "#source",
+      "value": "unsw",
+      "source": "unsw",
+      "balanced_accuracy": "94.29%",
+      "status": "5,930 matching groups from 5,930 in UNSW. 940 original rows disagree with the model across this complete source test."
+    },
+    {
+      "seconds_after_ready": 5.113,
+      "action": "Filtered to real saved label disagreements",
+      "selector": "#filter",
+      "value": "disagreement",
+      "source": "unsw",
+      "balanced_accuracy": "94.29%",
+      "status": "325 matching groups from 5,930 in UNSW. 940 original rows disagree with the model across this complete source test."
+    },
+    {
+      "seconds_after_ready": 7.637,
+      "action": "Returned to CIC while retaining the disagreement filter",
+      "selector": "#source",
+      "value": "cic",
+      "source": "cic",
+      "balanced_accuracy": "97.56%",
+      "status": "608 matching groups from 20,000 in CICIDS2017. 1,656 original rows disagree with the model across this complete source test."
+    },
+    {
+      "seconds_after_ready": 10.171,
+      "action": "Located one saved error by its exact payload hash prefix",
+      "selector": "#search",
+      "value": "0062ae63cce54d",
+      "source": "cic",
+      "balanced_accuracy": "97.56%",
+      "status": "1 matching groups from 20,000 in CICIDS2017. 1,656 original rows disagree with the model across this complete source test."
+    },
+    {
+      "seconds_after_ready": 12.218,
+      "action": "Opened original logits and label counts for that saved error",
+      "selector": "#rows .hash-button",
+      "value": null,
+      "source": "cic",
+      "balanced_accuracy": "97.56%",
+      "status": "1 matching groups from 20,000 in CICIDS2017. 1,656 original rows disagree with the model across this complete source test."
+    },
+    {
+      "seconds_after_ready": 15.274,
+      "action": "Capture complete",
+      "selector": null,
+      "value": null,
+      "source": "cic",
+      "balanced_accuracy": "97.56%",
+      "status": "1 matching groups from 20,000 in CICIDS2017. 1,656 original rows disagree with the model across this complete source test."
+    }
+  ],
+  "action_timing": "Wall-clock seconds after the page was ready; the recording also retains initial browser navigation.",
+  "selected_error": {
+    "source": "cic",
+    "id": "0062ae63cce54df935b94849c49726b663673212d784d4500f3021c597444455",
+    "counts": [
+      1,
+      0
+    ],
+    "logits": [
+      -1.176201581954956,
+      1.6818516254425049
+    ],
+    "prediction": 1,
+    "probability": 0.9457334735257279,
+    "interpretation": "Attack prediction disagrees with the one supplied benign row; no conflicting labels in this group."
+  },
+  "assets": {
+    "packet-demo.png": {
+      "path": "docs/customer/demo/video/v5/recordings/packet-demo.png",
+      "bytes": 92554,
+      "sha256": "4fd5b4a1d47d8952c51a4851e43808b2e470f7be894607acc6bd2af25006b43b"
+    },
+    "packet-demo.webm": {
+      "path": "docs/customer/demo/video/v5/recordings/packet-demo.webm",
+      "bytes": 1240593,
+      "sha256": "dee16e0eb546086c32d08097292c4a59afc20fa037907561c0a2dcb5be7b6459"
+    },
+    "packet-error.png": {
+      "path": "docs/customer/demo/video/v5/recordings/packet-error.png",
+      "bytes": 93325,
+      "sha256": "c42764c2fb0071e0244370fe550153cdaa1ce38e8bf795f8db4e547a4c828a03"
+    }
+  },
+  "video": {
+    "duration_seconds": 15.433,
+    "width": 1280,
+    "height": 720,
+    "frame_rate": "30/1",
+    "codec": "vp9",
+    "raw_recording": {
+      "path": "runs/video-course/v5-packet/raw-browser-recordings/c7a838ea8810b09744c3c3c465e3db40.webm",
+      "bytes": 1152812,
+      "sha256": "f8b65fc803fe212a3eed27d4fb172377e820ad43065f6e0fa1732d0d6e7704c5"
+    },
+    "conversion": "30 fps VP9; no content overlay, scaling, trimming or speed change",
+    "full_decode": "passed"
+  },
+  "suggested_teaching_size": {
+    "width": 800,
+    "height": 450,
+    "preserves_aspect_ratio": true
+  }
+}

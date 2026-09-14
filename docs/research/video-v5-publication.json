@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "status": "local_verified_pending_publication",
+  "recorded_at": "2026-09-14T21:40:09.787839+00:00",
+  "source_lesson_sha256": "c330713ea4838877baf0fc2943112c593fd7322e737a91b721511e0a8f5c7528",
+  "source_baseline": "b74fe2544ce448f1494a77a96362da55c29d6569",
+  "client_baseline": "53807c1c09e41a48a8bb0544ee26941973184d94",
+  "scope": "Final local media, document, browser and portable repository checks passed. Public source CI, client synchronization, Pages and additive versioned release remain pending.",
+  "local_tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "tests": 531,
+    "passed": 493,
+    "skipped": 38,
+    "failed": 0,
+    "log_sha256": "f7e53c7d3acf7a5a405f499c6e5f0c765732bd7f1a1587a96298da202bb8ce1e",
+    "scope": "Portable environment; optional/native cases explicitly skipped. The nine document-renderer publication tests separately passed with zero skips."
+  },
+  "local_checks": {
+    "earlier_full_check_batch": {
+      "completed_at": "2026-09-14T21:37:00.262917+00:00",
+      "status": "failed",
+      "checks": [
+        {
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-v"
+          ],
+          "exit_code": 1,
+          "elapsed_seconds": 25.95536059292499,
+          "log": "runs/video-course/v5-packet/final-checks/01.log",
+          "log_sha256": "cf2ef419cde6394c2728a042a56dd7286cd4c58d4c16b6630ddde31e913dc4a2"
+        },
+        {
+          "command": [
+            "python3",
+            "repro.py",
+            "--help"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.04089798592031002,
+          "log": "runs/video-course/v5-packet/final-checks/02.log",
+          "log_sha256": "c2027f4988e0eb42f807e88c07de765be13eb2ca9b0df62033396d58c4ef3eb4"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/verify_package.py"
+          ],
+          "exit_code": 1,
+          "elapsed_seconds": 0.15376974001992494,
+          "log": "runs/video-course/v5-packet/final-checks/03.log",
+          "log_sha256": "b1c2a6d15bf9b317b1944469bfbe8058df38c99e5f43cc428be5d273d4d8506c"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/review_calibration.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.7293999440735206,
+          "log": "runs/video-course/v5-packet/final-checks/04.log",
+          "log_sha256": "273b94ac7b2b6509a4c5a451fd01c2557c065307d4a53967aae0e3d4f141397c"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/review_packet_study.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 3.8600908149965107,
+          "log": "runs/video-course/v5-packet/final-checks/05.log",
+          "log_sha256": "2f939337cc3ef4e8765b41a94e765e4e30754a6dad872115c16f300faab011eb"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/verify_packet_briefing.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.04187785100657493,
+          "log": "runs/video-course/v5-packet/final-checks/06.log",
+          "log_sha256": "ba779d5a36797b4af84864df1a50d95796b4c78c69584ce6a804e57fbb36be3d"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/verify_repository_guide.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.12347716593649238,
+          "log": "runs/video-course/v5-packet/final-checks/07.log",
+          "log_sha256": "8e1ee30f3685162f0566456f7853a04eafdcd902f0381a671997f8bffcf8c2df"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/build_course.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 2.2547458939952776,
+          "log": "runs/video-course/v5-packet/final-checks/08.log",
+          "log_sha256": "2ad587974fe9991dee99843674171c7d022db6cbe089e31c8355239dbbaa16ab"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/verify_course_video.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 2.3728574860142544,
+          "log": "runs/video-course/v5-packet/final-checks/09.log",
+          "log_sha256": "4fe5150e8e3a149b4ec76c47e9974b0d73ec4a690c608814106d42c5154618c9"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/verify_video_course_v3.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 2.0649473619414493,
+          "log": "runs/video-course/v5-packet/final-checks/10.log",
+          "log_sha256": "e99811adb2bc26496ae19ec92c5bb138b88cc9e2b16b84048a189ee998e53ec0"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/verify_video_course_v4.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 3.4102143249474466,
+          "log": "runs/video-course/v5-packet/final-checks/11.log",
+          "log_sha256": "08f44a539a88615e500d9c73e0643f5846ca0e2460cd07ee5783d92852344d07"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/verify_video_course_v5.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.6357267830753699,
+          "log": "runs/video-course/v5-packet/final-checks/12.log",
+          "log_sha256": "b1007b6b952491079490e5f9a89ce353f0d907723ed51b501b2cc5ccb17c38cf"
+        },
+        {
+          "command": [
+            "python3",
+            "tools/build_video_page.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.06392567500006407,
+          "log": "runs/video-course/v5-packet/final-checks/13.log",
+          "log_sha256": "4cb6a9d10ab3003094111e181e97d8ef627207dccdcbdbf7e1b6a2c0c8892fa6"
+        }
+      ]
+    },
+    "resolved_failure": "The package checksum list was stale after reviewed additions. tools/verify_package.py --write-sha256 succeeded, and the complete 531-test suite then passed.",
+    "package_recheck": {
+      "status": "passed",
+      "seed_runs": 3,
+      "test_predictions_per_seed": 1041,
+      "evidence_artifacts": 57,
+      "audit_artifacts": 33,
+      "slides": 16,
+      "guide_sections": 16,
+      "customer_questions": 7,
+      "runtime_checks_per_environment": 7,
+      "local_links": "valid"
+    },
+    "current_media": {
+      "source_sha256": "c330713ea4838877baf0fc2943112c593fd7322e737a91b721511e0a8f5c7528",
+      "mp4_sha256": "0a808cc63596b4f33139103030553e6befa784a884052841089981c2878e729b",
+      "webm_sha256": "5e42469912c077e639cce1cd5cd19af0aa6222424bc307e9f8e77e431cad2310"
+    }
+  },
+  "release_latest_policy": {
+    "video_tag": "course-video-v5",
+    "mark_latest": false,
+    "preserved_latest_tag": "customer-2026-09-15-audited",
+    "reason": "Existing historical package, slides and verification links use releases/latest. The current video has its own versioned release and active /video/ page."
+  }
+}

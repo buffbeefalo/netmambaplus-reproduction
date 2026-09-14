@@ -1,0 +1,217 @@
+{
+  "seconds": 3600.0,
+  "streams": {
+    "video": {
+      "index": 0,
+      "codec_name": "h264",
+      "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+      "profile": "High",
+      "codec_type": "video",
+      "codec_tag_string": "avc1",
+      "codec_tag": "0x31637661",
+      "width": 1920,
+      "height": 1080,
+      "coded_width": 1920,
+      "coded_height": 1080,
+      "closed_captions": 0,
+      "film_grain": 0,
+      "has_b_frames": 2,
+      "pix_fmt": "yuv420p",
+      "level": 40,
+      "chroma_location": "left",
+      "field_order": "progressive",
+      "refs": 1,
+      "is_avc": "true",
+      "nal_length_size": "4",
+      "id": "0x1",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "time_base": "1/15360",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "duration_ts": 55296000,
+      "duration": "3600.000000",
+      "bit_rate": "86608",
+      "bits_per_raw_sample": "8",
+      "nb_frames": "108000",
+      "extradata_size": 47,
+      "disposition": {
+        "default": 1,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0
+      },
+      "tags": {
+        "language": "und",
+        "handler_name": "VideoHandler",
+        "vendor_id": "[0][0][0][0]",
+        "encoder": "Lavc61.3.100 libx264"
+      }
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "aac",
+      "codec_long_name": "AAC (Advanced Audio Coding)",
+      "profile": "LC",
+      "codec_type": "audio",
+      "codec_tag_string": "mp4a",
+      "codec_tag": "0x6134706d",
+      "sample_fmt": "fltp",
+      "sample_rate": "48000",
+      "channels": 1,
+      "channel_layout": "mono",
+      "bits_per_sample": 0,
+      "initial_padding": 0,
+      "id": "0x2",
+      "r_frame_rate": "0/0",
+      "avg_frame_rate": "0/0",
+      "time_base": "1/48000",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "duration_ts": 172800000,
+      "duration": "3600.000000",
+      "bit_rate": "95442",
+      "nb_frames": "168751",
+      "extradata_size": 5,
+      "disposition": {
+        "default": 1,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0
+      },
+      "tags": {
+        "language": "und",
+        "handler_name": "SoundHandler",
+        "vendor_id": "[0][0][0][0]"
+      }
+    }
+  },
+  "chapter_starts": [
+    0.0,
+    316.0,
+    644.0,
+    946.0,
+    1259.0,
+    1566.0,
+    1868.0,
+    2141.0,
+    2444.0,
+    2722.0,
+    2997.0,
+    3297.0
+  ],
+  "silence": {
+    "intervals": [
+      [
+        305.629333,
+        316.139437
+      ],
+      [
+        633.658042,
+        644.134792
+      ],
+      [
+        935.636937,
+        946.135354
+      ],
+      [
+        1248.643375,
+        1259.13725
+      ],
+      [
+        1555.662646,
+        1566.124042
+      ],
+      [
+        1857.685875,
+        1868.1445
+      ],
+      [
+        2130.655958,
+        2141.125208
+      ],
+      [
+        2433.647354,
+        2444.124583
+      ],
+      [
+        2711.664479,
+        2722.135146
+      ],
+      [
+        2986.664625,
+        2997.120312
+      ],
+      [
+        3286.650958,
+        3297.127417
+      ],
+      [
+        3589.656854,
+        3600.0
+      ]
+    ],
+    "total_seconds": 125.59160500000002,
+    "tolerance_seconds": 1.0,
+    "parameters": {
+      "threshold_db": -45,
+      "minimum_seconds": 3
+    }
+  },
+  "audio": {
+    "integrated_lufs": -16.3,
+    "true_peak_dbfs": -0.9,
+    "rms_dbfs": -16.545888
+  },
+  "status": "passed",
+  "completed_at": "2026-09-14T21:20:39.772284+00:00",
+  "mp4_sha256": "0a808cc63596b4f33139103030553e6befa784a884052841089981c2878e729b",
+  "command": [
+    "/home/nvidia/learn/_video/bin/ffmpeg",
+    "-hide_banner",
+    "-nostats",
+    "-xerror",
+    "-i",
+    "docs/customer/demo/video/v5/NetMambaPlus-CSV-workflow-course.mp4",
+    "-map",
+    "0:v:0",
+    "-map",
+    "0:a:0",
+    "-af",
+    "silencedetect=noise=-45dB:d=3,ebur128=peak=true:framelog=verbose,astats=reset=0",
+    "-f",
+    "null",
+    "-"
+  ],
+  "decode_exit_code": 0,
+  "decode_log_sha256": "e77d017ee41a0d90e2cb68941b002ef36b3ec50ffb846b52bd4cf53e8063fbb7",
+  "human_full_playback_review": "pending; automated decode is not a listening review"
+}

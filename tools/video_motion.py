@@ -2,11 +2,14 @@
 
 import math
 import re
+import packet_video_motion
 
 DIAGRAMS = {'packet-flow', 'byte-layout', 'token-assembly', 'training-loop'}
 
 
 def draw_diagram(scene, draw, put):
+    if packet_video_motion.draw_diagram(scene, draw, put):
+        return True
     kind = scene['kind']
     if kind not in DIAGRAMS:
         return False
@@ -95,6 +98,8 @@ def animation_events(scenes, chapters, enabled):
         event(scene,start,end,r'\an7\pos(90,840)\p1\c&H686E12&\bord0\fscx0'+f'\\t(0,{ms},\\fscx100)',
               'm 0 0 l 1730 0 l 1730 4 l 0 4','Teaching-scene progress, not live inference')
         kind=scene['kind']
+        if packet_video_motion.animation_events(scene, phrase_time, event):
+            continue
         if kind=='packet-flow':
             for lane in range(2):
                 for packet in range(3):

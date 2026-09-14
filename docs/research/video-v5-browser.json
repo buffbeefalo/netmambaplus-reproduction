@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:8895/video/",
+  "completed_at": "2026-09-14T21:34:50.566267+00:00",
+  "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
+  "html_sha256": "5f01ab4cb52522d77ac55d166829850f48c37038b2250c0526bca86828cb30ca",
+  "mp4_sha256": "0a808cc63596b4f33139103030553e6befa784a884052841089981c2878e729b",
+  "decoded_frames_and_audio_bytes": {
+    "audio": 14565,
+    "video": 35,
+    "played_src": "http://127.0.0.1:8895/video/v5/NetMambaPlus-CSV-workflow-course.webm"
+  },
+  "caption_count": 1129,
+  "keyboard_playback": true,
+  "keyboard_chapter_offsets": [
+    0.0,
+    316.0,
+    644.0,
+    946.0,
+    1259.0,
+    1566.0,
+    1868.0,
+    2141.0,
+    2444.0,
+    2722.0,
+    2997.0,
+    3297.0
+  ],
+  "scheduled_seconds": 3600,
+  "near_end_seek_seconds": 3590,
+  "seek_and_play_near_end": true,
+  "download_bytes_equal": true,
+  "served_bytes_equal": true,
+  "viewport_widths_without_overflow": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "page_errors": [],
+  "screenshots": {
+    "video-390.png": "7889a564f7e56c5b74b1f86e601075433872c055c097d04fdbe421ed7b88ddc2",
+    "video-320.png": "dc55268bc634e1e083bb080e4d4309f714dbd902d50a48c0fb4ed650fba7aa00",
+    "video-1440.png": "7e0247da022030cdbb600fb27eb07b5890485527424ea7600310f21bbd93bcb3",
+    "video-768.png": "d94d447d75cb1c2d19f3a5d0dbd0c3a49de9d622ea1605544203a1f01321089e"
+  }
+}

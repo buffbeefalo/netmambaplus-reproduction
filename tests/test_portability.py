@@ -68,8 +68,8 @@ class PublishedTextTests(unittest.TestCase):
 
     def test_generated_watch_page_keeps_utf8_lf_bytes(self):
         with historical_snapshot(ROOT, version=4) as (snapshot, _), tempfile.TemporaryDirectory() as directory:
-            source = snapshot / build_video_page.SOURCE.relative_to(ROOT)
-            manifest = (snapshot / build_video_page.DESTINATION.relative_to(ROOT) / "media-manifest.json").read_bytes()
+            source = snapshot / "docs/customer/video-course-v4-source.json"
+            manifest = (snapshot / "docs/customer/demo/video/v4/media-manifest.json").read_bytes()
             path = Path(directory)
             media = path / "v4"
             media.mkdir()

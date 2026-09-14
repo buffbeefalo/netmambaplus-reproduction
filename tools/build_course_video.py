@@ -13,7 +13,7 @@ import wave
 from pathlib import Path, PurePosixPath
 
 from build_course import ROOT, fact_values, read
-from narrate_course_video import SOURCE, canonical, digest, load_source
+from narrate_course_video import SOURCE, canonical, course_context, digest, load_source
 from video_motion import draw_diagram, animation_events
 
 FPS = 10
@@ -43,6 +43,10 @@ def publication(record):
             not isinstance(k, str) or not k.strip() or not isinstance(v, str) or not v.strip()
             for k, v in result["production"].items()):
         raise ValueError("production must map credit labels to nonempty text")
+    if 'summary' in record:
+        if not isinstance(record['summary'], str) or not record['summary'].strip():
+            raise ValueError('Publication summary must be nonempty text')
+        result['summary'] = record['summary']
     result["webm_name"] = str(Path(result["media_name"]).with_suffix(".webm"))
     return result
 
@@ -156,7 +160,7 @@ def check_source_binding(manifest, source_path=SOURCE, *, root=ROOT):
     source = load_source(source_path, root=root)
     if manifest.get("release_tag") != source.get("release_tag"):
         raise ValueError("Video source version differs from the selected lesson")
-    references = reference_paths(source, read(root / "docs/customer/course-source.json"), root)
+    references = reference_paths(source, course_context(source, root), root)
     used = {key for chapter in source["chapters"] for scene in chapter["scenes"] for key in scene["references"]}
     if set(manifest.get("references", {})) != used:
         raise ValueError("Video reference keys differ from the source")
@@ -463,10 +467,20 @@ def render_scene(scene, path, facts, demo, root=ROOT):
                     index == 0, max_bottom=y + height)
                 x += width
             y += height
-        put(" · ".join(bullets), 95, y + 24, 1720, 28, muted)
+        bottom = put(" · ".join(bullets), 95, y + 24, 1720, 28, muted)
+        if scene.get('table_note'):
+            put(scene['table_note'], 95, bottom + 14, 1720, 24, muted)
     elif kind == "image":
         with Image.open(image_path(scene, root)) as original:
             picture = original.convert("RGBA")
+        if 'image_crop' in scene:
+            crop = scene['image_crop']
+            if (not isinstance(crop, list) or len(crop) != 4
+                    or any(type(value) is not int for value in crop)
+                    or not 0 <= crop[0] < crop[2] <= picture.width
+                    or not 0 <= crop[1] < crop[3] <= picture.height):
+                raise ValueError('Image crop exceeds the original capture: ' + scene['id'])
+            picture = picture.crop(tuple(crop))
         if scene.get("image_layout") == "wide":
             scale = min(1720 / picture.width, 410 / picture.height)
             picture = picture.resize((round(picture.width * scale), round(picture.height * scale)), Image.Resampling.LANCZOS)
@@ -505,7 +519,10 @@ def render_scene(scene, path, facts, demo, root=ROOT):
             put(marker, 120, y + 20, 100, 33, teal, True)
             put(bullet, 215, y + 19, 1570, 33, ink, kind in ("title", "answer"))
         if kind == "pause":
-            put("Speak or write your answer. The lesson resumes automatically.", 95, 750, 1700, 29, muted)
+            ending = scene.get("chapter") is not None and scene.get("chapter") == scene.get("chapter_count")
+            prompt = ("End of lesson. Explain it aloud, or replay a chapter to review." if ending
+                      else "Speak or write your answer. The lesson resumes automatically.")
+            put(prompt, 95, 750, 1700, 29, muted)
     draw.line((90, 850, 1820, 850), fill=blue, width=2)
     put("Evidence: " + " · ".join(scene["references"]) + "   |   Links and full text in the transcript", 95, 867, 1750, 22, muted, max_bottom=910)
     image.save(path)
@@ -589,7 +606,7 @@ def build(args):
             raise ValueError("Unknown preview chapter")
         source = dict(source, chapters=[selected], target_seconds=selected["seconds"])
     chapters, scenes = timeline(source, narration, args.source)
-    course = read(ROOT / "docs/customer/course-source.json")
+    course = course_context(source, ROOT)
     facts = fact_values(course)
     references = reference_paths(source, course)
     reference_identities = {k: {"path": p, "sha256": digest(ROOT / p)} for k, p in references.items()
@@ -623,6 +640,20 @@ def build(args):
                 transcript.append(scene["narration"])
             transcript.extend(["", "On screen: " + " · ".join(scene["bullets"]), "",
                                "Evidence: " + ", ".join(f"[{key}](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/{references[key]})" for key in scene["references"]), ""])
+            if source.get('workflow') == 'two-csv-packet-v1':
+                if scene.get('code'):
+                    transcript.extend(['```text', scene['code'], '```', ''])
+                if scene.get('rows'):
+                    transcript.extend(['| ' + ' | '.join(scene['columns']) + ' |',
+                                       '| ' + ' | '.join('---' for _ in scene['columns']) + ' |'])
+                    transcript.extend('| ' + ' | '.join(row) + ' |' for row in scene['rows'])
+                    transcript.append('')
+                if scene.get('table_note'):
+                    transcript.extend([scene['table_note'], ''])
+                if scene.get('diagram'):
+                    transcript.extend(card['title'] + ': ' + card['detail'].replace('\n', ' ')
+                                      for card in scene['diagram'].get('cards', []))
+                    transcript.extend([scene['diagram'].get('note', ''), ''])
     (destination / "transcript.md").write_text("\n".join(transcript).rstrip() + "\n", encoding="utf-8", newline="\n")
     (destination / "chapters.json").write_text(json.dumps(chapters, indent=2) + "\n", encoding="utf-8", newline="\n")
     frames_dir, audio_dir = work / "frames", work / "timed-audio"
