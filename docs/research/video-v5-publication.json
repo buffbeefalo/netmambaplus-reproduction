@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "status": "local_verified_pending_publication",
-  "recorded_at": "2026-09-14T21:40:09.787839+00:00",
+  "status": "published_verified",
+  "recorded_at": "2026-09-14T22:11:22.324164+00:00",
   "source_lesson_sha256": "c330713ea4838877baf0fc2943112c593fd7322e737a91b721511e0a8f5c7528",
   "source_baseline": "b74fe2544ce448f1494a77a96362da55c29d6569",
   "client_baseline": "53807c1c09e41a48a8bb0544ee26941973184d94",
-  "scope": "Final local media, document, browser and portable repository checks passed. Public source CI, client synchronization, Pages and additive versioned release remain pending.",
+  "scope": "The v5 content is published on source main, the live /video/ page and the additive course-video-v5 release. Both public repositories passed all six portable CI jobs. Every new release asset was downloaded anonymously and matched its reviewed local SHA-256. These are publication and portable checks, not new scientific training or a human full watch/listen-through.",
   "local_tests": {
     "command": "python3 -m unittest discover -s tests -v",
     "tests": 531,
@@ -13,7 +13,7 @@
     "skipped": 38,
     "failed": 0,
     "log_sha256": "f7e53c7d3acf7a5a405f499c6e5f0c765732bd7f1a1587a96298da202bb8ce1e",
-    "scope": "Portable environment; optional/native cases explicitly skipped. The nine document-renderer publication tests separately passed with zero skips."
+    "scope": "Local portable run before the one added Windows checkout regression: optional/native cases explicitly skipped. The nine document-renderer publication tests separately passed with zero skips. Current 532-case source CI results are recorded separately."
   },
   "local_checks": {
     "earlier_full_check_batch": {
@@ -185,5 +185,670 @@
     "mark_latest": false,
     "preserved_latest_tag": "customer-2026-09-15-audited",
     "reason": "Existing historical package, slides and verification links use releases/latest. The current video has its own versioned release and active /video/ page."
-  }
+  },
+  "content_commit": "25e6f79a723c92bb7e8afa4d6f3cd3150744560a",
+  "verified_source_commit": "22d540fb1473e0df5724754a8a67397139681edb",
+  "watch_url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/",
+  "both_repository_chapter": {
+    "start_seconds": 2997,
+    "timestamp": "49:57",
+    "scope": "Source and client roles, file groups, which edition to use, manifest-bound export, CI gating and automatic source-to-client publication."
+  },
+  "record_commit_note": "This publication record is a follow-up to the verified content commit. Later record/checksum-only commits do not alter the released lesson, media, document identities or client payload. Workflow links below bind the exact tested content commits.",
+  "source_ci": {
+    "conclusion": "success",
+    "headSha": "22d540fb1473e0df5724754a8a67397139681edb",
+    "jobs": [
+      {
+        "completedAt": "2026-09-14T22:01:02Z",
+        "conclusion": "success",
+        "databaseId": 104169102174,
+        "name": "test (ubuntu-24.04, 3.10)",
+        "startedAt": "2026-09-14T21:59:14Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755717/job/104169102174",
+        "portable_tests": {
+          "discovered": 532,
+          "passed": 492,
+          "skipped": 40,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:03:01Z",
+        "conclusion": "success",
+        "databaseId": 104169102371,
+        "name": "test (windows-2022, 3.12)",
+        "startedAt": "2026-09-14T21:59:16Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755717/job/104169102371",
+        "portable_tests": {
+          "discovered": 532,
+          "passed": 491,
+          "skipped": 41,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:01:22Z",
+        "conclusion": "success",
+        "databaseId": 104169102400,
+        "name": "test (macos-14, 3.10)",
+        "startedAt": "2026-09-14T21:59:19Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755717/job/104169102400",
+        "portable_tests": {
+          "discovered": 532,
+          "passed": 492,
+          "skipped": 40,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:02:57Z",
+        "conclusion": "success",
+        "databaseId": 104169102414,
+        "name": "test (windows-2022, 3.10)",
+        "startedAt": "2026-09-14T21:59:15Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755717/job/104169102414",
+        "portable_tests": {
+          "discovered": 532,
+          "passed": 491,
+          "skipped": 41,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:01:19Z",
+        "conclusion": "success",
+        "databaseId": 104169102452,
+        "name": "test (macos-14, 3.12)",
+        "startedAt": "2026-09-14T21:59:19Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755717/job/104169102452",
+        "portable_tests": {
+          "discovered": 532,
+          "passed": 492,
+          "skipped": 40,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:01:12Z",
+        "conclusion": "success",
+        "databaseId": 104169102454,
+        "name": "test (ubuntu-24.04, 3.12)",
+        "startedAt": "2026-09-14T21:59:15Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755717/job/104169102454",
+        "portable_tests": {
+          "discovered": 532,
+          "passed": 492,
+          "skipped": 40,
+          "failed": 0
+        }
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755717",
+    "test_log_sha256": "0f96205e58f0fd95e2cb66a02f5fa225e10948653b83694957899a42aea3ec5d"
+  },
+  "pages_workflow": {
+    "conclusion": "success",
+    "headSha": "22d540fb1473e0df5724754a8a67397139681edb",
+    "jobs": [
+      {
+        "completedAt": "2026-09-14T22:01:26Z",
+        "conclusion": "success",
+        "databaseId": 104169101951,
+        "name": "deploy",
+        "startedAt": "2026-09-14T21:59:17Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755678/job/104169101951"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901755678"
+  },
+  "client_sync_workflow": {
+    "conclusion": "success",
+    "headSha": "22d540fb1473e0df5724754a8a67397139681edb",
+    "jobs": [
+      {
+        "completedAt": "2026-09-14T22:03:51Z",
+        "conclusion": "success",
+        "databaseId": 104170202067,
+        "name": "prepare",
+        "startedAt": "2026-09-14T22:03:07Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34902099153/job/104170202067"
+      },
+      {
+        "completedAt": "2026-09-14T22:04:01Z",
+        "conclusion": "success",
+        "databaseId": 104170416126,
+        "name": "publish",
+        "startedAt": "2026-09-14T22:03:52Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34902099153/job/104170416126"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34902099153"
+  },
+  "release_workflow": {
+    "conclusion": "success",
+    "headSha": "22d540fb1473e0df5724754a8a67397139681edb",
+    "jobs": [
+      {
+        "completedAt": "2026-09-14T22:04:12Z",
+        "conclusion": "success",
+        "databaseId": 104170382800,
+        "name": "release",
+        "startedAt": "2026-09-14T22:03:46Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34902155922/job/104170382800"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34902155922"
+  },
+  "client_ci": {
+    "conclusion": "success",
+    "headSha": "d7790fc034a82c2ac86e92cac840ea276a245e7c",
+    "jobs": [
+      {
+        "completedAt": "2026-09-14T22:05:06Z",
+        "conclusion": "success",
+        "databaseId": 104170483115,
+        "name": "test (windows-2022, 3.10)",
+        "startedAt": "2026-09-14T22:04:07Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34902187676/job/104170483115",
+        "portable_tests": {
+          "discovered": 185,
+          "passed": 148,
+          "skipped": 37,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:04:53Z",
+        "conclusion": "success",
+        "databaseId": 104170483315,
+        "name": "test (windows-2022, 3.12)",
+        "startedAt": "2026-09-14T22:04:08Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34902187676/job/104170483315",
+        "portable_tests": {
+          "discovered": 185,
+          "passed": 148,
+          "skipped": 37,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:04:56Z",
+        "conclusion": "success",
+        "databaseId": 104170483358,
+        "name": "test (macos-14, 3.10)",
+        "startedAt": "2026-09-14T22:04:12Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34902187676/job/104170483358",
+        "portable_tests": {
+          "discovered": 185,
+          "passed": 149,
+          "skipped": 36,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:04:55Z",
+        "conclusion": "success",
+        "databaseId": 104170483403,
+        "name": "test (ubuntu-24.04, 3.10)",
+        "startedAt": "2026-09-14T22:04:15Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34902187676/job/104170483403",
+        "portable_tests": {
+          "discovered": 185,
+          "passed": 149,
+          "skipped": 36,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:04:43Z",
+        "conclusion": "success",
+        "databaseId": 104170483428,
+        "name": "test (ubuntu-24.04, 3.12)",
+        "startedAt": "2026-09-14T22:04:08Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34902187676/job/104170483428",
+        "portable_tests": {
+          "discovered": 185,
+          "passed": 149,
+          "skipped": 36,
+          "failed": 0
+        }
+      },
+      {
+        "completedAt": "2026-09-14T22:04:47Z",
+        "conclusion": "success",
+        "databaseId": 104170483439,
+        "name": "test (macos-14, 3.12)",
+        "startedAt": "2026-09-14T22:04:12Z",
+        "status": "completed",
+        "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34902187676/job/104170483439",
+        "portable_tests": {
+          "discovered": 185,
+          "passed": 149,
+          "skipped": 36,
+          "failed": 0
+        }
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34902187676",
+    "test_log_sha256": "3c5a984bb1ff03d9ec36ceef54a62e4c0bf0ab343acffc7803ca52f69409041a"
+  },
+  "published_client": {
+    "status": "passed",
+    "checked_at": "2026-09-14T22:10:01.188881+00:00",
+    "repository": "https://github.com/buffbeefalo/netmambaplus-client",
+    "client_commit": "d7790fc034a82c2ac86e92cac840ea276a245e7c",
+    "source_commit": "22d540fb1473e0df5724754a8a67397139681edb",
+    "manifest_sha256": "cd9d240b2c15bca0c867f7890b424768900654c9a0e602d26578f7e94a602fd8",
+    "managed_payload_files": 123,
+    "tracked_files_including_manifest": 124,
+    "packet_evidence_files": 75,
+    "ci_run": 34902187676,
+    "scope": "GitHub main identity, source marker and complete managed path set verified through GitHub API. Published client CI separately verifies every file hash and runs the portable test matrix."
+  },
+  "public_browser": {
+    "status": "passed",
+    "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/",
+    "completed_at": "2026-09-14T21:57:12.791162+00:00",
+    "browser": "Chromium 140.0.7339.16; Playwright 1.55.0",
+    "html_sha256": "5f01ab4cb52522d77ac55d166829850f48c37038b2250c0526bca86828cb30ca",
+    "mp4_sha256": "0a808cc63596b4f33139103030553e6befa784a884052841089981c2878e729b",
+    "decoded_frames_and_audio_bytes": {
+      "audio": 14565,
+      "video": 35,
+      "played_src": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/v5/NetMambaPlus-CSV-workflow-course.webm"
+    },
+    "caption_count": 1129,
+    "keyboard_playback": true,
+    "keyboard_chapter_offsets": [
+      0.0,
+      316.0,
+      644.0,
+      946.0,
+      1259.0,
+      1566.0,
+      1868.0,
+      2141.0,
+      2444.0,
+      2722.0,
+      2997.0,
+      3297.0
+    ],
+    "scheduled_seconds": 3600,
+    "near_end_seek_seconds": 3590,
+    "seek_and_play_near_end": true,
+    "download_bytes_equal": true,
+    "served_bytes_equal": true,
+    "viewport_widths_without_overflow": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "page_errors": [],
+    "screenshots": {
+      "video-390.png": "ac255ec6efe72a7bd960780620285ac20dfafbb4dd51612b64e63ca55ca4f310",
+      "video-320.png": "52213d12c4fef68a3b1b6bb9fa3176ea48e37a676472721e3e5691cde93f649e",
+      "video-1440.png": "e758f00dea0f906ae3e65bb62dac57b90bba036bd0ed1ac61996b1f7d2d04d1e",
+      "video-768.png": "03928432c303a41bd2015c53a9927d05b0400ae927de897542cf2b2143ae1ca7"
+    }
+  },
+  "public_routes": {
+    "status": "passed",
+    "checked_at": "2026-09-14T22:03:15.991166+00:00",
+    "routes": [
+      {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/",
+        "status": 200,
+        "bytes": 4840929,
+        "sha256": "00f4b0bf9f15bd1c39a2404fd12a0bf1ca3901ce46705d08d8f9cdd1a10a1028",
+        "expected_sha256": "00f4b0bf9f15bd1c39a2404fd12a0bf1ca3901ce46705d08d8f9cdd1a10a1028"
+      },
+      {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/course/",
+        "status": 404,
+        "bytes": 9379,
+        "sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+        "expected_sha256": null
+      },
+      {
+        "url": "https://buffbeefalo.github.io/netmambaplus-reproduction/video/",
+        "status": 200,
+        "bytes": 109027,
+        "sha256": "5f01ab4cb52522d77ac55d166829850f48c37038b2250c0526bca86828cb30ca",
+        "expected_sha256": "5f01ab4cb52522d77ac55d166829850f48c37038b2250c0526bca86828cb30ca"
+      }
+    ]
+  },
+  "public_release_downloads": {
+    "status": "passed",
+    "completed_at": "2026-09-14T22:05:24.927498+00:00",
+    "release_id": 388741012,
+    "release_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/tag/course-video-v5",
+    "target_commit": "22d540fb1473e0df5724754a8a67397139681edb",
+    "asset_count": 14,
+    "assets": [
+      {
+        "name": "NetMambaPlus-CSV-workflow-course.mp4",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/NetMambaPlus-CSV-workflow-course.mp4",
+        "asset_id": 564320420,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 85893563,
+        "sha256": "0a808cc63596b4f33139103030553e6befa784a884052841089981c2878e729b",
+        "status": "passed"
+      },
+      {
+        "name": "NetMambaPlus-CSV-workflow-course.webm",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/NetMambaPlus-CSV-workflow-course.webm",
+        "asset_id": 564320419,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 100397872,
+        "sha256": "5e42469912c077e639cce1cd5cd19af0aa6222424bc307e9f8e77e431cad2310",
+        "status": "passed"
+      },
+      {
+        "name": "NetMambaPlus-course-slides.pptx",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/NetMambaPlus-course-slides.pptx",
+        "asset_id": 564320423,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 5454617,
+        "sha256": "71be01affec4deeca10b98a83227a8319eac7074e7bcf43f61f61a996799b808",
+        "status": "passed"
+      },
+      {
+        "name": "NetMambaPlus-course-slides.pdf",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/NetMambaPlus-course-slides.pdf",
+        "asset_id": 564320421,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 6033864,
+        "sha256": "1a769e19fb26883bb72f2c624a2b09108e48f1231403b857090ac8cd64a623e6",
+        "status": "passed"
+      },
+      {
+        "name": "NetMambaPlus-course-handbook.pdf",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/NetMambaPlus-course-handbook.pdf",
+        "asset_id": 564320418,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 838194,
+        "sha256": "e5bbe278e1909751d24598dbf03b6c007ba0a87262b2784d15470598a30f9fad",
+        "status": "passed"
+      },
+      {
+        "name": "captions.srt",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/captions.srt",
+        "asset_id": 564320450,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 93819,
+        "sha256": "5a3241ef87285f1280be3ff6cd66311ffd6a7e0a24be12d7ba87feaafff1b6b3",
+        "status": "passed"
+      },
+      {
+        "name": "captions.vtt",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/captions.vtt",
+        "asset_id": 564320451,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 89469,
+        "sha256": "7c60250df27636643e4213ee45d8530d13ab432ae21550227451460e93beef21",
+        "status": "passed"
+      },
+      {
+        "name": "transcript.md",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/transcript.md",
+        "asset_id": 564320454,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 111798,
+        "sha256": "8a161631ea937f71ed452a25b16a80a1fc71df1cbe2ad9a49c221084542d8e28",
+        "status": "passed"
+      },
+      {
+        "name": "chapters.json",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/chapters.json",
+        "asset_id": 564320459,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 1529,
+        "sha256": "09a6b70255fd785662788ff0c0be01f7be763fb05d439b8e984e4435c7cd64d8",
+        "status": "passed"
+      },
+      {
+        "name": "media-manifest.json",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/media-manifest.json",
+        "asset_id": 564320462,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 392799,
+        "sha256": "18bec8dfc18b7c574b99ffb87ac0811c3874ee124d8801476d55190b2191beb3",
+        "status": "passed"
+      },
+      {
+        "name": "companion-manifest.json",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/companion-manifest.json",
+        "asset_id": 564320466,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 28471,
+        "sha256": "3c9c0d4fa939c3750c87d11707e975d540b0c2065b7b3caf6eec16aedd90cb33",
+        "status": "passed"
+      },
+      {
+        "name": "motion-manifest.json",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/motion-manifest.json",
+        "asset_id": 564320471,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 58747,
+        "sha256": "b6c77b64dbdb5d39e113ae776e7c79865b7d46656cef8aaccc535a4adf9b6f1a",
+        "status": "passed"
+      },
+      {
+        "name": "narration-manifest.json",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/narration-manifest.json",
+        "asset_id": 564320474,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 289172,
+        "sha256": "dbafd2454ab92bad0504bd6c6debbf908a3584b67ca40882b0fcfbc03bb17bf6",
+        "status": "passed"
+      },
+      {
+        "name": "video-course-v5-source.json",
+        "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/course-video-v5/video-course-v5-source.json",
+        "asset_id": 564320475,
+        "http_status": 200,
+        "anonymous": true,
+        "bytes": 136923,
+        "sha256": "c330713ea4838877baf0fc2943112c593fd7322e737a91b721511e0a8f5c7528",
+        "status": "passed"
+      }
+    ],
+    "latest_release_unchanged": {
+      "id": 387539191,
+      "tag": "customer-2026-09-15-audited"
+    },
+    "historical_releases": [
+      {
+        "tag": "course-video-v4",
+        "id": 388105807,
+        "assets": 10,
+        "metadata_and_asset_identities": "unchanged"
+      },
+      {
+        "tag": "course-video-v3",
+        "id": 387887732,
+        "assets": 10,
+        "metadata_and_asset_identities": "unchanged"
+      },
+      {
+        "tag": "course-video-v2",
+        "id": 387842816,
+        "assets": 6,
+        "metadata_and_asset_identities": "unchanged"
+      },
+      {
+        "tag": "course-video-v1",
+        "id": 387829662,
+        "assets": 6,
+        "metadata_and_asset_identities": "unchanged"
+      },
+      {
+        "tag": "customer-2026-09-15-audited",
+        "id": 387539191,
+        "assets": 7,
+        "metadata_and_asset_identities": "unchanged"
+      },
+      {
+        "tag": "customer-2026-09-15",
+        "id": 387503132,
+        "assets": 6,
+        "metadata_and_asset_identities": "unchanged"
+      }
+    ],
+    "scope": "All fourteen new release assets downloaded without authentication and compared byte-for-byte by SHA-256. Historical release metadata and asset IDs/sizes/digests checked, without re-downloading historical media."
+  },
+  "secret_scan": {
+    "checked_at": "2026-09-14T21:41:52.684605+00:00",
+    "scanner_exit_code": 1,
+    "findings": [
+      {
+        "rule": "generic-api-key",
+        "patch_line": 55069,
+        "classification": "false positive: verified public ASR tokenizer file SHA-256",
+        "model": "Systran/faster-whisper-small.en",
+        "computed_sha256": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df"
+      },
+      {
+        "rule": "generic-api-key",
+        "patch_line": 55080,
+        "classification": "false positive: verified public ASR tokenizer file SHA-256",
+        "model": "Systran/faster-whisper-base",
+        "computed_sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab"
+      }
+    ],
+    "unresolved_findings": [],
+    "staged_diff_sha256": "af90dff2a6409f1956786a4291c4d02e77f85c02c54de2c8e551f9ceecdec2a4",
+    "scope": "Complete staged text diff scanned with gitleaks; each of two generic-key findings independently equals a local public model tokenizer file hash. No credential finding remains."
+  },
+  "affected_lesson_review": {
+    "reviewed_at": "2026-09-14T22:04:23.362824+00:00",
+    "queues": [
+      {
+        "file": "/home/nvidia/learn/_state/pending-content-reviews.json",
+        "sha256": "58e491ae700ae2477c82341a41426b690bc5fb3d486fb41f16d77c1e069de360",
+        "netmamba_entries": [],
+        "modified": false
+      },
+      {
+        "file": "/home/nvidia/learn/_state/video-refresh-queue.json",
+        "sha256": "e3b7cd84a9fe753a6e0379b70db9ddb3c9d0cd38895d550987de33cc2cbbac37",
+        "netmamba_entries": [],
+        "modified": false
+      }
+    ],
+    "affected_lesson_review": "The source, both-repo chapter, current guide entry for .gitattributes, and setup templates were reviewed. The Windows byte-preservation correction does not change taught model behavior, document or media bytes; no lesson edit is needed."
+  },
+  "resolved_windows_failure": {
+    "initial_source_commit": "25e6f79a723c92bb7e8afa4d6f3cd3150744560a",
+    "failed_run_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901316414",
+    "failed_jobs": [
+      "windows-2022 / Python 3.10",
+      "windows-2022 / Python 3.12"
+    ],
+    "cause": "Git core.autocrlf changed client/*.in template bytes on Windows, violating the lesson reference hash for client-setup.",
+    "fix_commit": "22d540fb1473e0df5724754a8a67397139681edb",
+    "fix": "Add client/** -text to .gitattributes and a regression test that checks an actual Git checkout with core.autocrlf=true.",
+    "verification": "The checkout regression failed before the fix, all seven portability tests passed after the fix, and all six source CI jobs passed at the fix commit. No lesson, media, document, model or measured scientific result was changed.",
+    "failed_ci_log_sha256": "4b6006e7d74e99ac41da57e2b3dda7c6ff5ac8aa21a0658a8d7ab509dd12c0d6",
+    "regression_red_log_sha256": "1b6ae07720ad191c16d8ceebf5cd069493c050d7ac007aaba31b316ba6582e51",
+    "regression_green_log_sha256": "6c4f99b3583a1b9eb0a3df18d32be21af5d33706699c22e8e4d64720650a4878"
+  },
+  "publication_transport": {
+    "initial_failure": "Long HTTPS Git uploads from the GB10 failed with TLS record errors on three ordinary attempts; SSH authentication was unavailable. Remote main remained at the expected source baseline.",
+    "recovery": "A task-created private draft held a split, hash-checked Git bundle. A GitHub runner imported the large content objects onto a temporary branch without updating main. The owner-authenticated normal receive-pack endpoint then accepted an exact old/new fast-forward update using only the missing small objects. The subsequent Windows-fix commit used a normal git push.",
+    "bundle_bytes": 190117454,
+    "chunk_count": 182,
+    "transport_assets": 183,
+    "upload_interruption": "One chunk upload had a TLS error. Authoritative asset listing proved only that chunk was absent; it alone was resumed and all 183 asset identities were then checked.",
+    "import_workflow_url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34901083708",
+    "import_workflow_conclusion": "success",
+    "main_update_receipt": {
+      "status": "passed",
+      "completed_at": "2026-09-14T21:54:04.181713+00:00",
+      "target": "refs/heads/main",
+      "expected_old": "b74fe2544ce448f1494a77a96362da55c29d6569",
+      "new_commit": "25e6f79a723c92bb7e8afa4d6f3cd3150744560a",
+      "imported_commit": "c935346c01e43cbf35671acfbaca71d1d8af45f8",
+      "wanted_objects": 1388,
+      "available_objects": 1383,
+      "missing_objects": [
+        "0e79a0a6736a5a89733cfd073e07e7abb51e7115",
+        "25e6f79a723c92bb7e8afa4d6f3cd3150744560a",
+        "2eb1aef3d4ca91fef64412524bb21094c4da74b3",
+        "6324431272e661a378220ca02ca41881eeff992d",
+        "7d44b805ccfb12169a27aa6ec29aede8a46278e3",
+        "9e4f5292692cf60a456265fa967711f3e53d75d1",
+        "b8dfda60459d6cb2addf995b6c8b7d31fcb0ea57"
+      ],
+      "pack_bytes": 2785,
+      "request_bytes": 2905,
+      "request_sha256": "7118582eaa4696b39ec23f4418fde6e1a140c99a4e816ff273dbec8682fe2d48",
+      "http_status": 200,
+      "response": "000eunpack ok\n0017ok refs/heads/main\n00000000",
+      "remote_after": "25e6f79a723c92bb7e8afa4d6f3cd3150744560a",
+      "method": "Normal authenticated receive-pack with exact old/new refs, enforced fast-forward ancestry and only missing Git objects. GitHub performs its ordinary validation and update hooks.",
+      "protocol_reference": "https://git-scm.com/docs/gitprotocol-pack"
+    },
+    "cleanup": {
+      "status": "passed",
+      "completed_at": "2026-09-14T22:09:35.366544+00:00",
+      "temporary_branches_deleted_with_expected_old_hashes": {
+        "refs/heads/delivery/video-v5-transfer-20260914": "9eb0ffeb1484064397cedc444de1507855cba3c6",
+        "refs/heads/delivery/video-v5-assets-20260914": "c935346c01e43cbf35671acfbaca71d1d8af45f8"
+      },
+      "draft_release_deleted": {
+        "id": 388733714,
+        "tag": "temporary-video-v5-transfer-20260914",
+        "asset_count": 183
+      },
+      "postconditions": {
+        "temporary_refs_absent": true,
+        "temporary_draft_http_status": 404
+      },
+      "scope": "Only the two task-created transport branches and private draft transport release were removed after all fourteen public release downloads passed. Published main, client, release and historical media remain intact."
+    }
+  },
+  "limitations": [
+    "Portable CI explicitly skips optional dependencies and native GPU cases; its success does not establish new native training, hardware throughput, live IDS or NPU/SmartNIC deployment.",
+    "The recorded native GB10 mechanics and packet-study measurements remain their original runs, including all documented limitations and strict numerical comparison failures.",
+    "Public browser checks used Chromium/Playwright, including WebM decoding; full MP4 and WebM decode was separately checked locally. This is not an all-browser/device certification.",
+    "Independent encoded-speech transcription and sampled visual/document review were performed; a complete human watch/listen-through is not claimed.",
+    "Council remains ESCALATED with no mutual decision hash; direct implementation and independent review do not retroactively establish consensus."
+  ]
 }

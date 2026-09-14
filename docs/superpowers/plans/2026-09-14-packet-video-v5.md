@@ -18,6 +18,6 @@
 - [x] Render and inspect every scene plus animation samples. Generate captions, transcript, PowerPoint, slide PDF and handbook from the same source.
 - [x] Verify source/reference/media hashes, scientific claims and required topic coverage. Fully decode MP4/WebM, inspect duration/audio levels/silences, independently transcribe encoded speech and review flagged passages. Check browser playback, seeking and mobile layout.
 - [x] Update the active video links and both-repo explanation without putting teaching media into the client. Review lesson references, every-file guide and shared pending queues; retain unresolved review work honestly.
-- [ ] Run appropriate source/client/archive checks, publish a versioned release and updated Pages site, then verify actual public playback and downloads. Return the updated video link.
+- [x] Run appropriate source/client/archive checks, publish a versioned release and updated Pages site, then verify actual public playback and downloads. Return the updated video link.
 
 No new full scientific training, improved accuracy, live IDS, NPU/SmartNIC execution, or unperformed human full-watch certification is implied by media production.
