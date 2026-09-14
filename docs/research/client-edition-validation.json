@@ -126,5 +126,25 @@
       "bytes": 40713,
       "sha256": "dc66394e1dedf1cd6833eb499beac016f4efed856038f920af4e3d90a0f9af8f"
     }
+  },
+  "automatic_update": {
+    "status": "verified_end_to_end",
+    "source_commit": "f4c011080f904543350c8dfd3f1c63da7f208e0d",
+    "source_ci": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34824123213",
+    "publication_workflow": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34824453115",
+    "client_before": "633bc9e3397f876ed940ed8d500eadded1d508f5",
+    "client_after": "7b92200247e0b5f810a040bf2610ef5c718f1e9e",
+    "client_ci": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34824528959",
+    "client_ci_jobs_passed": 6,
+    "changed_client_files": [
+      "CLIENT_MANIFEST.json",
+      "README.md"
+    ],
+    "scientific_files_unchanged": 155,
+    "history_commits_inspected": 2,
+    "forbidden_history_paths": [],
+    "anonymous_downloads": "README and manifest matched the committed bytes",
+    "no_op_workflow": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34823766263",
+    "no_op_result": "Prepared and reverified the matching initial client; publisher skipped and client tip unchanged."
   }
 }
