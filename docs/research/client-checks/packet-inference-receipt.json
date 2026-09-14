@@ -1,0 +1,906 @@
+{
+  "all_rows_predicted": false,
+  "batch_size": 64,
+  "checkpoint": {
+    "bytes": 7435722,
+    "path": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/measured-study/joint_pretrained/checkpoint-step-01000.pth",
+    "sha256": "7113adce6090af28a179b5e98f5dac8d5d7f1a9898681969924f9651815f947a"
+  },
+  "checkpoint_metadata": {
+    "architecture": {
+      "arr_length": 1500,
+      "cls_fusion": "add",
+      "drop_path_rate": 0.1,
+      "embed_dim": 256,
+      "encoder_depth": 4,
+      "head_bias": false,
+      "model": "fuse3_mamba_classifier",
+      "num_classes": 2,
+      "seq_len": 0,
+      "stride_size": 4
+    },
+    "class_mapping": {
+      "attack": 1,
+      "benign": 0
+    },
+    "format": "netmambaplus-packet-v1",
+    "input_contract": {
+      "dtype": "uint8",
+      "learned_input_independent_prefixes": 2,
+      "metadata_used": [],
+      "normalization": "float32(payload)/127.5-1",
+      "numeric_sequence_lengths": {
+        "iat": 0,
+        "size": 0
+      },
+      "retained_zero_bytes": true,
+      "shape": [
+        "B",
+        1500
+      ],
+      "unit": "stored_packet_payload"
+    },
+    "provenance": {
+      "initialization": {
+        "copied_state_names": [
+          "byte_cls_token",
+          "byte_embed.proj.bias",
+          "byte_embed.proj.weight",
+          "byte_indicator",
+          "encoder_blocks.0.mixer.A_log",
+          "encoder_blocks.0.mixer.D",
+          "encoder_blocks.0.mixer.conv1d.bias",
+          "encoder_blocks.0.mixer.conv1d.weight",
+          "encoder_blocks.0.mixer.dt_proj.bias",
+          "encoder_blocks.0.mixer.dt_proj.weight",
+          "encoder_blocks.0.mixer.in_proj.weight",
+          "encoder_blocks.0.mixer.out_proj.weight",
+          "encoder_blocks.0.mixer.x_proj.weight",
+          "encoder_blocks.0.norm.weight",
+          "encoder_blocks.1.mixer.A_log",
+          "encoder_blocks.1.mixer.D",
+          "encoder_blocks.1.mixer.conv1d.bias",
+          "encoder_blocks.1.mixer.conv1d.weight",
+          "encoder_blocks.1.mixer.dt_proj.bias",
+          "encoder_blocks.1.mixer.dt_proj.weight",
+          "encoder_blocks.1.mixer.in_proj.weight",
+          "encoder_blocks.1.mixer.out_proj.weight",
+          "encoder_blocks.1.mixer.x_proj.weight",
+          "encoder_blocks.1.norm.weight",
+          "encoder_blocks.2.mixer.A_log",
+          "encoder_blocks.2.mixer.D",
+          "encoder_blocks.2.mixer.conv1d.bias",
+          "encoder_blocks.2.mixer.conv1d.weight",
+          "encoder_blocks.2.mixer.dt_proj.bias",
+          "encoder_blocks.2.mixer.dt_proj.weight",
+          "encoder_blocks.2.mixer.in_proj.weight",
+          "encoder_blocks.2.mixer.out_proj.weight",
+          "encoder_blocks.2.mixer.x_proj.weight",
+          "encoder_blocks.2.norm.weight",
+          "encoder_blocks.3.mixer.A_log",
+          "encoder_blocks.3.mixer.D",
+          "encoder_blocks.3.mixer.conv1d.bias",
+          "encoder_blocks.3.mixer.conv1d.weight",
+          "encoder_blocks.3.mixer.dt_proj.bias",
+          "encoder_blocks.3.mixer.dt_proj.weight",
+          "encoder_blocks.3.mixer.in_proj.weight",
+          "encoder_blocks.3.mixer.out_proj.weight",
+          "encoder_blocks.3.mixer.x_proj.weight",
+          "encoder_blocks.3.norm.weight",
+          "iat_cls_token",
+          "iat_indicator",
+          "norm_f.weight",
+          "pos_embed",
+          "size_cls_token",
+          "size_indicator"
+        ],
+        "excluded_state_names": [
+          "byte_decoder_blocks.0.mixer.A_log",
+          "byte_decoder_blocks.0.mixer.D",
+          "byte_decoder_blocks.0.mixer.conv1d.bias",
+          "byte_decoder_blocks.0.mixer.conv1d.weight",
+          "byte_decoder_blocks.0.mixer.dt_proj.bias",
+          "byte_decoder_blocks.0.mixer.dt_proj.weight",
+          "byte_decoder_blocks.0.mixer.in_proj.weight",
+          "byte_decoder_blocks.0.mixer.out_proj.weight",
+          "byte_decoder_blocks.0.mixer.x_proj.weight",
+          "byte_decoder_blocks.0.norm.weight",
+          "byte_decoder_blocks.1.mixer.A_log",
+          "byte_decoder_blocks.1.mixer.D",
+          "byte_decoder_blocks.1.mixer.conv1d.bias",
+          "byte_decoder_blocks.1.mixer.conv1d.weight",
+          "byte_decoder_blocks.1.mixer.dt_proj.bias",
+          "byte_decoder_blocks.1.mixer.dt_proj.weight",
+          "byte_decoder_blocks.1.mixer.in_proj.weight",
+          "byte_decoder_blocks.1.mixer.out_proj.weight",
+          "byte_decoder_blocks.1.mixer.x_proj.weight",
+          "byte_decoder_blocks.1.norm.weight",
+          "byte_decoder_embed.bias",
+          "byte_decoder_embed.weight",
+          "byte_decoder_pos_embed",
+          "byte_decoder_pred.bias",
+          "byte_decoder_pred.weight",
+          "byte_mask_token",
+          "decoder_norm_f.weight",
+          "iat_decoder_pred.bias",
+          "iat_decoder_pred.weight",
+          "size_decoder_pred.bias",
+          "size_decoder_pred.weight"
+        ],
+        "kind": "registered_pretrain",
+        "new_state_names": [
+          "head.weight"
+        ],
+        "position_indices": [
+          20,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379,
+          380,
+          381,
+          382,
+          383,
+          384,
+          385,
+          386,
+          387,
+          388,
+          389,
+          390,
+          391,
+          392,
+          393,
+          394,
+          395,
+          396,
+          397,
+          398,
+          399,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          442
+        ],
+        "position_table": {
+          "origin": "registered_pretrain",
+          "parameterization": "learned",
+          "source_architecture": {
+            "arr_length": 1600,
+            "drop_path_rate": 0.1,
+            "model": "fuse3_mamba_pretrain",
+            "seq_len": 20,
+            "size_key": "signed_sizes",
+            "stride_size": 4
+          },
+          "source_shape": [
+            1,
+            443,
+            256
+          ],
+          "target_shape": [
+            1,
+            378,
+            256
+          ],
+          "trainable": true
+        },
+        "sha256": "16e5a7f61c55a5be7a3feb535a59cbb780817f42f29a5840ea34841da243b5d9"
+      },
+      "parameter_count": 1852416,
+      "runtime": {
+        "cuda": "13.0",
+        "torch": "2.9.1+cu130"
+      },
+      "seed": 0,
+      "upstream": {
+        "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+        "model_files_sha256": {
+          "src/models/common.py": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470",
+          "src/models/models_mamba.py": "c59dcc8375ad54ed9295f92c902019022cdf53b6fe4f0fb911311284872c3841",
+          "src/models/models_net_mamba_fuse3.py": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d"
+        },
+        "tracked_files_verified": 103
+      }
+    },
+    "schema_version": 1,
+    "study_metadata": {
+      "arm": "joint_pretrained",
+      "data_manifest_sha256": "cbe7b248ea5e3ac3c520fa71efddd0827fb72c19ece40d5cf6ce1a509106fbcb",
+      "protocol_sha256": "7cbb11f993ab046c10c55426378631ba8a33ec1e4a198aebd2b370598412d3a8",
+      "seed": 0,
+      "selection": {
+        "selection_score": 0.9385902170791537,
+        "sources": {
+          "cic": {
+            "binary_conflicting_groups": 0,
+            "conflicting_slice": {
+              "group_weighted": null,
+              "groups": 0,
+              "row_weighted": null,
+              "rows": 0
+            },
+            "group_weighted": {
+              "accuracy": 0.9689,
+              "attack_average_precision": 0.9800559777396258,
+              "attack_precision": 0.9194012665515257,
+              "attack_recall": 0.9903875968992248,
+              "auroc": 0.9916131010612431,
+              "balanced_accuracy": 0.9745295918075461,
+              "benign_false_positive_rate": 0.041328413284132844,
+              "confusion_matrix": [
+                [
+                  12990.0,
+                  560.0
+                ],
+                [
+                  62.0,
+                  6388.0
+                ]
+              ],
+              "macro_f1": 0.9650967299238495,
+              "support": [
+                13550.0,
+                6450.0
+              ]
+            },
+            "groups": 20000,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "BENIGN": {
+                "correct": 15300,
+                "recall_of_supplied_binary_target": 0.9508420856379343,
+                "rows": 16091
+              },
+              "Bot": {
+                "correct": 36,
+                "recall_of_supplied_binary_target": 0.37894736842105264,
+                "rows": 95
+              },
+              "DDoS": {
+                "correct": 1,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 1
+              },
+              "DoS GoldenEye": {
+                "correct": 5979,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 5979
+              },
+              "DoS Hulk": {
+                "correct": 10355,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 10355
+              },
+              "DoS Slowhttptest": {
+                "correct": 3968,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3968
+              },
+              "DoS slowloris": {
+                "correct": 3315,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 3315
+              },
+              "FTP-Patator": {
+                "correct": 627,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 627
+              },
+              "Heartbleed": {
+                "correct": 495,
+                "recall_of_supplied_binary_target": 0.9,
+                "rows": 550
+              },
+              "Infiltration": {
+                "correct": 4482,
+                "recall_of_supplied_binary_target": 0.9312279243714938,
+                "rows": 4813
+              },
+              "PortScan": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": null,
+                "rows": 0
+              },
+              "SSH-Patator": {
+                "correct": 1965,
+                "recall_of_supplied_binary_target": 0.9964503042596349,
+                "rows": 1972
+              },
+              "Web Attack \u2013 Brute Force": {
+                "correct": 165,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 165
+              },
+              "Web Attack \u2013 Sql Injection": {
+                "correct": 0,
+                "recall_of_supplied_binary_target": null,
+                "rows": 0
+              },
+              "Web Attack \u2013 XSS": {
+                "correct": 87,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 87
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.9741138739639302,
+              "attack_average_precision": 0.9946693215775305,
+              "attack_precision": 0.9754850306824521,
+              "attack_recall": 0.9858427036677421,
+              "auroc": 0.9917654343365184,
+              "balanced_accuracy": 0.9683423946528382,
+              "benign_false_positive_rate": 0.04915791436206575,
+              "confusion_matrix": [
+                [
+                  15300,
+                  791
+                ],
+                [
+                  452,
+                  31475
+                ]
+              ],
+              "macro_f1": 0.9708006256113887,
+              "support": [
+                16091,
+                31927
+              ]
+            },
+            "rows": 48018
+          },
+          "unsw": {
+            "binary_conflicting_groups": 2,
+            "conflicting_slice": {
+              "group_weighted": {
+                "accuracy": 0.7495551601423487,
+                "attack_precision": 0.7495551601423487,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0.0,
+                    0.5008896797153025
+                  ],
+                  [
+                    0.0,
+                    1.4991103202846974
+                  ]
+                ],
+                "macro_f1": 0.4284261378082888,
+                "support": [
+                  0.5008896797153025,
+                  1.4991103202846974
+                ]
+              },
+              "groups": 2,
+              "row_weighted": {
+                "accuracy": 0.9982238010657194,
+                "attack_precision": 0.9982238010657194,
+                "attack_recall": 1.0,
+                "balanced_accuracy": 0.5,
+                "benign_false_positive_rate": 1.0,
+                "confusion_matrix": [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    0,
+                    1124
+                  ]
+                ],
+                "macro_f1": 0.49955555555555553,
+                "support": [
+                  2,
+                  1124
+                ]
+              },
+              "rows": 1126
+            },
+            "group_weighted": {
+              "accuracy": 0.9427277416046919,
+              "attack_average_precision": 0.9957904913691785,
+              "attack_precision": 0.9823887793306245,
+              "attack_recall": 0.9462648724460957,
+              "auroc": 0.984821672840606,
+              "balanced_accuracy": 0.936952290019798,
+              "benign_false_positive_rate": 0.07236029240649973,
+              "confusion_matrix": [
+                [
+                  1032.0,
+                  80.5008896797153
+                ],
+                [
+                  255.0,
+                  4490.499110320285
+                ]
+              ],
+              "macro_f1": 0.9120837042344578,
+              "support": [
+                1112.5008896797153,
+                4745.499110320285
+              ]
+            },
+            "groups": 5858,
+            "interpretation": "Scores classify supplied packet labels. Identical stored payload groups are not independent network flows or captures.",
+            "original_labels": {
+              "analysis": {
+                "correct": 142,
+                "recall_of_supplied_binary_target": 1.0,
+                "rows": 142
+              },
+              "backdoor": {
+                "correct": 143,
+                "recall_of_supplied_binary_target": 0.9794520547945206,
+                "rows": 146
+              },
+              "dos": {
+                "correct": 429,
+                "recall_of_supplied_binary_target": 0.9285714285714286,
+                "rows": 462
+              },
+              "exploits": {
+                "correct": 1920,
+                "recall_of_supplied_binary_target": 0.9407153356197943,
+                "rows": 2041
+              },
+              "fuzzers": {
+                "correct": 2390,
+                "recall_of_supplied_binary_target": 0.9602249899558055,
+                "rows": 2489
+              },
+              "generic": {
+                "correct": 2769,
+                "recall_of_supplied_binary_target": 0.9868139700641483,
+                "rows": 2806
+              },
+              "normal": {
+                "correct": 2469,
+                "recall_of_supplied_binary_target": 0.7662942271880819,
+                "rows": 3222
+              },
+              "reconnaissance": {
+                "correct": 1063,
+                "recall_of_supplied_binary_target": 0.992530345471522,
+                "rows": 1071
+              },
+              "shellcode": {
+                "correct": 70,
+                "recall_of_supplied_binary_target": 0.3482587064676617,
+                "rows": 201
+              },
+              "worms": {
+                "correct": 7,
+                "recall_of_supplied_binary_target": 0.5,
+                "rows": 14
+              }
+            },
+            "row_weighted": {
+              "accuracy": 0.9053517548038749,
+              "attack_average_precision": 0.9891215589333546,
+              "attack_precision": 0.922258930415032,
+              "attack_recall": 0.9531583440034144,
+              "auroc": 0.968849357265047,
+              "balanced_accuracy": 0.8597262855957482,
+              "benign_false_positive_rate": 0.23370577281191807,
+              "confusion_matrix": [
+                [
+                  2469,
+                  753
+                ],
+                [
+                  439,
+                  8933
+                ]
+              ],
+              "macro_f1": 0.8715002900906771,
+              "support": [
+                3222,
+                9372
+              ]
+            },
+            "rows": 12594
+          }
+        },
+        "step": 1000
+      },
+      "source_sha256": {
+        "cic": "2ac7ee140ae5a5d0d8df0d550434580c056ed9458977bfcc33706c872d390d6e",
+        "unsw": "39616dd8e397673500ed6c51a09fe5638c29d27454467d8aef925ca79a295f01"
+      },
+      "sources": [
+        "cic",
+        "unsw"
+      ],
+      "step": 1000
+    }
+  },
+  "class_mapping": {
+    "attack": 1,
+    "benign": 0
+  },
+  "code_sha256": {
+    "packet_data.py": "783a569a9b4ec459232c899fdb1d15fef2314719883cf9b599ff65d0fa1a8309",
+    "packet_model.py": "1d8abd6e13d53992cfad040cda8b01ee4142187968015415acbe9f4764870c74",
+    "tools/predict_packets.py": "0d575ce777252e64d16c13a007d1a487164d5e00c89f77919e5ed6258a03143c"
+  },
+  "counts_finalized": true,
+  "device": "cuda",
+  "finished_at": "2026-09-14T08:38:04.888231+00:00",
+  "ignored_metadata_columns": [],
+  "input": {
+    "bytes": 74289323,
+    "path": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/heldout-cic-unlabeled.csv",
+    "sha256": "075223cddf6cb34c78e3e1e5173121dab90d9fcf2b7f45e1040b65e2cda5d710",
+    "sha256_scope": "entire_file"
+  },
+  "input_fully_validated": true,
+  "input_rows": 20000,
+  "kind": "netmambaplus_unlabeled_packet_inference_v1",
+  "max_rows": 128,
+  "predicted_rows": 128,
+  "predictions": {
+    "bytes": 40713,
+    "path": "predictions.jsonl",
+    "sha256": "dc66394e1dedf1cd6833eb499beac016f4efed856038f920af4e3d90a0f9af8f"
+  },
+  "probability_kind": "uncalibrated_softmax",
+  "schema_version": 1,
+  "scope": "CSV-supplied stored payloads only. No labels, flow reconstruction, padding inference, ground-truth metrics, calibrated risk estimates, or live traffic decisions.",
+  "stage": "finished",
+  "started_at": "2026-09-14T08:37:59.787289+00:00",
+  "status": "capped",
+  "upstream": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/packet-model-clean-upstream",
+  "validated_rows": 20000
+}

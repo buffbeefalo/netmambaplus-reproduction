@@ -1,0 +1,1016 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "stage": "complete",
+  "created_at": "2026-09-14T08:35:28.779282+00:00",
+  "synthetic_only": true,
+  "scope": "Synthetic schema fixtures only: one CUDA FP32 optimizer update and CUDA FP16 autocast inference with the complete pinned classifier. Random initialization; no real dataset, accuracy result, pretrained weights, or training-history claim.",
+  "request": {
+    "output": "runs/delivery-check/flow-model",
+    "upstream": "/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/packet-model-clean-upstream",
+    "config": "/home/nvidia/netmambaplus-client/configs/ciciot2022.json",
+    "device": 0,
+    "seed": 0,
+    "build_report": "/home/nvidia/netmambaplus-reproduction/runs/portability/cuda13-build-verified/build-report.json"
+  },
+  "checks": {
+    "upstream_pin_and_clean_sources": true,
+    "installed_mamba_matches_verified_upstream": true,
+    "native_loader_and_complete_model_dimensions": true,
+    "finite_fp32_loss": true,
+    "finite_parameter_gradients": true,
+    "nonzero_gradient_each_encoder_and_head": true,
+    "real_optimizer_update": true,
+    "strict_checkpoint_reload_and_identical_state": true,
+    "finite_autocast_inference": true,
+    "normalized_six_class_scores": true,
+    "identical_inference_after_strict_reload": true,
+    "upstream_unchanged_after_execution": true
+  },
+  "tool_sha256": "9811dd4fe7b2ab994400f1db5559c3aa1d1bcdef7656ab0910dd78ae9cd39f2f",
+  "seed": 0,
+  "updated_at": "2026-09-14T08:35:35.563560+00:00",
+  "config": {
+    "file": "/home/nvidia/netmambaplus-client/configs/ciciot2022.json",
+    "sha256": "fba589310c98ea9f8838a0a14eb9cb2d6cfd13c4c8d219c6878e7508c68cab92"
+  },
+  "harness_sha256": {
+    "repro.py": "f49823f3d23cbc1a12e8f165bea67694dce14e11db64cb270c362a3348c05c7e",
+    "tools/build_cuda.py": "0c93167aaca15d41ed4d6db6f3c9cc3be876fcc673a95c7ce687880ee732aa22",
+    "tools/build_gb10.py": "69c4183b99d324b5f2cc2e52c40e6bf6ca9aa347cbea774903c7f490504621b2"
+  },
+  "upstream": {
+    "commit": "eec9483e2f0fb84ca22982b9de8149bc3a8b1ad2",
+    "core_sha256": {
+      "src/pre-train.py": "fd966021d600b23baed22dcd73fa2ccbd3e4e902f5e42cf6d9aedad7c307d4fd",
+      "src/fine-tune.py": "f84ea53fad473122bf8211bb1d083ba95a9019b0c3e48ebbff2f5e86dae4152d",
+      "src/util/arg_pre_train.py": "ac6a607367a64013f38cfadf83b471a03e5988f7dbedbc2eef0c1a5d744eb08f",
+      "src/util/arg_fine_tune.py": "3c64f41ac4fa49377b6c8836237d84096ec9975e72a4b166ec303f4e012b857e",
+      "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+      "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+      "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+    },
+    "tracked_files_verified": 103
+  },
+  "native_arguments": {
+    "batch_size": 128,
+    "epochs": 120,
+    "save_steps_freq": 5000,
+    "accum_iter": 1,
+    "model": "fuse3_mamba_classifier",
+    "input_size": 40,
+    "drop_path": 0.1,
+    "clip_grad": null,
+    "weight_decay": 0.05,
+    "lr": null,
+    "blr": 0.002,
+    "layer_decay": 0.75,
+    "min_lr": 1e-06,
+    "warmup_epochs": 20,
+    "smoothing": 0.1,
+    "finetune": "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model/checkpoint-synthetic.pth",
+    "data_path": "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model/synthetic-inputs",
+    "nb_classes": 6,
+    "output_dir": "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model",
+    "ckpt_dir": "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model",
+    "log_dir": "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model/logs",
+    "device": "cuda:0",
+    "seed": 0,
+    "resume": "",
+    "start_epoch": 0,
+    "eval": false,
+    "num_workers": 0,
+    "pin_mem": true,
+    "world_size": 1,
+    "local_rank": -1,
+    "dist_on_itp": false,
+    "dist_url": "env://",
+    "if_amp": false,
+    "num_packet": 5,
+    "num_packet_byte": 320,
+    "stride_size": 4,
+    "class_balance": false,
+    "class_balance_beta": 0.999,
+    "ldam": false,
+    "data_ratio": 1.0,
+    "dataset_type": "byte_size_interval",
+    "seq_len": 20,
+    "seq_key": "sizes",
+    "size_key": "sizes",
+    "train_from_scratch": false,
+    "average": "weighted"
+  },
+  "native_argv": [
+    "--num_packet",
+    "5",
+    "--num_packet_byte",
+    "320",
+    "--seq_len",
+    "20",
+    "--stride_size",
+    "4",
+    "--size_key",
+    "sizes",
+    "--dataset_type",
+    "byte_size_interval",
+    "--batch_size",
+    "128",
+    "--accum_iter",
+    "1",
+    "--world_size",
+    "1",
+    "--weight_decay",
+    "0.05",
+    "--seed",
+    "0",
+    "--no_amp",
+    "--average",
+    "weighted",
+    "--model",
+    "fuse3_mamba_classifier",
+    "--epochs",
+    "120",
+    "--blr",
+    "0.002",
+    "--smoothing",
+    "0.1",
+    "--data_path",
+    "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model/synthetic-inputs",
+    "--output_dir",
+    "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model",
+    "--log_dir",
+    "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model/logs",
+    "--device",
+    "cuda:0",
+    "--num_workers",
+    "0",
+    "--finetune",
+    "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model/checkpoint-synthetic.pth",
+    "--nb_classes",
+    "6",
+    "--ckpt_dir",
+    "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model"
+  ],
+  "native_argument_scope": "Original fine-tuning parser resolved through repro.build_native. The checkpoint path is an output placeholder; no initialization checkpoint is loaded. The original epoch loop is not launched. Smoke overrides: six-row loader batch, zero workers, requested device/seed.",
+  "inputs": {
+    "synthetic_only": true,
+    "validation": {
+      "stage": "evaluate",
+      "class_mapping": {
+        "synthetic-class-0": 0,
+        "synthetic-class-1": 1,
+        "synthetic-class-2": 2,
+        "synthetic-class-3": 3,
+        "synthetic-class-4": 4,
+        "synthetic-class-5": 5
+      },
+      "size_key": "sizes",
+      "files": {
+        "metadata.json": {
+          "path": "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model/synthetic-inputs/metadata.json",
+          "sha256": "c521a4e123e6cdf42b5e6a2484baffdb93bd1b03518abf963a7b637ee6f2fc47",
+          "bytes": 477
+        },
+        "data-test.json": {
+          "path": "/home/nvidia/netmambaplus-client/runs/delivery-check/flow-model/synthetic-inputs/data-test.json",
+          "sha256": "8278afb6c557b697bf1c1b3bdbb190240bb3c1db830266a208176cd0824fd630",
+          "bytes": 25228
+        }
+      },
+      "splits": {
+        "test": {
+          "rows": 6,
+          "class_counts": {
+            "0": 1,
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1
+          },
+          "identifier_rows": 6,
+          "unique_identifiers": 6,
+          "unique_raw_inputs": 6,
+          "duplicate_excess": 0,
+          "conflicting_raw_input_groups": 0
+        }
+      },
+      "raw_input_overlaps": {},
+      "identity_limit": "Recorded identifiers and exact raw-input equality do not prove capture independence."
+    },
+    "raw_sizes": [
+      {
+        "packet_count": 1,
+        "bytes_per_packet": [
+          7
+        ],
+        "sizes_count": 3,
+        "intervals_count": 3
+      },
+      {
+        "packet_count": 2,
+        "bytes_per_packet": [
+          321,
+          321
+        ],
+        "sizes_count": 7,
+        "intervals_count": 7
+      },
+      {
+        "packet_count": 3,
+        "bytes_per_packet": [
+          322,
+          322,
+          322
+        ],
+        "sizes_count": 11,
+        "intervals_count": 11
+      },
+      {
+        "packet_count": 4,
+        "bytes_per_packet": [
+          323,
+          323,
+          323,
+          323
+        ],
+        "sizes_count": 15,
+        "intervals_count": 15
+      },
+      {
+        "packet_count": 5,
+        "bytes_per_packet": [
+          324,
+          324,
+          324,
+          324,
+          324
+        ],
+        "sizes_count": 19,
+        "intervals_count": 19
+      },
+      {
+        "packet_count": 6,
+        "bytes_per_packet": [
+          325,
+          325,
+          325,
+          325,
+          325,
+          325
+        ],
+        "sizes_count": 23,
+        "intervals_count": 23
+      }
+    ],
+    "smoke_batch_size": 6,
+    "configured_batch_size": 128,
+    "tensor_shapes": {
+      "x_byte": [
+        6,
+        1,
+        1,
+        1600
+      ],
+      "x_size": [
+        6,
+        20
+      ],
+      "x_interval": [
+        6,
+        20
+      ],
+      "targets": [
+        6
+      ]
+    },
+    "tensor_dtypes": {
+      "x_byte": "torch.float32",
+      "x_size": "torch.float32",
+      "x_interval": "torch.float32",
+      "targets": "torch.int64"
+    },
+    "loader": "util.loader_data.get_data_loader"
+  },
+  "installed_mamba_python_sources": {
+    "directory": "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm",
+    "files": [
+      {
+        "file": "__init__.py",
+        "sha256": "5e61917878c1f3275d79fc1406af736320309804e4320777a9f32ea863e9594f"
+      },
+      {
+        "file": "models/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "models/config_mamba.py",
+        "sha256": "f9a7c694e1aaa82e01377f96927095223892a0a0fe64efadaf382c8335bdbc8a"
+      },
+      {
+        "file": "models/mixer_seq_simple.py",
+        "sha256": "060c4e3345625b05905c33dae837557b8f46504251186f28fb82fa612f17803e"
+      },
+      {
+        "file": "modules/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "modules/mamba_simple.py",
+        "sha256": "46b4c1c781cf3417d56c32a923a5af0516e41ced5961ae991086010f5ef79999"
+      },
+      {
+        "file": "ops/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "ops/selective_scan_interface.py",
+        "sha256": "f511064d5ca96e27ba1c970f3c389e683f6e4858700197c26b61e23a3680be9a"
+      },
+      {
+        "file": "ops/triton/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "ops/triton/layernorm.py",
+        "sha256": "e711e9af70dea103f5d1f69b59187a1fd5980f5163049f764985fa7bbb0fe158"
+      },
+      {
+        "file": "ops/triton/selective_state_update.py",
+        "sha256": "b29627ec0290007174fe30fdcd8fe039cb1520bff104bd2c2ef57c49ae56b6f3"
+      },
+      {
+        "file": "utils/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "utils/generation.py",
+        "sha256": "2bb8637c826fdc62b54c77b369aa6a8a53d9e72bdfc57abe0e45152a18369a5d"
+      },
+      {
+        "file": "utils/hf.py",
+        "sha256": "aa6f3a349826612bf3b310d209ebe50546bf1b2be9bcee3d5959cabfa7d235f6"
+      }
+    ]
+  },
+  "runtime": {
+    "python": "3.12.3 (main, Jan 22 2026, 20:57:42) [GCC 13.3.0]",
+    "executable": "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/bin/python",
+    "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
+    "machine": "aarch64",
+    "packages": {
+      "torch": "2.9.1+cu130",
+      "torchvision": "0.24.1",
+      "numpy": "1.26.2",
+      "timm": "0.4.12",
+      "mamba-ssm": "1.1.1",
+      "causal-conv1d": "1.1.2.post1",
+      "flash-attn": null,
+      "scikit-learn": "1.6.1",
+      "scipy": "1.15.2",
+      "pillow": "11.0.0",
+      "triton": "3.5.1",
+      "einops": "0.8.1"
+    },
+    "environment": {
+      "OMP_NUM_THREADS": "4",
+      "TRITON_PTXAS_PATH": "/usr/local/cuda/bin/ptxas"
+    },
+    "torch_cuda": "13.0",
+    "cuda_device_index": 0,
+    "cuda_device": "NVIDIA GB10",
+    "compute_capability": [
+      12,
+      1
+    ],
+    "torch_compiled_architectures": [
+      "sm_80",
+      "sm_90",
+      "sm_100",
+      "sm_110",
+      "sm_120",
+      "compute_120"
+    ],
+    "python_executable_sha256": "a38433048639125c8ff6b3d71a13ff5df66089e24f8bd2c4ecedc2fac3e0500d",
+    "cudnn_benchmark": false,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true
+  },
+  "runtime_sha256": "3f3d48418a14c4709492966594ef26bf8b50981680afd88bc21d980609b755d7",
+  "compiled_extensions": {
+    "causal_conv1d_cuda": {
+      "file": "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/causal_conv1d_cuda.cpython-312-aarch64-linux-gnu.so",
+      "bytes": 17432832,
+      "sha256": "77b43870f414823ca0da7f414d0f5d6e50c67f02cb2f17ad1b26e4023f190138"
+    },
+    "selective_scan_cuda": {
+      "file": "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/selective_scan_cuda.cpython-312-aarch64-linux-gnu.so",
+      "bytes": 53432088,
+      "sha256": "08bd0d3abd1b168a0ba9bfd88fbda7f0b1a5886cf1388112600e4d095e0cdc61"
+    }
+  },
+  "build_report": {
+    "file": "/home/nvidia/netmambaplus-reproduction/runs/portability/cuda13-build-verified/build-report.json",
+    "sha256": "c722ceb4338cafac49f7fc68813fc2bd1e096927e6b830df8bdf075056eed15e",
+    "builder_sha256": "0c93167aaca15d41ed4d6db6f3c9cc3be876fcc673a95c7ce687880ee732aa22",
+    "requested_extension_target": "sm_121",
+    "extension_hashes_match": true
+  },
+  "builder_hash_scope": "harness_sha256 records builder source files observed at check time. Only a supplied completed build report binds installed extension bytes to recorded build provenance.",
+  "model": {
+    "parameter_count": 1870080,
+    "encoder_blocks": 4,
+    "embedding_width": 256,
+    "tokens": 443,
+    "classes": 6,
+    "trainable_parameter_count": 1870080,
+    "factory": "util.loader_model.get_model_classifier",
+    "class": "NetMamba",
+    "module": "models.models_net_mamba_fuse3",
+    "active_mamba_modules": [
+      {
+        "module": "encoder_blocks.0.mixer",
+        "bimamba_type": "none",
+        "use_fast_path": true,
+        "d_model": 256,
+        "d_state": 16,
+        "d_conv": 4,
+        "expand": 2
+      },
+      {
+        "module": "encoder_blocks.1.mixer",
+        "bimamba_type": "none",
+        "use_fast_path": true,
+        "d_model": 256,
+        "d_state": 16,
+        "d_conv": 4,
+        "expand": 2
+      },
+      {
+        "module": "encoder_blocks.2.mixer",
+        "bimamba_type": "none",
+        "use_fast_path": true,
+        "d_model": 256,
+        "d_state": 16,
+        "d_conv": 4,
+        "expand": 2
+      },
+      {
+        "module": "encoder_blocks.3.mixer",
+        "bimamba_type": "none",
+        "use_fast_path": true,
+        "d_model": 256,
+        "d_state": 16,
+        "d_conv": 4,
+        "expand": 2
+      }
+    ]
+  },
+  "loaded_upstream_source_sha256": {
+    "src/util/crop.py": "82e4df14f6264a00642d0259db344d6fd66a44ba891f90fde3a6ccd02cae035d",
+    "src/util/lars.py": "1bb75085eecf93b8d7ed7972c507495586e71a8f483bcdcd4f37c354f88a0fc0",
+    "src/util/lr_decay.py": "380538a1f46b2d0fc96fa32b1a9c4a26eaf75ab3ffe55931528025a0c3b978c2",
+    "src/util/lr_sched.py": "e421485fecefcb757557c84715000bcc3a966eb2a9300c26f1fdeb5ce0c29374",
+    "src/util/misc.py": "54e1fc4396d1cede4c0b52cb231b71e72ed1e20cf41996d5b011f2beacf3dd34",
+    "src/util/pos_embed.py": "b5202158a46a1f910f2a281e6464a2d7c17c615e92945ebc7e052078ab637069",
+    "src/util/__init__.py": "0f4721e57a46abf5a149d41f0cae9bfe158fe6a6d3fac9d41545c171952c8ffe",
+    "src/models/common.py": "9a32879a50fb8139dc89ffcd63d3e174b927684bf09f800cebe85f1730997470",
+    "src/util/loader_data.py": "3d33ebe6a3b233fafe2e1c7500b397ee463ece0c380685c4f5900282b584883c",
+    "src/models/models_trans.py": "a366bd3040dc4d3a129affae29a21bb7bb68788289034fee0ee45ced87d5b051",
+    "src/models/models_net_trans.py": "ff1d03d9450c28aa3f96a6f16855a503395bedc2f28ca6f33581005733017f31",
+    "src/models/models_mamba.py": "c59dcc8375ad54ed9295f92c902019022cdf53b6fe4f0fb911311284872c3841",
+    "src/models/models_net_mamba.py": "b0de9ef792f9321538cc2b04df84d19005ded72d8fc54efeb8fe6187928014f4",
+    "src/models/models_net_trans_fuse3.py": "02b769dcb95f713fbe4d8ac58eba4139ebf513b29af6a567350f4b296b9119da",
+    "src/models/models_net_mamba_fuse3.py": "f6703590c857dd30bf0bd7522b6fbefd1f2356a4048fe8b0fc01fe9c7e94ea8d",
+    "src/util/loader_model.py": "6c9eaa92210949834b0f8b1e3a35fcf529c528aee8edf32f392e35dfc63d5cff",
+    "src/engine_mm.py": "96fad11851d9e50b99f06f60c7386d0e6fddbaa8ffca2af4b18327495a42ba88"
+  },
+  "optimizer": {
+    "class": "torch.optim.AdamW",
+    "group_factory": "util.lr_decay.param_groups_lrd",
+    "learning_rate": 4.6875e-05,
+    "step_count": 1,
+    "parameter_group_learning_rates": [
+      4.6875e-05,
+      4.6875e-05,
+      1.11236572265625e-05,
+      1.483154296875e-05,
+      1.483154296875e-05,
+      1.9775390625e-05,
+      1.9775390625e-05,
+      2.63671875e-05,
+      2.63671875e-05,
+      3.5156250000000004e-05,
+      3.5156250000000004e-05
+    ],
+    "weight_decay": 0.05,
+    "layer_decay": 0.75,
+    "scope": "One standalone step: native AdamW groups and layer scales; base rate scaled to six synthetic rows. No warmup or epoch schedule is simulated."
+  },
+  "training": {
+    "dtype": "torch.float32",
+    "autocast": false,
+    "loss": 2.112807035446167,
+    "label_smoothing": 0.1,
+    "block_inputs": {
+      "encoder_blocks.0": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float32"
+      },
+      "encoder_blocks.1": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float32"
+      },
+      "encoder_blocks.2": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float32"
+      },
+      "encoder_blocks.3": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float32"
+      }
+    },
+    "parameter_gradients": {
+      "byte_cls_token": {
+        "elements": 256,
+        "max_abs_gradient": 0.6259118914604187
+      },
+      "size_cls_token": {
+        "elements": 256,
+        "max_abs_gradient": 0.7174580097198486
+      },
+      "iat_cls_token": {
+        "elements": 256,
+        "max_abs_gradient": 0.6099107265472412
+      },
+      "byte_indicator": {
+        "elements": 256,
+        "max_abs_gradient": 0.6178460717201233
+      },
+      "size_indicator": {
+        "elements": 256,
+        "max_abs_gradient": 0.7107012271881104
+      },
+      "iat_indicator": {
+        "elements": 256,
+        "max_abs_gradient": 0.6104938983917236
+      },
+      "pos_embed": {
+        "elements": 113408,
+        "max_abs_gradient": 0.7174580097198486
+      },
+      "byte_embed.proj.weight": {
+        "elements": 1024,
+        "max_abs_gradient": 0.010511524975299835
+      },
+      "byte_embed.proj.bias": {
+        "elements": 256,
+        "max_abs_gradient": 0.016376104205846786
+      },
+      "encoder_blocks.0.mixer.A_log": {
+        "elements": 8192,
+        "max_abs_gradient": 0.0002487964811734855
+      },
+      "encoder_blocks.0.mixer.D": {
+        "elements": 512,
+        "max_abs_gradient": 0.027653396129608154
+      },
+      "encoder_blocks.0.mixer.in_proj.weight": {
+        "elements": 262144,
+        "max_abs_gradient": 0.23973926901817322
+      },
+      "encoder_blocks.0.mixer.conv1d.weight": {
+        "elements": 2048,
+        "max_abs_gradient": 0.02536224015057087
+      },
+      "encoder_blocks.0.mixer.conv1d.bias": {
+        "elements": 512,
+        "max_abs_gradient": 0.0520184151828289
+      },
+      "encoder_blocks.0.mixer.x_proj.weight": {
+        "elements": 24576,
+        "max_abs_gradient": 0.007757314946502447
+      },
+      "encoder_blocks.0.mixer.dt_proj.weight": {
+        "elements": 8192,
+        "max_abs_gradient": 2.9795002774335444e-05
+      },
+      "encoder_blocks.0.mixer.dt_proj.bias": {
+        "elements": 512,
+        "max_abs_gradient": 0.0002043158165179193
+      },
+      "encoder_blocks.0.mixer.out_proj.weight": {
+        "elements": 131072,
+        "max_abs_gradient": 0.17270894348621368
+      },
+      "encoder_blocks.0.norm.weight": {
+        "elements": 256,
+        "max_abs_gradient": 0.020956259220838547
+      },
+      "encoder_blocks.1.mixer.A_log": {
+        "elements": 8192,
+        "max_abs_gradient": 0.000314101402182132
+      },
+      "encoder_blocks.1.mixer.D": {
+        "elements": 512,
+        "max_abs_gradient": 0.061069585382938385
+      },
+      "encoder_blocks.1.mixer.in_proj.weight": {
+        "elements": 262144,
+        "max_abs_gradient": 0.32075461745262146
+      },
+      "encoder_blocks.1.mixer.conv1d.weight": {
+        "elements": 2048,
+        "max_abs_gradient": 0.03407983481884003
+      },
+      "encoder_blocks.1.mixer.conv1d.bias": {
+        "elements": 512,
+        "max_abs_gradient": 0.07312527298927307
+      },
+      "encoder_blocks.1.mixer.x_proj.weight": {
+        "elements": 24576,
+        "max_abs_gradient": 0.025365008041262627
+      },
+      "encoder_blocks.1.mixer.dt_proj.weight": {
+        "elements": 8192,
+        "max_abs_gradient": 0.00023667489585932344
+      },
+      "encoder_blocks.1.mixer.dt_proj.bias": {
+        "elements": 512,
+        "max_abs_gradient": 0.0011815102770924568
+      },
+      "encoder_blocks.1.mixer.out_proj.weight": {
+        "elements": 131072,
+        "max_abs_gradient": 0.2787645757198334
+      },
+      "encoder_blocks.1.norm.weight": {
+        "elements": 256,
+        "max_abs_gradient": 0.030237952247262
+      },
+      "encoder_blocks.2.mixer.A_log": {
+        "elements": 8192,
+        "max_abs_gradient": 0.00022933585569262505
+      },
+      "encoder_blocks.2.mixer.D": {
+        "elements": 512,
+        "max_abs_gradient": 0.017406310886144638
+      },
+      "encoder_blocks.2.mixer.in_proj.weight": {
+        "elements": 262144,
+        "max_abs_gradient": 0.23850935697555542
+      },
+      "encoder_blocks.2.mixer.conv1d.weight": {
+        "elements": 2048,
+        "max_abs_gradient": 0.01614249497652054
+      },
+      "encoder_blocks.2.mixer.conv1d.bias": {
+        "elements": 512,
+        "max_abs_gradient": 0.04757147282361984
+      },
+      "encoder_blocks.2.mixer.x_proj.weight": {
+        "elements": 24576,
+        "max_abs_gradient": 0.022296417504549026
+      },
+      "encoder_blocks.2.mixer.dt_proj.weight": {
+        "elements": 8192,
+        "max_abs_gradient": 6.150740227894858e-05
+      },
+      "encoder_blocks.2.mixer.dt_proj.bias": {
+        "elements": 512,
+        "max_abs_gradient": 0.00043412460945546627
+      },
+      "encoder_blocks.2.mixer.out_proj.weight": {
+        "elements": 131072,
+        "max_abs_gradient": 0.16097627580165863
+      },
+      "encoder_blocks.2.norm.weight": {
+        "elements": 256,
+        "max_abs_gradient": 0.03034069761633873
+      },
+      "encoder_blocks.3.mixer.A_log": {
+        "elements": 8192,
+        "max_abs_gradient": 0.00019588170107454062
+      },
+      "encoder_blocks.3.mixer.D": {
+        "elements": 512,
+        "max_abs_gradient": 0.02556462585926056
+      },
+      "encoder_blocks.3.mixer.in_proj.weight": {
+        "elements": 262144,
+        "max_abs_gradient": 0.2294061779975891
+      },
+      "encoder_blocks.3.mixer.conv1d.weight": {
+        "elements": 2048,
+        "max_abs_gradient": 0.025618186220526695
+      },
+      "encoder_blocks.3.mixer.conv1d.bias": {
+        "elements": 512,
+        "max_abs_gradient": 0.07003429532051086
+      },
+      "encoder_blocks.3.mixer.x_proj.weight": {
+        "elements": 24576,
+        "max_abs_gradient": 0.00385482469573617
+      },
+      "encoder_blocks.3.mixer.dt_proj.weight": {
+        "elements": 8192,
+        "max_abs_gradient": 5.519866681424901e-05
+      },
+      "encoder_blocks.3.mixer.dt_proj.bias": {
+        "elements": 512,
+        "max_abs_gradient": 0.00025605657720007
+      },
+      "encoder_blocks.3.mixer.out_proj.weight": {
+        "elements": 131072,
+        "max_abs_gradient": 0.130246102809906
+      },
+      "encoder_blocks.3.norm.weight": {
+        "elements": 256,
+        "max_abs_gradient": 0.017612408846616745
+      },
+      "norm_f.weight": {
+        "elements": 256,
+        "max_abs_gradient": 0.05026499927043915
+      },
+      "head.weight": {
+        "elements": 1536,
+        "max_abs_gradient": 1.1739156246185303
+      }
+    },
+    "changed_parameter_names": [
+      "byte_cls_token",
+      "size_cls_token",
+      "iat_cls_token",
+      "byte_indicator",
+      "size_indicator",
+      "iat_indicator",
+      "pos_embed",
+      "byte_embed.proj.weight",
+      "byte_embed.proj.bias",
+      "encoder_blocks.0.mixer.A_log",
+      "encoder_blocks.0.mixer.D",
+      "encoder_blocks.0.mixer.in_proj.weight",
+      "encoder_blocks.0.mixer.conv1d.weight",
+      "encoder_blocks.0.mixer.conv1d.bias",
+      "encoder_blocks.0.mixer.x_proj.weight",
+      "encoder_blocks.0.mixer.dt_proj.weight",
+      "encoder_blocks.0.mixer.dt_proj.bias",
+      "encoder_blocks.0.mixer.out_proj.weight",
+      "encoder_blocks.0.norm.weight",
+      "encoder_blocks.1.mixer.A_log",
+      "encoder_blocks.1.mixer.D",
+      "encoder_blocks.1.mixer.in_proj.weight",
+      "encoder_blocks.1.mixer.conv1d.weight",
+      "encoder_blocks.1.mixer.conv1d.bias",
+      "encoder_blocks.1.mixer.x_proj.weight",
+      "encoder_blocks.1.mixer.dt_proj.weight",
+      "encoder_blocks.1.mixer.dt_proj.bias",
+      "encoder_blocks.1.mixer.out_proj.weight",
+      "encoder_blocks.1.norm.weight",
+      "encoder_blocks.2.mixer.A_log",
+      "encoder_blocks.2.mixer.D",
+      "encoder_blocks.2.mixer.in_proj.weight",
+      "encoder_blocks.2.mixer.conv1d.weight",
+      "encoder_blocks.2.mixer.conv1d.bias",
+      "encoder_blocks.2.mixer.x_proj.weight",
+      "encoder_blocks.2.mixer.dt_proj.weight",
+      "encoder_blocks.2.mixer.dt_proj.bias",
+      "encoder_blocks.2.mixer.out_proj.weight",
+      "encoder_blocks.2.norm.weight",
+      "encoder_blocks.3.mixer.A_log",
+      "encoder_blocks.3.mixer.D",
+      "encoder_blocks.3.mixer.in_proj.weight",
+      "encoder_blocks.3.mixer.conv1d.weight",
+      "encoder_blocks.3.mixer.conv1d.bias",
+      "encoder_blocks.3.mixer.x_proj.weight",
+      "encoder_blocks.3.mixer.dt_proj.weight",
+      "encoder_blocks.3.mixer.dt_proj.bias",
+      "encoder_blocks.3.mixer.out_proj.weight",
+      "encoder_blocks.3.norm.weight",
+      "norm_f.weight",
+      "head.weight"
+    ],
+    "parameter_tensors_with_gradients": 51,
+    "changed_parameter_tensors": 51,
+    "elements_in_changed_parameter_tensors": 1870080
+  },
+  "checkpoint": {
+    "file": "checkpoint-synthetic.pth",
+    "sha256": "194f603fdd7cfec373cd32e9944278ada04d8be8255e9590b6143068af9aa8ff",
+    "bytes": 7496202,
+    "state_tensors": 51,
+    "strict": true,
+    "weights_only_load": true,
+    "synthetic_only": true,
+    "scope": "One synthetic optimizer step from random initialization; model weights only, not a published checkpoint or resumable training state."
+  },
+  "inference": {
+    "autocast": "cuda:float16",
+    "logits_dtype": "torch.float16",
+    "logits_shape": [
+      6,
+      6
+    ],
+    "class_order": [
+      "synthetic-class-0",
+      "synthetic-class-1",
+      "synthetic-class-2",
+      "synthetic-class-3",
+      "synthetic-class-4",
+      "synthetic-class-5"
+    ],
+    "logits": [
+      [
+        -0.49365234375,
+        0.68310546875,
+        1.123046875,
+        0.276123046875,
+        0.7333984375,
+        -0.295166015625
+      ],
+      [
+        -0.49365234375,
+        0.6826171875,
+        1.123046875,
+        0.276123046875,
+        0.73388671875,
+        -0.294921875
+      ],
+      [
+        -0.494384765625,
+        0.6826171875,
+        1.1240234375,
+        0.276123046875,
+        0.73388671875,
+        -0.295166015625
+      ],
+      [
+        -0.492431640625,
+        0.6826171875,
+        1.1220703125,
+        0.275634765625,
+        0.73583984375,
+        -0.294921875
+      ],
+      [
+        -0.416259765625,
+        0.5234375,
+        1.150390625,
+        0.0025691986083984375,
+        0.59521484375,
+        -0.407470703125
+      ],
+      [
+        -0.66552734375,
+        0.464111328125,
+        1.1884765625,
+        0.1644287109375,
+        1.015625,
+        -0.40673828125
+      ]
+    ],
+    "class_scores": [
+      [
+        0.062226708978414536,
+        0.20185348391532898,
+        0.3134010136127472,
+        0.13436496257781982,
+        0.21226491034030914,
+        0.07588891685009003
+      ],
+      [
+        0.062225233763456345,
+        0.20175017416477203,
+        0.31339359283447266,
+        0.13436178863048553,
+        0.21236355602741241,
+        0.07590565085411072
+      ],
+      [
+        0.06216462701559067,
+        0.201701357960701,
+        0.31362384557724,
+        0.13432925939559937,
+        0.21231216192245483,
+        0.07586875557899475
+      ],
+      [
+        0.06229378283023834,
+        0.201726034283638,
+        0.31305021047592163,
+        0.13428011536598206,
+        0.2127532660961151,
+        0.07589656114578247
+      ],
+      [
+        0.07337595522403717,
+        0.18778423964977264,
+        0.3515130281448364,
+        0.11154468357563019,
+        0.20175839960575104,
+        0.07402370125055313
+      ],
+      [
+        0.05143981799483299,
+        0.15918247401714325,
+        0.3284604549407959,
+        0.11796272546052933,
+        0.2763214707374573,
+        0.06663310527801514
+      ]
+    ],
+    "predicted_class_indices": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "score_scope": "Softmax outputs for synthetic fixtures; no calibration or accuracy claim.",
+    "block_inputs_before_reload": {
+      "encoder_blocks.0": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float32"
+      },
+      "encoder_blocks.1": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float16"
+      },
+      "encoder_blocks.2": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float16"
+      },
+      "encoder_blocks.3": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float16"
+      }
+    },
+    "block_inputs_after_reload": {
+      "encoder_blocks.0": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float32"
+      },
+      "encoder_blocks.1": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float16"
+      },
+      "encoder_blocks.2": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float16"
+      },
+      "encoder_blocks.3": {
+        "shape": [
+          6,
+          443,
+          256
+        ],
+        "dtype": "torch.float16"
+      }
+    },
+    "reload_max_abs_logit_difference": 0.0
+  }
+}

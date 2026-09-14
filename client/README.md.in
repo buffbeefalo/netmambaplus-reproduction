@@ -24,6 +24,8 @@ python tools/review_packet_study.py
 
 These checks need no GPU, ML packages or private data. They validate software contracts and recompute saved evidence; they do not rerun training. Optional numerical/native tests report skips when their dependencies are absent. A source ZIP is sufficient for these offline checks.
 
+The initial client CI ran **267 tests per job**, with dependency/platform skips; **all six hosted OS/Python jobs passed**. Fresh GB10 checks from the client checkout also passed the 17-case packet-model suite with native tests enabled, seven operator comparisons and a complete flow-model update/reload check. Fresh flow inference matched all 1,041 classes; a capped packet check matched all 128 classes, with 76 strict raw-score comparisons outside tolerance. [Validation receipts](https://github.com/buffbeefalo/netmambaplus-reproduction/blob/main/docs/research/client-edition-validation.json) record the exact scope; [client CI](https://github.com/buffbeefalo/netmambaplus-client/actions/workflows/ci.yml) shows newer revisions.
+
 ## Run a demonstration
 
 ```text

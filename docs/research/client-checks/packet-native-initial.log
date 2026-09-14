@@ -1,0 +1,29 @@
+setUpClass (test_packet_model.NativePacketTests) ... ERROR
+test_changed_packet_semantics_or_class_order_is_rejected (test_packet_model.PacketContractTests.test_changed_packet_semantics_or_class_order_is_rejected) ... ok
+test_changed_source_and_false_initialization_claims_are_rejected (test_packet_model.PacketContractTests.test_changed_source_and_false_initialization_claims_are_rejected) ... ok
+test_existing_checkpoint_is_preserved_before_runtime_access (test_packet_model.PacketContractTests.test_existing_checkpoint_is_preserved_before_runtime_access) ... ok
+test_flow_checkpoint_metadata_is_rejected (test_packet_model.PacketContractTests.test_flow_checkpoint_metadata_is_rejected) ... ok
+test_import_works_without_loading_ml_packages (test_packet_model.PacketContractTests.test_import_works_without_loading_ml_packages) ... ok
+test_missing_or_malformed_data_identities_are_rejected (test_packet_model.PacketContractTests.test_missing_or_malformed_data_identities_are_rejected) ... ok
+test_missing_source_fails_before_torch_import (test_packet_model.PacketContractTests.test_missing_source_fails_before_torch_import) ... ok
+test_non_json_or_nonfinite_metadata_is_rejected (test_packet_model.PacketContractTests.test_non_json_or_nonfinite_metadata_is_rejected) ... ok
+test_old_compact_scratch_positions_and_fixed_position_claims_are_rejected (test_packet_model.PacketContractTests.test_old_compact_scratch_positions_and_fixed_position_claims_are_rejected) ... ok
+test_unknown_initialization_fails_before_source_or_torch_import (test_packet_model.PacketContractTests.test_unknown_initialization_fails_before_source_or_torch_import) ... ok
+test_valid_metadata_preserves_exact_study_binding (test_packet_model.PacketContractTests.test_valid_metadata_preserves_exact_study_binding) ... ok
+
+======================================================================
+ERROR: setUpClass (test_packet_model.NativePacketTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/nvidia/netmambaplus-client/tests/test_packet_model.py", line 189, in setUpClass
+    rows = np.concatenate([np.load(cache / f"{name}-payload.npy", mmap_mode="r",
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/nvidia/netmambaplus-reproduction/runs/worktrees/packet-connection/runs/packet-connection/prepared/cic-payload.npy'
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.628s
+
+FAILED (errors=1)

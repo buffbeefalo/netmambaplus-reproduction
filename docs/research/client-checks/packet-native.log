@@ -1,0 +1,44 @@
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/torch/cuda/__init__.py:283: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  warnings.warn(
+test_forward_rejects_wrong_dtype_shape_and_device (test_packet_model.NativePacketTests.test_forward_rejects_wrong_dtype_shape_and_device) ... /home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:158: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:227: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:295: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:368: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:440: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/selective_scan_interface.py:520: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/triton/layernorm.py:507: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd
+/home/nvidia/.cache/netmambaplus-reproduction/venv-gb10-audit/lib/python3.12/site-packages/mamba_ssm/ops/triton/layernorm.py:566: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+ok
+test_pretrain_checks_every_loaded_and_excluded_tensor_shape (test_packet_model.NativePacketTests.test_pretrain_checks_every_loaded_and_excluded_tensor_shape) ... ok
+test_pretrain_maps_all_trunk_states_and_keeps_fresh_binary_head (test_packet_model.NativePacketTests.test_pretrain_maps_all_trunk_states_and_keeps_fresh_binary_head) ... ok
+test_real_payload_gradients_and_safe_checkpoint_roundtrip (test_packet_model.NativePacketTests.test_real_payload_gradients_and_safe_checkpoint_roundtrip) ... ok
+test_saved_checkpoint_rejects_flow_contract_state_and_provenance_drift (test_packet_model.NativePacketTests.test_saved_checkpoint_rejects_flow_contract_state_and_provenance_drift) ... ok
+test_scratch_positions_equal_fresh_native_full_table_after_same_mapping (test_packet_model.NativePacketTests.test_scratch_positions_equal_fresh_native_full_table_after_same_mapping) ... ok
+test_changed_packet_semantics_or_class_order_is_rejected (test_packet_model.PacketContractTests.test_changed_packet_semantics_or_class_order_is_rejected) ... ok
+test_changed_source_and_false_initialization_claims_are_rejected (test_packet_model.PacketContractTests.test_changed_source_and_false_initialization_claims_are_rejected) ... ok
+test_existing_checkpoint_is_preserved_before_runtime_access (test_packet_model.PacketContractTests.test_existing_checkpoint_is_preserved_before_runtime_access) ... ok
+test_flow_checkpoint_metadata_is_rejected (test_packet_model.PacketContractTests.test_flow_checkpoint_metadata_is_rejected) ... ok
+test_import_works_without_loading_ml_packages (test_packet_model.PacketContractTests.test_import_works_without_loading_ml_packages) ... ok
+test_missing_or_malformed_data_identities_are_rejected (test_packet_model.PacketContractTests.test_missing_or_malformed_data_identities_are_rejected) ... ok
+test_missing_source_fails_before_torch_import (test_packet_model.PacketContractTests.test_missing_source_fails_before_torch_import) ... ok
+test_non_json_or_nonfinite_metadata_is_rejected (test_packet_model.PacketContractTests.test_non_json_or_nonfinite_metadata_is_rejected) ... ok
+test_old_compact_scratch_positions_and_fixed_position_claims_are_rejected (test_packet_model.PacketContractTests.test_old_compact_scratch_positions_and_fixed_position_claims_are_rejected) ... ok
+test_unknown_initialization_fails_before_source_or_torch_import (test_packet_model.PacketContractTests.test_unknown_initialization_fails_before_source_or_torch_import) ... ok
+test_valid_metadata_preserves_exact_study_binding (test_packet_model.PacketContractTests.test_valid_metadata_preserves_exact_study_binding) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 6.384s
+
+OK

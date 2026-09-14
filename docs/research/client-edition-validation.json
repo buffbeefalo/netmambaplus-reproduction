@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-14T08:40:51.582920+00:00",
+  "scope": "Client delivery verification on the existing GB10 runtime. No new full training protocol or independent benchmark accuracy.",
+  "source_commit": "4c3a523c8b36e4ac25641d2a7115fa28fe1857c6",
+  "initial_client_commit": "633bc9e3397f876ed940ed8d500eadded1d508f5",
+  "source_local_tests": {
+    "discovered": 458,
+    "passed": 422,
+    "skipped": 36
+  },
+  "client_local_tests": {
+    "discovered": 267,
+    "passed": 231,
+    "skipped": 36
+  },
+  "client_hosted_ci": {
+    "url": "https://github.com/buffbeefalo/netmambaplus-client/actions/runs/34823388499",
+    "jobs_passed": 6,
+    "tests_per_job": 267,
+    "linux_macos_skips": 36,
+    "windows_skips": 37,
+    "scope": "Portable CPU checks on Linux x86-64, Windows x86-64 and macOS ARM64, Python 3.10/3.12."
+  },
+  "source_hosted_ci": {
+    "url": "https://github.com/buffbeefalo/netmambaplus-reproduction/actions/runs/34823457289",
+    "jobs_passed": 6
+  },
+  "native_packet_tests": {
+    "discovered": 17,
+    "passed": 17,
+    "skipped": 0,
+    "native_opt_in": true,
+    "scope": "Includes six native cases and eleven portable packet-contract cases; real payload bytes with synthetic targets, transfer, gradients and checkpoint roundtrip."
+  },
+  "native_operators": {
+    "status": "passed",
+    "cases": 7,
+    "passed": 7
+  },
+  "complete_flow_model": {
+    "status": "passed",
+    "checks": {
+      "upstream_pin_and_clean_sources": true,
+      "installed_mamba_matches_verified_upstream": true,
+      "native_loader_and_complete_model_dimensions": true,
+      "finite_fp32_loss": true,
+      "finite_parameter_gradients": true,
+      "nonzero_gradient_each_encoder_and_head": true,
+      "real_optimizer_update": true,
+      "strict_checkpoint_reload_and_identical_state": true,
+      "finite_autocast_inference": true,
+      "normalized_six_class_scores": true,
+      "identical_inference_after_strict_reload": true,
+      "upstream_unchanged_after_execution": true
+    },
+    "parameters": 1870080,
+    "synthetic_rows": 6,
+    "optimizer_steps": 1,
+    "changed_parameter_tensors": 51,
+    "reload_max_absolute_logit_difference": 0.0
+  },
+  "flow_inference": {
+    "rows": 1041,
+    "matching_classes": 1041,
+    "max_absolute_logit_difference": 0.0,
+    "checkpoint_sha256": "b7f90a3a01d2d14ec0f81b4c5166fba835b48c1c4050c52d10e600496dbed94c",
+    "reference": "docs/customer/evidence/seed0/replay/predictions.json"
+  },
+  "packet_inference": {
+    "predicted_rows": 128,
+    "matching_classes": 128,
+    "max_absolute_logit_difference": 0.006159305572509766,
+    "strict_logit_comparison_failures": 76,
+    "reference": "docs/customer/evidence/packet-study/joint_pretrained/test-cic.jsonl.gz",
+    "comparison_scope": "First 128 input rows only; group IDs joined by payload hash; math.isclose rtol=1e-4, atol=1e-6; no full-study reexecution.",
+    "input_rows": 20000,
+    "validated_rows": 20000,
+    "input_fully_validated": true,
+    "status": "capped",
+    "all_rows_predicted": false
+  },
+  "initial_invocation_failure": {
+    "status": "failed_before_native_execution",
+    "reason": "The caller selected prepared/ rather than payload-inspection/ for PACKET_MODEL_PAYLOAD_CACHE. Native fixture setup could not find cic-payload.npy. Only the invocation path was corrected; model code was unchanged.",
+    "retained_log": "client-checks/packet-native-initial.log"
+  },
+  "files": {
+    "flow-inference-manifest.json": {
+      "path": "client-checks/flow-inference-manifest.json",
+      "bytes": 18998,
+      "sha256": "0e73b77327585b1296d15f50472b1c9f3d0279d383944722bc5e225382b600eb"
+    },
+    "flow-model.json": {
+      "path": "client-checks/flow-model.json",
+      "bytes": 30836,
+      "sha256": "77c0a184008c04fa74e46f9d23b111c41375680931df185a59c2edfb091b8c10"
+    },
+    "flow-predictions.json": {
+      "path": "client-checks/flow-predictions.json",
+      "bytes": 478046,
+      "sha256": "9ab4a904195e17ac59e96708a62beb278f94b782cd01a5073640b486ad9f49fe"
+    },
+    "native-ops.json": {
+      "path": "client-checks/native-ops.json",
+      "bytes": 2759,
+      "sha256": "341494fd43d005c4da6253620975dd5a395309fc9e852349bd30185c983c2c90"
+    },
+    "packet-inference-receipt.json": {
+      "path": "client-checks/packet-inference-receipt.json",
+      "bytes": 24081,
+      "sha256": "2d8c338f5741f2ded3661ab841423907d17f5217bdd4490fa33f135643c194b6"
+    },
+    "packet-native-initial.log": {
+      "path": "client-checks/packet-native-initial.log",
+      "bytes": 2827,
+      "sha256": "f4a5a9fe8095146095825ef5287210c9b39d7515049461bbd29aa286361fa8ec"
+    },
+    "packet-native.log": {
+      "path": "client-checks/packet-native.log",
+      "bytes": 5477,
+      "sha256": "40bdb3bcd4aa0dff536a615123183577d9976980adf20d64dd72e87f79bff5d8"
+    },
+    "packet-predictions.jsonl": {
+      "path": "client-checks/packet-predictions.jsonl",
+      "bytes": 40713,
+      "sha256": "dc66394e1dedf1cd6833eb499beac016f4efed856038f920af4e3d90a0f9af8f"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "seed": 17,
+  "scope": "Synthetic forward/backward parity for this installed runtime; not a benchmark accuracy result or cross-GPU equivalence proof.",
+  "python": "3.12.3 (main, Jan 22 2026, 20:57:42) [GCC 13.3.0]",
+  "architecture": "aarch64",
+  "packages": {
+    "torch": "2.9.1+cu130",
+    "torchvision": "0.24.1",
+    "triton": "3.5.1",
+    "mamba-ssm": "1.1.1",
+    "causal-conv1d": "1.1.2.post1",
+    "numpy": "1.26.2",
+    "timm": "0.4.12"
+  },
+  "gpu": "NVIDIA GB10",
+  "compute_capability": [
+    12,
+    1
+  ],
+  "torch_cuda": "13.0",
+  "compiled_architectures": [
+    "sm_80",
+    "sm_90",
+    "sm_100",
+    "sm_110",
+    "sm_120",
+    "compute_120"
+  ],
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:57:39_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0\n",
+  "checker_sha256": "09b594c93ceff32b422460e58fffeb61d5d9f716b60f4ede7a46e600c5e98f7e",
+  "checks": [
+    {
+      "name": "causal_conv_fp32_length_83",
+      "passed": true,
+      "rtol": 0.001,
+      "atol": 0.0002,
+      "max_abs_output_error": 5.960464477539063e-08,
+      "max_abs_input_gradient_error": 1.9073486328125e-06
+    },
+    {
+      "name": "selective_scan_fp32_length_83",
+      "passed": true,
+      "rtol": 0.001,
+      "atol": 0.0002,
+      "max_abs_output_error": 1.862645149230957e-08,
+      "max_abs_input_gradient_error": 1.1920928955078125e-07
+    },
+    {
+      "name": "causal_conv_fp32_length_443",
+      "passed": true,
+      "rtol": 0.001,
+      "atol": 0.0002,
+      "max_abs_output_error": 5.960464477539063e-08,
+      "max_abs_input_gradient_error": 7.62939453125e-06
+    },
+    {
+      "name": "selective_scan_fp32_length_443",
+      "passed": true,
+      "rtol": 0.001,
+      "atol": 0.0002,
+      "max_abs_output_error": 2.2351741790771484e-08,
+      "max_abs_input_gradient_error": 2.384185791015625e-07
+    },
+    {
+      "name": "fused_rms_norm_fp32",
+      "passed": true,
+      "rtol": 0.001,
+      "atol": 0.0002,
+      "max_abs_output_error": 1.430511474609375e-06,
+      "max_abs_input_gradient_error": 1.71661376953125e-05
+    },
+    {
+      "name": "mamba_block_float32",
+      "passed": true,
+      "rtol": 0.001,
+      "atol": 0.0002,
+      "max_abs_output_error": 0.0,
+      "max_abs_input_gradient_error": 1.4901161193847656e-08,
+      "max_abs_parameter_gradient_error": 1.1920928955078125e-07
+    },
+    {
+      "name": "mamba_block_float16",
+      "passed": true,
+      "rtol": 0.01,
+      "atol": 0.002,
+      "max_abs_output_error": 0.0,
+      "max_abs_input_gradient_error": 6.103515625e-05,
+      "max_abs_parameter_gradient_error": 0.0009765625
+    }
+  ]
+}
