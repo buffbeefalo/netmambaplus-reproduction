@@ -2,6 +2,7 @@
 # including on checkouts with core.autocrlf enabled.
 configs/** -text
 docs/** -text
+client/** -text
 # Python source hashes also identify the implementation in calibration receipts.
 *.py -text
 # Preserve native warning whitespace and plotting-library SVG path formatting.

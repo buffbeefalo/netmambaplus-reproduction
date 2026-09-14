@@ -3,6 +3,7 @@
 import hashlib
 import io
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -38,6 +39,22 @@ def windows_text_defaults():
 
 
 class PublishedTextTests(unittest.TestCase):
+    def test_git_checkout_preserves_bound_client_template_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            subprocess.run(['git', 'init', '--quiet', str(root)], check=True)
+            (root / '.gitattributes').write_bytes((ROOT / '.gitattributes').read_bytes())
+            (root / 'client').mkdir()
+            path = root / 'client/SETUP.md.in'
+            expected = 'Client setup\nPayload \u2192 prediction\n'.encode('utf-8')
+            path.write_bytes(expected)
+            subprocess.run(['git', '-C', str(root), '-c', 'core.autocrlf=false',
+                            'add', '.gitattributes', 'client/SETUP.md.in'], check=True)
+            path.unlink()
+            subprocess.run(['git', '-C', str(root), '-c', 'core.autocrlf=true',
+                            'checkout-index', '--', 'client/SETUP.md.in'], check=True)
+            self.assertEqual(path.read_bytes(), expected)
+
     def test_course_verifies_with_a_non_utf8_default_encoding(self):
         with windows_text_defaults():
             result = verify_course.verify()
