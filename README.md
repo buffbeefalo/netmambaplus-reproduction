@@ -1,5 +1,9 @@
 # NetMamba+ — two-CSV packet classifier
 
+**[Download the customer PowerPoint](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-presentation-2026-09-14/NetMambaPlus.pptx)**
+
+The presentation explains both repositories, the supplied CSVs and paper, training and inference, measured results, actual screenshots, and remaining work. Speaker notes explain each slide. Completed local experiments and unfinished development are labeled explicitly. [Presentation evidence](https://github.com/buffbeefalo/netmambaplus-reproduction/releases/download/customer-presentation-2026-09-14/evidence.json).
+
 **One supported workflow:** prepare the supplied CICIDS2017 and UNSW packet CSVs, train the native NetMamba+ packet adaptation, and use the selected **joint pretrained** checkpoint to predict benign/attack from packet bytes.
 
 **Explaining this to a client? Start with [Understand and explain the client project](docs/customer/client-project-guide.md).** It explains the paper, both CSVs, every part of the delivered system, training/inference, actual tests, setup, results, the demo and remaining work. The [every-file walkthrough](docs/repository-walkthrough.md) covers individual files and downloads.
